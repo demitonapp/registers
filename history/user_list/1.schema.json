@@ -1,0 +1,85 @@
+{
+  "$id": "demiton:shelf/user_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_enabled": {
+      "description": "Whether the source account is currently enabled/active",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "department": {
+      "description": "Organisational unit the account belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "display_name": {
+      "description": "The person's display name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "email": {
+      "description": "Email address used as the cross-source identity bridge",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "identity_kind": {
+      "description": "The source's own classification of the account, where it exposes one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_title": {
+      "description": "Role/job title in the owning organisation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "phone": {
+      "description": "Contact phone number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_created_at": {
+      "description": "When the source record was created (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system, scoped to `source_system`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The bound system that produced this row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "user_principal_name": {
+      "description": "Directory sign-in name (Entra UPN)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_location": {
+      "description": "Location associated with the account (city/site/suburb)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker_entity_id": {
+      "description": "Demiton canonical worker spine node this fact anchors to (the subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker_entity_id",
+    "source_system",
+    "source_external_id",
+    "display_name"
+  ],
+  "title": "user_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "user_list",
+  "x-demiton-store": "tenant"
+}

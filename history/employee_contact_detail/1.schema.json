@@ -1,0 +1,86 @@
+{
+  "$id": "demiton:shelf/employee_contact_detail/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "email": {
+      "description": "work email address",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "emergency_contact_primary": {
+      "description": "first emergency contact",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "emergency_contact_secondary": {
+      "description": "second emergency contact",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own employee identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "home_email": {
+      "description": "personal email address, where supplied",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "home_phone": {
+      "description": "home phone number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "the payroll business that owns the employee; KeyPay is multi-business",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "mobile_phone": {
+      "description": "mobile number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_address": {
+      "description": "postal address, when different from residential",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "residential_address": {
+      "description": "where the worker lives",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row; `KEYPAY` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_phone": {
+      "description": "work phone number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the worker the contact card belongs to; the anchor that makes the fact reachable",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker",
+    "source_system",
+    "external_id"
+  ],
+  "title": "employee_contact_detail contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "employee_contact_detail",
+  "x-demiton-store": "tenant"
+}

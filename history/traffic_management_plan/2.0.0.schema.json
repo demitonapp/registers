@@ -1,0 +1,177 @@
+{
+  "$id": "demiton:shelf/traffic_management_plan/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "approved_by": {
+      "description": "who approved the plan",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "approved_on": {
+      "description": "the date of the approver's sign-off",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "client_accepted": {
+      "description": "whether the client has accepted the plan",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "ends_on": {
+      "description": "when the works under the plan end",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source's own record id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "governing_rules": {
+      "description": "the rule set and edition the plan was designed to, e.g. TS 05492:1.0",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "inspection_frequency": {
+      "description": "how often traffic management is inspected each shift",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the jurisdiction whose rules govern the plan",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "plan_kind": {
+      "description": "whether this is a traffic management plan or a traffic guidance scheme",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "plan_reference": {
+      "description": "the plan's reference number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "prepared_by": {
+      "description": "who designed the plan",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "preparer_qualification": {
+      "description": "the designer's qualification, e.g. Prepare a Work Zone Traffic Management Plan",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the plan is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "revision": {
+      "description": "the revision this row describes",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "road_classification": {
+      "description": "the road's classification and environment, urban or rural",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "road_occupancy_licence": {
+      "description": "the road occupancy licence the works rely on",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "speed_limit": {
+      "description": "the posted speed limit at the works",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km/h"
+    },
+    "speed_zone_authorisation": {
+      "description": "the speed zone authorisation the works rely on",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "starts_on": {
+      "description": "when the works under the plan begin",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "tgs_type": {
+      "description": "generic, site-suitable or site-specific, for a TGS",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "works_description": {
+      "description": "what the works are",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "works_location": {
+      "description": "where the works are, including the roads affected",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "plan_reference",
+    "plan_kind"
+  ],
+  "title": "traffic_management_plan contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 1742.3:2019",
+        "edition": "2019 (supersedes 2009 4th ed.)",
+        "region": "Australia",
+        "title": "Manual of uniform traffic control devices - Traffic control for works on roads"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "10.5.4, 14.2, 14.4.1, 14.10, 9.8.1, 17.1.1",
+        "code": "TfNSW TS 05492",
+        "edition": "1.0 (effective 25 Jun 2026)",
+        "region": "Australia",
+        "title": "Traffic Control at Work Sites Technical Manual"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Traffic Signs Manual Chapter 8",
+        "edition": "Part 1 & 2 (2009), Part 3 (2020)",
+        "region": "United Kingdom",
+        "title": "Traffic Signs Manual Chapter 8 - road works and temporary situations"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Part 6",
+        "code": "MUTCD Part 6",
+        "edition": "11th Edition with Revision 1 (Dec 2025)",
+        "region": "United States",
+        "title": "Manual on Uniform Traffic Control Devices - Temporary Traffic Control"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "traffic_management_plan",
+  "x-demiton-store": "tenant"
+}

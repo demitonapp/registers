@@ -1,0 +1,207 @@
+{
+  "$id": "demiton:shelf/gps_event/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine the event is about; the shelf's only required coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "coordinate_datum": {
+      "description": "the horizontal frame/realisation and epoch the lat/lng pair is expressed in (expected: GNSS native, WGS 84 ensemble EPSG:4326)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "coordinate_precision_class": {
+      "description": "whether the position is full precision or a reduced/precision-limited state",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "device": {
+      "description": "the telematics unit that produced the event, distinct from the asset identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "event_type": {
+      "description": "the discriminator that tells an ignition event from a speed or geofence crossing",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the event falls in; derived, no raw source field",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "geographic_area": {
+      "description": "the resolved geofence/area the asset was located at",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "latitude": {
+      "description": "GNSS-native latitude from the raw `GPS` block",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "longitude": {
+      "description": "GNSS-native longitude from the raw `GPS` block",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "occurred_at": {
+      "description": "when the event happened; the temporal coordinate",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "operator": {
+      "description": "the driver/operator active on the machine",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "place_label": {
+      "description": "the human-readable location delivered by the source",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "trip": {
+      "description": "the source trip/journey grouping the event belongs to",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "event_type"
+  ],
+  "title": "gps_event contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 = ITRF2014 at epoch 2020.0",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (EPSG:7844 / EPSG:78xx zones)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 8A",
+        "code": "National Measurement Act 1960 (Cth) s 8A",
+        "edition": "Determination 2017",
+        "region": "Australia",
+        "title": "Recognized-Value Standard of Measurement of Position Determination 2017 (legal definition of GDA2020)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "APP 3",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "APP Guidelines ch 3 v1.2 (2026-05-13)",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 10",
+        "code": "Workplace Surveillance Act 2005 (NSW)",
+        "edition": "in force (compilation 2025-06-14)",
+        "region": "Australia",
+        "title": "Workplace Surveillance Act 2005 (tracking surveillance of employees)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE D2.8.I.1",
+        "edition": "v3.2rc2, release 2024.1 (2024-01-31)",
+        "region": "European Union",
+        "title": "INSPIRE Data Specification on Coordinate Reference Systems - Technical Guidelines (ETRS89/EVRS)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation (GDPR)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "WGS 84 (EPSG:4326)",
+        "edition": "EPSG Dataset v13.102; record revised 2022-11-29",
+        "region": "International",
+        "title": "World Geodetic System 1984 datum ensemble (EPSG:6326)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000",
+        "edition": "official since 1998 (NZVD2016 vertical)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000 and NZ Transverse Mercator 2000 (LINZ)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "ICO monitoring workers guidance",
+        "edition": "current guidance (under review after the Data (Use and Access) Act)",
+        "region": "United Kingdom",
+        "title": "ICO Employment practices and data protection: monitoring workers"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 (OSTN15)",
+        "edition": "OSTN15 / OSGM15",
+        "region": "United Kingdom",
+        "title": "British National Grid, accessed from ETRS89 via OSTN15 (Ordnance Survey)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR / Data Protection Act 2018",
+        "edition": "as amended",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 395.26(b), (d), (i); 395.8(c), (k)",
+        "code": "49 CFR Part 395 Subpart B",
+        "edition": "current (ELD mandate from 2017-12-18)",
+        "region": "United States",
+        "title": "FMCSA - Hours of Service of Drivers - Electronic Logging Devices"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83 (2011)",
+        "edition": "NAD 83(2011); NATRF2022 replacement not confirmed effective",
+        "region": "United States",
+        "title": "North American Datum of 1983 (2011) epoch 2010.00 / NSRS (NGS)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "gps_event",
+  "x-demiton-store": "tenant"
+}

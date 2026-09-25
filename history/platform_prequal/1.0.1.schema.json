@@ -1,0 +1,151 @@
+{
+  "$id": "demiton:shelf/platform_prequal/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn": {
+      "description": "The contractor's Australian Business Number \u2014 the registration's identity coordinate (`contractor_abn` on the fact; `abn` in the payload).",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ABN (11 digits)"
+    },
+    "classification": {
+      "description": "The grade/level held under that scheme.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "entity_name": {
+      "description": "The registered entity's trading/legal name, when the classifier file carries it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_at": {
+      "description": "When the registration lapses.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "observed_at": {
+      "description": "When the registration was observed; the gate requires it and the router derives it from `registered_at`, falling back to the harvest time.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "region_code": {
+      "description": "The jurisdiction the scheme belongs to, derived from `scheme`; unmapped schemes log and leave it NULL (`:609-613`), and the partition bucket falls back to `OTHER`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU state/territory code or `AU`"
+    },
+    "registered_at": {
+      "description": "When the registration took effect; also the preferred `observed_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "scheme": {
+      "description": "The prequalification scheme the registration is under, e.g. one of `tfnsw_r_levels`, `nsw_construction`, `vic_csr`, `qld_tmr`, `federal_npp`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_dataset": {
+      "description": "Producer identity; the atom's `source_system` lowercased \u2014 `\"classifier_repo\"` as written today.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "Source-native natural key: `{abn}:{scheme}:{classification}`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "The registration's state; parser defaults `\"active\"` when the source omits it. The tenant projector consumes **only** `\"active\"` rows, so a wrong default silently changes what tenants see.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "abn",
+    "scheme",
+    "classification",
+    "source_dataset",
+    "source_id",
+    "observed_at",
+    "status"
+  ],
+  "title": "platform_prequal contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ABN",
+        "edition": "current register",
+        "region": "Australia",
+        "title": "Australian Business Number - Australian Business Register (ABN Lookup)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Environmental management systems (AU/NZ adoption of ISO 14001:2015; ISO 14001:2026 published 15 Apr 2026)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 + Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems (incorporating Amd 1:2024)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (ISO 9001:2026 expected 16 Sep 2026)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements (AU/NZ adoption of ISO 9001:2015)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Annex Table 2 column 29",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZBN",
+        "edition": "Act 2016 No 16",
+        "region": "New Zealand",
+        "title": "New Zealand Business Number - NZBN Register (New Zealand Business Number Act 2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg. 27(2)(e)(iii)",
+        "code": "UK supplier unique identifier",
+        "edition": "SI 2024/692",
+        "region": "United Kingdom",
+        "title": "Supplier unique identifier incl. Companies Act 2006 registration number fallback (SI 2024/692 reg. 27)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "52.204-7",
+        "code": "SAM UEI",
+        "edition": "52.204-7 (Nov 2024)",
+        "region": "United States",
+        "title": "System for Award Management registration and Unique Entity Identifier (FAR 52.204-7)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "platform_prequal",
+  "x-demiton-store": "platform"
+}

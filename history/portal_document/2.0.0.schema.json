@@ -1,0 +1,124 @@
+{
+  "$id": "demiton:shelf/portal_document/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agent_run_id": {
+      "description": "The `AgentRun` that performed the fetch; also the fact's `citation.origin_uri` (`demiton://agent/portal_fetch/run/{id}`).",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "content": {
+      "description": "One generated sentence: \"Portal document {name} fetched by estimating/portal_fetch (agent run {id}).\" The searchable prose half.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Identity of the fetched document: `{portal}:{document_id}`. Maps to `Fact.source_id`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fact_class": {
+      "description": "Provenance class: an agent's metadata capture of a downloaded file, not a value the source system reported.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "Declared `FINANCIAL_PERIOD` axis; resolved from `occurred_at` when the writer passes no coordinate.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "name": {
+      "description": "The file name as the portal listed it.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_at": {
+      "description": "The download time, stamped at write; the event key of an episodic fact and the source `FINANCIAL_PERIOD` derives from.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "opportunity_ref": {
+      "description": "The opportunity the fetch was for, from the agent goal; a reference, not a resolved entity.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "Declared `PROJECT` axis; populated only when the opportunity resolves to a project.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "sha256": {
+      "description": "Content fingerprint of the fetched bytes; the integrity claim about a file whose bytes are not kept.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "size_bytes": {
+      "description": "Size of the fetched bytes at download time.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "bytes"
+    },
+    "source_portal": {
+      "description": "Which portal the document came from; defaults to the literal `\"portal\"` when the artifact omits it.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "Originating system stamp; the writer hard-codes `\"DEMITON\"` here.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "source_portal",
+    "name",
+    "size_bytes",
+    "sha256",
+    "financial_period",
+    "fact_class"
+  ],
+  "title": "portal_document contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Information management using BIM - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Information management using BIM - Part 2: Delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 2: Delivery phase of the assets"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "portal_document",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,99 @@
+{
+  "$id": "demiton:shelf/margin_driver_contribution/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "driver_cost_growth_pct": {
+      "description": "predicted margin contribution attributed to cost growth",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "pct"
+    },
+    "driver_delay_hours": {
+      "description": "predicted margin contribution attributed to site delay hours",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "driver_labour_hours": {
+      "description": "predicted margin contribution attributed to labour hours",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "driver_variation_count": {
+      "description": "predicted margin contribution attributed to variation signals",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless"
+    },
+    "fact_class": {
+      "description": "provenance marker distinguishing a model output from an observed fact",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "feature_values": {
+      "description": "the raw feature inputs the contributions were derived from",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the period the prediction is made for; part of the grain",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "the legal entity whose project the prediction belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "model_version": {
+      "description": "the fitted model version that produced these values; part of the fact identity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "n_training_rows": {
+      "description": "number of project rows the model fitted on",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "predicted_margin_pct": {
+      "description": "the model's predicted project margin at the scoring cut",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "pct"
+    },
+    "project_id": {
+      "description": "the project the prediction is about; the fact's subject anchor",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "training_as_of": {
+      "description": "the transaction-time cutoff the model trained on",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_id",
+    "financial_period",
+    "predicted_margin_pct",
+    "driver_cost_growth_pct",
+    "driver_labour_hours",
+    "driver_delay_hours",
+    "driver_variation_count",
+    "model_version",
+    "fact_class"
+  ],
+  "title": "margin_driver_contribution contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "margin_driver_contribution",
+  "x-demiton-store": "tenant"
+}

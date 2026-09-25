@@ -1,0 +1,123 @@
+{
+  "$id": "demiton:shelf/site_bore_reference/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "bores_within_radius": {
+      "description": "number of registered bores inside `radius_m`",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless (named absence, not \"count\")"
+    },
+    "content": {
+      "description": "one sentence stating the resolved answer",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "datum_epoch": {
+      "description": "the epoch where the horizontal datum is frame-based",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "horizontal_datum": {
+      "description": "the horizontal datum (and, where frame-based, the realisation) the site coordinate was expressed in",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "logged_bores_within_radius": {
+      "description": "how many of those carry a lithology log",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless"
+    },
+    "nearest_bore_distance_m": {
+      "description": "distance from the project site coordinate to the nearest registered bore within the radius",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "m"
+    },
+    "nearest_bore_drilled_depth_m": {
+      "description": "total drilled depth of the nearest logged bore",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "nearest_bore_rock_depth_m": {
+      "description": "shallowest `depth_top_m` of an interval whose `MajorLithCode` is in the rock allowlist, in the nearest logged bore; null means no rock evidenced, and null is a first-class answer",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "m (below ground level)"
+    },
+    "nearest_logged_bore_distance_m": {
+      "description": "distance to the nearest bore that carries a log",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "nearest_logged_bore_id": {
+      "description": "the source register's `bore_id` for the nearest logged bore",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the tenant project whose site coordinate the answer is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "radius_m": {
+      "description": "the search radius the counts and distances were computed at",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "m"
+    },
+    "register_state": {
+      "description": "the state register the answer came from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "resolved_at": {
+      "description": "when the answer was resolved",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "resolver_version": {
+      "description": "which resolver/method version produced the answer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rock_lith_code": {
+      "description": "the `MajorLithCode` that evidenced rock",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rock_lith_scheme": {
+      "description": "the code list/edition the lithology code belongs to (NGIS `MajorLithCode`; AS 1726:2017 / AGS 4.2 / DIGGS for other sources)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source": {
+      "description": "the register and vintage the answer was resolved from (e.g. the NGIS NSW extract)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project",
+    "radius_m",
+    "bores_within_radius",
+    "logged_bores_within_radius",
+    "nearest_bore_distance_m",
+    "nearest_bore_rock_depth_m",
+    "source",
+    "horizontal_datum",
+    "content"
+  ],
+  "title": "site_bore_reference contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_bore_reference",
+  "x-demiton-store": "tenant"
+}

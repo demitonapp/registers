@@ -1,0 +1,109 @@
+{
+  "$id": "demiton:shelf/allocation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the plant/equipment the allocation places",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "checked_in_at": {
+      "description": "actual check-in on the allocated shift",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "checked_out_at": {
+      "description": "actual check-out from the allocated shift",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "cost_code": {
+      "description": "cost code / work activity the hours are coded to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "ends_at": {
+      "description": "planned end of the assignment",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "external_id": {
+      "description": "the source row's own identifier (`id`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the period the allocation is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "hours": {
+      "description": "hours allocated (the shelf's only measure)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "legal_entity": {
+      "description": "the employing/owning legal entity",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "occurred_at": {
+      "description": "the resource date the allocation is for",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project/job the worker or asset is allocated to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "starts_at": {
+      "description": "planned start of the assignment",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "status": {
+      "description": "the allocation's state",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the person the allocation places",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "occurred_at",
+    "financial_period",
+    "hours"
+  ],
+  "title": "allocation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "allocation",
+  "x-demiton-store": "tenant"
+}

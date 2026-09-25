@@ -1,0 +1,225 @@
+{
+  "$id": "demiton:shelf/equipment_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the physical machine or tool the row is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "category": {
+      "description": "plant/equipment category or type (free text or taxonomy code)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "charge_rate": {
+      "description": "the tenant's hire/charge rate for the asset",
+      "type": "decimal",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "AUD/hour (**unverified**)"
+    },
+    "condition": {
+      "description": "observed condition state and the date it was recorded",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "current_location": {
+      "description": "where the asset is currently held/assigned",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "custodian": {
+      "description": "the person currently responsible for the asset",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "design_standard": {
+      "description": "the published design standard the lifting plant was built to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "label": {
+      "description": "human-readable asset name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "manufacturer": {
+      "description": "OEM / make",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "model": {
+      "description": "OEM model designation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "next_service_due": {
+      "description": "date the next service/inspection falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the observation/harvest timestamp of the register fact",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "ownership": {
+      "description": "owned / hired / leased",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rated_capacity": {
+      "description": "rated capacity / safe working load of lifting plant",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tonnes (**unverified**)"
+    },
+    "registrable": {
+      "description": "whether the item is one that must be registered before use",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration": {
+      "description": "registration plate / fleet registration",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_number": {
+      "description": "the item/design registration number issued by the regulator",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scan_code": {
+      "description": "barcode / QR / tag value used to scan the asset",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "serial_number": {
+      "description": "manufacturer serial number; the chosen cross-source asset-convergence key",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_record_id": {
+      "description": "the source's own primary identifier for the record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "operational state of the asset in the register",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "year_of_manufacture": {
+      "description": "year the machine was built",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "label",
+    "source_system",
+    "source_record_id",
+    "occurred_at"
+  ],
+  "title": "equipment_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2550 (series)",
+        "edition": "AS 2550.1-2011; AS 2550.4:2025; AS 2550.5:2016; AS 2550.10:2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Safe use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS 1418.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Mobile elevating work platforms (design and construction)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 = ITRF2014 at epoch 2020.0",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (EPSG:7844 / EPSG:78xx zones)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Sch 5; regs 219-220, 227-230, 234, 237",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (Safe Work Australia; given effect by each state/territory)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 55000",
+        "edition": "2024 (AS ISO 55000:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Vocabulary, overview and principles"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.6",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 6165",
+        "edition": "2022 (edition 7; replaces 2012)",
+        "region": "International",
+        "title": "Earth-moving machinery - Basic types - Identification and vocabulary"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "LOLER 1998",
+        "edition": "1998 (with HSE ACOP)",
+        "region": "United Kingdom",
+        "title": "Lifting Operations and Lifting Equipment Regulations 1998"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "equipment_list",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,288 @@
+{
+  "$id": "demiton:shelf/invoice_issued/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount_excluding_tax": {
+      "description": "Net amount before tax.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency"
+    },
+    "amount_including_tax": {
+      "description": "Gross amount billed, tax included; the shelf's additive measure.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency"
+    },
+    "amount_outstanding": {
+      "description": "Unpaid balance at last sync.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency"
+    },
+    "buyer_reference": {
+      "description": "The customer's own purchase-order reference.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency_code": {
+      "description": "Denomination of the amounts.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "customer_address": {
+      "description": "Bill-to address block, collapsed to one field.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_name": {
+      "description": "Human-readable customer name as billed.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_ref": {
+      "description": "Anchor to the customer entity this revenue belongs to.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "customer_tax_id": {
+      "description": "Customer ABN/VAT/GST registration identifier.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_concept": {
+      "description": "Which national document concept this record is (tax invoice, NZ taxable supply information, EU VAT invoice, recipient-created form).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "due_date": {
+      "description": "Date payment falls due.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "Accounting period the event lands in.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "invoice_number": {
+      "description": "The issuer's sequential identifier for this invoice.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "issue_date": {
+      "description": "Date the invoice was issued.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "issuing_status": {
+      "description": "The issuer's lifecycle status for the document (draft/posted/paid/cancelled).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_modified_at": {
+      "description": "Source-system modification stamp, for delta harvest and staleness.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "order_reference": {
+      "description": "The sales order this invoice fulfils.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "payment_terms_ref": {
+      "description": "Reference to the payment-terms master record.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_ref": {
+      "description": "Project/contract the revenue is attributable to.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "specification_identifier": {
+      "description": "The e-invoicing specification/profile the document was issued under (e.g. a PINT A-NZ or Peppol BIS identifier).",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "supplier_legal_entity_ref": {
+      "description": "The issuing legal entity, so the supplier's ABN/identity is reachable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "system_reference": {
+      "description": "Source system plus native id (`id`) for traceability back to the originating record.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_amount": {
+      "description": "Tax charged on this invoice.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency"
+    },
+    "tax_jurisdiction": {
+      "description": "Country whose tax rules produced `tax_amount`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tax_rate": {
+      "description": "Rate applied to produce `tax_amount` (AU 10%, NZ 15%, UK 20%).",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    }
+  },
+  "required": [
+    "invoice_number",
+    "issue_date",
+    "customer_ref",
+    "financial_period",
+    "amount_including_tax",
+    "document_concept",
+    "amount_excluding_tax",
+    "tax_amount",
+    "tax_jurisdiction",
+    "currency_code"
+  ],
+  "title": "invoice_issued contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO record-keeping rules",
+        "edition": "ATO page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO business record-keeping rules (ITAA 1936 s 262A; TAA 1953 Sch 1 s 382-5)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(1), 286(2) (7 years)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - obligation to keep financial records"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "Australia",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Directive (EU) 2025/516",
+        "edition": "11 Mar 2025, staged 1 Jul 2029 / 1 Jul 2030",
+        "region": "European Union",
+        "title": "Council Directive (EU) 2025/516 VAT in the Digital Age (amending 2006/112/EC)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Arts 220-222, 226, 226a, 226b",
+        "code": "Directive 2006/112/EC",
+        "edition": "consolidated CELEX 02006L0112-20250101",
+        "region": "European Union",
+        "title": "Council Directive 2006/112/EC on the common system of VAT"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2017 (withdrawn; 2026 edition published May 2026)",
+        "region": "European Union",
+        "title": "CEN EN 16931-1 Electronic invoicing - semantic data model"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "codice destinatario",
+        "code": "FatturaPA / SdI",
+        "edition": "current",
+        "region": "European Union",
+        "title": "FatturaPA format via Sistema di Interscambio (Italy)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "French e-invoicing reform",
+        "edition": "current",
+        "region": "European Union",
+        "title": "France e-invoicing and e-reporting via accredited platforms (Factur-X, Chorus Pro)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Leitweg-ID for B2G",
+        "code": "XRechnung",
+        "edition": "current",
+        "region": "European Union",
+        "title": "XRechnung (German CIUS + extension of EN 16931)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 18, s 20, s 21, Subpart 2A (s 18C)",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023 (incl. Retention Money Amendment Act 2023)",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "taxable supply information (s 19K); IRD guidance",
+        "code": "GST Act 1985 (NZ)",
+        "edition": "as amended from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "Goods and Services Tax Act 1985 (NZ)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "New Zealand",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 110(1), s 113(1)",
+        "code": "HGCRA 1996 Part II",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996 (UK), Part II"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "invoice_issued",
+  "x-demiton-store": "tenant"
+}

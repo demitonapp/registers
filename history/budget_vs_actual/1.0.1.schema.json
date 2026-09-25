@@ -1,0 +1,88 @@
+{
+  "$id": "demiton:shelf/budget_vs_actual/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_amount": {
+      "description": "net actual GL spend for the category in the period, debits less credits",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "amount_basis": {
+      "description": "whether `budget_amount` and `actual_amount` include GST",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "budget_amount": {
+      "description": "budgeted spend for the category in the period",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "budget_entry_count": {
+      "description": "number of source budget rows folded into the row",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "currency": {
+      "description": "the currency the two amounts are in; today the measure names hard-code AUD",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "expense_category": {
+      "description": "the classification the budget line and the actual GL movement share, so the two are comparable",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the budget and the actuals cover",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "the legal entity whose GL the budget and the actuals belong to; the fact's subject anchor",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "the bound ERP the budget side was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "variance_amount": {
+      "description": "`budget_amount` \u2212 `actual_amount` for the category",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "legal_entity_id",
+    "financial_period",
+    "expense_category",
+    "source_system",
+    "budget_amount",
+    "actual_amount"
+  ],
+  "title": "budget_vs_actual contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "budget_vs_actual",
+  "x-demiton-store": "tenant"
+}

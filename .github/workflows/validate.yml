@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/validate.py
+      - run: python scripts/bump_check.py --base "origin/${{ github.base_ref || 'main' }}"
+        if: github.event_name == 'pull_request'
+      - name: leak check
+        run: python scripts/leak_check.py
+        env:
+          REGISTERS_TENANT_DENYLIST: ${{ secrets.REGISTERS_TENANT_DENYLIST }}

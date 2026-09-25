@@ -1,0 +1,105 @@
+{
+  "$id": "demiton:shelf/purchase_order/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "total committed value of the PO, tax inclusive",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "amount_excluding_tax": {
+      "description": "committed value net of tax",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "currency": {
+      "description": "denomination of `amount`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "source record identity / dedup key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "accounting period the order falls in",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "fully_received": {
+      "description": "whether all lines are receipted",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "company that placed the order",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the order date of the PO",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "posting_date": {
+      "description": "date the PO posted to the ledger, if at all",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "project": {
+      "description": "project/job the PO is for, when resolvable",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "purchaser": {
+      "description": "the buyer/approver who raised the PO",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "requested_receipt_date": {
+      "description": "expected delivery date",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "status": {
+      "description": "PO lifecycle state (`Open`/`Released`/`Pending Approval`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_amount": {
+      "description": "tax component of the committed value",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "vendor": {
+      "description": "the supplier the PO is placed with",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "vendor",
+    "occurred_at",
+    "external_id",
+    "amount"
+  ],
+  "title": "purchase_order contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "purchase_order",
+  "x-demiton-store": "tenant"
+}

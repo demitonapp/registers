@@ -1,0 +1,96 @@
+{
+  "$id": "demiton:shelf/safety_incident/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset involved in the incident.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Display name of the submitting Assignar user (free text, not a resolved identity).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source incident record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the incident falls in, derived from `occurred_at`; the axis retention is computed against.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "form_id": {
+      "description": "The source form template the incident was captured on.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "The source form template's title, i.e. which tenant incident template this is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "The WHS regime whose notification and retention rules apply to this record.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_time": {
+      "description": "Source last-modified time; the delta-harvest cursor.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative": {
+      "description": "The incident description, composed from the source responses Q&A; may be null when nothing is renderable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the incident happened/was submitted; the notification and recording clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "outcome_class": {
+      "description": "Worst recorded outcome: none / first aid / medical treatment / restricted work / days away / death.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "Project the incident attaches to.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "Worker involved or submitting; resolves to the worker spine.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "financial_period",
+    "form_id",
+    "form_title"
+  ],
+  "title": "safety_incident contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "safety_incident",
+  "x-demiton-store": "tenant"
+}

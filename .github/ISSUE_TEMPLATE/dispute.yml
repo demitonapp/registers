@@ -1,0 +1,21 @@
+name: Dispute a contract
+description: A register's contract is wrong, unclear, or should change.
+labels: [dispute]
+body:
+  - type: input
+    id: register
+    attributes:
+      label: Which register
+      description: The file path, e.g. contracts/inspection_test_result.schema.json
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong with it
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What you'd change it to

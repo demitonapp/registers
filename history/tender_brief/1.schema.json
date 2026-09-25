@@ -1,0 +1,124 @@
+{
+  "$id": "demiton:shelf/tender_brief/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agent_run_id": {
+      "description": "Which AgentRun produced the brief.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "briefed_at": {
+      "description": "When the brief was composed; the as-of anchor against which the 720-hour freshness window is measured.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "citations[].kind": {
+      "description": "Whether the citation points at a memory fact or a document read.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "citations[].note": {
+      "description": "Free qualifier on the citation.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "citations[].ref": {
+      "description": "The fact id, or the document path plus page.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "data_coverage": {
+      "description": "The honesty ledger: what was consulted, what came back empty, what documents were read.",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "data_coverage.conduits_consulted": {
+      "description": "The Civil Memory shelves the run read.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "data_coverage.conduits_empty": {
+      "description": "Shelves read that returned nothing \u2014 the ledger that makes an empty brief honest.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "data_coverage.documents_read": {
+      "description": "The tender documents read, by path and page range.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "headline": {
+      "description": "One-sentence statement of the brief.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "open_question_count": {
+      "description": "How many material questions the facts did not answer.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "count"
+    },
+    "review_state": {
+      "description": "The record's human-review / publication marker: agent-proposed, not human-approved and not emittable.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sections": {
+      "description": "The brief body: one object per fixed section.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "sections[].citations": {
+      "description": "The evidence for every figure or factual claim in the section.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "sections[].key": {
+      "description": "Which section this object is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sections[].markdown": {
+      "description": "The section prose.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_opportunity_ref": {
+      "description": "The opportunity identifier the brief is anchored to.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "The composing run's outcome, including the honest \"too little to compose\" and \"could not read\" states.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_opportunity_ref",
+    "briefed_at",
+    "status",
+    "review_state",
+    "headline",
+    "sections",
+    "sections[].key",
+    "sections[].markdown",
+    "sections[].citations",
+    "citations[].kind",
+    "citations[].ref",
+    "data_coverage",
+    "data_coverage.conduits_consulted",
+    "data_coverage.conduits_empty",
+    "data_coverage.documents_read",
+    "open_question_count"
+  ],
+  "title": "tender_brief contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_brief",
+  "x-demiton-store": "tenant"
+}

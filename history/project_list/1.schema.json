@@ -1,0 +1,108 @@
+{
+  "$id": "demiton:shelf/project_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "active": {
+      "description": "Source's active flag",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line": {
+      "description": "Site/street address",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_name": {
+      "description": "Name of the client/owner party",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "country": {
+      "description": "ISO country code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_entity_id": {
+      "description": "Resolved CUSTOMER coordinate for the client",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "end_date": {
+      "description": "Planned or actual project completion",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_number": {
+      "description": "The cross-source project/job code that joins systems onto one entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "lifecycle_stage": {
+      "description": "Project lifecycle status/stage",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_at": {
+      "description": "Source last-modified timestamp (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Project display name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "parent_project_ref": {
+      "description": "Identifier of a parent project, where the source models a hierarchy",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postcode": {
+      "description": "Postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_entity_id": {
+      "description": "Demiton canonical project spine node this fact anchors to (the subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`ASSIGNAR`/`D365_BUSINESS_CENTRAL`/`KEYPAY`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "start_date": {
+      "description": "Planned or actual project start",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "state": {
+      "description": "State/territory code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "suburb": {
+      "description": "Locality",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "source_system"
+  ],
+  "title": "project_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "project_list",
+  "x-demiton-store": "tenant"
+}

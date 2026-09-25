@@ -1,0 +1,167 @@
+{
+  "$id": "demiton:shelf/certification_register/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "approval_status": {
+      "description": "whether the credential has been checked and approved",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "credential_category": {
+      "description": "the grouping the credential type belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "credential_type": {
+      "description": "what the credential is, e.g. a high-risk work licence",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "credential_type_code": {
+      "description": "the source's code for the credential type",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "deleted": {
+      "description": "whether the source has deleted the credential",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_on": {
+      "description": "when the credential stops being valid",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "expiry_status": {
+      "description": "valid, expired or expiring soon, as the source computed it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own credential id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "holder": {
+      "description": "the worker who holds the credential",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "is_custom": {
+      "description": "whether the credential type was defined by the tenant rather than the source",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_on": {
+      "description": "when the credential was issued",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "issuer": {
+      "description": "the body that issued the credential",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reference": {
+      "description": "the source's own reference for the record",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "refresh_due_on": {
+      "description": "when the credential must be refreshed",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "registration_number": {
+      "description": "the number printed on the licence or ticket",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "site": {
+      "description": "the site the credential was recorded against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "training_organisation": {
+      "description": "the registered training organisation that assessed it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "updated_at": {
+      "description": "when the record last changed at source",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "holder",
+    "credential_type"
+  ],
+  "title": "certification_register contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-domain": "workforce",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "General construction induction training card (White Card)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Australian general construction induction card scheme"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 81; Schedule 3",
+        "code": "Model Work Health and Safety Regulations Schedule 3",
+        "edition": "model regs as amended 5 Dec 2025",
+        "region": "Australia",
+        "title": "High risk work licence classes (reg 81 and Schedule 3)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles; employee-records exemption; health information s.6FA"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2",
+        "code": "ISO 45001:2018",
+        "edition": "2018 + Amd 1:2024",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CSCS card scheme",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Construction Skills Certification Scheme (non-statutory)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "certification_register",
+  "x-demiton-store": "tenant"
+}

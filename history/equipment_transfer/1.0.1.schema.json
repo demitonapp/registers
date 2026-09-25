@@ -1,0 +1,110 @@
+{
+  "$id": "demiton:shelf/equipment_transfer/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine or tool that moved",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the transfer line's dedup key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the movement is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "from_location": {
+      "description": "the location the asset left",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "from_storage_asset": {
+      "description": "the storage unit / container the asset left",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "from_worker": {
+      "description": "the worker who held the asset before",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the transfer happened",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "the project the transfer is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "to_location": {
+      "description": "the location the asset arrived at",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "to_storage_asset": {
+      "description": "the storage unit / container the asset arrived in",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "to_worker": {
+      "description": "the worker who received custody",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "source_system",
+    "external_id",
+    "from_location",
+    "to_location"
+  ],
+  "title": "equipment_transfer contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "equipment_transfer",
+  "x-demiton-store": "tenant"
+}

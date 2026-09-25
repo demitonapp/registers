@@ -1,0 +1,128 @@
+{
+  "$id": "demiton:shelf/opportunities/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_close_date": {
+      "description": "Actual close \u2014 BC `Date_Closed` / `dateClosed`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "amount": {
+      "description": "The estimated pipeline value \u2014 canonical spelling of BC `Estimated_Value_LCY` / `estimatedValue` (LCY = the BC base currency).",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`currency`"
+    },
+    "as_at": {
+      "description": "When this record was observed/written \u2014 the validity anchor of a `state`-shaped fact.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "closed": {
+      "description": "The source's own closed flag \u2014 canonical spelling of BC `Closed` / `closed`.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "contact_name": {
+      "description": "The customer-side contact person \u2014 BC `Contact_Name` / `contactName`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "created_date": {
+      "description": "The opportunity's creation date \u2014 BC `Creation_Date` / `creationDate`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "The denomination of `amount`.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 4217"
+    },
+    "customer_name": {
+      "description": "The prospective customer's name \u2014 BC `Contact_Company_Name` / `contactCompanyName`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "Longer free text, if distinct from `title` \u2014 BC `Description` where `title` is not used as the label.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expected_close_date": {
+      "description": "Expected close \u2014 BC `Estimated_Closing_Date` / `estimatedClosingDate`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction_code": {
+      "description": "The place of performance derived from the description text.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-2 subdivision (AU state)"
+    },
+    "last_modified_at": {
+      "description": "Source last-modified timestamp \u2014 BC `lastModifiedDateTime`, present only in Shape B.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "opportunity_number": {
+      "description": "The source system's natural key for the opportunity \u2014 canonical spelling of BC `No` / `No_` / `number`; today the entity canonical key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sales_cycle_code": {
+      "description": "The source's sales-cycle stage code \u2014 BC `Sales_Cycle_Code`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "salesperson": {
+      "description": "The owner \u2014 canonical spelling of BC `Salesperson_Name` / `salespersonCode`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The system the record was harvested from (observed: `D365_BUSINESS_CENTRAL`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "The source's own pipeline status \u2014 canonical spelling of BC `Status` / `status`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "A Demiton-composed one-line rendering.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "The opportunity's human label \u2014 canonical spelling of BC `Description` / `description`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "value_basis": {
+      "description": "What `amount` measures \u2014 R3's `estimated` / `awarded` / `maximum` / `paid` / `mechanism-only`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "opportunity_number",
+    "source_system",
+    "title",
+    "status",
+    "amount",
+    "currency",
+    "value_basis",
+    "as_at"
+  ],
+  "title": "opportunities contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "opportunities",
+  "x-demiton-store": "tenant"
+}

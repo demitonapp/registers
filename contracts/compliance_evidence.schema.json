@@ -1,0 +1,193 @@
+{
+  "$id": "demiton:shelf/compliance_evidence/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "certificate_number": {
+      "description": "Certificate identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "certifying_body": {
+      "description": "Issuing body (certification body, insurer)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "classifications": {
+      "description": "Scheme classification levels (today NPS `R`/`B`/`F`/`A`), only when `scheme_key` is a classified scheme",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_type": {
+      "description": "`register` \\",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`policy` \\"
+    },
+    "expires_at": {
+      "description": "Expiry date; readers derive lapsed/current from it",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_at": {
+      "description": "Issue date",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "note": {
+      "description": "Free-text note on the evidence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "obligation_key": {
+      "description": "Recurring obligation the evidence completes",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "requirement_id": {
+      "description": "Requirement clause the evidence covers",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scheme_key": {
+      "description": "Scheme/panel the evidence supports (catalog key)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scope": {
+      "description": "Certified/insured scope statement",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw evidence record's id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_path": {
+      "description": "Document path in the org's IMS store \u2014 the upsert key across re-crawls",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "standard_edition": {
+      "description": "Edition of the certified standard (e.g. `ISO 14001:2015`, `ISO 14001:2026`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "subject_entity_id": {
+      "description": "The org spine node the evidence supports (the fact subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "Rendered prose summary of the evidence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "Display title of the artefact",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "verified_at": {
+      "description": "When Demiton verified the evidence row",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "source_external_id"
+  ],
+  "title": "compliance_evidence contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (2026 adoption unverified)",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Austroads NPS",
+        "edition": "2025 Edition",
+        "region": "Australia",
+        "title": "National Prequalification System for Civil (Road and Bridge) Construction"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 6FA",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 9",
+        "code": "GDPR",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "Regulation (EU) 2016/679"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 14001:2026",
+        "edition": "2026",
+        "region": "International",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 expected 2026-09-16)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1910.1020(d)(1)(i) (employment plus 30 years)",
+        "code": "29 CFR 1910.1020",
+        "edition": "current",
+        "region": "United States",
+        "title": "Access to employee exposure and medical records"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "compliance_evidence",
+  "x-demiton-store": "tenant"
+}

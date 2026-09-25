@@ -1,0 +1,98 @@
+{
+  "$id": "demiton:shelf/site_geology/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "age": {
+      "description": "the unit's geological age / period",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "classification_scheme": {
+      "description": "which classification vocabulary the description/symbol follows (e.g. AS 1726:2017, BS 5930:2015+A1:2020, ASTM D2487-17(2025))",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "content": {
+      "description": "the prose answer a content search can match",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "formation_name": {
+      "description": "the named surface geology unit under the site",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "horizontal_datum": {
+      "description": "the datum the source coordinate is in (GDA2020 today)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "lithology": {
+      "description": "prose lithology description of the unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "map_scale": {
+      "description": "nominal scale of the product the answer came from; `null` where the product is a compilation with no single scale",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio (store the denominator N of 1:N)"
+    },
+    "map_source": {
+      "description": "which map service actually answered (1:100k state service vs 1:1M national fallback)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "map_symbol": {
+      "description": "the map sheet's unit symbol/code for the unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose site coordinate was resolved",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "projection_zone": {
+      "description": "the grid projection and zone, where the source states one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "resolved_at": {
+      "description": "when the coordinate was resolved",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "resolver_version": {
+      "description": "which resolver contract produced the answer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_format": {
+      "description": "the exchange format/version the answer came from (AGS 4.2, DIGGS 2.6, DIGGS 3.0, vendor/map service)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_datum": {
+      "description": "the vertical reference the source depths/heights are relative to (AHD in Australia)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "formation_name",
+    "map_source",
+    "content"
+  ],
+  "title": "site_geology contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_geology",
+  "x-demiton-store": "tenant"
+}

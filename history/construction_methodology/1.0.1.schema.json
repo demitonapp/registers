@@ -1,0 +1,131 @@
+{
+  "$id": "demiton:shelf/construction_methodology/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "hazards": {
+      "description": "Actual hazards / risks only (not controls, not prose mentioning \"risk\")",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "method_steps": {
+      "description": "The ordered construction method \u2014 the sequence of actions the crew performs",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "plant_equipment": {
+      "description": "Plant / equipment items used, deduplicated",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "sequence_notes": {
+      "description": "One-to-three sentence summary of overall sequencing / staging",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_file_name": {
+      "description": "Basename of the source document",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_path": {
+      "description": "Storage locator of the source document the record was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "The document's title / works name; also the record-identity fallback when the basename is absent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "Short phrase naming the primary activity (e.g. a foundations or slope-stabilisation activity)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "title",
+    "method_steps",
+    "hazards",
+    "source_path"
+  ],
+  "title": "construction_methodology contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Information management using BIM (Parts 1 and 2)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2.1 hazard identification; 6.1.2.2 risk assessment; 8.1 operational planning and control",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5 documented information",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 35-39",
+        "code": "Model WHS Act",
+        "edition": "model law",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "reg 299 (SWMS for high risk construction work: identify the work, hazards, risks, controls and implementation); SWMS copy kept 2 years after a notifiable incident",
+        "code": "Model WHS Regulations",
+        "edition": "model regulations",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (safe work method statements)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2.1; 6.1.2.2; 8.1",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024; revision adds explicit documentation of 6.1.2.2 results)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Health and Safety at Work Act 2015 (NZ)",
+        "edition": "as at 5 April 2025",
+        "region": "New Zealand",
+        "title": "Health and Safety at Work Act 2015"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "construction_methodology",
+  "x-demiton-store": "tenant"
+}

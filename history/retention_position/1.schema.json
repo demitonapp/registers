@@ -1,0 +1,66 @@
+{
+  "$id": "demiton:shelf/retention_position/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "contract_ref": {
+      "description": "The contract or trust account the retention attaches to",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "project_ref": {
+      "description": "The subject project's stable external reference (today the ERP job number).",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_amount": {
+      "description": "The amount currently withheld, as recorded by the source",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency of the bound legal entity"
+    },
+    "retention_amount_source": {
+      "description": "Which system actually supplied `retention_amount` (today the constant `bc_job_card_unpopulated`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_basis": {
+      "description": "How the retention was calculated (percent of each claim, accumulated, cap)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_currency": {
+      "description": "The currency the amount is denominated in",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_held": {
+      "description": "Whether money is currently withheld by the client",
+      "type": "boolean",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_status": {
+      "description": "The producer's lifecycle code: `PC`, `DLP`, `BG`, `COMPLETED`",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "n/a"
+    }
+  },
+  "required": [
+    "project_ref",
+    "retention_held"
+  ],
+  "title": "retention_position contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "retention_position",
+  "x-demiton-store": "tenant"
+}

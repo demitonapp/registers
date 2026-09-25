@@ -1,0 +1,115 @@
+{
+  "$id": "demiton:shelf/cost_element/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "posted cost for the line (`Total_Cost_LCY`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by coordinate (`currency`)"
+    },
+    "cost_code": {
+      "description": "the job task the cost was coded to (`Job_Task_No`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_type": {
+      "description": "the raw posting-group discriminator behind the cost classification (`Gen_Prod_Posting_Group`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "denomination of every amount on the row",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "dimension_set_id": {
+      "description": "key into the BC dimension set that resolves EQUIPMENT for plant rate",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_no": {
+      "description": "the source document reference",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "entry_no": {
+      "description": "the source's own row identity, used for episodic dedup and supersession",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the month the posting belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the BC company the posting belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "posting date of the ledger entry",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "price_amount": {
+      "description": "the price/revenue side of a claim line (`Total_Price_LCY`), which the cost measure drops",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "by coordinate"
+    },
+    "project": {
+      "description": "the job/project the cost was posted against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "posted quantity (`Quantity_Base`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "source_code": {
+      "description": "distinguishes cost postings from `SALES`/claim postings on the same ledger",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "unit_cost": {
+      "description": "posted unit cost (`Unit_Cost_LCY`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "by coordinate"
+    },
+    "vendor": {
+      "description": "supplier, where the source carries one",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "work_activity": {
+      "description": "level-1 canonical work activity",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "currency",
+    "occurred_at",
+    "entry_no",
+    "amount"
+  ],
+  "title": "cost_element contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "cost_element",
+  "x-demiton-store": "tenant"
+}

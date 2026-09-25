@@ -1,0 +1,176 @@
+{
+  "$id": "demiton:shelf/timesheet_entry/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "cost_code": {
+      "description": "cost code / work activity the hours are coded to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "end_time": {
+      "description": "the entry's end time",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "financial_period": {
+      "description": "the pay period the hours are attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "hours": {
+      "description": "hours worked in the entry",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "occurred_at": {
+      "description": "the day the entry is for",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project/job the hours were worked on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "start_time": {
+      "description": "the entry's start time",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "status": {
+      "description": "approval state of the entry",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "task_name": {
+      "description": "the task/activity the hours were worked on",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_type": {
+      "description": "the vendor/tenant pay-category or work-type label",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the person whose hours these are",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker",
+    "occurred_at",
+    "financial_period",
+    "hours",
+    "source_system"
+  ],
+  "title": "timesheet_entry contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s.535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 3.31, 3.33, 3.34, 3.42-3.44",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Payday Super (ATO)",
+        "edition": "from 1 Jul 2026",
+        "region": "Australia",
+        "title": "Single Touch Payroll reporting under Payday Super"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.6-8, 127",
+        "code": "Employment Leave Act 2026 (NZ)",
+        "edition": "assent 6 Aug 2026; not yet in force",
+        "region": "New Zealand",
+        "title": "Employment Leave Act 2026 (2026 No 48)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s.81(2)",
+        "code": "Holidays Act 2003 (NZ)",
+        "edition": "version as at 20 Dec 2023 (repealed on commencement of Employment Leave Act 2026)",
+        "region": "New Zealand",
+        "title": "Holidays Act 2003 (2003 No 129) - holiday and leave record"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Schedule 4",
+        "code": "Tax Administration Act 1994 (NZ) Schedule 4",
+        "edition": "version as at 1 Jul 2026",
+        "region": "New Zealand",
+        "title": "Reporting of employment income information (payday filing)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "HMRC Real Time Information (RTI)",
+        "edition": "guidance updated 6 Apr 2026",
+        "region": "United Kingdom",
+        "title": "PAYE Real Time Information - Full Payment Submission and Employer Payment Summary"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 9",
+        "code": "SI 1998/1833",
+        "edition": "as amended by SI 2023/1426 from 1 Jan 2024",
+        "region": "United Kingdom",
+        "title": "Working Time Regulations 1998"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "timesheet_entry",
+  "x-demiton-store": "tenant"
+}

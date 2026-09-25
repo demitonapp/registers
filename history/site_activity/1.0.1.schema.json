@@ -1,0 +1,134 @@
+{
+  "$id": "demiton:shelf/site_activity/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "activity": {
+      "description": "what work was performed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset": {
+      "description": "the plant/equipment used",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the claim/accounting period the activity falls in",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "hours": {
+      "description": "labour hours attributable to this activity",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "occurred_on": {
+      "description": "the day the activity is attributed to",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the site/project the activity occurred on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "measured work output for the record",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "the `unit` value"
+    },
+    "unit": {
+      "description": "the unit of measure for `quantity`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the worker present or working",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "occurred_on",
+    "project"
+  ],
+  "title": "site_activity contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 3.33, 3.34",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1",
+        "code": "ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "International",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 130",
+        "code": "Employment Relations Act 2000 (NZ)",
+        "edition": "as amended",
+        "region": "New Zealand",
+        "title": "Employment Relations Act 2000 - wages and time record"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 9",
+        "code": "SI 1998/1833",
+        "edition": "as amended by SI 2023/1426",
+        "region": "United Kingdom",
+        "title": "Working Time Regulations 1998"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "site_activity",
+  "x-demiton-store": "tenant"
+}

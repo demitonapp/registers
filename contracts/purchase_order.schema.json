@@ -1,0 +1,224 @@
+{
+  "$id": "demiton:shelf/purchase_order/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "total committed value of the PO, tax inclusive",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "amount_excluding_tax": {
+      "description": "committed value net of tax",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "currency": {
+      "description": "denomination of `amount`",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "source record identity / dedup key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "accounting period the order falls in",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "fully_received": {
+      "description": "whether all lines are receipted",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "company that placed the order",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the order date of the PO",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "posting_date": {
+      "description": "date the PO posted to the ledger, if at all",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "project": {
+      "description": "project/job the PO is for, when resolvable",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "purchaser": {
+      "description": "the buyer/approver who raised the PO",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "requested_receipt_date": {
+      "description": "expected delivery date",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "status": {
+      "description": "PO lifecycle state (`Open`/`Released`/`Pending Approval`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_amount": {
+      "description": "tax component of the committed value",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "vendor": {
+      "description": "the supplier the PO is placed with",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "vendor",
+    "occurred_at",
+    "external_id",
+    "amount"
+  ],
+  "title": "purchase_order contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ABN Act 1999 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "A New Tax System (Australian Business Number) Act 1999 - ABN register"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Commonwealth Procurement Rules",
+        "edition": "effective 17 Nov 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "Australia",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Directive 2014/24/EU",
+        "edition": "consolidated",
+        "region": "European Union",
+        "title": "Directive 2014/24/EU on public procurement"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2017 (withdrawn; 2026 edition published May 2026)",
+        "region": "European Union",
+        "title": "CEN EN 16931-1 Electronic invoicing - semantic data model"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OC4IDS 0.9.5",
+        "edition": "0.9.5 (switcher 0.9.4)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OCDS 1.1.5",
+        "edition": "1.1 schema, docs 1.1.5",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Rule 34",
+        "code": "NZ Government Procurement Rules",
+        "edition": "5th edition",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZBN Act 2016",
+        "edition": "current",
+        "region": "New Zealand",
+        "title": "New Zealand Business Number Act 2016"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "New Zealand",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 87 / reg 36 (below-threshold contract details)",
+        "code": "Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "4.604, 4.606",
+        "code": "FAR 4.604 / 4.606",
+        "edition": "FAC 2026-01 (eff. 13 Mar 2026)",
+        "region": "United States",
+        "title": "Federal Acquisition Regulation Part 4 subpart 4.6 contract reporting"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "FAR 52.204-7",
+        "edition": "Nov 2024",
+        "region": "United States",
+        "title": "FAR 52.204-7 System for Award Management (Unique Entity ID, UEI)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "purchase_order",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/tender_source_link/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "tender_source_link contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_source_link",
+  "x-demiton-store": "tenant"
+}

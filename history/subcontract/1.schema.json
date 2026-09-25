@@ -1,0 +1,139 @@
+{
+  "$id": "demiton:shelf/subcontract/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_completion_date": {
+      "description": "when the subcontract works were completed",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "approved_changes": {
+      "description": "the value of approved change orders",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_sum": {
+      "description": "the original subcontract sum",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the amounts",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "delivery_date": {
+      "description": "when the subcontract works are due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "description": {
+      "description": "the scope of the subcontract",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "executed": {
+      "description": "whether the subcontract has been signed",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own subcontract id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items": {
+      "description": "the subcontract's itemised scope",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "number": {
+      "description": "the subcontract number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "payment_terms": {
+      "description": "the payment terms agreed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "pending_changes": {
+      "description": "the value of change orders not yet approved",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "percentage_paid": {
+      "description": "the share of the sum paid",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "project": {
+      "description": "the project the subcontract is let on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "remaining_balance": {
+      "description": "what remains unpaid",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "retention_percent": {
+      "description": "the retention rate withheld from payments",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "revised_contract_sum": {
+      "description": "the sum after approved changes",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the subcontract's lifecycle state",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subcontractor": {
+      "description": "the party the work is let to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "the subcontract's title",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "total_paid": {
+      "description": "what has been paid to date",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "subcontractor",
+    "status"
+  ],
+  "title": "subcontract contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "contracts",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "subcontract",
+  "x-demiton-store": "tenant"
+}

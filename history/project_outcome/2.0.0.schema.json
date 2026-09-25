@@ -1,0 +1,220 @@
+{
+  "$id": "demiton:shelf/project_outcome/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "cost_growth_pct": {
+      "description": "Cost overrun versus budget at the cut",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "currency": {
+      "description": "Unit `revenue_actual` is expressed in",
+      "type": "currency",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "customer": {
+      "description": "Client the project is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Dedup key `{project}:{period}`; one upsert per project per month",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "Reporting period the snapshot is cut at",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "month"
+    },
+    "legal_entity": {
+      "description": "Owning BC company for multi-entity orgs",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "margin_pct": {
+      "description": "Latest project margin at the reporting cut",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "occurred_at": {
+      "description": "Date the outcome asserts (min of period-28 and today)",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The project the outcome is for; asserted via `resolved_coordinates`, not a coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "recorded_at": {
+      "description": "When the fact was written",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "revenue_actual": {
+      "description": "Revenue recognised to date; cumulative",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "source_system": {
+      "description": "Provenance; always `DERIVED` for this shelf",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "occurred_at",
+    "margin_pct",
+    "cost_growth_pct",
+    "revenue_actual",
+    "source_system",
+    "external_id",
+    "recorded_at"
+  ],
+  "title": "project_outcome contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)",
+        "edition": "ATO guidance updated 25 Aug 2025",
+        "region": "Australia",
+        "title": "GST and tax invoice rules (ATO guidance)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A",
+        "code": "AS 2124-1992",
+        "edition": "1992 (superseded)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997 (superseded edition, still in use)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000 (R2005); status unverified",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Building Industry Fairness (Security of Payment) Act 2017 (Qld)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "QLD security of payment - excluded amounts"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Building and Construction Industry (Security of Payment) Act 2021 (WA)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "WA security of payment - excluded amounts"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Building and Construction Industry Security of Payment Act 1999 (NSW)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "NSW security of payment - excluded amounts"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Building and Construction Industry Security of Payment Act 2002 (Vic)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "VIC security of payment - excluded amounts"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Art 226",
+        "code": "Council Directive 2006/112/EC",
+        "edition": "consolidated 1 Jan 2025",
+        "region": "European Union",
+        "title": "VAT Directive"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18A-18I, 20, 21",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (2002 No 46)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Goods and Services Tax Act 1985 (NZ)",
+        "edition": "as amended (1 Apr 2023 changes)",
+        "region": "New Zealand",
+        "title": "GST taxable supply information"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110-113",
+        "code": "Housing Grants, Construction and Regeneration Act 1996 Part II",
+        "edition": "as amended (2011)",
+        "region": "United Kingdom",
+        "title": "HGCRA 1996 Part II (Payment), as amended by LDEDCA 2009"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "paras 4-10",
+        "code": "SI 1998/649",
+        "edition": "as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment / Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "project_outcome",
+  "x-demiton-store": "tenant"
+}

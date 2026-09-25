@@ -1,0 +1,125 @@
+{
+  "$id": "demiton:shelf/speeding_event/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_id": {
+      "description": "The asset the event belongs to; today the `ASSET` anchor resolved from the payload's vehicle identifier.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "device_id": {
+      "description": "The telematics unit that produced the event.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "driver_id": {
+      "description": "The driver the event is attributed to, where the tenant's policy permits storing it.",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "duration_s": {
+      "description": "Duration of the overspeed event.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "s"
+    },
+    "event_action": {
+      "description": "The TN360 action discriminator; the demo fixture carries `SE` for speed events.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "event_type": {
+      "description": "The source event-type label, where a tenant's feed mixes event types.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "external_id": {
+      "description": "Source-system event identity, used for idempotent re-harvest and cross-chunk de-duplication.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "location_label": {
+      "description": "A human-readable place name or address string for the event.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "occurred_at": {
+      "description": "When the overspeed event occurred, not when it was recorded.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "position": {
+      "description": "The event position, carried as one value so it can never be half-populated.",
+      "type": "object",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "decimal degrees"
+    },
+    "position_datum": {
+      "description": "The datum/CRS identifier the coordinate is in (e.g. the EPSG code), plus the source frame where known.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "position_precision": {
+      "description": "Whether the coordinate is full precision or reduced (the US ELD personal-use mode is the worked example).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "recorded_at": {
+      "description": "When the telematics platform stamped/synchronised the event.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Which bound system wrote the fact.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_units": {
+      "description": "The source unit per measure, where it is not the canonical unit.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "speed_kmh": {
+      "description": "The peak speed recorded for the event.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "speed_offset_kmh": {
+      "description": "How far over the threshold the event was.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "speed_threshold_kmh": {
+      "description": "The speed limit or threshold the event exceeded.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "trip_id": {
+      "description": "The trip the event belongs to, where the source supplies one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset_id",
+    "external_id",
+    "occurred_at",
+    "speed_kmh",
+    "speed_threshold_kmh",
+    "speed_offset_kmh",
+    "duration_s",
+    "position",
+    "position_datum"
+  ],
+  "title": "speeding_event contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "speeding_event",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,185 @@
+{
+  "$id": "demiton:shelf/sor_verification/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agent_run_id": {
+      "description": "Provenance: which AgentRun produced the fact",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "baseline_provenance": {
+      "description": "Who issued the parsed baseline; `pca_internal` is a trust caveat",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "findings": {
+      "description": "Discrepancies, warnings and synthesized advisories",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "findings[].detail": {
+      "description": "Finding detail",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "findings[].severity": {
+      "description": "Finding severity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "findings[].title": {
+      "description": "Finding title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items": {
+      "description": "The schedule rows verified",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations": {
+      "description": "Each independent derivation for the row",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].caveats": {
+      "description": "The measurement tool's own caveats, verbatim; a caveat qualifies a quantity and must not be lost",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].citation": {
+      "description": "Where the derivation came from (document/page/cell)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].confidence": {
+      "description": "The measurement tool's own confidence, copied verbatim",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].evidence_url": {
+      "description": "Overlay evidence image produced by this run's tools",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].method": {
+      "description": "How the value was derived",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].methodology": {
+      "description": "The tool's methodology text, verbatim; prose, not a schema constraint",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "line_items[].derivations[].unit": {
+      "description": "Unit of the derived value, matched against the row `uom`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].derivations[].value": {
+      "description": "The derived quantity",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "derivation `unit`"
+    },
+    "line_items[].description": {
+      "description": "Item description",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].item_ref": {
+      "description": "Schedule item identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].sor_qty": {
+      "description": "The client's claimed baseline quantity",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "row `uom`"
+    },
+    "line_items[].uom": {
+      "description": "Unit of measure that makes the quantity meaningful and comparable",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].variance_pct": {
+      "description": "Server-computed `(measured - claimed) / claimed`; server owns its absence",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "line_items[].verdict": {
+      "description": "Per-row outcome",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].verification_strength": {
+      "description": "Server-computed independence of the corroboration \u2014 stops \"verified\" overclaiming",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "opportunity_ref": {
+      "description": "The opportunity number the verification is anchored to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "pricing_document": {
+      "description": "The baseline document the quantities were read from",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "review_state": {
+      "description": "Human-review marker; the fact is agent-proposed, not reconciled",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "Overall verification outcome for the opportunity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "One-sentence human-readable statement of the result; also the fact's `content`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "status",
+    "review_state",
+    "summary",
+    "pricing_document",
+    "line_items",
+    "line_items[].item_ref",
+    "line_items[].description",
+    "line_items[].uom",
+    "line_items[].sor_qty",
+    "line_items[].derivations",
+    "line_items[].verdict",
+    "line_items[].variance_pct",
+    "line_items[].verification_strength",
+    "line_items[].derivations[].method",
+    "line_items[].derivations[].value",
+    "line_items[].derivations[].unit",
+    "line_items[].derivations[].citation",
+    "line_items[].derivations[].evidence_url",
+    "line_items[].derivations[].confidence",
+    "line_items[].derivations[].caveats",
+    "findings",
+    "findings[].severity",
+    "findings[].title",
+    "findings[].detail",
+    "opportunity_ref",
+    "agent_run_id"
+  ],
+  "title": "sor_verification contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "sor_verification",
+  "x-demiton-store": "tenant"
+}

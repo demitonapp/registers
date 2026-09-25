@@ -1,0 +1,197 @@
+{
+  "$id": "demiton:shelf/bid_no_bid_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "close_date": {
+      "description": "Notice close date; also the row's `valid_until`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "decided_at": {
+      "description": "When the decision was taken (the episodic event time; today the row has no `occurred_at` and rides `valid_from`).",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "held_posture": {
+      "description": "What the org held at decision time: road, bridge, financial level, active ISO set.",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "publication_state": {
+      "description": "Whether the decision is private-to-tenant, shared with a client, or consented for emission.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "rationale": {
+      "description": "One-sentence reason for the decision.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "region": {
+      "description": "Region the notice was routed to (NSW, QLD, VIC, WA, ACT).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "requirements": {
+      "description": "What the notice requires: road level, bridge level, financial level, ISO set, extraction confidence, and whether each was explicit or inferred.",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "score": {
+      "description": "Deterministic confidence/rank for the verdict (0.05 bypass, 0.15 NO_BID, 0.5 REVIEW, 0.7\u20131.0 BID).",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "0\u20131"
+    },
+    "source_link": {
+      "description": "Link back to the source notice, where one exists.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_ocid": {
+      "description": "The public tender/opportunity identifier the decision is about.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tender_title": {
+      "description": "Title of the notice decided on.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "unmet": {
+      "description": "The specific requirement(s) not met, or the bypass reason (scope/value/veto).",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "value_aud": {
+      "description": "Estimated notice value, where the notice carries one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "verdict": {
+      "description": "The decision: `BID`, `NO_BID` or `REVIEW`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_type_id": {
+      "description": "The org's classification of the work, used by the scope-mismatch and veto paths.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "verdict",
+    "decided_at",
+    "source_ocid",
+    "rationale",
+    "requirements",
+    "held_posture",
+    "unmet",
+    "score",
+    "tender_title"
+  ],
+  "title": "bid_no_bid_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Environmental management systems (AU/NZ adoption of ISO 14001:2015; ISO 14001:2026 published 15 Apr 2026)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 + Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems (incorporating Amd 1:2024)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (ISO 9001:2026 expected 16 Sep 2026)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements (AU/NZ adoption of ISO 9001:2015)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "R1-R5, B1-B4, F-levels",
+        "code": "Austroads NPS",
+        "edition": "2025 Edition",
+        "region": "Australia",
+        "title": "National Prequalification System for Civil (Road and Bridge) Construction"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs",
+        "edition": "17 November 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art. 84",
+        "code": "Directive 2014/24/EU",
+        "edition": "26 Feb 2014 (consolidated)",
+        "region": "European Union",
+        "title": "Directive 2014/24/EU on public procurement"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (site switcher shows 0.9.4; unresolved)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "release ocid",
+        "code": "OCDS",
+        "edition": "1.1 (documentation release 1.1.5)",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UNSPSC",
+        "edition": "v26.0801 (Sep 2025, per secondary source)",
+        "region": "International",
+        "title": "United Nations Standard Products and Services Code"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Rules 30, 33",
+        "code": "NZ GPR",
+        "edition": "5th edition (effective 1 Dec 2025)",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s. 50(3)",
+        "code": "UK Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "bid_no_bid_verdict",
+  "x-demiton-store": "tenant"
+}

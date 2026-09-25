@@ -1,0 +1,153 @@
+{
+  "$id": "demiton:shelf/retention_position/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "contract_ref": {
+      "description": "The contract or trust account the retention attaches to",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "project_ref": {
+      "description": "The subject project's stable external reference (today the ERP job number).",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_amount": {
+      "description": "The amount currently withheld, as recorded by the source",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency of the bound legal entity"
+    },
+    "retention_amount_source": {
+      "description": "Which system actually supplied `retention_amount` (today the constant `bc_job_card_unpopulated`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_basis": {
+      "description": "How the retention was calculated (percent of each claim, accumulated, cap)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_currency": {
+      "description": "The currency the amount is denominated in",
+      "type": "currency",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_held": {
+      "description": "Whether money is currently withheld by the client",
+      "type": "boolean",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a"
+    },
+    "retention_status": {
+      "description": "The producer's lifecycle code: `PC`, `DLP`, `BG`, `COMPLETED`",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "n/a"
+    }
+  },
+  "required": [
+    "project_ref",
+    "retention_held"
+  ],
+  "title": "retention_position contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - financial records, 7-year retention"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "QLD BIF Act 2017",
+        "edition": "2017 as amended",
+        "region": "Australia",
+        "title": "Building Industry Fairness (Security of Payment) Act 2017 (Qld)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17A-17H (per commentary)",
+        "code": "VIC BCISP Act 2002",
+        "edition": "2002 as amended 15 Apr 2026",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2002 (Vic), as amended from 15 Apr 2026"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 59, 71-77",
+        "code": "WA BCISP Act 2021",
+        "edition": "2021",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2021 (WA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18B, 18C, 18D, 18DA, 18FD",
+        "code": "NZ CCA 2002",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46, as amended 2015 and 2023"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 111, 113",
+        "code": "HGCRA 1996 Part II",
+        "edition": "1996 c. 53 as amended",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996, Part II (as amended by LDEDCA 2009)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment; Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "retention_position",
+  "x-demiton-store": "tenant"
+}

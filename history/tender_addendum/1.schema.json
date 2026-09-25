@@ -1,0 +1,82 @@
+{
+  "$id": "demiton:shelf/tender_addendum/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "addendum_number": {
+      "description": "the addendum's number in the tender's sequence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "closing_date": {
+      "description": "the tender closing date after this addendum",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "what the addendum changes",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "documents": {
+      "description": "the documents issued with the addendum",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own addendum id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_at": {
+      "description": "when the addendum was issued",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "issued_by": {
+      "description": "who issued the addendum",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "opportunity": {
+      "description": "the tender the addendum amends",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "previous_closing_date": {
+      "description": "the closing date before this addendum",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "rationale": {
+      "description": "why the addendum was issued",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "the addendum's short title",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "opportunity",
+    "issued_at"
+  ],
+  "title": "tender_addendum contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "opportunities",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_addendum",
+  "x-demiton-store": "tenant"
+}

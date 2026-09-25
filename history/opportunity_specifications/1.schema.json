@@ -1,0 +1,67 @@
+{
+  "$id": "demiton:shelf/opportunity_specifications/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "extracted_page_count": {
+      "description": "Pages the parser actually read, capped at 40.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "pages"
+    },
+    "extraction_notes": {
+      "description": "Free-text caveats from the extractor (raster pages, LLM notes).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issuing_body": {
+      "description": "The issuing body / code-set grouping the entry sits under; explicit null only when the drawing set places the entry nowhere.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_name": {
+      "description": "Human-readable file name.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_document_path": {
+      "description": "The resolved path of the drawing-set PDF. Provenance key for the fact.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specification_code": {
+      "description": "The clause/document code **exactly as written on the drawing**, including parenthetical alternative codes and revision suffixes (the parser's own examples: `C242`, `TS 02168.1 (R64)`, `AS3798-2007`); explicit null when the entry has no code of its own.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specification_description": {
+      "description": "The specification's title as the issuing body wrote it.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specifications": {
+      "description": "The extracted governing-specification entries. Empty array is meaningful and must be written.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "specifications_table_present": {
+      "description": "Whether the drawing set carried a literal boxed \"PROJECT SPECIFICATIONS\" table rather than inline/clause-list references.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "specification_code",
+    "specification_description",
+    "issuing_body",
+    "source_document_path",
+    "specifications"
+  ],
+  "title": "opportunity_specifications contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "opportunity_specifications",
+  "x-demiton-store": "tenant"
+}

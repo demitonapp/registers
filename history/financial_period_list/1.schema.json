@@ -1,0 +1,81 @@
+{
+  "$id": "demiton:shelf/financial_period_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "allow_posting_from": {
+      "description": "the start of the GL posting window",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "calendar date"
+    },
+    "basis": {
+      "description": "`open`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`posting_window`\\"
+    },
+    "closed_at": {
+      "description": "when the period closed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "financial_year": {
+      "description": "the fiscal year the period falls in, as the ERP's FY boundary implies",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "fiscal_year_start": {
+      "description": "whether this period begins a fiscal year",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "the company the period belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "period": {
+      "description": "the canonical period key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "period_end": {
+      "description": "the period's last day",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "calendar date"
+    },
+    "period_start": {
+      "description": "the period's first day per the ERP",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "calendar date"
+    },
+    "source_system": {
+      "description": "the system the period was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "\u2014",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`open`)"
+    }
+  },
+  "required": [
+    "source_system",
+    "period",
+    "period_start"
+  ],
+  "title": "financial_period_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "financial_period_list",
+  "x-demiton-store": "tenant"
+}

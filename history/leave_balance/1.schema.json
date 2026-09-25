@@ -1,0 +1,70 @@
+{
+  "$id": "demiton:shelf/leave_balance/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accrued_balance": {
+      "description": "The accrual balance itself \u2014 a lifetime meter, never additive across readings. The shelf's only measure.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "see `balance_unit`"
+    },
+    "balance_as_of": {
+      "description": "When the balance was observed. A current-state balance with no observation date cannot be aged, cannot answer \"as at\", and cannot satisfy a record-keeping duty that turns on currency.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "balance_unit": {
+      "description": "The denomination of `accrued_balance`. Optional because every observed row today is one payroll system's single denomination; mandatory the moment a second jurisdiction is loaded.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "entitlement_cap": {
+      "description": "The ceiling on the accrued balance where one applies. Absent today and absent from every observed field, so it is optional; it exists because a bare balance cannot express a statutory maximum.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "see `balance_unit`"
+    },
+    "financial_period": {
+      "description": "The period context of the balance reading, where the host supplies one.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "leave_category": {
+      "description": "Which entitlement the balance is for. Without it the grain collapses into one ambiguous balance per worker rather than one per category.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "leave_category_name": {
+      "description": "Human-readable label for that entitlement (annual, personal/carer's, long service, \u2026). Mandatory because a balance identified only by an opaque source code is unreadable to a person and unmappable across systems.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "Which employing entity owns the balance. Optional by declaration, not by accident: KeyPay is multi-business and the business is resolvable from the record.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "worker_ref": {
+      "description": "The employee the balance belongs to; the shelf's subject anchor. Rows without it are dropped by `build_atom`'s no-anchor guard.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker_ref",
+    "leave_category",
+    "leave_category_name",
+    "accrued_balance",
+    "balance_as_of"
+  ],
+  "title": "leave_balance contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "leave_balance",
+  "x-demiton-store": "tenant"
+}

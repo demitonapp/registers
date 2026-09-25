@@ -1,0 +1,73 @@
+{
+  "$id": "demiton:shelf/tender_submission/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "currency": {
+      "description": "the currency `submitted_amount` is denominated in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "key_personnel": {
+      "description": "named individuals the bidder proposed for the project",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "methodology_ref": {
+      "description": "short reference to the bidder's construction/delivery methodology as the bidder wrote it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "outcome": {
+      "description": "the tender's lifecycle fate, inferred from the storage folder",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_file_name": {
+      "description": "the file the fact was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_path": {
+      "description": "the storage locator/path the document was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "submitted_amount": {
+      "description": "the bidder's own grand total tendered for the whole project/contract, excluding GST",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD (**unverified** \u2014 no currency field exists in the payload)"
+    },
+    "summary": {
+      "description": "engine-generated one-line digest: doc type, subject, path",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_tax_basis": {
+      "description": "whether `submitted_amount` includes tax",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "win_themes": {
+      "description": "short phrases capturing the bidder's stated differentiators in this submission",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "submitted_amount",
+    "outcome",
+    "methodology_ref",
+    "win_themes",
+    "source_document_file_name",
+    "source_document_path"
+  ],
+  "title": "tender_submission contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_submission",
+  "x-demiton-store": "tenant"
+}

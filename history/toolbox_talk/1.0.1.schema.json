@@ -1,0 +1,216 @@
+{
+  "$id": "demiton:shelf/toolbox_talk/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "absentee_count": {
+      "description": "Number of persons recorded absent.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "persons"
+    },
+    "attachment_refs[]": {
+      "description": "Image/attachment answers on the form.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "attendee_count": {
+      "description": "Number of persons present.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "persons"
+    },
+    "attendees[]": {
+      "description": "Normalized attendance list, replacing the per-person columns and the per-person absence columns of the wide record.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "duration_minutes": {
+      "description": "Duration of the meeting, derived from its start/finish times.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "minutes"
+    },
+    "external_id": {
+      "description": "Stable identity of the source submission, shelf-qualified `<shelf>:<source id>`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the talk falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "follow_up_topics": {
+      "description": "Topics raised for future discussion.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issues_raised": {
+      "description": "Issues or hazards raised at the meeting.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative": {
+      "description": "The Q&A prose composed once at ingress and stored as `Fact.content`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "Submission date/time; the event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_on": {
+      "description": "Date-only form date captured by the reader's date-field detection (source key `diary_date`).",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "Project the talk was held on.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "signature_ref": {
+      "description": "Reference to a signature captured on the form.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_refs": {
+      "description": "Originating system identifiers (`form_id`, `diary_id`, raw `project_id`/`worker_id`) kept for reconciliation instead of freezing vendor column names into the contract.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tenant_answers": {
+      "description": "The remaining tenant form-template columns, held verbatim. Tenant content, never part of the standard contract, never named outside the tenant.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "title": {
+      "description": "Title of the form/record that produced the fact (observed source key `form_title`), stamped by the pattern sweep.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "topic": {
+      "description": "Subject(s) discussed at the talk.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "Worker the talk attaches to at form level (the WORKER anchor).",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "project",
+    "title"
+  ],
+  "title": "toolbox_talk contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2; 7.3",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 535 (7-year employee records)",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 (Cth)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 47 duty to consult workers; Part 3 ss 35-39 (notifiable-incident evidence)",
+        "code": "Model WHS Act",
+        "edition": "model law",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act (Cth enactment: Work Health and Safety Act 2011)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "employee-records exemption",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 (Cth)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "ISO 14001:2026",
+        "edition": "2026",
+        "region": "International",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2 competence; 7.3 awareness (per digest)",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5 documented information",
+        "code": "ISO 9001:2015",
+        "edition": "2015",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "rule numbers not read",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 and Health Information Privacy Code 2020"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR Part 1904",
+        "edition": "current",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "toolbox_talk",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,137 @@
+{
+  "$id": "demiton:shelf/contract_notice/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "the amount the notice claims or concerns, where it states one",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "clause_reference": {
+      "description": "the contract clause or statutory section the notice is given under",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of `amount`",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "direction": {
+      "description": "whether the org gave the notice or received it",
+      "enum": [
+        "given",
+        "received"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "event_occurred_on": {
+      "description": "when the event the notice is about happened or was discovered; the date a window is measured from",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own id for the notice, or the document id it was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "from_party": {
+      "description": "who gave the notice",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the jurisdiction whose rules govern the notice",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "notice_kind": {
+      "description": "which notice this is",
+      "enum": [
+        "latent_condition",
+        "contamination",
+        "delay",
+        "eot_claim",
+        "direction",
+        "variation_notice",
+        "claim_notice",
+        "early_warning",
+        "security_recourse",
+        "set_off",
+        "dlp_end",
+        "retention_trust_deposit",
+        "retention_report",
+        "notice_of_intention",
+        "suspension",
+        "adjudication_application",
+        "adjudication_response",
+        "other"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "the project the notice is on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "related_record": {
+      "description": "the record the notice concerns (a variation, progress claim, payment schedule or security)",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "response_due_on": {
+      "description": "when a response or the next step is due, where the notice or the rule sets one",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "served_on": {
+      "description": "when the notice was served or received; the date a window is measured to",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document": {
+      "description": "the document or message the notice was extracted from, as a stable reference",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which system or extraction wrote the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "what the notice is about, in a short phrase",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "to_party": {
+      "description": "who received it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "notice_kind",
+    "direction",
+    "served_on"
+  ],
+  "title": "contract_notice contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "contracts",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "contract_notice",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,91 @@
+{
+  "$id": "demiton:shelf/safety_ncr/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset involved, where the NCR is a plant non-conformance.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Display name of the submitting Assignar user (free text, not a resolved identity).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source NCR record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the NCR falls in, derived from `occurred_at`; the axis retention is computed against.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "form_id": {
+      "description": "The source form template the NCR was captured on.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "The source form template's title \u2014 which tenant NCR template this is, and whether it is the quality or safety variant.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "The WHS/quality regime whose notification and retention rules apply to this record.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_time": {
+      "description": "Source last-modified time; the delta-harvest cursor.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative": {
+      "description": "The non-conformance description and what was done, composed from the source responses Q&A; may be null when nothing is renderable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the non-conformance was submitted/occurred; the reporting clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "Project the NCR attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "Worker who raised or is responsible for the NCR; resolves to the worker spine.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "financial_period",
+    "form_id",
+    "form_title"
+  ],
+  "title": "safety_ncr contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "safety_ncr",
+  "x-demiton-store": "tenant"
+}

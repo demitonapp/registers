@@ -1,0 +1,108 @@
+{
+  "$id": "demiton:shelf/chart_of_accounts/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_category": {
+      "description": "the primary classification of the account (BC `category`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_name": {
+      "description": "the human label of the account",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_number": {
+      "description": "the account number as the tenant's ledger uses it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_sub_category": {
+      "description": "the finer classification (BC `subCategory`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_type": {
+      "description": "the BC account-type code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own account identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "last_modified_at": {
+      "description": "when the source last changed the account",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the company that owns the account",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "account_number",
+    "account_name",
+    "account_category"
+  ],
+  "title": "chart_of_accounts contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "paras 29-31, 43-44",
+        "code": "AASB 116",
+        "edition": "F2023C00192",
+        "region": "Australia",
+        "title": "AASB 116 Property, Plant and Equipment (adopts IAS 16)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex J (IFRS vs US GAAP differences)",
+        "code": "ISO/TS 55010",
+        "edition": "2024",
+        "region": "International",
+        "title": "ISO/TS 55010 Aligning financial and non-financial asset management functions"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "taxable supply information (s 19K); IRD guidance",
+        "code": "GST Act 1985 (NZ)",
+        "edition": "as amended from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "Goods and Services Tax Act 1985 (NZ)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "chart_of_accounts",
+  "x-demiton-store": "tenant"
+}

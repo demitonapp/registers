@@ -1,0 +1,183 @@
+{
+  "$id": "demiton:shelf/compliance_documents/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset the document attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "document_title": {
+      "description": "Name of the form/document as submitted (observed source key `form_title`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_type": {
+      "description": "Class of compliance document (SWMS / ITP / inspection / diary).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_at": {
+      "description": "Document/credential expiry, where the document has one.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source submission, shelf-qualified as `compliance_documents:<id>`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the submission falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "occurred_at": {
+      "description": "Submission date/time; the evidence and retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "Project the compliance document is attached to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "revision": {
+      "description": "Document revision/version identifier.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_refs": {
+      "description": "The originating system's own identifiers (`assignar_project_id`, `assignar_worker_id`, `assignar_asset_id`) kept for reconciliation, rather than freezing one vendor's column names into the contract.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status_code": {
+      "description": "Document status/suitability, stored **with the code set it comes from**.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "summary": {
+      "description": "Composed prose description of the submission.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "Worker the document attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "project",
+    "document_title"
+  ],
+  "title": "compliance_documents contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019 (identical to ISO 19650-1:2018 and -2:2018)",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Information management using building information modelling (Parts 1 and 2)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2, 8.1, 10.2 (per digest)",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5 documented information",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "reg 299 (SWMS required for high risk construction work); SWMS copy kept 2 years after a notifiable incident",
+        "code": "Model WHS Regulations",
+        "edition": "model regulations",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (safe work method statements)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 38 (written notification kept at least 5 years)",
+        "code": "Occupational Health and Safety Act 2004 (Vic)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Occupational Health and Safety Act 2004 (Vic)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling (Parts 1 and 2)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (2026 expected)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "NA.4.2, NA.4.3 (unverified)",
+        "code": "BS EN ISO 19650-2 UK National Annex",
+        "edition": "2021 revision",
+        "region": "United Kingdom",
+        "title": "BS EN ISO 19650-2 UK National Annex"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "compliance_documents",
+  "x-demiton-store": "tenant"
+}

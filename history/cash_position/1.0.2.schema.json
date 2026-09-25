@@ -1,0 +1,93 @@
+{
+  "$id": "demiton:shelf/cash_position/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_count": {
+      "description": "number of accounts the total covers",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "accounts": {
+      "description": "per-account breakdown behind the total",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "accounts[].account_name": {
+      "description": "human label for the account",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "accounts[].account_no": {
+      "description": "account identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "accounts[].balance": {
+      "description": "the account's balance at `as_of`",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`accounts[].currency`"
+    },
+    "accounts[].currency": {
+      "description": "the account's own currency",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "accounts[].last_statement_date": {
+      "description": "date of the bank's last statement for the account",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "as_of": {
+      "description": "the instant the balances were read",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the legal entity whose cash this is; the fact's subject anchor, stamped also as a `LEGAL_ENTITY` context coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "one-line prose digest of the snapshot",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "total_cash_aud": {
+      "description": "sum of the account balances in the reporting currency",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "legal_entity_id",
+    "as_of",
+    "total_cash_aud",
+    "accounts",
+    "accounts[].account_no",
+    "accounts[].account_name",
+    "accounts[].balance"
+  ],
+  "title": "cash_position contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18C, 18D, 18FD",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023 (incl. Retention Money Amendment Act 2023)",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "cash_position",
+  "x-demiton-store": "tenant"
+}

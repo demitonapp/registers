@@ -1,0 +1,152 @@
+{
+  "$id": "demiton:shelf/punch_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "assignee": {
+      "description": "who must fix it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "category": {
+      "description": "the kind of defect",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "closed_at": {
+      "description": "when the item was closed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "closed_by": {
+      "description": "who closed it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_code": {
+      "description": "the cost code the fix is charged to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_impact_amount": {
+      "description": "the cost the defect adds",
+      "type": "money",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "description": {
+      "description": "what is wrong",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "due_date": {
+      "description": "when the fix is due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's own item id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "final_approver": {
+      "description": "who signs the fix off",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "location": {
+      "description": "where on site the defect is",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "manager": {
+      "description": "who manages the item",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "the defect's short title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "priority": {
+      "description": "how urgent the fix is",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the defect is on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "raised_by": {
+      "description": "who recorded the defect",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "schedule_impact_days": {
+      "description": "the programme slip the defect causes",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the item's lifecycle state",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trade": {
+      "description": "the trade responsible for the fix",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "name",
+    "status"
+  ],
+  "title": "punch_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.7, 10.2",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.7, 10.2",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 successor expected; unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "punch_list",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,93 @@
+{
+  "$id": "demiton:shelf/workspace_profile/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "_authored": {
+      "description": "Provenance of the human-approved write: who approved the profile and when",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "opportunity_ref_pattern": {
+      "description": "The tenant's folder-name pattern that identifies an opportunity/project folder; the anchor every other convention hangs off. Mandatory key; the value may be `null` when no candidate clears the bar",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "org_aliases": {
+      "description": "Alternative names for the org seen in the tree",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "org_display_name": {
+      "description": "The org's own display name, only when independently evidenced",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "seeded_templates": {
+      "description": "bytes for `size`, **unverified**",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "null}>"
+    },
+    "stage_roots": {
+      "description": "The lifecycle-stage root folders under which numbered opportunity folders live; the tenant's document-geography spine. Mandatory key; an empty array is a valid value when no stage clears the coverage bar",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "submission_locations": {
+      "description": "Subpaths under a stage root where priced/schedule-named files cluster, ranked by occurrence \u2014 where a submission is expected. The subpath strings are tenant folder convention, never reproduced here",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "superseded_markers": {
+      "description": "Folder-name markers the tenant treats as stale-revision / do-not-use, after the LLM's semantic call. The marker vocabulary is tenant and contract defined, never reproduced here",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    }
+  },
+  "required": [
+    "opportunity_ref_pattern",
+    "stage_roots",
+    "_authored"
+  ],
+  "title": "workspace_profile contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Information management using BIM - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Information management using BIM - Part 2: Delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 2: Delivery phase of the assets"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "workspace_profile",
+  "x-demiton-store": "tenant"
+}

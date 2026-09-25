@@ -1,0 +1,251 @@
+{
+  "$id": "demiton:shelf/compliance_state/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "as_of": {
+      "description": "when the standing was last asserted by the org \u2014 the read-time clock for every derived status",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "cadence": {
+      "description": "`triennial` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`biennial` \\"
+    },
+    "classifications": {
+      "description": "the declared levels on one scheme, e.g. the NPS `A`/`B`/`F`/`R` level set",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "completed_at": {
+      "description": "when the org finished the standing wizard",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_value_range": {
+      "description": "the org's declared typical contract value range",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "declared": {
+      "description": "self-declared by the org, as opposed to evidenced",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "description": {
+      "description": "what the obligation requires",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "effective_from": {
+      "description": "the date the declared standing took effect",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_id": {
+      "description": "the evidence artefact backing the adherence claim",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_at": {
+      "description": "when the holding or the next evidence obligation lapses",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "fact_key": {
+      "description": "the per-record key inside the kind: `profile`, `scheme:{scheme_key}`, `obligation:{obligation_key}`, the requirement key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "is_active": {
+      "description": "whether the org still carries the obligation (inactive rows are kept visible, never retired)",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdictions": {
+      "description": "the jurisdictions the org declares it operates/contracts in",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "last_completed_at": {
+      "description": "when it was last satisfied",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "max_contract_value": {
+      "description": "the largest contract value the org declares it can take",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "next_due": {
+      "description": "when the obligation next falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "note": {
+      "description": "free-text assessor note",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "obligation_key": {
+      "description": "stable key for a recurring obligation: catalog `id` for a template, `custom:{slug}` for a user-added one",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "record_kind": {
+      "description": "`obligation` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`scheme` \\"
+    },
+    "requirement_id": {
+      "description": "the clause/scheme-requirement identifier being adhered to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "scheme_key": {
+      "description": "the catalog scheme/panel this row belongs to (`nps`, `iso45001`, \u2026, or `panel:{key}`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "shelf_type": {
+      "description": "the concrete pattern instance `compliance_state:{record_kind}:{fact_key}`; today the **only** carrier of the record kind and the per-record key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source": {
+      "description": "provenance of the obligation row (`template` today)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "the standing's own state; today `scheme.status` defaults `\"active\"` (`:245`) and `requirement.status` is free-ish with `not_assessed` expressed as absence (`:1523-1528`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "the org the standing belongs to; the shared subject of all four kinds",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "the human name of the obligation/requirement (for a scheme, its catalog label)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "valid_until": {
+      "description": "supersession stamp; the live row is `valid_until IS NULL`",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "shelf_type",
+    "record_kind",
+    "fact_key",
+    "as_of",
+    "status",
+    "declared",
+    "scheme_key",
+    "jurisdictions",
+    "max_contract_value",
+    "obligation_key",
+    "title",
+    "cadence",
+    "is_active",
+    "requirement_id"
+  ],
+  "title": "compliance_state contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (international 2015 superseded; 2026 adoption unverified)",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2, 7.2, 8.1, 10.2 (per digest)",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incorporating Amd 1:2024 (listing)",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5, 7.1.5, 7.2, 8.7, 10.2",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Austroads NPS",
+        "edition": "2025 Edition",
+        "region": "Australia",
+        "title": "National Prequalification System for Civil (Road and Bridge) Construction"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CAL (NT)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Contractor Accreditation Limited accreditation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "JAS-ANZ accreditation",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Joint Accreditation System of Australia and New Zealand"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Occupational Health and Safety Act 2004 (Vic)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Occupational Health and Safety Act 2004 (Vic)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 14001:2026",
+        "edition": "2026",
+        "region": "International",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (2026 expected)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "compliance_state",
+  "x-demiton-store": "tenant"
+}

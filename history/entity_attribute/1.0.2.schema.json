@@ -1,0 +1,181 @@
+{
+  "$id": "demiton:shelf/entity_attribute/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asserted_at": {
+      "description": "when the value was last asserted by the resolver (`valid_from`, defaulting to write time)",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "attribute_key": {
+      "description": "the canonical attribute this row asserts \u2014 `stage`, `employment_status`, `outcome`, `value`, `closed_date`, `project_manager` observed; 19 keys declared in all",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "confidence": {
+      "description": "the resolver's confidence in the value; 1.0 on both resolvers today",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio"
+    },
+    "evidence": {
+      "description": "the raw resolver signals reconciled to produce the value, kept for auditability",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the financial period the assertion is scoped to when the producer knows it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "the legal entity the assertion is scoped to when the producer knows it",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "shelf_type": {
+      "description": "the pattern instance `entity_attribute:{key}`; today the only carrier of the attribute identity and of the per-key supersede bucket",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "the project, worker, asset or opportunity the attribute is about; the shared subject of the row",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "valid_until": {
+      "description": "the supersession stamp; the live row is `valid_until IS NULL`, and superseded values are retained as an audit trail",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "value": {
+      "description": "the resolved canonical value: the OC4IDS phase, employment state, opportunity outcome, and so on",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "per the key (none today carries a unit)"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "shelf_type",
+    "attribute_key",
+    "value",
+    "asserted_at"
+  ],
+  "title": "entity_attribute contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 19162:2020",
+        "edition": "2020",
+        "region": "Australia",
+        "title": "Geographic information - Well-known text representation of coordinate reference systems (AU/NZ adoption)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "2017 Determination (2026 Determination reported, unverified)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (National Measurement (Recognized-Value Standard of Measurement of Position) Determination 2017)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "APPs 1-13",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "compilation current at 2026-09",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EPSG Geodetic Parameter Dataset",
+        "edition": "v13.102",
+        "region": "International",
+        "title": "EPSG Geodetic Parameter Dataset (EPSG:7844 GDA2020, EPSG:4326 WGS 84)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19162:2019",
+        "edition": "2019 + Amd 1:2023",
+        "region": "International",
+        "title": "Geographic information - Well-known text representation of coordinate reference systems (with Amd 1:2023)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (page title; version switcher says 0.9.4)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard (projectStatus / project phase vocabulary)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Section 4 (CRS is WGS 84)",
+        "code": "RFC 7946",
+        "edition": "August 2016",
+        "region": "International",
+        "title": "The GeoJSON Format"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000",
+        "edition": "official since 1998; NZVD2016 vertical",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000 and New Zealand Transverse Mercator 2000 (LINZ)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "IPPs 1-13",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020 No 31",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 - Information Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 (OSTN15)",
+        "edition": "OSTN15",
+        "region": "United Kingdom",
+        "title": "British National Grid datum and ETRS89 with OSTN15 transformation (Ordnance Survey)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR and Data Protection Act 2018",
+        "edition": "UK GDPR (retained) + DPA 2018",
+        "region": "United Kingdom",
+        "title": "UK General Data Protection Regulation with Data Protection Act 2018"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NAD83(2011) / NAVD 88",
+        "edition": "NAD83(2011) epoch 2010.00",
+        "region": "United States",
+        "title": "North American Datum of 1983 (2011) and North American Vertical Datum of 1988 (NGS)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "entity_attribute",
+  "x-demiton-store": "tenant"
+}

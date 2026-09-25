@@ -1,0 +1,226 @@
+{
+  "$id": "demiton:shelf/survey_control/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ahd_height": {
+      "description": "the height on the Australian Height Datum",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "coordinate_lineage": {
+      "description": "the adjustment or source the coordinates come from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "coordinates_published_on": {
+      "description": "when the coordinates were published",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "crs": {
+      "description": "the coordinate reference system identifier, e.g. EPSG:7844 or EPSG:7855",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "easting": {
+      "description": "the mark's grid easting",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "ellipsoidal_height": {
+      "description": "the height above the GDA2020 ellipsoid",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "external_id": {
+      "description": "the source's own record id, where it differs from the mark id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "horizontal_uncertainty_m": {
+      "description": "the horizontal uncertainty at 95% confidence",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "last_visited_on": {
+      "description": "when the mark was last visited",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "latitude": {
+      "description": "the mark's GDA2020 latitude",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "legacy_class": {
+      "description": "the class the mark was given before SP1 retired class and order",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legacy_order": {
+      "description": "the order the mark was given under the same retired scheme",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "longitude": {
+      "description": "the mark's GDA2020 longitude",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "map_zone": {
+      "description": "the MGA zone the grid coordinates are in",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_alias": {
+      "description": "another name the mark is known by",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_id": {
+      "description": "the mark's identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "mark_status": {
+      "description": "the mark's condition, e.g. intact, damaged or destroyed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_type": {
+      "description": "the kind of mark",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "monument_type": {
+      "description": "the physical monument",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "northing": {
+      "description": "the mark's grid northing",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "project": {
+      "description": "the project the mark controls",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "uncertainty_kind": {
+      "description": "positional, relative or survey uncertainty",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_uncertainty_m": {
+      "description": "the vertical uncertainty at 95% confidence",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "mark_id"
+  ],
+  "title": "survey_control contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "AHD / AUSGeoid2020",
+        "edition": "AHD71; AUSGeoid2020",
+        "region": "Australia",
+        "title": "Australian Height Datum with AUSGeoid2020 separation model"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 (ITRF2014 @ 2020.0)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "ICSM SP1",
+        "edition": "v2.2 (2020)",
+        "region": "Australia",
+        "title": "Standard for the Australian Survey Control Network (Special Publication 1)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 8A NMA 1960",
+        "code": "National Measurement (Recognized-Value Standard of Measurement of Position) Determination 2017",
+        "edition": "2017 (a 2026 Determination is cited elsewhere; conflicting)",
+        "region": "Australia",
+        "title": "Legal definition of GDA2020 under National Measurement Act 1960 (Cth) s 8A"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE Data Specification on Coordinate Reference Systems (D2.8.I.1)",
+        "edition": "TG v3.2rc2 (release 2024.1)",
+        "region": "European Union",
+        "title": "INSPIRE CRS Technical Guidelines: ETRS89 horizontal, EVRS vertical"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EPSG Geodetic Parameter Dataset",
+        "edition": "v13.102",
+        "region": "International",
+        "title": "IOGP CRS registry (EPSG:7844 GDA2020, EPSG:7855 MGA zone 55, EPSG:4326 WGS 84 ensemble)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000 / NZVD2016",
+        "edition": "NZGD2000 (1998); NZVD2016 (2016)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000, NZ Transverse Mercator 2000, NZ Vertical Datum 2016 (NZGeoid2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 / OSTN15 / OSGM15 (ODN)",
+        "edition": "OSTN15 / OSGM15",
+        "region": "United Kingdom",
+        "title": "Ordnance Survey National Grid, ETRS89 and the definitive transformations"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83(2011) / NAVD 88 (NSRS)",
+        "edition": "NAD 83 (2011/PA11/MA11) epoch 2010.00; NAVD 88",
+        "region": "United States",
+        "title": "US official horizontal and vertical datums, being replaced by NATRF2022 et al."
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "survey_control",
+  "x-demiton-store": "tenant"
+}

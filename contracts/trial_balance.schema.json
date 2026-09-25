@@ -1,0 +1,166 @@
+{
+  "$id": "demiton:shelf/trial_balance/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_category": {
+      "description": "the account's primary classification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_name": {
+      "description": "the account's human label",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_number": {
+      "description": "the G/L account number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_sub_category": {
+      "description": "the finer classification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_type": {
+      "description": "the BC account-type code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "balance": {
+      "description": "the account's closing balance at the snapshot",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by-coordinate (currency)"
+    },
+    "currency": {
+      "description": "currency of the monetary amounts",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own account identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "last_modified_at": {
+      "description": "when the source last changed the account record",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the company that owns the account",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "net_change": {
+      "description": "movement in the account for the period",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by-coordinate (currency)"
+    },
+    "snapshot_at": {
+      "description": "the instant the snapshot was captured",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    }
+  },
+  "required": [
+    "external_id",
+    "account_number",
+    "legal_entity_id",
+    "snapshot_at",
+    "balance",
+    "net_change"
+  ],
+  "title": "trial_balance contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "paras 29-31, 43-44",
+        "code": "AASB 116",
+        "edition": "F2023C00192",
+        "region": "Australia",
+        "title": "AASB 116 Property, Plant and Equipment (adopts IAS 16)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO record-keeping rules",
+        "edition": "ATO page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO business record-keeping rules (ITAA 1936 s 262A; TAA 1953 Sch 1 s 382-5)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(1), 286(2) (7 years)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - obligation to keep financial records"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex J",
+        "code": "ISO/TS 55010",
+        "edition": "2024",
+        "region": "International",
+        "title": "ISO/TS 55010 Aligning financial and non-financial asset management functions"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "taxable supply information (s 19K); IRD guidance",
+        "code": "GST Act 1985 (NZ)",
+        "edition": "as amended from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "Goods and Services Tax Act 1985 (NZ)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK VAT rates",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "UK VAT (standard rate 20%)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASC 360",
+        "edition": "current",
+        "region": "United States",
+        "title": "FASB ASC 360 Property, Plant, and Equipment"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "trial_balance",
+  "x-demiton-store": "tenant"
+}

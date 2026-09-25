@@ -1,0 +1,134 @@
+{
+  "$id": "demiton:shelf/prequalification_answer/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "answer": {
+      "description": "the answer value or values given",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "answer_comment": {
+      "description": "a comment given with the answer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "answer_type": {
+      "description": "the kind of answer expected, e.g. text, choice or file",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "answered_at": {
+      "description": "when the answer last changed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "category": {
+      "description": "the section the question sits in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_files": {
+      "description": "links to files uploaded as the answer",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_on": {
+      "description": "when the answer stops being accepted",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "form_id": {
+      "description": "the questionnaire the answer belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "form_name": {
+      "description": "the questionnaire's name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_period": {
+      "description": "the year or period the questionnaire covers",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_status": {
+      "description": "where the questionnaire is in review, e.g. pending or submitted",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_type": {
+      "description": "the kind of questionnaire",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_active": {
+      "description": "whether the questionnaire is still in force",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "question_id": {
+      "description": "the question answered",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "question_text": {
+      "description": "the question as asked",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "requesting_client": {
+      "description": "the client that requires the questionnaire",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "review_outcome": {
+      "description": "whether the client approved or rejected it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reviewer_comment": {
+      "description": "the reviewer's comment",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_system",
+    "form_id",
+    "question_id"
+  ],
+  "title": "prequalification_answer contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Austroads NPS",
+        "edition": "2025 Edition",
+        "region": "Australia",
+        "title": "National Prequalification System for Civil (Road and Bridge) Construction"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 9001 / ISO 14001 / ISO 45001",
+        "edition": "ISO 9001:2015; ISO 14001:2026; ISO 45001:2018",
+        "region": "International",
+        "title": "Management system certificates supplied as answer evidence"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "prequalification_answer",
+  "x-demiton-store": "tenant"
+}

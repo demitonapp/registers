@@ -1,0 +1,150 @@
+{
+  "$id": "demiton:shelf/platform_entity_attr/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn": {
+      "description": "The 11-digit Australian Business Number; the shelf's subject and its SERIES identity.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "acn": {
+      "description": "The 9-digit Australian Company Number, when the entity is a company.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address.postcode": {
+      "description": "Registered address postcode.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address.state": {
+      "description": "Registered address state.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU state/territory code"
+    },
+    "entity_name": {
+      "description": "The registered entity name as published by the register.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "entity_type": {
+      "description": "The register's entity-type name (company / trust / partnership / sole trader, as published).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gst_registered": {
+      "description": "Whether the entity is GST-registered (may be `false`; the field must be present).",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "gst_registered_from": {
+      "description": "Effective date of GST registration, when registered.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "jurisdiction_code": {
+      "description": "Jurisdiction the registration belongs to; today always Australia and **NULL on every write**.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "observed_at": {
+      "description": "When this registration snapshot was observed; drives freshness ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "source_dataset": {
+      "description": "Producer identity (`abr`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "`abr:{abn}` \u2014 the idempotency key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "Registration status at observation time (e.g. active / cancelled).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trading_names": {
+      "description": "Trading names the register publishes for the ABN.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "abn",
+    "entity_name",
+    "entity_type",
+    "status",
+    "gst_registered",
+    "observed_at",
+    "source_dataset",
+    "source_id"
+  ],
+  "title": "platform_entity_attr contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ABN",
+        "edition": "current register",
+        "region": "Australia",
+        "title": "Australian Business Number - Australian Business Register (ABN Lookup)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AU GST",
+        "edition": "ATO guidance updated 25 Aug 2025",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 - GST registration and tax basis (ATO tax-invoice guidance)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Annex Table 2 column 29 organisation identifier (CM)",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZBN",
+        "edition": "Act 2016 No 16",
+        "region": "New Zealand",
+        "title": "New Zealand Business Number - NZBN Register (New Zealand Business Number Act 2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg. 27(2)(e)(iii)",
+        "code": "UK supplier unique identifier",
+        "edition": "SI 2024/692",
+        "region": "United Kingdom",
+        "title": "Supplier unique identifier incl. Companies Act 2006 registration number fallback (SI 2024/692 reg. 27)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "52.204-7",
+        "code": "SAM UEI",
+        "edition": "52.204-7 (Nov 2024)",
+        "region": "United States",
+        "title": "System for Award Management registration and Unique Entity Identifier (FAR 52.204-7)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "platform_entity_attr",
+  "x-demiton-store": "platform"
+}

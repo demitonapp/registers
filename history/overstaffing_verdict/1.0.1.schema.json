@@ -1,0 +1,100 @@
+{
+  "$id": "demiton:shelf/overstaffing_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_hours": {
+      "description": "Labour hours actually charged to the project at assessment time.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "assessed_at": {
+      "description": "When the judgement was taken.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "budget_hours": {
+      "description": "Tendered labour hours the actual is measured against (parsed schedule total or override).",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "burn_pct": {
+      "description": "`actual_hours / budget_hours`.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ratio (0\u20131+)"
+    },
+    "confidence": {
+      "description": "Producer confidence in the judgement.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "0\u20131"
+    },
+    "elapsed_pct": {
+      "description": "Fraction of project duration elapsed at assessment time.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "fraction (0\u20131)"
+    },
+    "project_ref": {
+      "description": "The Demiton project the verdict is about (the `project_code` the writer already keys on).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "run_rate_pct": {
+      "description": "`burn_pct / elapsed_pct` \u2014 headcount run-rate against expected pace; the value the verdict thresholds are applied to.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ratio"
+    },
+    "source_file": {
+      "description": "Name of the resource-schedule workbook the budget side came from.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_uri": {
+      "description": "Canonical URI of the verdict fact (`demiton://project/{code}/overstaffing-verdict`).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "verdict": {
+      "description": "The outcome: `OVERSTAFFED`, `ON_TRACK` or `UNDERSTAFFED`. `BUDGET_ONLY` is *not* a stored value \u2014 the writer returns without writing (`:410-411`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "verdict_thresholds": {
+      "description": "The `overstaffed_at` / `understaffed_at` cut-offs used for this assessment.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    }
+  },
+  "required": [
+    "verdict",
+    "assessed_at",
+    "project_ref",
+    "actual_hours",
+    "burn_pct",
+    "run_rate_pct",
+    "elapsed_pct",
+    "budget_hours"
+  ],
+  "title": "overstaffing_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2025 (2nd ed.; 2018 1st ed. cancelled)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "overstaffing_verdict",
+  "x-demiton-store": "tenant"
+}

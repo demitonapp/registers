@@ -1,0 +1,122 @@
+{
+  "$id": "demiton:shelf/legal_entities/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_line1": {
+      "description": "street address line 1",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line2": {
+      "description": "street address line 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "administrative_area": {
+      "description": "state/region",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "base_currency": {
+      "description": "the entity's functional currency",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency"
+    },
+    "country_code": {
+      "description": "country of registration/operation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own company id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fiscal_year_start": {
+      "description": "financial-year start",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "identifier_authority": {
+      "description": "the register/authority that issues or validates the identifier",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "identifier_scheme": {
+      "description": "the scheme the primary identifier belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "identifier_value": {
+      "description": "the identifier in that scheme",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "legal_name": {
+      "description": "registered/legal name of the entity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "locality": {
+      "description": "suburb/city",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_code": {
+      "description": "postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_contact_name": {
+      "description": "the entity's general contact person",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_email": {
+      "description": "the entity's general contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_phone": {
+      "description": "the entity's general contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status": {
+      "description": "registration state at a point in time",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status_as_at": {
+      "description": "when that status was verified",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "source_system": {
+      "description": "the system the entity record was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trading_name": {
+      "description": "name the entity trades under, if different",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "external_id",
+    "legal_name",
+    "base_currency"
+  ],
+  "title": "legal_entities contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "legal_entities",
+  "x-demiton-store": "tenant"
+}

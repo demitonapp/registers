@@ -1,0 +1,53 @@
+{
+  "$id": "demiton:shelf/worker_training_session/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the plant/equipment the session related to, when the source supplies it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source record's own identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_at": {
+      "description": "when the session/submission occurred - the sole temporal anchor",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "session": {
+      "description": "the session the worker attended, when the source supplies a stable session identifier",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "session_label": {
+      "description": "the tenant's own name for the training session (the Assignar form title, e.g. a Verification of Competency form)",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the worker whose attendance/completion the record is",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "worker"
+  ],
+  "title": "worker_training_session contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "workforce",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "worker_training_session",
+  "x-demiton-store": "tenant"
+}

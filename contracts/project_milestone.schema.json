@@ -1,0 +1,145 @@
+{
+  "$id": "demiton:shelf/project_milestone/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_date": {
+      "description": "The date the milestone actually occurred; null while it is forecast",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "date"
+    },
+    "confidence": {
+      "description": "Qualitative extraction confidence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "Free-text detail about the milestone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "milestone_type": {
+      "description": "Class of event (`start`, `design`, `construction`, `practical_completion`, `milestone`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "The milestone / dated event label the contract is measured against",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "planned_date": {
+      "description": "The contractually planned date of the milestone",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "date"
+    },
+    "source": {
+      "description": "Whether the milestone was inferred by extraction or entered by a person",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "name",
+    "planned_date",
+    "source"
+  ],
+  "title": "project_milestone contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A",
+        "code": "AS 2124-1992",
+        "edition": "1992 (superseded)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997 (superseded edition, still in use)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000 (R2005); status unverified",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 14C",
+        "code": "Building and Construction Industry Security of Payment Act 2002 (Vic)",
+        "edition": "as amended 15 Apr 2026",
+        "region": "Australia",
+        "title": "Vic security of payment (2026 reforms)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Building and Construction Industry Security of Payment Act 2009 (SA)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "SA security of payment"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "project milestones",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (switcher shows 0.9.4; unverified)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 20(1)",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (2002 No 46)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110-113",
+        "code": "Housing Grants, Construction and Regeneration Act 1996 Part II",
+        "edition": "as amended (2011)",
+        "region": "United Kingdom",
+        "title": "HGCRA 1996 Part II (Payment), as amended by LDEDCA 2009"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "para 5",
+        "code": "SI 1998/649",
+        "edition": "as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "project_milestone",
+  "x-demiton-store": "tenant"
+}

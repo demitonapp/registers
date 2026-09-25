@@ -1,0 +1,113 @@
+{
+  "$id": "demiton:shelf/fuel_transaction/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the vehicle or plant the fuel was bought for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "consumer": {
+      "description": "what consumed the fuel: the vehicle itself or ancillary equipment",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost": {
+      "description": "what the purchase cost",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the cost",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "driver": {
+      "description": "the driver on the transaction",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own transaction id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "odometer": {
+      "description": "the odometer reading at purchase",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "product": {
+      "description": "the product bought, e.g. diesel",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "purchase_source": {
+      "description": "whether the fuel came from a retail site or bulk storage",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "quantity": {
+      "description": "the amount of product bought",
+      "type": "decimal",
+      "x-demiton-requiredness": "required"
+    },
+    "quantity_unit": {
+      "description": "the unit of the quantity, e.g. litre or kilogram",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "site_name": {
+      "description": "where the fuel was bought",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "supplier": {
+      "description": "the fuel supplier or card provider",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_paid": {
+      "description": "whether fuel tax was paid on the purchase",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "transacted_at": {
+      "description": "when the purchase happened",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "transaction_type": {
+      "description": "a purchase, or a void that reverses one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "transacted_at",
+    "quantity"
+  ],
+  "title": "fuel_transaction contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-domain": "assets",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "fuel_transaction",
+  "x-demiton-store": "tenant"
+}

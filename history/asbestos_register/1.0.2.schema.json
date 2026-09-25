@@ -1,0 +1,126 @@
+{
+  "$id": "demiton:shelf/asbestos_register/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "analysis_result": {
+      "description": "the laboratory result confirming whether the material is asbestos",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "competent_person": {
+      "description": "the competent person who identified the material",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "condition": {
+      "description": "the condition of the material",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source's own register entry id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "friable": {
+      "description": "whether the material is friable",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "identification_basis": {
+      "description": "whether the material was identified by analysis or assumed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "identified_on": {
+      "description": "when the asbestos was identified or assumed to be present",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "inaccessible_area": {
+      "description": "whether the location is inaccessible, so presence is assumed",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_reviewed_on": {
+      "description": "when the register entry was last reviewed",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "location": {
+      "description": "the specific location of the material",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "management_plan": {
+      "description": "the asbestos management plan the entry belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "material_type": {
+      "description": "the type of asbestos or asbestos-containing material",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "no_asbestos_identified": {
+      "description": "whether this entry states that no asbestos has been identified",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "past_removal_work": {
+      "description": "removal work already done on the material",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project, when the workplace is a project site",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "review_trigger": {
+      "description": "why the last review happened, e.g. asbestos removed or further asbestos found",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "workplace": {
+      "description": "the workplace the register covers",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "workplace"
+  ],
+  "title": "asbestos_register contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "regs 422-430 (r 422 assumed asbestos; r 423 accredited laboratory; r 424 inaccessible areas; r 425 register; r 426 review; r 429 management plan)",
+        "code": "Model WHS Regulations",
+        "edition": "model regulations as reproduced in the 2020 model Code of Practice",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (asbestos register, review and management plan duties)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 3.1, s 3.2, s 4.1, Appendix D (register template)",
+        "code": "SWA Code of Practice: How to manage and control asbestos in the workplace",
+        "edition": "2020",
+        "region": "Australia",
+        "title": "Safe Work Australia model Code of Practice: How to manage and control asbestos in the workplace"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "asbestos_register",
+  "x-demiton-store": "tenant"
+}

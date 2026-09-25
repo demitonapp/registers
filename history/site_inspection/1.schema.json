@@ -1,0 +1,102 @@
+{
+  "$id": "demiton:shelf/site_inspection/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The vehicle or plant item the checklist is about; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "attributes": {
+      "description": "Every remaining form answer keyed by the tenant's own question text, plus `_raw_metadata` at rest. This is where the **82 checklist answer slugs**, the **152 tenant-derived identity/vehicle slugs** and the **15 excluded tenant-authored keys** live; all are counted, not named (SC002).",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "comments": {
+      "description": "Free-text remarks on the inspection.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the inspection falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "flagged_item_count": {
+      "description": "Number of checklist answers whose **value** names a fault, derived from the response vocabulary by `form_measures`.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "form_id": {
+      "description": "The Assignar form-template id, the stable twin of `form_title`.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The matched Assignar form's title \u2014 which inspection instrument this fact is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "inspection_date": {
+      "description": "The date the form itself carries, distinct from submission time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the inspection was submitted; the event time and the retention clock start.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "odometer": {
+      "description": "The odometer or meter reading the inspection captured.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "unverified (the source states no unit)"
+    },
+    "project": {
+      "description": "The project the inspection is recorded against.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today and the only system the frozen universe names.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "unanswered_item_count": {
+      "description": "Number of answerable checklist questions left blank.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "worker": {
+      "description": "The worker who submitted or signed the inspection.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "asset",
+    "form_title"
+  ],
+  "title": "site_inspection contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_inspection",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,140 @@
+{
+  "$id": "demiton:shelf/plant_registration/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the plant the registration is held against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "design_standard": {
+      "description": "the design standard the plant was registered against",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's id for the registration record",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "hazard_level": {
+      "description": "the pressure equipment hazard level, A to D",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the state or territory the registration is under",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "required"
+    },
+    "next_major_inspection_due": {
+      "description": "when the registration's major inspection falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "plant_category": {
+      "description": "the Schedule 5 category the plant falls in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rated_capacity": {
+      "description": "the plant's rated capacity or safe working load",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tonnes"
+    },
+    "registered_on": {
+      "description": "when the registration was granted",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "registration_kind": {
+      "description": "whether this registers a plant design or a plant item",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "registration_number": {
+      "description": "the regulator's registration number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "regulator": {
+      "description": "the regulator that issued the registration",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "whether the registration is current, lapsed or cancelled",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "asset",
+    "registration_kind",
+    "registration_number",
+    "regulator",
+    "jurisdiction"
+  ],
+  "title": "plant_registration contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-domain": "assets",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4343",
+        "edition": "2014",
+        "region": "Australia",
+        "title": "Pressure equipment - Hazard levels"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS 1418.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Mobile elevating work platforms (design and construction)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 234, 235, 243-247; Schedule 5 Parts 1-2",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (Safe Work Australia; given effect by each state/territory)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "LOLER 1998",
+        "edition": "1998 (with HSE ACOP)",
+        "region": "United Kingdom",
+        "title": "Lifting Operations and Lifting Equipment Regulations 1998"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR 1910.179",
+        "edition": "eCFR current (read 2026-09-01 point in time)",
+        "region": "United States",
+        "title": "OSHA - Overhead and gantry cranes"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "plant_registration",
+  "x-demiton-store": "tenant"
+}

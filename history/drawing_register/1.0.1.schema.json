@@ -1,0 +1,218 @@
+{
+  "$id": "demiton:shelf/drawing_register/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "as_built_required": {
+      "description": "whether an as-built revision is required",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "author": {
+      "description": "who produced the drawing",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "authorised_by": {
+      "description": "who authorised the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "current": {
+      "description": "whether this revision is in the current drawing set",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "discipline": {
+      "description": "the design discipline, e.g. civil or structural",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_type": {
+      "description": "the register's document type",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "drawing_number": {
+      "description": "the drawing's number on the register",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the source system's own register entry id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "file_name": {
+      "description": "the file behind the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "print_size": {
+      "description": "the sheet size",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose register holds the drawing",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "registered_at": {
+      "description": "when the revision was registered",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "review_status": {
+      "description": "the outcome of the review of the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "the revision this row describes",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "revision_date": {
+      "description": "the date of the revision",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "scale": {
+      "description": "the drawing scale",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the status or suitability the revision was issued for",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "the drawing's title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "version_number": {
+      "description": "the register's version counter for the entry",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "drawing_number",
+    "revision",
+    "title"
+  ],
+  "title": "drawing_register contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Information management using BIM - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Information management using BIM - Part 2: Delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "APPs 1-13",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "compilation current at 2026-09",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN ISO 19650-1:2018 / EN ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "European Union",
+        "title": "European adoptions of ISO 19650-1/-2 (CEN)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 2: Delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "IPPs 1-13",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020 No 31",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 - Information Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "BS EN ISO 19650-1:2018 / BS EN ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "United Kingdom",
+        "title": "UK adoptions of ISO 19650-1/-2 (UK BIM Framework, now IMI Framework)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "NA.4.2 / Table NA.2; NA.4.3 (reported by third party)",
+        "code": "BS EN ISO 19650-2 UK National Annex",
+        "edition": "2021",
+        "region": "United Kingdom",
+        "title": "UK National Annex to BS EN ISO 19650-2 (status and revision codes)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR and Data Protection Act 2018",
+        "edition": "UK GDPR (retained) + DPA 2018",
+        "region": "United Kingdom",
+        "title": "UK General Data Protection Regulation with Data Protection Act 2018"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "drawing_register",
+  "x-demiton-store": "tenant"
+}

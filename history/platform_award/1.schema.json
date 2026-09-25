@@ -1,0 +1,144 @@
+{
+  "$id": "demiton:shelf/platform_award/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agency_id": {
+      "description": "Resolved buying-agency identity.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "agency_name": {
+      "description": "The buyer/agency name as published; the value `agency_id` is resolved from.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "award_date": {
+      "description": "The authority's award date \u2014 the event the shelf records.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "category_code": {
+      "description": "The goods/services classification.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "UNSPSC code"
+    },
+    "category_name": {
+      "description": "The classification's label.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "confidence": {
+      "description": "Identity confidence of the contractor binding (1.0 for publisher ABN, 0.8 for a name match).",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "0\u20131"
+    },
+    "content": {
+      "description": "The composed narrative label; NULL on 100% of award facts until 2026-08-28.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_end_date": {
+      "description": "End of the awarded contract period.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "contract_start_date": {
+      "description": "Start of the awarded contract period.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "contractor_abn": {
+      "description": "The awarded contractor's ABN where published.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ABN (11 digits)"
+    },
+    "contractor_name": {
+      "description": "The awarded contractor's name; the only identification for ABN-less suppliers.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "The published description; often equal to `title`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "The source-native award key: opencontractau `contract_id` (OCDS ocid, award-suffixed) or AusTender `contract_notice_id`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "observed_at": {
+      "description": "When the award was observed / took effect; drives episodic ordering and the `since/until` read.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "ocid": {
+      "description": "The OCDS contracting-process identity, kept as PROVENANCE (lookup, citation, lifecycle-linker input), not an axis.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "platform_project_id": {
+      "description": "Resolved civil-project tracking id (the primary coordinate; may be a minted stub).",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "region_code": {
+      "description": "The jurisdiction that published the award.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU state/territory code or `AU`"
+    },
+    "source_dataset": {
+      "description": "Producer identity (`austender` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "supplier_identification": {
+      "description": "True when at least one of `contractor_abn` / `contractor_name` is present; the award gate rejects otherwise.",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "tender_reference": {
+      "description": "The originating tender id where published (AusTender `atm_id`), the lifecycle linker's reference-match key.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "The contract/award title; for some scrapers the only human label.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_aud": {
+      "description": "The awarded contract value \u2014 the one declared measure.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "external_id",
+    "ocid",
+    "source_dataset",
+    "observed_at",
+    "award_date",
+    "platform_project_id",
+    "agency_id",
+    "agency_name",
+    "supplier_identification"
+  ],
+  "title": "platform_award contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_award",
+  "x-demiton-store": "platform"
+}

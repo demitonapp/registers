@@ -1,0 +1,138 @@
+{
+  "$id": "demiton:shelf/plant_snapshot/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_count": {
+      "description": "Number of plant assets at the project at snapshot time.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless (count)"
+    },
+    "assets": {
+      "description": "The register rows behind the count. Must be a **structured attribute**, not a measure.",
+      "type": "array",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "assets[].asset_type": {
+      "description": "The plant class/category (excavator, EWP, crane, \u2026).",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].location_id": {
+      "description": "The source location the asset sat at when the snapshot was taken (the Hilti `locationId` the fetch was filtered by).",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].manufacturer": {
+      "description": "Manufacturer / make.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].model": {
+      "description": "Model of the plant item.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].name": {
+      "description": "Display name of the plant item.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].responsible_employee_id": {
+      "description": "The custody holder in the source register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].scan_code": {
+      "description": "Barcode / QR scan code, the value field crews scan.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].serial_number": {
+      "description": "The manufacturer's serial number.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].source_asset_id": {
+      "description": "The source system's own asset identifier (`Hilti` `id`, falling back to `externalId`) so a snapshot row can join the `equipment_list` register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "assets[].status": {
+      "description": "The asset's status in the source register (available / in use / etc.).",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "external_id": {
+      "description": "The fact's supersede key; today `plant:{job_no}`, i.e. one current snapshot per project.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "legal_entity_id": {
+      "description": "Legal-entity context coordinate.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "occurred_at": {
+      "description": "The instant the snapshot was taken (the writer uses `date.today()`, `:623`).",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "project": {
+      "description": "The project the register snapshot is taken at; the fact's subject anchor.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    }
+  },
+  "required": [
+    "project",
+    "occurred_at",
+    "external_id",
+    "asset_count",
+    "assets"
+  ],
+  "title": "plant_snapshot contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.6; 8.1",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "plant_snapshot",
+  "x-demiton-store": "tenant"
+}

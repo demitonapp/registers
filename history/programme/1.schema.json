@@ -1,0 +1,64 @@
+{
+  "$id": "demiton:shelf/programme/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "date": {
+      "description": "The Finish date as written, e.g. `3/11/26`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "extraction_source": {
+      "description": "Provenance marker for how the content was obtained.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "milestones": {
+      "description": "null}`",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null, type: enum(milestone_type) \\"
+    },
+    "name": {
+      "description": "Task name, cleaned of IDs and day names.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "practical_completion_date": {
+      "description": "Finish date of the Practical Completion / PC task.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "Document revision as stated (e.g. `\"1\"`, `\"0\"`, `\"A\"`), else inferred from text or file name.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_document": {
+      "description": "\u2014",
+      "type": "object",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "null}`"
+    },
+    "start_date": {
+      "description": "Contract award / commencement / first mobilisation date.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "type": {
+      "description": "Milestone category.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_document"
+  ],
+  "title": "programme contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "programme",
+  "x-demiton-store": "tenant"
+}

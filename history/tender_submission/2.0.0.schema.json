@@ -1,0 +1,167 @@
+{
+  "$id": "demiton:shelf/tender_submission/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "currency": {
+      "description": "the currency `submitted_amount` is denominated in",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "key_personnel": {
+      "description": "named individuals the bidder proposed for the project",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "methodology_ref": {
+      "description": "short reference to the bidder's construction/delivery methodology as the bidder wrote it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "outcome": {
+      "description": "the tender's lifecycle fate, inferred from the storage folder",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_file_name": {
+      "description": "the file the fact was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_path": {
+      "description": "the storage locator/path the document was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "submitted_amount": {
+      "description": "the bidder's own grand total tendered for the whole project/contract, excluding GST",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD (**unverified** \u2014 no currency field exists in the payload)"
+    },
+    "summary": {
+      "description": "engine-generated one-line digest: doc type, subject, path",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_tax_basis": {
+      "description": "whether `submitted_amount` includes tax",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "win_themes": {
+      "description": "short phrases capturing the bidder's stated differentiators in this submission",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "submitted_amount",
+    "outcome",
+    "methodology_ref",
+    "win_themes",
+    "source_document_file_name",
+    "source_document_path"
+  ],
+  "title": "tender_submission contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AU GST",
+        "edition": "ATO guidance updated 25 Aug 2025",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 - GST registration and tax basis (ATO tax-invoice guidance)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs",
+        "edition": "17 November 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "No. 119, 1988 (as amended)",
+        "region": "Australia",
+        "title": "Privacy Act 1988 and the Australian Privacy Principles"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art. 84",
+        "code": "Directive 2014/24/EU",
+        "edition": "26 Feb 2014 (consolidated)",
+        "region": "European Union",
+        "title": "Directive 2014/24/EU on public procurement"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "contractingProcesses",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (site switcher shows 0.9.4; unresolved)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OCDS",
+        "edition": "1.1 (documentation release 1.1.5)",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Rule 46",
+        "code": "NZ GPR",
+        "edition": "5th edition (effective 1 Dec 2025)",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 and the information privacy principles"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s. 50(3)",
+        "code": "UK Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "52.204-7",
+        "code": "SAM UEI",
+        "edition": "52.204-7 (Nov 2024)",
+        "region": "United States",
+        "title": "System for Award Management registration and Unique Entity Identifier (FAR 52.204-7)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "tender_submission",
+  "x-demiton-store": "tenant"
+}

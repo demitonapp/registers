@@ -1,0 +1,175 @@
+{
+  "$id": "demiton:shelf/platform_evidence_standard/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "anchor": {
+      "description": "for `event_bound`: the register and field whose value starts the clock, and a one-line description of the event",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "applies_to_form": {
+      "description": "the contract form the standard is written for; `statute` for a legislative rule, `any` when form-independent",
+      "enum": [
+        "GC21",
+        "TMR_TIC",
+        "MRWA_MAJOR",
+        "MRWA_MINOR",
+        "AS4000_1997",
+        "AS2124",
+        "NZS3910_2013",
+        "NZS3910_2023",
+        "statute",
+        "any"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "caveat": {
+      "description": "what bounds the standard: an amendment that may change it, a paywalled text read second-hand, a regional exception",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "consequence": {
+      "description": "what missing the standard costs, as the source states it",
+      "enum": [
+        "barred",
+        "reduced_per_day",
+        "costs_excluded",
+        "liable_full_amount",
+        "damages_only",
+        "offence",
+        "breach",
+        "guidance"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "dispute_type": {
+      "description": "which of the five dispute types the standard defends",
+      "enum": [
+        "latent_conditions",
+        "delay_eot",
+        "variations",
+        "payment",
+        "closeout"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "grade": {
+      "description": "how close to the source the reading was",
+      "enum": [
+        "primary_read",
+        "primary_via_secondary",
+        "secondary"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "where the standard applies: `AU` or `NZ` for a national form or Act, `AU-QLD` etc. for a state Act; drives the platform partition",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "required"
+    },
+    "kind": {
+      "description": "how the standard is measured: a cadence (`periodic`), a window after an anchor event (`event_bound`), a retention period (`retention`) or a standing condition (`state`)",
+      "enum": [
+        "periodic",
+        "event_bound",
+        "retention",
+        "state"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "minimum_content": {
+      "description": "the fields the evidence record must carry to count, as the source lists them",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "register": {
+      "description": "the tenant register the evidence lands in, as a shelf_type",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "register_match": {
+      "description": "equality predicate on that register selecting the evidence, e.g. `{\"notice_kind\": \"latent_condition\"}`",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "research_row": {
+      "description": "the row id in the research record this standard was transcribed from (e.g. `L2`, `NP5`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_clause": {
+      "description": "the clause, section or paragraph",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_title": {
+      "description": "the contract form, Act, specification or guidance the standard comes from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_url": {
+      "description": "a resolvable link to the source text, or to the reliable secondary that quotes it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_version": {
+      "description": "the edition or legislation version date read",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "standard_key": {
+      "description": "stable id of the standard, e.g. `payment.schedule_due.au-qld`; the supersede key with `source_version`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "window_source_field": {
+      "description": "the `contract_terms` field whose value overrides `window_value` when the contract states its own window",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "window_unit": {
+      "description": "unit of `window_value`; business and working days follow the governing statute or contract definition",
+      "enum": [
+        "hours",
+        "days",
+        "business_days",
+        "working_days",
+        "months"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "window_value": {
+      "description": "the cadence or window length in `window_unit`; null when the source says only 'promptly' or 'as soon as practicable'",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "standard_key",
+    "dispute_type",
+    "register",
+    "kind",
+    "applies_to_form",
+    "jurisdiction",
+    "consequence",
+    "source_title",
+    "source_clause",
+    "grade"
+  ],
+  "title": "platform_evidence_standard contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "platform",
+  "x-demiton-memory-type": "procedural",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_evidence_standard",
+  "x-demiton-store": "platform"
+}

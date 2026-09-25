@@ -1,0 +1,133 @@
+{
+  "$id": "demiton:shelf/estimating_email/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "attachments": {
+      "description": "Attachment metadata only: `id`, `name`, `content_type`, `size`.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "auto_create": {
+      "description": "Whether the classification cleared the org's auto-create threshold with a folder name and an attachment.",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "candidate_kind": {
+      "description": "The ingress verdict: `new_opportunity`, `chain_update` or `noise`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "classification_reason": {
+      "description": "Why the verdict came out that way, in one sentence.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "company_guess": {
+      "description": "Best-effort company name from the sender domain; null for public webmail domains.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "confidence": {
+      "description": "Hand-tuned classifier confidence.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "0\u20131"
+    },
+    "conversation_id": {
+      "description": "Graph conversation/thread key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "description_candidate": {
+      "description": "Cleaned subject as the candidate opportunity description.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "email_id": {
+      "description": "The harvested message's `id` the correction is about.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "folder_name_suffix": {
+      "description": "Proposed folder suffix for a new numbered opportunity folder.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "from": {
+      "description": "Graph sender block (`emailAddress.name`, `emailAddress.address`).",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "has_attachments": {
+      "description": "Whether the message carried attachments.",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "id": {
+      "description": "Graph message id; the shelf's identity and dedup key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "polarity": {
+      "description": "`suppress`, `promote` or `except`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "portal_link_detected": {
+      "description": "Whether a procurement-portal link was detected, meaning documents are not attached.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "reason_code": {
+      "description": "The selected reason, from a per-polarity vocabulary.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "received_at": {
+      "description": "When the mailbox received the message.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "source_folder": {
+      "description": "Folder path the message was harvested from (`Inbox`, `Local Council/Tweed Shire`, \u2026).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "Subject line as received.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "user_id": {
+      "description": "The tenant identity that made the correction.",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    }
+  },
+  "required": [
+    "id",
+    "received_at",
+    "conversation_id",
+    "subject",
+    "from",
+    "source_folder",
+    "has_attachments",
+    "attachments",
+    "candidate_kind",
+    "auto_create",
+    "folder_name_suffix",
+    "classification_reason",
+    "description_candidate",
+    "email_id",
+    "polarity",
+    "reason_code"
+  ],
+  "title": "estimating_email contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "estimating_email",
+  "x-demiton-store": "tenant"
+}

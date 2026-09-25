@@ -1,0 +1,253 @@
+{
+  "$id": "demiton:shelf/maintenance_record/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the item of plant the record is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "asset_hint": {
+      "description": "the free-text machine name the form carries when the top-level asset id is empty, used to resolve the `asset` anchor",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset_type": {
+      "description": "the plant type named on the form (e.g. the machine class)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "certifier": {
+      "description": "the competent person who performed or certified the service",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source form-result's own identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "form_id": {
+      "description": "the source form template identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "the tenant's own name for the maintenance form the record was captured on; the key the SAS value-map is bound to",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "hour_meter_reading": {
+      "description": "the second form family's hour/odometer reading at service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours (**unverified**)"
+    },
+    "inspection_class": {
+      "description": "pre-operational / routine / major inspection or service",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "interval_basis": {
+      "description": "why the next inspection/service is due \u2014 statutory interval, a competent person's examination scheme, or the manufacturer's recommendation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the WHS/examination regime whose interval and retention rule apply",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "labour_hours": {
+      "description": "labour hours booked to the service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "location": {
+      "description": "the place named on the form where the work happened",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "machine_hours": {
+      "description": "operating-hour meter reading at the time of service \u2014 the preferred hour source",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "next_due_at": {
+      "description": "the date the next inspection/service falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the maintenance record was submitted; the date the retention clock runs from",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "project": {
+      "description": "the project the plant was working on when serviced",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "service_cost": {
+      "description": "the total cost of the service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "service_date": {
+      "description": "the date carried on the form, where it differs from submission time",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row; `ASSIGNAR` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_units": {
+      "description": "the source unit each measure arrived in, beside the canonical unit",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "tenant_payload": {
+      "description": "the tenant's own form questions and answers \u2014 servicing notes, faults found, parts, cost components, media/signature answers",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unplanned": {
+      "description": "1 when this maintenance event was a breakdown, 0 when it was planned work",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the worker who submitted the form; an anchor, not a declared axis",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "asset"
+  ],
+  "title": "maintenance_record contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2550.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Safe use - Mobile elevating work platforms"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS 1418.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Mobile elevating work platforms (design and construction)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 = ITRF2014 at epoch 2020.0",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (EPSG:7844 / EPSG:78xx zones)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 38(7)",
+        "code": "Model WHS Act",
+        "edition": "model Bill 1 August 2023",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act (Safe Work Australia)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 224, 226, 235, 235(4), 237, 242(1A)",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (Safe Work Australia; given effect by each state/territory)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1; 10.3",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 25",
+        "code": "Health and Safety at Work Act 2015 (NZ)",
+        "edition": "version as at 5 April 2025",
+        "region": "New Zealand",
+        "title": "Health and Safety at Work Act 2015"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Schedule 1",
+        "code": "LOLER 1998",
+        "edition": "1998 (with HSE ACOP)",
+        "region": "United Kingdom",
+        "title": "Lifting Operations and Lifting Equipment Regulations 1998"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Sch 2 Part 1 item 1",
+        "code": "RIDDOR 2013 (SI 2013/1471)",
+        "edition": "2013",
+        "region": "United Kingdom",
+        "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR 1904.39",
+        "edition": "eCFR current",
+        "region": "United States",
+        "title": "OSHA - Reporting fatalities, hospitalizations, amputations and losses of an eye"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "(j)",
+        "code": "29 CFR 1910.179",
+        "edition": "eCFR current (read 2026-09-01 point in time)",
+        "region": "United States",
+        "title": "OSHA - Overhead and gantry cranes"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "maintenance_record",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,106 @@
+{
+  "$id": "demiton:shelf/timesheet_code_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "code": {
+      "description": "The pay / timesheet code the cross-source alias binding matches on",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "Owning legal entity where the source is multi-company",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Human name of the timesheet code",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "parent_time_code_reference": {
+      "description": "The source's nested parent/owning time-code object, if the code table is hierarchical",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_created_at": {
+      "description": "When the source system created the code",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_deleted_at": {
+      "description": "Soft-delete time in the source system, if the system keeps deleted codes in the feed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "source_modified_at": {
+      "description": "When the source system last modified the code",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`ASSIGNAR`, \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "timesheet_code_entity_id": {
+      "description": "Demiton canonical `TIMESHEET_CODE` spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "timesheet_code_entity_id",
+    "source_system",
+    "source_external_id",
+    "code",
+    "name"
+  ],
+  "title": "timesheet_code_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.87(1), 96(1), 535(1)",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 3.36",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "timesheet_code_list",
+  "x-demiton-store": "tenant"
+}

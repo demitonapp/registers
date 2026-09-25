@@ -1,0 +1,217 @@
+{
+  "$id": "demiton:shelf/asset_disposal/3",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The tracked plant/asset disposed of, when it resolves to the asset spine.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "disposal_method": {
+      "description": "How the item left service (sold / scrapped / written off / returned).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "disposed_at": {
+      "description": "The date of disposal as recorded on the form, where it differs from submission time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "disposed_item_description": {
+      "description": "What was disposed of, as named on the disposal record; the free-text fallback that carries the fact when no asset resolves.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "Stable identity of the source disposal record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the disposal falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "Source form template identity; meaningful only on form-backed sources.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The tenant template title the disposal was captured on.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "The WHS/environmental regime whose duty and retention rule apply.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the disposal was recorded/submitted; the life-cycle retirement event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "proceeds_amount": {
+      "description": "Sale proceeds, where the disposal was a sale.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "native currency (AUD default)"
+    },
+    "quantity": {
+      "description": "Number of items disposed, when more than one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "The worker who processed or submitted the disposal; the accountable identity.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "disposed_item_description",
+    "external_id",
+    "occurred_at"
+  ],
+  "title": "asset_disposal contract v3",
+  "type": "object",
+  "x-demiton-axes": [
+    {
+      "axis": "worker",
+      "requirement": "optional",
+      "role": "subject"
+    },
+    {
+      "axis": "asset",
+      "requirement": "required",
+      "role": "subject"
+    },
+    {
+      "axis": "financial_period",
+      "requirement": "optional",
+      "role": "context"
+    }
+  ],
+  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-measures": [
+    {
+      "accumulation": "additive",
+      "dtype": "decimal",
+      "key": "proceeds_amount",
+      "unit": "by_coordinate"
+    }
+  ],
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "AASB 116",
+        "edition": "compilation F2023C00192 (registered 2023-02-13)",
+        "region": "Australia",
+        "title": "Property, Plant and Equipment (Australian adoption of IAS 16)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO business record-keeping rules",
+        "edition": "page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO record-keeping for business (general 5-year retention; longer for depreciating assets)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(2)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 - obligation to keep financial records (7 years)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 237; reg 226",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (Safe Work Australia; given effect by each state/territory)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Directive 2012/19/EU",
+        "edition": "2012",
+        "region": "European Union",
+        "title": "Waste electrical and electronic equipment (WEEE) Directive"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "IAS 16",
+        "edition": "current (as amended)",
+        "region": "International",
+        "title": "Property, Plant and Equipment (IFRS Accounting Standards)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "ISO 14001:2026",
+        "edition": "2026",
+        "region": "International",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1; 10.2",
+        "code": "ISO 45001:2018",
+        "edition": "2018 + Amd 1:2024 (AS/NZS ISO 45001:2018 AU/NZ adoption)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.7; 10.2",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (AS/NZS ISO 9001:2016 adoption; 2026 edition expected)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASC 360",
+        "edition": "current",
+        "region": "United States",
+        "title": "Property, Plant, and Equipment (FASB Accounting Standards Codification)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "asset_disposal",
+  "x-demiton-store": "tenant"
+}

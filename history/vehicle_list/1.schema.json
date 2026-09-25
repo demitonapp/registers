@@ -1,0 +1,91 @@
+{
+  "$id": "demiton:shelf/vehicle_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the fleet vehicle the row is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "fleet_group": {
+      "description": "telematics fleet/group membership",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "label": {
+      "description": "human-readable vehicle name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "machine_type": {
+      "description": "`plant`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`trailer` \\"
+    },
+    "make": {
+      "description": "OEM / manufacturer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "model": {
+      "description": "OEM model designation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the observation/harvest timestamp of the register fact",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "registration": {
+      "description": "registration plate",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_jurisdiction": {
+      "description": "the state/territory that issued the plate",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_record_id": {
+      "description": "the source's own primary identifier for the record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "\u2014",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`TRIMBLE`)"
+    },
+    "vin": {
+      "description": "Vehicle Identification Number \u2014 the chassis identifier the platform converges the asset on",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "year_of_manufacture": {
+      "description": "year the vehicle was built",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "year"
+    }
+  },
+  "required": [
+    "asset",
+    "vin",
+    "label",
+    "source_system",
+    "source_record_id",
+    "occurred_at"
+  ],
+  "title": "vehicle_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "vehicle_list",
+  "x-demiton-store": "tenant"
+}

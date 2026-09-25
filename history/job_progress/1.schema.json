@@ -1,0 +1,80 @@
+{
+  "$id": "demiton:shelf/job_progress/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "job_end_date": {
+      "description": "BC's planned job end",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_no": {
+      "description": "the external BC job number, kept as the reconciliation key back to the ERP",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "job_start_date": {
+      "description": "BC's planned job start",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_status": {
+      "description": "BC's own job status text, passed through verbatim",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "percent_completed": {
+      "description": "WIP / cost-recognition completion for the job, clamped to `[0, 105]`, null when the BC WIP calc is invalid",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "%"
+    },
+    "percent_invoiced": {
+      "description": "the share of the job claimed/invoiced to date, clamped `[0, 105]`",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "%"
+    },
+    "percent_overdue_planning_lines": {
+      "description": "planning-line slippage signal on the job",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "%"
+    },
+    "project_id": {
+      "description": "the project (BC job) the KPIs belong to; the fact's subject anchor",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "project_manager": {
+      "description": "the job's responsible person",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_system": {
+      "description": "which bound ERP the KPIs were read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "suspect": {
+      "description": "the raw rejected value(s) and the reason, present only when a percentage fell outside `[0, 105]`",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_id",
+    "job_no",
+    "source_system",
+    "percent_completed",
+    "percent_invoiced"
+  ],
+  "title": "job_progress contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "job_progress",
+  "x-demiton-store": "tenant"
+}

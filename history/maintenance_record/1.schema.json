@@ -1,0 +1,149 @@
+{
+  "$id": "demiton:shelf/maintenance_record/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the item of plant the record is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "asset_hint": {
+      "description": "the free-text machine name the form carries when the top-level asset id is empty, used to resolve the `asset` anchor",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset_type": {
+      "description": "the plant type named on the form (e.g. the machine class)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "certifier": {
+      "description": "the competent person who performed or certified the service",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source form-result's own identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "form_id": {
+      "description": "the source form template identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "the tenant's own name for the maintenance form the record was captured on; the key the SAS value-map is bound to",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "hour_meter_reading": {
+      "description": "the second form family's hour/odometer reading at service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours (**unverified**)"
+    },
+    "inspection_class": {
+      "description": "pre-operational / routine / major inspection or service",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "interval_basis": {
+      "description": "why the next inspection/service is due \u2014 statutory interval, a competent person's examination scheme, or the manufacturer's recommendation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the WHS/examination regime whose interval and retention rule apply",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "labour_hours": {
+      "description": "labour hours booked to the service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "location": {
+      "description": "the place named on the form where the work happened",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "machine_hours": {
+      "description": "operating-hour meter reading at the time of service \u2014 the preferred hour source",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "next_due_at": {
+      "description": "the date the next inspection/service falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the maintenance record was submitted; the date the retention clock runs from",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "project": {
+      "description": "the project the plant was working on when serviced",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "service_cost": {
+      "description": "the total cost of the service",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "service_date": {
+      "description": "the date carried on the form, where it differs from submission time",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row; `ASSIGNAR` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_units": {
+      "description": "the source unit each measure arrived in, beside the canonical unit",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "tenant_payload": {
+      "description": "the tenant's own form questions and answers \u2014 servicing notes, faults found, parts, cost components, media/signature answers",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unplanned": {
+      "description": "1 when this maintenance event was a breakdown, 0 when it was planned work",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the worker who submitted the form; an anchor, not a declared axis",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "asset"
+  ],
+  "title": "maintenance_record contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "maintenance_record",
+  "x-demiton-store": "tenant"
+}

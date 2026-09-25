@@ -1,0 +1,68 @@
+{
+  "$id": "demiton:shelf/chart_of_accounts/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_category": {
+      "description": "the primary classification of the account (BC `category`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_name": {
+      "description": "the human label of the account",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_number": {
+      "description": "the account number as the tenant's ledger uses it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_sub_category": {
+      "description": "the finer classification (BC `subCategory`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_type": {
+      "description": "the BC account-type code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own account identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "last_modified_at": {
+      "description": "when the source last changed the account",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the company that owns the account",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "the system the account was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_system",
+    "external_id",
+    "account_number",
+    "account_name",
+    "account_category"
+  ],
+  "title": "chart_of_accounts contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "chart_of_accounts",
+  "x-demiton-store": "tenant"
+}

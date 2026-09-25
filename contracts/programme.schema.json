@@ -1,0 +1,114 @@
+{
+  "$id": "demiton:shelf/programme/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "date": {
+      "description": "The Finish date as written, e.g. `3/11/26`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "extraction_source": {
+      "description": "Provenance marker for how the content was obtained.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "milestones": {
+      "description": "null}`",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null, type: enum(milestone_type) \\"
+    },
+    "name": {
+      "description": "Task name, cleaned of IDs and day names.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "practical_completion_date": {
+      "description": "Finish date of the Practical Completion / PC task.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "Document revision as stated (e.g. `\"1\"`, `\"0\"`, `\"A\"`), else inferred from text or file name.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_document": {
+      "description": "\u2014",
+      "type": "object",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "null}`"
+    },
+    "start_date": {
+      "description": "Contract award / commencement / first mobilisation date.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "type": {
+      "description": "Milestone category.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_document"
+  ],
+  "title": "programme contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2124-1992",
+        "edition": "1992 (superseded)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019 (identical to ISO 19650-1:2018)",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works - concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019 (identical to ISO 19650-2:2018)",
+        "region": "Australia",
+        "title": "Organization and digitization of information - delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using BIM"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "NA.4.2 / NA.4.3 (per third party)",
+        "code": "BS EN ISO 19650-2 UK National Annex",
+        "edition": "2021",
+        "region": "United Kingdom",
+        "title": "UK National Annex status and revision codes"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "programme",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,162 @@
+{
+  "$id": "demiton:shelf/project_details/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address": {
+      "description": "Street/site address of the works",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_name": {
+      "description": "The customer/principal name for the project",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "country_code": {
+      "description": "Project country, default AU",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "end_date": {
+      "description": "Contract/works completion date",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_number": {
+      "description": "The canonical project code, `entity.canonical_key` \u2014 BC job number with optional Assignar sub-project suffix",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lifecycle_stage": {
+      "description": "The project's own lifecycle stage (estimating / delivering / complete), when the source provides one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Human-readable project name, `entity.label`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "postcode": {
+      "description": "Australian postal code of the works",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "start_date": {
+      "description": "Contract/works start date",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "state": {
+      "description": "Australian state/territory of the works",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "suburb": {
+      "description": "Locality of the works",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "job_number",
+    "name"
+  ],
+  "title": "project_details contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997 (superseded edition)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (ISO 14001:2026 published internationally)",
+        "region": "Australia",
+        "title": "Environmental management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 24",
+        "code": "Building and Construction Industry (Security of Payment) Act 2021 (WA)",
+        "edition": "as enacted",
+        "region": "Australia",
+        "title": "WA security of payment"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 17(2)",
+        "code": "Building and Construction Industry Security of Payment Act 2009 (Tas)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "Tas security of payment"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "International",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "project: id (required), title, status, period, parties, locations",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (switcher shows 0.9.4; unverified)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 18FD",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "project_details",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,179 @@
+{
+  "$id": "demiton:shelf/change_event/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accepted_days": {
+      "description": "the programme extension accepted",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "budget_impact": {
+      "description": "the estimated effect on budget",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "change_items": {
+      "description": "the event's itemised cost, budget and revenue lines",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "change_reason": {
+      "description": "why the change arose",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "change_type": {
+      "description": "the kind of change",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_impact": {
+      "description": "the estimated effect on cost",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the impact amounts",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "what happened",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own change event id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "number": {
+      "description": "the change event number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "origin": {
+      "description": "what raised the event, e.g. an RFI or an instruction",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "prime_contract": {
+      "description": "the head contract the event is estimated against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the change event is on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "raised_at": {
+      "description": "when the event was raised",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "raised_by": {
+      "description": "who raised the event",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "requested_days": {
+      "description": "the programme extension sought",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "revenue_impact": {
+      "description": "the estimated effect on revenue",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "scope": {
+      "description": "whether the change is in or out of the contract scope",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "where the event is in its lifecycle",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "what the potential change is",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "project",
+    "title",
+    "status"
+  ],
+  "title": "change_event contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-domain": "contracts",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2124-1992",
+        "edition": "1992",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 20 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art. 72",
+        "code": "Directive 2014/24/EU",
+        "edition": "consolidated",
+        "region": "European Union",
+        "title": "Directive 2014/24/EU on public procurement"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss. 74-75",
+        "code": "Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "change_event",
+  "x-demiton-store": "tenant"
+}

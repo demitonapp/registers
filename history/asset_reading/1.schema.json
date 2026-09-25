@@ -1,0 +1,87 @@
+{
+  "$id": "demiton:shelf/asset_reading/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine the reading belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "device": {
+      "description": "the telematics unit that produced the reading",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "driver": {
+      "description": "the driver logged in at the reading",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "engine_hours": {
+      "description": "the engine-hours meter reading",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "external_id": {
+      "description": "the source system's id for the reading, where it has one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "ignition_status": {
+      "description": "whether the ignition was on at the reading",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "location_label": {
+      "description": "where the machine was, as text",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "odometer": {
+      "description": "the odometer reading",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "odometer_at_install": {
+      "description": "the odometer when the device was fitted",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "read_at": {
+      "description": "when the reading was taken",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "reading_source": {
+      "description": "whether the reading is GPS-derived or from the CAN bus",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_system",
+    "asset",
+    "read_at"
+  ],
+  "title": "asset_reading contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "assets",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "asset_reading",
+  "x-demiton-store": "tenant"
+}

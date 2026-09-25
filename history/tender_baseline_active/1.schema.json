@@ -1,0 +1,43 @@
+{
+  "$id": "demiton:shelf/tender_baseline_active/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "_workflow_run_id": {
+      "description": "The producing `WorkflowRun` id, when the pointer was written by a run.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "activated_by": {
+      "description": "Who or what moved the pointer: an explicit human promotion, or the build that auto-activated because no version was active.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "active_version_id": {
+      "description": "The `version_id` of the `tender_baseline` build this org currently reads.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "baseline_method": {
+      "description": "The `method` string of the version being pinned (`robust_stats`, `cost`, `cost_structure`).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "updated_at": {
+      "description": "When the pointer last moved.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "UTC"
+    }
+  },
+  "required": [
+    "active_version_id"
+  ],
+  "title": "tender_baseline_active contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_baseline_active",
+  "x-demiton-store": "tenant"
+}

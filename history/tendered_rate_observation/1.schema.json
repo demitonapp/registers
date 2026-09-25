@@ -1,0 +1,100 @@
+{
+  "$id": "demiton:shelf/tendered_rate_observation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "band": {
+      "description": "a depth/length band extracted from the description (e.g. \"up to 23.0 metres\")",
+      "type": "object",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`max` in m"
+    },
+    "citation": {
+      "description": "the source workbook path, sheet name and line reference",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "composite": {
+      "description": "the unit could not be normalised to a known alias, so the rate is a composite",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "counterparty": {
+      "description": "the party the submission was made to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "derived_rate_per_m": {
+      "description": "`rate / band.max` for an each-unit line with a band",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency per m"
+    },
+    "gst_inclusive": {
+      "description": "whether `rate` is inclusive of GST",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "qty": {
+      "description": "the quantity on the priced line, when the template exposes one",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`unit_normalized`"
+    },
+    "rate": {
+      "description": "the tendered unit rate offered",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency per `unit_normalized`"
+    },
+    "rate_family": {
+      "description": "the rate-book bucket, classified from the sheet name and unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "the submission revision the agent recorded",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "submitted_at": {
+      "description": "when the priced schedule was submitted",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO-8601"
+    },
+    "unit_normalized": {
+      "description": "the controlled unit of measure the rate is per",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "unit_raw": {
+      "description": "the unit exactly as written in the workbook",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_activity": {
+      "description": "a v2 taxonomy classification of the work",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_item": {
+      "description": "the description of the priced line, as written in the submission",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "work_item",
+    "rate",
+    "unit_normalized",
+    "citation"
+  ],
+  "title": "tendered_rate_observation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tendered_rate_observation",
+  "x-demiton-store": "tenant"
+}

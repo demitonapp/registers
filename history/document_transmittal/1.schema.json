@@ -1,0 +1,135 @@
+{
+  "$id": "demiton:shelf/document_transmittal/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "approval_status": {
+      "description": "the approval state of the transmittal",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "confidential": {
+      "description": "whether the transmittal is confidential",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "correspondence_type": {
+      "description": "the kind of correspondence, e.g. transmittal or submittal",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "documents": {
+      "description": "the documents transmitted, each with number and revision",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own id for the transmittal",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "from_party": {
+      "description": "who sent the transmittal",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "in_reply_to": {
+      "description": "the transmittal this one answers",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "number": {
+      "description": "the transmittal number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "the project the transmittal is on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "reason_for_issue": {
+      "description": "why the documents were issued",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "response_due": {
+      "description": "when a response is due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "response_required": {
+      "description": "whether a response is owed",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "responsible_contractor": {
+      "description": "the contractor responsible for the submission",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "the submittal revision",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "sent_at": {
+      "description": "when the transmittal was issued",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specification_section": {
+      "description": "the specification section the documents address",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "whether it is outstanding, responded or closed",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "what the transmittal is",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "thread": {
+      "description": "the correspondence thread it belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "to_parties": {
+      "description": "who received it, with the distribution type",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "number",
+    "subject",
+    "status",
+    "sent_at"
+  ],
+  "title": "document_transmittal contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "documents",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "document_transmittal",
+  "x-demiton-store": "tenant"
+}

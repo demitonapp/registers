@@ -1,0 +1,92 @@
+{
+  "$id": "demiton:shelf/entity_link_origin/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "closed_date": {
+      "description": "The linked opportunity's close date.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "computed_at": {
+      "description": "When the origin fact was (re)materialised.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "link_source_system": {
+      "description": "The system whose shared alias key joins the pair (observed value `D365_BUSINESS_CENTRAL`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "object_entity_id": {
+      "description": "The linked object's canonical spine entity id (observed: an opportunity).",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "object_entity_type": {
+      "description": "The linked object's spine entity type (observed: `opportunity`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "object_external_id": {
+      "description": "The source system's natural key the two entities share \u2014 the join key the link is derived on.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "outcome": {
+      "description": "The linked object's outcome at materialisation time (`won`/`lost`/`open`).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "relation": {
+      "description": "The link direction/type, as declared by the org's `EntityLinkSpec.relation` (observed value `originated_from_opportunity`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "The subject entity the fact is anchored to (observed: a `project`).",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_type": {
+      "description": "The subject's spine entity type.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "The composed human-readable sentence about the link.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value": {
+      "description": "The linked opportunity's estimated value (BC `Estimated_Value_LCY`, AUD by default).",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency of `value`"
+    },
+    "value_currency": {
+      "description": "Currency of `value`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217"
+    }
+  },
+  "required": [
+    "relation",
+    "subject_entity_id",
+    "subject_entity_type",
+    "object_entity_id",
+    "object_entity_type",
+    "object_external_id",
+    "link_source_system",
+    "computed_at"
+  ],
+  "title": "entity_link_origin contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "entity_link_origin",
+  "x-demiton-store": "tenant"
+}

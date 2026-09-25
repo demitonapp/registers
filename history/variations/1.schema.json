@@ -1,0 +1,156 @@
+{
+  "$id": "demiton:shelf/variations/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "_source_file_name": {
+      "description": "Source document filename",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "_source_path": {
+      "description": "Source document path",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "_source_web_url": {
+      "description": "Source web URL for the interactive AI-Search path",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "acceptance_status": {
+      "description": "Whether the client accepted the advice",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "amount": {
+      "description": "Agreed amount (register)",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency not declared"
+    },
+    "amount_ex_gst": {
+      "description": "Total ex-GST amount of the variation",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "approved_by": {
+      "description": "Name of the approver (register)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "av_number": {
+      "description": "Per-project variation number (register)",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "bc_reference": {
+      "description": "Reference returned when the variation is pushed to the external system",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client": {
+      "description": "Client named on the advice",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_no": {
+      "description": "Client contract number on the advice",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "created_at": {
+      "description": "Creation timestamp (register)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "created_by_user_id": {
+      "description": "Identity of the creating user (register)",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "date_agreed": {
+      "description": "Date the variation was agreed (register)",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "Free-text variation description (register)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "doc_kind": {
+      "description": "Classification of the source artefact",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_ref": {
+      "description": "Document reference (register)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "line_items": {
+      "description": "The priced lines of the advice",
+      "type": "array",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "\u2014 (numbers as stated)"
+    },
+    "notes": {
+      "description": "Free text (register)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "pca_ref": {
+      "description": "Variation reference on the advice form; the per-advice supersede discriminator",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "pricing_basis": {
+      "description": "Which price option carried the amount",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "Register lifecycle state",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "subject": {
+      "description": "Subject line of the advice",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "summary": {
+      "description": "Engine-generated human summary folding the parsed keys",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "time_impact_days": {
+      "description": "Day count the variation requires",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "updated_at": {
+      "description": "Last-update timestamp (register)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "pca_ref",
+    "doc_kind",
+    "acceptance_status",
+    "line_items",
+    "_source_file_name",
+    "_source_path"
+  ],
+  "title": "variations contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "variations",
+  "x-demiton-store": "tenant"
+}

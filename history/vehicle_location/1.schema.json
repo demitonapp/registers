@@ -1,0 +1,114 @@
+{
+  "$id": "demiton:shelf/vehicle_location/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the vehicle/plant the snapshot is about; the shelf's only required coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "device": {
+      "description": "the telematics unit that produced the reading, distinct from the asset identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "distance_period": {
+      "description": "distance accumulated over the reading window (delta, not a lifetime meter)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "engine_hours": {
+      "description": "GPS-sourced lifetime engine-hours meter",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "engine_hours_can": {
+      "description": "CAN-bus twin of `engine_hours`",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "engine_hours_period": {
+      "description": "engine hours accumulated over the reading window",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "financial_period": {
+      "description": "the accounting period the snapshot falls in; derived, no raw source field",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "fuel_period": {
+      "description": "fuel consumed over the reading window",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "litres"
+    },
+    "last_event_type": {
+      "description": "the discriminator for what the last event was (type/subtype), for a state snapshot",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the last event on the unit happened; the shelf's temporal coordinate",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "odometer": {
+      "description": "GPS-sourced lifetime odometer meter",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "odometer_can": {
+      "description": "CAN-bus twin of `odometer`",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "operator": {
+      "description": "the driver/operator active on the unit",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "place_label": {
+      "description": "the human-readable location text delivered by the source",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "readings_at": {
+      "description": "when the meter readings were taken, distinct from the last-event time",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the snapshot",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trip": {
+      "description": "the source trip/journey the last event belongs to",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "source_system"
+  ],
+  "title": "vehicle_location contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "vehicle_location",
+  "x-demiton-store": "tenant"
+}

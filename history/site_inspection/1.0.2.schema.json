@@ -1,0 +1,209 @@
+{
+  "$id": "demiton:shelf/site_inspection/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The vehicle or plant item the checklist is about; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "attributes": {
+      "description": "Every remaining form answer keyed by the tenant's own question text, plus `_raw_metadata` at rest. This is where the **82 checklist answer slugs**, the **152 tenant-derived identity/vehicle slugs** and the **15 excluded tenant-authored keys** live; all are counted, not named (SC002).",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "comments": {
+      "description": "Free-text remarks on the inspection.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the inspection falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "flagged_item_count": {
+      "description": "Number of checklist answers whose **value** names a fault, derived from the response vocabulary by `form_measures`.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "form_id": {
+      "description": "The Assignar form-template id, the stable twin of `form_title`.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The matched Assignar form's title \u2014 which inspection instrument this fact is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "inspection_date": {
+      "description": "The date the form itself carries, distinct from submission time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the inspection was submitted; the event time and the retention clock start.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "odometer": {
+      "description": "The odometer or meter reading the inspection captured.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "unverified (the source states no unit)"
+    },
+    "project": {
+      "description": "The project the inspection is recorded against.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "unanswered_item_count": {
+      "description": "Number of answerable checklist questions left blank.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "worker": {
+      "description": "The worker who submitted or signed the inspection.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "asset",
+    "form_title"
+  ],
+  "title": "site_inspection contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 1742.3:2019",
+        "edition": "2019 (supersedes AS 1742.3-2009)",
+        "region": "Australia",
+        "title": "Manual of uniform traffic control devices - Traffic control for works on roads"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2550.10:2025",
+        "edition": "2025 (third edition; supersedes AS 2550.10-2006 + Amd 1)",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Safe use - Mobile elevating work platforms"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (2026 intl edition supersedes)",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2, 7.3, 10.2",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 (Amd 1 listing unverified)",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5; 8.7; 10.2",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 38(7) (5-year notifiable incident record); Part 3",
+        "code": "Model WHS Act",
+        "edition": "model Bill 1 Aug 2023",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 224, 226, 235, 237 (records of tests, inspections, maintenance of registered plant)",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2, 7.3, 10.2",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.7; 10.2",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (2026 expected)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "regs 9-11; Sch 1 (report contents incl. examination date and next due date)",
+        "code": "LOLER 1998",
+        "edition": "1998",
+        "region": "United Kingdom",
+        "title": "Lifting Operations and Lifting Equipment Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "RIDDOR 2013",
+        "edition": "2013",
+        "region": "United Kingdom",
+        "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1910.179(j) (initial, frequent, periodic inspections; certification records)",
+        "code": "29 CFR 1910.179",
+        "edition": "current eCFR",
+        "region": "United States",
+        "title": "Overhead and gantry cranes"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR Part 1904",
+        "edition": "current",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "site_inspection",
+  "x-demiton-store": "tenant"
+}

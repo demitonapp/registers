@@ -1,0 +1,115 @@
+{
+  "$id": "demiton:shelf/payroll_run/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "currency": {
+      "description": "denomination of the money measures",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "date_finalised": {
+      "description": "when the run reached its finalised state",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "date_paid": {
+      "description": "the date the run was paid",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's identifier for the pay run; the producer hinge",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the financial period the run is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "is_finalised": {
+      "description": "whether the run is finalised (reportable)",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the employing legal entity (the KeyPay business)",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "notation": {
+      "description": "the run's free-text label/notation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the pay period end \u2014 the payday the run is dated to",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "pay_period_start": {
+      "description": "first day of the pay period",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "pay_schedule_id": {
+      "description": "the pay schedule / calendar the run belongs to",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "pay_slips_published": {
+      "description": "whether payslips for the run have been published",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound payroll system emitted the run",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "total_gross": {
+      "description": "whole-run gross pay",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "total_net": {
+      "description": "whole-run net pay",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "worker": {
+      "description": "a worker the run paid, if the grain is ever per-worker",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "pay_period_start",
+    "financial_period",
+    "legal_entity",
+    "total_gross",
+    "total_net",
+    "is_finalised"
+  ],
+  "title": "payroll_run contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "payroll_run",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,287 @@
+{
+  "$id": "demiton:shelf/inspection_test_result/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accredited": {
+      "description": "whether the laboratory is accredited for the test",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "age_at_test_days": {
+      "description": "the specimen's age when tested",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "competent_person": {
+      "description": "the competent person responsible for the test",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "complies": {
+      "description": "whether the result meets the specification",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "curing_regime": {
+      "description": "how the concrete specimen was cured",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "defects_noted": {
+      "description": "specimen defects recorded at test",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the laboratory report or sample id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "field_dry_density": {
+      "description": "the field dry density measured",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "t/m3"
+    },
+    "field_moisture": {
+      "description": "the field moisture measured",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "inspection_level": {
+      "description": "the declared inspection and testing level, Level 1 or Level 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "laboratory": {
+      "description": "the laboratory that did the test",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "material": {
+      "description": "what was tested, e.g. soil, concrete or aggregate",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "mix_identifier": {
+      "description": "the concrete mix or supply identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "optimum_moisture_content": {
+      "description": "the optimum moisture content",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "outlier": {
+      "description": "whether the result was treated as an outlier",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose works were tested",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "reference_dry_density": {
+      "description": "the reference maximum dry density",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "t/m3"
+    },
+    "result_name": {
+      "description": "the quantity measured, e.g. compressive strength or dry density ratio",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "result_unit": {
+      "description": "the unit of the result, e.g. MPa or percent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "result_value": {
+      "description": "the measured result",
+      "type": "decimal",
+      "x-demiton-requiredness": "required"
+    },
+    "sampled_at": {
+      "description": "when the sample was taken",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specification_value": {
+      "description": "the acceptance criterion the result is judged against",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional"
+    },
+    "specimen": {
+      "description": "the specimen type and geometry, or the mould used",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_location": {
+      "description": "where on the works the test or sample was taken",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_lot": {
+      "description": "the test lot the result belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_method": {
+      "description": "the method designation and year, e.g. AS 1012.9:2014",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tested_on": {
+      "description": "the date the test was performed",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "testing_authority": {
+      "description": "whether a GITA or a GTA did the testing",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "test_method",
+    "material",
+    "tested_on",
+    "result_value",
+    "result_unit"
+  ],
+  "title": "inspection_test_result contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "AS 1012.9:2014 cl 4 (specimen defects to be noted per cl 11 and 12)",
+        "code": "AS 1012 series",
+        "edition": "series; parts separately dated (e.g. AS 1012.1:2014, 1012.8.1:2014, 1012.9:2014, 1012.14:2018)",
+        "region": "Australia",
+        "title": "Methods of testing concrete"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "AS 1289.5.1.1:2017 cl 3.1 (competent person)",
+        "code": "AS 1289 series",
+        "edition": "series; umbrella AS 1289.0:2014; parts separately dated (e.g. AS 1289.5.1.1:2017, 5.2.1:2017, 5.4.1:2007, 5.8.1:2007)",
+        "region": "Australia",
+        "title": "Methods of testing soils for engineering purposes"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 1379",
+        "edition": "edition conflicting: index lists 2007 as current, a reseller advertised AS 1379:2026 (unverified)",
+        "region": "Australia",
+        "title": "Specification and supply of concrete"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 3.5 site records; s 8.2-8.7 (Level 1/2, GITA, GTA, statements of compliance, frequency); App C4 outliers",
+        "code": "AS 3798-2007",
+        "edition": "2007 incorporating Amd 1 (2008)",
+        "region": "Australia",
+        "title": "Guidelines on earthworks for commercial and residential developments"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NATA accreditation",
+        "edition": "current",
+        "region": "Australia",
+        "title": "National Association of Testing Authorities accreditation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN 12350 / EN 12390 / EN 13286",
+        "edition": "EN editions as adopted by BS/I.S.",
+        "region": "European Union",
+        "title": "European concrete and unbound-mixture test standards"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 7 process requirements (no sub-clause cited)",
+        "code": "ISO/IEC 17025:2017",
+        "edition": "2017",
+        "region": "International",
+        "title": "General requirements for the competence of testing and calibration laboratories"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZS 3112:1986",
+        "edition": "1986 (parts 3112.1, 3112.2)",
+        "region": "New Zealand",
+        "title": "Methods of test for concrete"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZS 4402:1986",
+        "edition": "1986 (parts 4402.1, 4402.4.1.1, 4402.5.1.1)",
+        "region": "New Zealand",
+        "title": "Methods of testing soils for civil engineering purposes"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "BS EN 12350 / BS EN 12390",
+        "edition": "e.g. BS EN 12350-1:2019, -2:2019; BS EN 12390-1:2021, -2:2019, -3:2019, -4:2025, -5:2019",
+        "region": "United Kingdom",
+        "title": "Testing fresh concrete / Testing hardened concrete"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "BS EN 13286 / BS 1377",
+        "edition": "BS EN 13286-1:2021, BS EN 13286-2:2010, BS 1377-9:2025",
+        "region": "United Kingdom",
+        "title": "Unbound and hydraulically bound mixtures / Methods of test for soils for civil engineering purposes"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ASTM C172 / C31 / C39 / C143 / C231",
+        "edition": "C172/C172M-25, C31/C31M-26a, C39/C39M-24, C143/C143M-26a, C231/C231M-26",
+        "region": "United States",
+        "title": "ASTM fresh and hardened concrete sampling and test methods"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ASTM D698 / D1557 / D6938 / D2216",
+        "edition": "D698-12, D1557-12, D6938-23, D2216-19",
+        "region": "United States",
+        "title": "ASTM soil compaction, nuclear density and water content methods"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "inspection_test_result",
+  "x-demiton-store": "tenant"
+}

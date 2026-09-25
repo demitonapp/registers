@@ -1,0 +1,226 @@
+{
+  "$id": "demiton:shelf/legal_entities/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_line1": {
+      "description": "street address line 1",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line2": {
+      "description": "street address line 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "administrative_area": {
+      "description": "state/region",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "base_currency": {
+      "description": "the entity's functional currency",
+      "type": "currency",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency"
+    },
+    "country_code": {
+      "description": "country of registration/operation",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own company id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fiscal_year_start": {
+      "description": "financial-year start",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "identifier_authority": {
+      "description": "the register/authority that issues or validates the identifier",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "identifier_scheme": {
+      "description": "the scheme the primary identifier belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "identifier_value": {
+      "description": "the identifier in that scheme",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "legal_name": {
+      "description": "registered/legal name of the entity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "locality": {
+      "description": "suburb/city",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_code": {
+      "description": "postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_contact_name": {
+      "description": "the entity's general contact person",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_email": {
+      "description": "the entity's general contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "primary_phone": {
+      "description": "the entity's general contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status": {
+      "description": "registration state at a point in time",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status_as_at": {
+      "description": "when that status was verified",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "trading_name": {
+      "description": "name the entity trades under, if different",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "legal_name",
+    "base_currency"
+  ],
+  "title": "legal_entities contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "A New Tax System (Australian Business Number) Act 1999",
+        "edition": "current compilation",
+        "region": "Australia",
+        "title": "ABN and the Australian Business Register (ABN Lookup)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "A New Tax System (Goods and Services Tax) Act 1999 - tax invoice requirements",
+        "edition": "ATO guidance last updated 2025-08-25",
+        "region": "Australia",
+        "title": "GST tax invoice particulars (ATO tax invoice guidance)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "APPs 1-13",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "compilation current at 2026-09",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2",
+        "region": "Australia",
+        "title": "ATO Single Touch Payroll reporting (employer ABN/branch)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Annex Table 2, column 29 (organisation identifier: conditional mandatory)",
+        "code": "Commission Implementing Regulation (EU) 2019/1780 (eForms), as amended by (EU) 2023/2884",
+        "edition": "2019/1780 as amended 2023/2884",
+        "region": "European Union",
+        "title": "eForms standard forms for public procurement notices"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Goods and Services Tax Act 1985 (NZ) - taxable supply information",
+        "edition": "in force since 2023-04-01",
+        "region": "New Zealand",
+        "title": "GST taxable supply information (Inland Revenue guidance, in force 2023-04-01)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "New Zealand Business Number Act 2016",
+        "edition": "2016 No 16",
+        "region": "New Zealand",
+        "title": "NZBN Act 2016 and the NZBN Register"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "IPPs 1-13",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020 No 31",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 - Information Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "HMRC Real Time Information (RTI)",
+        "edition": "guidance updated 2026-04-06",
+        "region": "United Kingdom",
+        "title": "PAYE Real Time Information employer references (employer PAYE reference, Accounts Office reference)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg. 27(2)(e)(iii)",
+        "code": "Procurement Regulations 2024 (SI 2024/692)",
+        "edition": "SI 2024/692",
+        "region": "United Kingdom",
+        "title": "Procurement Regulations 2024, contract award notice content (under Procurement Act 2023)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR and Data Protection Act 2018",
+        "edition": "UK GDPR (retained) + DPA 2018",
+        "region": "United Kingdom",
+        "title": "UK General Data Protection Regulation with Data Protection Act 2018"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "52.204-7; maintenance via 52.204-13",
+        "code": "FAR 52.204-7",
+        "edition": "Nov 2024 (FAR through FAC 2026-01)",
+        "region": "United States",
+        "title": "Federal Acquisition Regulation clause 52.204-7 System for Award Management (SAM unique entity identifier) (Unique Entity ID, UEI)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "legal_entities",
+  "x-demiton-store": "tenant"
+}

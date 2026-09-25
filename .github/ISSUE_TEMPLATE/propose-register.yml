@@ -1,0 +1,23 @@
+name: Propose a new register
+description: A register you'd like to see, that doesn't exist here yet.
+labels: [proposal]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Register name
+      description: A short, lower-case, underscore-separated name, e.g. subcontract_variation.
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: What is it for
+      description: What would this register hold, and what would read or write it.
+    validations:
+      required: true
+  - type: textarea
+    id: fields
+    attributes:
+      label: Fields you'd expect
+      description: A rough list is fine; the pull request that follows can refine it.

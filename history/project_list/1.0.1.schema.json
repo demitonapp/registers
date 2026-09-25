@@ -1,0 +1,191 @@
+{
+  "$id": "demiton:shelf/project_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "active": {
+      "description": "Source's active flag",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line": {
+      "description": "Site/street address",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_name": {
+      "description": "Name of the client/owner party",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "country": {
+      "description": "ISO country code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_entity_id": {
+      "description": "Resolved CUSTOMER coordinate for the client",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "end_date": {
+      "description": "Planned or actual project completion",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_number": {
+      "description": "The cross-source project/job code that joins systems onto one entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "lifecycle_stage": {
+      "description": "Project lifecycle status/stage",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_at": {
+      "description": "Source last-modified timestamp (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Project display name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "parent_project_ref": {
+      "description": "Identifier of a parent project, where the source models a hierarchy",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postcode": {
+      "description": "Postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_entity_id": {
+      "description": "Demiton canonical project spine node this fact anchors to (the subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`ASSIGNAR`/`D365_BUSINESS_CENTRAL`/`KEYPAY`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "start_date": {
+      "description": "Planned or actual project start",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "state": {
+      "description": "State/territory code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "suburb": {
+      "description": "Locality",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "source_system"
+  ],
+  "title": "project_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019 (identical to ISO 19650-2:2018)",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works - delivery phase"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems (with AS/NZS ISO 45001:2018, AS/NZS ISO 14001:2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 (ITRF2014 @ 2020.0)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 8A NMA 1960",
+        "code": "National Measurement (Recognized-Value Standard of Measurement of Position) Determination 2017",
+        "edition": "2017 (a 2026 Determination is cited elsewhere; conflicting)",
+        "region": "Australia",
+        "title": "Legal definition of GDA2020 under National Measurement Act 1960 (Cth) s 8A"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE Data Specification on Coordinate Reference Systems (D2.8.I.1)",
+        "edition": "TG v3.2rc2 (release 2024.1)",
+        "region": "European Union",
+        "title": "INSPIRE CRS Technical Guidelines: ETRS89 horizontal, EVRS vertical"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EPSG Geodetic Parameter Dataset",
+        "edition": "v13.102",
+        "region": "International",
+        "title": "IOGP CRS registry (EPSG:7844 GDA2020, EPSG:7855 MGA zone 55, EPSG:4326 WGS 84 ensemble)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "project id (globally unique, registered prefix), title, status (projectStatus codelist), period, parties, relatedProjects",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (switcher shows 0.9.4; unverified)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000 / NZVD2016",
+        "edition": "NZGD2000 (1998); NZVD2016 (2016)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000, NZ Transverse Mercator 2000, NZ Vertical Datum 2016 (NZGeoid2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 / OSTN15 / OSGM15 (ODN)",
+        "edition": "OSTN15 / OSGM15",
+        "region": "United Kingdom",
+        "title": "Ordnance Survey National Grid, ETRS89 and the definitive transformations"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83(2011) / NAVD 88 (NSRS)",
+        "edition": "NAD 83 (2011/PA11/MA11) epoch 2010.00; NAVD 88",
+        "region": "United States",
+        "title": "US official horizontal and vertical datums, being replaced by NATRF2022 et al."
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "project_list",
+  "x-demiton-store": "tenant"
+}

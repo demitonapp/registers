@@ -1,0 +1,170 @@
+{
+  "$id": "demiton:shelf/worker_qualification/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "competence_status": {
+      "description": "the source's status flag for the assignment (active/inactive, or a verification state)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "competency": {
+      "description": "the qualification, certificate or licence held; the created `competency` entity, labelled from `competency.name`, joined to the worker by the `worker_holds_competency` edge",
+      "type": "object",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "competency_code": {
+      "description": "the stable vendor id of the competency type, so a title edit does not fork the entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "the tenant's own free-text description of the qualification",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "evidence_reference": {
+      "description": "a reference to the evidence document for the qualification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expiry_date": {
+      "description": "the date the qualification lapses \u2014 the field a compliance-by-exception reader needs",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the composite source key `<user_id>:<competency_id>`, cast to text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the issue date falls in, derived from `occurred_at`",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the qualification was issued",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "source_record_id": {
+      "description": "the source competency-assignment row's own id, for provenance",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the worker who holds the qualification",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "worker",
+    "competency"
+  ],
+  "title": "worker_qualification contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2; 7.3",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incorporating Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use (AU/NZ adoption)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2; 7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements (AU/NZ adoption of ISO 9001:2015)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "General construction induction training card (White Card)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Australian general construction induction card scheme"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 81; Schedule 3",
+        "code": "Model Work Health and Safety Regulations Schedule 3",
+        "edition": "model regs as amended 5 Dec 2025",
+        "region": "Australia",
+        "title": "High risk work licence classes (reg 81 and Schedule 3)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles; employee-records exemption; health information s.6FA"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "Act 2020; HIPC version as at 1 May 2026",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 and Health Information Privacy Code 2020"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CSCS card scheme",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Construction Skills Certification Scheme (non-statutory)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "worker_qualification",
+  "x-demiton-store": "tenant"
+}

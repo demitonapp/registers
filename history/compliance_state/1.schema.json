@@ -1,0 +1,180 @@
+{
+  "$id": "demiton:shelf/compliance_state/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "as_of": {
+      "description": "when the standing was last asserted by the org \u2014 the read-time clock for every derived status",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "cadence": {
+      "description": "`triennial` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`biennial` \\"
+    },
+    "classifications": {
+      "description": "the declared levels on one scheme, e.g. the NPS `A`/`B`/`F`/`R` level set",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "completed_at": {
+      "description": "when the org finished the standing wizard",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_value_range": {
+      "description": "the org's declared typical contract value range",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "declared": {
+      "description": "self-declared by the org, as opposed to evidenced",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "description": {
+      "description": "what the obligation requires",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "effective_from": {
+      "description": "the date the declared standing took effect",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_id": {
+      "description": "the evidence artefact backing the adherence claim",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_at": {
+      "description": "when the holding or the next evidence obligation lapses",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "fact_key": {
+      "description": "the per-record key inside the kind: `profile`, `scheme:{scheme_key}`, `obligation:{obligation_key}`, the requirement key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "is_active": {
+      "description": "whether the org still carries the obligation (inactive rows are kept visible, never retired)",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdictions": {
+      "description": "the jurisdictions the org declares it operates/contracts in",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "last_completed_at": {
+      "description": "when it was last satisfied",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "max_contract_value": {
+      "description": "the largest contract value the org declares it can take",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "next_due": {
+      "description": "when the obligation next falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "note": {
+      "description": "free-text assessor note",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "obligation_key": {
+      "description": "stable key for a recurring obligation: catalog `id` for a template, `custom:{slug}` for a user-added one",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "record_kind": {
+      "description": "`obligation` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`scheme` \\"
+    },
+    "requirement_id": {
+      "description": "the clause/scheme-requirement identifier being adhered to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "scheme_key": {
+      "description": "the catalog scheme/panel this row belongs to (`nps`, `iso45001`, \u2026, or `panel:{key}`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "shelf_type": {
+      "description": "the concrete pattern instance `compliance_state:{record_kind}:{fact_key}`; today the **only** carrier of the record kind and the per-record key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source": {
+      "description": "provenance of the obligation row (`template` today)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_id": {
+      "description": "the idempotency key the writer mints (today `shelf_type` + fact key + the `accept_fact` date part)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "the writer identity; `DEMITON` for all four kinds today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the standing's own state; today `scheme.status` defaults `\"active\"` (`:245`) and `requirement.status` is free-ish with `not_assessed` expressed as absence (`:1523-1528`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "the org the standing belongs to; the shared subject of all four kinds",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "the human name of the obligation/requirement (for a scheme, its catalog label)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "valid_until": {
+      "description": "supersession stamp; the live row is `valid_until IS NULL`",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "shelf_type",
+    "record_kind",
+    "fact_key",
+    "source_system",
+    "source_id",
+    "as_of",
+    "status",
+    "declared",
+    "scheme_key",
+    "jurisdictions",
+    "max_contract_value",
+    "obligation_key",
+    "title",
+    "cadence",
+    "is_active",
+    "requirement_id"
+  ],
+  "title": "compliance_state contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "compliance_state",
+  "x-demiton-store": "tenant"
+}

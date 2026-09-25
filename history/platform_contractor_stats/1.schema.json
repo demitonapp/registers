@@ -1,0 +1,145 @@
+{
+  "$id": "demiton:shelf/platform_contractor_stats/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn_source": {
+      "description": "\u2014",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`provisional`)"
+    },
+    "content": {
+      "description": "Human-readable narrative label, e.g. \"<name>: $X across N contracts (3yr)\".",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_count_3yr": {
+      "description": "Count of distinct contracts (by `ocid`, else fact id) with an award in the window.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless"
+    },
+    "contractor_abn": {
+      "description": "The CONTRACTOR_ABN axis: the contractor identity the rollup is keyed and superseded on. A real ABN where the publisher supplied one, otherwise a minted `demiton-c-<sha16>` name key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "contractor_entity_id": {
+      "description": "The civil-pipeline spine identity the rollup belongs to; also the producer's in-memory aggregation key.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "derived_from_fact_count": {
+      "description": "Number of award facts scanned to produce the row; provenance for the rollup.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_win_date": {
+      "description": "Date of the most recent award in the window.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "observed_at": {
+      "description": "Run time at which the rollup was computed; drives freshness ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "revenue_band": {
+      "description": "`mid` \\",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`small` \\"
+    },
+    "series_key": {
+      "description": "The semantic supersede identity, `platform_contractor_stats\\",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_dataset": {
+      "description": "Producer identity, `contractor_stats_aggregator`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "Source-native row identity, `contractor:<identity>`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "state_primary": {
+      "description": "The single most frequent state among the window's awards. Same entity/fact split as `states_active`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-2:AU subdivision"
+    },
+    "states_active": {
+      "description": "States the contractor's awards in the window belong to. Written to `PlatformEntity.attributes` today, not to the fact.",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-2:AU subdivision"
+    },
+    "tax_basis": {
+      "description": "`unstated`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`exclusive` \\"
+    },
+    "top_agency_names": {
+      "description": "Up to 5 buyer names with the most awards in the window.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "top_unspsc_codes": {
+      "description": "Up to 5 category codes with the most awards in the window.",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "UNSPSC code"
+    },
+    "total_awarded_aud_3yr": {
+      "description": "Sum, across the distinct contracts in the window, of each contract's latest observed award value.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "value_basis": {
+      "description": "What kind of money the measure is: awarded contract value, latest revision per contract \u2014 not a sum of award facts.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "window_end": {
+      "description": "Last day of the window (= the run date, `observed_at`).",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "window_start": {
+      "description": "First day of the rolling window the totals cover.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    }
+  },
+  "required": [
+    "contractor_abn",
+    "contractor_entity_id",
+    "series_key",
+    "window_start",
+    "window_end",
+    "total_awarded_aud_3yr",
+    "value_basis",
+    "contract_count_3yr",
+    "last_win_date",
+    "source_dataset",
+    "source_id",
+    "observed_at"
+  ],
+  "title": "platform_contractor_stats contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_contractor_stats",
+  "x-demiton-store": "platform"
+}

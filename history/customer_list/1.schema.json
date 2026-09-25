@@ -1,0 +1,156 @@
+{
+  "$id": "demiton:shelf/customer_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_line_1": {
+      "description": "Street address line 1",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line_2": {
+      "description": "Street address line 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blocked": {
+      "description": "Source's blocked/credit-hold status for the customer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "city": {
+      "description": "Locality",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "country_code": {
+      "description": "Customer's country",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "credit_limit": {
+      "description": "Credit limit the tenant extends to this customer",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency amount"
+    },
+    "customer_entity_id": {
+      "description": "Demiton canonical CUSTOMER spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "customer_number": {
+      "description": "The customer account code that joins this record to AR transactions across systems",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_type": {
+      "description": "The source's customer type (e.g. person/company distinction)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "default_currency_code": {
+      "description": "The customer's default transaction currency",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217"
+    },
+    "email": {
+      "description": "Customer contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_at": {
+      "description": "Source last-modified timestamp (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Registered/trading name of the customer party",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "payment_method_reference": {
+      "description": "Source id of the tenant-configured payment-method row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "payment_terms_reference": {
+      "description": "Source id of the tenant-configured payment-terms row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "phone": {
+      "description": "Customer contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_code": {
+      "description": "Postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "salesperson_code": {
+      "description": "Tenant's internal salesperson code for this customer",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "shipment_method_reference": {
+      "description": "Source id of the tenant-configured shipment-method row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`D365_BUSINESS_CENTRAL`/`D365_FINOPS`/`HUBSPOT`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "state": {
+      "description": "State/territory code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_area_display_name": {
+      "description": "Human label of the source's tax area",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_area_reference": {
+      "description": "Source id of the tenant-configured tax area row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_liable": {
+      "description": "Whether the customer is taxable in the source's tax setup",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_registration_number": {
+      "description": "The customer's ABN / GST / VAT identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "website": {
+      "description": "Customer website / domain",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "customer_entity_id",
+    "source_system"
+  ],
+  "title": "customer_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "customer_list",
+  "x-demiton-store": "tenant"
+}

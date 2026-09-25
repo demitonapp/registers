@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/contract_award_match/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "contract_award_match contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "contract_award_match",
+  "x-demiton-store": "tenant"
+}

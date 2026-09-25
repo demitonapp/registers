@@ -1,0 +1,232 @@
+{
+  "$id": "demiton:shelf/site_diary/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The plant or vehicle the diary records. Declared an INTEGER because Assignar's asset_id is numeric where it is populated at all.",
+      "type": "integer"
+    },
+    "content": {
+      "description": "The composed Q&A narrative - the semantic-search payload.",
+      "type": "string"
+    },
+    "delays": {
+      "description": "Delay reasons and their stated duration.",
+      "items": {
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "estimated_completion_date": {
+      "description": "Forecast completion for the linked project.",
+      "type": "date"
+    },
+    "external_id": {
+      "description": "The source system's own identifier for this diary record; substrate source identity and idempotency key. Declared an INTEGER because that is what the source carries - the identity is a string concept but the adapter does not render it as one.",
+      "type": "integer"
+    },
+    "financial_period": {
+      "description": "The claim/accounting period the diary day falls in.",
+      "type": "string"
+    },
+    "form_template_id": {
+      "description": "Which form template produced the row. Declared an INTEGER because Assignar's form_id is numeric.",
+      "type": "integer"
+    },
+    "headcount": {
+      "description": "Number of people on site for the day.",
+      "type": "integer"
+    },
+    "hired_plant": {
+      "description": "Hired plant/equipment on site for the day.",
+      "type": "string"
+    },
+    "incident_reported": {
+      "description": "Whether an incident report was submitted for this day. The diary is evidence, not the incident record.",
+      "type": "boolean"
+    },
+    "legal_entity": {
+      "description": "The contracting entity the diary belongs to.",
+      "type": "string"
+    },
+    "occurred_on": {
+      "description": "The diary's project-day (ISO 8601 date), distinct from when it was filed. One diary is one project-day.",
+      "type": "date"
+    },
+    "odometer_reading": {
+      "description": "Vehicle odometer at the diary. Unit unverified (km vs miles).",
+      "type": "number"
+    },
+    "progress": {
+      "description": "What progressed, and where the crew worked.",
+      "type": "string"
+    },
+    "project": {
+      "description": "The project the diary scopes. Optional because many live diaries carry no linked project. Declared an INTEGER because Assignar's project_id is numeric where populated.",
+      "type": "integer"
+    },
+    "source_modified_at": {
+      "description": "Last modification at source; the incremental harvest cursor.",
+      "type": "datetime"
+    },
+    "subcontractor": {
+      "description": "Subcontractor present on site.",
+      "type": "string"
+    },
+    "submitted_at": {
+      "description": "When the form was submitted, distinct from the diary day.",
+      "type": "datetime"
+    },
+    "tasks": {
+      "description": "The task(s) selected for the day.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tenant_questions": {
+      "description": "The tenant's own form questions, keyed by the slugified question label. Tenant-specific by construction - the same question does not exist for another tenant.",
+      "type": "object"
+    },
+    "weather": {
+      "description": "Site weather conditions for the day.",
+      "type": "string"
+    },
+    "worker": {
+      "description": "The worker who authored / is the subject of the diary. Declared an INTEGER because Assignar's worker_id is numeric.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "content",
+    "external_id",
+    "occurred_on"
+  ],
+  "title": "site_diary contract v1",
+  "type": "object",
+  "x-demiton-axes": [
+    {
+      "axis": "project",
+      "requirement": "optional",
+      "role": "subject"
+    },
+    {
+      "axis": "asset",
+      "requirement": "optional",
+      "role": "subject"
+    },
+    {
+      "axis": "legal_entity",
+      "requirement": "optional",
+      "role": "context"
+    },
+    {
+      "axis": "financial_period",
+      "requirement": "required",
+      "role": "context"
+    }
+  ],
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "3.5 Site records; Appendix B",
+        "code": "AS 3798-2007",
+        "edition": "2007 incl. Amd 1:2008",
+        "region": "Australia",
+        "title": "Guidelines on earthworks for commercial and residential developments"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 35-39",
+        "code": "Work Health and Safety Act 2011 (Cth)",
+        "edition": "2011 (as enacted in each harmonised jurisdiction)",
+        "region": "Australia",
+        "title": "Model WHS Act Part 3 - notifiable incidents"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "International",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 successor expected; unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Health and Safety at Work Act 2015 (NZ)",
+        "edition": "as amended",
+        "region": "New Zealand",
+        "title": "HSWA 2015 - records of notifiable events"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1904.33 (5-year retention)",
+        "code": "29 CFR Part 1904",
+        "edition": "as amended 2026-09-09",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "site_diary"
+}

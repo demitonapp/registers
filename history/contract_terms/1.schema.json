@@ -1,0 +1,182 @@
+{
+  "$id": "demiton:shelf/contract_terms/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "contract_sum": {
+      "description": "Total contract/subcontract price or lump sum. Parser rejects <1000 as a clause-number artefact.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD, plain (no `$`/commas)"
+    },
+    "defects_liability_months": {
+      "description": "Defects liability/correction period.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "months, converted from weeks/years"
+    },
+    "dispute_resolution_path": {
+      "description": "The contract's dispute escalation ladder, in order (e.g. negotiation, mediation, expert determination, arbitration, litigation).",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ordered list of step names, as written"
+    },
+    "eot_grounds": {
+      "description": "Pre-classified grounds on which this contract allows an extension of time to be claimed, so an event fact (e.g. a rain day) can be matched against its clause without free-text parsing at dispatch time.",
+      "items": {
+        "enum": [
+          "weather",
+          "latent_conditions",
+          "variation",
+          "suspension",
+          "access",
+          "other"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (closed enum)"
+    },
+    "indemnity_scope": {
+      "description": "The indemnity clause's scope and any cap or carve-outs, recorded verbatim.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "free text as written"
+    },
+    "insurance_requirements": {
+      "description": "Insurance types and minimum cover the contract requires - each entry an object with insurance_type, min_limit and endorsements - for cross-joining against insurance_certificate.expires_on.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "ld_cap": {
+      "description": "Liquidated damages ceiling (cross-refs the contract_penalty shelf's rate/cap fields).",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "ld_rate": {
+      "description": "Liquidated damages rate per calendar day.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD per day"
+    },
+    "notice_eot_days": {
+      "description": "Contractual notice window to raise a delay / extension-of-time claim after the delaying event.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_latent_conditions_days": {
+      "description": "Contractual notice window to notify latent or differing site conditions after they are encountered.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_suspension_days": {
+      "description": "Contractual notice window before a right to suspend work may be exercised.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_variation_days": {
+      "description": "Contractual notice window after a variation-triggering event, before which a variation claim must be raised or is time-barred.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "payment_timing_days": {
+      "description": "Contract time for payment of a payment claim.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "days"
+    },
+    "practical_completion_date": {
+      "description": "Date for Practical Completion / Date for Completion, verbatim.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "free text as written (e.g. \"11 January 2027\", \"26 weeks after Date of Contract\")"
+    },
+    "professional_indemnity": {
+      "description": "Professional indemnity cover amount.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "public_liability": {
+      "description": "Public liability insurance cover amount.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "retention_pct": {
+      "description": "Retention/security percentage of the contract price.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent, 0\u2013100 exclusive of 0"
+    },
+    "retention_release_milestones": {
+      "description": "Milestones at which retention is reduced or released - each entry an object naming the trigger (e.g. practical completion, end of defects liability) and the amount or percentage released.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "security": {
+      "description": "Form/amount of security, e.g. two unconditional undertakings totalling 5%.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a (form and/or amount)"
+    },
+    "security_expiry": {
+      "description": "Date the security (bank guarantee / undertaking) is returnable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "security_release_milestones": {
+      "description": "Milestones at which security is reduced or released - each entry an object naming the trigger and the amount or percentage released.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "time_bar_days": {
+      "description": "Window after the notice above within which the substantiated claim itself must be submitted, or it is time-barred (NEC-style two-stage notice/substantiation).",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "variation_overhead_pct": {
+      "description": "Overheads-and-profit percentage applied to variations.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent, 0\u2013100"
+    }
+  },
+  "required": [
+    "contract_sum",
+    "practical_completion_date",
+    "retention_pct",
+    "security",
+    "payment_timing_days"
+  ],
+  "title": "contract_terms contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "contract_terms",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,245 @@
+{
+  "$id": "demiton:shelf/site_geology/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "age": {
+      "description": "the unit's geological age / period",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "classification_scheme": {
+      "description": "which classification vocabulary the description/symbol follows (e.g. AS 1726:2017, BS 5930:2015+A1:2020, ASTM D2487-17(2025))",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "content": {
+      "description": "the prose answer a content search can match",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "formation_name": {
+      "description": "the named surface geology unit under the site",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "horizontal_datum": {
+      "description": "the datum the source coordinate is in (GDA2020 today)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "lithology": {
+      "description": "prose lithology description of the unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "map_scale": {
+      "description": "nominal scale of the product the answer came from; `null` where the product is a compilation with no single scale",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio (store the denominator N of 1:N)"
+    },
+    "map_source": {
+      "description": "which map service actually answered (1:100k state service vs 1:1M national fallback)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "map_symbol": {
+      "description": "the map sheet's unit symbol/code for the unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose site coordinate was resolved",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "projection_zone": {
+      "description": "the grid projection and zone, where the source states one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "resolved_at": {
+      "description": "when the coordinate was resolved",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "resolver_version": {
+      "description": "which resolver contract produced the answer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_format": {
+      "description": "the exchange format/version the answer came from (AGS 4.2, DIGGS 2.6, DIGGS 3.0, vendor/map service)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_datum": {
+      "description": "the vertical reference the source depths/heights are relative to (AHD in Australia)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "formation_name",
+    "map_source",
+    "content"
+  ],
+  "title": "site_geology contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "AHD / AUSGeoid2020",
+        "edition": "AHD71; AUSGeoid2020",
+        "region": "Australia",
+        "title": "Australian Height Datum with AUSGeoid2020 separation model"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 1289 series",
+        "edition": "series; parts separately dated (AS 1289.0:2014)",
+        "region": "Australia",
+        "title": "Methods of testing soils for engineering purposes"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 1726:2017",
+        "edition": "2017 (4th ed.)",
+        "region": "Australia",
+        "title": "Geotechnical site investigations"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 5488.1:2022",
+        "edition": "2022",
+        "region": "Australia",
+        "title": "Classification of Subsurface Utility Information (SUI)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 (ITRF2014 @ 2020.0)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 8A NMA 1960",
+        "code": "National Measurement (Recognized-Value Standard of Measurement of Position) Determination 2017",
+        "edition": "2017 (a 2026 Determination is cited elsewhere; conflicting)",
+        "region": "Australia",
+        "title": "Legal definition of GDA2020 under National Measurement Act 1960 (Cth) s 8A"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE Data Specification on Coordinate Reference Systems (D2.8.I.1)",
+        "edition": "TG v3.2rc2 (release 2024.1)",
+        "region": "European Union",
+        "title": "INSPIRE CRS Technical Guidelines: ETRS89 horizontal, EVRS vertical"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EPSG Geodetic Parameter Dataset",
+        "edition": "v13.102",
+        "region": "International",
+        "title": "IOGP CRS registry (EPSG:7844 GDA2020, EPSG:7855 MGA zone 55, EPSG:4326 WGS 84 ensemble)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 14688-1:2017 / ISO 14688-2:2017",
+        "edition": "2017 (EN ISO / BS EN ISO 2018 adoptions)",
+        "region": "International",
+        "title": "Geotechnical investigation and testing - Identification and classification of soil"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 4",
+        "code": "RFC 7946",
+        "edition": "August 2016",
+        "region": "International",
+        "title": "The GeoJSON Format"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000 / NZVD2016",
+        "edition": "NZGD2000 (1998); NZVD2016 (2016)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000, NZ Transverse Mercator 2000, NZ Vertical Datum 2016 (NZGeoid2016)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AGS 4.2",
+        "edition": "Edition 4.2 (2025-12-31)",
+        "region": "United Kingdom",
+        "title": "Electronic Transfer of Geotechnical and Geoenvironmental Data"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "BS 5930:2015+A1:2020",
+        "edition": "2015+A1:2020",
+        "region": "United Kingdom",
+        "title": "Code of practice for ground investigations"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 / OSTN15 / OSGM15 (ODN)",
+        "edition": "OSTN15 / OSGM15",
+        "region": "United Kingdom",
+        "title": "Ordnance Survey National Grid, ETRS89 and the definitive transformations"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ASTM D2487-17(2025)",
+        "edition": "D2487-17 reapproved 2025",
+        "region": "United States",
+        "title": "Classification of Soils for Engineering Purposes (USCS)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASTM D2488",
+        "edition": "D2488-26 (per NBS index)",
+        "region": "United States",
+        "title": "Description and Identification of Soils (Visual-Manual Procedures)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "DIGGS",
+        "edition": "2.6 (production); 3.0 released 2026-03-30 (authority unverified)",
+        "region": "United States",
+        "title": "Data Interchange for Geotechnical and Geoenvironmental Specialists"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83(2011) / NAVD 88 (NSRS)",
+        "edition": "NAD 83 (2011/PA11/MA11) epoch 2010.00; NAVD 88",
+        "region": "United States",
+        "title": "US official horizontal and vertical datums, being replaced by NATRF2022 et al."
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "site_geology",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,96 @@
+{
+  "$id": "demiton:shelf/gps_event/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine the event is about; the shelf's only required coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "coordinate_datum": {
+      "description": "the horizontal frame/realisation and epoch the lat/lng pair is expressed in (expected: GNSS native, WGS 84 ensemble EPSG:4326)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "coordinate_precision_class": {
+      "description": "whether the position is full precision or a reduced/precision-limited state",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "device": {
+      "description": "the telematics unit that produced the event, distinct from the asset identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "event_type": {
+      "description": "the discriminator that tells an ignition event from a speed or geofence crossing",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the event falls in; derived, no raw source field",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "geographic_area": {
+      "description": "the resolved geofence/area the asset was located at",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "latitude": {
+      "description": "GNSS-native latitude from the raw `GPS` block",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "longitude": {
+      "description": "GNSS-native longitude from the raw `GPS` block",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "occurred_at": {
+      "description": "when the event happened; the temporal coordinate",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "operator": {
+      "description": "the driver/operator active on the machine",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "place_label": {
+      "description": "the human-readable location delivered by the source",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trip": {
+      "description": "the source trip/journey grouping the event belongs to",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "source_system",
+    "event_type"
+  ],
+  "title": "gps_event contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "gps_event",
+  "x-demiton-store": "tenant"
+}

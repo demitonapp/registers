@@ -1,0 +1,84 @@
+{
+  "$id": "demiton:shelf/worker_qualification/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "competence_status": {
+      "description": "the source's status flag for the assignment (active/inactive, or a verification state)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "competency": {
+      "description": "the qualification, certificate or licence held; the created `competency` entity, labelled from `competency.name`, joined to the worker by the `worker_holds_competency` edge",
+      "type": "object",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "competency_code": {
+      "description": "the stable vendor id of the competency type, so a title edit does not fork the entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "the tenant's own free-text description of the qualification",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "evidence_reference": {
+      "description": "a reference to the evidence document for the qualification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expiry_date": {
+      "description": "the date the qualification lapses \u2014 the field a compliance-by-exception reader needs",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the composite source key `<user_id>:<competency_id>`, cast to text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the issue date falls in, derived from `occurred_at`",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the qualification was issued",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "source_record_id": {
+      "description": "the source competency-assignment row's own id, for provenance",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row; `ASSIGNAR` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "the worker who holds the qualification",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "competency"
+  ],
+  "title": "worker_qualification contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "worker_qualification",
+  "x-demiton-store": "tenant"
+}

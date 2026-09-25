@@ -1,0 +1,264 @@
+{
+  "$id": "demiton:shelf/purchase_line/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "Line value. Raw `lineAmount`. ADDITIVE.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`by_coordinate` (row currency)"
+    },
+    "amount_including_tax": {
+      "description": "Line value incl. tax. Raw `amountIncludingVat`. Tenant-specific: the R3 file is explicit that verified tax content rules attach to the invoice, not the order line (`payroll-and-invoicing.md:563-568`), and the tax rate/jurisdiction/rounding basis needed to reconcile it is not on this record (`:545-552`).",
+      "type": "decimal",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "tenant tax area"
+    },
+    "cost_code": {
+      "description": "The job task / cost code the line is coded to. Raw `jobTaskNumber`.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_dimension_1": {
+      "description": "Tenant dimension code 1. Raw `shortcutDimension1Code`. Tenant-specific: BC dimension semantics are configured per tenant, and the shelf's portable cost axis is `cost_code`.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "cost_dimension_2": {
+      "description": "Tenant dimension code 2. Raw `shortcutDimension2Code`. Same reason.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "currency": {
+      "description": "Denomination of `amount` and `unit_cost`. Raw `currencyCode`, falling back to company base currency when the field is empty.",
+      "type": "currency",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 4217 code"
+    },
+    "description": {
+      "description": "Line description. Raw `description`. Optional: no lens mandates it, but names it as what makes this shelf richer than `cost_element`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_number": {
+      "description": "Purchase document identity. Raw `documentNumber`. Half of the composite external id; without it no line can be deduplicated or superseded.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_type": {
+      "description": "Which purchase-document kind the line belongs to (order / invoice / credit memo). Raw `documentType`. Mandatory because the bound endpoint is not type-filtered while the sibling commitments query is, so without this field an invoice line is indistinguishable from a PO line.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the commitment is attributed to. Derived from `orderDate` by the period resolver, not a raw field.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "item_reference": {
+      "description": "The vendor's or tenant's item identifier. Raw `itemReferenceNumber` / `vendorItemNumber`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "The company/legal entity that placed the order; supplied by company context rather than a per-row field.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "line_number": {
+      "description": "Line identity within the document. Raw `lineNumber`. Second half of the composite id.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "order_date": {
+      "description": "When the line was ordered. Raw `orderDate`; already the producer's `occurred_at_field`, so no new source is needed \u2014 this row records it in the payload too.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The job the line commits cost against. Raw `jobNumber`; the bound filter already excludes rows without one (`jobNumber ne ''`, `baseline_squash_02_seed.sql:1198`).",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "Line quantity. Raw `quantity`. ADDITIVE, `missing=ZERO`.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`dimensionless` (unit of measure is a separate attribute)"
+    },
+    "receipt_expected_on": {
+      "description": "Expected / promised / requested receipt date. Raw `expectedReceiptDate`, `promisedReceiptDate`, `requestedReceiptDate`. Optional: no lens requires a commitment to carry a delivery date, and the three raw fields disagree in meaning.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "received_complete": {
+      "description": "Whether the line is fully received. Raw `completelyReceived` / `finished`. Tenant-specific because \"received\" is a workflow state of the tenant's procurement process, not a fact about the commitment.",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_area_code": {
+      "description": "Tenant tax area coding. Raw `taxAreaCode`. Same reason.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_group_code": {
+      "description": "Tenant tax group coding. Raw `taxGroupCode`. Same reason as `amount_including_tax`: tenant configuration vocabulary, no jurisdictional mandate on the order line.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unit_cost": {
+      "description": "Rate per unit. Raw `directUnitCost`. INSTANTANEOUS.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`by_coordinate`"
+    },
+    "unit_of_measure": {
+      "description": "The unit `quantity` is counted in. Raw `unitOfMeasureCode`. `quantity` is declared `dimensionless`, so the unit has to be carried as an attribute or the quantity is uninterpretable. Which of `unitOfMeasureCode` / `unitOfMeasure` is canonical is **unverified**; both are in the corpus.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "vendor": {
+      "description": "The supplier the line is placed with. Raw `buyFromVendorNumber`. Optional because the declaration says so and the axis name is not portable.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "currency",
+    "amount",
+    "quantity",
+    "unit_cost",
+    "document_number",
+    "line_number",
+    "document_type",
+    "order_date",
+    "unit_of_measure"
+  ],
+  "title": "purchase_line contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ABN Act 1999 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "A New Tax System (Australian Business Number) Act 1999 - ABN register"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "Australia",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 226",
+        "code": "Directive 2006/112/EC",
+        "edition": "consolidated CELEX 02006L0112-20250101",
+        "region": "European Union",
+        "title": "Council Directive 2006/112/EC on the common system of VAT"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2017 (withdrawn; 2026 edition published May 2026)",
+        "region": "European Union",
+        "title": "CEN EN 16931-1 Electronic invoicing - semantic data model"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OC4IDS 0.9.5",
+        "edition": "0.9.5 (site switcher shows 0.9.4)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OCDS 1.1.5",
+        "edition": "1.1 schema, docs 1.1.5",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "taxable supply information (s 19K); IRD guidance",
+        "code": "GST Act 1985 (NZ)",
+        "edition": "as amended from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "Goods and Services Tax Act 1985 (NZ)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZBN Act 2016",
+        "edition": "current",
+        "region": "New Zealand",
+        "title": "New Zealand Business Number Act 2016 - NZBN register"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ch 1-2, 5.1",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3 (mandatory from 15 Nov 2024)",
+        "region": "New Zealand",
+        "title": "Peppol PINT A-NZ Billing BIS (joint Australia-New Zealand specification)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702/G703",
+        "edition": "1992",
+        "region": "United States",
+        "title": "AIA G702-1992 / G703-1992"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "FAR 52.204-7",
+        "edition": "Nov 2024",
+        "region": "United States",
+        "title": "FAR 52.204-7 System for Award Management (unique entity identifier) (Unique Entity ID, UEI)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "purchase_line",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,122 @@
+{
+  "$id": "demiton:shelf/daily_log/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "completed": {
+      "description": "whether the day's log was completed",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "completed_at": {
+      "description": "when the log was completed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "completed_by": {
+      "description": "who completed the log",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "distributed": {
+      "description": "whether the log was sent out",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "distributed_at": {
+      "description": "when the log was sent out",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "ended_at": {
+      "description": "when work ended that day",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "entry_count": {
+      "description": "how many individual entries the day holds",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own log id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "interrupted_hours": {
+      "description": "hours lost to interruptions",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "log_date": {
+      "description": "the day the log covers",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "notes": {
+      "description": "the day's free-text notes",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the log is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "started_at": {
+      "description": "when work started that day",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "subcontractors_submitted": {
+      "description": "how many subcontractors submitted entries",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "log_date"
+  ],
+  "title": "daily_log contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 successor expected; unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "daily_log",
+  "x-demiton-store": "tenant"
+}

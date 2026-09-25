@@ -1,0 +1,97 @@
+{
+  "$id": "demiton:shelf/site_requisitions/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "comments": {
+      "description": "free-text note from the requester",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "custom_questions": {
+      "description": "the residual tenant form answers, including the form's own approval/authorisation answers",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "date_of_request": {
+      "description": "the date the requester raised the request",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "date_required": {
+      "description": "the date the requested items are needed on site",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "delivery_address": {
+      "description": "where the requested items are to be delivered",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Assignar form-result id; substrate source identity and idempotency key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the request falls in; a declared coordinate, not present in the source payload",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "which Assignar requisition form template produced the row \u2014 provenance for a title-pattern match that can sweep renamed forms",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "submission time of the requisition \u2014 the episodic event time",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "the project the request serves, when the form captured it",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "project_task": {
+      "description": "the project task/activity the request is for",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "requested_items": {
+      "description": "the plant/equipment and staff the requisition asks for, as an itemised list rather than one top-level key per named person or machine",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "site_address": {
+      "description": "the site address, where distinct from the delivery address",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_modified_at": {
+      "description": "last modification at source; the form_pattern delta cursor",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the worker the requisition is attributed to",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "worker"
+  ],
+  "title": "site_requisitions contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_requisitions",
+  "x-demiton-store": "tenant"
+}

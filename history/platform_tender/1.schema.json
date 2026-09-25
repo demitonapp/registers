@@ -1,0 +1,139 @@
+{
+  "$id": "demiton:shelf/platform_tender/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agency_id": {
+      "description": "Resolved platform agency identity (null when no buyer was published or resolvable).",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "agency_name": {
+      "description": "The buying organisation as published; the value `agency_id` is resolved from.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "category_name": {
+      "description": "The goods/services classification label.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "UNSPSC label where published"
+    },
+    "close_date": {
+      "description": "The tender period end \u2014 the date that makes a notice \"active\".",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "content": {
+      "description": "The composed narrative label; NULL on 100% of platform facts until 2026-08-28.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "The published tender description.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "The source-native tender key: AUSTENDER `ocid`/`id` (`ausatm-\u2026`), TENDERLINK/WESTERN_POWER namespaced `source_id`, TAS synthesised `notice_id`, VIC/SA/WA/NSW/VENDOR_PANEL `reference`/`notice_id`/`url` fallback.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_at": {
+      "description": "The tender event the fact is dated by: OCDS release `date`/`published_date`, TENDERLINK `release_date`, WESTERN_POWER `close_date`.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "ocid": {
+      "description": "The OCDS contracting-process identity, kept as PROVENANCE (lookup, citation, lifecycle-linker input), not an axis.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "platform_project_id": {
+      "description": "Resolved civil-project tracking id (the primary coordinate; may be a minted stub).",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "procurement_method": {
+      "description": "The procurement method where the source publishes one.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "published_date": {
+      "description": "The notice's publication date; equals `occurred_at` for most sources.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "reference": {
+      "description": "The source-native reference (also an `external_id` fallback).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "region": {
+      "description": "Tenderlink's free-text region, distinct from the derived jurisdiction.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "region_code": {
+      "description": "The jurisdiction that published the tender.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU state/territory code or `AU`"
+    },
+    "source_dataset": {
+      "description": "Producer identity (`austender`, `tenderlink`, `western_power`, `vendor_panel`, `vic_tenders`, `sa_tenders`, `wa_tenders`, `tas_tenders`, `nsw_etender`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "The source's tender status (e.g. AusTender `active`, Tenderlink status).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "submission_url": {
+      "description": "The submission portal URL where the source publishes one.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tender_type": {
+      "description": "The source's tender/notice type.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "The tender notice title \u2014 the human label for the release.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "url": {
+      "description": "The notice URL.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_aud": {
+      "description": "Estimated/budget tender value \u2014 the one declared measure.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "external_id",
+    "ocid",
+    "source_dataset",
+    "occurred_at",
+    "platform_project_id",
+    "title",
+    "close_date"
+  ],
+  "title": "platform_tender contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_tender",
+  "x-demiton-store": "platform"
+}

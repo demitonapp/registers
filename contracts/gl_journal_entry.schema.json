@@ -1,0 +1,107 @@
+{
+  "$id": "demiton:shelf/gl_journal_entry/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "credit_amount": {
+      "description": "credit movement of the line",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD (by coordinate)"
+    },
+    "currency": {
+      "description": "reporting currency of the amounts",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "debit_amount": {
+      "description": "debit movement of the line",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD (by coordinate)"
+    },
+    "description": {
+      "description": "the source's free-text journal description",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_number": {
+      "description": "the source document the entry belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_type": {
+      "description": "the journal/document type of the entry",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own entry identifier, e.g. BC `entryNumber`",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the entry falls in",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "gl_account": {
+      "description": "the ledger account the line posts to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the company whose ledger the entry belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the posting date the entry was booked on",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "project": {
+      "description": "the job the entry is attributed to, when the source supplies one",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "financial_period",
+    "gl_account",
+    "debit_amount",
+    "credit_amount"
+  ],
+  "title": "gl_journal_entry contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO record-keeping rules",
+        "edition": "ATO page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO business record-keeping rules (ITAA 1936 s 262A; TAA 1953 Sch 1 s 382-5)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(1), 286(2) (7 years)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - obligation to keep financial records"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "gl_journal_entry",
+  "x-demiton-store": "tenant"
+}

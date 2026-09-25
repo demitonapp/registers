@@ -1,0 +1,197 @@
+{
+  "$id": "demiton:shelf/utility_location/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_owner": {
+      "description": "the utility owner or network operator",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "depth_m": {
+      "description": "the depth of the utility below surface",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "detection_method": {
+      "description": "how the position was obtained, e.g. records, electromagnetic locator, ground-penetrating radar or trial pit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source's own feature id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "geometry": {
+      "description": "the located point or line",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "horizontal_accuracy_m": {
+      "description": "the horizontal accuracy of the position",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "horizontal_datum": {
+      "description": "the datum and projection of the geometry, e.g. MGA2020 zone 56",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the utility was located on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quality_level": {
+      "description": "the quality level of the location information, QL-D to QL-A",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "quality_level_scheme": {
+      "description": "the scheme and edition the level is from, e.g. AS 5488.1:2022",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "report_reference": {
+      "description": "the survey report the location comes from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "utility_type": {
+      "description": "the service, e.g. water, gas, electrical or telecommunications",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "validated": {
+      "description": "whether the position is validated",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_accuracy_m": {
+      "description": "the vertical accuracy of the position",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "vertical_datum": {
+      "description": "the datum any depth or level is referenced to, e.g. AHD",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "utility_type",
+    "quality_level",
+    "quality_level_scheme"
+  ],
+  "title": "utility_location contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "AHD / AUSGeoid2020",
+        "edition": "AHD71; AUSGeoid2020",
+        "region": "Australia",
+        "title": "Australian Height Datum with AUSGeoid2020 separation model"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS 5488.1:2022",
+        "edition": "2022 (2nd ed.)",
+        "region": "Australia",
+        "title": "Classification of Subsurface Utility Information (SUI)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 (ITRF2014 @ 2020.0)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE Data Specification on Coordinate Reference Systems (D2.8.I.1)",
+        "edition": "TG v3.2rc2 (release 2024.1)",
+        "region": "European Union",
+        "title": "INSPIRE CRS Technical Guidelines: ETRS89 horizontal, EVRS vertical"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 4",
+        "code": "RFC 7946",
+        "edition": "August 2016",
+        "region": "International",
+        "title": "The GeoJSON Format"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000 / NZVD2016",
+        "edition": "NZGD2000 (1998); NZVD2016 (2016)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000, NZ Transverse Mercator 2000, NZ Vertical Datum 2016 (NZGeoid2016)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OSGB36 / ETRS89 / OSTN15 / OSGM15 (ODN)",
+        "edition": "OSTN15 / OSGM15",
+        "region": "United Kingdom",
+        "title": "Ordnance Survey National Grid, ETRS89 and the definitive transformations"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "PAS 128:2022",
+        "edition": "2022 (2nd ed.)",
+        "region": "United Kingdom",
+        "title": "Specification for underground utility detection, verification and location"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASCE/UESI/CI 38-22",
+        "edition": "2022",
+        "region": "United States",
+        "title": "Standard Guideline for Investigating and Documenting Existing Utilities"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASCE/UESI/CI 75-22",
+        "edition": "2022",
+        "region": "United States",
+        "title": "Standard Guideline for Recording and Exchanging Utility Infrastructure Data"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83(2011) / NAVD 88 (NSRS)",
+        "edition": "NAD 83 (2011/PA11/MA11) epoch 2010.00; NAVD 88",
+        "region": "United States",
+        "title": "US official horizontal and vertical datums, being replaced by NATRF2022 et al."
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "utility_location",
+  "x-demiton-store": "tenant"
+}

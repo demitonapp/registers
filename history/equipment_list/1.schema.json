@@ -1,0 +1,141 @@
+{
+  "$id": "demiton:shelf/equipment_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the physical machine or tool the row is about",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "category": {
+      "description": "plant/equipment category or type (free text or taxonomy code)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "charge_rate": {
+      "description": "the tenant's hire/charge rate for the asset",
+      "type": "decimal",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "AUD/hour (**unverified**)"
+    },
+    "condition": {
+      "description": "observed condition state and the date it was recorded",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "current_location": {
+      "description": "where the asset is currently held/assigned",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "custodian": {
+      "description": "the person currently responsible for the asset",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "design_standard": {
+      "description": "the published design standard the lifting plant was built to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "label": {
+      "description": "human-readable asset name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "manufacturer": {
+      "description": "OEM / make",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "model": {
+      "description": "OEM model designation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "next_service_due": {
+      "description": "date the next service/inspection falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the observation/harvest timestamp of the register fact",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "ownership": {
+      "description": "owned / hired / leased",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rated_capacity": {
+      "description": "rated capacity / safe working load of lifting plant",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tonnes (**unverified**)"
+    },
+    "registrable": {
+      "description": "whether the item is one that must be registered before use",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration": {
+      "description": "registration plate / fleet registration",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_number": {
+      "description": "the item/design registration number issued by the regulator",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scan_code": {
+      "description": "barcode / QR / tag value used to scan the asset",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "serial_number": {
+      "description": "manufacturer serial number; the chosen cross-source asset-convergence key",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_record_id": {
+      "description": "the source's own primary identifier for the record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "operational state of the asset in the register",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "year_of_manufacture": {
+      "description": "year the machine was built",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "label",
+    "source_system",
+    "source_record_id",
+    "occurred_at"
+  ],
+  "title": "equipment_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "equipment_list",
+  "x-demiton-store": "tenant"
+}

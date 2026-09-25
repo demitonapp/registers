@@ -1,0 +1,101 @@
+{
+  "$id": "demiton:shelf/payment_schedule/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "calculation_basis": {
+      "description": "how the scheduled amount was calculated",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "claim": {
+      "description": "the payment claim this schedule responds to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "claimant": {
+      "description": "the party that made the claim",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "claimed_amount": {
+      "description": "the amount the claim sought",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the amounts",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the source system's own id for the schedule",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "issued_on": {
+      "description": "the date the schedule was provided",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "jurisdiction": {
+      "description": "the Security of Payment Act that governs the schedule",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "payment_due_on": {
+      "description": "the due date for payment of the scheduled amount",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project the claim and schedule relate to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "reasons_for_difference": {
+      "description": "why the scheduled amount is lower",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reasons_for_withholding": {
+      "description": "the reasons for withholding payment",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scheduled_amount": {
+      "description": "the amount the respondent proposes to pay",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "claim",
+    "scheduled_amount",
+    "currency",
+    "issued_on",
+    "jurisdiction"
+  ],
+  "title": "payment_schedule contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "contracts",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "payment_schedule",
+  "x-demiton-store": "tenant"
+}

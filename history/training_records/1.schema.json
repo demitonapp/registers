@@ -1,0 +1,101 @@
+{
+  "$id": "demiton:shelf/training_records/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "completed_at": {
+      "description": "Date the training was completed (or the log date), where the source records one.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "estimated_hours_required": {
+      "description": "Hours the source says are required **before** a VOC assessment; a planning figure, not delivery.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting/reporting period the record falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "Source form template identity, where the source is form-backed; distinguishes log from request without parsing answers.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the training was logged/requested (source `submitted_time`); the event time and the period key.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "provider_name": {
+      "description": "Training provider / registered training organisation (RTO) named on the record.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "record_kind_note": {
+      "description": "Free-text comments/notes the tenant attaches to the record.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "total_hours": {
+      "description": "Hours of training delivered/attended.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "training_cost": {
+      "description": "Cost of external training, where stated.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency (source must carry the currency)"
+    },
+    "training_kind": {
+      "description": "Whether the activity is a completed log entry or a **request**, and whether it is statutory/licence training, a scheme card, or internal.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "training_location": {
+      "description": "Where the training was delivered.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "training_title": {
+      "description": "What the training was \u2014 the course/programme name as recorded (log) or requested (request form).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker trained or requesting training; the record's subject and its accountability anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "training_title",
+    "training_kind"
+  ],
+  "title": "training_records contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "training_records",
+  "x-demiton-store": "tenant"
+}

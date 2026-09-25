@@ -1,0 +1,98 @@
+{
+  "$id": "demiton:shelf/leave_request/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "days": {
+      "description": "number of per-day leave rows behind the request",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "leave-day rows"
+    },
+    "financial_period": {
+      "description": "the pay period the leave falls in",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "from_date": {
+      "description": "first day of the leave",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "hours": {
+      "description": "paid hours of leave, summed from the per-day intervals",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "is_approved": {
+      "description": "whether the request is approved",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "leave_dates": {
+      "description": "the per-day leave intervals the request comprises",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "datetime (local)"
+    },
+    "leave_type": {
+      "description": "category of leave (annual, personal/carer's, \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "leave_type_id": {
+      "description": "the bound system's numeric leave-type id",
+      "type": "integer",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "leave_type_label": {
+      "description": "the vendor's display name for the leave type",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reason": {
+      "description": "the employee's stated reason",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_record_id": {
+      "description": "the source record's identity, for idempotent upsert",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the source status label (e.g. pending)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "to_date": {
+      "description": "last day of the leave",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "the employee the leave belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker",
+    "leave_type",
+    "from_date",
+    "to_date",
+    "hours",
+    "is_approved",
+    "source_record_id"
+  ],
+  "title": "leave_request contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "leave_request",
+  "x-demiton-store": "tenant"
+}

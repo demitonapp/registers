@@ -1,0 +1,274 @@
+{
+  "$id": "demiton:shelf/day_works_docket/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "The docket total.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency"
+    },
+    "asset": {
+      "description": "The plant or equipment used.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "attachments": {
+      "description": "Photo evidence attached to the docket.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "claimable_under_sop": {
+      "description": "whether the amount may be included in a Security-of-Payment claim in the governing jurisdiction",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_reference": {
+      "description": "The client's own docket or PO reference.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_representative": {
+      "description": "The client's authorised representative.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "contractor_representative": {
+      "description": "The contractor's authorised representative.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Who filled the docket in.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of `rate`/`amount`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "delay_days": {
+      "description": "Estimated delay, in days, attributable to the extra work.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "description": {
+      "description": "The works performed.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "The source row's own identifier.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the period the work is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "hours": {
+      "description": "Hours of extra work.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "narrative": {
+      "description": "The source form responses.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the docket was submitted.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "project": {
+      "description": "The project or job the extra work was done on.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "project_number": {
+      "description": "The human project number quoted on the docket.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rate": {
+      "description": "The agreed dayworks rate.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency per hour/unit"
+    },
+    "signature": {
+      "description": "The client sign-off on the docket.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_form_id": {
+      "description": "The id of the form template that produced the row.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_form_title": {
+      "description": "The title of the form template that produced the row.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tax_basis": {
+      "description": "whether `rate`/`amount` include GST/VAT",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_date": {
+      "description": "The calendar day the dayworks were performed, falling back to the diary date.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "worker": {
+      "description": "The worker the docket is attributed to.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "occurred_at",
+    "work_date",
+    "description"
+  ],
+  "title": "day_works_docket contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 20 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AU SoP Acts",
+        "edition": "various",
+        "region": "Australia",
+        "title": "Australian state and territory Security of Payment Acts (NSW 1999, QLD 2017, VIC 2002, WA 2021, SA 2009, TAS 2009, ACT 2009, NT 2004)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 17(6)",
+        "code": "TAS BCISP Act 2009",
+        "edition": "2009 (in force 2025-10-11)",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (Tas)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17-21",
+        "code": "NZ CCA 2002",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46, as amended 2015 and 2023"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "current",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 (NZ)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110A, 111",
+        "code": "HGCRA 1996 Part II",
+        "edition": "1996 c. 53 as amended",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996, Part II (as amended by LDEDCA 2009)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "SI 1998/649",
+        "edition": "1998 as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR / DPA 2018",
+        "edition": "as retained and amended",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment; Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "day_works_docket",
+  "x-demiton-store": "tenant"
+}

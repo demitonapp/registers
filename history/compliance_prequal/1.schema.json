@@ -1,0 +1,74 @@
+{
+  "$id": "demiton:shelf/compliance_prequal/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn": {
+      "description": "The Australian Business Number of the external legal entity that holds the registration; normalised by stripping spaces.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "classification": {
+      "description": "The class/level awarded within that scheme (e.g. an R-level or a level name); the source aliases it from `classification` or `level`.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "entity_name": {
+      "description": "The entity name as published in the source register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "expires_at": {
+      "description": "When the registration lapses; the parser reads `expires_at` or `valid_until` (`:145`).",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "last_synced_at": {
+      "description": "The instant the source register row was last normalised.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "legal_entity_id": {
+      "description": "The fact subject anchor: the `org`-typed `Entity` row the registration is anchored to. Declared as the `LEGAL_ENTITY` context coordinate at `OPTIONAL`.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "registered_at": {
+      "description": "When the registration took effect on the scheme; the parser reads `registered_at` or `valid_from` (`:144`) and the projector uses it as `occurred_at` (`:183`).",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "scheme": {
+      "description": "The prequalification scheme the registration is held on. Code set today: `tfnsw_r_levels`, `nsw_construction`, `vic_csr`, `qld_tmr`, `federal_npp`.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "status": {
+      "description": "Registration status as published. Defaults to `\"active\"` in the parser (`:143`); the projector only ever projects `active` rows (`:105-108`), so in this shelf it is effectively constant.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    }
+  },
+  "required": [
+    "abn",
+    "scheme",
+    "classification"
+  ],
+  "title": "compliance_prequal contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "compliance_prequal",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "demiton:shelf/evidence_gap_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "consequence": {
+      "description": "what missing the standard costs, from the standard's own field",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "detail": {
+      "description": "a one-line human-readable explanation of the verdict",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "dispute_type": {
+      "description": "the dispute type the standard defends against",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "exposure_aud": {
+      "description": "a proxy dollar exposure from the project's own contract terms",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "grade": {
+      "description": "the standard's own citation grade",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "reason": {
+      "description": "the unmeasurable reason code, or the missed consequence code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_clause": {
+      "description": "the standard's own clause or section",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_title": {
+      "description": "the standard's own source, carried onto the verdict for display",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_url": {
+      "description": "the standard's own source URL",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "standard_key": {
+      "description": "which evidence standard this verdict is about",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "met, at_risk, missed, or unmeasurable",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "standard_key",
+    "dispute_type",
+    "status",
+    "detail",
+    "consequence",
+    "source_title",
+    "source_clause",
+    "grade"
+  ],
+  "title": "evidence_gap_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "compliance",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "evidence_gap_verdict",
+  "x-demiton-store": "tenant"
+}

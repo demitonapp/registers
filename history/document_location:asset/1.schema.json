@@ -1,0 +1,112 @@
+{
+  "$id": "demiton:shelf/document_location:asset/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "authored_by": {
+      "description": "Who authored the binding and when, carried inside the authored-metadata wrapper",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "binding_status": {
+      "description": "Whether the operator has confirmed the binding or it is still a candidate",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "connector_ref": {
+      "description": "The logical alias of the connector that reaches this source; also the export/import scope filter",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "coordinate_key": {
+      "description": "The override discriminator stored in the fact identity \u2014 bare when there is no coordinate override, else an 8-hex hash of the coordinate selector",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "doc_subpath": {
+      "description": "An optional fixed sub-path inside the asset folder where this doc type's files sit",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "doc_type": {
+      "description": "The specific document type this binding locates, or null for the asset type's general home; part of the supersede key",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "entity_folder_pattern": {
+      "description": "How each asset's own folder is named, binding a folder to the asset by its number token",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "entity_type": {
+      "description": "The entity kind whose documents this binding locates; the discriminator that makes the key `document_location:asset`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "file_glob": {
+      "description": "The file match for this doc type, either `*` (no filter) or a single `*.ext` glob",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "folder_pattern": {
+      "description": "A case-insensitive regex matched against folder names at any depth, used where no single sub-path name holds",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "lifecycle_folders": {
+      "description": "The status-tagged folders to traverse, each a folder name plus the entity status it holds",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_system": {
+      "description": "The producing system of the fact \u2014 an operator authoring, not a harvest",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sources": {
+      "description": "The ordered list of places to look; each element is one complete declarative locator",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "store_drive_id": {
+      "description": "The store's drive identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "store_drive_name": {
+      "description": "The drive's display name, used to translate between the store root and display paths",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "store_root": {
+      "description": "The path under the store root to start from (null/empty for systems addressed by site+drive)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "store_site_id": {
+      "description": "The store's site identifier; needed to reach a source on systems addressed by site",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "system": {
+      "description": "The storage system of one source; only SharePoint and Dropbox are crawlable",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "entity_type",
+    "coordinate_key",
+    "sources",
+    "system",
+    "connector_ref",
+    "source_system"
+  ],
+  "title": "document_location:asset contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "document_location:asset",
+  "x-demiton-store": "tenant"
+}

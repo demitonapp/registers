@@ -1,0 +1,164 @@
+{
+  "$id": "demiton:shelf/day_works_docket/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "The docket total.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency"
+    },
+    "asset": {
+      "description": "The plant or equipment used.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "attachments": {
+      "description": "Photo evidence attached to the docket.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "claimable_under_sop": {
+      "description": "whether the amount may be included in a Security-of-Payment claim in the governing jurisdiction",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_reference": {
+      "description": "The client's own docket or PO reference.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "client_representative": {
+      "description": "The client's authorised representative.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "contractor_representative": {
+      "description": "The contractor's authorised representative.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Who filled the docket in.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of `rate`/`amount`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "delay_days": {
+      "description": "Estimated delay, in days, attributable to the extra work.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "description": {
+      "description": "The works performed.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "The source row's own identifier.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the period the work is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "hours": {
+      "description": "Hours of extra work.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "narrative": {
+      "description": "The source form responses.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the docket was submitted.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "project": {
+      "description": "The project or job the extra work was done on.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "project_number": {
+      "description": "The human project number quoted on the docket.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rate": {
+      "description": "The agreed dayworks rate.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency per hour/unit"
+    },
+    "signature": {
+      "description": "The client sign-off on the docket.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_form_id": {
+      "description": "The id of the form template that produced the row.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_form_title": {
+      "description": "The title of the form template that produced the row.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tax_basis": {
+      "description": "whether `rate`/`amount` include GST/VAT",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_date": {
+      "description": "The calendar day the dayworks were performed, falling back to the diary date.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "worker": {
+      "description": "The worker the docket is attributed to.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "occurred_at",
+    "work_date",
+    "description"
+  ],
+  "title": "day_works_docket contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "day_works_docket",
+  "x-demiton-store": "tenant"
+}

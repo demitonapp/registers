@@ -1,0 +1,143 @@
+{
+  "$id": "demiton:shelf/site_diary/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The plant or vehicle the diary records. Declared an INTEGER because Assignar's asset_id is numeric where it is populated at all.",
+      "type": "integer"
+    },
+    "content": {
+      "description": "The composed Q&A narrative - the semantic-search payload.",
+      "type": "string"
+    },
+    "delays": {
+      "description": "Delay reasons and their stated duration.",
+      "items": {
+        "properties": {
+          "comment": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "estimated_completion_date": {
+      "description": "Forecast completion for the linked project.",
+      "type": "date"
+    },
+    "external_id": {
+      "description": "The source system's own identifier for this diary record; substrate source identity and idempotency key. Declared an INTEGER because that is what the source carries - the identity is a string concept but the adapter does not render it as one.",
+      "type": "integer"
+    },
+    "financial_period": {
+      "description": "The claim/accounting period the diary day falls in.",
+      "type": "string"
+    },
+    "form_template_id": {
+      "description": "Which form template produced the row. Declared an INTEGER because Assignar's form_id is numeric.",
+      "type": "integer"
+    },
+    "headcount": {
+      "description": "Number of people on site for the day.",
+      "type": "integer"
+    },
+    "hired_plant": {
+      "description": "Hired plant/equipment on site for the day.",
+      "type": "string"
+    },
+    "incident_reported": {
+      "description": "Whether an incident report was submitted for this day. The diary is evidence, not the incident record.",
+      "type": "boolean"
+    },
+    "legal_entity": {
+      "description": "The contracting entity the diary belongs to.",
+      "type": "string"
+    },
+    "occurred_on": {
+      "description": "The diary's project-day (ISO 8601 date), distinct from when it was filed. One diary is one project-day.",
+      "type": "date"
+    },
+    "odometer_reading": {
+      "description": "Vehicle odometer at the diary. Unit unverified (km vs miles).",
+      "type": "number"
+    },
+    "progress": {
+      "description": "What progressed, and where the crew worked.",
+      "type": "string"
+    },
+    "project": {
+      "description": "The project the diary scopes. Optional because many live diaries carry no linked project. Declared an INTEGER because Assignar's project_id is numeric where populated.",
+      "type": "integer"
+    },
+    "source_modified_at": {
+      "description": "Last modification at source; the incremental harvest cursor.",
+      "type": "datetime"
+    },
+    "subcontractor": {
+      "description": "Subcontractor present on site.",
+      "type": "string"
+    },
+    "submitted_at": {
+      "description": "When the form was submitted, distinct from the diary day.",
+      "type": "datetime"
+    },
+    "tasks": {
+      "description": "The task(s) selected for the day.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tenant_questions": {
+      "description": "The tenant's own form questions, keyed by the slugified question label. Tenant-specific by construction - the same question does not exist for another tenant.",
+      "type": "object"
+    },
+    "weather": {
+      "description": "Site weather conditions for the day.",
+      "type": "string"
+    },
+    "worker": {
+      "description": "The worker who authored / is the subject of the diary. Declared an INTEGER because Assignar's worker_id is numeric.",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "content",
+    "external_id",
+    "occurred_on"
+  ],
+  "title": "site_diary contract v1",
+  "type": "object",
+  "x-demiton-axes": [
+    {
+      "axis": "project",
+      "requirement": "optional",
+      "role": "subject"
+    },
+    {
+      "axis": "asset",
+      "requirement": "optional",
+      "role": "subject"
+    },
+    {
+      "axis": "legal_entity",
+      "requirement": "optional",
+      "role": "context"
+    },
+    {
+      "axis": "financial_period",
+      "requirement": "required",
+      "role": "context"
+    }
+  ],
+  "x-demiton-contract-version": 1,
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_diary"
+}

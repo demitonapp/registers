@@ -1,0 +1,117 @@
+{
+  "$id": "demiton:shelf/tender_addendum/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "addendum_number": {
+      "description": "the addendum's number in the tender's sequence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "closing_date": {
+      "description": "the tender closing date after this addendum",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "what the addendum changes",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "documents": {
+      "description": "the documents issued with the addendum",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own addendum id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_at": {
+      "description": "when the addendum was issued",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "issued_by": {
+      "description": "who issued the addendum",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "opportunity": {
+      "description": "the tender the addendum amends",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "previous_closing_date": {
+      "description": "the closing date before this addendum",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "rationale": {
+      "description": "why the addendum was issued",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "the addendum's short title",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "opportunity",
+    "issued_at"
+  ],
+  "title": "tender_addendum contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "opportunities",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs",
+        "edition": "17 November 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Change form",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "tender.amendments (Amendment: id, date, description, rationale); tender.tenderPeriod.endDate; tender.documents",
+        "code": "OCDS",
+        "edition": "1.1 (documentation release 1.1.5)",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZ GPR",
+        "edition": "5th edition (effective 1 Dec 2025)",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "tender_addendum",
+  "x-demiton-store": "tenant"
+}

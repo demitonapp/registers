@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/tender_column_mapping/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "tender_column_mapping contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tender_column_mapping",
+  "x-demiton-store": "tenant"
+}

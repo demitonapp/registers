@@ -1,0 +1,89 @@
+{
+  "$id": "demiton:shelf/health_screening/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "attributes": {
+      "description": "Every remaining form answer, keyed by the tenant's own question text, plus `_raw_metadata` at rest.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "confirmation": {
+      "description": "Whether the worker confirmed the declaration on the form.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "control_measures_required": {
+      "description": "Control measures the screening identified as required.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fatigue_self_assessment_score": {
+      "description": "The fatigue self-assessment value, where the form carries one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "score"
+    },
+    "financial_period": {
+      "description": "The accounting period the screening falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "The Assignar form-template id (87, 430, 211 for the three title patterns), the stable twin of `form_title`.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The matched Assignar form's title \u2014 which screening instrument this fact is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_at": {
+      "description": "When the screening record was submitted; the event time and the retention clock start.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The project the screening was recorded against, where the source gives one.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "screened_on": {
+      "description": "The screening's own date where the form states one (the reader's `date` answer / `diary_date` fallback).",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today and the only system column the frozen universe names.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker the screening is about; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "form_title"
+  ],
+  "title": "health_screening contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "health_screening",
+  "x-demiton-store": "tenant"
+}

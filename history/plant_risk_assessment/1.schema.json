@@ -1,0 +1,131 @@
+{
+  "$id": "demiton:shelf/plant_risk_assessment/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actions_required": {
+      "description": "Follow-up actions the assessment requires.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "assessment_date": {
+      "description": "The date the form itself carries, distinct from submission time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset": {
+      "description": "The plant item the assessment is about, where the title's suffix resolves to exactly one registered asset.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "attributes": {
+      "description": "Every remaining form answer, keyed by the tenant's own question text, plus `_raw_metadata` at rest. This is where the **270 person-name-like slugs** (814 fact-field occurrences) and the **24 excluded tenant-authored keys** (881 occurrences, longest 115 characters) live; both are counted, not named (SC002).",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "controls_implemented": {
+      "description": "Controls in place at the time of the assessment.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "controls_recommended": {
+      "description": "Controls or actions recommended by the assessment.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the record falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "The Assignar form-template id, the stable twin of `form_title`.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The matched Assignar form's title \u2014 which instrument this fact is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "hazard_description": {
+      "description": "The hazard identified, and its details.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "hazard_location": {
+      "description": "Where the hazard is.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the assessment or hazard report was submitted; the event time and the retention clock start.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_on": {
+      "description": "The date the hazard or occurrence happened, where the form states one.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "The project the assessment was recorded against, where the source gives one.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "reported_by": {
+      "description": "The person who reported the hazard.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "reported_on": {
+      "description": "The date the hazard was reported, where the form states one.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "reported_to": {
+      "description": "The person the hazard was reported to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "risk_rating": {
+      "description": "The risk-matrix selection the form records.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today and the only system the frozen universe names.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker who submitted or signed the record; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "form_title"
+  ],
+  "title": "plant_risk_assessment contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "plant_risk_assessment",
+  "x-demiton-store": "tenant"
+}

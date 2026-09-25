@@ -1,0 +1,97 @@
+{
+  "$id": "demiton:shelf/compliance_certifications/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "_source_file_name": {
+      "description": "the source file's name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "_source_path": {
+      "description": "the vault path of the source document; the idempotency/dedupe key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "certificate_number": {
+      "description": "the issuer's certificate or registration number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "certifying_body": {
+      "description": "the body that issued the certificate (JAS-ANZ-accredited certifier, state road agency, council)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "classification_basis": {
+      "description": "`membership` \\",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`scheme_card` \\"
+    },
+    "classifications": {
+      "description": "NPS category levels stated together on one certificate (road/bridge/financial/asphalt)",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "expiry_date": {
+      "description": "the date the certification lapses, `null`/absent when the document states none",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "holder": {
+      "description": "the certified legal entity name as stated on the document",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "issued_date": {
+      "description": "the date the certification was issued",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the jurisdiction the certificate is valid in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scheme": {
+      "description": "the scheme/standard label as stated, e.g. an ISO designation or a prequalification scheme name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scheme_key": {
+      "description": "the catalog scheme this certificate is evidence of holding",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scope": {
+      "description": "the certified scope of work, as stated",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "summary": {
+      "description": "the one-line prose rendering of the fact",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "what the certificate or registration is",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "title",
+    "certifying_body",
+    "holder",
+    "expiry_date",
+    "_source_path"
+  ],
+  "title": "compliance_certifications contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "compliance_certifications",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,70 @@
+{
+  "$id": "demiton:shelf/site_activity/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "activity": {
+      "description": "what work was performed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset": {
+      "description": "the plant/equipment used",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the claim/accounting period the activity falls in",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "hours": {
+      "description": "labour hours attributable to this activity",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "occurred_on": {
+      "description": "the day the activity is attributed to",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the site/project the activity occurred on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "measured work output for the record",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "the `unit` value"
+    },
+    "unit": {
+      "description": "the unit of measure for `quantity`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the worker present or working",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "occurred_on",
+    "project"
+  ],
+  "title": "site_activity contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "site_activity",
+  "x-demiton-store": "tenant"
+}

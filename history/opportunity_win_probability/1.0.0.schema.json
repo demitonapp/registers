@@ -1,0 +1,105 @@
+{
+  "$id": "demiton:shelf/opportunity_win_probability/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accuracy": {
+      "description": "Share of held-out decided opportunities classified correctly at the 0.5 threshold.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "fraction 0\u20131"
+    },
+    "brier_score": {
+      "description": "Calibration error of the fit that issued these predictions, when a backtest was run.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "unitless (lower better)"
+    },
+    "currency": {
+      "description": "Currency the scored pursuit is denominated in; today stamped `\"AUD\"` unconditionally by the producer.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "customer": {
+      "description": "The customer the pursuit is for, where one exists.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "feature_values": {
+      "description": "The five bounded feature inputs to the score: `value_band` (0\u20134), `has_customer`, `work_type_known`, `sales_cycle_known`, `log_value`.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "model_version": {
+      "description": "Version tag of the issuing model.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "n_losses": {
+      "description": "Negative-class examples in the fit.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "count"
+    },
+    "n_training_rows": {
+      "description": "Decided (won/lost) opportunities the fit used; `MIN_TRAINING_ROWS = 5` gates whether any prediction is emitted.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "count"
+    },
+    "n_wins": {
+      "description": "Positive-class examples in the fit.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "count"
+    },
+    "p_win": {
+      "description": "Model-issued probability that the referenced pursuit is won. The shelf's only measure, already declared `PREDICTIVE`/`float`/`probability`.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "probability 0\u20131"
+    },
+    "scored_at": {
+      "description": "When this prediction was produced.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "subject_opportunity_ref": {
+      "description": "Stable identifier of the scored pursuit.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "training_as_of": {
+      "description": "The transaction-time cutoff the model was trained to; the label set is only decided opportunities known at this instant.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "valid_until": {
+      "description": "Until when this prediction is the current one for its pursuit.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "UTC"
+    }
+  },
+  "required": [
+    "p_win",
+    "model_version",
+    "subject_opportunity_ref",
+    "training_as_of",
+    "n_training_rows",
+    "n_wins",
+    "n_losses",
+    "scored_at",
+    "currency"
+  ],
+  "title": "opportunity_win_probability contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "opportunity_win_probability",
+  "x-demiton-store": "tenant"
+}

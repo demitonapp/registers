@@ -1,0 +1,178 @@
+{
+  "$id": "demiton:shelf/inspection_test_result/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accredited": {
+      "description": "whether the laboratory is accredited for the test",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "age_at_test_days": {
+      "description": "the specimen's age when tested",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "competent_person": {
+      "description": "the competent person responsible for the test",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "complies": {
+      "description": "whether the result meets the specification",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "curing_regime": {
+      "description": "how the concrete specimen was cured",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "defects_noted": {
+      "description": "specimen defects recorded at test",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the laboratory report or sample id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "field_dry_density": {
+      "description": "the field dry density measured",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "t/m3"
+    },
+    "field_moisture": {
+      "description": "the field moisture measured",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "inspection_level": {
+      "description": "the declared inspection and testing level, Level 1 or Level 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "laboratory": {
+      "description": "the laboratory that did the test",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "material": {
+      "description": "what was tested, e.g. soil, concrete or aggregate",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "mix_identifier": {
+      "description": "the concrete mix or supply identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "optimum_moisture_content": {
+      "description": "the optimum moisture content",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "outlier": {
+      "description": "whether the result was treated as an outlier",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose works were tested",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "reference_dry_density": {
+      "description": "the reference maximum dry density",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "t/m3"
+    },
+    "result_name": {
+      "description": "the quantity measured, e.g. compressive strength or dry density ratio",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "result_unit": {
+      "description": "the unit of the result, e.g. MPa or percent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "result_value": {
+      "description": "the measured result",
+      "type": "decimal",
+      "x-demiton-requiredness": "required"
+    },
+    "sampled_at": {
+      "description": "when the sample was taken",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "specification_value": {
+      "description": "the acceptance criterion the result is judged against",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional"
+    },
+    "specimen": {
+      "description": "the specimen type and geometry, or the mould used",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_location": {
+      "description": "where on the works the test or sample was taken",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_lot": {
+      "description": "the test lot the result belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "test_method": {
+      "description": "the method designation and year, e.g. AS 1012.9:2014",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tested_on": {
+      "description": "the date the test was performed",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "testing_authority": {
+      "description": "whether a GITA or a GTA did the testing",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "test_method",
+    "material",
+    "tested_on",
+    "result_value",
+    "result_unit"
+  ],
+  "title": "inspection_test_result contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "inspection_test_result",
+  "x-demiton-store": "tenant"
+}

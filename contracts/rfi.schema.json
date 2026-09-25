@@ -1,0 +1,132 @@
+{
+  "$id": "demiton:shelf/rfi/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "assignee": {
+      "description": "who currently holds the RFI for response",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_code": {
+      "description": "the cost code the RFI is coded to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_impact": {
+      "description": "whether and how far the answer affects cost",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "due_date": {
+      "description": "when a response is due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's own RFI id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "location": {
+      "description": "where on site the question applies",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "number": {
+      "description": "the RFI number as displayed to users",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the RFI is raised on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "question": {
+      "description": "the question being asked",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "raised_at": {
+      "description": "when the RFI was initiated",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "received_from": {
+      "description": "who raised the RFI",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "resolved_at": {
+      "description": "when the RFI was answered or closed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "responsible_contractor": {
+      "description": "the contractor responsible for the work in question",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "the RFI's revision number",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "schedule_impact": {
+      "description": "whether and how far the answer affects programme",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "the RFI's lifecycle state",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "what the RFI is about",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "project",
+    "subject",
+    "status"
+  ],
+  "title": "rfi contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 successor expected; unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "rfi",
+  "x-demiton-store": "tenant"
+}

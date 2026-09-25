@@ -1,0 +1,225 @@
+{
+  "$id": "demiton:shelf/payment_schedule/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "calculation_basis": {
+      "description": "how the scheduled amount was calculated",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "claim": {
+      "description": "the payment claim this schedule responds to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "claimant": {
+      "description": "the party that made the claim",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "claimed_amount": {
+      "description": "the amount the claim sought",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the amounts",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the source system's own id for the schedule",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "issued_on": {
+      "description": "the date the schedule was provided",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "jurisdiction": {
+      "description": "the Security of Payment Act that governs the schedule",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "required"
+    },
+    "payment_due_on": {
+      "description": "the due date for payment of the scheduled amount",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project the claim and schedule relate to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "reasons_for_difference": {
+      "description": "why the scheduled amount is lower",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reasons_for_withholding": {
+      "description": "the reasons for withholding payment",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scheduled_amount": {
+      "description": "the amount the respondent proposes to pay",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "claim",
+    "scheduled_amount",
+    "currency",
+    "issued_on",
+    "jurisdiction"
+  ],
+  "title": "payment_schedule contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-domain": "contracts",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 19(2)",
+        "code": "ACT BCISP Act 2009",
+        "edition": "2009 as amended 11 Mar 2024",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2009 (ACT)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - financial records, 7-year retention"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NSW BCISP Act 1999",
+        "edition": "1999 as amended",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 1999 (NSW)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 76 (per commentary)",
+        "code": "QLD BIF Act 2017",
+        "edition": "2017 as amended",
+        "region": "Australia",
+        "title": "Building Industry Fairness (Security of Payment) Act 2017 (Qld)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 17(2) second-chance notice",
+        "code": "SA BCISP Act 2009",
+        "edition": "2009",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (SA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18(2)-(4)",
+        "code": "TAS BCISP Act 2009",
+        "edition": "2009 (in force 2025-10-11)",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (Tas)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "VIC BCISP Act 2002",
+        "edition": "2002 as amended 15 Apr 2026",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2002 (Vic), as amended from 15 Apr 2026"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 25(2)-(3)",
+        "code": "WA BCISP Act 2021",
+        "edition": "2021",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2021 (WA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 21, 22",
+        "code": "NZ CCA 2002",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46, as amended 2015 and 2023"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110A, 111",
+        "code": "HGCRA 1996 Part II",
+        "edition": "1996 c. 53 as amended",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996, Part II (as amended by LDEDCA 2009)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Part II paras 9-10",
+        "code": "SI 1998/649",
+        "edition": "1998 as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment; Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "payment_schedule",
+  "x-demiton-store": "tenant"
+}

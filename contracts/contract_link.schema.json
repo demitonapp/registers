@@ -1,0 +1,163 @@
+{
+  "$id": "demiton:shelf/contract_link/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "confidence": {
+      "description": "The resolver's candidate-match score at link creation",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio"
+    },
+    "created_at": {
+      "description": "When the link was first established; carried verbatim across every refresh",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "link_id": {
+      "description": "Stable identity of the link across `pursuing \u2192 won \u2192 delivering \u2192 complete`",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "link_method": {
+      "description": "How the link was established",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "link_state": {
+      "description": "Customer-declared lifecycle state of the seam",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "ocid": {
+      "description": "The public OCDS contracting-process identifier this project is linked to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "platform_project_id": {
+      "description": "The platform-side project this OCID belongs to, when the hub has resolved one",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_entity_id": {
+      "description": "The tenant project the link anchors to (the fact subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "updated_at": {
+      "description": "When the link last changed state",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "verified": {
+      "description": "Whether the link was human-confirmed rather than auto-asserted on a fuzzy match",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "verified_by_user_id": {
+      "description": "The identity that confirmed the link",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "won_at": {
+      "description": "When the win was declared (present only from `won` onward)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "link_id",
+    "ocid",
+    "link_state",
+    "verified",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "contract_link contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "AusTender OCDS API 1.1",
+        "edition": "1.1",
+        "region": "Australia",
+        "title": "AusTender OCDS API (contract notices as OCDS release packages)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs 2025",
+        "edition": "17 Nov 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Table 2 col. 29",
+        "code": "(EU) 2019/1780",
+        "edition": "as amended 2023",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 (eForms) as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "project.id; contractingProcesses",
+        "code": "OC4IDS 0.9.5",
+        "edition": "0.9.5 (site switcher says 0.9.4)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "release.ocid (Required)",
+        "code": "OCDS 1.1",
+        "edition": "schema 1.1, docs release 1.1.5",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Rule 32",
+        "code": "NZ Government Procurement Rules",
+        "edition": "5th edition",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s. 50; reg. 27",
+        "code": "Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "FAR 52.204-7",
+        "edition": "Nov 2024",
+        "region": "United States",
+        "title": "FAR clause 52.204-7 System for Award Management (Unique Entity ID, UEI)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "4.604, 4.606",
+        "code": "FAR subpart 4.6",
+        "edition": "FAC 2026-01 (eff. 2026-03-13)",
+        "region": "United States",
+        "title": "FAR subpart 4.6 Contract Reporting (FPDS contract action reports)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "contract_link",
+  "x-demiton-store": "tenant"
+}

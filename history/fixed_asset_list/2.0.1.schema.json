@@ -1,0 +1,172 @@
+{
+  "$id": "demiton:shelf/fixed_asset_list/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_class_code": {
+      "description": "ERP asset class code.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "asset_location_code": {
+      "description": "ERP-configured location/site code for the asset.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "asset_reference": {
+      "description": "The ERP's own asset number (the natural key users quote).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset_subclass_code": {
+      "description": "ERP asset subclass code; a narrower class dimension.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blocked": {
+      "description": "The two status flags the ERP carries on the asset.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "component_of": {
+      "description": "Link from a significant component to its parent asset.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "custodian_employee_reference": {
+      "description": "The employee the asset is assigned to, as the ERP records it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "display_name": {
+      "description": "The asset's name/title as recorded in the ERP.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source asset record (BC record id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "Which measurement base and retention rule apply to this register.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_modified_at": {
+      "description": "When the ERP last changed the asset record; the harvest delta cursor and the retention clock's reference point.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "The company/legal entity the asset belongs to, where the connection is multi-company.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "measurement_model": {
+      "description": "\u2014",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "revaluation)"
+    },
+    "revaluation_date": {
+      "description": "Date of the last revaluation.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "revalued_amount": {
+      "description": "Revalued carrying amount, where the revaluation model applies.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tenant currency"
+    },
+    "serial_number": {
+      "description": "Manufacturer serial number; the reconciliation key between the financial register and the operational plant register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "asset_class_code"
+  ],
+  "title": "fixed_asset_list contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "paras 29-31, 43-44",
+        "code": "AASB 116",
+        "edition": "compilation F2023C00192 (registered 2023-02-13)",
+        "region": "Australia",
+        "title": "Property, Plant and Equipment (Australian adoption of IAS 16)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO business record-keeping rules",
+        "edition": "page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO record-keeping for business (general 5-year retention; longer for depreciating assets)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(2)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 - obligation to keep financial records (7 years)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "paras 29-31, 43-44",
+        "code": "IAS 16",
+        "edition": "current (as amended)",
+        "region": "International",
+        "title": "Property, Plant and Equipment (IFRS Accounting Standards)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 55000",
+        "edition": "2024 (AS ISO 55000:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Vocabulary, overview and principles"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.6",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I; Annex H; Annex J",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ASC 360",
+        "edition": "current",
+        "region": "United States",
+        "title": "Property, Plant, and Equipment (FASB Accounting Standards Codification)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "fixed_asset_list",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "demiton:shelf/policy_acknowledgements/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "acknowledged": {
+      "description": "Whether the worker's sign-off is present on the record.",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "acknowledgement_method": {
+      "description": "How the acknowledgement was captured.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "attributes": {
+      "description": "Every remaining form answer, keyed by the tenant's own question text.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "evidence_ref": {
+      "description": "Reference to the signed form or attached evidence.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the acknowledgement falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "The source form template id \u2014 which policy-document form produced the record.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "Human-readable template title; the policy document the form belongs to.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the acknowledgement form was submitted; the event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "policy_reference": {
+      "description": "The policy/procedure identifier or code the form is about.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "policy_version": {
+      "description": "The revision of the policy that was acknowledged.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today, SignOnSite if ever bound.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker who acknowledged the policy; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "form_id",
+    "acknowledged"
+  ],
+  "title": "policy_acknowledgements contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "policy_acknowledgements",
+  "x-demiton-store": "tenant"
+}

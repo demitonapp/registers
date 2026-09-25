@@ -1,0 +1,176 @@
+{
+  "$id": "demiton:shelf/safety_ncr/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset involved, where the NCR is a plant non-conformance.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Display name of the submitting Assignar user (free text, not a resolved identity).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source NCR record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the NCR falls in, derived from `occurred_at`; the axis retention is computed against.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "form_id": {
+      "description": "The source form template the NCR was captured on.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "The source form template's title \u2014 which tenant NCR template this is, and whether it is the quality or safety variant.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "The WHS/quality regime whose notification and retention rules apply to this record.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_time": {
+      "description": "Source last-modified time; the delta-harvest cursor.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative": {
+      "description": "The non-conformance description and what was done, composed from the source responses Q&A; may be null when nothing is renderable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the non-conformance was submitted/occurred; the reporting clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "Project the NCR attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "Worker who raised or is responsible for the NCR; resolves to the worker spine.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "financial_period",
+    "form_id",
+    "form_title"
+  ],
+  "title": "safety_ncr contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5; 8.7; 10.2",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adoption of ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 35-37; s 38(7)",
+        "code": "Model WHS Act",
+        "edition": "model Bill 1 Aug 2023",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 6FA",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 9",
+        "code": "GDPR",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "Regulation (EU) 2016/679"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5 documented information; 8.7 control of nonconforming outputs; 10.2 nonconformity and corrective action",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 expected 2026-09-16, publication unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "reg 4; Sch 2",
+        "code": "RIDDOR 2013",
+        "edition": "2013",
+        "region": "United Kingdom",
+        "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (SI 2013/1471)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1904.29; 7-day entry; 1904.33 retention",
+        "code": "29 CFR Part 1904",
+        "edition": "current",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "safety_ncr",
+  "x-demiton-store": "tenant"
+}

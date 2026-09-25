@@ -1,0 +1,122 @@
+{
+  "$id": "demiton:shelf/platform_weather/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "conditions": {
+      "description": "Free-text sky/condition summary.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "feels_like_c": {
+      "description": "Apparent temperature.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "\u00b0C"
+    },
+    "geohash": {
+      "description": "BOM 6-character region identity; the shelf's geographic key and the `geographic_area` create-anchor.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "humidity_pct": {
+      "description": "Relative humidity.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "%"
+    },
+    "jurisdiction_code": {
+      "description": "Jurisdiction the observation is published for; drives the partition bucket.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 3166-2 AU state code"
+    },
+    "observed_at": {
+      "description": "When the reading was taken; the event time and freshness ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "rain_probability": {
+      "description": "Probability of precipitation.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "%"
+    },
+    "rain_since_9am_mm": {
+      "description": "Rainfall since 9am local \u2014 BOM's own rainfall convention.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "mm"
+    },
+    "region_code": {
+      "description": "The required REGION_CODE axis; resolves the fact's region and its partition bucket.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AU state/territory code (e.g. `QLD`, `NSW`)"
+    },
+    "region_name": {
+      "description": "Human-readable region label to accompany `region_code`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_dataset": {
+      "description": "Producer identity, labels the fact origin.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "Source-native record identity and idempotency key (`bom:{geohash}:{observed_date}`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "station_name": {
+      "description": "BOM station label for the observation.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "temperature_c": {
+      "description": "Air temperature \u2014 the reading that makes a weather observation useful.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "\u00b0C"
+    },
+    "wind_direction": {
+      "description": "Wind direction as BOM publishes it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "compass point"
+    },
+    "wind_speed_kmh": {
+      "description": "Wind speed at the station.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km/h"
+    }
+  },
+  "required": [
+    "geohash",
+    "region_code",
+    "observed_at",
+    "temperature_c",
+    "jurisdiction_code",
+    "source_dataset",
+    "source_id"
+  ],
+  "title": "platform_weather contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020",
+        "edition": "GDA2020 (Determination 2017)",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "platform_weather",
+  "x-demiton-store": "platform"
+}

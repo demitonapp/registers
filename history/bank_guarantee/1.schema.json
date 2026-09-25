@@ -1,0 +1,126 @@
+{
+  "$id": "demiton:shelf/bank_guarantee/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "the most the issuer will pay on demand",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "contract_reference": {
+      "description": "the contract the guarantee secures",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "counterparty": {
+      "description": "the other party to the contract the guarantee secures",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of the amount",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "direction": {
+      "description": "whether the tenant gave the guarantee or holds one given to it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "expires_on": {
+      "description": "when the undertaking lapses, if it has an expiry",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source's own record id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_on": {
+      "description": "the date on the undertaking",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "issuer": {
+      "description": "the financial institution that gave the undertaking",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the tenant legal entity party to the contract",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the secured contract is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "reduction_on_practical_completion": {
+      "description": "how much of the security falls away at practical completion",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "release_trigger": {
+      "description": "the event after which the guarantee must be returned",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "returned_on": {
+      "description": "when the guarantee was returned",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "security_form": {
+      "description": "the form of security the contract required",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "security_kind": {
+      "description": "which tranche the guarantee is, e.g. completion or post-completion",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "whether the guarantee is held, reduced, called on or returned",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "subcontract": {
+      "description": "the subcontract the guarantee secures, when the tenant holds it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "direction",
+    "counterparty",
+    "issuer",
+    "amount"
+  ],
+  "title": "bank_guarantee contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "counterparties",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "bank_guarantee",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,62 @@
+{
+  "$id": "demiton:shelf/compliance_gate_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "days_until_due": {
+      "description": "due_date minus the assessment date, in days. Negative once overdue - the alert cites how overdue, not just that it is (SD027 1's proof line).",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "days (signed)"
+    },
+    "due_date": {
+      "description": "The obligation's expiry/next_due date the countdown is measured against, as an ISO 8601 date.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "obligation_ref": {
+      "description": "A human-readable label for the specific obligation (holder + credential type, or insured party + policy number) - what the alert names.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "obligation_type": {
+      "description": "What kind of compliance obligation this is, e.g. certification, insurance. One value per wired feeder register.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_fact_id": {
+      "description": "The specific feeder Fact row this verdict tracks - the citation's derived_from anchor.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "source_shelf_type": {
+      "description": "Which feeder register this verdict was derived from (certification_register, insurance_certificate, ...) - lets the alert cite its source (SD027 1's proof line: every number proves itself).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "verdict": {
+      "description": "The countdown state: COMPLIANT (>90 days out), EXPIRING_90, EXPIRING_30, EXPIRING_7, or EXPIRED (days_until_due < 0 - stays EXPIRED, never silently reverts, until the source record itself renews/retires).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "verdict",
+    "obligation_type",
+    "obligation_ref",
+    "source_shelf_type",
+    "source_fact_id",
+    "due_date",
+    "days_until_due"
+  ],
+  "title": "compliance_gate_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "compliance",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "compliance_gate_verdict",
+  "x-demiton-store": "tenant"
+}

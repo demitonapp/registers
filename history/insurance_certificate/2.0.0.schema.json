@@ -1,0 +1,79 @@
+{
+  "$id": "demiton:shelf/insurance_certificate/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "certificate_uploaded": {
+      "description": "whether a certificate of currency has been provided",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the sum insured",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_on": {
+      "description": "when the cover lapses",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's own record id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "insurance_type": {
+      "description": "the kind of cover, e.g. public liability or workers compensation",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "insured_party": {
+      "description": "the company the policy covers",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "insurer": {
+      "description": "the insurer that issued the policy",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "policy_number": {
+      "description": "the policy number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the record's compliance state at source",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sum_insured": {
+      "description": "the cover limit",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "insured_party",
+    "insurance_type",
+    "expires_on"
+  ],
+  "title": "insurance_certificate contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-domain": "counterparties",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "insurance_certificate",
+  "x-demiton-store": "tenant"
+}

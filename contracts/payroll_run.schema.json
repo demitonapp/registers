@@ -1,0 +1,161 @@
+{
+  "$id": "demiton:shelf/payroll_run/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "currency": {
+      "description": "denomination of the money measures",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "date_finalised": {
+      "description": "when the run reached its finalised state",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "date_paid": {
+      "description": "the date the run was paid",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's identifier for the pay run; the producer hinge",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the financial period the run is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "is_finalised": {
+      "description": "whether the run is finalised (reportable)",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the employing legal entity (the KeyPay business)",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "notation": {
+      "description": "the run's free-text label/notation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the pay period end \u2014 the payday the run is dated to",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "pay_period_start": {
+      "description": "first day of the pay period",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "pay_schedule_id": {
+      "description": "the pay schedule / calendar the run belongs to",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "pay_slips_published": {
+      "description": "whether payslips for the run have been published",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "total_gross": {
+      "description": "whole-run gross pay",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "total_net": {
+      "description": "whole-run net pay",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "worker": {
+      "description": "a worker the run paid, if the grain is ever per-worker",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "pay_period_start",
+    "financial_period",
+    "legal_entity",
+    "total_gross",
+    "total_net",
+    "is_finalised"
+  ],
+  "title": "payroll_run contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s.535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 3.33-3.34 ; regs 3.45-3.46",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Payday Super (ATO)",
+        "edition": "from 1 Jul 2026",
+        "region": "Australia",
+        "title": "Single Touch Payroll reporting under Payday Super"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Schedule 4 Tables 1-3",
+        "code": "Tax Administration Act 1994 (NZ) Schedule 4",
+        "edition": "version as at 1 Jul 2026",
+        "region": "New Zealand",
+        "title": "Reporting of employment income information (payday filing)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "HMRC Real Time Information (RTI)",
+        "edition": "guidance updated 6 Apr 2026",
+        "region": "United Kingdom",
+        "title": "PAYE Real Time Information - Full Payment Submission and Employer Payment Summary"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "payroll_run",
+  "x-demiton-store": "tenant"
+}

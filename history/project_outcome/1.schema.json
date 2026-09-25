@@ -1,0 +1,92 @@
+{
+  "$id": "demiton:shelf/project_outcome/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "cost_growth_pct": {
+      "description": "Cost overrun versus budget at the cut",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "currency": {
+      "description": "Unit `revenue_actual` is expressed in",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "customer": {
+      "description": "Client the project is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Dedup key `{project}:{period}`; one upsert per project per month",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "Reporting period the snapshot is cut at",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "month"
+    },
+    "legal_entity": {
+      "description": "Owning BC company for multi-entity orgs",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "margin_pct": {
+      "description": "Latest project margin at the reporting cut",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "occurred_at": {
+      "description": "Date the outcome asserts (min of period-28 and today)",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The project the outcome is for; asserted via `resolved_coordinates`, not a coordinate",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "recorded_at": {
+      "description": "When the fact was written",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "revenue_actual": {
+      "description": "Revenue recognised to date; cumulative",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency (by coordinate)"
+    },
+    "source_system": {
+      "description": "Provenance; always `DERIVED` for this shelf",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "occurred_at",
+    "margin_pct",
+    "cost_growth_pct",
+    "revenue_actual",
+    "source_system",
+    "external_id",
+    "recorded_at"
+  ],
+  "title": "project_outcome contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "project_outcome",
+  "x-demiton-store": "tenant"
+}

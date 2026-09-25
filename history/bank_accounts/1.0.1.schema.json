@@ -1,0 +1,76 @@
+{
+  "$id": "demiton:shelf/bank_accounts/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_name": {
+      "description": "the human label of the account",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_number": {
+      "description": "the bank's own account number for this account",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "canonical_key": {
+      "description": "the dedup key the spine used (`BC number`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency_code": {
+      "description": "the account's denomination",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own identifier for the account",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_modified_at": {
+      "description": "when the source last changed the account",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the company that owns the account",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "the system the account record was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "one-line prose digest injected by the projector",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "canonical_key",
+    "account_name"
+  ],
+  "title": "bank_accounts contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18C, 18D, 18FD",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023 (incl. Retention Money Amendment Act 2023)",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "bank_accounts",
+  "x-demiton-store": "tenant"
+}

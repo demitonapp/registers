@@ -1,0 +1,89 @@
+{
+  "$id": "demiton:shelf/timesheet_entry/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "cost_code": {
+      "description": "cost code / work activity the hours are coded to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "end_time": {
+      "description": "the entry's end time",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "financial_period": {
+      "description": "the pay period the hours are attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "hours": {
+      "description": "hours worked in the entry",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "occurred_at": {
+      "description": "the day the entry is for",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project/job the hours were worked on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "start_time": {
+      "description": "the entry's start time",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "local time of day"
+    },
+    "status": {
+      "description": "approval state of the entry",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "task_name": {
+      "description": "the task/activity the hours were worked on",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_type": {
+      "description": "the vendor/tenant pay-category or work-type label",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the person whose hours these are",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker",
+    "occurred_at",
+    "financial_period",
+    "hours",
+    "source_system"
+  ],
+  "title": "timesheet_entry contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "timesheet_entry",
+  "x-demiton-store": "tenant"
+}

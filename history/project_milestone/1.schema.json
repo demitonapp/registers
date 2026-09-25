@@ -1,0 +1,56 @@
+{
+  "$id": "demiton:shelf/project_milestone/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_date": {
+      "description": "The date the milestone actually occurred; null while it is forecast",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "date"
+    },
+    "confidence": {
+      "description": "Qualitative extraction confidence",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "Free-text detail about the milestone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "milestone_type": {
+      "description": "Class of event (`start`, `design`, `construction`, `practical_completion`, `milestone`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "The milestone / dated event label the contract is measured against",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "planned_date": {
+      "description": "The contractually planned date of the milestone",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "date"
+    },
+    "source": {
+      "description": "Whether the milestone was inferred by extraction or entered by a person",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "name",
+    "planned_date",
+    "source"
+  ],
+  "title": "project_milestone contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "project_milestone",
+  "x-demiton-store": "tenant"
+}

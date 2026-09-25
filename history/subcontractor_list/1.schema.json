@@ -1,0 +1,112 @@
+{
+  "$id": "demiton:shelf/subcontractor_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_text": {
+      "description": "Postal/contact address of the subcontractor",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "canonical_key": {
+      "description": "The resolution key that joins this subcontractor to its vendor node and across systems",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "counterparty_role": {
+      "description": "The party's role on this record \u2014 subcontractor, distinct from a plain vendor/supplier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "email": {
+      "description": "Subcontractor contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "identifier_authority": {
+      "description": "The register or authority that issued/validates the identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "identifier_scheme": {
+      "description": "Scheme that qualifies `identifier_value` (ABN / NZBN / SAM UEI / company registration)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "identifier_value": {
+      "description": "The party identifier under `identifier_scheme`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "The tenant company/legal entity the subcontractor record is scoped to",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_representative": {
+      "description": "The party's legal representative(s), where disclosed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "The subcontractor's registered/trading name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "observed_at": {
+      "description": "When this record was observed by the harvest",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "phone": {
+      "description": "Subcontractor contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status": {
+      "description": "Whether the party's registration is active at the source",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status_verified_at": {
+      "description": "When `registration_status` was observed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw supplier record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`ASSIGNAR`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subcontractor_entity_id": {
+      "description": "The canonical VENDOR spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "trading_name": {
+      "description": "Trading name where it differs from the registered name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "subcontractor_entity_id",
+    "canonical_key",
+    "source_system",
+    "source_external_id",
+    "counterparty_role",
+    "name"
+  ],
+  "title": "subcontractor_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "subcontractor_list",
+  "x-demiton-store": "tenant"
+}

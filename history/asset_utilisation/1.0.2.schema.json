@@ -1,0 +1,193 @@
+{
+  "$id": "demiton:shelf/asset_utilisation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine the reading belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "device": {
+      "description": "the telematics device that produced the reading",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "distance_period": {
+      "description": "distance delta over the reading window, ADDITIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "energy_used": {
+      "description": "cumulative energy counter; meaning and unit not documented in any digest read",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "kWh (**unverified**)"
+    },
+    "engine_hours": {
+      "description": "lifetime GPS engine-hours meter, CUMULATIVE (never summed)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "engine_hours_can": {
+      "description": "CAN-bus lifetime engine-hours twin, CUMULATIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "engine_hours_period": {
+      "description": "engine-hours delta over the reading window, ADDITIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "financial_period": {
+      "description": "the period the reading is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "fuel": {
+      "description": "CAN-bus tank-level reading, INSTANTANEOUS (never summed)",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "pct"
+    },
+    "fuel_period": {
+      "description": "fuel consumed over the reading window, ADDITIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "litres"
+    },
+    "location": {
+      "description": "last known position/place as delivered by the source; datum and unit **unverified**",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the timestamp of the reading snapshot",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "odometer": {
+      "description": "lifetime GPS odometer, CUMULATIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km"
+    },
+    "odometer_can": {
+      "description": "CAN-bus lifetime odometer twin, CUMULATIVE",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "operator": {
+      "description": "the operator/driver attributed at reading time",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the asset was working on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "range": {
+      "description": "cumulative/remaining range counter; meaning and unit not documented",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km (**unverified**)"
+    },
+    "source_units": {
+      "description": "the source unit each measure arrived in, beside the canonical unit",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "engine_hours",
+    "odometer"
+  ],
+  "title": "asset_utilisation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 = ITRF2014 at epoch 2020.0",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (EPSG:7844 / EPSG:78xx zones)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "APP 3",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "APP Guidelines ch 3 v1.2 (2026-05-13)",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 10",
+        "code": "Workplace Surveillance Act 2005 (NSW)",
+        "edition": "in force (compilation 2025-06-14)",
+        "region": "Australia",
+        "title": "Workplace Surveillance Act 2005 (tracking surveillance of employees)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation (GDPR)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.6",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "WGS 84 (EPSG:4326)",
+        "edition": "EPSG Dataset v13.102; record revised 2022-11-29",
+        "region": "International",
+        "title": "World Geodetic System 1984 datum ensemble (EPSG:6326)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 395.26(b)",
+        "code": "49 CFR Part 395 Subpart B",
+        "edition": "current (ELD mandate from 2017-12-18)",
+        "region": "United States",
+        "title": "FMCSA - Hours of Service of Drivers - Electronic Logging Devices"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "asset_utilisation",
+  "x-demiton-store": "tenant"
+}

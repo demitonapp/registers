@@ -1,0 +1,104 @@
+{
+  "$id": "demiton:shelf/receivable_entry/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "the signed movement of the line",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by_coordinate"
+    },
+    "currency": {
+      "description": "the transaction currency of the amounts",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer": {
+      "description": "the client the receivable is owed by",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "customer_name": {
+      "description": "the customer name as the source states it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_date": {
+      "description": "the date of the customer document, distinct from posting",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_number": {
+      "description": "the source customer document (invoice / credit memo) number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_type": {
+      "description": "the BC ledger document type (invoice / credit memo / payment / application)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "due_date": {
+      "description": "the date the receivable falls due",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the source entry's own identifier (BC `Entry_No`)",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the entry falls in",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "is_open": {
+      "description": "whether the entry is still open",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "the posting date the entry was booked on",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "pmt_discount_date": {
+      "description": "the settlement-discount date, if the customer's terms offer one",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "remaining": {
+      "description": "the running balance still outstanding on the entry",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by_coordinate"
+    },
+    "source_system": {
+      "description": "the system the entry was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_system",
+    "external_id",
+    "occurred_at",
+    "customer",
+    "financial_period",
+    "amount",
+    "remaining",
+    "due_date"
+  ],
+  "title": "receivable_entry contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "receivable_entry",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,141 @@
+{
+  "$id": "demiton:shelf/margin_watch_learning/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "financial_period": {
+      "description": "context coordinate declared OPTIONAL",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_no": {
+      "description": "producer's snapshot of the job number (duplicates the subject spine's canonical key)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "context coordinate declared OPTIONAL",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "lesson_candidates": {
+      "description": "candidate lessons awaiting human promotion; empty array is valid",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_candidates[].cause": {
+      "description": "attributed cause, one of the five code-defined values in, `:86-131`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_candidates[].promotion_gate": {
+      "description": "explicit \"candidate only, human sign-off required\" marker",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_candidates[].provenance.drift_dollars": {
+      "description": "points scaled by contract value; null when no contract value",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "lesson_candidates[].provenance.drift_pts": {
+      "description": "signed margin movement that cycle",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "margin points"
+    },
+    "lesson_candidates[].provenance.evidence": {
+      "description": "the observed signal behind the cause (e.g. a diary-flag count)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_candidates[].provenance.month": {
+      "description": "claim-cycle month the drift is measured in",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_candidates[].statement": {
+      "description": "the candidate lesson, stated as cause + drift + period + project",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_to_date_pct": {
+      "description": "margin to date at attribution time",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "observability_gaps_ranked": {
+      "description": "data gaps that made a cycle unattributable, ranked; empty array valid",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "observability_gaps_ranked[].gap": {
+      "description": "the named missing data (e.g. no diaries for a month)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "observability_gaps_ranked[].margin_points_obscured": {
+      "description": "total absolute drift the gap obscures",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "margin points"
+    },
+    "observability_gaps_ranked[].months": {
+      "description": "the months in which that gap occurred",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "project_name": {
+      "description": "producer's snapshot of the project/client label (duplicates the entity label)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "promotion_gate": {
+      "description": "record-level candidate-only marker",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "the project the learning is about; the semantic fact's subject and its supersede key",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "one-line human summary for content search and list display",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tendered_margin_pct": {
+      "description": "tendered margin at attribution time",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "summary",
+    "lesson_candidates",
+    "lesson_candidates[].cause",
+    "lesson_candidates[].statement",
+    "lesson_candidates[].provenance.month",
+    "lesson_candidates[].provenance.drift_pts",
+    "lesson_candidates[].provenance.evidence",
+    "lesson_candidates[].promotion_gate",
+    "observability_gaps_ranked",
+    "observability_gaps_ranked[].gap",
+    "observability_gaps_ranked[].margin_points_obscured",
+    "observability_gaps_ranked[].months",
+    "promotion_gate"
+  ],
+  "title": "margin_watch_learning contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "margin_watch_learning",
+  "x-demiton-store": "tenant"
+}

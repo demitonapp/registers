@@ -1,0 +1,193 @@
+{
+  "$id": "demiton:shelf/cost_element/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "posted cost for the line (`Total_Cost_LCY`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by coordinate (`currency`)"
+    },
+    "cost_code": {
+      "description": "the job task the cost was coded to (`Job_Task_No`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_type": {
+      "description": "the raw posting-group discriminator behind the cost classification (`Gen_Prod_Posting_Group`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "denomination of every amount on the row",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "dimension_set_id": {
+      "description": "key into the BC dimension set that resolves EQUIPMENT for plant rate",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_no": {
+      "description": "the source document reference",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "entry_no": {
+      "description": "the source's own row identity, used for episodic dedup and supersession",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the month the posting belongs to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the BC company the posting belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "posting date of the ledger entry",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "price_amount": {
+      "description": "the price/revenue side of a claim line (`Total_Price_LCY`), which the cost measure drops",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "by coordinate"
+    },
+    "project": {
+      "description": "the job/project the cost was posted against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "posted quantity (`Quantity_Base`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "source_code": {
+      "description": "distinguishes cost postings from `SALES`/claim postings on the same ledger",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "unit_cost": {
+      "description": "posted unit cost (`Unit_Cost_LCY`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "by coordinate"
+    },
+    "vendor": {
+      "description": "supplier, where the source carries one",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "work_activity": {
+      "description": "level-1 canonical work activity",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "currency",
+    "occurred_at",
+    "entry_no",
+    "amount"
+  ],
+  "title": "cost_element contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO record-keeping rules",
+        "edition": "ATO page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO business record-keeping rules (ITAA 1936 s 262A; TAA 1953 Sch 1 s 382-5)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "construction threshold defined GST-inclusive",
+        "code": "Commonwealth Procurement Rules",
+        "edition": "effective 17 Nov 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules (AU)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(1), 286(2) (7 years)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - obligation to keep financial records"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "claimed amount must state GST treatment",
+        "code": "SA SOP Act 2009",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (SA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "OCDS 1.1.5",
+        "edition": "1.1 schema, docs 1.1.5",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 20(2)(d), 21(2)(c)",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023 (incl. Retention Money Amendment Act 2023)",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 110A",
+        "code": "HGCRA 1996 Part II",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996 (UK), Part II"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702/G703",
+        "edition": "1992 base editions",
+        "region": "United States",
+        "title": "AIA G702-1992 Application and Certificate for Payment / G703-1992 Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "cost_element",
+  "x-demiton-store": "tenant"
+}

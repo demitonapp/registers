@@ -1,0 +1,267 @@
+{
+  "$id": "demiton:shelf/leave_category_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accrual_rule": {
+      "description": "The source's accrual-rule object",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "accrues_first_pay_run_per_period_only": {
+      "description": "Accrual timing within a period",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "automatically_accrues": {
+      "description": "Whether the category accrues automatically",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "code": {
+      "description": "The leave-category code the cross-source alias binding matches on",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "contingent_period": {
+      "description": "The category's contingent period",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "deduct_from_primary_pay_category": {
+      "description": "Whether the deduction follows the primary pay category",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "default_deduct_from_pay_category_reference": {
+      "description": "Source id of the tenant-configured pay category this category deducts from",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "entitlement_period": {
+      "description": "The category's entitlement period",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "exclude_from_termination_payout": {
+      "description": "Whether the category is excluded from a termination payout",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_code": {
+      "description": "Stable manufacturer/award code where the source supplies one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "hide_accruals_on_payslip": {
+      "description": "Whether accruals are hidden on the payslip",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_balance_untracked": {
+      "description": "Whether the category is excluded from balance tracking",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_name_private": {
+      "description": "Whether the category is hidden from payslips by name",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_pay_run_accrual": {
+      "description": "Whether accrual happens at pay-run time",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_private": {
+      "description": "Source privacy flag for the category",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "leave_category_type": {
+      "description": "The category's leave type (annual / personal-carer's / long service / \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "leave_code_entity_id": {
+      "description": "Demiton canonical `LEAVE_CODE` spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "leave_entitlement": {
+      "description": "Entitlement value where the source supplies one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "leave_loading_rate": {
+      "description": "Leave loading applied to this category",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "leave_unit_type": {
+      "description": "The source's second unit field; its distinction from `unitType` is unverified",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "Owning legal entity where the source is multi-company",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Human name of the leave category",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "payout_as_etp": {
+      "description": "Whether the category pays out as an employment termination payment",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "prevent_negative_balance_unpaid_leave_category_reference": {
+      "description": "Source id of the tenant-configured category used to prevent a negative unpaid balance",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_classification": {
+      "description": "The source's own classification of the category's origin",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`ASSIGNAR`/`KEYPAY`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "statutory_leave_type": {
+      "description": "The ATO paid-leave type this category maps to (O/P/W/A/C/U)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "transfer_on_termination_pay_category_reference": {
+      "description": "Source id of the tenant-configured pay category used on termination",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "transfer_to_pay_category_reference": {
+      "description": "Source id of the tenant-configured pay category this category transfers into",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unit_type": {
+      "description": "Unit the entitlement and balance are denominated in",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "units": {
+      "description": "The source's unit count/denomination for the category",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "use_deduct_from_pay_category_rate": {
+      "description": "Whether the deducting category's rate is used",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    }
+  },
+  "required": [
+    "leave_code_entity_id",
+    "source_system",
+    "source_external_id",
+    "code",
+    "name",
+    "leave_category_type",
+    "unit_type"
+  ],
+  "title": "leave_category_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.87(1), 96(1), 535(1) ; s.106A",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 3.36",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Payday Super (ATO)",
+        "edition": "from 1 Jul 2026",
+        "region": "Australia",
+        "title": "Single Touch Payroll reporting under Payday Super"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.24(1), 73(1), 75(1), 127, 129, 130, 150",
+        "code": "Employment Leave Act 2026 (NZ)",
+        "edition": "assent 6 Aug 2026; not yet in force",
+        "region": "New Zealand",
+        "title": "Employment Leave Act 2026 (2026 No 48)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.16, 65(2)",
+        "code": "Holidays Act 2003 (NZ)",
+        "edition": "version as at 20 Dec 2023 (repealed on commencement of Employment Leave Act 2026)",
+        "region": "New Zealand",
+        "title": "Holidays Act 2003 (2003 No 129) - holiday and leave record"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 9, 13(1), 13A(2)(e), 13A(3), 15B",
+        "code": "SI 1998/1833",
+        "edition": "as amended by SI 2023/1426 from 1 Jan 2024",
+        "region": "United Kingdom",
+        "title": "Working Time Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Statutory Sick Pay (Social Security Contributions and Benefits Act 1992)",
+        "edition": "rate read 2026-09-11",
+        "region": "United Kingdom",
+        "title": "Statutory Sick Pay - weekly statutory payment, no day entitlement"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "leave_category_list",
+  "x-demiton-store": "tenant"
+}

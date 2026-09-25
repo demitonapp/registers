@@ -1,0 +1,108 @@
+{
+  "$id": "demiton:shelf/fixed_asset_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_class_code": {
+      "description": "ERP asset class code.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "asset_location_code": {
+      "description": "ERP-configured location/site code for the asset.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "asset_reference": {
+      "description": "The ERP's own asset number (the natural key users quote).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset_subclass_code": {
+      "description": "ERP asset subclass code; a narrower class dimension.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blocked": {
+      "description": "The two status flags the ERP carries on the asset.",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "component_of": {
+      "description": "Link from a significant component to its parent asset.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "custodian_employee_reference": {
+      "description": "The employee the asset is assigned to, as the ERP records it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "display_name": {
+      "description": "The asset's name/title as recorded in the ERP.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source asset record (BC record id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "Which measurement base and retention rule apply to this register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_modified_at": {
+      "description": "When the ERP last changed the asset record; the harvest delta cursor and the retention clock's reference point.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "The company/legal entity the asset belongs to, where the connection is multi-company.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "measurement_model": {
+      "description": "\u2014",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "revaluation)"
+    },
+    "revaluation_date": {
+      "description": "Date of the last revaluation.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "revalued_amount": {
+      "description": "Revalued carrying amount, where the revaluation model applies.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tenant currency"
+    },
+    "serial_number": {
+      "description": "Manufacturer serial number; the reconciliation key between the financial register and the operational plant register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `D365_BUSINESS_CENTRAL` today.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "asset_class_code"
+  ],
+  "title": "fixed_asset_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "fixed_asset_list",
+  "x-demiton-store": "tenant"
+}

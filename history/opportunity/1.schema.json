@@ -1,0 +1,117 @@
+{
+  "$id": "demiton:shelf/opportunity/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "bid_status": {
+      "description": "`bid` when the opportunity was actually pursued, else `logged_no_bid` (a tenant may log every opportunity, including no-bids).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "Denomination of `value`.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 4217"
+    },
+    "customer": {
+      "description": "The customer entity anchor, when the source row names a contact company/number.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "estimator": {
+      "description": "The internal estimator assigned to the pursuit.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "The tenant's own opportunity number, unique per source company; the fact's natural key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The financial period the event falls in.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "AU state/territory the opportunity is in, matched from the title text.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "The BC company that owns the opportunity.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "The episodic event time: source creation date, falling back to last-modified then close date.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "UTC"
+    },
+    "outcome": {
+      "description": "`won`, `lost` or `open`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The project/job anchor, when one resolves.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sales_cycle_code": {
+      "description": "The source system's sales-stage code.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "salesperson": {
+      "description": "Name of the source-system opportunity owner.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Which bound system produced the event.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "Human identity of the opportunity, truncated to 500 characters.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "value": {
+      "description": "Estimated opportunity value, `INSTANTANEOUS`.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "currency of the `CURRENCY` axis (AUD for the BC binding)"
+    },
+    "work_type_id": {
+      "description": "The org's classification of the work, from the shared `work_types.yaml` catalogue.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_type_source": {
+      "description": "Provenance of the classification (keyword vs LLM path).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "source_system",
+    "title",
+    "outcome",
+    "bid_status",
+    "value",
+    "currency"
+  ],
+  "title": "opportunity contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "opportunity",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,92 @@
+{
+  "$id": "demiton:shelf/platform_rate/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "frequency": {
+      "description": "Publication frequency of the series.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "indicator_ref": {
+      "description": "The source series/dataflow anchor (RBA `series_id`, ABS `dataflow_ref`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction_code": {
+      "description": "Jurisdiction the series is published for; currently always `AU`.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "label": {
+      "description": "Human-readable series name; never fabricated, falls back to the indicator ref.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "observed_at": {
+      "description": "When the reading took effect / was observed; drives freshness ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "period": {
+      "description": "The reference period the observation describes.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "period_start": {
+      "description": "ISO start of the reference period; the SDMX event time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "series_key": {
+      "description": "Stable identity of the observation stream; the SERIES axis the semantic plane supersedes on.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_dataset": {
+      "description": "Producer identity (`rba` \\",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "unit": {
+      "description": "Unit / measure of `value` (e.g. a per-annum percentage, or an index code/label).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value": {
+      "description": "The observation itself; the reason the shelf exists.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "varies (see `unit`)"
+    }
+  },
+  "required": [
+    "series_key",
+    "indicator_ref",
+    "label",
+    "value",
+    "period",
+    "observed_at",
+    "source_dataset",
+    "jurisdiction_code"
+  ],
+  "title": "platform_rate contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "SDMX 2.1 / ISO 17369:2013",
+        "edition": "SDMX 2.1 = ISO 17369:2013 (revision at DIS stage)",
+        "region": "International",
+        "title": "Statistical Data and Metadata eXchange"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "platform_rate",
+  "x-demiton-store": "platform"
+}

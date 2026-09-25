@@ -1,0 +1,184 @@
+{
+  "$id": "demiton:shelf/diary_photo_observation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Declared `ASSET` axis, inherited from the diary.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "caption": {
+      "description": "One factual sentence describing the image; the shelf's payload and `Fact.content`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "concerns": {
+      "description": "Review flags; the vision enum is `identifiable_people`, `vehicle_plate`, `third_party_branding`, `unsafe_practice_visible`, `poor_legibility`, `not_construction`.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "fact_class": {
+      "description": "Provenance class: this fact is a model's reading of an image, not a value the source reported.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "Declared `FINANCIAL_PERIOD` axis; derived from `occurred_at` when not inherited.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "Declared `LEGAL_ENTITY` axis, inherited from the diary.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "observation_id": {
+      "description": "Stable identity of the per-photo observation: `{parent diary source id}:{photo ordinal}`. Maps to `Fact.source_id`/`external_id`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "occurred_at": {
+      "description": "Time of the parent diary event, inherited unchanged; the observation has no independent event time.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "parent_diary_source_id": {
+      "description": "Source id of the `site_diary` fact this photo belongs to; the join back to the diary and the prefix of `observation_id`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "photo_index": {
+      "description": "Zero-based ordinal of the photo within the diary, assigned in `_photo_urls` order; the other half of the identity.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "Declared `PROJECT` axis, inherited from the diary.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "quality": {
+      "description": "`poor`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`acceptable`\\"
+    },
+    "source_image": {
+      "description": "Dimensions and container format of the fetched image, from the encoder.",
+      "type": "object",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "px / \u2014"
+    },
+    "subject": {
+      "description": "What the photograph physically shows.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_type": {
+      "description": "The civil work visible, or the literal `none_visible`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "observation_id",
+    "occurred_at",
+    "parent_diary_source_id",
+    "photo_index",
+    "caption",
+    "subject",
+    "financial_period",
+    "fact_class"
+  ],
+  "title": "diary_photo_observation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (adopts ISO 14001:2015)",
+        "region": "Australia",
+        "title": "Environmental management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2.1, 6.1.2.2, 8.1, 10.2",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5, 8.7, 10.2",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adopts ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "ISO 14001:2026",
+        "edition": "2026 (published 2026-04-15)",
+        "region": "International",
+        "title": "Environmental management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "6.1.2.1, 6.1.2.2, 8.1, 10.2",
+        "code": "ISO 45001:2018",
+        "edition": "2018 incl. Amd 1:2024",
+        "region": "International",
+        "title": "Occupational health and safety management systems"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.5, 8.7, 10.2",
+        "code": "ISO 9001:2015",
+        "edition": "2015 (ISO 9001:2026 successor expected; unverified)",
+        "region": "International",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Health and Safety at Work Act 2015 (NZ)",
+        "edition": "as amended",
+        "region": "New Zealand",
+        "title": "Records of notifiable events"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1904.33",
+        "code": "29 CFR Part 1904",
+        "edition": "as amended",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "diary_photo_observation",
+  "x-demiton-store": "tenant"
+}

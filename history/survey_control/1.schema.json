@@ -1,0 +1,152 @@
+{
+  "$id": "demiton:shelf/survey_control/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "ahd_height": {
+      "description": "the height on the Australian Height Datum",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "coordinate_lineage": {
+      "description": "the adjustment or source the coordinates come from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "coordinates_published_on": {
+      "description": "when the coordinates were published",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "crs": {
+      "description": "the coordinate reference system identifier, e.g. EPSG:7844 or EPSG:7855",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "easting": {
+      "description": "the mark's grid easting",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "ellipsoidal_height": {
+      "description": "the height above the GDA2020 ellipsoid",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "external_id": {
+      "description": "the source's own record id, where it differs from the mark id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "horizontal_uncertainty_m": {
+      "description": "the horizontal uncertainty at 95% confidence",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "last_visited_on": {
+      "description": "when the mark was last visited",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "latitude": {
+      "description": "the mark's GDA2020 latitude",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "legacy_class": {
+      "description": "the class the mark was given before SP1 retired class and order",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legacy_order": {
+      "description": "the order the mark was given under the same retired scheme",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "longitude": {
+      "description": "the mark's GDA2020 longitude",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "degrees"
+    },
+    "map_zone": {
+      "description": "the MGA zone the grid coordinates are in",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_alias": {
+      "description": "another name the mark is known by",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_id": {
+      "description": "the mark's identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "mark_status": {
+      "description": "the mark's condition, e.g. intact, damaged or destroyed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "mark_type": {
+      "description": "the kind of mark",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "monument_type": {
+      "description": "the physical monument",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "northing": {
+      "description": "the mark's grid northing",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "project": {
+      "description": "the project the mark controls",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "uncertainty_kind": {
+      "description": "positional, relative or survey uncertainty",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_uncertainty_m": {
+      "description": "the vertical uncertainty at 95% confidence",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "mark_id"
+  ],
+  "title": "survey_control contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "survey_control",
+  "x-demiton-store": "tenant"
+}

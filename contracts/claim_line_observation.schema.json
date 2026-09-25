@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/claim_line_observation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "claim_line_observation contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "claim_line_observation",
+  "x-demiton-store": "tenant"
+}

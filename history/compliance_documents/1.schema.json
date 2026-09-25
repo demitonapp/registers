@@ -1,0 +1,95 @@
+{
+  "$id": "demiton:shelf/compliance_documents/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset the document attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "document_title": {
+      "description": "Name of the form/document as submitted (observed source key `form_title`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_type": {
+      "description": "Class of compliance document (SWMS / ITP / inspection / diary).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expires_at": {
+      "description": "Document/credential expiry, where the document has one.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source submission, shelf-qualified as `compliance_documents:<id>`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the submission falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "occurred_at": {
+      "description": "Submission date/time; the evidence and retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "Project the compliance document is attached to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "revision": {
+      "description": "Document revision/version identifier.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_refs": {
+      "description": "The originating system's own identifiers (`assignar_project_id`, `assignar_worker_id`, `assignar_asset_id`) kept for reconciliation, rather than freezing one vendor's column names into the contract.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status_code": {
+      "description": "Document status/suitability, stored **with the code set it comes from**.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "summary": {
+      "description": "Composed prose description of the submission.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "Worker the document attaches to.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "project",
+    "document_title"
+  ],
+  "title": "compliance_documents contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "compliance_documents",
+  "x-demiton-store": "tenant"
+}

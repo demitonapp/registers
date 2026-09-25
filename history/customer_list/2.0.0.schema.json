@@ -1,0 +1,257 @@
+{
+  "$id": "demiton:shelf/customer_list/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_line_1": {
+      "description": "Street address line 1",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line_2": {
+      "description": "Street address line 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blocked": {
+      "description": "Source's blocked/credit-hold status for the customer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "city": {
+      "description": "Locality",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "country_code": {
+      "description": "Customer's country",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "credit_limit": {
+      "description": "Credit limit the tenant extends to this customer",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "currency amount"
+    },
+    "customer_entity_id": {
+      "description": "Demiton canonical CUSTOMER spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "customer_number": {
+      "description": "The customer account code that joins this record to AR transactions across systems",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "customer_type": {
+      "description": "The source's customer type (e.g. person/company distinction)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "default_currency_code": {
+      "description": "The customer's default transaction currency",
+      "type": "currency",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217"
+    },
+    "email": {
+      "description": "Customer contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_at": {
+      "description": "Source last-modified timestamp (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Registered/trading name of the customer party",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "payment_method_reference": {
+      "description": "Source id of the tenant-configured payment-method row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "payment_terms_reference": {
+      "description": "Source id of the tenant-configured payment-terms row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "phone": {
+      "description": "Customer contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_code": {
+      "description": "Postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "salesperson_code": {
+      "description": "Tenant's internal salesperson code for this customer",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "shipment_method_reference": {
+      "description": "Source id of the tenant-configured shipment-method row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`D365_BUSINESS_CENTRAL`/`D365_FINOPS`/`HUBSPOT`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "state": {
+      "description": "State/territory code",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_area_display_name": {
+      "description": "Human label of the source's tax area",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_area_reference": {
+      "description": "Source id of the tenant-configured tax area row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_liable": {
+      "description": "Whether the customer is taxable in the source's tax setup",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_registration_number": {
+      "description": "The customer's ABN / GST / VAT identifier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "website": {
+      "description": "Customer website / domain",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "customer_entity_id",
+    "source_system"
+  ],
+  "title": "customer_list contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "A New Tax System (Australian Business Number) Act 1999",
+        "edition": "current compilation",
+        "region": "Australia",
+        "title": "ABN and the Australian Business Register (ABN Lookup)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "A New Tax System (Goods and Services Tax) Act 1999 - tax invoice requirements",
+        "edition": "ATO guidance last updated 2025-08-25",
+        "region": "Australia",
+        "title": "GST tax invoice particulars (ATO tax invoice guidance)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ibt-027, ibt-044, ibt-034, ibt-049, ibt-055",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3",
+        "region": "Australia",
+        "title": "Peppol PINT A-NZ Billing BIS (Australia and New Zealand)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "APPs 1-13",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "compilation current at 2026-09",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art. 226",
+        "code": "Council Directive 2006/112/EC (VAT Directive)",
+        "edition": "consolidated 2025-01-01",
+        "region": "European Union",
+        "title": "Common system of value added tax - invoice particulars"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2026 (2017 edition withdrawn May 2026)",
+        "region": "European Union",
+        "title": "Electronic invoicing - Part 1: Semantic data model of the core elements of an electronic invoice"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Goods and Services Tax Act 1985 (NZ) - taxable supply information",
+        "edition": "in force since 2023-04-01",
+        "region": "New Zealand",
+        "title": "GST taxable supply information (Inland Revenue guidance, in force 2023-04-01)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "New Zealand Business Number Act 2016",
+        "edition": "2016 No 16",
+        "region": "New Zealand",
+        "title": "NZBN Act 2016 and the NZBN Register"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "IPPs 1-13",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "2020 No 31",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 - Information Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR and Data Protection Act 2018",
+        "edition": "UK GDPR (retained) + DPA 2018",
+        "region": "United Kingdom",
+        "title": "UK General Data Protection Regulation with Data Protection Act 2018"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "customer_list",
+  "x-demiton-store": "tenant"
+}

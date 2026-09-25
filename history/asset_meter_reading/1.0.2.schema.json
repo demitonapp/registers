@@ -1,0 +1,117 @@
+{
+  "$id": "demiton:shelf/asset_meter_reading/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine the reading belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "device": {
+      "description": "the telematics unit that produced the reading",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "driver": {
+      "description": "the driver logged in at the reading",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "engine_hours": {
+      "description": "the engine-hours meter reading",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "external_id": {
+      "description": "the source system's id for the reading, where it has one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "ignition_status": {
+      "description": "whether the ignition was on at the reading",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "location_label": {
+      "description": "where the machine was, as text",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "odometer": {
+      "description": "the odometer reading",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "odometer_at_install": {
+      "description": "the odometer when the device was fitted",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "read_at": {
+      "description": "when the reading was taken",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "reading_source": {
+      "description": "whether the reading is GPS-derived or from the CAN bus",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "read_at"
+  ],
+  "title": "asset_meter_reading contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-domain": "assets",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "APP 3",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "APP Guidelines ch 3 v1.2 (2026-05-13)",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 10",
+        "code": "Workplace Surveillance Act 2005 (NSW)",
+        "edition": "in force (compilation 2025-06-14)",
+        "region": "Australia",
+        "title": "Workplace Surveillance Act 2005 (tracking surveillance of employees)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 395.26(b)",
+        "code": "49 CFR Part 395 Subpart B",
+        "edition": "current (ELD mandate from 2017-12-18)",
+        "region": "United States",
+        "title": "FMCSA - Hours of Service of Drivers - Electronic Logging Devices"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "asset_meter_reading",
+  "x-demiton-store": "tenant"
+}

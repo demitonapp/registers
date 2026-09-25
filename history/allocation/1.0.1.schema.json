@@ -1,0 +1,162 @@
+{
+  "$id": "demiton:shelf/allocation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the plant/equipment the allocation places",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "checked_in_at": {
+      "description": "actual check-in on the allocated shift",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "checked_out_at": {
+      "description": "actual check-out from the allocated shift",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "cost_code": {
+      "description": "cost code / work activity the hours are coded to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "ends_at": {
+      "description": "planned end of the assignment",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "external_id": {
+      "description": "the source row's own identifier (`id`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the period the allocation is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "hours": {
+      "description": "hours allocated (the shelf's only measure)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "hours"
+    },
+    "legal_entity": {
+      "description": "the employing/owning legal entity",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "occurred_at": {
+      "description": "the resource date the allocation is for",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project/job the worker or asset is allocated to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "starts_at": {
+      "description": "planned start of the assignment",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "status": {
+      "description": "the allocation's state",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "worker": {
+      "description": "the person the allocation places",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "occurred_at",
+    "financial_period",
+    "hours"
+  ],
+  "title": "allocation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incorporating Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use (AU/NZ adoption)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.87(1), 96(1), 535 ; s.62",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 3.33, 3.34",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s.81(2)",
+        "code": "Holidays Act 2003 (NZ)",
+        "edition": "version as at 20 Dec 2023 (repealed on commencement of Employment Leave Act 2026)",
+        "region": "New Zealand",
+        "title": "Holidays Act 2003 (2003 No 129) - holiday and leave record"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 4, 6, 9",
+        "code": "SI 1998/1833",
+        "edition": "as amended by SI 2023/1426 from 1 Jan 2024",
+        "region": "United Kingdom",
+        "title": "Working Time Regulations 1998"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "allocation",
+  "x-demiton-store": "tenant"
+}

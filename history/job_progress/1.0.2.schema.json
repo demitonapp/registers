@@ -1,0 +1,207 @@
+{
+  "$id": "demiton:shelf/job_progress/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "job_end_date": {
+      "description": "BC's planned job end",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_no": {
+      "description": "the external BC job number, kept as the reconciliation key back to the ERP",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "job_start_date": {
+      "description": "BC's planned job start",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_status": {
+      "description": "BC's own job status text, passed through verbatim",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "percent_completed": {
+      "description": "WIP / cost-recognition completion for the job, clamped to `[0, 105]`, null when the BC WIP calc is invalid",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "%"
+    },
+    "percent_invoiced": {
+      "description": "the share of the job claimed/invoiced to date, clamped `[0, 105]`",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "%"
+    },
+    "percent_overdue_planning_lines": {
+      "description": "planning-line slippage signal on the job",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "%"
+    },
+    "project_id": {
+      "description": "the project (BC job) the KPIs belong to; the fact's subject anchor",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "project_manager": {
+      "description": "the job's responsible person",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "suspect": {
+      "description": "the raw rejected value(s) and the reason, present only when a percentage fell outside `[0, 105]`",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_id",
+    "job_no",
+    "percent_completed",
+    "percent_invoiced"
+  ],
+  "title": "job_progress contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A",
+        "code": "AS 2124-1992",
+        "edition": "1992 (superseded)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997 (superseded edition, still in use)",
+        "region": "Australia",
+        "title": "General Conditions of Contract"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000 (R2005); status unverified",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 76",
+        "code": "Building Industry Fairness (Security of Payment) Act 2017 (Qld)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "Qld security of payment"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 19(2)",
+        "code": "Building and Construction Industry (Security of Payment) Act 2009 (ACT)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "ACT security of payment"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 23(7), 25",
+        "code": "Building and Construction Industry (Security of Payment) Act 2021 (WA)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "WA security of payment"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Building and Construction Industry Security of Payment Act 1999 (NSW)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "NSW security of payment"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 14A-14D",
+        "code": "Building and Construction Industry Security of Payment Act 2002 (Vic)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "Vic security of payment (2026 reforms)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 17(2)",
+        "code": "Building and Construction Industry Security of Payment Act 2009 (SA)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "SA security of payment"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17-19",
+        "code": "Building and Construction Industry Security of Payment Act 2009 (Tas)",
+        "edition": "as amended",
+        "region": "Australia",
+        "title": "Tas security of payment"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17, 20-22",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (2002 No 46)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110-113",
+        "code": "Housing Grants, Construction and Regeneration Act 1996 Part II",
+        "edition": "as amended (2011)",
+        "region": "United Kingdom",
+        "title": "HGCRA 1996 Part II (Payment), as amended by LDEDCA 2009"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "paras 4-10",
+        "code": "SI 1998/649",
+        "edition": "as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment / Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "job_progress",
+  "x-demiton-store": "tenant"
+}

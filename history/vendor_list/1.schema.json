@@ -1,0 +1,140 @@
+{
+  "$id": "demiton:shelf/vendor_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address_line_1": {
+      "description": "Street address line 1",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address_line_2": {
+      "description": "Street address line 2",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blocked": {
+      "description": "Source's blocked/payment-hold status for the supplier",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "city": {
+      "description": "Locality",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "country_code": {
+      "description": "The supplier's country",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "default_currency_code": {
+      "description": "The supplier's default transaction currency",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217"
+    },
+    "email": {
+      "description": "Supplier contact email",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_at": {
+      "description": "Source last-modified timestamp (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Registered/trading name of the supplier party",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "payment_method_reference": {
+      "description": "Source id of the tenant-configured payment-method row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "payment_terms_reference": {
+      "description": "Source id of the tenant-configured payment-terms row",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "phone": {
+      "description": "Supplier contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "postal_code": {
+      "description": "Postal code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "registration_status": {
+      "description": "Verified-at-a-point-in-time registration status (e.g. ABN active/cancelled, SAM active)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record key in the producing system (BC vendor no)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`D365_BUSINESS_CENTRAL`/`D365_FINOPS`/`HUBSPOT`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "state": {
+      "description": "State/territory code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_liable": {
+      "description": "Whether the supplier is taxable in the source's tax setup",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_registration_number": {
+      "description": "The supplier's ABN / GST / VAT registration number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_registration_scheme": {
+      "description": "The scheme the tax registration number belongs to (AU ABN / NZ NZBN / US UEI / an EU codelist value)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tax_reporting_classification": {
+      "description": "The source's statutory tax-reporting classification for this supplier (BC `irs1099Code`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "vendor_entity_id": {
+      "description": "Demiton canonical VENDOR spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "vendor_number": {
+      "description": "The supplier account code that joins this record to AP transactions across systems",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "website": {
+      "description": "Supplier website / domain",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "vendor_entity_id",
+    "source_system"
+  ],
+  "title": "vendor_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "vendor_list",
+  "x-demiton-store": "tenant"
+}

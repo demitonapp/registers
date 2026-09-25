@@ -1,0 +1,71 @@
+{
+  "$id": "demiton:shelf/group_members/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "group_display_name": {
+      "description": "The group's human label as authored in the tenant directory",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "group_kind": {
+      "description": "The directory's own group classification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "group_source_id": {
+      "description": "The directory group's own identifier (Graph group object id)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "The employing/owning legal entity the membership is scoped to",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "member_entity_id": {
+      "description": "The Demiton canonical worker spine node the membership edge points at (the member)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "member_source_id": {
+      "description": "The member's own identifier in the source directory (Graph member `id`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "member_type": {
+      "description": "The directory object type of the member",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "membership_kind": {
+      "description": "Whether the edge is a direct membership or a resolved transitive clearance",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "observed_at": {
+      "description": "When this membership state was read from the directory",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The bound system that produced the record \u2014 `ENTRA_ID` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "member_entity_id",
+    "source_system",
+    "group_source_id",
+    "member_source_id",
+    "observed_at"
+  ],
+  "title": "group_members contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "group_members",
+  "x-demiton-store": "tenant"
+}

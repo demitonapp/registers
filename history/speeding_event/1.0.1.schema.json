@@ -1,0 +1,241 @@
+{
+  "$id": "demiton:shelf/speeding_event/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_id": {
+      "description": "The asset the event belongs to; today the `ASSET` anchor resolved from the payload's vehicle identifier.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "device_id": {
+      "description": "The telematics unit that produced the event.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "driver_id": {
+      "description": "The driver the event is attributed to, where the tenant's policy permits storing it.",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "duration_s": {
+      "description": "Duration of the overspeed event.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "s"
+    },
+    "event_action": {
+      "description": "The TN360 action discriminator; the demo fixture carries `SE` for speed events.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "event_type": {
+      "description": "The source event-type label, where a tenant's feed mixes event types.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "external_id": {
+      "description": "Source-system event identity, used for idempotent re-harvest and cross-chunk de-duplication.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "location_label": {
+      "description": "A human-readable place name or address string for the event.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "occurred_at": {
+      "description": "When the overspeed event occurred, not when it was recorded.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "position": {
+      "description": "The event position, carried as one value so it can never be half-populated.",
+      "type": "object",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "decimal degrees"
+    },
+    "position_datum": {
+      "description": "The datum/CRS identifier the coordinate is in (e.g. the EPSG code), plus the source frame where known.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "position_precision": {
+      "description": "Whether the coordinate is full precision or reduced (the US ELD personal-use mode is the worked example).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "recorded_at": {
+      "description": "When the telematics platform stamped/synchronised the event.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Which bound system wrote the fact.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_units": {
+      "description": "The source unit per measure, where it is not the canonical unit.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "speed_kmh": {
+      "description": "The peak speed recorded for the event.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "speed_offset_kmh": {
+      "description": "How far over the threshold the event was.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "speed_threshold_kmh": {
+      "description": "The speed limit or threshold the event exceeded.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "km/h"
+    },
+    "trip_id": {
+      "description": "The trip the event belongs to, where the source supplies one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset_id",
+    "external_id",
+    "occurred_at",
+    "speed_kmh",
+    "speed_threshold_kmh",
+    "speed_offset_kmh",
+    "duration_s",
+    "position",
+    "position_datum"
+  ],
+  "title": "speeding_event contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "GDA2020 / MGA2020",
+        "edition": "GDA2020 = ITRF2014 at epoch 2020.0",
+        "region": "Australia",
+        "title": "Geocentric Datum of Australia 2020 and Map Grid of Australia 2020 (EPSG:7844 / EPSG:78xx zones)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "APP 3",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "APP Guidelines ch 3 v1.2 (2026-05-13)",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 10",
+        "code": "Workplace Surveillance Act 2005 (NSW)",
+        "edition": "in force (compilation 2025-06-14)",
+        "region": "Australia",
+        "title": "Workplace Surveillance Act 2005 (tracking surveillance of employees)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "INSPIRE D2.8.I.1",
+        "edition": "v3.2rc2, release 2024.1 (2024-01-31)",
+        "region": "European Union",
+        "title": "INSPIRE Data Specification on Coordinate Reference Systems - Technical Guidelines (ETRS89/EVRS)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation (GDPR)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "EPSG Geodetic Parameter Dataset",
+        "edition": "v13.102",
+        "region": "International",
+        "title": "IOGP EPSG registry of coordinate reference system identifiers"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "RFC 7946",
+        "edition": "August 2016",
+        "region": "International",
+        "title": "The GeoJSON Format (IETF Proposed Standard)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "WGS 84 (EPSG:4326)",
+        "edition": "EPSG Dataset v13.102; record revised 2022-11-29",
+        "region": "International",
+        "title": "World Geodetic System 1984 datum ensemble (EPSG:6326)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZGD2000 / NZTM2000",
+        "edition": "official since 1998 (NZVD2016 vertical)",
+        "region": "New Zealand",
+        "title": "New Zealand Geodetic Datum 2000 and NZ Transverse Mercator 2000 (LINZ)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "ICO monitoring workers guidance",
+        "edition": "current guidance (under review after the Data (Use and Access) Act)",
+        "region": "United Kingdom",
+        "title": "ICO Employment practices and data protection: monitoring workers"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR / Data Protection Act 2018",
+        "edition": "as amended",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 395.26(d)(2), (i)",
+        "code": "49 CFR Part 395 Subpart B",
+        "edition": "current (ELD mandate from 2017-12-18)",
+        "region": "United States",
+        "title": "FMCSA - Hours of Service of Drivers - Electronic Logging Devices"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NAD 83 (2011)",
+        "edition": "NAD 83(2011); NATRF2022 replacement not confirmed effective",
+        "region": "United States",
+        "title": "North American Datum of 1983 (2011) epoch 2010.00 / NSRS (NGS)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "speeding_event",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,97 @@
+{
+  "$id": "demiton:shelf/induction_onboarding/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "acknowledgement": {
+      "description": "Whether and how the worker acknowledged the induction, plus a reference to the signed form or attachment.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "approval_status": {
+      "description": "Whether the induction was accepted.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "approved_at": {
+      "description": "When the induction was approved, and by whom in `attributes`.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "attributes": {
+      "description": "Every remaining form answer, keyed by the tenant's own question text, including the media/media-URL, vehicle-monitoring and one-off answers.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "employment_start_date": {
+      "description": "Planned or actual start date for the onboarded worker.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the record falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "The source form template id \u2014 which induction/onboarding form produced the record.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "Human-readable template title; the form family the record came from.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "inducting_site_or_company": {
+      "description": "The site or company the induction was conducted for.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "induction_valid_until": {
+      "description": "Expiry or lapse date of the induction/card.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the induction/onboarding form was submitted; the event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "site_access_blocked": {
+      "description": "Whether an incomplete induction blocks site sign-in, and the stated reasons.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today, SignOnSite or Hammertech if ever bound.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker whose induction/onboarding this is; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "form_id"
+  ],
+  "title": "induction_onboarding contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "induction_onboarding",
+  "x-demiton-store": "tenant"
+}

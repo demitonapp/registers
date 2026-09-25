@@ -1,0 +1,174 @@
+{
+  "$id": "demiton:shelf/bank_guarantee/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "the most the issuer will pay on demand",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "contract_reference": {
+      "description": "the contract the guarantee secures",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "counterparty": {
+      "description": "the other party to the contract the guarantee secures",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of the amount",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "direction": {
+      "description": "whether the tenant gave the guarantee or holds one given to it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "expires_on": {
+      "description": "when the undertaking lapses, if it has an expiry",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source's own record id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "issued_on": {
+      "description": "the date on the undertaking",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "issuer": {
+      "description": "the financial institution that gave the undertaking",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the tenant legal entity party to the contract",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the secured contract is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "reduction_on_practical_completion": {
+      "description": "how much of the security falls away at practical completion",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "release_trigger": {
+      "description": "the event after which the guarantee must be returned",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "returned_on": {
+      "description": "when the guarantee was returned",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "security_form": {
+      "description": "the form of security the contract required",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "security_kind": {
+      "description": "which tranche the guarantee is, e.g. completion or post-completion",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "whether the guarantee is held, reduced, called on or returned",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "subcontract": {
+      "description": "the subcontract the guarantee secures, when the tenant holds it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "direction",
+    "counterparty",
+    "issuer",
+    "amount"
+  ],
+  "title": "bank_guarantee contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-domain": "counterparties",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A Item 18; cl 5.4; Annexure Part B (principal-amended form)",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 33; Schedule 2",
+        "code": "GC21 Edition 2",
+        "edition": "Edition 2",
+        "region": "Australia",
+        "title": "GC21 General Conditions of Contract, Edition 2 (as modified by the ACT Government)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17A-17H (per commentary)",
+        "code": "VIC BCISP Act 2002",
+        "edition": "2002 as amended 15 Apr 2026",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2002 (Vic), as amended from 15 Apr 2026"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 59",
+        "code": "WA BCISP Act 2021",
+        "edition": "2021",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2021 (WA)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "bank_guarantee",
+  "x-demiton-store": "tenant"
+}

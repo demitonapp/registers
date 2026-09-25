@@ -1,0 +1,202 @@
+{
+  "$id": "demiton:shelf/plant_prestart/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the item of plant the prestart is about",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "asset_registration_number": {
+      "description": "the registration number for plant that must be registered before use",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "certifier": {
+      "description": "the competent person who performed or certified the prestart",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source form-result's own identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "flagged_count": {
+      "description": "how many answers name a fault; the shelf's primary condition signal",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "dimensionless"
+    },
+    "form_id": {
+      "description": "the source form template identity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "the tenant's own name for the prestart form the record was captured on; the key the `form_pattern` sweep matches",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "hour_meter_reading": {
+      "description": "the machine's hour-meter reading recorded at the prestart",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours (**unit unverified**)"
+    },
+    "inspection_class": {
+      "description": "pre-operational / routine / major inspection",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "the WHS/examination regime whose interval and retention rule apply",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative_count": {
+      "description": "how many free-text answers were filled in",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "occurred_at": {
+      "description": "when the prestart was submitted; the date the retention clock runs from",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "prestart_date": {
+      "description": "the date the form itself carries, where it differs from submission time",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the plant was pre-started on that day",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_units": {
+      "description": "the source unit each measure arrived in, beside the canonical unit",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "tag_severity": {
+      "description": "the green/yellow/red plant tag at its worst on the form",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "tenant_payload": {
+      "description": "the tenant's own prestart questions and answers \u2014 check-item results, selectors, comments, the grout/mixer numerics",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unanswered_count": {
+      "description": "how many answerable questions were left blank",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "worker": {
+      "description": "the worker who submitted the prestart; an anchor, not a declared axis",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "occurred_at",
+    "asset",
+    "flagged_count"
+  ],
+  "title": "plant_prestart contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 2550.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Safe use - Mobile elevating work platforms"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS/NZS 1418.10",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "Cranes, hoists and winches - Mobile elevating work platforms (design and construction)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "regs 81, 226, 234, 235(4), 237; Sch 3, 5",
+        "code": "Model WHS Regulations",
+        "edition": "as amended 5 December 2025",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Regulations (Safe Work Australia; given effect by each state/territory)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1",
+        "code": "ISO 45001:2018",
+        "edition": "2018 + Amd 1:2024 (AS/NZS ISO 45001:2018 AU/NZ adoption)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 55000",
+        "edition": "2024 (AS ISO 55000:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Vocabulary, overview and principles"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "8.1; 7.6",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "Schedule 1",
+        "code": "LOLER 1998",
+        "edition": "1998 (with HSE ACOP)",
+        "region": "United Kingdom",
+        "title": "Lifting Operations and Lifting Equipment Regulations 1998"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "(j)",
+        "code": "29 CFR 1910.179",
+        "edition": "eCFR current (read 2026-09-01 point in time)",
+        "region": "United States",
+        "title": "OSHA - Overhead and gantry cranes"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "plant_prestart",
+  "x-demiton-store": "tenant"
+}

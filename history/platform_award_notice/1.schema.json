@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/platform_award_notice/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "platform_award_notice contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "platform",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_award_notice",
+  "x-demiton-store": "platform"
+}

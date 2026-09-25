@@ -1,0 +1,93 @@
+{
+  "$id": "demiton:shelf/trial_balance/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "account_category": {
+      "description": "the account's primary classification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_name": {
+      "description": "the account's human label",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_number": {
+      "description": "the G/L account number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "account_sub_category": {
+      "description": "the finer classification",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "account_type": {
+      "description": "the BC account-type code",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "balance": {
+      "description": "the account's closing balance at the snapshot",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by-coordinate (currency)"
+    },
+    "currency": {
+      "description": "currency of the monetary amounts",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own account identifier",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "last_modified_at": {
+      "description": "when the source last changed the account record",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "instant"
+    },
+    "legal_entity_id": {
+      "description": "the company that owns the account",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "net_change": {
+      "description": "movement in the account for the period",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "by-coordinate (currency)"
+    },
+    "snapshot_at": {
+      "description": "the instant the snapshot was captured",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "source_system": {
+      "description": "the system the snapshot was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "source_system",
+    "external_id",
+    "account_number",
+    "legal_entity_id",
+    "snapshot_at",
+    "balance",
+    "net_change"
+  ],
+  "title": "trial_balance contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "trial_balance",
+  "x-demiton-store": "tenant"
+}

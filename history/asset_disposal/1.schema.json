@@ -1,0 +1,94 @@
+{
+  "$id": "demiton:shelf/asset_disposal/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "The tracked plant/asset disposed of, when it resolves to the asset spine.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "disposal_method": {
+      "description": "How the item left service (sold / scrapped / written off / returned).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "disposed_at": {
+      "description": "The date of disposal as recorded on the form, where it differs from submission time.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "disposed_item_description": {
+      "description": "What was disposed of, as named on the disposal record; the free-text fallback that carries the fact when no asset resolves.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "Stable identity of the source disposal record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the disposal falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "Source form template identity; meaningful only on form-backed sources.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_title": {
+      "description": "The tenant template title the disposal was captured on.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "The WHS/environmental regime whose duty and retention rule apply.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the disposal was recorded/submitted; the life-cycle retirement event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "proceeds_amount": {
+      "description": "Sale proceeds, where the disposal was a sale.",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "native currency (AUD default)"
+    },
+    "quantity": {
+      "description": "Number of items disposed, when more than one.",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker who processed or submitted the disposal; the accountable identity.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "disposed_item_description"
+  ],
+  "title": "asset_disposal contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "asset_disposal",
+  "x-demiton-store": "tenant"
+}

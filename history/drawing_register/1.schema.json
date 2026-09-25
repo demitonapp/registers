@@ -1,0 +1,126 @@
+{
+  "$id": "demiton:shelf/drawing_register/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "as_built_required": {
+      "description": "whether an as-built revision is required",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "author": {
+      "description": "who produced the drawing",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "authorised_by": {
+      "description": "who authorised the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "current": {
+      "description": "whether this revision is in the current drawing set",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "discipline": {
+      "description": "the design discipline, e.g. civil or structural",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_type": {
+      "description": "the register's document type",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "drawing_number": {
+      "description": "the drawing's number on the register",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "external_id": {
+      "description": "the source system's own register entry id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "file_name": {
+      "description": "the file behind the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "print_size": {
+      "description": "the sheet size",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project whose register holds the drawing",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "registered_at": {
+      "description": "when the revision was registered",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "review_status": {
+      "description": "the outcome of the review of the revision",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "revision": {
+      "description": "the revision this row describes",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "revision_date": {
+      "description": "the date of the revision",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "scale": {
+      "description": "the drawing scale",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "the status or suitability the revision was issued for",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "the drawing's title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "version_number": {
+      "description": "the register's version counter for the entry",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "drawing_number",
+    "revision",
+    "title"
+  ],
+  "title": "drawing_register contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "drawing_register",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,85 @@
+{
+  "$id": "demiton:shelf/entity_attribute/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asserted_at": {
+      "description": "when the value was last asserted by the resolver (`valid_from`, defaulting to write time)",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "attribute_key": {
+      "description": "the canonical attribute this row asserts \u2014 `stage`, `employment_status`, `outcome`, `value`, `closed_date`, `project_manager` observed; 19 keys declared in all",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "confidence": {
+      "description": "the resolver's confidence in the value; 1.0 on both resolvers today",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio"
+    },
+    "evidence": {
+      "description": "the raw resolver signals reconciled to produce the value, kept for auditability",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the financial period the assertion is scoped to when the producer knows it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "the legal entity the assertion is scoped to when the producer knows it",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "shelf_type": {
+      "description": "the pattern instance `entity_attribute:{key}`; today the only carrier of the attribute identity and of the per-key supersede bucket",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "the idempotency key the writer mints (`attr:{key}:{entity_id}`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "the origin that asserted the value; always `DEMITON` today, because Demiton resolved it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "the project, worker, asset or opportunity the attribute is about; the shared subject of the row",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "valid_until": {
+      "description": "the supersession stamp; the live row is `valid_until IS NULL`, and superseded values are retained as an audit trail",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "value": {
+      "description": "the resolved canonical value: the OC4IDS phase, employment state, opportunity outcome, and so on",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "per the key (none today carries a unit)"
+    }
+  },
+  "required": [
+    "subject_entity_id",
+    "shelf_type",
+    "attribute_key",
+    "value",
+    "source_system",
+    "source_id",
+    "asserted_at"
+  ],
+  "title": "entity_attribute contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "entity_attribute",
+  "x-demiton-store": "tenant"
+}

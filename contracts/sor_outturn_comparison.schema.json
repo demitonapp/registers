@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/sor_outturn_comparison/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "sor_outturn_comparison contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "sor_outturn_comparison",
+  "x-demiton-store": "tenant"
+}

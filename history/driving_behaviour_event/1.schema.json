@@ -1,0 +1,101 @@
+{
+  "$id": "demiton:shelf/driving_behaviour_event/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "acceleration_g": {
+      "description": "peak acceleration of an EA event, magnitude, INSTANTANEOUS",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "g"
+    },
+    "acceleration_threshold_g": {
+      "description": "the EA threshold the event exceeded (`maxAccelerationThrsh`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "g"
+    },
+    "asset": {
+      "description": "the vehicle the event was recorded against",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "category": {
+      "description": "which kind of event it is: harsh braking or harsh acceleration",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "deceleration_g": {
+      "description": "peak deceleration of an HB event, magnitude, INSTANTANEOUS (never summed)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "g"
+    },
+    "deceleration_threshold_g": {
+      "description": "the HB threshold the event exceeded (`minDecelerationThrsh`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "g"
+    },
+    "device": {
+      "description": "the telematics device that recorded the event",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "driver": {
+      "description": "the operator attributed to the event",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "duration_s": {
+      "description": "how long the event lasted (`attributes.duration`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "s"
+    },
+    "external_id": {
+      "description": "the source's own event identifier (`id`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gps": {
+      "description": "the position carried on the event, and by the declared producer edge the geographic area it is attributed to",
+      "type": "object",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "\u2014 (datum, CRS and precision **unverified**)"
+    },
+    "occurred_at": {
+      "description": "when the harsh braking/acceleration event occurred",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "raw_attributes": {
+      "description": "the untouched source event payload, including the per-second acceleration/GPS trace the resource description promises",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "asset",
+    "occurred_at",
+    "source_system",
+    "external_id",
+    "category",
+    "deceleration_g",
+    "acceleration_g"
+  ],
+  "title": "driving_behaviour_event contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "driving_behaviour_event",
+  "x-demiton-store": "tenant"
+}

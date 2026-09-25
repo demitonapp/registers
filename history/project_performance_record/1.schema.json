@@ -1,0 +1,380 @@
+{
+  "$id": "demiton:shelf/project_performance_record/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "claim_cycle": {
+      "description": "monthly claimed-vs-cost curve and its derived margin",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "claim_cycle.claimed_to_date": {
+      "description": "latest-point rollups",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD / percent"
+    },
+    "claim_cycle.curve[]": {
+      "description": "month-by-month points; empty array valid",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "claim_cycle.curve[].claimed": {
+      "description": "claimed in that month",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "claim_cycle.curve[].cost": {
+      "description": "cost in that month",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "claim_cycle.curve[].cum_claimed": {
+      "description": "cumulative claimed",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "claim_cycle.curve[].cum_cost": {
+      "description": "cumulative cost",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "claim_cycle.curve[].margin_to_date_pct": {
+      "description": "cumulative margin at that month",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "claim_cycle.curve[].month": {
+      "description": "the **period covered** by the point",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "claim_cycle.cycles": {
+      "description": "number of months carrying a claim",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "claim_cycle.drift_alarm_month": {
+      "description": "first month margin-to-date flips negative",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "claim_cycle.tendered_margin_pct": {
+      "description": "tendered baseline and deviation",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent / points"
+    },
+    "classification.name": {
+      "description": "project/contract display label at analysis time",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "contract.claim_terms": {
+      "description": "claim cadence / payment terms / retention from the tenant's QF-164 template",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "days"
+    },
+    "contract.source": {
+      "description": "provenance of the claim terms",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "cost_lines[]": {
+      "description": "raw BC cost categories; empty when no P&L",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_lines[].cost_budget": {
+      "description": "per-category budget vs actual",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD / percent"
+    },
+    "cost_lines[].work_type_raw": {
+      "description": "the tenant's own BC category label",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "data_quality.confidence": {
+      "description": "gate confidence stamped on the fact",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ratio 0\u20131"
+    },
+    "data_quality.source_coverage_pct": {
+      "description": "share of expected sources present",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ratio 0\u20131"
+    },
+    "data_quality.sources_missing[]": {
+      "description": "named gaps",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "data_quality.sources_present[]": {
+      "description": "named sources that answered",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "divergence_attribution": {
+      "description": "deterministic drift attribution; empty object valid",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "divergence_attribution.attribution_coverage_pct": {
+      "description": "share of drifting cycles explained (cycle-count basis v1)",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "divergence_attribution.cycles[]": {
+      "description": "drifting periods; empty array valid",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "divergence_attribution.cycles[].causes[].cause": {
+      "description": "attributed cause, one of the code-defined values",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "divergence_attribution.cycles[].causes[].evidence": {
+      "description": "the observed signal behind the cause",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "divergence_attribution.cycles[].drift_pts": {
+      "description": "signed margin movement that cycle",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "margin points"
+    },
+    "divergence_attribution.cycles[].month": {
+      "description": "the drifting period",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "divergence_attribution.cycles[].observability_gaps[]": {
+      "description": "named missing data that left the cycle unattributable",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the three declared context coordinates",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "labour_plant.allocation_count": {
+      "description": "allocation rollup",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "labour_plant.hours_by_task": {
+      "description": "allocated hours per Assignar task",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "hours"
+    },
+    "labour_plant.total_task_hours": {
+      "description": "total allocated task hours",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "margin_alerts": {
+      "description": "evaluated alert rules and drafts; empty object valid",
+      "type": "object",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_alerts.active_alerts[]": {
+      "description": "alerts active in the latest month; empty valid",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_alerts.active_alerts[].level": {
+      "description": "`alert` or `escalation`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_alerts.active_alerts[].month": {
+      "description": "the month the alert fired",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_alerts.active_alerts[].rule": {
+      "description": "rule id (`tendered_deviation`, `cost_claim_ratio`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "margin_alerts.first_alert_month": {
+      "description": "earliest alert month",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "outcome.budget": {
+      "description": "BC total budget",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.contract_value": {
+      "description": "BC total contract value",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.cost_actual": {
+      "description": "BC total cost",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.cost_growth_pct": {
+      "description": "cost \u00f7 budget \u2212 1",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "outcome.invoiced": {
+      "description": "BC total invoiced",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.margin": {
+      "description": "BC margin",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.margin_pct": {
+      "description": "margin to date",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent"
+    },
+    "outcome.revenue_actual": {
+      "description": "BC total revenue",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "outcome.revised_budget": {
+      "description": "variation-adjusted budget/contract and the variation tally",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD / count / percent"
+    },
+    "outcome.status": {
+      "description": "BC status",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "proposal: claim_cycle.response_window_days": {
+      "description": "`calendar_day`)",
+      "type": "integer",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "`working_day`\\"
+    },
+    "proposal: jurisdiction": {
+      "description": "the regime the record is being read under",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "proposal: tax_basis": {
+      "description": "`n/a`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`excl_gst`\\"
+    },
+    "provenance.generated_at": {
+      "description": "generation timestamp",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "provenance.phase": {
+      "description": "pipeline phase marker (`\"phase1-bc-assignar\"`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "provenance.resolved_links": {
+      "description": "the tenant's source-link rows used for the reconciliation",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "schedule_delays": {
+      "description": "latest site-diary schedule signal (completion dates, days worked, delay-field presence)",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "schema_version": {
+      "description": "payload version marker (`\"1.0-phase1\"`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject": {
+      "description": "the project the record is about; the semantic fact's subject and supersede key",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "one-line human summary for content search and list display",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "variations[]": {
+      "description": "the tenant's variation register at analysis time",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "AUD / date"
+    }
+  },
+  "required": [
+    "subject",
+    "schema_version",
+    "summary",
+    "classification.name",
+    "outcome.budget",
+    "outcome.cost_actual",
+    "outcome.margin_pct",
+    "outcome.cost_growth_pct",
+    "claim_cycle",
+    "claim_cycle.curve[]",
+    "claim_cycle.curve[].month",
+    "claim_cycle.curve[].cum_claimed",
+    "claim_cycle.curve[].cum_cost",
+    "claim_cycle.curve[].margin_to_date_pct",
+    "divergence_attribution",
+    "divergence_attribution.cycles[]",
+    "divergence_attribution.cycles[].month",
+    "divergence_attribution.cycles[].drift_pts",
+    "divergence_attribution.cycles[].causes[].cause",
+    "margin_alerts",
+    "margin_alerts.active_alerts[]",
+    "margin_alerts.active_alerts[].rule",
+    "margin_alerts.active_alerts[].level",
+    "margin_alerts.active_alerts[].month",
+    "data_quality.source_coverage_pct",
+    "data_quality.confidence",
+    "data_quality.sources_present[]",
+    "data_quality.sources_missing[]",
+    "provenance.generated_at"
+  ],
+  "title": "project_performance_record contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "project_performance_record",
+  "x-demiton-store": "tenant"
+}

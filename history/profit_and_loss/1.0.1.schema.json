@@ -1,0 +1,172 @@
+{
+  "$id": "demiton:shelf/profit_and_loss/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_amount": {
+      "description": "actual cost to date (BC `Total_Cost`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "bc_job_no": {
+      "description": "the Business Central job number the fact was read for; the join key between the fact and the project spine",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "budget_amount": {
+      "description": "the project budget at the snapshot (BC `Total_Budget`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "claimed_to_date_amount": {
+      "description": "value invoiced to date (BC `Total_Invoiced`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "commitments_amount": {
+      "description": "open purchase-commitment value (BC `Total_Commitments`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "contract_value_amount": {
+      "description": "the contracted value of the job (BC `Total_Contract_Value`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "currency": {
+      "description": "the currency the amounts are in; today the field names hard-code AUD and the writer passes `currency_code=\"AUD\"`",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the accounting period the snapshot covers",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gross_margin_amount": {
+      "description": "revenue less actual cost (`Total_Revenue(abs) - Total_Cost`)",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "gross_margin_pct": {
+      "description": "`gross_margin_amount / revenue * 100`",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent (%)"
+    },
+    "project_id": {
+      "description": "the project (BC job) the snapshot belongs to; the fact's subject anchor",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "the bound ERP the snapshot was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "the one-line human-readable financial position, for citation/search",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "variance_amount": {
+      "description": "`budget_amount - (actual_amount + commitments_amount)`; the writer's `variance_aud`",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "project_id",
+    "financial_period",
+    "source_system",
+    "budget_amount",
+    "actual_amount"
+  ],
+  "title": "profit_and_loss contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.2 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "AS 4000:2025 General Conditions of Contract"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 29-70 (tax invoices); ATO tax invoice guidance",
+        "code": "GST Act 1999 (Cth)",
+        "edition": "current (ATO guidance updated 25 Aug 2025)",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "claimed amount states GST treatment",
+        "code": "SA SOP Act 2009",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (SA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17-19",
+        "code": "Tas SOP Act 2009",
+        "edition": "in force 2025-10-11",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2009 (Tas)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 24-25",
+        "code": "WA SOP Act 2021",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2021 (WA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 20, 21, 18J-18K",
+        "code": "Construction Contracts Act 2002 (NZ)",
+        "edition": "as at 5 Oct 2023 (incl. Retention Money Amendment Act 2023)",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 110, 110A, 111, 113",
+        "code": "HGCRA 1996 Part II",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996 (UK), Part II"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702/G703",
+        "edition": "1992 base editions",
+        "region": "United States",
+        "title": "AIA G702-1992 / G703-1992"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "profit_and_loss",
+  "x-demiton-store": "tenant"
+}

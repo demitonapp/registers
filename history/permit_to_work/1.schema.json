@@ -1,0 +1,134 @@
+{
+  "$id": "demiton:shelf/permit_to_work/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_end": {
+      "description": "when the work actually finished",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "actual_start": {
+      "description": "when the work actually started",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "approved_at": {
+      "description": "when the permit was approved",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "approver": {
+      "description": "who approved the permit",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "closed_out_at": {
+      "description": "when the permit was closed out",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "closeout_checklist_completed": {
+      "description": "whether the closeout checklist was done",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "employer": {
+      "description": "the employer doing the permitted work",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own permit id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "initiator": {
+      "description": "who created the permit record",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "location": {
+      "description": "where the work is, as free text",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "the permit's title",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "permit_type": {
+      "description": "the kind of hazardous work permitted",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "the site or project the permit is for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "proposed_end": {
+      "description": "when the work was planned to finish",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "proposed_start": {
+      "description": "when the work was planned to start",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "raised_at": {
+      "description": "when the permit was initiated",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "reference": {
+      "description": "the permit's human reference",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "requester": {
+      "description": "who asked for the permit",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "where the permit is in its lifecycle",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "zone": {
+      "description": "the permit zone on site",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "reference",
+    "permit_type",
+    "status"
+  ],
+  "title": "permit_to_work contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "permit_to_work",
+  "x-demiton-store": "tenant"
+}

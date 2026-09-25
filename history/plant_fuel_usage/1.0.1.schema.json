@@ -1,0 +1,160 @@
+{
+  "$id": "demiton:shelf/plant_fuel_usage/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "alloc_days": {
+      "description": "allocation days attributed to a light-vehicle row",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "asset": {
+      "description": "the plant/vehicle the fuel belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "asset_label": {
+      "description": "the Assignar display label for a plant asset (or its split sub-label)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "attribution_method": {
+      "description": "`navman_gps`)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`allocation_name` \\"
+    },
+    "burn_rate_lph": {
+      "description": "derived litres per machine hour",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "L/h"
+    },
+    "claim_amount_aud": {
+      "description": "the final computed claim figure = litres \u00d7 the claim month's price variance, never re-derived downstream",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "driver_name": {
+      "description": "the person who purchased the fuel on an LV/HV row",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "deterministic per-row identity the producer builds from project + item + key + period",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the claim month (`YYYY-MM`) the usage is attributed to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "hours": {
+      "description": "machine hours the fuel is attributed to",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "hours_source": {
+      "description": "empty)",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "`inferred` \\"
+    },
+    "item": {
+      "description": "`heavy_vehicle`)",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`light_vehicle` \\"
+    },
+    "km_from_project": {
+      "description": "distance from the project for a heavy-vehicle transaction, from Navman GPS",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "km"
+    },
+    "litres": {
+      "description": "fuel volume consumed/purchased",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "litres"
+    },
+    "occurred_at": {
+      "description": "the usage date (month start for plant, transaction date for LV/HV)",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "project": {
+      "description": "the project the fuel was consumed on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "rego": {
+      "description": "vehicle registration for LV/HV rows",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which system emitted the fact (today always `DEMITON`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "occurred_at",
+    "item",
+    "litres",
+    "claim_amount_aud"
+  ],
+  "title": "plant_fuel_usage contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO business record-keeping rules",
+        "edition": "page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO record-keeping for business (general 5-year retention; longer for depreciating assets)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(2)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 - obligation to keep financial records (7 years)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO/TS 15143-3",
+        "edition": "2020 (SA TS ISO 15143.3:2021 AU and PD ISO/TS 15143-3:2020 UK identical adoptions)",
+        "region": "International",
+        "title": "Earth-moving machinery and mobile road construction machinery - Worksite data exchange - Telematics data (AEMP 2.0)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "plant_fuel_usage",
+  "x-demiton-store": "tenant"
+}

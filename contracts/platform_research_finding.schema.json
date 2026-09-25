@@ -1,0 +1,141 @@
+{
+  "$id": "demiton:shelf/platform_research_finding/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "caveat": {
+      "description": "the author's own plain-English limit on the figure, where the research pass gave one - 'Based on respondents' estimates, not records'; 'Size of the pot, not a loss'",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "confidence": {
+      "description": "the evidence grade, by the published rubric in github.com/demitonapp/disease-economics METHOD.md Section 4: `low` (read second-hand, unverifiable, or a model or estimate), `moderate` (read at source but one organisation's data, people's own estimates, or a sampling problem the caveat names), `high` (read at source and none of those). Carried so the surface can rank its evidence honestly instead of presenting a secondary citation as a measurement",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "ISO 4217 currency of a `per_*` figure (AUD, USD, NZD); null for ratios and `none`. The surface prints the amount in this currency, never as a bare dollar sign",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "denominator": {
+      "description": "what a `ratio_of_other` figure is a share OF: `budget_at_decision`, `budget_at_announcement`, `construction_cost`, `amount_claimed`, `arbitration_cost`, `total_injury_cost` (the vocabulary of github.com/demitonapp/disease-economics schema/finding.schema.json). Null for every other unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "disease_key": {
+      "description": "which of the five margin diseases this finding prices - the SD027 \u00a74.6 disease key (`rework_signal`, `overrun_signal`, `claim_window`, `evidence_gap`, `compliance_gate`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "exposure_basis": {
+      "description": "what the figure is a percentage OF, in words - 'of original contract value'. Stored because the same disease yields 3-5% of one basis and 10% of another, and a bare number without its basis is the most common way a benchmark misleads",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "exposure_kind": {
+      "description": "who bears the money: `contractor_loss` (the source measured money the contractor loses), `money_at_stake` (it measured how much is in play, not what is lost), `owner_side` (the client pays), or `societal` (workers and the community). Only contractor_loss and money_at_stake may reach the headline ledger",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "exposure_unit": {
+      "description": "how the figure may be projected: `ratio_of_contract` (multiplies a contract value), `ratio_of_other` (a share of something else, named by `denominator`; never multiplied), `per_wet_day`, `per_incident`, `per_year_industry`, or `none` when no published figure exists. Multiplying a per-day or per-incident figure, or a share of an arbitration bill, by a contract value is nonsense, so the unit is declared rather than assumed",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "exposure_value": {
+      "description": "the published figure in the source's own unit. A share of contract value is stored as a decimal fraction (10% is 0.10); a per-day or per-incident figure is stored in whole dollars. 0 when the source published no such figure",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "decimal fraction for ratio_of_contract; AUD for per_wet_day and per_incident"
+    },
+    "industries": {
+      "description": "ISIC Rev.4 divisions the evidence covers (`F42` civil engineering, `F` construction, `ALL`, `unknown`); the union of the finding's sources. Carried for display and future matching; not yet part of the rule",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdictions": {
+      "description": "Where the evidence is from: ISO 3166 codes (`AU`, `AU-QLD`), `GLOBAL` (no limit claimed) or `unknown`; the union of the finding's sources. The exposure service applies a figure to a project only when this holds the project's place, its country, or GLOBAL",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "label": {
+      "description": "how the finding is named on the surface, in the source's own terms - 'Mean total rework cost (115 Australian civil projects)'",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "metric_key": {
+      "description": "the finding's stable identifier within its disease, e.g. `rework_total_civil_survey`. The seed's idempotency partner: re-running the seed updates the same row, and a genuinely new finding gets a new key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "price_year": {
+      "description": "the year a `per_*` amount is priced in; null otherwise",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "sample_note": {
+      "description": "sample size, geography, sector and method - what bounds the figure. Null where the source did not disclose it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_location": {
+      "description": "where in the document to look - 'abstract', 'p.5', 'table 23'. Null when the source did not permit it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_org": {
+      "description": "the publishing organisation or author of record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_secondary": {
+      "description": "true when the figure was read only through someone else's citation rather than at the primary document",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_title": {
+      "description": "the paper, report or dataset title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_url": {
+      "description": "a resolvable link to the source",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_year": {
+      "description": "the year of the source, for a vintage check - a 2001 benchmark and a 2025 one are not the same evidence",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "disease_key",
+    "metric_key",
+    "label",
+    "exposure_unit",
+    "exposure_value",
+    "exposure_basis",
+    "exposure_kind",
+    "confidence",
+    "source_org",
+    "source_title",
+    "source_url"
+  ],
+  "title": "platform_research_finding contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-domain": "platform",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_research_finding",
+  "x-demiton-store": "platform"
+}

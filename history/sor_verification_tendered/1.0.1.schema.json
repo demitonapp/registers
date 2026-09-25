@@ -1,0 +1,195 @@
+{
+  "$id": "demiton:shelf/sor_verification_tendered/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agent_run_id": {
+      "description": "The run that produced this verification; the citation's `external_ref` and `origin_uri` are built from it.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "baseline_document_identifier": {
+      "description": "An appointment/asset-scoped identifier for the client-issued baseline container.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "baseline_provenance": {
+      "description": "Who issued the parsed pricing baseline. `client_issued` is the only clean value; `pca_internal` is a fallback that requires a warning finding.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "findings": {
+      "description": "discrepancy, title: string, detail: string}`",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "warning\\"
+    },
+    "line_items": {
+      "description": "The verified line items \u2014 the substance of the record and the only part the reader uses.",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].item_ref": {
+      "description": "The client SoR item reference for a verified line.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].measured_qty": {
+      "description": "same as `line_items[].uom`",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null"
+    },
+    "line_items[].sor_qty": {
+      "description": "the line's own UoM (`line_items[].uom`, a string)",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "null"
+    },
+    "line_items[].tendered_comparison.matched_by": {
+      "description": "How the line was matched into the tendered submission.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "line_items[].tendered_comparison.qty_variance_vs_measured_pct": {
+      "description": "per cent",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null"
+    },
+    "line_items[].tendered_comparison.qty_variance_vs_sor_pct": {
+      "description": "per cent",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null"
+    },
+    "line_items[].tendered_comparison.tendered_qty": {
+      "description": "`line_items[].uom` (with `tendered_unit` recorded verbatim)",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null"
+    },
+    "line_items[].variance_pct": {
+      "description": "Server-computed variance of the measured value against the SoR quantity.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "per cent"
+    },
+    "line_items[].verdict": {
+      "description": "The per-line verification verdict.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "line_items[].verification_strength": {
+      "description": "How independent the corroborating derivation is.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "opportunity_ref": {
+      "description": "The opportunity number/name the verified tender belongs to; the only human key that ties the fact to the spine entity it is anchored on.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "pricing_document": {
+      "description": "The document the SoR line items were transcribed from. Null when no pricing document was parsed.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "review_state": {
+      "description": "Every value on this shelf is agent-derived and awaits human reconciliation; the single legal value today.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "revision_ordering_convention": {
+      "description": "A code-set identifier saying how to order revisions and status values (e.g. an annex or project execution-plan identifier).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "The verification outcome for the run.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_entity_id": {
+      "description": "The opportunity spine entity the fact is anchored on. Recorded because it is the shelf's *only* axis: `entity_id=entity.id` with an empty `CoordinateBundle` (line 812), and there is no `project_id`/`period` column populated at all.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "summary": {
+      "description": "One-paragraph rendered narrative (counts of consistent/discrepancy/unverified and number compared against the tendered submission).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tendered_document": {
+      "description": "\u2014",
+      "type": "object",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "null}`"
+    },
+    "tendered_document.revision": {
+      "description": "The revision label of the tendered submission, e.g. `Rev 3`; **not** an ordering or a status.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "opportunity_ref",
+    "subject_entity_id",
+    "status",
+    "review_state",
+    "line_items",
+    "agent_run_id",
+    "summary",
+    "line_items[].item_ref",
+    "line_items[].verdict",
+    "line_items[].sor_qty"
+  ],
+  "title": "sor_verification_tendered contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works - Part 1 concepts and principles (identical to ISO 19650-1:2018)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information - Part 2 delivery phase of the assets (identical to ISO 19650-2:2018)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ICMS 3",
+        "edition": "3rd edition (2021)",
+        "region": "International",
+        "title": "International Cost Management Standard"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Parts 1 and 2"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "sor_verification_tendered",
+  "x-demiton-store": "tenant"
+}

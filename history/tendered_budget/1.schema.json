@@ -1,0 +1,97 @@
+{
+  "$id": "demiton:shelf/tendered_budget/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "budget_hours": {
+      "description": "Total labour hours behind the labour portion, for rate-per-hour and productivity checks.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "hours"
+    },
+    "category": {
+      "description": "The cost category a section total belongs to.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "coverage": {
+      "description": "`empty`)",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`labour_only` \\"
+    },
+    "entity_id": {
+      "description": "The entity the price belongs to. Always an `opportunity` for this shelf: `doc_entity_type='opportunity'` (`baseline_squash_02_seed.sql:274`), resolved by `resolve_anchor_entity` preferring opportunity at tender stage, and the writer skips the write entirely when resolution returns None.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "financial_period": {
+      "description": "The period the budget belongs to, so successive periods coexist instead of superseding one another.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "grand_total_aud": {
+      "description": "The whole tendered sum: the sum of every section's total.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    },
+    "labour_total_value": {
+      "description": "The Labour section's subtotal, kept for labour-only consumers.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "line_count": {
+      "description": "How many nested lines the section carries, so a truncated parse is detectable.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "count"
+    },
+    "lines[]": {
+      "description": "The priced line detail: what was priced, how much, in what unit, at what rate, for what total, and the work-activity / cost-type coding where the workbook carries it.",
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "mixed (each line carries its own unit)"
+    },
+    "sections": {
+      "description": "The cost-category breakdown (Labour, Plant, Subcontract, Travel, Materials, Overhead on a full parse), one entry per category: category label, section total, line count, and the nested line list.",
+      "type": "array",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD (per section)"
+    },
+    "source_format": {
+      "description": "Which parser format produced the record, so a consumer can tell a Pronamics workbook from a future parser's output.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "total_aud": {
+      "description": "The section subtotal; `grand_total_aud` must equal their sum.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "entity_id",
+    "financial_period",
+    "grand_total_aud",
+    "sections",
+    "coverage",
+    "source_format",
+    "category",
+    "total_aud",
+    "line_count"
+  ],
+  "title": "tendered_budget contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "tendered_budget",
+  "x-demiton-store": "tenant"
+}

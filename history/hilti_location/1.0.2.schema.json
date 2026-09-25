@@ -1,0 +1,95 @@
+{
+  "$id": "demiton:shelf/hilti_location/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "address": {
+      "description": "Free-text address of the location as supplied by HILTI_ONTRACK.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "external_id": {
+      "description": "The source's own external reference for the location (`Hilti ON!Track` `externalId`), distinct from the Hilti id.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "label": {
+      "description": "The location's display name (`Hilti ON!Track` `name`).",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "legal_entity_id": {
+      "description": "The legal-entity context coordinate for the fact.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "location": {
+      "description": "The canonical `Entity` the fact is self-anchored to; the subject of \"where/what is named X\".",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "location_type": {
+      "description": "The class of place \u2014 the migration names \"warehouses, jobsites and vehicles\".",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    },
+    "occurred_at": {
+      "description": "The write/harvest instant stamped on the fact.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "source_record_id": {
+      "description": "The Hilti location id (the `id` the T0 gate requires).",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "none"
+    },
+    "status": {
+      "description": "The location's status in the source register.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "none"
+    }
+  },
+  "required": [
+    "location",
+    "label",
+    "source_record_id",
+    "occurred_at"
+  ],
+  "title": "hilti_location contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.6",
+        "code": "ISO 55001",
+        "edition": "2024 (AS ISO 55001:2024 identical AU adoption)",
+        "region": "International",
+        "title": "Asset management - Asset management system - Requirements"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annex I",
+        "code": "ISO/TS 55010",
+        "edition": "2024 (2019 edition withdrawn 2025-04-09)",
+        "region": "International",
+        "title": "Asset management - Guidance on the alignment of financial and non-financial functions"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "hilti_location",
+  "x-demiton-store": "tenant"
+}

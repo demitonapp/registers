@@ -1,0 +1,127 @@
+{
+  "$id": "demiton:shelf/employee_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "date_of_birth": {
+      "description": "Worker date of birth",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "display_name": {
+      "description": "The worker's display name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "email": {
+      "description": "Work/contact email used as an identity bridge",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_agreement": {
+      "description": "Tenant award/agreement name the employee is paid under",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "employment_end_date": {
+      "description": "Date the engagement ended, where known",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_start_date": {
+      "description": "Date the employment relationship started",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "employment_status": {
+      "description": "Current employment state",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_type": {
+      "description": "The engagement basis",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "family_name": {
+      "description": "Surname/family name as a separate part",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "gender": {
+      "description": "Gender, for diversity aggregation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "given_name": {
+      "description": "First/given name as a separate part",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_title": {
+      "description": "Role/job title at the employer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "The employing legal entity, resolved per record",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "reporting_dimension_values": {
+      "description": "Tenant reporting-dimension assignment",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_created_at": {
+      "description": "When the source record was created (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`KEYPAY` / `D365_FINOPS` / `NAVMAN`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tags": {
+      "description": "Tenant-assigned labels on the employee record",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "title": {
+      "description": "Honorific or name prefix",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_types": {
+      "description": "Tenant work-type assignment",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker_entity_id": {
+      "description": "Demiton canonical worker spine node this fact anchors to (the subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker_entity_id",
+    "source_system",
+    "source_external_id",
+    "display_name",
+    "employment_type",
+    "employment_start_date"
+  ],
+  "title": "employee_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "employee_list",
+  "x-demiton-store": "tenant"
+}

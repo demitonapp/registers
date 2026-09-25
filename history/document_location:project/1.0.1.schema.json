@@ -1,0 +1,144 @@
+{
+  "$id": "demiton:shelf/document_location:project/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "binding_status": {
+      "description": "Whether the operator has confirmed the binding or it is still a candidate",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "coordinate": {
+      "description": "A per-entity override selector; null for the default binding",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "doc_type": {
+      "description": "The specific document type this binding locates, or null for the project's general home; part of the supersede key",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "entity_type": {
+      "description": "The entity kind whose documents this binding locates; fixed by the shelf key for this member, and part of the supersede key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "The producing system of the fact; no harvested origin exists",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sources": {
+      "description": "The ordered list of places to look; each element is one complete declarative locator",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "sources[].connector_ref": {
+      "description": "The logical alias of the connector that reaches this source; also the field the operator export filter compares",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sources[].doc_subpath": {
+      "description": "An optional fixed sub-path inside the entity folder where this doc type's files sit",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "sources[].entity_folder_pattern": {
+      "description": "How each project's own folder is named, binding a folder to the entity by its number token",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "sources[].file_glob": {
+      "description": "The file match for this doc type: `*` (no filter) or a single `*.ext` glob",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].folder_pattern": {
+      "description": "A case-insensitive regex matched against folder names at any depth, used where no single sub-path name holds",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "sources[].lifecycle_folders": {
+      "description": "The status-tagged folders to traverse, each with a folder name and the entity status it holds",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "sources[].root_folder": {
+      "description": "The path under the store root to start from (null/empty for systems addressed by site+drive); required in practice when `system = DROPBOX`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].store_drive_id": {
+      "description": "The store's drive identifier; required in practice when `system = SHAREPOINT`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].store_drive_name": {
+      "description": "The drive's display name, used to translate between the store root and display paths",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].store_site_id": {
+      "description": "The store's site identifier; required in practice when `system = SHAREPOINT`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].store_site_name": {
+      "description": "The operator-facing site label; **no reader touches it**",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sources[].system": {
+      "description": "The storage system of one source; only SharePoint and Dropbox are crawlable",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "entity_type",
+    "sources",
+    "sources[].system",
+    "sources[].connector_ref",
+    "source_system"
+  ],
+  "title": "document_location:project contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.1:2019 / AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Organization and digitization of information about buildings and civil engineering works, including BIM - Information management using BIM - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AS ISO 19650.2:2019",
+        "edition": "2019",
+        "region": "Australia",
+        "title": "Information management using BIM - Part 2: Delivery phase of the assets"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-1:2018 / ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 1: Concepts and principles"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 19650-2:2018",
+        "edition": "2018",
+        "region": "International",
+        "title": "Information management using building information modelling - Part 2: Delivery phase of the assets"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "document_location:project",
+  "x-demiton-store": "tenant"
+}

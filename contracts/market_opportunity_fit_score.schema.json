@@ -1,0 +1,16 @@
+{
+  "$id": "demiton:shelf/market_opportunity_fit_score/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {},
+  "required": [],
+  "title": "market_opportunity_fit_score contract v1",
+  "type": "object",
+  "x-demiton-axes": [],
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-measures": [],
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "market_opportunity_fit_score",
+  "x-demiton-store": "tenant"
+}

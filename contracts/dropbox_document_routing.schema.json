@@ -1,0 +1,91 @@
+{
+  "$id": "demiton:shelf/dropbox_document_routing/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "always_full_scan": {
+      "description": "Whether this prefix bypasses the delta cursor and the modified_after cutoff on every dispatch",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "blob_connector_alias": {
+      "description": "The logical alias of the connector that reaches the blob destination",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "blob_prefix": {
+      "description": "The container-relative prefix placed in front of the source path's remainder, mirroring the Dropbox layout so a file is findable from its Dropbox path alone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "default_action": {
+      "description": "What happens to a file matching no rule; the only value observed in the live ruleset is `skip`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "destination_kind": {
+      "description": "Which class of destination the rule targets; absent means SharePoint",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "dropbox_prefix": {
+      "description": "The Dropbox path prefix this rule claims; it is simultaneously the literal `list_folder` path, the `startswith()` needle, and the delta-cursor scope key",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "rules": {
+      "description": "The ordered rule set, one element per routing rule; the shelf's entire payload",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "scope": {
+      "description": "The functional label a rule belongs to; the write path filters rules by it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "sp_connector_alias": {
+      "description": "The logical alias of the connector that reaches the SharePoint destination",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sp_folder_prefix": {
+      "description": "The library-relative folder the rule's files land under, before the stripped remainder of the source path is re-appended",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sp_library": {
+      "description": "The document library inside that site",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "sp_site_path": {
+      "description": "The SharePoint site the rule delivers into",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "strip_prefix": {
+      "description": "Whether the matched `dropbox_prefix` is removed before the destination folder is built",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "subject_entity_id": {
+      "description": "The entity the ruleset is about: the tenant organisation itself",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "rules",
+    "default_action",
+    "dropbox_prefix",
+    "scope",
+    "subject_entity_id"
+  ],
+  "title": "dropbox_document_routing contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "dropbox_document_routing",
+  "x-demiton-store": "tenant"
+}

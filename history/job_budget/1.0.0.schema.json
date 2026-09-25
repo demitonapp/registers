@@ -1,0 +1,61 @@
+{
+  "$id": "demiton:shelf/job_budget/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "by_expense_category": {
+      "description": "the same total broken down by the GL classification the planning-line accounts map to",
+      "type": "object",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD per key"
+    },
+    "currency": {
+      "description": "the currency the amounts are in; v1 fixes the unit at AUD in the field name",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "financial_period": {
+      "description": "the accounting period the budget figure is the live value for",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "the BC company whose job planning lines the budget was read from",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "planning_line_count": {
+      "description": "number of salary planning lines folded into the total",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "project_id": {
+      "description": "The project the budget belongs to; the fact's subject anchor, read by Margin Watch.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "total_budget_aud": {
+      "description": "the budgeted amount for the project, summed over all planning lines",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "project_id",
+    "financial_period",
+    "legal_entity_id",
+    "total_budget_aud"
+  ],
+  "title": "job_budget contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "job_budget",
+  "x-demiton-store": "tenant"
+}

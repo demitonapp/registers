@@ -1,0 +1,74 @@
+{
+  "$id": "demiton:shelf/competency_verification/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the plant/equipment the verification relates to, **when it resolves**",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "competency": {
+      "description": "the competency entity the verification created, whose name is the form title",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source form-result's own identifier, as text",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the accounting period the verification falls in, derived from `occurred_at`",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "the source form template identity the verification was captured on",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "when the verification was submitted; the date the 365-day compliance clock runs from",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "instant"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row; `ASSIGNAR` today",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "submission": {
+      "description": "the tenant's own verification form \u2014 its question labels and answers, including the licence/certificate evidence the form captures",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "title_label": {
+      "description": "the tenant's own name for the competency, taken from the form title",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker": {
+      "description": "the worker the verification is about",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker"
+  ],
+  "title": "competency_verification contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "competency_verification",
+  "x-demiton-store": "tenant"
+}

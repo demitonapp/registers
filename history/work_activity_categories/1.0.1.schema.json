@@ -1,0 +1,50 @@
+{
+  "$id": "demiton:shelf/work_activity_categories/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "canonical_key": {
+      "description": "the canonical Level 1 work-activity slug (e.g. a work-type slug), the join key every consumer resolves against",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "job_task_no": {
+      "description": "one BC `Job_Task_No` that maps to this slug \u2014 a **sample**, because the normalizer keeps only the first `task_no` seen per slug",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "label": {
+      "description": "human-readable work-activity name (the display name on the spine)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity_id": {
+      "description": "owning legal entity where the source is multi-company (BC company context)",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "the raw record identity in the producing system (today the slug itself)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity_id": {
+      "description": "Demiton canonical `WORK_ACTIVITY` spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "work_activity_id",
+    "canonical_key",
+    "label",
+    "source_external_id"
+  ],
+  "title": "work_activity_categories contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "work_activity_categories",
+  "x-demiton-store": "tenant"
+}

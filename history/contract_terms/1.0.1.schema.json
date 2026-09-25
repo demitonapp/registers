@@ -1,0 +1,279 @@
+{
+  "$id": "demiton:shelf/contract_terms/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "contract_sum": {
+      "description": "Total contract/subcontract price or lump sum. Parser rejects <1000 as a clause-number artefact.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "AUD, plain (no `$`/commas)"
+    },
+    "defects_liability_months": {
+      "description": "Defects liability/correction period.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "months, converted from weeks/years"
+    },
+    "dispute_resolution_path": {
+      "description": "The contract's dispute escalation ladder, in order (e.g. negotiation, mediation, expert determination, arbitration, litigation).",
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ordered list of step names, as written"
+    },
+    "eot_grounds": {
+      "description": "Pre-classified grounds on which this contract allows an extension of time to be claimed, so an event fact (e.g. a rain day) can be matched against its clause without free-text parsing at dispatch time.",
+      "items": {
+        "enum": [
+          "weather",
+          "latent_conditions",
+          "variation",
+          "suspension",
+          "access",
+          "other"
+        ],
+        "type": "string"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (closed enum)"
+    },
+    "indemnity_scope": {
+      "description": "The indemnity clause's scope and any cap or carve-outs, recorded verbatim.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "free text as written"
+    },
+    "insurance_requirements": {
+      "description": "Insurance types and minimum cover the contract requires - each entry an object with insurance_type, min_limit and endorsements - for cross-joining against insurance_certificate.expires_on.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "ld_cap": {
+      "description": "Liquidated damages ceiling (cross-refs the contract_penalty shelf's rate/cap fields).",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "ld_rate": {
+      "description": "Liquidated damages rate per calendar day.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD per day"
+    },
+    "notice_eot_days": {
+      "description": "Contractual notice window to raise a delay / extension-of-time claim after the delaying event.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_latent_conditions_days": {
+      "description": "Contractual notice window to notify latent or differing site conditions after they are encountered.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_suspension_days": {
+      "description": "Contractual notice window before a right to suspend work may be exercised.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "notice_variation_days": {
+      "description": "Contractual notice window after a variation-triggering event, before which a variation claim must be raised or is time-barred.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "payment_timing_days": {
+      "description": "Contract time for payment of a payment claim.",
+      "type": "integer",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "days"
+    },
+    "practical_completion_date": {
+      "description": "Date for Practical Completion / Date for Completion, verbatim.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "free text as written (e.g. \"11 January 2027\", \"26 weeks after Date of Contract\")"
+    },
+    "professional_indemnity": {
+      "description": "Professional indemnity cover amount.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "public_liability": {
+      "description": "Public liability insurance cover amount.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "retention_pct": {
+      "description": "Retention/security percentage of the contract price.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "percent, 0\u2013100 exclusive of 0"
+    },
+    "retention_release_milestones": {
+      "description": "Milestones at which retention is reduced or released - each entry an object naming the trigger (e.g. practical completion, end of defects liability) and the amount or percentage released.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "security": {
+      "description": "Form/amount of security, e.g. two unconditional undertakings totalling 5%.",
+      "type": "string",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "n/a (form and/or amount)"
+    },
+    "security_expiry": {
+      "description": "Date the security (bank guarantee / undertaking) is returnable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "security_release_milestones": {
+      "description": "Milestones at which security is reduced or released - each entry an object naming the trigger and the amount or percentage released.",
+      "items": {
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "n/a (object list)"
+    },
+    "time_bar_days": {
+      "description": "Window after the notice above within which the substantiated claim itself must be submitted, or it is time-barred (NEC-style two-stage notice/substantiation).",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "variation_overhead_pct": {
+      "description": "Overheads-and-profit percentage applied to variations.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent, 0\u2013100"
+    }
+  },
+  "required": [
+    "contract_sum",
+    "practical_completion_date",
+    "retention_pct",
+    "security",
+    "payment_timing_days"
+  ],
+  "title": "contract_terms contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A",
+        "code": "AS 2124-1992",
+        "edition": "1992",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "cl 37.1/37.2 (per commentary)",
+        "code": "AS 4000-1997",
+        "edition": "1997",
+        "region": "Australia",
+        "title": "General Conditions of Contract (superseded edition, still in use)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "Annexure Part A; cl 37.2; cl 42 (per commentary)",
+        "code": "AS 4000:2025",
+        "edition": "2025",
+        "region": "Australia",
+        "title": "General Conditions of Contract (construct only)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "AS 4902-2000",
+        "edition": "2000",
+        "region": "Australia",
+        "title": "General Conditions of Contract for Design and Construct"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AU SoP Acts",
+        "edition": "various",
+        "region": "Australia",
+        "title": "Australian state and territory Security of Payment Acts (NSW 1999, QLD 2017, VIC 2002, WA 2021, SA 2009, TAS 2009, ACT 2009, NT 2004)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "ss 17A-17H (per commentary)",
+        "code": "VIC BCISP Act 2002",
+        "edition": "2002 as amended 15 Apr 2026",
+        "region": "Australia",
+        "title": "Building and Construction Industry Security of Payment Act 2002 (Vic), as amended from 15 Apr 2026"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 59, 71-77",
+        "code": "WA BCISP Act 2021",
+        "edition": "2021",
+        "region": "Australia",
+        "title": "Building and Construction Industry (Security of Payment) Act 2021 (WA)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 18B, 18FD, 20, 22",
+        "code": "NZ CCA 2002",
+        "edition": "as at 5 Oct 2023",
+        "region": "New Zealand",
+        "title": "Construction Contracts Act 2002 (NZ), 2002 No 46, as amended 2015 and 2023"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 110(1)",
+        "code": "HGCRA 1996 Part II",
+        "edition": "1996 c. 53 as amended",
+        "region": "United Kingdom",
+        "title": "Housing Grants, Construction and Regeneration Act 1996, Part II (as amended by LDEDCA 2009)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Part II para 8",
+        "code": "SI 1998/649",
+        "edition": "1998 as amended 2011",
+        "region": "United Kingdom",
+        "title": "Scheme for Construction Contracts (England and Wales) Regulations 1998"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AIA G702-1992 / G703-1992",
+        "edition": "1992 (current base editions)",
+        "region": "United States",
+        "title": "Application and Certificate for Payment; Continuation Sheet"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "contract_terms",
+  "x-demiton-store": "tenant"
+}

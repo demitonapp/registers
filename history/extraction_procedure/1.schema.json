@@ -1,0 +1,75 @@
+{
+  "$id": "demiton:shelf/extraction_procedure/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "authored_by": {
+      "description": "Operator and timestamp recorded in `_authored` at write time",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "doc_type": {
+      "description": "Which document type this method configures",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "llm.model": {
+      "description": "The model chosen for the LLM extraction pass, e.g. a hosted chat model name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "llm.prompt": {
+      "description": "The per-doc-type extraction system prompt",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "methods": {
+      "description": "The per-doc-type extraction methods; the payload the shelf exists to carry",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "org_entity_id": {
+      "description": "The org spine entity the current procedure is anchored to; makes the row per-org rather than per-tenant-blind",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "parse.engine": {
+      "description": "The primary text-lift engine, default `pdfplumber`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "parse.keyword_signals": {
+      "description": "Extra page-flag keywords added to the parser's built-ins",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "parse.ocr_fallback": {
+      "description": "Whether to OCR a page when the text-lift yields nothing",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Producing system of the fact (`AUTHORED` for this shelf, `DEMITON` on the import path)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "Whether the operator has confirmed the procedure or it is still a candidate",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "org_entity_id",
+    "methods",
+    "doc_type",
+    "source_system"
+  ],
+  "title": "extraction_procedure contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "extraction_procedure",
+  "x-demiton-store": "tenant"
+}

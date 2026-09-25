@@ -1,0 +1,153 @@
+{
+  "$id": "demiton:shelf/purchase_line/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "Line value. Raw `lineAmount`. ADDITIVE.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`by_coordinate` (row currency)"
+    },
+    "amount_including_tax": {
+      "description": "Line value incl. tax. Raw `amountIncludingVat`. Tenant-specific: the R3 file is explicit that verified tax content rules attach to the invoice, not the order line (`payroll-and-invoicing.md:563-568`), and the tax rate/jurisdiction/rounding basis needed to reconcile it is not on this record (`:545-552`).",
+      "type": "decimal",
+      "x-demiton-requiredness": "tenant-specific",
+      "x-demiton-unit": "tenant tax area"
+    },
+    "cost_code": {
+      "description": "The job task / cost code the line is coded to. Raw `jobTaskNumber`.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_dimension_1": {
+      "description": "Tenant dimension code 1. Raw `shortcutDimension1Code`. Tenant-specific: BC dimension semantics are configured per tenant, and the shelf's portable cost axis is `cost_code`.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "cost_dimension_2": {
+      "description": "Tenant dimension code 2. Raw `shortcutDimension2Code`. Same reason.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "currency": {
+      "description": "Denomination of `amount` and `unit_cost`. Raw `currencyCode`, falling back to company base currency when the field is empty.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 4217 code"
+    },
+    "description": {
+      "description": "Line description. Raw `description`. Optional: no lens mandates it, but names it as what makes this shelf richer than `cost_element`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_number": {
+      "description": "Purchase document identity. Raw `documentNumber`. Half of the composite external id; without it no line can be deduplicated or superseded.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_type": {
+      "description": "Which purchase-document kind the line belongs to (order / invoice / credit memo). Raw `documentType`. Mandatory because the bound endpoint is not type-filtered while the sibling commitments query is, so without this field an invoice line is indistinguishable from a PO line.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the commitment is attributed to. Derived from `orderDate` by the period resolver, not a raw field.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "item_reference": {
+      "description": "The vendor's or tenant's item identifier. Raw `itemReferenceNumber` / `vendorItemNumber`.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "The company/legal entity that placed the order; supplied by company context rather than a per-row field.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "line_number": {
+      "description": "Line identity within the document. Raw `lineNumber`. Second half of the composite id.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "order_date": {
+      "description": "When the line was ordered. Raw `orderDate`; already the producer's `occurred_at_field`, so no new source is needed \u2014 this row records it in the payload too.",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "project": {
+      "description": "The job the line commits cost against. Raw `jobNumber`; the bound filter already excludes rows without one (`jobNumber ne ''`, `baseline_squash_02_seed.sql:1198`).",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quantity": {
+      "description": "Line quantity. Raw `quantity`. ADDITIVE, `missing=ZERO`.",
+      "type": "number",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`dimensionless` (unit of measure is a separate attribute)"
+    },
+    "receipt_expected_on": {
+      "description": "Expected / promised / requested receipt date. Raw `expectedReceiptDate`, `promisedReceiptDate`, `requestedReceiptDate`. Optional: no lens requires a commitment to carry a delivery date, and the three raw fields disagree in meaning.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "received_complete": {
+      "description": "Whether the line is fully received. Raw `completelyReceived` / `finished`. Tenant-specific because \"received\" is a workflow state of the tenant's procurement process, not a fact about the commitment.",
+      "type": "boolean",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_area_code": {
+      "description": "Tenant tax area coding. Raw `taxAreaCode`. Same reason.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "tax_group_code": {
+      "description": "Tenant tax group coding. Raw `taxGroupCode`. Same reason as `amount_including_tax`: tenant configuration vocabulary, no jurisdictional mandate on the order line.",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "unit_cost": {
+      "description": "Rate per unit. Raw `directUnitCost`. INSTANTANEOUS.",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`by_coordinate`"
+    },
+    "unit_of_measure": {
+      "description": "The unit `quantity` is counted in. Raw `unitOfMeasureCode`. `quantity` is declared `dimensionless`, so the unit has to be carried as an attribute or the quantity is uninterpretable. Which of `unitOfMeasureCode` / `unitOfMeasure` is canonical is **unverified**; both are in the corpus.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "vendor": {
+      "description": "The supplier the line is placed with. Raw `buyFromVendorNumber`. Optional because the declaration says so and the axis name is not portable.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project",
+    "financial_period",
+    "currency",
+    "amount",
+    "quantity",
+    "unit_cost",
+    "document_number",
+    "line_number",
+    "document_type",
+    "order_date",
+    "unit_of_measure"
+  ],
+  "title": "purchase_line contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "purchase_line",
+  "x-demiton-store": "tenant"
+}

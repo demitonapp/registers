@@ -1,0 +1,136 @@
+{
+  "$id": "demiton:shelf/expense_claims/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "approval_state": {
+      "description": "whether the claim was approved, and by whom",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "claim_amount": {
+      "description": "the total amount claimed",
+      "type": "decimal",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "tenant currency (unit **unverified**)"
+    },
+    "currency": {
+      "description": "the currency both amounts are stated in",
+      "type": "money",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "description": {
+      "description": "the tenant's description of what was purchased",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_reference": {
+      "description": "pointer to the receipt/invoice document the claim is substantiated by",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "expense_category": {
+      "description": "the tenant's own classification of the expense",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "external_id": {
+      "description": "the source system's own identifier for the claim submission",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gst_amount": {
+      "description": "the tax component included in `claim_amount`",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "tenant currency (AUD cohort)"
+    },
+    "incurred_on": {
+      "description": "the date the expense was incurred, where the tenant form supplies it distinctly from the submission time",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "submitted_time": {
+      "description": "when the claim was submitted; the event time",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "worker_id": {
+      "description": "the worker who submitted the claim; the shelf's subject anchor",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "worker_id",
+    "submitted_time",
+    "claim_amount"
+  ],
+  "title": "expense_claims contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s.29-70",
+        "code": "A New Tax System (Goods and Services Tax) Act 1999 (Cth)",
+        "edition": "ATO guidance updated 25 Aug 2025",
+        "region": "Australia",
+        "title": "GST tax invoice requirements (ATO tax invoice guidance)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Payday Super (ATO)",
+        "edition": "from 1 Jul 2026",
+        "region": "Australia",
+        "title": "Single Touch Payroll reporting under Payday Super"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 226",
+        "code": "Council Directive 2006/112/EC",
+        "edition": "consolidated 1 Jan 2025",
+        "region": "European Union",
+        "title": "VAT Directive - invoice content Article 226"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2017 (withdrawn; 2026 edition published)",
+        "region": "European Union",
+        "title": "Electronic invoicing - semantic data model (Peppol BIS Billing 3.0 base)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Goods and Services Tax Act 1985 (NZ)",
+        "edition": "regime from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "GST taxable supply information (IRD guidance)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "HMRC Real Time Information (RTI)",
+        "edition": "guidance updated 6 Apr 2026",
+        "region": "United Kingdom",
+        "title": "PAYE Real Time Information - Full Payment Submission and Employer Payment Summary"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "expense_claims",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,63 @@
+{
+  "$id": "demiton:shelf/dimension_set_entry/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "dimension_code": {
+      "description": "the BC dimension being set (`EQUIPMENT`, `PROJECT`, \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "dimension_name": {
+      "description": "human label of the dimension (e.g. \"Equipment\")",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "dimension_set_id": {
+      "description": "BC `Dimension_Set_ID`: the integer stamped on GL/JLE rows that this row resolves",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "dimension_value_code": {
+      "description": "the value of that dimension (the plant code, project code, \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "dimension_value_name": {
+      "description": "human label of the value",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the composite key `<Dimension_Set_ID>:<Dimension_Code>`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "legal_entity": {
+      "description": "the BC company whose dimension set the entry belongs to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "the system the entry was read from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "legal_entity",
+    "dimension_set_id",
+    "dimension_code",
+    "dimension_value_code",
+    "source_system",
+    "external_id"
+  ],
+  "title": "dimension_set_entry contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "dimension_set_entry",
+  "x-demiton-store": "tenant"
+}

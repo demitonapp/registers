@@ -1,0 +1,102 @@
+{
+  "$id": "demiton:shelf/superannuation_fund/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn": {
+      "description": "the fund's ABN",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "electronic_service_address": {
+      "description": "the SuperStream address a self-managed fund receives contributions at",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "employer_number": {
+      "description": "the employer's membership number with the fund",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source system's own fund id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fund_type": {
+      "description": "whether the fund is a regulated fund or a self-managed fund",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "the employing legal entity the fund is set up under",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "the fund's name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "phone": {
+      "description": "the fund's contact phone",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "updated_at": {
+      "description": "when the fund record last changed at source",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "usi": {
+      "description": "the Unique Superannuation Identifier contributions are routed by",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "website": {
+      "description": "the fund's website",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "name"
+  ],
+  "title": "superannuation_fund contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-domain": "payroll",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 3.37",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Payday Super (ATO)",
+        "edition": "from 1 Jul 2026",
+        "region": "Australia",
+        "title": "Single Touch Payroll reporting under Payday Super"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Tax Administration Act 1994 (NZ) Schedule 4",
+        "edition": "version as at 1 Jul 2026",
+        "region": "New Zealand",
+        "title": "Reporting of employment income information (payday filing)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "superannuation_fund",
+  "x-demiton-store": "tenant"
+}

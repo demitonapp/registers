@@ -1,0 +1,142 @@
+{
+  "$id": "demiton:shelf/pay_categories/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accrues_leave": {
+      "description": "Whether the category accrues leave",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "allowance_description": {
+      "description": "Description of a separately identifiable allowance",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "default_super_rate": {
+      "description": "Default superannuation rate applied to this category",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "exclude_from_qualifying_earnings": {
+      "description": "Whether the category is excluded from super-qualifying earnings",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_code": {
+      "description": "Stable manufacturer/award code where the source supplies one",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "general_ledger_mapping_code": {
+      "description": "Tenant GL account code the category posts to",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "hide_units_on_payslip": {
+      "description": "Whether units are hidden on the payslip for this category",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_payroll_tax_exempt": {
+      "description": "Whether the category is exempt from state/territory payroll tax",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_primary": {
+      "description": "Whether this is the tenant's primary/default category",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_system_pay_category": {
+      "description": "Whether the category is system-supplied rather than tenant-authored",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "is_tax_exempt": {
+      "description": "Whether the category is exempt from withholding tax",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "Owning legal entity where the source is multi-company",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "name": {
+      "description": "Human name of the pay category",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "number_of_decimal_places": {
+      "description": "Rounding precision for the category",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "parent_reference": {
+      "description": "Source id of the tenant-configured parent category",
+      "type": "number",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "pay_category_entity_id": {
+      "description": "Demiton canonical `PAY_CATEGORY` spine node this fact is about",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "pay_category_type": {
+      "description": "The category's own type (wage / allowance / deduction / superannuation / \u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "penalty_loading_percent": {
+      "description": "Penalty-rate loading applied to the category",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "rate_loading_percent": {
+      "description": "Rate loading applied to the category",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "rate_unit": {
+      "description": "Unit the category's rate is denominated in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "rounding_method": {
+      "description": "Rounding method applied to the category",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "The bound system that produced this record (`KEYPAY`/\u2026)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "statutory_income_type": {
+      "description": "The jurisdiction's statutory income/component type this category maps to (AU: ATO income-type list)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "pay_category_entity_id",
+    "source_system",
+    "statutory_income_type"
+  ],
+  "title": "pay_categories contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "pay_categories",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,120 @@
+{
+  "$id": "demiton:shelf/intercompany_transaction/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "amount": {
+      "description": "the transaction amount",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "business_unit": {
+      "description": "the consolidation business unit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of the amount",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "direction": {
+      "description": "outgoing from this entity or incoming to it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "document_date": {
+      "description": "the document's date",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "document_number": {
+      "description": "the document number in this entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "document_type": {
+      "description": "payment, invoice, credit memo, refund, order or return order",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source's intercompany transaction number",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gl_account": {
+      "description": "the intercompany account the transaction posts to",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity": {
+      "description": "the legal entity whose books record this side",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "offset_account": {
+      "description": "the balancing account in the other branch",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "partner_action": {
+      "description": "whether the transaction was accepted, returned or cancelled",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "partner_document_number": {
+      "description": "the matching document number in the partner entity",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "partner_entity": {
+      "description": "the group entity on the other side",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "posted_on": {
+      "description": "the posting date",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "reversed": {
+      "description": "whether the entry has been reversed",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_type": {
+      "description": "whether it came from a journal, a sales document or a purchase document",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "legal_entity",
+    "partner_entity",
+    "direction",
+    "posted_on",
+    "amount"
+  ],
+  "title": "intercompany_transaction contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "financials",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "intercompany_transaction",
+  "x-demiton-store": "tenant"
+}

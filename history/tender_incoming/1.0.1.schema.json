@@ -1,0 +1,213 @@
+{
+  "$id": "demiton:shelf/tender_incoming/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "addenda": {
+      "description": "amendments issued against the brief",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "client": {
+      "description": "the issuing authority/principal",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "closing_date": {
+      "description": "the lodgement deadline",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "contract_type": {
+      "description": "the commercial vehicle the brief contemplates",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency `estimated_value` is denominated in",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "documents_found": {
+      "description": "catalogue of files in the source folder",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "estimated_value": {
+      "description": "estimated contract value where stated",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD (**unverified** \u2014 no currency field exists in the payload)"
+    },
+    "estimated_value_note": {
+      "description": "the value as written (\"approx $1.2M\")",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "has_boq": {
+      "description": "a bill of quantities was found",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "has_invitation": {
+      "description": "an invitation to tender was found",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "has_scope_doc": {
+      "description": "a scope document was found",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "location": {
+      "description": "physical location of the works from the document",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "principal_type": {
+      "description": "the class of issuing party",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "scope_summary": {
+      "description": "LLM summary of the works being tendered",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_file_name": {
+      "description": "the file the fact was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_document_path": {
+      "description": "the SharePoint item path/locator",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "state": {
+      "description": "AU state from the folder name",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "tender_source": {
+      "description": "where the brief came from (\"TfNSW BuyNSW\", \"email RFQ\", \"VendorPanel\")",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "the tender brief's own title",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "value_basis": {
+      "description": "what kind of value was extracted",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_tax_basis": {
+      "description": "whether `estimated_value` includes tax",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_types": {
+      "description": "normalised work categories",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "title",
+    "client",
+    "closing_date",
+    "scope_summary",
+    "work_types",
+    "source_document_file_name",
+    "source_document_path"
+  ],
+  "title": "tender_incoming contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "AU GST",
+        "edition": "ATO guidance updated 25 Aug 2025",
+        "region": "Australia",
+        "title": "A New Tax System (Goods and Services Tax) Act 1999 - GST registration and tax basis (ATO tax-invoice guidance)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs",
+        "edition": "17 November 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art. 84",
+        "code": "Directive 2014/24/EU",
+        "edition": "26 Feb 2014 (consolidated)",
+        "region": "European Union",
+        "title": "Directive 2014/24/EU on public procurement"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Competition form; notice subtypes",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "contractingProcesses",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (site switcher shows 0.9.4; unresolved)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "tender.id; tender.tenderPeriod.endDate; tender.value; tender.documents",
+        "code": "OCDS",
+        "edition": "1.1 (documentation release 1.1.5)",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZ GPR",
+        "edition": "5th edition (effective 1 Dec 2025)",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s. 21",
+        "code": "UK Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "5.201; 52.204-7",
+        "code": "FAR",
+        "edition": "current through FAC 2026-01 (eff. 13 Mar 2026)",
+        "region": "United States",
+        "title": "Federal Acquisition Regulation (48 CFR Chapter 1)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "tender_incoming",
+  "x-demiton-store": "tenant"
+}

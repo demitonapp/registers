@@ -1,0 +1,145 @@
+{
+  "$id": "demiton:shelf/environmental_observation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "action_taken": {
+      "description": "what the responsible party did",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "category": {
+      "description": "the classification the observation was filed under",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "closed_at": {
+      "description": "when the observation was closed",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "what was observed",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "due_on": {
+      "description": "when the action is due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's own observation id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fix_accepted_by": {
+      "description": "who accepted the fix",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "fixed_on": {
+      "description": "when the responsible party reported it fixed",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "inspection": {
+      "description": "the inspection the observation was raised during",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "is_positive": {
+      "description": "whether this records good practice rather than a problem",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "location": {
+      "description": "where on site it was observed",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "observation_type": {
+      "description": "the kind of observation, as the tenant has configured it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "observed_on": {
+      "description": "when the observation was made",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "priority": {
+      "description": "how urgent the observation is",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the observation was made on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "raised_by": {
+      "description": "who recorded the observation",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "responsible_party": {
+      "description": "the company or person responsible for acting on it",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "where the observation is in its lifecycle",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "project",
+    "observed_on",
+    "description"
+  ],
+  "title": "environmental_observation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "safety",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2 nonconformity and corrective action",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (adoption of ISO 14001:2015)",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "ISO 14001:2026",
+        "edition": "2026",
+        "region": "International",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "environmental_observation",
+  "x-demiton-store": "tenant"
+}

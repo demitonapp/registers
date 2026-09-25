@@ -1,0 +1,193 @@
+{
+  "$id": "demiton:shelf/credit_note/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "allocations": {
+      "description": "which invoices the credit was applied to",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "applied_amount": {
+      "description": "credit already applied",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "counterparty": {
+      "description": "the customer or supplier the credit is with",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency the credit note is in",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency_rate": {
+      "description": "the exchange rate applied",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional"
+    },
+    "direction": {
+      "description": "whether this is a receivable credit or a payable credit",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "due_on": {
+      "description": "when the credit falls due",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "external_id": {
+      "description": "the source system's own credit note id",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fully_paid_on": {
+      "description": "when the credit was fully used",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "day"
+    },
+    "issued_on": {
+      "description": "the credit note's date",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "day"
+    },
+    "legal_entity": {
+      "description": "the legal entity that holds the credit note",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "line_items": {
+      "description": "the credit note's lines",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "number": {
+      "description": "the credit note number",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "reference": {
+      "description": "the counterparty's reference",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "remaining_credit": {
+      "description": "credit not yet allocated",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "draft, authorised, paid or voided",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subtotal": {
+      "description": "the total before tax",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    },
+    "total": {
+      "description": "the credit note total including tax",
+      "type": "money",
+      "x-demiton-requiredness": "required"
+    },
+    "total_tax": {
+      "description": "the tax on the credit note",
+      "type": "money",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "direction",
+    "counterparty",
+    "issued_on",
+    "status",
+    "total",
+    "currency"
+  ],
+  "title": "credit_note contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-domain": "financials",
+  "x-demiton-memory-type": "episodic",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO record-keeping rules",
+        "edition": "ATO page updated 2025-08-01",
+        "region": "Australia",
+        "title": "ATO business record-keeping rules (ITAA 1936 s 262A; TAA 1953 Sch 1 s 382-5)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s 286(1), 286(2) (7 years)",
+        "code": "Corporations Act 2001 (Cth) s 286",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Corporations Act 2001 (Cth) - obligation to keep financial records"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "preceding-invoice reference for credit notes",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3",
+        "region": "Australia",
+        "title": "Peppol PINT A-NZ Billing BIS"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "EN 16931-1:2017",
+        "edition": "2017 (2026 edition published)",
+        "region": "European Union",
+        "title": "CEN EN 16931-1 semantic data model (covers invoice and credit note)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "conformance statement; business requirement groups",
+        "code": "Peppol BIS Billing 3.0",
+        "edition": "3.0.21 (May 2026 release)",
+        "region": "International",
+        "title": "Peppol BIS Billing 3.0 (CIUS of EN 16931)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "supply correction information (s 19N per legislation index)",
+        "code": "GST Act 1985 (NZ)",
+        "edition": "from 1 Apr 2023",
+        "region": "New Zealand",
+        "title": "Goods and Services Tax Act 1985 (NZ) - supply correction information"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "preceding-invoice reference for credit notes",
+        "code": "PINT A-NZ Billing BIS",
+        "edition": "1.1.3",
+        "region": "New Zealand",
+        "title": "Peppol PINT A-NZ Billing BIS"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "credit_note",
+  "x-demiton-store": "tenant"
+}

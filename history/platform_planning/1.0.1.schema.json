@@ -1,0 +1,235 @@
+{
+  "$id": "demiton:shelf/platform_planning/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "agency_id": {
+      "description": "Resolved platform entity for the agency.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "agency_name": {
+      "description": "Buying agency / proponent name as published.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "category_name": {
+      "description": "Sector / category / classification of the work.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "construction_start": {
+      "description": "ANZIP's construction window.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "delivery_model": {
+      "description": "Published delivery/contract model.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "description": {
+      "description": "Longer published description of the planned work.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "determination_date": {
+      "description": "Date of AER's final determination.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "expected_start_date": {
+      "description": "Expected commencement of the work.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "expected_tender_date": {
+      "description": "When the authority expects to go to market.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date / quarter label"
+    },
+    "expected_tender_quarter": {
+      "description": "The quarter QLD FPP expects to go to market.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "e.g. `Q1 2027-28`"
+    },
+    "financial_year": {
+      "description": "Financial year the work is planned into.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "Jurisdiction the notice is published for.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2 or AU state code"
+    },
+    "network_name": {
+      "description": "AER regulatory-period envelope attributes.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "Valid-time the notice became true; drives freshness and ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "ocid": {
+      "description": "The source record's own natural key; provenance and the release identity across harvests.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "procurement_method": {
+      "description": "Published procurement method, where the source gives one.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "procurement_phase": {
+      "description": "Source's own phase label (e.g. planning vs construction).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_id": {
+      "description": "Resolved civil-project roll-up; the primary lifecycle tracking axis.",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "region_code": {
+      "description": "Geographic scope of the work.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU/NZ state code or `AU`"
+    },
+    "shelf_type": {
+      "description": "`platform_planning` \u2014 the stage discriminator.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_dataset": {
+      "description": "Producer identity (the harvested system, lowercased).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "Source-native record id; idempotency key with `source_dataset`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "stage": {
+      "description": "Source-stage label; always the planning stage for this shelf.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subtype": {
+      "description": "Distinguishes AER's 5-year regulatory capex envelopes from project-level notices.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "title": {
+      "description": "Human-readable name of the planned work.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "url": {
+      "description": "Canonical source link for citation.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "value_aud": {
+      "description": "Estimated or budgeted value of the planned work; the single declared measure.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "value_max_aud": {
+      "description": "Upper bound of a published value range.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    },
+    "value_min_aud": {
+      "description": "Lower bound of a published value range.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AUD"
+    }
+  },
+  "required": [
+    "ocid",
+    "source_dataset",
+    "source_id",
+    "title",
+    "agency_name",
+    "agency_id",
+    "project_id",
+    "shelf_type",
+    "stage",
+    "occurred_at"
+  ],
+  "title": "platform_planning contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CPRs",
+        "edition": "17 November 2025",
+        "region": "Australia",
+        "title": "Commonwealth Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Planning form",
+        "code": "EU 2019/1780 (eForms)",
+        "edition": "2019/1780 as amended by 2023/2884 (applies 1 Jun 2024; Annex 1 Nov 2024)",
+        "region": "European Union",
+        "title": "Commission Implementing Regulation (EU) 2019/1780 standard forms for procurement notices, as amended by (EU) 2023/2884"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "project identification/preparation phases; budget",
+        "code": "OC4IDS",
+        "edition": "0.9.5 (site switcher shows 0.9.4; unresolved)",
+        "region": "International",
+        "title": "Open Contracting for Infrastructure Data Standard"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "release ocid, id, date, tag, initiationType; planning block (optional)",
+        "code": "OCDS",
+        "edition": "1.1 (documentation release 1.1.5)",
+        "region": "International",
+        "title": "Open Contracting Data Standard"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "NZ GPR",
+        "edition": "5th edition (effective 1 Dec 2025)",
+        "region": "New Zealand",
+        "title": "New Zealand Government Procurement Rules"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s. 93; SI 2024/692 reg. 15",
+        "code": "UK Procurement Act 2023",
+        "edition": "in force 24 Feb 2025",
+        "region": "United Kingdom",
+        "title": "Procurement Act 2023 (c. 54) and Procurement Regulations 2024 (SI 2024/692)"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "platform_planning",
+  "x-demiton-store": "platform"
+}

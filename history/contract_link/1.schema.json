@@ -1,0 +1,90 @@
+{
+  "$id": "demiton:shelf/contract_link/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "confidence": {
+      "description": "The resolver's candidate-match score at link creation",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ratio"
+    },
+    "created_at": {
+      "description": "When the link was first established; carried verbatim across every refresh",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "link_id": {
+      "description": "Stable identity of the link across `pursuing \u2192 won \u2192 delivering \u2192 complete`",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "link_method": {
+      "description": "How the link was established",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "link_state": {
+      "description": "Customer-declared lifecycle state of the seam",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "ocid": {
+      "description": "The public OCDS contracting-process identifier this project is linked to",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "platform_project_id": {
+      "description": "The platform-side project this OCID belongs to, when the hub has resolved one",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_entity_id": {
+      "description": "The tenant project the link anchors to (the fact subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "source_system": {
+      "description": "Producing system of the fact (`DEMITON` for this shelf)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "updated_at": {
+      "description": "When the link last changed state",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "verified": {
+      "description": "Whether the link was human-confirmed rather than auto-asserted on a fuzzy match",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "verified_by_user_id": {
+      "description": "The identity that confirmed the link",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "won_at": {
+      "description": "When the win was declared (present only from `won` onward)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "link_id",
+    "ocid",
+    "link_state",
+    "verified",
+    "created_at",
+    "updated_at",
+    "source_system"
+  ],
+  "title": "contract_link contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "contract_link",
+  "x-demiton-store": "tenant"
+}

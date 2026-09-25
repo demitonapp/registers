@@ -1,0 +1,205 @@
+{
+  "$id": "demiton:shelf/safety_incident/2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "Plant/asset involved in the incident.",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "creator_name": {
+      "description": "Display name of the submitting Assignar user (free text, not a resolved identity).",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source incident record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The period the incident falls in, derived from `occurred_at`; the axis retention is computed against.",
+      "type": "date",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "`YYYY-MM`"
+    },
+    "form_id": {
+      "description": "The source form template the incident was captured on.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "The source form template's title, i.e. which tenant incident template this is.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "jurisdiction": {
+      "description": "The WHS regime whose notification and retention rules apply to this record.",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "optional"
+    },
+    "modified_time": {
+      "description": "Source last-modified time; the delta-harvest cursor.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "narrative": {
+      "description": "The incident description, composed from the source responses Q&A; may be null when nothing is renderable.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the incident happened/was submitted; the notification and recording clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "outcome_class": {
+      "description": "Worst recorded outcome: none / first aid / medical treatment / restricted work / days away / death.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "Project the incident attaches to.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; today always `ASSIGNAR`.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "Worker involved or submitting; resolves to the worker spine.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "financial_period",
+    "form_id",
+    "form_title"
+  ],
+  "title": "safety_incident contract v2",
+  "type": "object",
+  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 14001:2016",
+        "edition": "2016 (adoption of ISO 14001:2015)",
+        "region": "Australia",
+        "title": "Environmental management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 (supersedes AS/NZS 4801:2001; migration cut-off 13 July 2023)",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2 nonconformity and corrective action",
+        "code": "AS/NZS ISO 9001:2016",
+        "edition": "2016 (adoption of ISO 9001:2015)",
+        "region": "Australia",
+        "title": "Quality management systems - Requirements"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss 35-39 (notifiable incident, serious injury, dangerous incident, notify, preserve site); s 38(7) 5-year record",
+        "code": "Model WHS Act",
+        "edition": "model Bill 1 Aug 2023; Dec 2025 notification amendments where adopted",
+        "region": "Australia",
+        "title": "Model Work Health and Safety Act (Cth enactment: Work Health and Safety Act 2011)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 38 (notify incidents; written record within 48 hours); s 39 (preserve site)",
+        "code": "Occupational Health and Safety Act 2004 (Vic)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Occupational Health and Safety Act 2004 (Vic)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 6FA (health information)",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 (Cth)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 9 (special category data - health)",
+        "code": "GDPR",
+        "edition": "2016/679",
+        "region": "European Union",
+        "title": "Regulation (EU) 2016/679 (General Data Protection Regulation)"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "10.2 incident, nonconformity and corrective action",
+        "code": "ISO 45001:2018",
+        "edition": "2018 (Amd 1:2024; revision at DIS)",
+        "region": "International",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s 25 notifiable event; s 56 duty to notify; s 57 records kept at least 5 years",
+        "code": "Health and Safety at Work Act 2015 (NZ)",
+        "edition": "as at 5 April 2025",
+        "region": "New Zealand",
+        "title": "Health and Safety at Work Act 2015"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "regs 4-9; Sch 2 dangerous occurrences",
+        "code": "RIDDOR 2013",
+        "edition": "2013",
+        "region": "United Kingdom",
+        "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (SI 2013/1471)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "reg 25",
+        "code": "Social Security (Claims and Payments) Regulations 1979",
+        "edition": "1979 as amended",
+        "region": "United Kingdom",
+        "title": "Social Security (Claims and Payments) Regulations 1979 (accident book)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "1904.4, 1904.7, 1904.29, 1904.32, 1904.33, 1904.39, 1904.41; Forms 300, 300A, 301",
+        "code": "29 CFR Part 1904",
+        "edition": "current (eCFR to 2026-09-09)",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "safety_incident",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,182 @@
+{
+  "$id": "demiton:shelf/induction_onboarding/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "acknowledgement": {
+      "description": "Whether and how the worker acknowledged the induction, plus a reference to the signed form or attachment.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "approval_status": {
+      "description": "Whether the induction was accepted.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "approved_at": {
+      "description": "When the induction was approved, and by whom in `attributes`.",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "attributes": {
+      "description": "Every remaining form answer, keyed by the tenant's own question text, including the media/media-URL, vehicle-monitoring and one-off answers.",
+      "type": "object",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "employment_start_date": {
+      "description": "Planned or actual start date for the onboarded worker.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "Stable identity of the source record (Assignar form-result id, cast to text).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "The accounting period the record falls in, derived from `occurred_at`.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "form_id": {
+      "description": "The source form template id \u2014 which induction/onboarding form produced the record.",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "form_title": {
+      "description": "Human-readable template title; the form family the record came from.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "inducting_site_or_company": {
+      "description": "The site or company the induction was conducted for.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "induction_valid_until": {
+      "description": "Expiry or lapse date of the induction/card.",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "occurred_at": {
+      "description": "When the induction/onboarding form was submitted; the event time and the retention clock.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "site_access_blocked": {
+      "description": "Whether an incomplete induction blocks site sign-in, and the stated reasons.",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "Originating system; `ASSIGNAR` today, SignOnSite or Hammertech if ever bound.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "worker": {
+      "description": "The worker whose induction/onboarding this is; the required subject anchor.",
+      "type": "number",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "external_id",
+    "source_system",
+    "occurred_at",
+    "worker",
+    "form_id"
+  ],
+  "title": "induction_onboarding contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "clause": "7.2; 7.3",
+        "code": "AS/NZS ISO 45001:2018",
+        "edition": "2018 incorporating Amd 1:2024",
+        "region": "Australia",
+        "title": "Occupational health and safety management systems - Requirements with guidance for use (AU/NZ adoption)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "s.535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "General construction induction training card (White Card)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Australian general construction induction card scheme"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Model Work Health and Safety Act Part 3",
+        "edition": "model Act (2025 update)",
+        "region": "Australia",
+        "title": "Incident notification (notifiable incidents) and site/record preservation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "clause": "s.6FA",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles; employee-records exemption; health information s.6FA"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "Art 9",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "CSCS card scheme",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "Construction Skills Certification Scheme (non-statutory)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "SI 2013/1471",
+        "edition": "2013",
+        "region": "United Kingdom",
+        "title": "Reporting of Injuries, Diseases and Dangerous Occurrences Regulations 2013 (RIDDOR)"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR 1910.1020",
+        "edition": "current",
+        "region": "United States",
+        "title": "OSHA Access to employee exposure and medical records"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "29 CFR Part 1904",
+        "edition": "eCFR current as of 9 Sep 2026",
+        "region": "United States",
+        "title": "OSHA Recording and Reporting Occupational Injuries and Illnesses"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "induction_onboarding",
+  "x-demiton-store": "tenant"
+}

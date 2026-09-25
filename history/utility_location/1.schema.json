@@ -1,0 +1,107 @@
+{
+  "$id": "demiton:shelf/utility_location/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset_owner": {
+      "description": "the utility owner or network operator",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "depth_m": {
+      "description": "the depth of the utility below surface",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "detection_method": {
+      "description": "how the position was obtained, e.g. records, electromagnetic locator, ground-penetrating radar or trial pit",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "external_id": {
+      "description": "the source's own feature id",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "geometry": {
+      "description": "the located point or line",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "horizontal_accuracy_m": {
+      "description": "the horizontal accuracy of the position",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "horizontal_datum": {
+      "description": "the datum and projection of the geometry, e.g. MGA2020 zone 56",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "project": {
+      "description": "the project the utility was located on",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "quality_level": {
+      "description": "the quality level of the location information, QL-D to QL-A",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "quality_level_scheme": {
+      "description": "the scheme and edition the level is from, e.g. AS 5488.1:2022",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "report_reference": {
+      "description": "the survey report the location comes from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_system": {
+      "description": "which bound system emitted the row",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "utility_type": {
+      "description": "the service, e.g. water, gas, electrical or telecommunications",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "validated": {
+      "description": "whether the position is validated",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "vertical_accuracy_m": {
+      "description": "the vertical accuracy of the position",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "m"
+    },
+    "vertical_datum": {
+      "description": "the datum any depth or level is referenced to, e.g. AHD",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "source_system",
+    "project",
+    "utility_type",
+    "quality_level",
+    "quality_level_scheme"
+  ],
+  "title": "utility_location contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "utility_location",
+  "x-demiton-store": "tenant"
+}

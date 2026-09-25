@@ -1,0 +1,60 @@
+{
+  "$id": "demiton:shelf/construction_methodology/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "hazards": {
+      "description": "Actual hazards / risks only (not controls, not prose mentioning \"risk\")",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "method_steps": {
+      "description": "The ordered construction method \u2014 the sequence of actions the crew performs",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "plant_equipment": {
+      "description": "Plant / equipment items used, deduplicated",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "sequence_notes": {
+      "description": "One-to-three sentence summary of overall sequencing / staging",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_file_name": {
+      "description": "Basename of the source document",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_path": {
+      "description": "Storage locator of the source document the record was extracted from",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "title": {
+      "description": "The document's title / works name; also the record-identity fallback when the basename is absent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "Short phrase naming the primary activity (e.g. a foundations or slope-stabilisation activity)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "title",
+    "method_steps",
+    "hazards",
+    "source_path"
+  ],
+  "title": "construction_methodology contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "construction_methodology",
+  "x-demiton-store": "tenant"
+}

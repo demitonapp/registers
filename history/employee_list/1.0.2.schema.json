@@ -1,0 +1,213 @@
+{
+  "$id": "demiton:shelf/employee_list/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "date_of_birth": {
+      "description": "Worker date of birth",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "display_name": {
+      "description": "The worker's display name",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "email": {
+      "description": "Work/contact email used as an identity bridge",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_agreement": {
+      "description": "Tenant award/agreement name the employee is paid under",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "employment_end_date": {
+      "description": "Date the engagement ended, where known",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_start_date": {
+      "description": "Date the employment relationship started",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "employment_status": {
+      "description": "Current employment state",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "employment_type": {
+      "description": "The engagement basis",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "family_name": {
+      "description": "Surname/family name as a separate part",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "gender": {
+      "description": "Gender, for diversity aggregation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "given_name": {
+      "description": "First/given name as a separate part",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "job_title": {
+      "description": "Role/job title at the employer",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "legal_entity_id": {
+      "description": "The employing legal entity, resolved per record",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "reporting_dimension_values": {
+      "description": "Tenant reporting-dimension assignment",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "source_created_at": {
+      "description": "When the source record was created (freshness)",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "source_external_id": {
+      "description": "The raw record id in the producing system",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tags": {
+      "description": "Tenant-assigned labels on the employee record",
+      "type": "array",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "title": {
+      "description": "Honorific or name prefix",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "work_types": {
+      "description": "Tenant work-type assignment",
+      "type": "string",
+      "x-demiton-requiredness": "tenant-specific"
+    },
+    "worker_entity_id": {
+      "description": "Demiton canonical worker spine node this fact anchors to (the subject)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "worker_entity_id",
+    "source_external_id",
+    "display_name",
+    "employment_type",
+    "employment_start_date"
+  ],
+  "title": "employee_list contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-provenance": {
+    "standards": [
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "ATO tax file number declaration",
+        "edition": "ATO guidance updated 11 Jun 2025",
+        "region": "Australia",
+        "title": "Tax file number and withholding declarations - kept with employee records"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.87(1), 96(1), 535",
+        "code": "Fair Work Act 2009 (Cth)",
+        "edition": "compilation 2026-07-07",
+        "region": "Australia",
+        "title": "Fair Work Act 2009 - employee records and National Employment Standards"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "reg 3.32",
+        "code": "Fair Work Regulations 2009 (Cth)",
+        "edition": "compilation 2026-06-20",
+        "region": "Australia",
+        "title": "Fair Work Regulations 2009 - employee record content"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 1988 (Cth)",
+        "edition": "current",
+        "region": "Australia",
+        "title": "Privacy Act 1988 - Australian Privacy Principles; employee-records exemption; health information s.6FA"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Single Touch Payroll Phase 2 (ATO)",
+        "edition": "Phase 2 (mandatory from 1 Jan 2022)",
+        "region": "Australia",
+        "title": "Single Touch Payroll Phase 2 employer reporting guidelines"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "code": "Regulation (EU) 2016/679 (GDPR)",
+        "edition": "2016",
+        "region": "European Union",
+        "title": "General Data Protection Regulation"
+      },
+      {
+        "access": "paywalled_secondary",
+        "checked_on": "2026-09-14",
+        "code": "ISO 30414:2025",
+        "edition": "2nd ed. 2025 (supersedes ISO 30414:2018)",
+        "region": "International",
+        "title": "Human resource management - Requirements and recommendations for human capital reporting and disclosure"
+      },
+      {
+        "access": "full_text_verified",
+        "checked_on": "2026-09-14",
+        "clause": "ss.6-8",
+        "code": "Employment Leave Act 2026 (NZ)",
+        "edition": "assent 6 Aug 2026; not yet in force",
+        "region": "New Zealand",
+        "title": "Employment Leave Act 2026 (2026 No 48)"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "Privacy Act 2020 (NZ)",
+        "edition": "Act 2020; HIPC version as at 1 May 2026",
+        "region": "New Zealand",
+        "title": "Privacy Act 2020 and Health Information Privacy Code 2020"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "HMRC Real Time Information (RTI)",
+        "edition": "guidance updated 6 Apr 2026",
+        "region": "United Kingdom",
+        "title": "PAYE Real Time Information - Full Payment Submission and Employer Payment Summary"
+      },
+      {
+        "access": "public_summary",
+        "checked_on": "2026-09-14",
+        "code": "UK GDPR",
+        "edition": "current",
+        "region": "United Kingdom",
+        "title": "UK GDPR and Data Protection Act 2018"
+      }
+    ]
+  },
+  "x-demiton-shelf-type": "employee_list",
+  "x-demiton-store": "tenant"
+}

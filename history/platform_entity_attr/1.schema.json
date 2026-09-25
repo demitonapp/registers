@@ -1,0 +1,98 @@
+{
+  "$id": "demiton:shelf/platform_entity_attr/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "abn": {
+      "description": "The 11-digit Australian Business Number; the shelf's subject and its SERIES identity.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "acn": {
+      "description": "The 9-digit Australian Company Number, when the entity is a company.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address.postcode": {
+      "description": "Registered address postcode.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "address.state": {
+      "description": "Registered address state.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "AU state/territory code"
+    },
+    "entity_name": {
+      "description": "The registered entity name as published by the register.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "entity_type": {
+      "description": "The register's entity-type name (company / trust / partnership / sole trader, as published).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "gst_registered": {
+      "description": "Whether the entity is GST-registered (may be `false`; the field must be present).",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "gst_registered_from": {
+      "description": "Effective date of GST registration, when registered.",
+      "type": "date",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
+    "jurisdiction_code": {
+      "description": "Jurisdiction the registration belongs to; today always Australia and **NULL on every write**.",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 3166-1 alpha-2"
+    },
+    "observed_at": {
+      "description": "When this registration snapshot was observed; drives freshness ordering.",
+      "type": "datetime",
+      "x-demiton-requiredness": "required",
+      "x-demiton-unit": "ISO 8601"
+    },
+    "source_dataset": {
+      "description": "Producer identity (`abr`).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source_id": {
+      "description": "`abr:{abn}` \u2014 the idempotency key.",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "Registration status at observation time (e.g. active / cancelled).",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "trading_names": {
+      "description": "Trading names the register publishes for the ABN.",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "abn",
+    "entity_name",
+    "entity_type",
+    "status",
+    "gst_registered",
+    "observed_at",
+    "source_dataset",
+    "source_id"
+  ],
+  "title": "platform_entity_attr contract v1",
+  "type": "object",
+  "x-demiton-contract-version": 1,
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_entity_attr",
+  "x-demiton-store": "platform"
+}
