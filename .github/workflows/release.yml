@@ -1,0 +1,29 @@
+name: release
+
+# Tag vN on main when a consumer (the Demiton monorepo, today) should vendor a pinned
+# set of contracts. The tarball is built here and attached to the release; it is
+# never committed - `contracts/` itself is already the source of truth in git.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/validate.py
+      - run: tar -czf "registers-contracts-${TAG}.tar.gz" contracts
+        env:
+          TAG: ${{ github.ref_name }}
+      - run: gh release create "$TAG" "registers-contracts-${TAG}.tar.gz" --generate-notes
+        env:
+          TAG: ${{ github.ref_name }}
+          GH_TOKEN: ${{ github.token }}
