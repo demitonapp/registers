@@ -20,10 +20,12 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python scripts/validate.py
-      - run: tar -czf "registers-contracts-${TAG}.tar.gz" contracts
+      - run: |
+          tar -czf "registers-contracts-${TAG}.tar.gz" contracts
+          tar -czf "registers-research-${TAG}.tar.gz" research
         env:
           TAG: ${{ github.ref_name }}
-      - run: gh release create "$TAG" "registers-contracts-${TAG}.tar.gz" --generate-notes
+      - run: gh release create "$TAG" "registers-contracts-${TAG}.tar.gz" "registers-research-${TAG}.tar.gz" --generate-notes
         env:
           TAG: ${{ github.ref_name }}
           GH_TOKEN: ${{ github.token }}
