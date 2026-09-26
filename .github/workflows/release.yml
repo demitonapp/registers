@@ -23,9 +23,15 @@ jobs:
       - run: |
           tar -czf "registers-contracts-${TAG}.tar.gz" contracts
           tar -czf "registers-research-${TAG}.tar.gz" research
+          tar -czf "registers-history-${TAG}.tar.gz" history
         env:
           TAG: ${{ github.ref_name }}
-      - run: gh release create "$TAG" "registers-contracts-${TAG}.tar.gz" "registers-research-${TAG}.tar.gz" --generate-notes
+      - run: |
+          gh release create "$TAG" \
+            "registers-contracts-${TAG}.tar.gz" \
+            "registers-research-${TAG}.tar.gz" \
+            "registers-history-${TAG}.tar.gz" \
+            --generate-notes
         env:
           TAG: ${{ github.ref_name }}
           GH_TOKEN: ${{ github.token }}
