@@ -1,0 +1,32 @@
+id: sop_regulation_2020_nsw
+source: law
+instrument_type: regulation
+title: Security of Payment Regulation 2020 (NSW)
+publisher: New South Wales Government
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://www.nsw.gov.au/housing-and-construction/compliance-and-regulation/security-of-payment/retention-money
+  access_date: '2026-09-16'
+obligations:
+- key: closeout.retention_trust_ledger.au-nsw
+  duty: Maintain the retention trust ledger
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_via_secondary
+  citation:
+    url: https://www.nsw.gov.au/housing-and-construction/compliance-and-regulation/security-of-payment/retention-money
+    clause: Security of Payment Regulation 2020
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: C7
+  clause: Security of Payment Regulation 2020
+  window:
+    value: 3
+    unit: months
+  caveat: Applies to head contracts $20m and above. Read via NSW Government's own guidance page.

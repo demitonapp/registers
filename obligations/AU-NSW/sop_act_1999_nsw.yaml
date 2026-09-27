@@ -1,0 +1,191 @@
+id: sop_act_1999_nsw
+source: law
+instrument_type: act
+title: Building and Construction Industry Security of Payment Act 1999 (NSW)
+publisher: New South Wales Parliament
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+  access_date: '2026-09-16'
+  version: current from 20 Aug 2024
+obligations:
+- key: payment.adjudication_application.au-nsw
+  duty: Apply for adjudication within 10 business days if a claim is disputed
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 17(3)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P8
+  clause: s 17(3)
+  window:
+    value: 10
+    unit: business_days
+- key: payment.adjudication_response.au-nsw
+  duty: Respond to an adjudication application within 5 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 20
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P9
+  clause: s 20
+  window:
+    value: 5
+    unit: business_days
+  caveat: Later of 5 BD / 2 BD after acceptance; only if a schedule was served; no new reasons.
+- key: payment.claim_cadence.au-nsw
+  duty: Make a progress claim on the cadence the contract allows
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 13
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P1
+  clause: s 13
+  window:
+    value: 1
+    unit: months
+  caveat: Monthly claim cadence; no consequence stated for the cadence itself in the source table - validity
+    conditions are P2.
+- key: payment.claim_content.au-nsw
+  duty: 'Make every claim a valid payment claim: identify the work and state the amount'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 13(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P2
+  clause: s 13(2)
+  caveat: A claim missing this content is not valid under the Act; mapped to barred.
+- key: payment.due_date.au-nsw.head
+  duty: Be paid within 15 business days of a payment schedule (or of the claim if none is given)
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 11(1A)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P6
+  clause: s 11(1A)
+  window:
+    value: 15
+    unit: business_days
+  caveat: No consequence stated for the due-date rule itself in the source table (non-payment consequences
+    are P7); mapped to guidance.
+- key: payment.due_date.au-nsw.sub
+  duty: Be paid within 20 business days of a payment schedule (or of the claim if none is given)
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 11(1B)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P6
+  clause: s 11(1B)
+  window:
+    value: 20
+    unit: business_days
+  caveat: No consequence stated for the due-date rule itself in the source table (non-payment consequences
+    are P7); mapped to guidance.
+- key: payment.notice_of_intention.au-nsw
+  duty: Give notice of intention to apply for adjudication within 20 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 17(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P7
+  clause: s 17(2)
+  window:
+    value: 20
+    unit: business_days
+  caveat: A further 5 business days after this notice before the next step (suspension / suing) is available.
+- key: payment.schedule_due.au-nsw
+  duty: Receive a payment schedule within 10 business days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 14(4)
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: P4
+  clause: s 14(4)
+  window:
+    value: 10
+    unit: business_days
+- key: payment.supporting_statement.au-nsw
+  duty: Attach a supporting statement that subcontractors have been paid
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1999-046
+    clause: s 13(7)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P3
+  clause: s 13(7)

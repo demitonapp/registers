@@ -1,0 +1,53 @@
+id: ep_act_1994_qld
+source: law
+instrument_type: act
+title: Environmental Protection Act 1994 (Qld)
+publisher: Queensland Parliament
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/act-1994-062
+  access_date: '2026-09-16'
+obligations:
+- key: latent_conditions.contamination_notice.qld_notifiable
+  duty: Notify contamination within 20 business days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/act-1994-062
+    clause: ss 320B-320DA
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L7
+  clause: ss 320B-320DA
+  window:
+    value: 20
+    unit: business_days
+  caveat: A notifiable activity. See latent_conditions.contamination_notice.qld_urgent for the 24-hour
+    serious/material-harm window in the same section range.
+- key: latent_conditions.contamination_notice.qld_urgent
+  duty: Notify contamination within 24 hours
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/act-1994-062
+    clause: ss 320B-320DA
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L7
+  clause: ss 320B-320DA
+  window:
+    value: 24
+    unit: hours
+  caveat: Serious/material environmental harm and hazardous contaminants. The same section range also
+    sets a 20 business day window for a merely notifiable activity - see latent_conditions.contamination_notice.qld_notifiable.

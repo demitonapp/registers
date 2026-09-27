@@ -1,0 +1,35 @@
+id: tmr_cap010m
+source: principal
+instrument_type: specification
+title: TMR Contract Administration Procedure CAP010M
+publisher: Queensland Department of Transport and Main Roads
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Contract-administration-system/TIC-Procedures/CAP010M.pdf?la=en
+  access_date: '2026-09-16'
+obligations:
+- key: closeout.final_claim.tmr_tic
+  duty: Lodge the final claim within 20 business days of practical completion
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Contract-administration-system/TIC-Procedures/CAP010M.pdf?la=en
+    clause: cll 5, 37, 42 (via CAP010M)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: C11
+  clause: cll 5, 37, 42 (via CAP010M)
+  window:
+    value: 20
+    unit: business_days
+  caveat: 'The research record itself qualifies this row ''(procedure)'' - a TMR administrative procedure
+    citing the General Conditions of Contract clauses, not the clause text read directly. Final claim
+    due within 20 business days of DLP expiry - late is barred. Also: notice of anticipated practical
+    completion at least 10 business days before; DLP 90 days by default; security and retention released
+    within 10 business days of the final certificate - folded in here.'

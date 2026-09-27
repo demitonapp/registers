@@ -1,0 +1,73 @@
+id: tfnsw_g2c2
+source: principal
+instrument_type: specification
+title: TfNSW G2-C2 General Requirements (TS 01566)
+publisher: Transport for NSW
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://standards.transport.nsw.gov.au/_entity/annotation/fa962848-ec68-ef11-a670-000d3acad690
+  access_date: '2026-09-16'
+  version: Ed 5/Rev 26
+obligations:
+- key: delay_eot.programme_update.g2c2_nsw
+  duty: Update the programme within 1 months
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/fa962848-ec68-ef11-a670-000d3acad690
+    clause: cl 39.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: D4
+  clause: cl 39.2
+  window:
+    value: 1
+    unit: months
+  caveat: Source is the TfNSW G2-C2 General Requirements specification, not one of this register's closed-vocabulary
+    base contract forms - applies_to_form recorded as 'any' (judgment call). Must state reasons for any
+    shortfall in Scheduled Progress.
+- key: delay_eot.wet_weather_days.g2c2_nsw
+  duty: Record wet weather days against the programme
+  consequence: damages_only
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/fa962848-ec68-ef11-a670-000d3acad690
+    clause: cl 43
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D5
+  clause: cl 43
+  caveat: Named in each EOT claim, no separate numeric window stated. Delay costs recoverable only above
+    a per-project threshold; mapped to damages_only. Same G2-C2 applies_to_form judgment call as D4.
+- key: variations.day_works.g2c2_nsw
+  duty: Record day works on the day they occur
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/fa962848-ec68-ef11-a670-000d3acad690
+    clause: cl 31
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: day_works_docket
+  research_row: V9
+  clause: cl 31
+  window:
+    value: 1
+    unit: days
+  caveat: Same G2-C2 applies_to_form judgment call as D4/D5. Particulars to be recorded each day.

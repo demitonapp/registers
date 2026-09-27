@@ -1,0 +1,55 @@
+id: tmr_mrts50
+source: principal
+instrument_type: specification
+title: TMR MRTS50 Specific Quality System Requirements
+publisher: Queensland Department of Transport and Main Roads
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+  access_date: '2026-09-16'
+obligations:
+- key: closeout.as_constructed_records.tmr_mrts50
+  duty: Hand over as-constructed records within 12 months of practical completion
+  consequence: barred
+  protection_type: check
+  disease: rework
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cll 11.2, 12.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: drawing_register
+  research_row: C15
+  clause: cll 11.2, 12.1
+  window:
+    value: 12
+    unit: months
+  caveat: A condition precedent to the practical completion certificate ('PC withheld' mapped to barred);
+    records then kept 1 year after final certificate, converted to 12 months.
+- key: closeout.nonconformance_notice.tmr_mrts50
+  duty: Notify a nonconformance within 1 working days
+  consequence: breach
+  protection_type: watch
+  disease: rework
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 10.1.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: safety_ncr
+  research_row: C12
+  clause: cl 10.1.1
+  window:
+    value: 1
+    unit: working_days
+  caveat: Spot-checked. Source is the MRTS50 specification referenced by the TMR TIC contract, not the
+    base contract text - applies_to_form recorded as TMR_TIC (judgment call). Covers quality NCRs; safety_ncr
+    is the closest existing register - SM026's own register audit notes quality NCRs have no dedicated
+    register today.

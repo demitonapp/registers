@@ -1,0 +1,75 @@
+id: as4000_1997
+source: contract
+instrument_type: conditions_of_contract
+title: AS 4000-1997 General Conditions of Contract
+publisher: Standards Australia
+jurisdictions:
+- AU
+citation:
+  url: https://www.bostongrp.com.au/documents/e-tools/79-head-contract-as4000-1997.pdf
+  access_date: '2026-09-16'
+  version: '1997'
+obligations:
+- key: delay_eot.eot_claim.as4000_1997
+  duty: Claim an extension of time within 28 days of the delay starting
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.bostongrp.com.au/documents/e-tools/79-head-contract-as4000-1997.pdf
+    clause: cl 34.2, 34.3, 34.5
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D12
+  clause: cl 34.2, 34.3, 34.5
+  window:
+    value: 28
+    unit: days
+  caveat: '''Entitlement condition'' (cl 34.3) mapped to barred. Notice itself must be given promptly,
+    no number stated; 28 days is the claim window; the Superintendent has 28 days to decide or the EOT
+    is deemed granted.'
+- key: latent_conditions.notice.as4000_1997
+  duty: Notify a latent condition as soon as it is found
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.bostongrp.com.au/documents/e-tools/79-head-contract-as4000-1997.pdf
+    clause: cl 25.2, 25.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L4
+  clause: cl 25.2, 25.3
+  caveat: Notice window is 'promptly', no number stated; 28 days is the cost cut-off, not the notice window.
+- key: variations.claim.as4000_1997
+  duty: Claim a variation in writing within 28 days of the direction
+  consequence: damages_only
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.bostongrp.com.au/documents/e-tools/79-head-contract-as4000-1997.pdf
+    clause: cl 41.1-41.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V6
+  clause: cl 41.1-41.3
+  window:
+    value: 28
+    unit: days
+  caveat: 'Spot-checked. Notice as soon as practicable (no number); particulars within 28 days. cl 41.2:
+    ''shall neither bar nor invalidate the claim'' - damages only. Unamended AS 4000-1997 has no hard
+    time bar in practice; principals'' amendments can add one (e.g. a 5 Business Day variation notice,
+    20 Business Day claims).'
+form: AS4000_1997

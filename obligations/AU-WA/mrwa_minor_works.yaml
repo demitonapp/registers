@@ -1,0 +1,54 @@
+id: mrwa_minor_works
+source: contract
+instrument_type: conditions_of_contract
+title: Main Roads WA Minor Works General Conditions of Contract
+publisher: Main Roads Western Australia
+jurisdictions:
+- AU-WA
+citation:
+  url: https://www.mainroads.wa.gov.au/49b067/globalassets/technical-commercial/technical-library/tender-preparation/minor-works-template/minor-works-general-conditions-of-contract.pdf
+  access_date: '2026-09-16'
+  version: Oct 2025
+obligations:
+- key: delay_eot.eot_claim.mrwa_minor
+  duty: Claim an extension of time within 14 days of the delay starting
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/49b067/globalassets/technical-commercial/technical-library/tender-preparation/minor-works-template/minor-works-general-conditions-of-contract.pdf
+    clause: GCC 9.6
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D10
+  clause: GCC 9.6
+  window:
+    value: 14
+    unit: days
+  caveat: '''Entitlement condition'' mapped to barred. Weather judged against meteorological averages.'
+- key: delay_eot.programme_update.mrwa_minor
+  duty: Update the programme within 1 months
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/49b067/globalassets/technical-commercial/technical-library/tender-preparation/minor-works-template/minor-works-general-conditions-of-contract.pdf
+    clause: GCC 17.2, 17.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: D11
+  clause: GCC 17.2, 17.4
+  window:
+    value: 1
+    unit: months
+  caveat: Due by the 5th day of the next calendar month.
+form: MRWA_MINOR

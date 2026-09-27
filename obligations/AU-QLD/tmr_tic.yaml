@@ -1,0 +1,178 @@
+id: tmr_tic
+source: contract
+instrument_type: conditions_of_contract
+title: Queensland TMR Transport Infrastructure Contract
+publisher: Queensland Department of Transport and Main Roads
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+  access_date: '2026-09-16'
+  version: C7830, May 2026
+obligations:
+- key: delay_eot.daily_report.tmr_tic
+  duty: Submit the daily report within 1 business days
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 33.2.1, 33.2.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: site_diary
+    system_type: site_and_field
+  research_row: D8
+  clause: cl 33.2.1, 33.2.2
+  window:
+    value: 1
+    unit: business_days
+  caveat: Spot-checked. Due by 11.00am the following Business Day. Only required where Item 34A of the
+    contract particulars applies.
+- key: delay_eot.eot_claim.tmr_tic
+  duty: Claim an extension of time within 20 business days of the delay starting
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 35.5(c), (h), (l)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D7
+  clause: cl 35.5(c), (h), (l)
+  window:
+    value: 20
+    unit: business_days
+  caveat: Strict compliance is a condition of entitlement; the prevention principle is contracted out.
+- key: delay_eot.notice_of_possible_delay.tmr_tic
+  duty: Notify a possible delay within 10 business days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 35.5(a)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D6
+  clause: cl 35.5(a)
+  window:
+    value: 10
+    unit: business_days
+  caveat: '''Entitlement condition'' in the source; mapped to barred. Endorsed title required.'
+- key: delay_eot.programme_update.tmr_tic
+  duty: Update the programme within 1 months
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 33.4.9
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: D9
+  clause: cl 33.4.9
+  window:
+    value: 1
+    unit: months
+  caveat: A monthly rolling programme covering the next 2 months.
+- key: latent_conditions.notice.tmr_tic
+  duty: Notify a latent condition as soon as it is found
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 12.2, 12.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L1
+  clause: cl 12.2, 12.4
+  window:
+    value: 1
+    unit: business_days
+  caveat: Spot-checked. Endorsed 'Contractor's Notice Under Clause 12.2'. cl 12.4 says the claim 'may
+    be reduced'; mapped to costs_excluded as the closest enum member (judgment call).
+- key: variations.day_works.tmr_tic
+  duty: Record day works on the day they occur
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 41(a)
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: day_works_docket
+  research_row: V10
+  clause: cl 41(a)
+  window:
+    value: 1
+    unit: days
+  caveat: Spot-checked. Recorded each day and given to the Administrator each day.
+- key: variations.direction_notice.tmr_tic
+  duty: Confirm a verbal direction in writing within 10 business days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 33.1(f), (g)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V2
+  clause: cl 33.1(f), (g)
+  window:
+    value: 10
+    unit: business_days
+  caveat: '''Barred without strict compliance'' under cl 33.1(g).'
+- key: variations.prescribed_notice.tmr_tic
+  duty: Give the prescribed notice for a variation claim within 20 business days
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Contract/Infrastructure-Contract/Transport-Infrastructure-Contract/Part-4/C7830.pdf
+    clause: cl 46.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V4
+  clause: cl 46.1
+  window:
+    value: 20
+    unit: business_days
+  caveat: Endorsed 'Prescribed Notice Under Clause 46.1'. 'Liability reduced to the extent mitigation
+    lost' mapped to costs_excluded (judgment call, same mapping as L1).
+form: TMR_TIC

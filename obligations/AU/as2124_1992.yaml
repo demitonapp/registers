@@ -1,0 +1,72 @@
+id: as2124_1992
+source: contract
+instrument_type: conditions_of_contract
+title: AS 2124-1992 General Conditions of Contract
+publisher: Standards Australia
+jurisdictions:
+- AU
+citation:
+  url: https://ipweaq.intersearch.com.au/ipweaqjspui/bitstream/1/6771/2/PP%20-%20Unknown,%20Unknowns%20-%20Latent%20conditions%20and%20dealing%20with%20unknown%20-%20Xavier%20Milne,%20McCullough%20Robertson%20Lawyers.pdf
+  access_date: '2026-09-16'
+  version: '1992'
+obligations:
+- key: delay_eot.eot_claim.as2124
+  duty: Claim an extension of time within 28 days of the delay starting
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_via_secondary
+  citation:
+    url: https://www.turtons.com/blog/how-to-claim-an-eot-under-as-2124
+    clause: cl 35.5
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D13
+  clause: cl 35.5
+  window:
+    value: 28
+    unit: days
+  caveat: '''Entitlement condition'' mapped to barred.'
+- key: latent_conditions.notice.as2124
+  duty: Notify a latent condition as soon as it is found
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_via_secondary
+  citation:
+    url: https://ipweaq.intersearch.com.au/ipweaqjspui/bitstream/1/6771/2/PP%20-%20Unknown,%20Unknowns%20-%20Latent%20conditions%20and%20dealing%20with%20unknown%20-%20Xavier%20Milne,%20McCullough%20Robertson%20Lawyers.pdf
+    clause: cl 12.2, 12.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L5
+  clause: cl 12.2, 12.4
+  caveat: Notice window is 'forthwith', no number stated; read via the IPWEAQ / McCullough Robertson secondary
+    quoting the clause.
+- key: variations.claim_notice.as2124
+  duty: Give written notice of a claim within 28 days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.normsplash.com/Samples/AS/196942877/HB-42-1992-en-2.pdf
+    clause: cl 46.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V7
+  clause: cl 46.1
+  window:
+    value: 28
+    unit: days
+  caveat: '''Entitlement condition'' mapped to barred. 28 days for a breach claim; 42 days for extra cost
+    from a direction or approval.'
+form: AS2124_1992

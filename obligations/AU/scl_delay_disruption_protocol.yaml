@@ -1,0 +1,38 @@
+id: scl_delay_disruption_protocol
+source: own_commitments
+instrument_type: practice_standard
+title: Society of Construction Law Delay and Disruption Protocol
+publisher: Society of Construction Law
+jurisdictions:
+- AU
+citation:
+  url: https://www.scl.org.uk/sites/default/files/documents/SCL_Delay_Protocol_2nd_Edition_Final.pdf
+  access_date: '2026-09-16'
+  version: 2nd edition, 2017
+obligations:
+- key: delay_eot.site_photos.demiton_default
+  duty: Take dated, located photographs of the site
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  grade: demiton_default
+  citation:
+    url: https://www.scl.org.uk/sites/default/files/documents/SCL_Delay_Protocol_2nd_Edition_Final.pdf
+    clause: App B 2.2-2.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: site_diary
+  research_row: L9
+  clause: App B 2.2-2.3
+  window:
+    value: 1
+    unit: business_days
+  caveat: Demiton default, basis SCL Protocol. No Australian primary source names a photo cadence and
+    the research record's own not-found list says no source sets one; L9 is graded 'secondary' (SCL App
+    B 2.2-2.3, UK guidance). SM026 decision 4 records it as a `guidance`-consequence Demiton default that
+    is never counted as `missed`. The one-per-working-day cadence and the dated-and-located content requirement
+    are the Demiton default, not a source's. It is not jurisdiction-specific; recorded as AU so it applies
+    to every AU project, and applies_to_form is 'any' because it is not tied to a contract form.
+  basis: Society of Construction Law Delay and Disruption Protocol

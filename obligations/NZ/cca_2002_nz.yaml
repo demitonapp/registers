@@ -1,0 +1,413 @@
+id: cca_2002_nz
+source: law
+instrument_type: act
+title: Construction Contracts Act 2002 (NZ)
+publisher: New Zealand Parliament
+jurisdictions:
+- NZ
+citation:
+  url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+  access_date: '2026-09-16'
+  version: version as at 5 October 2023
+obligations:
+- key: closeout.retention_complying_account.nz
+  duty: Hold retention money in a complying trust account
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18D, 18E, 18FB, 18DA
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR2
+  clause: s 18D, 18E, 18FB, 18DA
+  caveat: As soon as practicable, held at a registered NZ bank, retention money only, with the bank told
+    it is trust money (or a complying instrument). Offence up to $200,000 (party A) / $50,000 per director,
+    with a reasonable-steps defence.
+- key: closeout.retention_defect_use_notice.nz
+  duty: Notify use of retention for a defect within 10 working days
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18C(3)(c), 18DA(3)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NR6
+  clause: s 18C(3)(c), 18DA(3)
+  window:
+    value: 10
+    unit: working_days
+  caveat: Written notice naming the defects, at least 10 WD before using retention to remedy them; the
+    contract must permit it. Without notice the money remains trust property - mapped to barred. No dedicated
+    'defect use' notice_kind; retention_trust_deposit is the closest existing member.
+- key: closeout.retention_ledger.nz
+  duty: Maintain a ledger of the retention trust account
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18E(4)-(6), 18EA
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR3
+  clause: s 18E(4)-(6), 18EA
+  caveat: A ledger per party B per contract; every payment in or out recorded. Unallocated movements are
+    shared pro rata.
+- key: closeout.retention_records_access.nz
+  duty: Give the retention trust account records to whoever the Act names
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18FC
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR4
+  clause: s 18FC
+  caveat: Party B may inspect the records 'at all reasonable times', free of charge. Offence up to $50,000.
+- key: closeout.retention_regime_applicability.nz
+  duty: Determine which retention regime applies to the contract
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: Sch 1 cl 1
+    access_date: '2026-09-16'
+  evidence:
+    kind: built_in
+    from: the contract
+  research_row: NR8
+  clause: Sch 1 cl 1
+  caveat: The 2023 amendments (2023 No 12) apply to contracts entered into or renewed after 5 October
+    2023; subpart 2A first came into force 31 March 2017 (not 1 December 2015, correcting the jurisdictions
+    file). Not itself an evidence record, but the rule for which regime a project's other retention standards
+    fall under.
+- key: closeout.retention_release_terms.nz
+  duty: Release retention on the terms the Act sets
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18I, 18G
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR7
+  clause: s 18I, 18G
+  caveat: A term delaying release beyond performance, adding conditions or charging fees is void; interest
+    runs from the payable date. No 'void term' enum member; mapped to guidance (judgment call).
+- key: closeout.retention_report.nz
+  duty: Report the retention money held every 3 months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18FD
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR5
+  clause: s 18FD
+  window:
+    value: 3
+    unit: months
+  caveat: Spot-checked. As soon as practicable after money becomes retention money, then at least once
+    every 3 months until the trust ends. Offence up to $50,000.
+- key: closeout.retention_trust_status.nz
+  duty: Keep the retention trust account in the status the Act requires
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18B(2)-(6), 18C
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NR1
+  clause: s 18B(2)-(6), 18C
+  caveat: Retention becomes trust property when the contract allows it to be withheld, whether or not
+    actually withheld; if the contract has no term, when it is actually withheld.
+- key: payment.adjudication_claim_response.nz
+  duty: Respond to an adjudication claim within 5 working days
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 36(1), 37(1), 37A, 46(1)(b)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NP11
+  clause: s 36(1), 37(1), 37A, 46(1)(b)
+  window:
+    value: 5
+    unit: working_days
+  caveat: Claim within 5 WD of the adjudicator's acceptance (recorded here); response within 5 WD (extendable);
+    reply 5 WD; rejoinder 2 WD. A late response must not be considered - mapped to barred.
+- key: payment.adjudication_notice.nz
+  duty: Give the adjudication notice the Act requires
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 28; Regs r 5
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NP9
+  clause: s 28; Regs r 5
+  caveat: No time limit found in ss 25-28 for starting adjudication (the Limitation Act was not checked);
+    content requirements at s28(2); respondent's rights are in Form 2.
+- key: payment.adjudicator_selection.nz
+  duty: Agree on an adjudicator within 5 working days of the adjudication notice
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 33(2), 35(1)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NP10
+  clause: s 33(2), 35(1)
+  window:
+    value: 5
+    unit: working_days
+  caveat: Request within 5 WD of the adjudication notice (2-5 WD via an authorised nominating authority);
+    the adjudicator must answer within 2 WD. A procedural step, not itself a notice document; register/notice_kind
+    are the closest available fit.
+- key: payment.claim_cadence.nz
+  duty: Make a progress claim on the cadence the contract allows
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 20(1), 17(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NP1
+  clause: s 20(1), 17(2)
+  window:
+    value: 1
+    unit: months
+  caveat: End of the period the contract sets; if the contract is silent, the first part-month then monthly.
+    A valid claim triggers the s22 payment schedule obligation.
+- key: payment.claim_content.nz
+  duty: 'Make every claim a valid payment claim: identify the work and state the amount'
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 20(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NP2
+  clause: s 20(2)
+  caveat: Substantive compliance suffices (George Developments Ltd v Canam Construction Ltd [2006] 1 NZLR
+    177).
+- key: payment.claim_notice_form1.nz
+  duty: Attach the prescribed Form 1 notice to every payment claim
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 20(3)-(4); Regs r 4, Sch 1 Form 1
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NP3
+  clause: s 20(3)-(4); Regs r 4, Sch 1 Form 1
+  caveat: Statutory requirement to accompany the claim with an outline of the adjudication process in
+    the prescribed Form 1.
+- key: payment.determination.nz
+  duty: Issue the adjudicator's determination within 20 working days
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 46(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NP12
+  clause: s 46(2)
+  window:
+    value: 20
+    unit: working_days
+  caveat: 20 WD after the response period (30 WD if reasonably required, longer by agreement). A statutory
+    duty on the adjudicator, not a party-filed notice; register/notice_kind are the closest available
+    fit.
+- key: payment.due_date_default.nz
+  duty: Be paid within 20 working days where the contract is silent
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 18
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NP4
+  clause: s 18
+  window:
+    value: 20
+    unit: working_days
+  caveat: Applies where the contract is silent on the due date; the payer becomes liable on that date.
+- key: payment.non_payment.nz
+  duty: Recover the amount owed if payment is not made by the due date
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 23, 24
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NP7
+  clause: s 23, 24
+  caveat: On or after the due date, recoverable as a debt plus actual and reasonable costs; also triggers
+    a notice of intention to suspend work.
+- key: payment.schedule_content.nz
+  duty: Make a payment schedule that identifies the claim and the scheduled amount
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 21
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: NP6
+  clause: s 21
+  caveat: Not a valid schedule if this content is missing (Willis Trust Co Ltd v Green, HC Auckland CIV-2006-404-809).
+- key: payment.schedule_due.nz
+  duty: Receive a payment schedule within 20 working days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 22
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: NP5
+  clause: s 22
+  window:
+    value: 20
+    unit: working_days
+  caveat: Spot-checked. Contract time, else 20 Working Days after the claim is served; payer liable for
+    the full claimed amount on the due date if no schedule is given.
+- key: payment.suspension_notice.nz
+  duty: Give 5 working days notice before suspending work for non-payment
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2002/46/en/latest/
+    clause: s 24A
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NP8
+  clause: s 24A
+  window:
+    value: 5
+    unit: working_days
+  caveat: Suspension permitted, without breach, once the amount is still unpaid 5 WD after the notice;
+    an EOT follows. No 'suspension' member in notice_kind; recorded as 'other'.

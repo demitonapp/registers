@@ -1,0 +1,93 @@
+id: qbcc_act_1991
+source: law
+instrument_type: act
+title: Queensland Building and Construction Commission Act 1991
+publisher: Queensland Parliament
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1991-098
+  access_date: '2026-09-16'
+obligations:
+- key: closeout.dlp_end_notice.au-qld
+  duty: Notify the end of the defects liability period within 10 business days
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1991-098
+    clause: s 67NC
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: C5
+  clause: s 67NC
+  window:
+    value: 10
+    unit: business_days
+  caveat: Spot-checked. A further 5 business days down the contracting chain. 'Statutory duty' mapped
+    to breach.
+- key: closeout.retention_cap.au-qld
+  duty: Hold no more retention than the statutory cap
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1991-098
+    clause: ss 67K-67N
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: C3
+  clause: ss 67K-67N
+  caveat: 'Caps: 5% before practical completion, 2.5% after, 10% per payment - a standing cap, no time
+    window. ''Excess void'' mapped to barred, the closest enum member (judgment call: nothing in the enum
+    literally means ''void'').'
+- key: closeout.retention_release_default.au-qld
+  duty: Recover retention within 12 months of the defects period ending
+  consequence: offence
+  protection_type: countdown
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1991-098
+    clause: ss 67NA, 67NB
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: C4
+  clause: ss 67NA, 67NB
+  window:
+    value: 12
+    unit: months
+  caveat: Applies where the contract is silent on release. Offence carries 200 penalty units.
+- key: closeout.set_off_notice.au-qld
+  duty: Challenge a set-off from retention within 28 days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1991-098
+    clause: s 67J(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: C2
+  clause: s 67J(2)
+  window:
+    value: 28
+    unit: days
+  caveat: '''Statutory condition'' mapped to barred.'
