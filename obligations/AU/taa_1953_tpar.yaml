@@ -1,0 +1,34 @@
+id: taa_1953_tpar
+source: law
+instrument_type: act
+title: Taxation Administration Act 1953 (Cth), Schedule 1
+publisher: Commonwealth Parliament
+jurisdictions:
+- AU
+citation:
+  url: https://www.legislation.gov.au/C1953A00001/latest
+  access_date: '2026-09-27'
+obligations:
+- key: tpar.annual_report.au
+  duty: Report payments made to building and construction contractors in the taxable payments annual report
+    by 28 August each year
+  clause: Sch 1, s 396-55 (building and construction industry, table item)
+  window:
+    value: 12
+    unit: months
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.au/C1953A00001/latest
+    clause: Sch 1, s 396-55
+    access_date: '2026-09-27'
+  evidence:
+    kind: register
+    register: subcontractor_payment
+    system_type: finance
+  caveat: Read live 2026-09-27 (SM030 O2), replacing the prototype's '(sample)' marker. Due date (28 August)
+    confirmed against the ATO's own TPAR guidance (ato.gov.au/businesses-and-organisations/preparing-lodging-and-paying/reports-and-returns/taxable-payments-annual-report);
+    the reporting duty itself is Sch 1 Subdivision 396-B.

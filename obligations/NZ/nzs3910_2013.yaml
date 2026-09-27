@@ -1,0 +1,372 @@
+id: nzs3910_2013
+source: contract
+instrument_type: conditions_of_contract
+title: NZS 3910:2013 Conditions of Contract (2013/DZ public-comment redline)
+publisher: Standards New Zealand
+jurisdictions:
+- NZ
+citation:
+  url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+  access_date: '2026-09-16'
+  version: 2013 ed.; published NZS 3910:2023 text not read
+obligations:
+- key: closeout.contractors_bond.nzs3910
+  duty: Provide the contractor's bond within 2 months
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 3.1.2-3.1.7
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: bank_guarantee
+  research_row: NC1
+  clause: cl 3.1.2-3.1.7
+  window:
+    value: 2
+    unit: months
+  caveat: The Contractor's Bond is due within 2 Months of acceptance ('No payment until delivered' mapped
+    to barred); replaced at least 1 Month before expiry; released within 5 Working Days after the Principal
+    receives the practical-completion certificate.
+- key: closeout.defects_notification_period.nzs3910
+  duty: Notify defects within the 3 months defects notification period
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: DZ cl 11.1, 11.2.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: punch_list
+  research_row: NC2
+  clause: DZ cl 11.1, 11.2.1
+  window:
+    value: 3
+    unit: months
+  caveat: Defects Notification Period, 3 Months from practical completion unless specified (Auckland Transport's
+    Panel 3 special conditions instead set 12 Months). A defect notice must be given during the DNP or
+    within 5 Working Days after; remedy within 5 Working Days. Read from the DZ draft and AT Panel 3,
+    not the published 2023 text.
+- key: closeout.final_payment_claim.nzs3910_2013
+  duty: Lodge the final payment claim within 1 months of the defects period ending
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 12.4.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NC6
+  clause: cl 12.4.1
+  window:
+    value: 1
+    unit: months
+  caveat: 1 Month after the Final Completion Certificate (2013); the DZ draft instead runs from the later
+    of the FCC and the Final Account. Claims left out are barred.
+- key: closeout.final_payment_schedule.nzs3910_2013
+  duty: Issue the final payment schedule within 20 working days
+  consequence: guidance
+  protection_type: countdown
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 12.5
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: NC7
+  clause: cl 12.5
+  window:
+    value: 20
+    unit: working_days
+  caveat: '2013 edition: 20 Working Days (Auckland Transport''s Panel 3 instead sets 35). The DZ draft
+    splits this into a provisional 20 WD, a final 45 WD, and payment 10 WD later - the 2013/DZ split is
+    ambiguous in the source; the 2013 figure is recorded as primary.'
+- key: closeout.progress_claim_cadence.nzs3910_2013
+  duty: Make a progress claim on the cadence the contract states
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  severity: 3
+  grade: primary_via_secondary
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 12.1.2, 12.2.1, 12.2.8
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NC4
+  clause: cl 12.1.2, 12.2.1, 12.2.8
+  window:
+    value: 1
+    unit: months
+  caveat: Claims at least monthly; the 2013 edition sets the payment schedule 12 Working Days after service
+    and payment 17 Working Days after service (both folded in here). Read via Auckland Transport's Panel
+    3 special conditions.
+- key: closeout.retention_release.nzs3910_2013
+  duty: Release retention within 10 working days of practical completion (or the defects period ending)
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 12.3.3; DZ 12.3.4, 12.3.7
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  research_row: NC3
+  clause: cl 12.3.3; DZ 12.3.4, 12.3.7
+  window:
+    value: 10
+    unit: working_days
+  caveat: Excess released at practical completion; balance released after the Defects Notification Period
+    less outstanding work; the remainder within 10 Working Days after the Final Completion Certificate
+    (recorded here). DZ cl 12.3.4 is draft only.
+- key: delay_eot.eot_decision.nzs3910_2013
+  duty: Decide an extension of time claim within 20 working days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 10.3.5
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: ND3
+  clause: cl 10.3.5
+  window:
+    value: 20
+    unit: working_days
+  caveat: The Engineer's EOT decision, within 20 WD or as soon as practicable; referable to review.
+- key: delay_eot.eot_notice.nzs3910_2013
+  duty: Give notice of an extension of time claim within 20 working days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 10.3.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: ND1
+  clause: cl 10.3.2
+  window:
+    value: 20
+    unit: working_days
+  caveat: 20 Working Days after the circumstances arise, or as soon as practicable; details in the notice
+    or within a reasonable time. The Engineer is 'not bound to grant' - discretionary, no express bar.
+- key: delay_eot.programme_submission.nzs3910_2013
+  duty: Submit the programme within 20 working days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 5.10.1-5.10.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: ND4
+  clause: cl 5.10.1-5.10.4
+  window:
+    value: 20
+    unit: working_days
+  caveat: 10 WD after acceptance of tender for the initial programme; 20 WD (recorded here) for a Comprehensive
+    Programme. 'No payment until submitted' mapped to barred, the closest enum member (judgment call -
+    payment is withheld pending compliance, not permanently barred).
+- key: latent_conditions.unforeseen_conditions_details.nzs3910_2013
+  duty: Give full details of an unforeseen physical condition
+  consequence: guidance
+  protection_type: watch
+  disease: non_compliance
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.5.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NL2
+  clause: cl 9.5.3
+  caveat: Details (materials, plant, labour, programme, delay, estimate) due as soon as practicable after
+    the NL1 notice; needed to seek a Variation.
+- key: latent_conditions.unforeseen_conditions_notice.nzs3910_2013
+  duty: Notify an unforeseen physical condition as soon as practicable
+  consequence: guidance
+  protection_type: watch
+  disease: non_compliance
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.5.2, 9.5.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NL1
+  clause: cl 9.5.2, 9.5.4
+  caveat: '''As soon as practicable and where possible before the conditions are disturbed'', confirmed
+    in writing. No express time bar; a Variation to the extent unforeseeable (cl 9.5.4).'
+- key: latent_conditions.weather_exclusion_rule.nzs3910_2013
+  duty: Adverse weather is excluded from an extension of time claim
+  consequence: guidance
+  protection_type: check
+  disease: non_compliance
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.5.1
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NL3
+  clause: cl 9.5.1
+  caveat: Defines 'physical conditions' to exclude weather unless the contractor is away from the Site
+    - a definitional rule, not itself a record requirement, included for completeness as a cited primary_read
+    row.
+- key: variations.day_works.nzs3910
+  duty: Record day works on the day they occur
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.4.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: day_works_docket
+  research_row: NV5
+  clause: cl 9.4.3
+  window:
+    value: 1
+    unit: days
+  caveat: Recorded daily, signed daily where possible; signed copy accompanies the payment claim. Basis
+    of payment, prima facie evidence. Clause number not confirmed unchanged in the published 2023 text.
+- key: variations.instruction_notice.nzs3910_2013
+  duty: Notify a variation claim within 1 months of the instruction
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.2.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV1
+  clause: cl 9.2.2
+  window:
+    value: 1
+    unit: months
+  caveat: Checked against the DZ text. Commonly treated as a condition precedent in practice (secondary
+    characterisation); no express bar in the primary text read. See variations.instruction_notice.nzs3910_2023
+    for the 2023 window.
+- key: variations.other_matter_notice.nzs3910_2013
+  duty: Notify any other matter affecting time or cost within 1 months
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.2.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV2
+  clause: cl 9.2.3
+  window:
+    value: 1
+    unit: months
+  caveat: Notice that another matter (not an instruction) is a Variation, from becoming aware. Same windows
+    and consequence as NV1.
+- key: variations.proposed_value.nzs3910_2013
+  duty: Propose the value of a variation within 1 months of the instruction
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.3.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV4
+  clause: cl 9.3.2
+  window:
+    value: 1
+    unit: months
+  caveat: The DZ draft moves this to 20 Working Days, copied to the Independent Certifier, who decides
+    the value under DZ cl 9.3.5 (draft only, 2023 published wording not confirmed).
+- key: variations.response_to_notice.nzs3910_2013
+  duty: Respond to a variation notice within 1 months
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
+    clause: cl 9.2.4
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV3
+  clause: cl 9.2.4
+  window:
+    value: 1
+    unit: months
+  caveat: Response to a variation notice; deemed a Variation unless disallowed within the month.
+form: NZS3910_2013

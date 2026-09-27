@@ -1,0 +1,152 @@
+id: sop_act_2002_vic
+source: law
+instrument_type: act
+title: Building and Construction Industry Security of Payment Act 2002 (Vic)
+publisher: Victorian Parliament
+jurisdictions:
+- AU-VIC
+citation:
+  url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+  access_date: '2026-09-16'
+  version: Authorised Version 015 as at 24 Jun 2026
+obligations:
+- key: payment.adjudication_application.au-vic
+  duty: Apply for adjudication within 10 business days if a claim is disputed
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 18(3)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P8
+  clause: s 18(3)
+  window:
+    value: 10
+    unit: business_days
+- key: payment.adjudication_response.au-vic
+  duty: Respond to an adjudication application within 5 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 21
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P9
+  clause: s 21
+  window:
+    value: 5
+    unit: business_days
+  caveat: Later of 5 BD / 2 BD; only if a schedule was served.
+- key: payment.claim_cadence.au-vic
+  duty: Make a progress claim on the cadence the contract allows
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 14A, 14D
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P1
+  clause: s 14A, 14D
+  window:
+    value: 1
+    unit: months
+  caveat: Monthly claim cadence; no consequence stated for the cadence itself in the source table - validity
+    conditions are P2.
+- key: payment.claim_content.au-vic
+  duty: 'Make every claim a valid payment claim: identify the work and state the amount'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 14(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P2
+  clause: s 14(2)
+  caveat: A claim missing this content is not valid under the Act; mapped to barred.
+- key: payment.due_date.au-vic
+  duty: Be paid within 10 business days of a payment schedule (or of the claim if none is given)
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 12
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P6
+  clause: s 12
+  window:
+    value: 10
+    unit: business_days
+  caveat: 'No consequence stated for the due-date rule itself in the source table (non-payment consequences
+    are P7); mapped to guidance. VIC: beyond 20 BD has no effect.'
+- key: payment.notice_of_intention.au-vic
+  duty: Give notice of intention to apply for adjudication within 10 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 18(2)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P7
+  clause: s 18(2)
+  window:
+    value: 10
+    unit: business_days
+  caveat: A further 5 business days after this notice before the next step (suspension / suing) is available.
+- key: payment.schedule_due.au-vic
+  duty: Receive a payment schedule within 10 business days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 15(4)
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: P4
+  clause: s 15(4)
+  window:
+    value: 10
+    unit: business_days

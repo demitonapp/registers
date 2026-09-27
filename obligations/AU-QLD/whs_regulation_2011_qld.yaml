@@ -1,0 +1,36 @@
+id: whs_regulation_2011_qld
+source: law
+instrument_type: regulation
+title: Work Health and Safety Regulation 2011 (Qld)
+publisher: AU-QLD Government
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+  access_date: '2026-09-27'
+obligations:
+- key: latent_conditions.utility_check.au-qld
+  duty: Keep the underground services records for 24 months
+  clause: r 304(2), (6)
+  window:
+    value: 24
+    unit: months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 304(2), (6)
+    access_date: '2026-09-27'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  caveat: 'Nationally harmonised excavation-work clause (model WHS Regulations Part 6.3 Division 3): the
+    SM026 seed cited only the ACT''s copy for a bare ''AU'' row, which is wrong for a site outside the
+    ACT (each state enacts its own instrument). This row was independently verified against this state''s
+    own current register 2026-09-27 (SM030 O2), not carried over. NT, TAS and WA almost certainly carry
+    the same duty but could not be pinned to a clean, current, official URL within this session''s scope
+    - see library-transcription.md Corrections. Victoria is correctly excluded: it runs its own OHS Act/Regulations,
+    never harmonised.'

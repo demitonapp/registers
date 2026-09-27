@@ -1,0 +1,29 @@
+id: ep_act_2017_vic
+source: law
+instrument_type: act
+title: Environment Protection Act 2017 (Vic)
+publisher: Victorian Parliament
+jurisdictions:
+- AU-VIC
+citation:
+  url: https://www.epa.vic.gov.au/duty-notify-contaminated-land
+  access_date: '2026-09-16'
+obligations:
+- key: latent_conditions.contamination_notice.vic
+  duty: Notify contamination within the stated period
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_via_secondary
+  citation:
+    url: https://www.epa.vic.gov.au/duty-notify-contaminated-land
+    clause: s 40
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L8
+  clause: s 40
+  caveat: '''As soon as practicable'', no number stated. Read via EPA Victoria''s own guidance page quoting
+    the section.'

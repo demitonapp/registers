@@ -1,0 +1,35 @@
+id: at_nzs3910_special_conditions
+source: principal
+instrument_type: special_conditions
+title: Auckland Transport NZS 3910:2013 Special Conditions
+publisher: Auckland Transport
+jurisdictions:
+- NZ-AUK
+citation:
+  url: https://at.govt.nz/media/1977124/3a1-pwsp-three-nzs-3910-2013-condition-of-contract.pdf
+  access_date: '2026-09-16'
+  version: Version 40, 23 March 2018
+obligations:
+- key: delay_eot.monthly_report.at_panel3
+  duty: Report RFIs and change events in the monthly report
+  consequence: breach
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://at.govt.nz/media/1977124/3a1-pwsp-three-nzs-3910-2013-condition-of-contract.pdf
+    clause: cl 5.23.8
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: ND6
+  clause: cl 5.23.8
+  window:
+    value: 3
+    unit: working_days
+  caveat: At least 3 Working Days before each monthly meeting (monthly cadence). Auckland Transport's
+    own special conditions to NZS 3910:2013; jurisdiction recorded as the Auckland region (NZ-AUK) since
+    this is a regional-authority special condition, not the national contract form.

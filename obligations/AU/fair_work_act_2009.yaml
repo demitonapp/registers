@@ -1,0 +1,31 @@
+id: fair_work_act_2009
+source: law
+instrument_type: act
+title: Fair Work Act 2009 (Cth)
+publisher: Commonwealth Parliament
+jurisdictions:
+- AU
+citation:
+  url: https://www.legislation.gov.au/C2009A00028/latest
+  access_date: '2026-09-27'
+obligations:
+- key: fair_work.records.au
+  duty: Keep time and wage records for every employee for 7 years
+  clause: s 535
+  window:
+    value: 84
+    unit: months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.au/C2009A00028/latest
+    clause: s 535
+    access_date: '2026-09-27'
+  evidence:
+    kind: register
+    register: timesheet_entry
+    system_type: site_and_field
+  caveat: Read live 2026-09-27 (SM030 O2), replacing the prototype's '(sample)' marker.

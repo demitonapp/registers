@@ -1,0 +1,141 @@
+id: nzs3910_2023
+source: contract
+instrument_type: conditions_of_contract
+title: NZS 3910:2023 Conditions of Contract (secondary summaries; DZ draft)
+publisher: Standards New Zealand
+jurisdictions:
+- NZ
+citation:
+  url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+  access_date: '2026-09-16'
+  version: 2023 ed.; published text not read
+obligations:
+- key: closeout.final_account.nzs3910_2023
+  duty: Submit the final account within 3 months of practical completion
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_via_secondary
+  citation:
+    url: https://contractormag.co.nz/contractor/nzs-39102023-final-account-mechanism/
+    clause: cl 9.11
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: NC5
+  clause: cl 9.11
+  window:
+    value: 3
+    unit: months
+  caveat: Interim Final Account due within 3 Months of practical completion by default (recorded here);
+    the Final Account is due 20 Working Days after the Final Completion Certificate, and the Independent
+    Certifier decides it if unagreed after 3 Months. Conclusive under cl 9.11.6 - mapped to barred (once
+    conclusive, further claims are shut out).
+- key: delay_eot.early_warning.nzs3910_2023
+  duty: Give an early warning of an event likely to affect time or cost
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+    clause: DZ cl 6.10
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: ND5
+  clause: DZ cl 6.10
+  caveat: As soon as a party becomes aware of a likely material price, delay or statutory-breach matter.
+    A Variation is valued as if notice had been given (cl 6.10.3). 2023 published wording not confirmed
+    - read from the DZ draft only. No 'early_warning' member in the notice_kind vocabulary; recorded as
+    'other'.
+- key: delay_eot.eot_notice.nzs3910_2023
+  duty: Give notice of an extension of time claim within 20 working days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+    clause: cl 10.3.2 (2023); DZ 10.3.6(c)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: ND2
+  clause: cl 10.3.2 (2023); DZ 10.3.6(c)
+  window:
+    value: 20
+    unit: working_days
+  caveat: 20 WD after becoming aware, to the Contract Administrator and Independent Certifier; a continuing
+    delay may be notified more than once. Not a bar; lateness and its cost are weighed instead (DZ cl
+    10.3.6(c), draft only).
+- key: variations.instruction_notice.nzs3910_2023
+  duty: Notify a variation claim within 20 working days of the instruction
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+    clause: cl 9.2.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV1
+  clause: cl 9.2.2
+  window:
+    value: 20
+    unit: working_days
+  caveat: '''Within 20 Working Days or as soon as practicable''. Same source row as variations.instruction_notice.nzs3910_2013
+    (the 2013/2023 editions carry different windows).'
+- key: variations.other_matter_notice.nzs3910_2023
+  duty: Notify any other matter affecting time or cost within 20 working days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+    clause: cl 9.2.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV2
+  clause: cl 9.2.3
+  window:
+    value: 20
+    unit: working_days
+  caveat: Same as variations.other_matter_notice.nzs3910_2013 for the 2013 edition's window.
+- key: variations.response_to_notice.nzs3910_2023
+  duty: Respond to a variation notice within 20 working days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_via_secondary
+  citation:
+    url: https://www.masterbuilder.org.nz/assets/publicdocs/Clause%209.2%20%20Special%20Conditions%20-%20Info%20Sheet.pdf
+    clause: cl 9.2.5
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: NV3
+  clause: cl 9.2.5
+  window:
+    value: 20
+    unit: working_days
+  caveat: No deemed outcome (unlike 2013); a failure to respond restarts the 20 Working Days. 'Delay only'
+    consequence text mapped to guidance (no 'delay_only' enum member).
+form: NZS3910_2023

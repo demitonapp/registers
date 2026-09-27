@@ -1,0 +1,36 @@
+id: whs_regulations_2012_sa
+source: law
+instrument_type: regulation
+title: Work Health and Safety Regulations 2012 (SA)
+publisher: AU-SA Government
+jurisdictions:
+- AU-SA
+citation:
+  url: https://www.legislation.sa.gov.au/__legislation/lz/c/r/work%20health%20and%20safety%20regulations%202012/current/2012.268.auth.pdf
+  access_date: '2026-09-27'
+obligations:
+- key: latent_conditions.utility_check.au-sa
+  duty: Keep the underground services records for 24 months
+  clause: r 304(2), (6)
+  window:
+    value: 24
+    unit: months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/__legislation/lz/c/r/work%20health%20and%20safety%20regulations%202012/current/2012.268.auth.pdf
+    clause: r 304(2), (6)
+    access_date: '2026-09-27'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  caveat: 'Nationally harmonised excavation-work clause (model WHS Regulations Part 6.3 Division 3): the
+    SM026 seed cited only the ACT''s copy for a bare ''AU'' row, which is wrong for a site outside the
+    ACT (each state enacts its own instrument). This row was independently verified against this state''s
+    own current register 2026-09-27 (SM030 O2), not carried over. NT, TAS and WA almost certainly carry
+    the same duty but could not be pinned to a clean, current, official URL within this session''s scope
+    - see library-transcription.md Corrections. Victoria is correctly excluded: it runs its own OHS Act/Regulations,
+    never harmonised.'

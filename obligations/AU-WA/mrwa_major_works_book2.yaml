@@ -1,0 +1,33 @@
+id: mrwa_major_works_book2
+source: contract
+instrument_type: conditions_of_contract
+title: Main Roads WA Major Works Book 2, Conditions of Contract
+publisher: Main Roads Western Australia
+jurisdictions:
+- AU-WA
+citation:
+  url: https://www.mainroads.wa.gov.au/globalassets/technical-commercial/technical-library/tender-preparation/major-works/book-2-conditions-of-contract.docx
+  access_date: '2026-09-16'
+  version: Book 2
+obligations:
+- key: latent_conditions.notice.mrwa_major
+  duty: Notify a latent condition as soon as it is found
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/globalassets/technical-commercial/technical-library/tender-preparation/major-works/book-2-conditions-of-contract.docx
+    clause: SCC 10 (replaces cl 12)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L3
+  clause: SCC 10 (replaces cl 12)
+  window:
+    value: 28
+    unit: days
+  caveat: '''As soon as practicable''; 28 days is the stated maximum.'
+form: MRWA_MAJOR

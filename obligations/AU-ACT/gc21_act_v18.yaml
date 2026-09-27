@@ -1,0 +1,79 @@
+id: gc21_act_v18
+source: contract
+instrument_type: conditions_of_contract
+title: NSW GC21 Edition 2 General Conditions of Contract
+publisher: ACT Government
+jurisdictions:
+- AU-ACT
+citation:
+  url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+  access_date: '2026-09-16'
+  version: Edition 2
+obligations:
+- key: closeout.final_claim.gc21_act
+  duty: Lodge the final claim within 91 days of practical completion
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cll 33.3, 61, 67.1 (read in ACT v1.8)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: C10
+  clause: cll 33.3, 61, 67.1 (read in ACT v1.8)
+  window:
+    value: 91
+    unit: days
+  caveat: '''GC21 Ed 2, read in ACT v1.8'' - recorded as AU-ACT (the version actually read), not a combined
+    NSW/ACT code (jurisdiction is single-valued); the general GC21 rule is the same in NSW. Final payment
+    claim due within 13 weeks of completion, converted to 91 days (no ''weeks'' unit) - late is barred.
+    Also: completion undertaking (security) returned 14 days after completion; principal''s payment schedule
+    within 10 business days - both folded in here rather than split into further rows.'
+- key: variations.monthly_report.gc21_act.change_event
+  duty: Report RFIs and change events in the monthly report
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: ACT v1.8 special conditions
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: change_event
+  research_row: V11
+  clause: ACT v1.8 special conditions
+  window:
+    value: 5
+    unit: days
+  caveat: See variations.monthly_report.gc21_act.rfi - one ACT GC21 v1.8 special condition covering both
+    registers.
+- key: variations.monthly_report.gc21_act.rfi
+  duty: Report RFIs and change events in the monthly report
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: ACT v1.8 special conditions
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: rfi
+  research_row: V11
+  clause: ACT v1.8 special conditions
+  window:
+    value: 5
+    unit: days
+  caveat: ACT GC21 v1.8 special condition covering both RFI and change-register status in one monthly
+    progress report; recorded as two rows since register is a single field - see variations.monthly_report.gc21_act.change_event.
+form: GC21

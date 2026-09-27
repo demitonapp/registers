@@ -1,0 +1,180 @@
+id: gc21_edition2
+source: contract
+instrument_type: conditions_of_contract
+title: NSW GC21 Edition 2 General Conditions of Contract
+publisher: NSW Government (Department of Customer Service)
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+  access_date: '2026-09-16'
+  version: Edition 2
+obligations:
+- key: delay_eot.delay_notice.gc21_nsw
+  duty: Notify a delay within 7 days
+  consequence: reduced_per_day
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 50.1, 50.9
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D1
+  clause: cl 50.1, 50.9
+  window:
+    value: 7
+    unit: days
+  caveat: Spot-checked. EOT reduced one day per day late under cl 50.9.
+- key: delay_eot.eot_claim.gc21_nsw
+  duty: Claim an extension of time within 28 days of the delay starting
+  consequence: reduced_per_day
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 50.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: D2
+  clause: cl 50.3
+  window:
+    value: 28
+    unit: days
+  caveat: Spot-checked. Updated every subsequent 28 days while the delay continues; consequence as D1
+    (EOT reduced one day per day late).
+- key: delay_eot.programme_update.gc21_nsw
+  duty: Update the programme within 1 months
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 22.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  research_row: D3
+  clause: cl 22.3
+  window:
+    value: 1
+    unit: months
+  caveat: Spot-checked. Due by the last Business Day of the month, skipped if updated in the previous
+    14 days; also within 7 days of an instruction.
+- key: latent_conditions.notice.gc21_nsw
+  duty: Notify a latent condition as soon as it is found
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 37.3, 37.8
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: L2
+  clause: cl 37.3, 37.8
+  window:
+    value: 7
+    unit: days
+  caveat: Spot-checked. The notice must carry 7 required content items; the research record does not list
+    them, so minimum_content is left unset rather than invented.
+- key: variations.claim.gc21_nsw
+  duty: Claim a variation in writing within 28 days of the direction
+  consequence: damages_only
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 68.1-68.3
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V5
+  clause: cl 68.1-68.3
+  window:
+    value: 28
+    unit: days
+  caveat: NSW consequence is 'interest only', mapped to damages_only as the closest limited-recovery enum
+    member. The ACT version instead bars the claim if not included in the final payment claim.
+- key: variations.day_works.gc21_nsw
+  duty: Record day works on the day they occur
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: Schedule 8
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: day_works_docket
+  research_row: V8
+  clause: Schedule 8
+  window:
+    value: 1
+    unit: days
+  caveat: '''Evidence of quantum'', not a penalty; resources recorded each day.'
+- key: variations.unordered_variation_notice.gc21_nsw
+  duty: Notify an unordered variation within 7 days
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 48.7
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V3
+  clause: cl 48.7
+  window:
+    value: 7
+    unit: days
+  caveat: '''Entitlement condition'' in the source; mapped to barred.'
+- key: variations.written_confirmation.gc21_nsw
+  duty: Confirm a verbal direction in writing within 3 business days
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 11.2
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: V1
+  clause: cl 11.2
+  window:
+    value: 3
+    unit: business_days
+  caveat: Spot-checked. The Principal's duty to confirm an oral instruction in writing, as soon as practicable
+    and within 3 Business Days; evidentiary value, no penalty stated, mapped to guidance. The ACT version
+    of this clause drops the 3-day figure.
+form: GC21

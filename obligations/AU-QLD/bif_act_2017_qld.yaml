@@ -1,0 +1,195 @@
+id: bif_act_2017_qld
+source: law
+instrument_type: act
+title: Building Industry Fairness (Security of Payment) Act 2017 (Qld)
+publisher: Queensland Parliament
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+  access_date: '2026-09-16'
+  version: reprint current from 28 Apr 2026
+obligations:
+- key: closeout.retention_trust_notice.au-qld
+  duty: Notify the retention trust account within 5 business days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: ss 35, 40A, 40B
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: C6
+  clause: ss 35, 40A, 40B
+  window:
+    value: 5
+    unit: business_days
+  caveat: Deposit required when retention is withheld; notice within 5 business days of each deposit or
+    withdrawal; information within 10 business days of a request.
+- key: payment.adjudication_application.au-qld
+  duty: Apply for adjudication within 30 business days if a claim is disputed
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 79(2)(b)
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P8
+  clause: s 79(2)(b)
+  window:
+    value: 30
+    unit: business_days
+  caveat: Spot-checked (s 79(2)(b) 30 business days).
+- key: payment.adjudication_response.au-qld
+  duty: Respond to an adjudication application within 10 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: ss 82-83
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P9
+  clause: ss 82-83
+  window:
+    value: 10
+    unit: business_days
+  caveat: 10 BD standard / 15 BD complex; no schedule means no response; no new reasons.
+- key: payment.claim_cadence.au-qld
+  duty: Make a progress claim on the cadence the contract allows
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: ss 67, 75(4)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P1
+  clause: ss 67, 75(4)
+  window:
+    value: 1
+    unit: months
+  caveat: Monthly claim cadence; no consequence stated for the cadence itself in the source table - validity
+    conditions are P2.
+- key: payment.claim_content.au-qld
+  duty: 'Make every claim a valid payment claim: identify the work and state the amount'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 68(1)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P2
+  clause: s 68(1)
+  caveat: A claim missing this content is not valid under the Act; mapped to barred.
+- key: payment.due_date.au-qld
+  duty: Be paid within 10 business days of a payment schedule (or of the claim if none is given)
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 73(1)(b)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P6
+  clause: s 73(1)(b)
+  window:
+    value: 10
+    unit: business_days
+  caveat: No consequence stated for the due-date rule itself in the source table (non-payment consequences
+    are P7); mapped to guidance.
+- key: payment.notice_of_intention.au-qld
+  duty: Give notice of intention to apply for adjudication within 30 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 99
+    access_date: '2026-09-16'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  research_row: P7
+  clause: s 99
+  window:
+    value: 30
+    unit: business_days
+  caveat: A further 5 business days after this notice before the next step (suspension / suing) is available.
+    QLD calls this a warning notice before suing.
+- key: payment.schedule_due.au-qld
+  duty: Receive a payment schedule within 15 business days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 76(1), s 77
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  research_row: P4
+  clause: s 76(1), s 77
+  window:
+    value: 15
+    unit: business_days
+  caveat: Spot-checked (s 76(1)(b) 15 business days). s76(1) also makes missing the deadline an offence,
+    in addition to the s77 full-liability consequence.
+- key: payment.supporting_statement.au-qld
+  duty: Attach a supporting statement that subcontractors have been paid
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-043
+    clause: s 75(6), (8)
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  research_row: P3
+  clause: s 75(6), (8)
+  caveat: Claim still remains valid even without it (s 75(8)); the offence is separate from claim validity.

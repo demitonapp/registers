@@ -1,0 +1,76 @@
+id: mrwa_spec201_quality
+source: principal
+instrument_type: specification
+title: Main Roads WA Specification 201 Quality Management
+publisher: Main Roads Western Australia
+jurisdictions:
+- AU-WA
+citation:
+  url: https://www.mainroads.wa.gov.au/4a91a3/globalassets/technical-commercial/technical-library/specifications/200-series-management-requirements/specification-201-quality-management.pdf
+  access_date: '2026-09-16'
+obligations:
+- key: closeout.as_built_redlines.mrwa
+  duty: Mark up and submit as-built redlines within 7 days
+  consequence: breach
+  protection_type: watch
+  disease: rework
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/4a91a3/globalassets/technical-commercial/technical-library/specifications/200-series-management-requirements/specification-201-quality-management.pdf
+    clause: cl 201.15
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: drawing_register
+  research_row: C14
+  clause: cl 201.15
+  window:
+    value: 7
+    unit: days
+  caveat: Spot-checked. Source states '1 week'; converted to 7 days (no 'weeks' unit).
+- key: closeout.nonconformance_report.mrwa_spec201
+  duty: Report a nonconformance within 24 hours
+  consequence: guidance
+  protection_type: watch
+  disease: rework
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/4a91a3/globalassets/technical-commercial/technical-library/specifications/200-series-management-requirements/specification-201-quality-management.pdf
+    clause: cl 201.10
+    access_date: '2026-09-16'
+  evidence:
+    kind: not_collected
+    register: safety_ncr
+  research_row: C13
+  clause: cl 201.10
+  window:
+    value: 24
+    unit: hours
+  caveat: Spot-checked. Consequence is a Hold Point (work stops until inspected/released), not a legal
+    bar/damages/offence - mapped to guidance (judgment call). Source is a MRWA specification; applies_to_form
+    recorded as MRWA_MAJOR though it may also apply to minor works (not confirmed by the research record).
+- key: closeout.quality_records_handover.mrwa
+  duty: Hand over quality records within 28 days
+  consequence: breach
+  protection_type: watch
+  disease: rework
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.mainroads.wa.gov.au/4a91a3/globalassets/technical-commercial/technical-library/specifications/200-series-management-requirements/specification-201-quality-management.pdf
+    clause: cl 201.11
+    access_date: '2026-09-16'
+  evidence:
+    kind: register
+    register: inspection_test_result
+    system_type: site_and_field
+  research_row: C14
+  clause: cl 201.11
+  window:
+    value: 28
+    unit: days
+  caveat: Spot-checked. Source states '4 weeks'; converted to 28 days (no 'weeks' unit). A monthly quality
+    report is also due by the 5th (cl 201.15) - no dedicated register named for it, so not split into
+    a separate row.
