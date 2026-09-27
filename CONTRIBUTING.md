@@ -15,10 +15,10 @@ You don't need to ask first. Open a pull request against one contract.
 3. **Run the checks**, or let CI run them:
 
    ```
-   pip install -r requirements.txt
-   python scripts/validate.py
-   python scripts/bump_check.py --base origin/main
-   python scripts/leak_check.py
+   uv sync
+   uv run python scripts/validate.py
+   uv run python scripts/bump_check.py --base origin/main
+   uv run python scripts/leak_check.py
    ```
 4. **Say why**, in the pull request description: what the field is for, and
    where you'd expect it to come from.

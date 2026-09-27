@@ -15,12 +15,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: python scripts/validate.py
-      - run: python -m pytest tests/ -q
-      - run: python scripts/bump_check.py --base "origin/${{ github.base_ref || 'main' }}"
+      - uses: astral-sh/setup-uv@v4
+      - run: uv sync --locked
+      - run: uv run python scripts/validate.py
+      - run: uv run python -m pytest tests/ -q
+      - run: uv run python scripts/bump_check.py --base "origin/${{ github.base_ref || 'main' }}"
         if: github.event_name == 'pull_request'
       - name: leak check
-        run: python scripts/leak_check.py
+        run: uv run python scripts/leak_check.py
         env:
           REGISTERS_TENANT_DENYLIST: ${{ secrets.REGISTERS_TENANT_DENYLIST }}
