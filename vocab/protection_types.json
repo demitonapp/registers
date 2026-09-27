@@ -1,0 +1,7 @@
+{
+  "$comment": "The four protection engines (SM030 decision 4). An obligation names one; the engine that runs it is generic, the library row is what varies.",
+  "watch": "A window opens when something happens, and the deadline is tracked.",
+  "countdown": "A fixed date approaches, flagged at 90, 30 and 7 days.",
+  "check": "Evidence that must exist is looked for, on a cadence.",
+  "threshold": "A measure is tracked against the line it must not cross."
+}

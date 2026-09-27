@@ -1,0 +1,10 @@
+{
+  "$comment": "The seven places a duty on a civil job comes from (SM030). Renamed from `contractor` to `own_commitments` (SM030 decision 20): a QBCC licence or an ISO certification is evidence another source's duty requires, not a duty of its own, so nothing under this source is a citable obligation today - it exists so an instrument (a licence, a certification) still has a source to belong to.",
+  "contract": "The contract",
+  "law": "Law of the place",
+  "principal": "The principal",
+  "approvals": "Approvals for this site",
+  "counterparties": "Other counterparties",
+  "workforce": "Workforce instruments",
+  "own_commitments": "Your own commitments"
+}

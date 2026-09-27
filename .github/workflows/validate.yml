@@ -17,6 +17,7 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: python scripts/validate.py
+      - run: python -m pytest tests/ -q
       - run: python scripts/bump_check.py --base "origin/${{ github.base_ref || 'main' }}"
         if: github.event_name == 'pull_request'
       - name: leak check

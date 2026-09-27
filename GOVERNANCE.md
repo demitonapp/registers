@@ -20,6 +20,25 @@ This is a narrower promise than disease-economics' evidence trail: a register's
 *shape* is open to public review and change; what a specific organisation has
 recorded in that shape never is.
 
+**The `obligations/` tree (SM030) is the one exception to "shapes only", and
+its own line, not a widening of the one above:** what it publishes is
+**public instruments, not recorded data** - an Act's clause, a specification's
+requirement, an award's rate, cited to its source. Never a tenant's contract,
+amendment, or which of these a tenant switched on. A `project_obligation` fact
+recording that a specific organisation switched on a specific obligation for a
+specific job never leaves Demiton's own systems, public or private.
+
+## Who reviews an obligation
+
+**Justin reviews every pull request against `obligations/` before merge, with
+no exception for an addition that only adds.** An obligation row is a
+liability surface (a wrong window is wrong for every customer who reads it):
+GOVERNANCE already says Demiton is one person, and this is the pull request
+where that one person's judgment cannot be skipped by CI going green. A
+proposal opened by Demiton's own product on a customer's behalf (an org admin
+proposing a public obligation their job needs) is reviewed the same way as one
+opened by anyone else.
+
 ## How fast
 
 A first response to every dispute issue and pull request within **10 working days**.

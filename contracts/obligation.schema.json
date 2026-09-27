@@ -1,0 +1,105 @@
+{
+  "$id": "demiton:registers/obligation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SM030: one duty an instrument places on the contractor. Lives nested under an instrument.schema.json document's `obligations[]`, never as a standalone file - an obligation with no instrument has no source. Fields mirror `Obligation` in the monorepo's onboarding.ts prototype plus severity/grade/citation, which that UI-only prototype did not need.",
+  "title": "obligation v1",
+  "type": "object",
+  "properties": {
+    "key": {
+      "description": "stable id, `<topic>.<short-name>.<form-or-jurisdiction-suffix>`, e.g. `payment.schedule_due.au-qld`. Stable across re-transcription so a correction supersedes rather than duplicates.",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+(\\.[a-z0-9_-]+)+$"
+    },
+    "duty": {
+      "description": "the duty in one sentence, as a contractor would read it",
+      "type": "string"
+    },
+    "clause": {
+      "description": "the clause, section or paragraph that states it",
+      "type": "string"
+    },
+    "window": {
+      "description": "the time the duty allows, when it has one; absent for a standing duty (e.g. 'hold no more retention than the cap')",
+      "type": "object",
+      "properties": {
+        "value": { "type": "number" },
+        "unit": {
+          "type": "string",
+          "enum": ["hours", "days", "business_days", "working_days", "months"]
+        }
+      },
+      "required": ["value", "unit"]
+    },
+    "consequence": {
+      "description": "what missing the duty costs, as the source states it",
+      "type": "string",
+      "enum": [
+        "barred", "reduced_per_day", "costs_excluded", "liable_full_amount",
+        "damages_only", "offence", "breach", "guidance"
+      ]
+    },
+    "protection_type": {
+      "description": "the engine that runs this obligation once switched on - a member of vocab/protection_types.json",
+      "type": "string",
+      "enum": ["watch", "countdown", "check", "threshold"]
+    },
+    "disease": {
+      "description": "which of the five diseases this obligation guards against - a member of vocab/diseases.json",
+      "type": "string",
+      "enum": ["rework", "overrun", "forfeited_entitlements", "disputes", "non_compliance"]
+    },
+    "severity": {
+      "description": "the contract-risk tier this obligation belongs to (1 = entitlement at risk .. 4 = cash position), set by the library author and reviewed in its pull request (SM030 decision 18)",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "grade": {
+      "description": "how close to the primary source the reading was",
+      "type": "string",
+      "enum": ["primary_read", "primary_via_secondary", "demiton_default"]
+    },
+    "basis": {
+      "description": "for a `demiton_default` grade only: the citation this default stands around (must name a real citation elsewhere in the library). A citation grade (`primary_read`/`primary_via_secondary`) must not carry this.",
+      "type": "string"
+    },
+    "citation": {
+      "description": "the primary source for this exact duty. Required on every obligation: a row with none is refused (SM030 O1 Acceptance) - an instrument's own citation is where the document lives, this is where the clause lives.",
+      "type": "object",
+      "properties": {
+        "url": { "type": "string" },
+        "clause": { "type": "string" },
+        "access_date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      },
+      "required": ["url", "access_date"]
+    },
+    "evidence": {
+      "description": "how this obligation can be evidenced once switched on - drives the ready state a project sees before the register behind it is connected",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["built_in", "record_in_demiton", "register", "not_collected"]
+        },
+        "from": { "type": "string", "description": "for kind=built_in: what already covers it" },
+        "register": { "type": "string", "description": "for kind=record_in_demiton|register|not_collected: the shelf_type" },
+        "system_type": {
+          "type": "string",
+          "enum": ["finance", "site_and_field", "document_store"],
+          "description": "for kind=register only: the system type that would fill it"
+        }
+      },
+      "required": ["kind"]
+    },
+    "research_row": {
+      "description": "the row id in Demiton's own research record this obligation was transcribed from (e.g. `L1`, `N12`) - traceability, not evidence; carries no research text",
+      "type": "string"
+    },
+    "caveat": {
+      "description": "what bounds this obligation: an amendment that may change it, a paywalled text read second-hand, a regional exception folded in rather than invented a field for",
+      "type": "string"
+    }
+  },
+  "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "grade", "citation", "evidence"],
+  "x-demiton-contract-version": "1.0.0"
+}
