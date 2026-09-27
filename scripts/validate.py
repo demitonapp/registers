@@ -173,6 +173,11 @@ def validate_instrument_doc(
             errors.append(f"{label}: {key}: a demiton_default row must name its basis")
         if obligation.get("grade") != "demiton_default" and obligation.get("basis"):
             errors.append(f"{label}: {key}: basis is only for a demiton_default grade")
+        is_threshold = obligation.get("protection_type") == "threshold"
+        if is_threshold and not obligation.get("threshold"):
+            errors.append(f"{label}: {key}: a threshold obligation must say its threshold (direction, set_by)")
+        if not is_threshold and obligation.get("threshold"):
+            errors.append(f"{label}: {key}: threshold is only for a threshold obligation")
 
     return errors
 

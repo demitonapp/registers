@@ -1,0 +1,37 @@
+id: demiton_job_budget_tolerance_nz
+source: own_commitments
+instrument_type: practice_standard
+title: Job budget tolerance (the contractor's own commitment)
+publisher: Demiton
+jurisdictions:
+- NZ
+citation:
+  url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+  access_date: '2026-09-27'
+  version: section 6.1
+obligations:
+- key: overrun.budget_tolerance.nz
+  duty: Keep committed and actual cost on each cost code within its budget plus the tolerance you set
+  consequence: guidance
+  protection_type: threshold
+  disease: overrun
+  severity: 4
+  grade: demiton_default
+  basis: Demiton overrun check rule (cost or committed cost above budget), METHOD.md section 6.1
+  citation:
+    url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+    clause: section 6.1
+    access_date: '2026-09-27'
+  evidence:
+    kind: register
+    register: job_budget
+    system_type: finance
+  threshold:
+    direction: max
+    value: 0
+    unit: percent
+    set_by: org
+  caveat: No public instrument sets a contractor's tolerance on its own budget; the duty is the contractor's
+    own commitment (SM030 decision 23). The 0% default means any cost above a cost code's budget crosses
+    the line. The org sets its own percentage at switch-on and that value is never published. Measured
+    against the job budget, open purchase order lines and posted cost.

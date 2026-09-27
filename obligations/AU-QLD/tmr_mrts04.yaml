@@ -1,0 +1,37 @@
+id: tmr_mrts04
+source: principal
+instrument_type: specification
+title: TMR MRTS04 General Earthworks
+publisher: Queensland Department of Transport and Main Roads
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/3-Roadworks-Drainage-Culverts-and-Geotechnical/MRTS04.pdf
+  access_date: '2026-09-27'
+  version: March 2025
+obligations:
+- key: rework.lot_compaction.tmr_mrts04
+  duty: Compact each earthworks lot so its characteristic compaction is not below the Table 15.3(b) minimum
+    for that material and location
+  consequence: breach
+  protection_type: threshold
+  disease: rework
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/3-Roadworks-Drainage-Culverts-and-Geotechnical/MRTS04.pdf
+    clause: cl 5.5.2, Table 15.3(b)
+    access_date: '2026-09-27'
+  clause: cl 5.5.2, Table 15.3(b)
+  evidence:
+    kind: not_collected
+    register: inspection_test_result
+  threshold:
+    direction: min
+    unit: percent
+    set_by: library
+  caveat: The minimum varies by row of Table 15.3(b), for example 97% for earth fill in the top 300 mm below
+    subgrade level and 95% for Class A1, A2 or B fill deeper than 300 mm, so no single value is stated here.
+    The number compared is the lot's characteristic value under TMR Test Method Q020, not one test result.
+    A lot that fails is subject to rework (MRTS50 cl 10.1.2). Recorded as not_collected because Demiton
+    holds the test results but does not yet measure a lot against this minimum.
