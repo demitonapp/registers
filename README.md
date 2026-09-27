@@ -18,6 +18,11 @@ built from this repository. The [research registers](research/) also power
   [disease-economics](https://github.com/demitonapp/disease-economics): what a
   published figure, its source and its publisher look like as data.
 - **[`vocab/`](vocab)** - shared vocabularies more than one register's fields draw on.
+- **`obligations/`** - the public obligation library (SM030): one file per instrument - an Act, a
+  principal's specification, an award, a licence - carrying every duty it imposes, cited to its clause.
+  What a civil job in Demiton is protected against comes from here, not the other way round. Shape:
+  [`contracts/instrument.schema.json`](contracts/instrument.schema.json) and
+  [`contracts/obligation.schema.json`](contracts/obligation.schema.json). Populated by SM030 O2.
 
 ## What is deliberately not here
 

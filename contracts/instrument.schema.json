@@ -1,0 +1,59 @@
+{
+  "$id": "demiton:registers/instrument/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SM030: one published document inside a source - an Act, a principal's specification, an approval type, an award, a licence. One file per instrument under obligations/<jurisdiction>/, holding the instrument itself plus every obligation it imposes. Fields mirror `Instrument` in the monorepo's onboarding.ts prototype; `obligations` is new - the prototype's sample data keeps instrument and obligation in two separate arrays joined by id, this repository nests them so one pull request is reviewable as one instrument.",
+  "title": "instrument v1",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "stable slug, e.g. `bif_act`. Referenced by a project's `project_obligation` fact once switched on.",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "source": {
+      "description": "which of the seven sources this instrument belongs to - a member of vocab/sources.json",
+      "type": "string",
+      "enum": ["contract", "law", "principal", "approvals", "counterparties", "workforce", "own_commitments"]
+    },
+    "instrument_type": {
+      "description": "the kind of document within its source - a member of vocab/instrument_types.json[source]",
+      "type": "string"
+    },
+    "title": {
+      "description": "the instrument's full title",
+      "type": "string"
+    },
+    "publisher": {
+      "description": "who publishes it",
+      "type": "string"
+    },
+    "jurisdictions": {
+      "description": "where it applies - members of vocab/jurisdictions.json. A country code applies to every one of its states/regions too.",
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "form": {
+      "description": "for a `contract` source instrument: the conditions-of-contract id it belongs to (e.g. `AS4000_1997`), matching `contract_terms.contract_form`",
+      "type": "string"
+    },
+    "citation": {
+      "description": "where the instrument itself lives",
+      "type": "object",
+      "properties": {
+        "url": { "type": "string" },
+        "version": { "type": "string", "description": "the edition or legislation version date read" },
+        "access_date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      },
+      "required": ["url", "access_date"]
+    },
+    "obligations": {
+      "description": "every duty this instrument imposes - each conforms to obligation.schema.json",
+      "type": "array",
+      "items": { "$ref": "demiton:registers/obligation/1" },
+      "minItems": 1
+    }
+  },
+  "required": ["id", "source", "instrument_type", "title", "publisher", "jurisdictions", "citation", "obligations"],
+  "x-demiton-contract-version": "1.0.0"
+}

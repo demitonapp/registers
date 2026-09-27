@@ -1,0 +1,1099 @@
+{
+  "$comment": "Every ISO 3166-1 alpha-2 country (249), each with `supported` (true only for AU and NZ, SM030 decision 15) and `level` (`commonwealth` for a country). Plus the ISO 3166-2 subdivisions of the two supported countries: AU's 8 states/territories and NZ's 17 regions, `level: state` and `level: regional` respectively. A code absent from this file is not a jurisdiction an instrument or obligation may cite; `supported: false` still lets an org record that it operates there (SM030 O4), it just gets no protection yet.",
+  "AD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AQ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AU": {
+    "level": "commonwealth",
+    "supported": true
+  },
+  "AW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AX": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BB": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BJ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BQ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "BZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CX": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "CZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DJ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "DZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "EC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "EE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "EG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "EH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ER": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ES": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ET": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FJ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "FR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GB": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GP": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GQ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "GY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "HU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ID": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IQ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "IT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "JE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "JM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "JO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "JP": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KP": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "KZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LB": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "LY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ME": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ML": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MP": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MQ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MX": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "MZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NP": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "NZ": {
+    "level": "commonwealth",
+    "supported": true
+  },
+  "OM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "PY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "QA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "RE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "RO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "RS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "RU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "RW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SB": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SJ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ST": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SX": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "SZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TD": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TH": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TJ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TK": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TL": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TO": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TR": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TV": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "TZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "UA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "UG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "UM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "US": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "UY": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "UZ": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VC": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VG": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VI": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VN": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "VU": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "WF": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "WS": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "YE": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "YT": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ZA": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ZM": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "ZW": {
+    "level": "commonwealth",
+    "supported": false
+  },
+  "AU-ACT": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-NSW": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-NT": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-QLD": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-SA": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-TAS": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-VIC": {
+    "level": "state",
+    "supported": true
+  },
+  "AU-WA": {
+    "level": "state",
+    "supported": true
+  },
+  "NZ-AUK": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-BOP": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-CAN": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-CIT": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-GIS": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-HKB": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-MBH": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-MWT": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-NSN": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-NTL": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-OTA": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-STL": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-TAS": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-TKI": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-WGN": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-WKO": {
+    "level": "regional",
+    "supported": true
+  },
+  "NZ-WTC": {
+    "level": "regional",
+    "supported": true
+  }
+}

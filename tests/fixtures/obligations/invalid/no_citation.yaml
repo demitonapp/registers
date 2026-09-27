@@ -1,0 +1,21 @@
+# Invalid: the obligation carries no `citation` at all. O1 Acceptance: refused.
+id: fixture_act
+source: law
+instrument_type: act
+title: Fixture Act 2026 (test data only)
+publisher: Fixture Parliament
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/fixture-act-2026
+  access_date: "2026-09-27"
+obligations:
+  - key: fixture.notice.au-qld
+    duty: Notify the fixture event within 5 business days
+    consequence: offence
+    protection_type: watch
+    disease: non_compliance
+    severity: 2
+    grade: primary_read
+    evidence:
+      kind: not_collected
+      register: fixture_register

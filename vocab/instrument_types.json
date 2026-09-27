@@ -1,0 +1,10 @@
+{
+  "$comment": "Per source, the kinds of document an instrument may be. Closed per source: an instrument's `instrument_type` must be a member of its own source's list.",
+  "contract": ["conditions_of_contract", "contract_terms"],
+  "law": ["act", "regulation"],
+  "principal": ["specification", "special_conditions", "policy"],
+  "approvals": ["permit", "consent", "licence_condition"],
+  "counterparties": ["insurance_policy", "funding_agreement"],
+  "workforce": ["award", "enterprise_agreement"],
+  "own_commitments": ["licence", "certification", "competency", "practice_standard"]
+}

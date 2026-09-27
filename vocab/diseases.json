@@ -1,0 +1,8 @@
+{
+  "$comment": "The five diseases (SD027 §4.6), set independently of protection type. Keys match Demiton's own product vocabulary, not its internal verdict-shelf names (`claim_window`, `evidence_gap`, `compliance_gate`, `rework_signal`, `overrun_signal`) - those are an implementation detail on the other side of this repository's boundary.",
+  "rework": "Rework",
+  "overrun": "Baseline overrun",
+  "forfeited_entitlements": "Forfeited entitlements",
+  "disputes": "Disputes",
+  "non_compliance": "Non-compliance"
+}

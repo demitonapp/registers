@@ -60,3 +60,28 @@ never changes; a correction is a new version with its own entry in
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the shape of a pull request, and
 [GOVERNANCE.md](GOVERNANCE.md) for who decides and how fast.
+
+## 6. The obligation library (SM030)
+
+A third shape lives here besides `research/` and `contracts/`/`history/`:
+`obligations/<jurisdiction>/*.yaml`, one YAML file per **instrument** - an Act,
+a principal's specification, an award, a licence - carrying every
+**obligation** it imposes nested under it. Checked strictly, with the real
+`Draft202012Validator`, against [`contracts/instrument.schema.json`](contracts/instrument.schema.json)
+and [`contracts/obligation.schema.json`](contracts/obligation.schema.json):
+unlike the shelf-derived contracts, these describe data this repository is
+itself the source of record for, so there is no reason to relax the check to
+the closed field-type vocabulary those came with.
+
+Two checks a JSON Schema `enum` cannot express, because the valid set lives in
+a sibling file, run alongside it: an instrument's `instrument_type` must be a
+member of `vocab/instrument_types.json` keyed by its own `source`, and every
+jurisdiction code (an instrument's `jurisdictions`, an obligation's own, if it
+narrows further) must be a member of `vocab/jurisdictions.json`. `scripts/validate.py`
+runs both.
+
+Every obligation carries its own `citation` (URL, clause, access date) -
+required by the schema, so a row transcribed with no primary source is refused
+before a person looks at it, not caught in review. [GOVERNANCE.md](GOVERNANCE.md)
+"Who reviews an obligation" is the human control for everything a schema
+cannot check (whether the citation actually says what the row claims).
