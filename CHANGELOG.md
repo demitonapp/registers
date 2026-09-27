@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- SM030 O3: `contracts/platform_obligation.schema.json` (the flat shelf-fact
+  shape a project's protection reads from, one row per obligation), added
+  beside `platform_evidence_standard`, which is now marked
+  `x-demiton-deprecated` (superseded, no new rows, history kept per
+  METHOD.md rule 4) rather than removed.
+- SM030 O2: `obligations/<jurisdiction>/*.yaml`, 131 obligations across 30
+  instruments, transcribed from the evidence-standard register the Demiton
+  product's Disputes check reads today. Row-by-row record, including every
+  correction and addition, in the Demiton monorepo at
+  `docs/instructions/roadmap/work/specs/moat/ux/obligations/library-transcription.md`.
 - SM030 O1: `contracts/obligation.schema.json` and `contracts/instrument.schema.json`,
   the `vocab/` directory (sources, instrument types, protection types, diseases,
   jurisdictions, industries), and `scripts/validate.py` extended to check every
