@@ -1,0 +1,113 @@
+id: cc_sop_act_2004_nt
+source: law
+instrument_type: act
+title: Construction Contracts (Security of Payments) Act 2004 (NT)
+publisher: Northern Territory Legislative Assembly
+jurisdictions:
+- AU-NT
+citation:
+  url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+  access_date: '2026-09-28'
+  version: Reprint REPC091, as in force at 25 May 2024
+obligations:
+- key: payment.claim_content.au-nt
+  duty: Make every claim in writing, dated, stating the amount and itemising the work performed
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+    clause: s 19, Sch 1 cl 5
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 19, Sch 1 cl 5
+  caveat: 'An implied term - applies only where the contract has no written provision on it. A claim not
+    made as the contract requires may be rejected by notice of dispute (Sch 1 cl 6(1)(b)(i)). The NT Act
+    has no reference-date cadence: a claim may be made at any time after work is performed (Sch 1 cl 4).'
+- key: payment.dispute_notice.au-nt
+  duty: Receive a notice of dispute, and payment of the undisputed part, within 10 working days of each
+    claim
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+    clause: s 20, Sch 1 cl 6(2)(a)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: s 20, Sch 1 cl 6(2)(a)
+  window:
+    value: 10
+    unit: working_days
+  caveat: An implied term, applying only where the contract is silent. The NT Act has no 'liable for the
+    full amount' consequence - an unanswered claim becomes a payment dispute (s 8), which opens adjudication.
+- key: payment.due_date.au-nt
+  duty: Be paid within 30 working days of the claim at the latest
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+    clause: s 13, Sch 1 cl 6(2)(b)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 13, Sch 1 cl 6(2)(b)
+  window:
+    value: 30
+    unit: working_days
+  caveat: A contract term requiring payment later than 30 working days is read down to 30 (s 13). Where
+    the contract is silent the implied term is 20 working days (Sch 1 cl 6(2)(b)).
+- key: payment.adjudication_application.au-nt
+  duty: Apply for adjudication within 65 working days of a payment dispute arising
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+    clause: s 8, 28(1), (3)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 8, 28(1), (3)
+  window:
+    value: 65
+    unit: working_days
+  caveat: A dispute arises on rejection, non-payment when due, unpaid retention or unreturned security
+    (s 8). 65 working days since the 2019 amending Act (commenced 3 February 2020). Mapped to guidance
+    like every other SOP Act's adjudication window in this library; an application out of time is not
+    a valid application.
+- key: payment.adjudication_response.au-nt
+  duty: Respond to an adjudication application within 15 working days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=11703
+    clause: s 29(1)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 29(1)
+  window:
+    value: 15
+    unit: working_days

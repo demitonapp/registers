@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
+  current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,
+  `AU-TAS/sop_act_2009_tas.yaml`, `AU-ACT/sop_act_2009_act.yaml`,
+  `AU-NT/cc_sop_act_2004_nt.yaml`). SA's 2021 amendments never passed; NT's
+  West Coast Act has a notice of dispute in place of a payment schedule, and
+  a 65 working day adjudication window.
+- Notifiable incidents under all eight WHS/OHS Acts (NSW, QLD, SA, TAS, ACT,
+  NT, WA and Victoria's OHS Act): notify immediately, written notice within
+  48 hours, keep the record 5 years. 24 rows. The Commonwealth Act is left
+  out - it binds Commonwealth workplaces, not a state job.
+
 - AS 4902-2000 (design and construct): `obligations/AU/as4902_2000.yaml`, four
   rows read in the full text - EOT claim (cl 34.3), latent conditions notice
   (cl 25.2), claim notice and particulars (cl 41.1-41.3) and the Final Payment

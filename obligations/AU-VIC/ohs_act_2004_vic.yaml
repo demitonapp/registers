@@ -1,0 +1,75 @@
+id: ohs_act_2004_vic
+source: law
+instrument_type: act
+title: Occupational Health and Safety Act 2004 (Vic)
+publisher: Victorian Parliament
+jurisdictions:
+- AU-VIC
+citation:
+  url: https://content.legislation.vic.gov.au/sites/default/files/2025-08/04-107aa045-authorised.PDF
+  access_date: '2026-09-28'
+  version: Authorised Version No. 045, as at 6 August 2025
+obligations:
+- key: whs.incident_notice.au-vic
+  duty: Notify WorkSafe immediately after becoming aware of a notifiable incident
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2025-08/04-107aa045-authorised.PDF
+    clause: s 38(1), (2)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 38(1), (2)
+  caveat: '''Immediately'', by the fastest possible means - no number, so no window is recorded. Maximum
+    penalty 1200 penalty units (body corporate, indictable). The incident site must also be left undisturbed
+    until an inspector arrives or directs otherwise (s 39), not recorded as its own row. The safety_incident
+    register holds each incident and its worst outcome, but not whether or when the regulator was told,
+    so this is recorded not_collected. Victoria is not harmonised: no notice is needed where the notifier
+    is the only person harmed (s 38(2)), and the 48-hour written record is required every time, not only
+    on request.'
+- key: whs.incident_written_notice.au-vic
+  duty: Give WorkSafe a written record of a notifiable incident within 48 hours
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2025-08/04-107aa045-authorised.PDF
+    clause: s 38(3)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 38(3)
+  window:
+    value: 48
+    unit: hours
+  caveat: Runs from when the duty to notify arose, whether or not WorkSafe asks. The safety_incident register
+    holds each incident and its worst outcome, but not whether or when the regulator was told, so this
+    is recorded not_collected.
+- key: whs.incident_record.au-vic
+  duty: Keep a copy of each notifiable incident record for at least 5 years
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2025-08/04-107aa045-authorised.PDF
+    clause: s 38(4)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 38(4)
+  window:
+    value: 60
+    unit: months
+  caveat: 5 years converted to 60 months. The safety_incident register holds each incident and its worst
+    outcome, but not whether or when the regulator was told, so this is recorded not_collected.
