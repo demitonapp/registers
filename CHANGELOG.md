@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- New Zealand's Health and Safety at Work Act 2015: `obligations/NZ/hswa_2015.yaml`,
+  read in the current version (as at 5 April 2025). Notify WorkSafe NZ as soon
+  as possible after a notifiable event (s 56(1)), written notice within 48
+  hours when required (s 56(3)(b)), keep the record 5 years (s 57(1)); plus a
+  genuinely NZ-specific duty with no AU equivalent - 24 hours' written notice
+  before starting defined "notifiable work" (falls, scaffolding, lifts, deep
+  narrow excavations), under the still-current Health and Safety in
+  Employment Regulations 1995 reg 26.
+
 - Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
   current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,
   `AU-TAS/sop_act_2009_tas.yaml`, `AU-ACT/sop_act_2009_act.yaml`,
