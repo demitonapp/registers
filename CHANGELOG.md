@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- SM030 O23: the first `threshold` obligations. `contracts/obligation.schema.json`
+  gains `threshold` (`direction` max or min, `value`, `unit`, `set_by` library
+  or org), required on a `threshold` row and refused elsewhere by
+  `scripts/validate.py`; `contracts/platform_obligation.schema.json` gains the
+  flat `threshold_direction`, `threshold_value`, `threshold_unit`,
+  `threshold_set_by`. Three rows: `overrun.budget_tolerance.au` and `.nz` (the
+  contractor's own budget tolerance, a labelled 0% default, METHOD.md section
+  6.1), and `rework.lot_compaction.tmr_mrts04` and `.tfnsw_r44` (principal
+  compaction minimums, recorded `not_collected` until a lot is measured
+  against them).
 - SM030 O3: `contracts/platform_obligation.schema.json` (the flat shelf-fact
   shape a project's protection reads from, one row per obligation), added
   beside `platform_evidence_standard`, which is now marked

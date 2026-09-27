@@ -85,3 +85,24 @@ required by the schema, so a row transcribed with no primary source is refused
 before a person looks at it, not caught in review. [GOVERNANCE.md](GOVERNANCE.md)
 "Who reviews an obligation" is the human control for everything a schema
 cannot check (whether the citation actually says what the row claims).
+
+### 6.1 Thresholds, and the defaults Demiton labels
+
+A `threshold` obligation compares a measured quantity against a line, and must
+say which side of the line is strict: `threshold.direction` is `max` for a
+ceiling (cost within budget) and `min` for a floor (compaction at or above a
+minimum). Where two sources set the same line, the strictest wins: the lowest
+ceiling, the highest floor.
+
+`threshold.set_by: org` marks a line the contractor sets for itself, such as
+its own tolerance on a job budget. The library publishes the duty and a
+labelled Demiton default (`grade: demiton_default`, with a `basis`); the value
+an org chooses at switch-on stays in that org's own records and is never
+published here.
+
+**Budget tolerance default: 0%.** No public instrument sets a contractor's
+tolerance on its own budget. The default is 0%, meaning any committed or
+actual cost above a cost code's budget crosses the line. That is the rule
+Demiton's overrun check applied before protections existed, so an org that
+switches the obligation on without choosing a value sees the same results it
+saw before.

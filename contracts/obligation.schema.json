@@ -34,6 +34,17 @@
       "description": "the `contract_terms` field whose value overrides `window.value` when the contract states its own window (SM030 decision 5: contract, an amendment and the law disagree - the strictest wins). Unset means the library's own window is the only value there is to compare.",
       "type": "string"
     },
+    "threshold": {
+      "description": "for a `threshold` obligation only, and required there: the line the measure must not cross. `direction` says which side is strict: `max` for a ceiling (cost within budget), `min` for a floor (compaction at or above a minimum), so 'strictest wins' (SM030 decision 5) picks the lowest ceiling or the highest floor. `set_by: org` means the contractor sets its own value at switch-on and `value` is only the labelled default; an org's own value is never published (SM030 decision 14).",
+      "type": "object",
+      "properties": {
+        "direction": { "type": "string", "enum": ["max", "min"] },
+        "value": { "type": "number", "description": "the limit, or the labelled default when set_by is org; absent when the limit varies by row of a table the clause names" },
+        "unit": { "type": "string", "description": "unit of `value`, e.g. `percent`" },
+        "set_by": { "type": "string", "enum": ["library", "org"] }
+      },
+      "required": ["direction", "set_by"]
+    },
     "consequence": {
       "description": "what missing the duty costs, as the source states it",
       "type": "string",

@@ -46,3 +46,16 @@ def test_protection_type_outside_the_four_is_refused() -> None:
     errors = validate_instrument_doc(doc, "invalid/bad_protection_type.yaml")
     assert errors, "a protection_type outside the four must be refused"
     assert any("protection_type" in e for e in errors)
+
+
+def test_threshold_obligation_without_its_threshold_is_refused() -> None:
+    doc = _load(FIXTURES / "invalid" / "threshold_without_direction.yaml")
+    errors = validate_instrument_doc(doc, "invalid/threshold_without_direction.yaml")
+    assert any("must say its threshold" in e for e in errors)
+
+
+def test_threshold_direction_outside_max_and_min_is_refused() -> None:
+    doc = _load(FIXTURES / "invalid" / "threshold_without_direction.yaml")
+    doc["obligations"][0]["threshold"] = {"direction": "lowest", "set_by": "library"}
+    errors = validate_instrument_doc(doc, "fixture")
+    assert any("direction" in e or "lowest" in e for e in errors)

@@ -137,6 +137,28 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "threshold_direction": {
+      "description": "for a `threshold` obligation: `max` (a ceiling) or `min` (a floor), the side of the line that is strict",
+      "enum": ["max", "min"],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "threshold_value": {
+      "description": "for a `threshold` obligation: the limit, or the labelled default when `threshold_set_by` is `org`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "threshold_unit": {
+      "description": "unit of `threshold_value`, e.g. `percent`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "threshold_set_by": {
+      "description": "`library` (the limit is the instrument's) or `org` (the contractor sets its own at switch-on, and it is never published)",
+      "enum": ["library", "org"],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "research_row": {
       "description": "the row id in Demiton's own research record this obligation was transcribed from",
       "type": "string",

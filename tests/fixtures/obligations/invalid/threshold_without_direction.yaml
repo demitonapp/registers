@@ -1,0 +1,25 @@
+# Invalid: a threshold obligation that does not say which side of its line is strict. SM030 O23: refused.
+id: fixture_spec
+source: principal
+instrument_type: specification
+title: Fixture Specification (test data only)
+publisher: Fixture Road Authority
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/fixture-spec
+  access_date: "2026-09-27"
+obligations:
+  - key: fixture.compaction.au-qld
+    duty: Compact each lot to at least the fixture minimum
+    consequence: breach
+    protection_type: threshold
+    disease: rework
+    severity: 3
+    grade: primary_read
+    citation:
+      url: https://example.invalid/fixture-spec
+      clause: cl 1
+      access_date: "2026-09-27"
+    evidence:
+      kind: not_collected
+      register: inspection_test_result

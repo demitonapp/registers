@@ -1,0 +1,36 @@
+id: tfnsw_r44
+source: principal
+instrument_type: specification
+title: Transport for NSW QA Specification R44 Earthworks
+publisher: Transport for NSW
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://standards.transport.nsw.gov.au/_entity/annotation/bf827ada-5615-ee11-9cbd-002248e414c7
+  access_date: '2026-09-27'
+  version: Edition 6 / Revision 0, June 2023
+obligations:
+- key: rework.lot_compaction.tfnsw_r44
+  duty: Compact each earthworks lot so its characteristic relative compaction is not below Table R44.7
+  consequence: breach
+  protection_type: threshold
+  disease: rework
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/bf827ada-5615-ee11-9cbd-002248e414c7
+    clause: cl 7.2.3, 7.2.4, Table R44.7
+    access_date: '2026-09-27'
+  clause: cl 7.2.3, 7.2.4, Table R44.7
+  evidence:
+    kind: not_collected
+    register: inspection_test_result
+  threshold:
+    direction: min
+    unit: percent
+    set_by: library
+  caveat: The minimum varies by row of Table R44.7, from 90.0% for earth mounds to 102.0% in the Selected
+    Material Zone, so no single value is stated here. The characteristic value is computed per TfNSW
+    Specification Q. Where conformity is not achieved the lot is reworked or re-checked (cl 7.2.4). Recorded
+    as not_collected because Demiton holds the test results but does not yet measure a lot against this
+    minimum.
