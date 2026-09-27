@@ -7,10 +7,11 @@ jurisdictions:
 - AU-QLD
 citation:
   url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
-  access_date: '2026-09-16'
+  access_date: '2026-09-28'
+  version: March 2025
 obligations:
 - key: closeout.as_constructed_records.tmr_mrts50
-  duty: Hand over as-constructed records within 12 months of practical completion
+  duty: Hand over the As Constructed drawings before the Certificate of Practical Completion can issue
   consequence: barred
   protection_type: check
   disease: rework
@@ -18,20 +19,41 @@ obligations:
   grade: primary_read
   citation:
     url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
-    clause: cll 11.2, 12.1
-    access_date: '2026-09-16'
+    clause: cl 12.1
+    access_date: '2026-09-28'
   evidence:
     kind: not_collected
     register: drawing_register
   research_row: C15
-  clause: cll 11.2, 12.1
+  clause: cl 12.1
+  caveat: A condition precedent to the Certificate of Practical Completion ('PC withheld' mapped to barred).
+    No window of its own - the deadline is practical completion. Corrected 2026-09-28 - this row previously
+    stated 12 months after practical completion, which merged this clause with cl 11.2's record retention
+    (now its own row). Documents for structures other than the drawings are due no later than four weeks
+    after Practical Completion (cl 12.4.2), not recorded as a row here.
+- key: closeout.records_retention.tmr_mrts50
+  duty: Keep the contract's records for at least 12 months after the Final Certificate
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 11.2
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: drawing_register
+  clause: cl 11.2
   window:
     value: 12
     unit: months
-  caveat: A condition precedent to the practical completion certificate ('PC withheld' mapped to barred);
-    records then kept 1 year after final certificate, converted to 12 months.
+  caveat: '''At least one year after the date of the Final Certificate'', converted to 12 months, and only
+    ''if not otherwise required'' - a longer statutory or company retention period governs where one applies.
+    Split out 2026-09-28 from closeout.as_constructed_records.tmr_mrts50, which had merged it in.'
 - key: closeout.nonconformance_notice.tmr_mrts50
-  duty: Notify a nonconformance within 1 working days
+  duty: Notify a nonconformance within 1 working day of detecting it, where it meets a notifiable trigger
   consequence: breach
   protection_type: watch
   disease: rework
@@ -39,17 +61,19 @@ obligations:
   grade: primary_read
   citation:
     url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
-    clause: cl 10.1.1
-    access_date: '2026-09-16'
+    clause: cl 10.2
+    access_date: '2026-09-28'
   evidence:
     kind: not_collected
     register: safety_ncr
   research_row: C12
-  clause: cl 10.1.1
+  clause: cl 10.2
   window:
     value: 1
     unit: working_days
-  caveat: Spot-checked. Source is the MRTS50 specification referenced by the TMR TIC contract, not the
-    base contract text - applies_to_form recorded as TMR_TIC (judgment call). Covers quality NCRs; safety_ncr
-    is the closest existing register - SM026's own register audit notes quality NCRs have no dedicated
-    register today.
+  caveat: Applies only where one of cl 10.2's triggers (a) to (j) holds - among them progress seriously
+    affected, a health and safety hazard, serious environmental harm, a cultural heritage find or contaminated
+    material. Clause corrected 2026-09-28 from cl 10.1.1 (conformance reports). Source is the MRTS50 specification
+    referenced by the TMR TIC contract, not the base contract text - applies_to_form recorded as TMR_TIC
+    (judgment call). Covers quality NCRs; safety_ncr is the closest existing register - SM026's own register
+    audit notes quality NCRs have no dedicated register today.

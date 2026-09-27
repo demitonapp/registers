@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- AS 4902-2000 (design and construct): `obligations/AU/as4902_2000.yaml`, four
+  rows read in the full text - EOT claim (cl 34.3), latent conditions notice
+  (cl 25.2), claim notice and particulars (cl 41.1-41.3) and the Final Payment
+  Claim (cl 37.4).
+- Correction, `obligations/AU-QLD/tmr_mrts50.yaml` (March 2025): MRTS50 states
+  no 12-month as-constructed deadline. `closeout.as_constructed_records.tmr_mrts50`
+  now carries cl 12.1 only (As Constructed drawings before the Certificate of
+  Practical Completion, no window); cl 11.2's record retention is its own row,
+  `closeout.records_retention.tmr_mrts50`; the nonconformance notice cites
+  cl 10.2, not 10.1.1.
+
 - SM030 O23: the first `threshold` obligations. `contracts/obligation.schema.json`
   gains `threshold` (`direction` max or min, `value`, `unit`, `set_by` library
   or org), required on a `threshold` row and refused elsewhere by
