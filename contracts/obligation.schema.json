@@ -30,6 +30,10 @@
       },
       "required": ["value", "unit"]
     },
+    "window_source_field": {
+      "description": "the `contract_terms` field whose value overrides `window.value` when the contract states its own window (SM030 decision 5: contract, an amendment and the law disagree - the strictest wins). Unset means the library's own window is the only value there is to compare.",
+      "type": "string"
+    },
     "consequence": {
       "description": "what missing the duty costs, as the source states it",
       "type": "string",
