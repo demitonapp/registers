@@ -1,0 +1,97 @@
+id: as4902_2000
+source: contract
+instrument_type: conditions_of_contract
+title: AS 4902-2000 General Conditions of Contract for Design and Construct
+publisher: Standards Australia
+jurisdictions:
+- AU
+citation:
+  url: https://static1.squarespace.com/static/56cf97b2b09f95dc99773944/t/597ad5a029687f566e5b5e13/1501222312925/170728_AS+4902-2000_Design+and+Construct+Contract.pdf
+  access_date: '2026-09-28'
+  version: 2000, incorporating Amendment No. 1 (reissued March 2005)
+obligations:
+- key: delay_eot.eot_claim.as4902
+  duty: Claim an extension of time within 28 days of when the delay's cause should reasonably have been known
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://static1.squarespace.com/static/56cf97b2b09f95dc99773944/t/597ad5a029687f566e5b5e13/1501222312925/170728_AS+4902-2000_Design+and+Construct+Contract.pdf
+    clause: cl 34.2, 34.3, 34.5
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 34.2, 34.3, 34.5
+  window:
+    value: 28
+    unit: days
+  caveat: Cl 34.3 makes the 28-day written claim a condition of the entitlement ('entitled to ... if'),
+    mapped to barred. Contested - cl 41.2 says a missed notice neither bars nor invalidates a claim, and
+    cl 34.5 lets the Superintendent grant an EOT at any time before the final certificate; case law not
+    researched. Notice of the delay itself is due 'promptly' (cl 34.2), no number. Days are calendar
+    days (cl 1).
+- key: latent_conditions.notice.as4902
+  duty: Notify a latent condition promptly, and before disturbing it where possible
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://static1.squarespace.com/static/56cf97b2b09f95dc99773944/t/597ad5a029687f566e5b5e13/1501222312925/170728_AS+4902-2000_Design+and+Construct+Contract.pdf
+    clause: cl 25.2, 25.3
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 25.2, 25.3
+  caveat: Notice window is 'promptly', no number stated. Cl 25.3 excludes cost incurred more than 28 days
+    before the notice, so 28 days is the cost cut-off, not the notice window.
+- key: variations.claim.as4902
+  duty: Notify a claim as soon as practicable and give its particulars within 28 days of the notice
+  consequence: damages_only
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://static1.squarespace.com/static/56cf97b2b09f95dc99773944/t/597ad5a029687f566e5b5e13/1501222312925/170728_AS+4902-2000_Design+and+Construct+Contract.pdf
+    clause: cl 41.1-41.3
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 41.1-41.3
+  window:
+    value: 28
+    unit: days
+  caveat: Cl 41.2 - a missed notice 'shall neither bar nor invalidate the claim', so damages only. If
+    particulars are not given within 28 days the notice itself is deemed to be the claim (cl 41.3). Cl
+    36.1 has no separate notice for a direction the contractor believes is a variation; cl 41 carries
+    it.
+- key: closeout.final_claim.as4902
+  duty: Give the Final Payment Claim within 28 days after the last defects liability period expires
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://static1.squarespace.com/static/56cf97b2b09f95dc99773944/t/597ad5a029687f566e5b5e13/1501222312925/170728_AS+4902-2000_Design+and+Construct+Contract.pdf
+    clause: cl 37.4
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 37.4
+  window:
+    value: 28
+    unit: days
+  caveat: The clause does not say a late claim is barred; the bar comes from the final certificate (due
+    within 42 days of the same expiry), which is conclusive evidence of accord and satisfaction except
+    for fraud, latent defects, arithmetic errors and disputes notified before its 7th day. Mapped to
+    barred on that basis.
+form: AS4902
