@@ -6,7 +6,13 @@
   shape a project's protection reads from, one row per obligation), added
   beside `platform_evidence_standard`, which is now marked
   `x-demiton-deprecated` (superseded, no new rows, history kept per
-  METHOD.md rule 4) rather than removed.
+  METHOD.md rule 4) rather than removed. Same change also finally widens
+  `platform_evidence_standard.grade`'s enum to include `demiton_default`
+  (MINOR, 1.1.0): the Demiton monorepo's own vendored copy carried this
+  member since 2026-09-26 as a stopgap because it "could not go into
+  registers_private.json" (that overlay holds private data only) - this
+  release is what the seed's own comment called "the next
+  scripts/vendor_registers.sh bump" that would bring the two back in sync.
 - SM030 O2: `obligations/<jurisdiction>/*.yaml`, 131 obligations across 30
   instruments, transcribed from the evidence-standard register the Demiton
   product's Disputes check reads today. Row-by-row record, including every

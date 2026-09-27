@@ -1,9 +1,9 @@
 {
   "$id": "demiton:shelf/platform_obligation/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`kind`, `register`, `register_match`) a verdict recompute needs to evaluate it against a project's own registers. Those three are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line).",
+  "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`dispute_type`, `kind`, `register`, `register_match`) a verdict recompute needs to evaluate it against a project's own registers. Those four are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line). Field names below deliberately match the retiring platform_evidence_standard contract where the concept is the same (`standard_key`, `source_title`, `source_clause`, `source_url`, `dispute_type`) so the verdict engine that reads this shelf changes its data source, not its field access.",
   "properties": {
-    "key": {
+    "standard_key": {
       "description": "the obligation's stable key, e.g. `payment.schedule_due.au-qld`",
       "type": "string",
       "x-demiton-requiredness": "required"
@@ -13,8 +13,8 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
-    "instrument_title": {
-      "description": "the instrument's title, for display without a second lookup",
+    "source_title": {
+      "description": "the instrument's title",
       "type": "string",
       "x-demiton-requiredness": "required"
     },
@@ -29,7 +29,7 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
-    "clause": {
+    "source_clause": {
       "description": "the clause, section or paragraph",
       "type": "string",
       "x-demiton-requiredness": "optional"
@@ -63,15 +63,10 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
-    "citation_url": {
+    "source_url": {
       "description": "the primary source for this exact duty",
       "type": "string",
       "x-demiton-requiredness": "required"
-    },
-    "citation_clause": {
-      "description": "the citation's own clause reference, when it differs from `clause`",
-      "type": "string",
-      "x-demiton-requiredness": "optional"
     },
     "citation_access_date": {
       "description": "when the primary source was read",
@@ -102,6 +97,11 @@
     },
     "applies_to_form": {
       "description": "the contract form this obligation is written for; `statute` for a legislative rule, `any` when form-independent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "dispute_type": {
+      "description": "ENGINE ROUTING, not published: which of the five SM026 dispute-type buckets this obligation was transcribed from - a narrower, internal taxonomy the anchor map is keyed on, distinct from `disease`",
       "type": "string",
       "x-demiton-requiredness": "required"
     },
@@ -144,10 +144,10 @@
     }
   },
   "required": [
-    "key", "instrument_id", "instrument_title", "source", "duty", "consequence",
-    "protection_type", "disease", "severity", "grade", "citation_url",
+    "standard_key", "instrument_id", "source_title", "source", "duty", "consequence",
+    "protection_type", "disease", "severity", "grade", "source_url",
     "citation_access_date", "evidence_kind", "jurisdiction", "applies_to_form",
-    "kind", "register"
+    "dispute_type", "kind", "register"
   ],
   "title": "platform_obligation contract v1",
   "type": "object",
