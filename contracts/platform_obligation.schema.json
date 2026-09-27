@@ -132,6 +132,11 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "window_source_field": {
+      "description": "the `contract_terms` field whose value overrides `window_value` when the contract states its own window (SM030 decision 5: strictest wins)",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "research_row": {
       "description": "the row id in Demiton's own research record this obligation was transcribed from",
       "type": "string",
