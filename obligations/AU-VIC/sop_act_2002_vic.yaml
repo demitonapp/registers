@@ -7,11 +7,53 @@ jurisdictions:
 - AU-VIC
 citation:
   url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
-  access_date: '2026-09-16'
+  access_date: '2026-09-28'
   version: Authorised Version 015 as at 24 Jun 2026
 obligations:
+- key: closeout.security_recourse_notice.au-vic
+  duty: Have no recourse to a performance security until 5 business days after written notice of intention
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 17H
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 17H
+  window:
+    value: 5
+    unit: business_days
+  caveat: Inserted by No. 43/2025. Binds the party calling on the security - usually the principal against
+    the contractor - so this watches the notice the contractor receives. A longer contract period governs.
+    'Not entitled to have recourse' mapped to barred, as for WA s 57.
+- key: closeout.security_release_claim.au-vic
+  duty: Claim release of a performance security by the last day of the month after the defects liability
+    period ends
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
+    clause: s 17A-17C
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 17A-17C
+  caveat: Inserted by No. 43/2025. The earliest a claim may be served is 20 business days after the defects
+    liability period ends, or a day the contract sets (s 17B); the latest is the later of the contract's
+    day or the last day of the month after the one in which the last defects liability period ends (s
+    17C). No fixed count of days, so no window is recorded. A claim served late loses the Act's release
+    route; mapped to barred.
 - key: payment.adjudication_application.au-vic
-  duty: Apply for adjudication within 10 business days if a claim is disputed
+  duty: Apply for adjudication within 10 business days of a schedule for less than the claim
   consequence: guidance
   protection_type: watch
   disease: disputes
@@ -19,16 +61,19 @@ obligations:
   grade: primary_read
   citation:
     url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
-    clause: s 18(3)
-    access_date: '2026-09-16'
+    clause: s 18(3)(c)
+    access_date: '2026-09-28'
   evidence:
     kind: record_in_demiton
     register: contract_notice
   research_row: P8
-  clause: s 18(3)
+  clause: s 18(3)(c)
   window:
     value: 10
     unit: business_days
+  caveat: 'Other cases: 10 business days after the due date where a scheduled amount is unpaid (s 18(3)(d));
+    5 business days after the respondent''s 5-business-day period where no schedule was served (s 18(3)(e)).
+    Mapped to guidance like every other SOP Act''s adjudication window in this library.'
 - key: payment.adjudication_response.au-vic
   duty: Respond to an adjudication application within 5 business days
   consequence: guidance
@@ -72,7 +117,8 @@ obligations:
   caveat: Monthly claim cadence; no consequence stated for the cadence itself in the source table - validity
     conditions are P2.
 - key: payment.claim_content.au-vic
-  duty: 'Make every claim a valid payment claim: identify the work and state the amount'
+  duty: 'Make every claim a valid payment claim: in the prescribed form, identifying the work, stating
+    the amount and that it is made under the Act'
   consequence: barred
   protection_type: check
   disease: disputes
@@ -81,16 +127,17 @@ obligations:
   citation:
     url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
     clause: s 14(2)
-    access_date: '2026-09-16'
+    access_date: '2026-09-28'
   evidence:
     kind: register
     register: progress_claim
     system_type: finance
   research_row: P2
   clause: s 14(2)
-  caveat: A claim missing this content is not valid under the Act; mapped to barred.
+  caveat: A claim missing this content is not valid under the Act; mapped to barred. The prescribed form
+    and prescribed information requirements (s 14(2)(a), (b)) were added by No. 43/2025.
 - key: payment.due_date.au-vic
-  duty: Be paid within 10 business days of a payment schedule (or of the claim if none is given)
+  duty: Be paid by the contract's due date, and never later than 20 business days after the claim
   consequence: guidance
   protection_type: watch
   disease: disputes
@@ -98,21 +145,23 @@ obligations:
   grade: primary_read
   citation:
     url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
-    clause: s 12
-    access_date: '2026-09-16'
+    clause: s 12(1), (1B)
+    access_date: '2026-09-28'
   evidence:
     kind: register
     register: progress_claim
     system_type: finance
   research_row: P6
-  clause: s 12
+  clause: s 12(1), (1B)
   window:
-    value: 10
+    value: 20
     unit: business_days
-  caveat: 'No consequence stated for the due-date rule itself in the source table (non-payment consequences
-    are P7); mapped to guidance. VIC: beyond 20 BD has no effect.'
+  caveat: A contract term setting a later date has no effect (s 12(1B), inserted by No. 43/2025). Where
+    the contract is silent, payment is due 10 business days after the earliest day a claim may be served
+    under s 14A (s 12(1)(b)). Corrected 2026-09-28 - this row previously said 10 business days after a
+    payment schedule. No consequence stated for the due-date rule itself; mapped to guidance.
 - key: payment.notice_of_intention.au-vic
-  duty: Give notice of intention to apply for adjudication within 10 business days
+  duty: Give notice of intention to apply for adjudication within 10 business days of the due date
   consequence: guidance
   protection_type: watch
   disease: disputes
@@ -121,7 +170,7 @@ obligations:
   citation:
     url: https://content.legislation.vic.gov.au/sites/default/files/2026-06/02-15aa015-authorised.pdf
     clause: s 18(2)
-    access_date: '2026-09-16'
+    access_date: '2026-09-28'
   evidence:
     kind: record_in_demiton
     register: contract_notice
