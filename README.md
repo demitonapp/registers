@@ -11,7 +11,7 @@ built from this repository. The [research registers](research/) also power
 ## What is here
 
 - **[`contracts/`](contracts)** - the current public contract for every tenant and platform
-  register: 171 today, one file each. Each carries a semantic version.
+  register: 172 today, one file each. Each carries a semantic version.
 - **[`history/`](history)** - every past version of every register in `contracts/`, so a
   reader (or a piece of code) can see exactly what a field meant at a given point in time.
 - **[`research/`](research)** - the four registers behind

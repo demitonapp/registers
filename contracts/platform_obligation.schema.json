@@ -1,0 +1,162 @@
+{
+  "$id": "demiton:shelf/platform_obligation/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`kind`, `register`, `register_match`) a verdict recompute needs to evaluate it against a project's own registers. Those three are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line).",
+  "properties": {
+    "key": {
+      "description": "the obligation's stable key, e.g. `payment.schedule_due.au-qld`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "instrument_id": {
+      "description": "the instrument this obligation belongs to, e.g. `bif_act_2017_qld`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "instrument_title": {
+      "description": "the instrument's title, for display without a second lookup",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "source": {
+      "description": "which of the seven sources the instrument belongs to",
+      "enum": ["contract", "law", "principal", "approvals", "counterparties", "workforce", "own_commitments"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "duty": {
+      "description": "the duty in one sentence",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "clause": {
+      "description": "the clause, section or paragraph",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "consequence": {
+      "description": "what missing the duty costs, as the source states it",
+      "enum": ["barred", "reduced_per_day", "costs_excluded", "liable_full_amount", "damages_only", "offence", "breach", "guidance"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "protection_type": {
+      "description": "the engine that runs this obligation once switched on",
+      "enum": ["watch", "countdown", "check", "threshold"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "disease": {
+      "description": "which of the five diseases this obligation guards against",
+      "enum": ["rework", "overrun", "forfeited_entitlements", "disputes", "non_compliance"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "severity": {
+      "description": "the contract-risk tier (1-4)",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "grade": {
+      "description": "how close to the primary source the reading was",
+      "enum": ["primary_read", "primary_via_secondary", "demiton_default"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "citation_url": {
+      "description": "the primary source for this exact duty",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "citation_clause": {
+      "description": "the citation's own clause reference, when it differs from `clause`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "citation_access_date": {
+      "description": "when the primary source was read",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "evidence_kind": {
+      "description": "how this obligation is evidenced once switched on",
+      "enum": ["built_in", "record_in_demiton", "register", "not_collected"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "evidence_register": {
+      "description": "for evidence_kind=record_in_demiton|register|not_collected: the shelf_type",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_system_type": {
+      "description": "for evidence_kind=register only: the system type that would fill it",
+      "enum": ["finance", "site_and_field", "document_store"],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "jurisdiction": {
+      "description": "where this obligation applies: the ISO 3166-1/3166-2 code",
+      "type": "jurisdiction",
+      "x-demiton-requiredness": "required"
+    },
+    "applies_to_form": {
+      "description": "the contract form this obligation is written for; `statute` for a legislative rule, `any` when form-independent",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "kind": {
+      "description": "ENGINE ROUTING, not published: how the duty is measured against a project's registers - a cadence (`periodic`), a window after an anchor event (`event_bound`), a retention period (`retention`) or a standing condition (`state`)",
+      "enum": ["periodic", "event_bound", "retention", "state"],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "register": {
+      "description": "ENGINE ROUTING, not published: the tenant register this obligation is evaluated against",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "register_match": {
+      "description": "ENGINE ROUTING, not published: equality predicate on `register` selecting the evidence",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "window_value": {
+      "description": "the cadence or window length in `window_unit`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "window_unit": {
+      "description": "unit of `window_value`",
+      "enum": ["hours", "days", "business_days", "working_days", "months"],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "research_row": {
+      "description": "the row id in Demiton's own research record this obligation was transcribed from",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "caveat": {
+      "description": "what bounds this obligation",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "key", "instrument_id", "instrument_title", "source", "duty", "consequence",
+    "protection_type", "disease", "severity", "grade", "citation_url",
+    "citation_access_date", "evidence_kind", "jurisdiction", "applies_to_form",
+    "kind", "register"
+  ],
+  "title": "platform_obligation contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "platform",
+  "x-demiton-memory-type": "procedural",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-shelf-type": "platform_obligation",
+  "x-demiton-store": "platform"
+}

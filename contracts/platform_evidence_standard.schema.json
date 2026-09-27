@@ -164,7 +164,8 @@
   ],
   "title": "platform_evidence_standard contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-deprecated": "SM030 O3, 2026-09-27: superseded by platform_obligation, which covers all five diseases instead of one. No new rows written; every live row's valid_until is set the same release platform_obligation starts serving the Disputes check. Kept published (never deleted, METHOD.md rule 4), history unchanged.",
   "x-demiton-domain": "platform",
   "x-demiton-memory-type": "procedural",
   "x-demiton-provenance": {
