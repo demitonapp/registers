@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- `contract_terms` 1.3.1 (PATCH): `contract_form`'s vocabulary gains
+  `TFNSW_GC21`, Transport for NSW's amended GC21 (C2-GC21). Its duties are
+  plain GC21's plus TfNSW's own; a TfNSW contract is no longer read as plain
+  GC21. 1.3.0 kept in `history/`.
+
 - Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
   current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,
   `AU-TAS/sop_act_2009_tas.yaml`, `AU-ACT/sop_act_2009_act.yaml`,
