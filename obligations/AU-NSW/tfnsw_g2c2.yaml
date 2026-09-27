@@ -31,7 +31,7 @@ obligations:
     value: 1
     unit: months
   caveat: Source is the TfNSW G2-C2 General Requirements specification, not one of this register's closed-vocabulary
-    base contract forms - applies_to_form recorded as 'any' (judgment call). Must state reasons for any
+    base contract forms - applies_to_form recorded as GC21, the form G2-C2 is written for (its revision history says it was revised for use with Edition 2 of GC21). Must state reasons for any
     shortfall in Scheduled Progress.
 - key: delay_eot.wet_weather_days.g2c2_nsw
   duty: Record wet weather days against the programme
