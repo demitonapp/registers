@@ -1,0 +1,155 @@
+id: sop_act_2009_sa
+source: law
+instrument_type: act
+title: Building and Construction Industry Security of Payment Act 2009 (SA)
+publisher: Parliament of South Australia
+jurisdictions:
+- AU-SA
+citation:
+  url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+  access_date: '2026-09-28'
+  version: Current (Authorised), as at 10.12.2011; no amending Act in force
+obligations:
+- key: payment.claim_content.au-sa
+  duty: 'Make every claim a valid payment claim: identify the work, state the amount and state it is made
+    under the Act'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 13(2)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 13(2)
+  caveat: A claim missing this content is not valid under the Act; mapped to barred like the other SOP
+    Acts' claim_content rows. The Act itself states no consequence - that comes from case law, not read
+    here.
+- key: payment.claim_cadence.au-sa
+  duty: Make one progress claim per reference date (the last day of each month if the contract is silent)
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 4, 13(5)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 4, 13(5)
+  window:
+    value: 1
+    unit: months
+  caveat: One claim per reference date; a claim must also be served within the later of the contract period
+    or 6 months after the work was last carried out (s 13(4)).
+- key: payment.schedule_due.au-sa
+  duty: Receive a payment schedule within 15 business days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 14(4)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: s 14(4)
+  window:
+    value: 15
+    unit: business_days
+  caveat: The earlier of the contract's time or 15 business days.
+- key: payment.due_date.au-sa
+  duty: Be paid within 15 business days of the claim where the contract sets no date
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 11(1)(b)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 11(1)(b)
+  window:
+    value: 15
+    unit: business_days
+  caveat: A default only, not a cap - the contract's own due date governs where it has one. No head contract
+    / subcontract distinction.
+- key: payment.notice_of_intention.au-sa
+  duty: Give notice of intention to apply for adjudication within 20 business days of the due date
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 17(2)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 17(2)
+  window:
+    value: 20
+    unit: business_days
+  caveat: Applies where no schedule was served and the amount was not paid; the respondent then has 5
+    business days to serve a schedule.
+- key: payment.adjudication_application.au-sa
+  duty: Apply for adjudication within 15 business days of a schedule for less than the claim
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 17(3)(c)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 17(3)(c)
+  window:
+    value: 15
+    unit: business_days
+  caveat: 'Other cases: 20 business days after the due date where a scheduled amount is unpaid (s 17(3)(d));
+    15 business days after the 5-day period where no schedule was served (s 17(3)(e)). Mapped to guidance
+    like every other SOP Act''s adjudication window in this library; an application out of time is not
+    a valid application.'
+- key: payment.adjudication_response.au-sa
+  duty: Respond to an adjudication application within 5 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fbuilding+and+construction+industry+security+of+payment+act+2009
+    clause: s 20(1), (3)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 20(1), (3)
+  window:
+    value: 5
+    unit: business_days
+  caveat: Later of 5 business days after receiving the application or 2 after the adjudicator accepts
+    it; only if a schedule was served.

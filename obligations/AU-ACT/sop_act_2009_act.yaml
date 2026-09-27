@@ -1,0 +1,155 @@
+id: sop_act_2009_act
+source: law
+instrument_type: act
+title: Building and Construction Industry (Security of Payment) Act 2009 (ACT)
+publisher: ACT Legislative Assembly
+jurisdictions:
+- AU-ACT
+citation:
+  url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+  access_date: '2026-09-28'
+  version: Republication No 14, effective 6 December 2025
+obligations:
+- key: payment.claim_content.au-act
+  duty: 'Make every claim a valid payment claim: identify the work, state the amount and state it is made
+    under the Act'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 15(2)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 15(2)
+  caveat: A claim missing this content is not valid under the Act; mapped to barred like the other SOP
+    Acts' claim_content rows. The Act itself states no consequence - that comes from case law, not read
+    here.
+- key: payment.claim_cadence.au-act
+  duty: Make no more than one progress claim per calendar month
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 15(4), (6)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 15(4), (6)
+  window:
+    value: 1
+    unit: months
+  caveat: Given on or after the last day of each month unless the contract allows more; a claim must also
+    be given within the later of the contract period or 12 months after the work was last carried out
+    (s 15(5)).
+- key: payment.schedule_due.au-act
+  duty: Receive a payment schedule within 10 business days of each claim, or the full amount becomes payable
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 16(4)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: s 16(4)
+  window:
+    value: 10
+    unit: business_days
+  caveat: The earlier of the contract's time or 10 business days.
+- key: payment.due_date.au-act
+  duty: Be paid within 15 business days of the claim
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 13(1)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 13(1)
+  window:
+    value: 15
+    unit: business_days
+  caveat: The earlier of 15 business days or the contract's own date - a cap the contract cannot extend.
+    No head contract / subcontract distinction.
+- key: payment.notice_of_intention.au-act
+  duty: Give notice of intention to apply for adjudication within 20 business days of the due date
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 19(2)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 19(2)
+  window:
+    value: 20
+    unit: business_days
+  caveat: Applies where no schedule was served; the respondent then has 5 business days to serve a schedule.
+- key: payment.adjudication_application.au-act
+  duty: Apply for adjudication within 10 business days of a schedule for less than the claim
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 19(3)(b)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 19(3)(b)
+  window:
+    value: 10
+    unit: business_days
+  caveat: 'Other cases: 20 business days after the due date where a scheduled amount is unpaid (s 19(3)(c));
+    10 business days after the 5-day period (or an earlier schedule) where none was served (s 19(3)(d)).
+    Mapped to guidance like every other SOP Act''s adjudication window in this library; an application
+    out of time is not a valid application.'
+- key: payment.adjudication_response.au-act
+  duty: Respond to an adjudication application within 7 business days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/DownloadFile/a/2009-50/current/PDF/2009-50.PDF
+    clause: s 22(1), (3)
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 22(1), (3)
+  window:
+    value: 7
+    unit: business_days
+  caveat: Later of 7 business days after receiving the application or 5 after the adjudicator accepts
+    it; only if a schedule was served. A copy goes to the claimant within 2 days (s 22(5)).
