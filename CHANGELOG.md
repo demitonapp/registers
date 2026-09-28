@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- TfNSW TS 00088 Minimum Requirements for Contractor Vehicles (1.0, effective
+  26 August 2025, not retrospective): `obligations/AU-NSW/tfnsw_ts00088.yaml`,
+  6 rows - registration for the contract (cl 5.1), SafeWork plant registration
+  (cl 5.4), operating information (cl 6.8), the operator's daily inspection
+  before each shift and service records (cl 6.9), and at least CLOCS-A Bronze
+  equipment on heavy vehicles, or the tier the contract manager selects (cl 8,
+  Table 1). Keyed to TfNSW's amended GC21, the same judgment call as G2-C2.
+
 - Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
   current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,
   `AU-TAS/sop_act_2009_tas.yaml`, `AU-ACT/sop_act_2009_act.yaml`,
