@@ -1,0 +1,33 @@
+id: cils_leave_act_1997_vic
+source: law
+instrument_type: act
+title: Construction Industry Long Service Leave Act 1997 (Vic)
+publisher: Victorian Parliament
+jurisdictions:
+- AU-VIC
+citation:
+  url: https://www.legislation.vic.gov.au/in-force/acts/construction-industry-long-service-leave-act-1997
+  access_date: '2026-09-28'
+  version: No. 53/1997, current in-force version
+obligations:
+- key: levy.worker_registration.au-vic
+  duty: Keep every worker registered with the portable long service leave scheme; do not employ or work
+    unregistered for more than 5 days in a month
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.vic.gov.au/in-force/acts/construction-industry-long-service-leave-act-1997
+    clause: s 4, 5, 8
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 4, 5, 8
+  caveat: 'The scheme is wage-based, not a project-value levy: the employer charge (capped at 3% of ordinary
+    pay in the Act, s 4) and its collection cadence are set by the LeavePlus trustee under the trust deed,
+    not stated in the Act itself, so no window is recorded here. The only numbered duty the Act itself
+    states is the 5-days-in-a-month unregistered-work limit (s 8), maximum penalty 20 penalty units; unpaid
+    charges are also recoverable as a debt (s 5). LeavePlus was formerly named CoINVEST.'

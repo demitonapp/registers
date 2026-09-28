@@ -1,0 +1,36 @@
+id: cilslb_act_2005_nt
+source: law
+instrument_type: act
+title: Construction Industry Long Service Leave and Benefits Act 2005 (NT)
+publisher: Northern Territory Legislative Assembly
+jurisdictions:
+- AU-NT
+citation:
+  url: https://legislation.nt.gov.au/Legislation/CONSTRUCTION-INDUSTRY-LONG-SERVICE-LEAVE-AND-BENEFITS-ACT-2005
+  access_date: '2026-09-28'
+  version: Current consolidation
+obligations:
+- key: levy.long_service_levy.au-nt
+  duty: Notify the Board and confirm the long service levy has been paid before construction work costing
+    at least $200,000 begins
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/Legislation/CONSTRUCTION-INDUSTRY-LONG-SERVICE-LEAVE-AND-BENEFITS-ACT-2005
+    clause: s 32-35, 40
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: gl_journal_entry
+  clause: s 32-35, 40
+  caveat: The $200,000 threshold (s 32) and the tiered rate structure above a $5 billion project cost
+    (s 33) are both stated in the Act itself, not sourced from a regulator's site - unlike the figures
+    widely reported (a $1,000,000 threshold and a $1 billion tier), which this pass found to be wrong
+    when read against the Act's own text. Liability (s 34) falls on the single contractor only where an
+    interstate government entity commissions the work; otherwise it is the person for whom the work is
+    done, which may be the principal - framed as a check for that reason. Failure to notify before work
+    starts (s 40) is a strict-liability offence, 100 penalty units for a natural person, 500 for a body
+    corporate; failure to pay (s 35) is a strict-liability offence, 100 penalty units.
