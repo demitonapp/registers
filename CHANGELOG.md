@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- The contractor's own repeat-purchase line
+  (`obligations/AU/demiton_repeat_purchase.yaml`). One row: an item a job
+  re-buys that its plan did not carry is rework, and an item bought across
+  three or more distinct jobs is a routine consumable. `set_by: org` with a
+  labelled 3-job default; the value an org chooses at switch-on is never
+  published.
 - Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
   current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,
   `AU-TAS/sop_act_2009_tas.yaml`, `AU-ACT/sop_act_2009_act.yaml`,

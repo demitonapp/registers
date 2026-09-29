@@ -106,3 +106,10 @@ actual cost above a cost code's budget crosses the line. That is the rule
 Demiton's overrun check applied before protections existed, so an org that
 switches the obligation on without choosing a value sees the same results it
 saw before.
+
+**Repeat-purchase default: 3 jobs.** No public instrument sets a contractor's
+own line on repeat purchases. The default is 3: an item bought across three or
+more distinct jobs is a routine consumable, and a repeat order of anything else
+is rework. That is the frequency baseline Demiton's rework check already
+applied, so an org that switches the obligation on without choosing a value
+sees the same results it saw before.
