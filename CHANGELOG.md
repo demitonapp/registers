@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- CLOCS-A, the construction logistics heavy vehicle standard (v1.6, 21 April
+  2026): `obligations/AU/clocs_a_standard.yaml`, 14 rows read in the Standard's
+  own text. Principal Contractor duties (six-monthly risk register review, CLMP
+  updated within 1 month of a change, traffic management plan, driver licence,
+  training and induction, incident investigation, quarterly reporting) and
+  Transport Operator duties (vehicle safety equipment by tier, daily pre-start,
+  licence checks, speed and harsh-driving monitoring, quarterly reporting).
+  CLOCS-A is voluntary (s 1): it binds a contractor only when the client's
+  contract requires it (s 3), which every row's caveat says. Windows are
+  recorded only where the Standard states a number; it states none for
+  incident notification, licence checks, refresher training or retention.
 - Portable long service levies across every AU state and territory (8 rows,
   1 per jurisdiction, `levy.*`), read in each Act's current text. Two
   families: project-value levies payable before work starts (QLD, NSW, NT -

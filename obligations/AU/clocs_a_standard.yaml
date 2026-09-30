@@ -1,0 +1,292 @@
+id: clocs_a_standard
+source: principal
+instrument_type: specification
+title: Construction Logistics and Community Safety - Australia (CLOCS-A) Standard
+publisher: CLOCS-A
+jurisdictions:
+- AU
+citation:
+  url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+  access_date: '2026-09-28'
+  version: v1.6, 21 April 2026
+obligations:
+- key: clocs_a.risk_register_review.au
+  duty: Review the heavy vehicle movement risk register at least every six months
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.1(a)(ii)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: cl 5.3.1(a)(ii)
+  window:
+    value: 6
+    unit: months
+  caveat: A Principal Contractor duty. CLOCS-A is a national voluntary Standard (s 1) that binds a contractor
+    only when the client's contract requires it (s 3), or once the contractor is accredited. No register holds
+    the risk register itself; the traffic management plan is the nearest, so this is recorded not_collected.
+- key: clocs_a.logistics_plan_update.au
+  duty: Update the construction logistics management plan within 1 month of a change to processes, plans or
+    operating procedures
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: App C(j), required by cl 5.3.3(a)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: App C(j)
+  window:
+    value: 1
+    unit: months
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. The
+    construction logistics management plan (CLMP) is its own document, separate from the traffic management
+    plan, and no register records when it changed, so this is recorded not_collected.
+- key: clocs_a.traffic_management_plan.au
+  duty: Keep a construction traffic management plan that includes Traffic Guidance Schemes and Vehicle Movement
+    Plans
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.4(a)(i)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: traffic_management_plan
+    system_type: document_store
+  clause: cl 5.3.4(a)(i)
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. The plan
+    must also be reviewed, but the Standard states no review interval.
+- key: clocs_a.driver_licence.au
+  duty: Make sure every heavy vehicle driver on the project holds a valid licence for the class of vehicle
+    they drive
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.7(a)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: worker_qualification
+    system_type: site_and_field
+  clause: cl 5.3.7(a)
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. Heavy
+    vehicle means a GVM or ATM over 4.5 tonnes (s 3). The Transport Operator carries the same duty for its
+    own drivers (cl 5.4.4(a)).
+- key: clocs_a.driver_training.au
+  duty: Make sure every heavy vehicle driver on the project has completed the CLOCS-A driver training for the
+    project's tier
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.7(b); App F
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: training_records
+    system_type: site_and_field
+  clause: cl 5.3.7(b)
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. Appendix F
+    sets the vulnerable road user and low-risk driving courses by tier (Bronze, Silver, Gold); the Standard
+    states no refresher interval.
+- key: clocs_a.driver_induction.au
+  duty: Give every heavy vehicle driver a project induction covering approved haulage routes, restrictions
+    and local traffic risks
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.7(c)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: induction_onboarding
+    system_type: site_and_field
+  clause: cl 5.3.7(c)
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A.
+- key: clocs_a.incident_investigation.au
+  duty: Report and investigate every transport incident and community complaint to a level that matches its
+    severity
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.9(a)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: safety_incident
+    system_type: site_and_field
+  clause: cl 5.3.9(a)
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. The Standard
+    states no reporting window in days; major incidents go to the client within the quarter, as soon as
+    reasonably practicable (cl 5.3.10(a)(i)). The Transport Operator carries the same duty (cl 5.4.8(a)).
+- key: clocs_a.client_reporting.au
+  duty: Report the CLOCS-A metrics to the client every quarter
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.3.10(a); App D1
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: cl 5.3.10(a)
+  window:
+    value: 3
+    unit: months
+  caveat: A Principal Contractor duty, binding only where the client's contract requires CLOCS-A. Appendix D1
+    also requires an annual report. No register holds the report itself; its collision and serious-injury
+    metrics come from the safety incident register, so this is recorded not_collected.
+- key: clocs_a.vehicle_safety_spec.au
+  duty: Fit every heavy vehicle with the CLOCS-A safety equipment for the project's tier
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.2(a); App E
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: vehicle_list
+  clause: cl 5.4.2(a)
+  caveat: A Transport Operator duty (a civil contractor running its own trucks is one), binding only where the
+    client's contract requires CLOCS-A. Appendix E sets the equipment by tier; Bronze is the minimum (Class V
+    and VI mirrors, reversing camera or sensors, among others) and Gold requires telematics. The vehicle
+    register does not record fitted equipment, so this is recorded not_collected. TfNSW TS 00088 makes the
+    Bronze vehicle tier mandatory for heavy vehicles on its own contracts; that is a separate instrument.
+- key: clocs_a.prestart_daily.au
+  duty: Carry out a Driver's Daily Pre-start Check on every heavy vehicle, and report and fix the defects it
+    finds
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.3(a)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: plant_prestart
+    system_type: site_and_field
+  clause: cl 5.4.3(a)
+  window:
+    value: 1
+    unit: days
+  caveat: A Transport Operator duty, binding only where the client's contract requires CLOCS-A. The Standard
+    places the pre-start inside a maintenance management system for the heavy vehicle fleet.
+- key: clocs_a.licence_check.au
+  duty: Check every heavy vehicle driver's licence category, expiry date and restrictions on a regular basis
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.4(b)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: worker_qualification
+    system_type: site_and_field
+  clause: cl 5.4.4(b)
+  caveat: A Transport Operator duty, binding only where the client's contract requires CLOCS-A. "Periodically"
+    - the Standard states no interval, so no window is recorded.
+- key: clocs_a.speed_monitoring.au
+  duty: Monitor heavy vehicle drivers' speed on public roads and give them feedback
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.7(d)(i)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: speeding_event
+  clause: cl 5.4.7(d)(i)
+  caveat: A Transport Operator duty, binding only where the client's contract requires CLOCS-A. Feedback is
+    given "periodically as determined by a risk assessment", so no window is recorded. Speed is one of three
+    behaviours cl 5.4.7(d)(i) says must be monitored; the other two are the next row. Filled by a telematics
+    system, which evidence.system_type has no value for yet.
+- key: clocs_a.harsh_driving_monitoring.au
+  duty: Monitor heavy vehicle drivers' harsh acceleration, harsh braking and following distance on public
+    roads, and give them feedback
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.7(d)(i)
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: driving_behaviour_event
+  clause: cl 5.4.7(d)(i)
+  caveat: A Transport Operator duty, binding only where the client's contract requires CLOCS-A. Same clause
+    as the speed row. The driving behaviour register holds harsh acceleration and braking events; following
+    distance is not recorded in it. Filled by a telematics system, which evidence.system_type has no value
+    for yet.
+- key: clocs_a.operator_reporting.au
+  duty: Report the CLOCS-A metrics to the Principal Contractor every quarter
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs-a.org.au/wp-content/uploads/2026/04/CLOCS-A-Standard-v.1.6.pdf
+    clause: cl 5.4.9(a); App D2
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: cl 5.4.9(a)
+  window:
+    value: 3
+    unit: months
+  caveat: A Transport Operator duty, binding only where the client's contract requires CLOCS-A. Appendix D2
+    also requires an annual report. No register holds the report itself, so this is recorded not_collected.
