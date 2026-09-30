@@ -1,0 +1,49 @@
+# SM031 M3: the construction award shape. A modern award is the instrument a
+# civil contractor's site workforce is paid under unless an enterprise
+# agreement displaces it, and the duty that actually costs money is the rates
+# and allowances line - underpaying it is a wage claim plus penalties, which is
+# why that row is forfeited entitlements at severity 4 and the records row is
+# the non-compliance one.
+id: model_construction_award
+source: workforce
+instrument_type: award
+title: Building and Construction General On-site Award (shared shape)
+publisher: Fair Work Commission
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.fwc.gov.au/documents/modern_awards/pdf/ma000020.pdf
+  version: Building and Construction General On-site Award 2020 (MA000020) as published by the Fair Work Commission. Clause numbers are read from that consolidated text.
+  access_date: '2026-09-30'
+obligations:
+- key: workforce.construction_award_pay
+  duty: Pay every employee the award's minimum rates, allowances and penalty rates for the work actually done and the times it was done
+  consequence: liable_full_amount
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 4
+  citation:
+    url: https://www.fwc.gov.au/documents/modern_awards/pdf/ma000020.pdf
+    clause: cll 19, 21-23, 30
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: timesheet_entry
+    system_type: site_and_field
+  caveat: The rate is a table, not one number, so this is a check against a record rather than a threshold, and the timesheet_entry register holds the hours and the times they were worked, and the award's classification and penalty tables are what those hours are priced against. Clauses 19 (minimum rates), 21 to 23 (allowances) and 30 (penalty rates) of MA000020 are where the amounts live. A concrete state or federal instrument is not the variant here - the variant is the employer's coverage and any enterprise agreement that displaces the award, which the concrete that extends this base must state.
+- key: workforce.construction_award_records
+  duty: Make and keep the time and wage records the award and the Fair Work Act require for each employee
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  citation:
+    url: https://www.fwc.gov.au/documents/modern_awards/pdf/ma000020.pdf
+    clause: cl 19 and the record-keeping provisions MA000020 applies (Fair Work Act 2009 (Cth) s 535; Fair Work Regulations 2009 (Cth) regs 3.31-3.46)
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: timesheet_entry
+    system_type: site_and_field
+  caveat: MA000020 itself carries the entitlement and adopts the Act's record-keeping and payslip obligations rather than restating them, so the clause range above names both. The library already records the federal record-keeping duty for 7 years under fair_work.records.au (Fair Work Act 2009 (Cth) s 535); this row is the award-side duty and should be read with that one, not instead of it.

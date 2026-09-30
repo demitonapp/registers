@@ -1,0 +1,62 @@
+id: tfnsw_c2_gc21
+source: contract
+instrument_type: conditions_of_contract
+title: GC21 (Edition 2) TfNSW General Conditions of Contract (C2-GC21 Ed 2 Rev 19)
+publisher: Transport for NSW
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://www.transport.nsw.gov.au/system/files/media/documents/2022/wells-crossing-to-glenugie-disclosure-of-information-class-3-construction-contract.pdf
+  access_date: '2026-09-28'
+  version: C2-GC21 Ed 2 Rev 19, December 2019
+obligations:
+- key: payment.proof_of_payment.tfnsw_c2_gc21
+  duty: Prove to TfNSW that subcontractors and suppliers were paid within 5 business days of receiving
+    each payment
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.transport.nsw.gov.au/system/files/media/documents/2022/wells-crossing-to-glenugie-disclosure-of-information-class-3-construction-contract.pdf
+    clause: cl 28.3, 28.4, Schedule 17
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: subcontractor_payment
+  clause: cl 28.3, 28.4, Schedule 17
+  window:
+    value: 5
+    unit: business_days
+  caveat: Applies only where TfNSW requires the Subcontractors and Suppliers Proof of Payment Procedure
+    (cl 28.3). If proof is not given, the contractor must issue irrevocable payment directions by the
+    5th business day, the principal may withhold from the next payment schedule, and may have recourse
+    to the undertaking (cl 28.4). Read in the C2-GC21 Ed 2 Rev 19 general conditions published in a TfNSW
+    contract disclosure.
+- key: payment.subcontractor_payment.tfnsw_c2_gc21
+  duty: Pay the subcontractors and suppliers listed in each claim within 3 business days of receiving
+    payment
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.transport.nsw.gov.au/system/files/media/documents/2022/wells-crossing-to-glenugie-disclosure-of-information-class-3-construction-contract.pdf
+    clause: cl 28.4, Schedule 17
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: subcontractor_payment
+    system_type: finance
+  clause: cl 28.4, Schedule 17
+  window:
+    value: 3
+    unit: business_days
+  caveat: Applies only where TfNSW requires the Subcontractors and Suppliers Proof of Payment Procedure
+    (cl 28.3). If proof is not given, the contractor must issue irrevocable payment directions by the
+    5th business day, the principal may withhold from the next payment schedule, and may have recourse
+    to the undertaking (cl 28.4). Read in the C2-GC21 Ed 2 Rev 19 general conditions published in a TfNSW
+    contract disclosure.
+form: TFNSW_GC21

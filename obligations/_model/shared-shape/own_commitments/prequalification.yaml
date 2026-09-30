@@ -1,0 +1,47 @@
+# SM031 M3: the prequalification shape. Prequalification is not a licence the
+# contractor buys, it is a standing the principal grants and reviews, and
+# without it the contractor cannot tender for the work type at all - which is
+# why the first row is barred at severity 1, and why the second row, reporting
+# the change that puts the standing at risk, is a watch.
+id: model_prequalification
+source: own_commitments
+instrument_type: licence
+title: Principal's prequalification standing (shared shape)
+publisher: Queensland Department of Transport and Main Roads
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD
+  version: Shape drawn across the principal's prequalification schemes - Transport and Main Roads Information for Prequalified Suppliers, Volume 3, National Prequalification System for Civil (Road and Bridge) Construction Contracts, November 2024, is the representative document at the URL - together with the equivalent schemes the other road and water agencies run.
+  access_date: '2026-09-30'
+obligations:
+- key: own_commitments.prequalification_standing
+  duty: Hold and maintain the principal's prequalification standing at the level the work type requires, for as long as the work is being tendered or delivered
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  severity: 1
+  citation:
+    url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD
+    clause: s 6.1-6.3 (maintenance of prequalification status)
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: prequalification
+    system_type: document_store
+  caveat: Each principal runs its own scheme and its own categories and financial levels - TMR's volume 3 is representative, and the same contractor may hold a different standing with each agency. The scheme requires annual financial updates and a renewal application at least every three years (section 6.2), but the concrete that extends this base supplies its own citation, clause and levels. Severity is 1 because losing the standing removes the entitlement to tender, not a payment.
+- key: own_commitments.prequalification_change_notice
+  duty: Tell the principal in writing, immediately, about any change of circumstance that may be material to the standing
+  consequence: breach
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 2
+  citation:
+    url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD
+    clause: s 8.5 (change of circumstances)
+    access_date: '2026-09-30'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  caveat: The representative scheme says 'immediately' with no number, so the shape states no window; the concrete that extends this base supplies whatever its principal's instrument requires. The changes that must be reported are set out in section 8.5 - convictions, breaches of legislation, changes in ownership, management system status, financial or managerial capacity, and key personnel - and are read from the representative scheme, not from every scheme. The contract_notice register holds the notice as a record on the job.

@@ -1,12 +1,12 @@
 {
   "$id": "demiton:registers/instrument/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SM030: one published document inside a source - an Act, a principal's specification, an approval type, an award, a licence. One file per instrument under obligations/<jurisdiction>/, holding the instrument itself plus every obligation it imposes. Fields mirror `Instrument` in the monorepo's onboarding.ts prototype; `obligations` is new - the prototype's sample data keeps instrument and obligation in two separate arrays joined by id, this repository nests them so one pull request is reviewable as one instrument.",
-  "title": "instrument v1",
+  "$comment": "SM030: one published document inside a source - an Act, a principal's specification, an approval type, an award, a licence. One file per instrument under obligations/<jurisdiction>/, holding the instrument itself plus every obligation it imposes. Fields mirror `Instrument` in the monorepo's onboarding.ts prototype; `obligations` is new - the prototype's sample data keeps instrument and obligation in two separate arrays joined by id, this repository nests them so one pull request is reviewable as one instrument. SM031 adds inheritance: a concrete instrument may `extends` an abstract base under obligations/_model/, in which case its `obligations` are per-obligation overrides (demiton:registers/obligation_override/1) and its header fields may be inherited from the base. Three modes, checked below: abstract base, extending concrete, standalone concrete.",
+  "title": "instrument v2",
   "type": "object",
   "properties": {
     "id": {
-      "description": "stable slug, e.g. `bif_act`. Referenced by a project's `project_obligation` fact once switched on.",
+      "description": "stable slug, e.g. `bif_act`. Referenced by a project's `project_obligation` fact once switched on, and by a concrete instrument's `extends` (SM031 decision 3: resolved by `id`, never by file path).",
       "type": "string",
       "pattern": "^[a-z0-9_]+$"
     },
@@ -28,10 +28,9 @@
       "type": "string"
     },
     "jurisdictions": {
-      "description": "where it applies - members of vocab/jurisdictions.json. A country code applies to every one of its states/regions too.",
+      "description": "where it applies - members of vocab/jurisdictions.json. A country code applies to every one of its states/regions too. Empty and only empty on an abstract base (SM031 decision 2): a base binds no job, so it names no place.",
       "type": "array",
-      "items": { "type": "string" },
-      "minItems": 1
+      "items": { "type": "string" }
     },
     "form": {
       "description": "for a `contract` source instrument: the conditions-of-contract id it belongs to (e.g. `AS4000_1997`), matching `contract_terms.contract_form`",
@@ -47,13 +46,70 @@
       },
       "required": ["url", "access_date"]
     },
+    "abstract": {
+      "description": "SM031: true for a base under obligations/_model/ - an instrument holding duties shared across jurisdictions that binds no job on its own and is never vendored or run (decision 8). Absent or false on every concrete.",
+      "type": "boolean",
+      "default": false
+    },
+    "model_type": {
+      "description": "SM031: which tier a base is. `model_law` shares the whole obligation including section numbers (one document adopted verbatim, e.g. the model WHS Act); `shared_shape` shares duty/consequence/protection_type/disease/evidence/register while citation, clause and window differ per state. Required when `abstract` is true, refused on a concrete (the three-tier table).",
+      "type": "string",
+      "enum": ["model_law", "shared_shape"]
+    },
+    "extends": {
+      "description": "SM031: the base `id` this concrete instantiates. Present only on a concrete in a jurisdiction folder; its `obligations` are then overrides keyed to the base (demiton:registers/obligation_override/1).",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
     "obligations": {
-      "description": "every duty this instrument imposes - each conforms to obligation.schema.json",
+      "description": "every duty this instrument imposes. On an abstract base or a standalone concrete these conform to obligation.schema.json; on an extending concrete they are per-obligation overrides of the base (obligation_override.schema.json).",
       "type": "array",
-      "items": { "$ref": "demiton:registers/obligation/1" },
       "minItems": 1
     }
   },
-  "required": ["id", "source", "instrument_type", "title", "publisher", "jurisdictions", "citation", "obligations"],
-  "x-demiton-contract-version": "1.0.0"
+  "required": ["id", "obligations"],
+  "allOf": [
+    {
+      "if": { "required": ["extends"] },
+      "then": {
+        "required": ["id", "extends", "obligations"],
+        "properties": {
+          "abstract": { "const": false },
+          "model_type": { "not": {} },
+          "jurisdictions": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "obligations": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "demiton:registers/obligation_override/1" }
+          }
+        }
+      },
+      "else": {
+        "required": ["id", "source", "instrument_type", "title", "publisher", "jurisdictions", "citation", "obligations"],
+        "properties": {
+          "obligations": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "demiton:registers/obligation/1" }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "abstract": { "const": true } }, "required": ["abstract"] },
+      "then": {
+        "required": ["model_type"],
+        "properties": {
+          "jurisdictions": { "type": "array", "items": { "type": "string" }, "maxItems": 0 }
+        }
+      },
+      "else": {
+        "properties": {
+          "model_type": { "not": {} },
+          "jurisdictions": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        }
+      }
+    }
+  ],
+  "x-demiton-contract-version": "2.0.0"
 }

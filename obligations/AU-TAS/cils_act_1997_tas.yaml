@@ -1,0 +1,34 @@
+id: cils_act_1997_tas
+source: law
+instrument_type: act
+title: Construction Industry (Long Service) Act 1997 (Tas)
+publisher: Parliament of Tasmania
+jurisdictions:
+- AU-TAS
+citation:
+  url: https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-1997-083
+  access_date: '2026-09-28'
+  version: No. 83 of 1997, current in-force version
+obligations:
+- key: levy.worker_registration.au-tas
+  duty: Register every employer and worker with the construction industry long service scheme (TasBuild)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-1997-083
+    clause: s 5, 6, 8
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 5, 6, 8
+  caveat: 'Tasmania DOES have a portable long service scheme (TasBuild), contrary to an earlier working
+    assumption that it did not. Its levy (s 7) is not a standalone rate or threshold in this Act: TasBuild''s
+    administering company may impose it only in substitution for direct employer payments, and only on
+    a person already liable under the Building and Construction Industry Training Fund Act 1990 s 25 -
+    a separate levy this row does not cover, and whether TasBuild has ever actually exercised the s 7
+    power was not established. Employer and worker registration is 100 penalty units each (s 5, s 6);
+    records and returns carry 10 penalty units (s 8).'

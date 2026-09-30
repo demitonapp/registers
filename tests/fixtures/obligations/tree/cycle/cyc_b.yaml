@@ -1,0 +1,11 @@
+id: cyc_b
+extends: cyc_a
+title: Cycle B (test data only)
+jurisdictions: [AU-NSW]
+citation:
+  url: https://example.invalid/cycle-b
+  access_date: "2026-09-30"
+obligations:
+  - overrides: cycle.one
+    key: cycle.one.au-nsw
+    grade: primary_read

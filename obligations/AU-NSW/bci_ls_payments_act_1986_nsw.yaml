@@ -1,0 +1,33 @@
+id: bci_ls_payments_act_1986_nsw
+source: law
+instrument_type: act
+title: Building and Construction Industry Long Service Payments Act 1986 (NSW)
+publisher: Parliament of New South Wales
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1986-019
+  access_date: '2026-09-28'
+  version: Current in-force version
+obligations:
+- key: levy.long_service_levy.au-nsw
+  duty: Confirm the long service levy has been paid before work on the building commences
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1986-019
+    clause: s 34-37, 39
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: gl_journal_entry
+  clause: s 34-37, 39
+  caveat: Liability falls on the person granted the development consent, construction certificate or complying
+    development certificate, or else the person for whom the building is erected (s 37) - typically the
+    principal or developer, not the contractor, so this is framed as a check rather than the contractor's
+    own payment duty. Maximum penalty 20 penalty units for non-payment (s 39). The rate is capped at 0.6%
+    in the Act itself (s 35); the current rate (0.25%) and threshold ($250,000, effective 1 January 2023)
+    are the Long Service Corporation's own published figures, not read in the Regulation.

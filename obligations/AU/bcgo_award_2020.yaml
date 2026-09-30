@@ -1,0 +1,23 @@
+# SM031 M6: the first `workforce` instrument. A modern award is a single national
+# instrument, so this bucket needs no per-state override: the concrete adopts the
+# pay duty of the shared shape and cites the award's own clauses. The award's
+# record-keeping duty is not adopted, because the employee-record obligation is
+# in the Fair Work Regulations 2009, a different instrument.
+id: bcgo_award_2020
+extends: model_construction_award
+title: Building and Construction General On-site Award 2020 (MA000020)
+jurisdictions: [AU]
+citation:
+  url: https://library.fairwork.gov.au/award/?krn=MA000020
+  version: MA000020, consolidated text as at 2026-09-30
+  access_date: '2026-09-30'
+obligations:
+- overrides: workforce.construction_award_pay
+  key: workforce.construction_award_pay.au
+  clause: cll 19, 21-23, 30
+  grade: primary_read
+  citation:
+    url: https://library.fairwork.gov.au/award/?krn=MA000020
+    clause: cll 19, 21-23, 30
+    access_date: '2026-09-30'
+  caveat: 'Clause 19 sets the minimum rates for the construction worker and apprentice classifications; clauses 21 to 23 set the expense-related, industry and other allowances (including the industry allowance and the leading hand and multistorey allowances); clause 30 sets the penalty rates. The award is a modern award made under the Fair Work Act 2009 s 136 and binds an employer the award covers; the rates are read with the annual wage review determination in force. The shared shape''s records duty is NOT adopted: the employee-record obligation is in the Fair Work Regulations 2009 (regs 3.31 to 3.44), which is a different instrument, so there is no clause in this award to cite for it.'

@@ -1,0 +1,19 @@
+# SM031 M1: an extending concrete. It states only what differs - its own title,
+# jurisdiction and citation, and one override row naming the base obligation it
+# instantiates. source, instrument_type and publisher are inherited.
+id: fixture_state_act
+extends: fixture_model_act
+title: Fixture State Act 2026 (test data only)
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/fixture-state-act-2026
+  access_date: "2026-09-30"
+obligations:
+  - overrides: fixture.notice
+    key: fixture.notice.au-qld
+    clause: s 1
+    grade: primary_read
+    citation:
+      url: https://example.invalid/fixture-state-act-2026
+      clause: s 1
+      access_date: "2026-09-30"

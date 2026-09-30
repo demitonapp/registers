@@ -1,0 +1,32 @@
+id: cils_leave_act_1987_sa
+source: law
+instrument_type: act
+title: Construction Industry Long Service Leave Act 1987 (SA)
+publisher: Parliament of South Australia
+jurisdictions:
+- AU-SA
+citation:
+  url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fconstruction+industry+long+service+leave+act+1987
+  access_date: '2026-09-28'
+  version: Current consolidated version
+obligations:
+- key: levy.bi_monthly_return.au-sa
+  duty: Lodge a bi-monthly employer return and pay the long service leave levy on wages
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fconstruction+industry+long+service+leave+act+1987
+    clause: s 26, 27, 29
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 26, 27, 29
+  caveat: Read via the Wayback Machine after legislation.sa.gov.au blocked direct access; the version
+    read is the site's current consolidated Act. The $5,000 maximum penalty under s 27 is for a false
+    return, not for late payment - s 29 separately imposes interest plus a fine for late payment, the
+    amount not confirmed. The rate (2% per the authority's site) and the registration test (a minimum
+    of days/hours worked per month) are both set by regulation, not stated in the Act.

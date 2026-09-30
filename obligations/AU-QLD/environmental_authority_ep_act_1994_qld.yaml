@@ -1,0 +1,45 @@
+# SM031 M6: the first concrete of the `approvals` source. It extends the shared
+# shape and adopts the two duties the Environmental Protection Act 1994 (Qld)
+# states for an environmental authority holder: the compliance offence (s 430)
+# and the regulator notification (s 320DA). The base's records duty is not
+# adopted - the EP Act imposes no general record-keeping duty on an authority
+# holder (the only record provision, s 440ZY, is about fuel), so the monitoring
+# records come from each authority's own conditions and there is no clause to
+# cite. `publisher` is inherited from the base: the department administers the
+# authority; the Act is only its citation.
+id: environmental_authority_ep_act_1994_qld
+extends: model_environmental_authority
+title: Environmental authority (Environmental Protection Act 1994 (Qld))
+jurisdictions: [AU-QLD]
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/2026-06-29/act-1994-062
+  version: In force version published 29 June 2026
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.environmental_authority_conditions
+  key: approvals.environmental_authority_conditions.au-qld
+  clause: s 430
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/2026-06-29/act-1994-062
+    clause: s 430
+    access_date: '2026-09-30'
+  caveat: 'Section 430(2) is the strict offence for contravening a condition (4,500 penalty units)
+    and s 430(1) the wilful offence (6,250 penalty units or 5 years). Read 2026-09-30 from the
+    Office of the Queensland Parliamentary Counsel XML export of this Act, in force 29 June 2026.'
+- overrides: approvals.environmental_authority_incident_notice
+  key: approvals.environmental_authority_incident_notice.au-qld
+  clause: s 320DA(1)
+  grade: primary_read
+  window:
+    value: 24
+    unit: hours
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/2026-06-29/act-1994-062
+    clause: s 320DA(1), (3)
+    access_date: '2026-09-30'
+  caveat: 'The 24-hour window is s 320DA(1) for an event causing or threatening serious or material
+    environmental harm; s 320DA(3) gives 20 business days for a notifiable activity that caused no
+    harm. Both are 500 penalty units. The duty to notify an employer, owner or occupier first is a
+    separate duty on a different person (ss 320B-320D); s 320DA is the regulator notification. Read
+    2026-09-30 from the same XML export.'

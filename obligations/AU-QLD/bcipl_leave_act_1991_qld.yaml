@@ -1,0 +1,35 @@
+id: bcipl_leave_act_1991_qld
+source: law
+instrument_type: act
+title: Building and Construction Industry (Portable Long Service Leave) Act 1991 (Qld)
+publisher: Queensland Parliament
+jurisdictions:
+- AU-QLD
+citation:
+  url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/act-1991-090
+  access_date: '2026-09-28'
+  version: Current as at 1 February 2024
+obligations:
+- key: levy.long_service_levy.au-qld
+  duty: Confirm the portable long service leave levy has been paid before work under the building permit
+    begins
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/act-1991-090
+    clause: s 66, 67, 74, 75, 77
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: gl_journal_entry
+  clause: s 66, 67, 74, 75, 77
+  caveat: 'Liability falls on the person granted the permit or the person for whom the work is done (s
+    74), which may be the principal rather than the contractor, so this is framed as a check rather than
+    the contractor''s own payment duty. Section 77 requires the permit authority to sight proof of payment
+    before the permit issues. The current rate (0.35%) and the project-value threshold ($150,000) are
+    QLeave''s own published figures, not read in the Act or its Regulation - the Act itself sets the mechanism
+    (s 66-68) and leaves the rate to regulation (s 72). The QLD scheme was NOT replaced by a 2020 Act,
+    contrary to some secondary reporting: the 1991 Act, current as at 1 February 2024, is still in force.'
