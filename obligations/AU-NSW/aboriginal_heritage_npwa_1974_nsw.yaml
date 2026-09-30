@@ -1,0 +1,36 @@
+# SM031 M6: the second New South Wales approvals instrument. Read from the
+# Internet Archive's copy of the government's whole-Act page (archived
+# 13 December 2025), because legislation.nsw.gov.au returns HTTP 403 here. The
+# shared shape's separate plan-conditions duty is not adopted: the National Parks
+# and Wildlife Act states the harm offence and the notification duty, and a
+# cultural heritage management plan is not the instrument it uses - an Aboriginal
+# Heritage Impact Permit under s 90 is - so there is no plan-conditions clause to
+# cite from this Act.
+id: aboriginal_heritage_npwa_1974_nsw
+extends: model_aboriginal_heritage
+title: Aboriginal objects and places (National Parks and Wildlife Act 1974 (NSW))
+jurisdictions: [AU-NSW]
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1974-080
+  version: Current version as archived 13 December 2025; read 2026-09-30 from the Internet Archive copy because legislation.nsw.gov.au returns HTTP 403 to this environment
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.aboriginal_heritage_harm
+  key: approvals.aboriginal_heritage_harm.au-nsw
+  clause: s 86
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1974-080
+    clause: s 86
+    access_date: '2026-09-30'
+  caveat: 'Section 86(1) prohibits harming or desecrating an object the person knows is an Aboriginal object: 2,500 penalty units or 1 year imprisonment (5,000 units or 2 years in circumstances of aggravation) for an individual, and 10,000 units for a corporation. Section 86(2) prohibits harming an Aboriginal object the person does not know is one: 500 units (1,000 in aggravation) for an individual and 2,000 for a corporation. The defences, and the Aboriginal Heritage Impact Permit route, are in ss 87 and 90.'
+- overrides: approvals.aboriginal_heritage_find
+  key: approvals.aboriginal_heritage_find.au-nsw
+  clause: s 89A
+  grade: primary_read
+  window: null
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1974-080
+    clause: s 89A
+    access_date: '2026-09-30'
+  caveat: 'Section 89A requires a person who is aware of the location of an Aboriginal object that is Crown property, or that is real property, to notify the Secretary in the prescribed manner within a reasonable time after first becoming aware, unless the person believes on reasonable grounds that the Secretary is already aware: 100 penalty units for an individual. "Within a reasonable time" is not a fixed period, so the base''s 24-hour window is cleared rather than inherited.'

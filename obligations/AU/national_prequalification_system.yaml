@@ -1,0 +1,31 @@
+# SM031 M6: the first `own_commitments` instrument that is not a Demiton default.
+# The National Prequalification System is one document used by every participating
+# road agency, so it needs no per-state override. Read 2026-09-30 from Transport
+# and Main Roads' own copy, November 2024.
+id: national_prequalification_system
+extends: model_prequalification
+title: National Prequalification System for Civil (Road and Bridge) Construction Contracts (November 2024)
+jurisdictions: [AU]
+citation:
+  url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf
+  version: November 2024, Transport and Main Roads for the NPS Management Committee
+  access_date: '2026-09-30'
+obligations:
+- overrides: own_commitments.prequalification_standing
+  key: own_commitments.prequalification_standing.au
+  clause: cll 3, 6.2
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf
+    clause: cll 3, 6.2
+    access_date: '2026-09-30'
+  caveat: 'Clause 6.2 requires a prequalified contractor to maintain its status by submitting regular and full updates of information for assessment: up-to-date financial information annually, and company profile, company experience and technical capacity at least every three years or after a significant change. Clause 3 sets the categories, financial levels and requirements the contractor must keep meeting, and status is assessed on Contract Performance Reports. The document is Transport and Main Roads'' copy of the National Prequalification System, used by every participating agency.'
+- overrides: own_commitments.prequalification_change_notice
+  key: own_commitments.prequalification_change_notice.au
+  clause: cl 8.5
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf
+    clause: cl 8.5
+    access_date: '2026-09-30'
+  caveat: 'Clause 8.5 requires a prequalified contractor to advise Transport and Main Roads in writing immediately of any change in circumstances that may be material to its prequalification status, including any convictions or breaches of legislation or statutory regulations; any material change in ownership, holdings, management system status, financial capacity or managerial capacity; and any change to key personnel including Project Managers, Project Engineers and Supervisors. "Immediately" carries no number, so no window is recorded.'

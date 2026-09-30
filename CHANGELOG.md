@@ -6,6 +6,100 @@
   `TFNSW_GC21`, Transport for NSW's amended GC21 (C2-GC21). Its duties are
   plain GC21's plus TfNSW's own; a TfNSW contract is no longer read as plain
   GC21. 1.3.0 kept in `history/`.
+- The contractor's own repeat-purchase line
+  (`obligations/AU/demiton_repeat_purchase.yaml`). One row: an item a job
+  re-buys that its plan did not carry is rework, and an item bought across
+  three or more distinct jobs is a routine consumable. `set_by: org` with a
+  labelled 3-job default; the value an org chooses at switch-on is never
+  published.
+- SM031: an obligation can `extends` an abstract base, so shared law is written
+  once. `contracts/instrument.schema.json` and `contracts/obligation.schema.json`
+  move to 2.0.0: `abstract` and `model_type` describe a base under
+  `obligations/_model/`, `extends` points a concrete at one, and `grade` gains
+  `inherited` (a row instantiated from a base without re-reading that
+  jurisdiction's own text) and is no longer schema-required, because a base may
+  leave the grade to the concrete that first reads it. The new
+  `contracts/obligation_override.schema.json` is the row shape inside an
+  extending concrete: it names its base obligation in `overrides`, carries the
+  flattened row's own `key`, and refuses a forbidden field (`duty`,
+  `consequence`, `protection_type`, `disease`, `severity`, `evidence`) with
+  `additionalProperties: false`. `contracts/platform_obligation.schema.json`
+  widens its `grade` enum to 1.1.0 so a shelf fact can carry `inherited`.
+  `scripts/resolve.py` is new - it flattens the tree, and `scripts/validate.py`
+  imports its tree checks so the checks and the flattening cannot drift. Both
+  version bumps are taken as MAJOR deliberately; the computed bump is MINOR,
+  because nothing that validated before stops validating, and the deliberate
+  part is that an `obligations` array may now hold overrides.
+- SM031: the model WHS Act and the model WHS Regulations are held once. Seven
+  WHS/OHS Acts (ACT, NSW, NT, QLD, SA, TAS, WA) carried the same three
+  notifiable-incident duties word for word, and four WHS Regulations (ACT, NSW,
+  QLD, SA) carried the same excavation-record duty. They now extend
+  `model_whs_act_2011` and `model_whs_regulations_2011`; each keeps its own key,
+  citation and publisher, and the notice duty keeps its own caveat because the
+  states' penalties and exclusions differ. The flattened obligations are
+  unchanged: 196 before, 196 after, row for row.
+- SM031: ten shared-shape bases give the four empty sources a shape to
+  instantiate from. `approvals` gains an environmental authority, a waterway
+  barrier, vegetation clearing and Aboriginal heritage shape; `counterparties`
+  an insurer-notification shape; `workforce` the construction award and the
+  enterprise agreement; `own_commitments` prequalification, certification and
+  competency. Each carries the duty, consequence, protection type, disease,
+  severity and evidence register a concrete will inherit, and states no clause
+  and no `grade`, because the shape is drawn across instruments rather than read
+  from one - the concrete that first reads its own state's text supplies both.
+  Bases add no obligations of their own, so the flattened count stays 196.
+  [obligations/README.md](obligations/README.md) is new and states the tiers,
+  what an override may supply, and what the checks refuse.
+- SM031 M6: the sources that were empty now have their first instruments.
+  `approvals` (Queensland): an environmental authority under the Environmental
+  Protection Act 1994 (s 430, contravening a condition; s 320DA, regulator
+  notification in 24 hours), a waterway barrier works approval under the
+  Fisheries Act 1994 (s 76T, the development permit; s 76U, the fish-way
+  conditions), a vegetation clearing development approval under the Planning Act
+  2016 (s 163, assessable development without a permit; s 164, compliance with
+  the approval), and Aboriginal cultural heritage under the Aboriginal Cultural
+  Heritage Act 2003 (ss 23-24, the duty of care and unlawful harm).
+  `workforce`: the Building and Construction General On-site Award 2020
+  (MA000020, cll 19, 21-23, 30). `own_commitments`: the National Prequalification
+  System for Civil (Road and Bridge) Construction Contracts, November 2024
+  (cl 6.2, maintaining status by submitting regular and full updates; cl 8.5,
+  advising the department in writing immediately of a change of circumstances).
+  Each adopts only the duties its own instrument states, and the duties it does
+  not carry are not adopted: an environmental authority's records; a general
+  conditions duty where the Fisheries Act reaches only fish-way conditions; the
+  Vegetation Management Act's register (the chief executive's, not the
+  contractor's); the Aboriginal Cultural Heritage Act's find-reporting duty,
+  which the Act does not state; the award's employee-record duty, which is a Fair
+  Work Regulation; and the prequalification shape's separate records duty. The
+  flattened set grows from 196 to 213. New South Wales is read through the
+  Internet Archive's copies of the government's own whole-Act page and XML
+  export, because `legislation.nsw.gov.au` and `classic.austlii.edu.au` both
+  answer HTTP 403 from the build environment: an environment protection licence
+  under the Protection of the Environment Operations Act 1997 (s 64,
+  contravening a condition; s 148, immediate notification of a material-harm
+  incident), Aboriginal objects and places under the National Parks and Wildlife
+  Act 1974 (s 86, harm; s 89A, notification within a reasonable time), an
+  in-water works permit and fish passage under the Fisheries Management Act 1994
+  (s 201, the ministerial permit; ss 218-219, fishways and passage not to be
+  blocked), and native vegetation clearing under the Local Land Services Act
+  2013 (ss 60N, 60ZF). The NSW clearing regime is the Local Land Services Act,
+  not the Biodiversity Conservation Act the spec named, because that is where
+  the offence and the Panel approval live. Two rows clear a window the base
+  states - `approvals.aboriginal_heritage_find.au-nsw` and
+  `approvals.environmental_authority_incident_notice.au-nsw` - because "within a
+  reasonable time" and "immediately" are not fixed periods, and
+  `obligation_override.schema.json` now lets an override set a window to null for
+  that case. **One bucket stays empty:** `counterparties`, because an insurer's
+  notification clause lives in the policy a given org holds and no single
+  national instrument carries it - which is what this spec's own Files bullet
+  anticipated ("where a single national instrument applies").
+- TfNSW TS 00088 Minimum Requirements for Contractor Vehicles (1.0, effective
+  26 August 2025, not retrospective): `obligations/AU-NSW/tfnsw_ts00088.yaml`,
+  6 rows - registration for the contract (cl 5.1), SafeWork plant registration
+  (cl 5.4), operating information (cl 6.8), the operator's daily inspection
+  before each shift and service records (cl 6.9), and at least CLOCS-A Bronze
+  equipment on heavy vehicles, or the tier the contract manager selects (cl 8,
+  Table 1). Keyed to TfNSW's amended GC21, the same judgment call as G2-C2.
 
 - Security of payment for SA, TAS, ACT and NT: 26 rows read in each Act's
   current text (`obligations/AU-SA/sop_act_2009_sa.yaml`,

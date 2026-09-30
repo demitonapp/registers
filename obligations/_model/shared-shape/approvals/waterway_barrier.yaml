@@ -1,0 +1,56 @@
+# SM031 M3: the waterway barrier works shape. The approval exists to keep fish
+# passage open, which is why the second duty is not a records duty but a
+# build-it-right duty. Drawn across the state fisheries and water instruments,
+# so no clause and no grade are stated.
+id: model_waterway_barrier
+source: approvals
+instrument_type: permit
+title: Waterway barrier works approval (shared shape)
+publisher: Queensland Department of Primary Industries (Fisheries Queensland)
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
+  version: Shape drawn across the Water Act 2000 (Qld) waterway barrier works provisions and the Fisheries Act 1994 (Qld) accepted-development and approval rules, together with the equivalent fisheries approvals in the other states. The URL is the representative instrument (Qld Water Act 2000).
+  access_date: '2026-09-30'
+obligations:
+- key: approvals.waterway_barrier_approval
+  duty: Hold the waterway barrier works approval before building, or letting a subcontractor build, a barrier in a waterway
+  consequence: barred
+  protection_type: check
+  disease: non_compliance
+  severity: 2
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
+    access_date: '2026-09-30'
+  evidence:
+    kind: not_collected
+    register: waterway_barrier_approval
+  caveat: Each state enacts its own instrument and sets its own thresholds - in Queensland some low-risk barriers are accepted development under a code rather than approved one by one, so the concrete that extends this base must say which path its state's barrier falls on. The concrete supplies its own citation, clause and any assessment code. No register in the library holds an approval yet.
+- key: approvals.waterway_barrier_fish_passage
+  duty: Build and maintain the barrier so that fish passage is not blocked
+  consequence: breach
+  protection_type: check
+  disease: rework
+  severity: 2
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
+    access_date: '2026-09-30'
+  evidence:
+    kind: not_collected
+    register: waterway_barrier_approval
+  caveat: The design standard (culvert sizing, scour protection, passage timing) is set by the approving agency and varies by waterway and by state, so no figure is stated here. A barrier that fails this duty is rebuilt or remediated, which is why it is classified as rework rather than non-compliance. The concrete supplies its state's clause and design reference.
+- key: approvals.waterway_barrier_conditions
+  duty: Comply with the conditions of the waterway barrier works approval
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 2
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
+    access_date: '2026-09-30'
+  evidence:
+    kind: not_collected
+    register: waterway_barrier_approval
+  caveat: Conditions are imposed approval by approval - construction windows to avoid migration periods, monitoring, reinstatement - and differ per state and per waterway. The concrete that extends this base supplies its own citation, clause and conditions summary.
