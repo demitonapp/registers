@@ -271,9 +271,15 @@ def main() -> int:
 
     if args.out:
         out = Path(args.out)
-        out.mkdir(parents=True, exist_ok=True)
         for instrument in flatten():
-            (out / f"{instrument['id']}.yaml").write_text(
+            # One directory per jurisdiction, mirroring the library itself, so a
+            # consumer's `obligations/<JURISDICTION>/*.yaml` reader works against
+            # the released asset unchanged. A country-wide instrument lands under
+            # its country code, which is also where the library files it.
+            jurisdiction = (instrument.get("jurisdictions") or ["AU"])[0]
+            target = out / jurisdiction
+            target.mkdir(parents=True, exist_ok=True)
+            (target / f"{instrument['id']}.yaml").write_text(
                 yaml.safe_dump(instrument, sort_keys=False, allow_unicode=True, width=100)
             )
         print(f"{len(flatten())} instruments, {count()} obligations -> {out}")
