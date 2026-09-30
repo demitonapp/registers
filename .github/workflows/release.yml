@@ -1,8 +1,16 @@
 name: release
 
 # Tag vN on main when a consumer (the Demiton monorepo, today) should vendor a pinned
-# set of contracts. The tarball is built here and attached to the release; it is
-# never committed - `contracts/` itself is already the source of truth in git.
+# set of contracts. The tarballs are built here and attached to the release; they are
+# never committed - `contracts/`, `obligations/` and `vocab/` themselves are already
+# the source of truth in git.
+#
+# `registers-obligations-*.tar.gz` carries the FLATTENED obligation library: it is
+# built with `scripts/resolve.py --out`, which resolves the abstract bases under
+# `obligations/_model/` into the concrete instruments that extend them. A consumer
+# therefore never sees a base or an `extends` (SM031 decisions 7 and 8), and
+# `vocab/` travels with it because every jurisdiction code and instrument_type in
+# the flattened set is checked against that directory.
 on:
   push:
     tags: ["v*"]
@@ -21,10 +29,16 @@ jobs:
       - uses: astral-sh/setup-uv@v4
       - run: uv sync --locked
       - run: uv run python scripts/validate.py
+      - run: uv run python -m pytest tests/ -q
       - run: |
+          rm -rf dist
+          mkdir -p dist/obligations
+          uv run python scripts/resolve.py --out dist/obligations
+          cp -r vocab dist/vocab
           tar -czf "registers-contracts-${TAG}.tar.gz" contracts
           tar -czf "registers-research-${TAG}.tar.gz" research
           tar -czf "registers-history-${TAG}.tar.gz" history
+          tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab
         env:
           TAG: ${{ github.ref_name }}
       - run: |
@@ -32,6 +46,7 @@ jobs:
             "registers-contracts-${TAG}.tar.gz" \
             "registers-research-${TAG}.tar.gz" \
             "registers-history-${TAG}.tar.gz" \
+            "registers-obligations-${TAG}.tar.gz" \
             --generate-notes
         env:
           TAG: ${{ github.ref_name }}

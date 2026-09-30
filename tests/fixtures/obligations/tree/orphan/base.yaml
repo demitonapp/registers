@@ -1,0 +1,26 @@
+# SM031 M4 invalid fixture: the base of the orphan-override pair.
+id: orphan_base
+source: approvals
+instrument_type: consent
+title: Orphan Base (test data only)
+publisher: Fixture
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://example.invalid/orphan-base
+  access_date: "2026-09-30"
+obligations:
+  - key: orphan.notice
+    duty: Notify the orphan authority before the orphan works begin
+    consequence: barred
+    protection_type: check
+    disease: non_compliance
+    severity: 3
+    citation:
+      url: https://example.invalid/orphan-base
+      clause: s 1
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: orphan_approval

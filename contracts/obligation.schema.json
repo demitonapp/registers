@@ -1,12 +1,12 @@
 {
   "$id": "demiton:registers/obligation/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SM030: one duty an instrument places on the contractor. Lives nested under an instrument.schema.json document's `obligations[]`, never as a standalone file - an obligation with no instrument has no source. Fields mirror `Obligation` in the monorepo's onboarding.ts prototype plus severity/grade/citation, which that UI-only prototype did not need.",
-  "title": "obligation v1",
+  "$comment": "SM030: one duty an instrument places on the contractor. Lives nested under an instrument.schema.json document's `obligations[]`, never as a standalone file - an obligation with no instrument has no source. Fields mirror `Obligation` in the monorepo's onboarding.ts prototype plus severity/grade/citation, which that UI-only prototype did not need. SM031 adds the `inherited` grade (decision 6) and makes `grade` optional at the schema level: an abstract base under obligations/_model/ may leave the grade to the concrete that first reads the jurisdiction's own text (M3), and scripts/validate.py requires a grade on every obligation of a concrete instrument and on every resolved row, which the schema cannot express because it sees one document at a time.",
+  "title": "obligation v2",
   "type": "object",
   "properties": {
     "key": {
-      "description": "stable id, `<topic>.<short-name>.<form-or-jurisdiction-suffix>`, e.g. `payment.schedule_due.au-qld`. Stable across re-transcription so a correction supersedes rather than duplicates.",
+      "description": "stable id, `<topic>.<short-name>.<form-or-jurisdiction-suffix>`, e.g. `payment.schedule_due.au-qld`. Stable across re-transcription so a correction supersedes rather than duplicates. On an abstract base the suffix is the shape's name, not a place (e.g. `whs.incident_notice`), and a concrete override supplies the jurisdiction-suffixed key it flattens to.",
       "type": "string",
       "pattern": "^[a-z0-9_]+(\\.[a-z0-9_-]+)+$"
     },
@@ -70,9 +70,9 @@
       "maximum": 4
     },
     "grade": {
-      "description": "how close to the primary source the reading was",
+      "description": "how close to the primary source the reading was. `inherited` (SM031 decision 6) is the honesty guard: a concrete row instantiated from a base without re-reading this jurisdiction's text, so the register never claims it verified a clause it inherited. Optional here because an abstract base may leave the grade to the concrete that first reads it (M3); scripts/validate.py requires it on a concrete and on every resolved row.",
       "type": "string",
-      "enum": ["primary_read", "primary_via_secondary", "demiton_default"]
+      "enum": ["primary_read", "primary_via_secondary", "demiton_default", "inherited"]
     },
     "basis": {
       "description": "for a `demiton_default` grade only: the citation this default stands around (must name a real citation elsewhere in the library). A citation grade (`primary_read`/`primary_via_secondary`) must not carry this.",
@@ -115,6 +115,6 @@
       "type": "string"
     }
   },
-  "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "grade", "citation", "evidence"],
-  "x-demiton-contract-version": "1.0.0"
+  "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "citation", "evidence"],
+  "x-demiton-contract-version": "2.0.0"
 }

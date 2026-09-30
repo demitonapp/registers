@@ -1,0 +1,16 @@
+# SM031 M4 invalid fixture: an override row carrying `duty`, a forbidden field.
+# A state that genuinely differs on the duty is a new obligation under a new key
+# (decision 5), not an override - obligation_override.schema.json refuses it with
+# additionalProperties: false.
+id: fixture_forbidden_override
+extends: fixture_model_act
+title: Fixture Forbidden Override 2026 (test data only)
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/fixture-forbidden-override-2026
+  access_date: "2026-09-30"
+obligations:
+  - overrides: fixture.notice
+    key: fixture.notice.au-qld
+    duty: A different duty this state wrote for itself
+    grade: primary_read

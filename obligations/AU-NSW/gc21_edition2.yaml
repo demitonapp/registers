@@ -10,6 +10,49 @@ citation:
   access_date: '2026-09-16'
   version: Edition 2
 obligations:
+- key: closeout.final_claim.gc21_nsw
+  duty: Submit the Final Payment Claim, with every unpaid Claim, within 13 weeks after Completion
+  consequence: barred
+  protection_type: countdown
+  disease: disputes
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 61.1
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 61.1
+  window:
+    value: 91
+    unit: days
+  caveat: Any Claim not submitted before or with the Final Payment Claim is barred (cl 61.1; also cl 68.2).
+    13 weeks converted to 91 days (no 'weeks' unit). TfNSW's own amended form (C2-GC21 Ed 2 Rev 19, TFNSW_GC21)
+    states the same duty and window (cl 61.1).
+- key: delay_eot.contract_program.gc21_nsw
+  duty: Submit the Contract Program within 14 days after the Date of Contract
+  consequence: breach
+  protection_type: countdown
+  disease: forfeited_entitlements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 22.1
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  clause: cl 22.1
+  window:
+    value: 14
+    unit: days
+  caveat: The Contract Program is what every later extension-of-time claim is measured against (cl 50.1),
+    so a late one weakens those claims. TfNSW's own amended form (C2-GC21 Ed 2 Rev 19, TFNSW_GC21) states
+    the same duty and window (cl 22.1).
 - key: delay_eot.delay_notice.gc21_nsw
   duty: Notify a delay within 7 days
   consequence: reduced_per_day
@@ -135,6 +178,28 @@ obligations:
     value: 1
     unit: days
   caveat: '''Evidence of quantum'', not a penalty; resources recorded each day.'
+- key: variations.statutory_change_notice.gc21_nsw
+  duty: Notify a change in Statutory Requirements that changes the work within 7 days of becoming aware
+    of it
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.info.buy.nsw.gov.au/__data/assets/word_doc/0008/613295/gc21-edition-2-general-conditions-of-contract-070426.docx
+    clause: cl 49.1, 49.4
+    access_date: '2026-09-28'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 49.1, 49.4
+  window:
+    value: 7
+    unit: days
+  caveat: The Contract Price and dates are adjusted only 'if the Contractor has given the notice required
+    by clause 49.1' (cl 49.4), mapped to barred. TfNSW's own amended form (C2-GC21 Ed 2 Rev 19, TFNSW_GC21)
+    states the same duty and window (cl 49.1, 49.4).
 - key: variations.unordered_variation_notice.gc21_nsw
   duty: Notify an unordered variation within 7 days
   consequence: barred

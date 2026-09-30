@@ -1,0 +1,28 @@
+# SM031 M6: the fourth New South Wales approvals instrument. The clearing regime in
+# NSW is the Local Land Services Act 2013, Part 5A, not the Biodiversity
+# Conservation Act 2016: the offence for clearing native vegetation in a regulated
+# rural area, and the Panel approval route, are both in this Act. Read 2026-09-30
+# from the Internet Archive's copy of the NSW legislation XML export, because
+# legislation.nsw.gov.au returns HTTP 403 to this environment. The shared shape's
+# conditions and records duties are not adopted: this Act conditions the offence on
+# authorisation under a code or an approval rather than stating a condition-
+# compliance duty, and the notice at s 60X is a notice to Local Land Services, not
+# a record the contractor must keep.
+id: vegetation_clearing_lls_act_2013_nsw
+extends: model_vegetation_clearing
+title: Native vegetation clearing (Local Land Services Act 2013 (NSW))
+jurisdictions: [AU-NSW]
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-2013-051
+  version: Current version as archived 20 July 2025 in the NSW legislation XML export; read 2026-09-30
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.vegetation_clearing_approval
+  key: approvals.vegetation_clearing_approval.au-nsw
+  clause: ss 60N, 60ZF
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-2013-051
+    clause: ss 60N, 60ZF
+    access_date: '2026-09-30'
+  caveat: 'Section 60N makes clearing native vegetation in a regulated rural area an offence unless the landholder establishes a defence: that the clearing is an allowable activity under Division 4 and Schedule 5A, is authorised by a land management (native vegetation) code under Division 5, is authorised by an approval of the Panel under Division 6, is authorised under s 60O, or is a forestry operation authorised under Part 5B. Penalties run to $5 million for a corporation and $1 million for an individual where the offence was intentional and caused or was likely to cause significant harm, and $2 million or $500,000 otherwise. Section 60ZF is the Panel approval route, available only on category 2-regulated land for a purpose the application specifies.'
