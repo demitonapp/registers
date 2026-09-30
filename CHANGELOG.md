@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+- Victoria's SOP Act re-read in Authorised Version 015 (as at 24 June 2026,
+  after No. 43/2025). `payment.due_date.au-vic` corrected: a contract cannot
+  set payment later than 20 business days after the claim (s 12(1B)); the
+  default is 10 business days after the earliest day a claim may be served,
+  not after a schedule. Claims now need the prescribed form (s 14(2)). Two
+  new rows: 5 business days' notice before recourse to a performance
+  security (s 17H), and the window for claiming a security's release
+  (s 17A-17C).
+- GC21 Edition 2 (NSW): three rows it shares with TfNSW's amended form -
+  Contract Program within 14 days (cl 22.1), statutory change notice within
+  7 days (cl 49.1, 49.4), Final Payment Claim within 13 weeks (cl 61.1).
+- `obligations/AU-NSW/tfnsw_c2_gc21.yaml`: TfNSW's C2-GC21 Ed 2 Rev 19
+  (form `TFNSW_GC21`). Its windows match plain GC21 on every duty above;
+  the one duty only it carries is the subcontractor proof of payment
+  procedure (cl 28.3, 28.4, Schedule 17) - pay within 3 business days,
+  prove within 5.
 - `contract_terms` 1.3.1 (PATCH): `contract_form`'s vocabulary gains
   `TFNSW_GC21`, Transport for NSW's amended GC21 (C2-GC21). Its duties are
   plain GC21's plus TfNSW's own; a TfNSW contract is no longer read as plain
