@@ -1,0 +1,106 @@
+id: hswa_2015
+source: law
+instrument_type: act
+title: Health and Safety at Work Act 2015
+publisher: New Zealand Parliament
+jurisdictions:
+- NZ
+citation:
+  url: https://www.legislation.govt.nz/act/public/2015/0070/latest/DLM6544144.html
+  access_date: '2026-09-28'
+  version: Version as at 5 April 2025
+obligations:
+- key: whs.incident_notice.nz
+  duty: Notify WorkSafe NZ as soon as possible after becoming aware of a notifiable event
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2015/0070/latest/DLM6544144.html
+    clause: s 56(1)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 56(1)
+  caveat: '''As soon as possible'' - no number, so no window is recorded. Maximum penalty $10,000 for an
+    individual, $50,000 for any other person including a body corporate. The event site must also be left
+    undisturbed until an inspector authorises otherwise (s 55(1)), not recorded as its own row. A notifiable
+    event is a death, a notifiable injury or illness (s 23) or a notifiable incident (s 24) - a narrower
+    and differently-worded list than the AU model Act''s. The safety_incident register holds each incident
+    and its worst outcome, but not whether or when the regulator was told, so this is recorded not_collected.'
+- key: whs.incident_written_notice.nz
+  duty: Give written notice of a notifiable event within 48 hours when the regulator requires it
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2015/0070/latest/DLM6544144.html
+    clause: s 56(3)(b)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 56(3)(b)
+  window:
+    value: 48
+    unit: hours
+  caveat: Runs from being told the written notice is required, not from the event. Same maximum penalty
+    as s 56(1) - a failure here is a failure of that duty, not a separate offence. The safety_incident
+    register holds each incident and its worst outcome, but not whether or when the regulator was told,
+    so this is recorded not_collected.
+- key: whs.incident_record.nz
+  duty: Keep a record of each notifiable event for at least 5 years from the day notice is given
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/act/public/2015/0070/latest/DLM6544144.html
+    clause: s 57(1)
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: s 57(1)
+  window:
+    value: 60
+    unit: months
+  caveat: 5 years converted to 60 months. Maximum penalty $5,000 for an individual, $25,000 for any other
+    person - lower than s 56's, its own offence tier. The safety_incident register holds each incident
+    and its worst outcome, but not whether or when the regulator was told, so this is recorded not_collected.
+- key: whs.notifiable_work_notice.nz
+  duty: Give WorkSafe NZ written notice at least 24 hours before starting notifiable work
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.govt.nz/regulation/public/1995/0167/latest/DLM202765.html
+    clause: reg 26
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: reg 26
+  window:
+    value: 24
+    unit: hours
+  caveat: Health and Safety in Employment Regulations 1995 reg 26, amended by HSWA s 232 in 2016 rather
+    than revoked - still current law, not dead. A genuinely NZ-specific duty with no AU equivalent for
+    ordinary construction (AU's nearest analogue is an asbestos-removal notice, not a general pre-start
+    notice). 'Notifiable work' (reg 2) covers, for construction - a fall risk of 5 m or more (excluding
+    low-rise residential up to 2 storeys, ladder-only work); erecting or dismantling scaffolding with a
+    5 m or more fall risk; a lift of 500 kg or more a vertical distance of 5 m or more (excluding excavators,
+    forklifts, mobile cranes); and a pit, shaft, trench or excavation deeper than 1.5 m where the depth
+    exceeds the surface width. Emergency work is exempt (reg 26(4)). Reg 26 itself states no penalty for
+    a breach - enforced, if at all, through HSWA's general duty and offence provisions - so this is mapped
+    to breach, not offence, and the amount is not recorded. No register captures a pre-start notice of
+    this kind today; safety_incident is the closest one this library uses for a WHS notice and is recorded
+    not_collected.

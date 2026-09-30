@@ -1,0 +1,38 @@
+id: ls_leave_portable_act_2009_act
+source: law
+instrument_type: act
+title: Long Service Leave (Portable Schemes) Act 2009 (ACT)
+publisher: ACT Legislative Assembly
+jurisdictions:
+- AU-ACT
+citation:
+  url: https://www.legislation.act.gov.au/a/2009-25
+  access_date: '2026-09-28'
+  version: Republication No 30, effective 26 November 2025
+obligations:
+- key: levy.quarterly_levy.au-act
+  duty: Register as an employer within 1 month of starting work in the industry, then pay the quarterly
+    building and construction industry levy
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.act.gov.au/a/2009-25
+    clause: s 31, 50, 51, 52
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 31, 50, 51, 52
+  window:
+    value: 3
+    unit: months
+  caveat: Registration (s 31) is a strict-liability offence, 50 penalty units, due within 1 month of starting
+    to employ in the industry - the engine has no register that anchors that trigger, so only the quarterly
+    levy's own cadence is recorded as the window. The quarterly levy itself (s 50) is a separate strict-liability
+    offence, 20 penalty units; interest applies to unpaid levy (s 52). The rate for the building and construction
+    industry is set by Ministerial determination (a disallowable instrument, s 51) on the governing board's
+    recommendation, not fixed in the Act - the authority's site states 2.75% from 1 October 2024, not
+    independently confirmed here.

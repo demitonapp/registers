@@ -1,0 +1,37 @@
+id: cippl_leave_act_1985_wa
+source: law
+instrument_type: act
+title: Construction Industry Portable Paid Long Service Leave Act 1985 (WA)
+publisher: Parliament of Western Australia
+jurisdictions:
+- AU-WA
+citation:
+  url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_189_homepage.html
+  access_date: '2026-09-28'
+  version: Current as at 1 January 2026
+obligations:
+- key: levy.quarterly_return.au-wa
+  duty: Lodge the quarterly employer return and pay the contribution within 15 days after the return period
+    ends
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_189_homepage.html
+    clause: s 30, 31, 34, 35A
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 30, 31, 34, 35A
+  window:
+    value: 15
+    unit: days
+  caveat: Employer registration (s 30) is a civil penalty provision under the Industrial Relations Act
+    1979 s 83E, not a criminal offence, so this is mapped to breach rather than offence, unlike every
+    other state's scheme in this library. A surcharge applies for late payment (s 35A). The contribution
+    rate is set by regulation (~0.75% as at 2025 per the authority's own newsletter; not confirmed for
+    2026, and not read in the Regulation itself). Whether the 15 days run from the period end in business
+    or calendar days was not confirmed.

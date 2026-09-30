@@ -2,6 +2,28 @@
 
 ## Unreleased
 
+- Portable long service levies across every AU state and territory (8 rows,
+  1 per jurisdiction, `levy.*`), read in each Act's current text. Two
+  families: project-value levies payable before work starts (QLD, NSW, NT -
+  liability falls on the permit applicant or person for whom the work is
+  done, often the principal rather than the contractor, so framed as a
+  check) and wage-based recurring employer levies (VIC, WA, SA, ACT, TAS).
+  Two corrections to the research brief this replaces: QLD's Act was never
+  replaced by a 2020 Act (still the 1991 Act, current as at 1 Feb 2024), and
+  Tasmania does have a scheme (TasBuild) - it just has no standalone rate in
+  its own Act, since its levy power rides on a separate Training Fund Act.
+  Current rates and project-value thresholds mostly sit in each state's
+  Regulation, not its Act, so are recorded from the authority's own site
+  where cited, not asserted as primary-read.
+
+- New Zealand's Health and Safety at Work Act 2015: `obligations/NZ/hswa_2015.yaml`,
+  read in the current version (as at 5 April 2025). Notify WorkSafe NZ as soon
+  as possible after a notifiable event (s 56(1)), written notice within 48
+  hours when required (s 56(3)(b)), keep the record 5 years (s 57(1)); plus a
+  genuinely NZ-specific duty with no AU equivalent - 24 hours' written notice
+  before starting defined "notifiable work" (falls, scaffolding, lifts, deep
+  narrow excavations), under the still-current Health and Safety in
+  Employment Regulations 1995 reg 26.
 - Victoria's SOP Act re-read in Authorised Version 015 (as at 24 June 2026,
   after No. 43/2025). `payment.due_date.au-vic` corrected: a contract cannot
   set payment later than 20 business days after the claim (s 12(1B)); the
