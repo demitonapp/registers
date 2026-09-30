@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- `contract_terms` 1.3.1 (PATCH): `contract_form`'s vocabulary gains
+  `TFNSW_GC21`, Transport for NSW's amended GC21 (C2-GC21). Its duties are
+  plain GC21's plus TfNSW's own; a TfNSW contract is no longer read as plain
+  GC21. 1.3.0 kept in `history/`.
 - The contractor's own repeat-purchase line
   (`obligations/AU/demiton_repeat_purchase.yaml`). One row: an item a job
   re-buys that its plan did not carry is rework, and an item bought across
