@@ -1,0 +1,133 @@
+id: tfnsw_ts00088
+source: principal
+instrument_type: specification
+title: TfNSW TS 00088 Minimum Requirements for Contractor Vehicles
+publisher: Transport for NSW
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+  access_date: '2026-09-28'
+  version: TS 00088:1.0, issued 26 August 2024, effective 26 August 2025
+obligations:
+- key: vehicles.registration.ts00088_nsw
+  duty: Keep every light and heavy road vehicle fully registered, and road-registrable plant fully or
+    conditionally registered, for the whole contract
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 5.1
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: vehicle_list
+  clause: cl 5.1
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025; not retrospective (cl 2).
+    applies_to_form recorded as TfNSW's amended GC21, the form TfNSW lets its construction contracts on -
+    the same judgment call as G2-C2. The vehicle register does not record registration expiry, so this is
+    recorded not_collected.
+- key: vehicles.plant_registration.ts00088_nsw
+  duty: Keep registrable plant, both its design and the item, registered with SafeWork NSW for the whole
+    contract, and never use or let anyone use plant without a current registration certificate
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 5.4
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: plant_registration
+    system_type: site_and_field
+  clause: cl 5.4
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025 (cl 2); same applies_to_form
+    judgment call as the registration row.
+- key: vehicles.operating_information.ts00088_nsw
+  duty: Keep each vehicle's and plant item's operator manual and safety information, and the plant risk
+    assessment and SWMS for high-risk activities, available to the operator
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 6.8
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: plant_risk_assessment
+    system_type: site_and_field
+  clause: cl 6.8
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025 (cl 2). The plant risk
+    assessment register evidences the risk assessments; manuals and SWMS are not recorded in it.
+- key: vehicles.daily_inspection.ts00088_nsw
+  duty: Have the operator carry out and record a daily inspection of each vehicle and plant item before
+    every shift, and keep the report in the vehicle
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 6.9
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: plant_prestart
+    system_type: site_and_field
+  clause: cl 6.9
+  window:
+    value: 1
+    unit: days
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025 (cl 2). "Before the
+    commencement of each shift" - recorded as a 1-day window; a second shift in a day is not measured
+    separately.
+- key: vehicles.service_records.ts00088_nsw
+  duty: Keep each vehicle's service records available in the vehicle
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 6.9
+    access_date: '2026-09-28'
+  evidence:
+    kind: register
+    register: maintenance_record
+  clause: cl 6.9
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025 (cl 2). Telematics maintenance
+    schedules (TN360 service intervals) can fill the maintenance register; evidence.system_type has no
+    telematics value yet.
+- key: vehicles.clocs_a_tier.ts00088_nsw
+  duty: Fit every heavy vehicle with at least the CLOCS-A Bronze safety equipment, or the higher tier the
+    TfNSW contract manager selects
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://standards.transport.nsw.gov.au/_entity/annotation/00ebaef3-4c63-ef11-a670-002248115d0b
+    clause: cl 8; Table 1
+    access_date: '2026-09-28'
+  evidence:
+    kind: not_collected
+    register: vehicle_list
+  clause: cl 8
+  caveat: Binds TfNSW construction contracts let on or after 26 August 2025 (cl 2). Table 1 calls Bronze "the
+    minimum mandatory specification for all heavy vehicles complying with this document"; the contract manager
+    chooses the tier by cost, risk and performance (cl 2). A heavy vehicle must also meet sections 5 and 6.
+    TS 00088 adopts CLOCS-A's vehicle equipment, not the whole CLOCS-A Standard (obligations/AU/clocs_a_standard.yaml),
+    and its Silver list differs from CLOCS-A's in places. The vehicle register does not record fitted
+    equipment, so this is recorded not_collected.
