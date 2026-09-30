@@ -1,0 +1,46 @@
+# SM031 M3: the certification shape. A certification is evidence another
+# source's duty depends on - a quality specification that requires a certified
+# management system, a contract that requires certified welding or product
+# conformity - so the duty is to hold a current one, and to be able to show it.
+# ISO 9001 through an accredited certification body is the representative case.
+id: model_certification
+source: own_commitments
+instrument_type: certification
+title: Management system or product certification (shared shape)
+publisher: Joint Accreditation System of Australia and New Zealand
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.jasanz.org
+  version: Shape drawn across the certifications a civil contractor is required to hold - an ISO 9001 quality management system certification issued by a JAS-ANZ accredited body, ISO 45001, ISO 14001, and the product and welding certifications - and the audit cycle that keeps each current. The URL is the accreditation authority for the bodies that issue them. No single certificate was read.
+  access_date: '2026-09-30'
+obligations:
+- key: own_commitments.certification_current
+  duty: Hold the certification that the contract, the specification or the company's own management system requires, and keep it current through its surveillance audits
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 2
+  citation:
+    url: https://www.jasanz.org
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: certification
+    system_type: document_store
+  caveat: Which certification is required is set by another instrument - the principal's specification, the contract, or the contractor's own system - so no clause is stated here and the concrete that extends this base supplies both the citation and the certificate's scope and expiry. Certification is granted for a cycle of surveillance audits rather than for a fixed term set by legislation, so no window is stated. Lapsing is a breach of the instrument that required it rather than an offence under this one.
+- key: own_commitments.certification_records
+  duty: Keep the current certificate and the audit records that support it, including nonconformities and their closeout
+  consequence: breach
+  protection_type: check
+  disease: rework
+  severity: 3
+  citation:
+    url: https://www.jasanz.org
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: certification
+    system_type: document_store
+  caveat: An audit that finds nonconformities generates rework before it generates a penalty, and a lapsed or suspended certificate is usually found at the next audit or at tender, which is why this row is classified as rework rather than non-compliance. The certification body sets what must be retained and for how long; the concrete supplies its own citation and clause.

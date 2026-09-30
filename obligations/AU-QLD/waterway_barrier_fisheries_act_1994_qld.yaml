@@ -1,0 +1,34 @@
+# SM031 M6: the second approvals concrete. The Fisheries Act 1994 (Qld) governs
+# waterway barrier works; since the Planning Act 2016 moved the approval itself
+# into the planning system, the Fisheries Act's own operative provisions are the
+# two penalty sections read here. The shared shape's general "comply with the
+# conditions" duty is not adopted as a separate row, because s 76U reaches only
+# the fish-way conditions, and every other condition is enforced by the Planning
+# Act 2016 s 164.
+id: waterway_barrier_fisheries_act_1994_qld
+extends: model_waterway_barrier
+title: Waterway barrier works approval (Fisheries Act 1994 (Qld))
+jurisdictions: [AU-QLD]
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-037
+  version: In force version as at 2026-09-30, read from the Office of the Queensland Parliamentary Counsel XML export
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.waterway_barrier_approval
+  key: approvals.waterway_barrier_approval.au-qld
+  clause: s 76T
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-037
+    clause: s 76T
+    access_date: '2026-09-30'
+  caveat: 'Building or raising a waterway barrier works is assessable development and needs a development permit. Section 76T sets the maximum penalty for the Planning Act 2016 s 163(1) offence as it applies to fisheries development: 4,500 penalty units, or the higher amount the regulation sets for the category the development falls in. The permit itself is applied for and assessed under the Planning Act 2016 and the Planning Regulation 2017, not under this Act.'
+- overrides: approvals.waterway_barrier_fish_passage
+  key: approvals.waterway_barrier_fish_passage.au-qld
+  clause: s 76U(1), (2)
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-037
+    clause: s 76U(1), (2)
+    access_date: '2026-09-30'
+  caveat: 'Section 76U is the offence for not complying with a waterway barrier works development approval condition about either the design or construction of a fish way, or the monitoring or operation of a fish way: 2,000 penalty units. That is the fish-passage duty in this Act. Every other condition of the approval is enforced by the Planning Act 2016 s 164, so the shared shape''s general conditions duty is not adopted here.'

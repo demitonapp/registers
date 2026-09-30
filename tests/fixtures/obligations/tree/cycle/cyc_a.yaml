@@ -1,0 +1,14 @@
+# SM031 M4 invalid fixture: a cycle in `extends`. Two instruments each point at
+# the other, so nothing can be flattened and resolve.tree_errors must say so
+# rather than recurse.
+id: cyc_a
+extends: cyc_b
+title: Cycle A (test data only)
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/cycle-a
+  access_date: "2026-09-30"
+obligations:
+  - overrides: cycle.one
+    key: cycle.one.au-qld
+    grade: primary_read

@@ -1,0 +1,27 @@
+# SM031 M1 invalid fixture: an abstract base that names a jurisdiction. A base
+# binds no job, so it names no place (decision 2).
+id: fixture_placed_base
+source: law
+instrument_type: act
+title: Fixture Placed Base 2026 (test data only)
+publisher: Fixture Parliament
+jurisdictions: [AU-QLD]
+abstract: true
+model_type: model_law
+citation:
+  url: https://example.invalid/fixture-placed-base-2026
+  access_date: "2026-09-30"
+obligations:
+  - key: fixture.notice
+    duty: Notify the fixture authority immediately after the fixture event
+    consequence: offence
+    protection_type: watch
+    disease: non_compliance
+    severity: 2
+    citation:
+      url: https://example.invalid/fixture-placed-base-2026
+      clause: s 1
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: fixture_register
