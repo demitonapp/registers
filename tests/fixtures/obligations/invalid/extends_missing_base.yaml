@@ -1,0 +1,13 @@
+# SM031 M1 invalid fixture: `extends` names an id no instrument in the tree
+# carries. The single-document schema cannot see this; resolve.tree_errors must.
+id: fixture_orphan_concrete
+extends: fixture_no_such_base
+title: Fixture Orphan Concrete 2026 (test data only)
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/fixture-orphan-2026
+  access_date: "2026-09-30"
+obligations:
+  - overrides: fixture.notice
+    key: fixture.notice.au-qld
+    grade: primary_read

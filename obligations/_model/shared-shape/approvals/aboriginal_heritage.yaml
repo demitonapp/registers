@@ -1,0 +1,60 @@
+# SM031 M3: the Aboriginal cultural heritage shape. The stop-work duty is the
+# one that costs a job its programme if it is missed, and it fires on an event
+# rather than a date, so it is a watch with a default window rather than a
+# countdown. No clause and no grade are stated - the shape is drawn across the
+# state cultural heritage instruments, it was not read clause by clause.
+id: model_aboriginal_heritage
+source: approvals
+instrument_type: consent
+title: Aboriginal cultural heritage consent or permit (shared shape)
+publisher: Queensland Department of Treaty, Aboriginal and Torres Strait Islander Partnerships, Communities and the Arts
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+  version: Shape drawn across the Aboriginal Cultural Heritage Act 2003 (Qld) and its duty-of-care provisions, together with the equivalent Aboriginal heritage instruments in the other states (the Aboriginal Heritage Act 2006 (Vic), the Aboriginal Heritage Act 1972 (WA), the National Parks and Wildlife Act 1974 (NSW)). The URL is the representative instrument (Qld).
+  access_date: '2026-09-30'
+obligations:
+- key: approvals.aboriginal_heritage_harm
+  duty: Do not harm Aboriginal cultural heritage on the site without the consent, permit or approved management plan the state's instrument requires
+  consequence: barred
+  protection_type: check
+  disease: non_compliance
+  severity: 1
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+    access_date: '2026-09-30'
+  evidence:
+    kind: not_collected
+    register: aboriginal_cultural_heritage
+  caveat: Each state enacts its own instrument, its own definition of cultural heritage and its own duty of care, and the penalties differ widely. The concrete that extends this base supplies its own citation, clause and consent route. Severity is 1 because harm to heritage, or work stopped over it, puts the whole entitlement to be on site at risk, not just a payment.
+- key: approvals.aboriginal_heritage_find
+  duty: Stop work in the area and report the find to the regulator and the Aboriginal party within the window the state's instrument states
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  severity: 2
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+    access_date: '2026-09-30'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  window:
+    value: 24
+    unit: hours
+  caveat: The window is the shape's own default and not read from one state's text - the states differ on how fast a discovery must be reported, and some require work to stop first and notify afterwards. The safety_incident register holds the find as an event on the job; it does not hold who was told or when, so the notice half of this duty is not evidenced by it. The concrete supplies the true window and clause.
+- key: approvals.aboriginal_heritage_plan_conditions
+  duty: Comply with the conditions of the cultural heritage management plan for the work
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  severity: 2
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+    access_date: '2026-09-30'
+  evidence:
+    kind: not_collected
+    register: aboriginal_cultural_heritage
+  caveat: A management plan is imposed work area by work area, and its conditions - monitors present, no-go zones, salvage procedure - differ per state and per Aboriginal party. The concrete that extends this base supplies its own citation, clause and plan reference.

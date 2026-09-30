@@ -1,0 +1,29 @@
+# SM031 M1: a base under obligations/_model/. Abstract, no jurisdiction, no
+# grade on its duty (the concrete that first reads a jurisdiction supplies it).
+# Not part of the real library.
+id: fixture_model_act
+source: law
+instrument_type: act
+title: Fixture Model Act 2026 (test data only)
+publisher: Fixture Parliament
+jurisdictions: []
+abstract: true
+model_type: model_law
+citation:
+  url: https://example.invalid/fixture-model-act-2026
+  version: "2026"
+  access_date: "2026-09-30"
+obligations:
+  - key: fixture.notice
+    duty: Notify the fixture authority immediately after the fixture event
+    consequence: offence
+    protection_type: watch
+    disease: non_compliance
+    severity: 2
+    citation:
+      url: https://example.invalid/fixture-model-act-2026
+      clause: s 1
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: fixture_register

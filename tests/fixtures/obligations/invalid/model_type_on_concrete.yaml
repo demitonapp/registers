@@ -1,0 +1,27 @@
+# SM031 M1 invalid fixture: `model_type` on a concrete. It describes which tier
+# a base is, and nothing else.
+id: fixture_concrete_with_model_type
+source: law
+instrument_type: act
+title: Fixture Concrete With Model Type 2026 (test data only)
+publisher: Fixture Parliament
+jurisdictions: [AU-QLD]
+model_type: model_law
+citation:
+  url: https://example.invalid/fixture-concrete-model-type-2026
+  access_date: "2026-09-30"
+obligations:
+  - key: fixture.notice.au-qld
+    duty: Notify the fixture authority immediately after the fixture event
+    consequence: offence
+    protection_type: watch
+    disease: non_compliance
+    severity: 2
+    grade: primary_read
+    citation:
+      url: https://example.invalid/fixture-concrete-model-type-2026
+      clause: s 1
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: fixture_register

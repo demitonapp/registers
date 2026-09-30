@@ -113,3 +113,25 @@ more distinct jobs is a routine consumable, and a repeat order of anything else
 is rework. That is the frequency baseline Demiton's rework check already
 applied, so an org that switches the obligation on without choosing a value
 sees the same results it saw before.
+### 6.2 Inheritance is an authoring concern of this repository
+
+Some law is shared. Seven states and territories enacted the model WHS Act, so
+before SM031 seven files carried its three notifiable-incident duties word for
+word. An abstract **base** under `obligations/_model/` now holds such a duty
+once, and each jurisdiction's file is a thin override of the citation and
+clause. [obligations/README.md](obligations/README.md) is the rule book: the
+three tiers, what an override may supply, and what the checks refuse.
+
+**The inheritance never leaves this repository.** `scripts/resolve.py` flattens
+the tree - merging each concrete with its base and emitting the resolved
+instruments - and a consumer vendors that flattened set. So a consumer never
+sees a base, an `extends` or an `overrides` row, and the rows a project reads
+are exactly the rows it read before the base existed. `_model/` is excluded from
+the released artifact, because a base binds no job and publishing it as runnable
+would invent a jurisdiction.
+
+Two consequences for a contributor. A base is not a shortcut past the citation
+rule: the concrete still carries a `citation` to its own jurisdiction's text, and
+its row carries a `grade`. And a `grade: inherited` row is a promise not made -
+it says this clause was instantiated from a base rather than re-read, so nobody
+downstream mistakes it for a verified one.

@@ -1,0 +1,24 @@
+# SM031 M6: the fourth approvals concrete. The Aboriginal Cultural Heritage Act
+# 2003 (Qld) states the duty of care and the harm offence, and exempts harm done
+# under an approved cultural heritage management plan. It states no duty to
+# report a find, so that row of the shared shape is not adopted - the find is
+# reported under the plan's own conditions, or under another instrument, and
+# there is no clause here to cite for it.
+id: aboriginal_heritage_acha_2003_qld
+extends: model_aboriginal_heritage
+title: Aboriginal cultural heritage (Aboriginal Cultural Heritage Act 2003 (Qld))
+jurisdictions: [AU-QLD]
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+  version: In force version as at 2026-09-30, read from the Office of the Queensland Parliamentary Counsel XML export
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.aboriginal_heritage_harm
+  key: approvals.aboriginal_heritage_harm.au-qld
+  clause: ss 23-24
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
+    clause: ss 23-24
+    access_date: '2026-09-30'
+  caveat: 'Section 23 is the cultural heritage duty of care: take all reasonable and practicable measures to ensure the activity does not harm Aboriginal cultural heritage. Maximum penalty 1,000 penalty units for an individual and 10,000 for a corporation. Section 24 makes it an offence to harm Aboriginal cultural heritage the person knows, or ought reasonably to know, is Aboriginal cultural heritage, and s 24(2) exempts harm done under an authority under the Act or under an approved cultural heritage management plan, which is also where the plan''s conditions are enforced. NOT adopted from the shape: the 24-hour find-reporting duty (this Act states none) and the separate plan-conditions duty (s 24(2)(b) is the exemption the harm row already cites).'

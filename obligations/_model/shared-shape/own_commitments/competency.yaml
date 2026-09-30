@@ -1,0 +1,48 @@
+# SM031 M3: the competency shape. The duty is personal to the operator and to
+# the task: a high risk work licence, a ticket for the plant, a competency
+# assessed for the activity. The work health and safety regulation is what
+# makes holding it compulsory, which is why the first row is an offence and the
+# second, keeping the evidence, is the check that lets a site prove it.
+id: model_competency
+source: own_commitments
+instrument_type: competency
+title: Operator licence, ticket or competency (shared shape)
+publisher: Queensland Parliament
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240
+  version: Shape drawn across the work health and safety licensing provisions each state enacts - the Work Health and Safety Regulation 2011 (Qld), Part 4.5 (High risk work), is the representative instrument at the URL - together with the plant and task tickets the principal's specifications require. The model law each of those states enacted is already held in this library as model_whs_act_2011.
+  access_date: '2026-09-30'
+obligations:
+- key: own_commitments.competency_hold
+  duty: Hold the current licence, ticket or assessed competency that the plant or the task requires before operating it
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240
+    clause: Part 4.5 (High risk work)
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: ticket
+    system_type: document_store
+  caveat: The clause is given as a Part rather than a section because the shape was not read section by section - the concrete that extends this base supplies the exact section, and its own state's regulation, since each state enacts its own. The register named here (ticket) and its system type are this row's own naming, because the library today holds plant_registration, plant_prestart and plant_risk_assessment for the plant itself, and none of them holds the operator's licence, so the concrete should confirm the shelf_type before it relies on it.
+- key: own_commitments.competency_evidence
+  duty: Keep the licence or competency assessment current and available to show on request, including renewal before it expires
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 1
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240
+    clause: Part 4.5 (High risk work)
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: ticket
+    system_type: document_store
+  caveat: A licence that has expired but not yet been renewed stops the plant working that day, so the practical cost lands on the programme as well as on the regulator; it is classified here as non-compliance at severity 1 because the standing of the person on site is the thing at risk. The formal renewal window is set by the licensing regulator, not by the regulation's substantive duty, so no window is stated and the concrete supplies its own.
