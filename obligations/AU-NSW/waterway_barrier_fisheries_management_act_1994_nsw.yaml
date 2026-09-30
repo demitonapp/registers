@@ -1,0 +1,35 @@
+# SM031 M6: the third New South Wales approvals instrument. The Fisheries
+# Management Act 1994 (NSW) regulates in-water works through a ministerial permit
+# (s 201) and protects fish passage directly (ss 218-219). Read 2026-09-30 from the
+# Internet Archive's copy of the NSW legislation XML export, because
+# legislation.nsw.gov.au returns HTTP 403 to this environment. The shared shape's
+# separate conditions duty is not adopted: this Act creates the permit and the
+# fish-passage offence, and the permit's general conditions are enforced
+# elsewhere, so there is no condition-compliance clause here to cite.
+id: waterway_barrier_fisheries_management_act_1994_nsw
+extends: model_waterway_barrier
+title: In-water works permit and fish passage (Fisheries Management Act 1994 (NSW))
+jurisdictions: [AU-NSW]
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1994-038
+  version: Current version as archived by the Internet Archive in a 2025 capture of the NSW legislation XML export; read 2026-09-30
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.waterway_barrier_approval
+  key: approvals.waterway_barrier_approval.au-nsw
+  clause: s 201(1)
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1994-038
+    clause: s 201(1)
+    access_date: '2026-09-30'
+  caveat: 'Section 201(1) prohibits carrying out dredging work or reclamation work except under the authority of a permit issued by the Minister: 2,000 penalty units for a corporation and 1,000 otherwise. Section 201(2) excludes work authorised under the Crown Land Management Act 2016, work carried out or authorised by a relevant public authority including a local government authority, and work the regulations exclude.'
+- overrides: approvals.waterway_barrier_fish_passage
+  key: approvals.waterway_barrier_fish_passage.au-nsw
+  clause: ss 218-219
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1994-038
+    clause: ss 218-219
+    access_date: '2026-09-30'
+  caveat: 'Section 219(1) makes it an offence to construct or alter a dam, floodgate, causeway or weir, or otherwise create an obstruction, so that fish will or could be blocked or left stranded or the free passage of fish obstructed: 2,000 penalty units for a corporation and 1,000 otherwise, and the court may order the obstruction removed. Section 218 lets the Minister order a person who constructs, alters or modifies a dam, weir or reservoir on a waterway to build a fishway or fish by-pass within a stated period, and s 218(5) requires a public authority to notify the Minister of a proposal and to include a fishway if the Minister asks.'

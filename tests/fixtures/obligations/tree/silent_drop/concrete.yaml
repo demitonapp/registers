@@ -1,0 +1,14 @@
+# SM031 M4 invalid fixture: covers drop.one and says nothing about drop.two.
+# That silence is the failure decision 10 refuses; dropping a duty must be an
+# explicit `removed: true` row.
+id: silent_drop_concrete
+extends: silent_drop_base
+title: Silent Drop Concrete (test data only)
+jurisdictions: [AU-QLD]
+citation:
+  url: https://example.invalid/silent-drop-concrete
+  access_date: "2026-09-30"
+obligations:
+  - overrides: drop.one
+    key: drop.one.au-qld
+    grade: primary_read

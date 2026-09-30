@@ -1,0 +1,47 @@
+id: demiton_repeat_purchase_au
+source: own_commitments
+instrument_type: practice_standard
+title: Repeat purchases (the contractor's own commitment)
+publisher: Demiton
+jurisdictions:
+- AU
+citation:
+  url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+  access_date: '2026-09-29'
+  version: section 6.1
+obligations:
+- key: rework.repeat_purchase.au
+  duty: Plan the consumables a job will use instead of re-buying them order by
+    order - a repeat order of an item the job plan did not carry is rework, and
+    the same item bought across enough jobs is a planned consumable rather than
+    rework
+  consequence: guidance
+  protection_type: threshold
+  disease: rework
+  severity: 4
+  grade: demiton_default
+  basis: Demiton rework check rule (a repeat order of an item the job plan did not
+    carry), METHOD.md section 6.1
+  citation:
+    url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+    clause: section 6.1
+    access_date: '2026-09-29'
+  evidence:
+    kind: register
+    register: purchase_line
+    system_type: finance
+  threshold:
+    direction: min
+    value: 3
+    unit: jobs
+    set_by: org
+  caveat: No public instrument sets a contractor's own line on repeat purchases;
+    the duty is the contractor's own commitment (SM030 decision 23). `value` is
+    the number of distinct jobs at which the same item stops being rework and
+    becomes a routine consumable, so a higher value treats fewer repeats as
+    routine and a lower one treats more. 3 is the frequency baseline Demiton's
+    rework check already applied, so switching the obligation on without choosing
+    a value changes nothing. The org sets its own value at switch-on and that
+    value is never published. Measured against the job's purchase lines and the
+    planned quantity for the cost code; a job with no planned quantity is not
+    measured.

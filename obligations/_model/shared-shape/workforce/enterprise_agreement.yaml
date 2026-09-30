@@ -1,0 +1,47 @@
+# SM031 M3: the enterprise agreement shape. An agreement never removes the
+# award's floor - it has to leave every employee better off overall - so the
+# duty here is to apply the agreement where it operates and to fall back to the
+# award where it does not. Disagreement about which instrument applied to a
+# period of work is a dispute, which is why the first row is classified that
+# way rather than as simple non-compliance.
+id: model_enterprise_agreement
+source: workforce
+instrument_type: enterprise_agreement
+title: Enterprise agreement application and records (shared shape)
+publisher: Fair Work Commission
+jurisdictions: []
+abstract: true
+model_type: shared_shape
+citation:
+  url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement
+  version: The shape is drawn across approved enterprise agreements and the way they operate over a modern award, not read from one agreement. The URL is the Fair Work Ombudsman's official page for finding the agreement that applies to an employer; the base of the instrument family is the Fair Work Act 2009 (Cth) Part 2-4.
+  access_date: '2026-09-30'
+obligations:
+- key: workforce.enterprise_agreement_apply
+  duty: Apply the enterprise agreement's terms to the employees it covers, and the award's terms where it does not, for every period of work
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  severity: 3
+  citation:
+    url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: timesheet_entry
+    system_type: site_and_field
+  caveat: This row states no clause because the shape is drawn across agreements rather than read from one. Which clauses operate over the award, and the Better Off Overall Test the agreement passed, live in the individual agreement the concrete names. The citation points at the regulator's own register of agreements, which is secondary to the agreement text itself, so no grade is claimed. The concrete that extends this base supplies the agreement's own citation and clause.
+- key: workforce.enterprise_agreement_records
+  duty: Keep the records the agreement and the Fair Work Act require for each employee it covers
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  severity: 3
+  citation:
+    url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement
+    access_date: '2026-09-30'
+  evidence:
+    kind: register
+    register: timesheet_entry
+    system_type: site_and_field
+  caveat: The record-keeping obligation itself sits in the Fair Work Act 2009 (Cth) s 535 and the Fair Work Regulations 2009 (Cth) regs 3.31-3.46, which every agreement adopts; an individual agreement can add records it requires (consultation steps, dispute outcomes). The library records the federal baseline under fair_work.records.au, and this row is the agreement-side duty to be read with it. The concrete supplies its own citation and clause.

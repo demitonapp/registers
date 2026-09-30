@@ -1,0 +1,34 @@
+# SM031 M6: the third approvals concrete. In Queensland the prohibition on
+# clearing native vegetation without a permit, and the offence for breaching the
+# approval's conditions, are in the Planning Act 2016; the Vegetation Management
+# Act 1999 supplies the assessment framework and the accepted-development codes
+# (s 19Q), and states no clearing offence of its own. The instrument here is
+# therefore the Planning Act, which is where the duties a contractor must meet
+# actually live, and the Vegetation Management Act is named in the caveat.
+id: vegetation_clearing_planning_act_2016_qld
+extends: model_vegetation_clearing
+title: Vegetation clearing development approval (Planning Act 2016 (Qld))
+jurisdictions: [AU-QLD]
+citation:
+  url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2016-025
+  version: In force version as at 2026-09-30, read from the Office of the Queensland Parliamentary Counsel XML export
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.vegetation_clearing_approval
+  key: approvals.vegetation_clearing_approval.au-qld
+  clause: s 163
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2016-025
+    clause: s 163
+    access_date: '2026-09-30'
+  caveat: 'Section 163(1) prohibits carrying out assessable development unless every necessary development permit is in effect: 4,500 penalty units, or 17,000 on a Queensland or local heritage place. Vegetation clearing is scheduled as assessable development by the Planning Regulation 2017, and the Vegetation Management Act 1999 s 19Q makes clearing that complies with an accepted development vegetation clearing code accepted development, so code-compliant clearing needs no permit.'
+- overrides: approvals.vegetation_clearing_conditions
+  key: approvals.vegetation_clearing_conditions.au-qld
+  clause: s 164
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2016-025
+    clause: s 164
+    access_date: '2026-09-30'
+  caveat: 'Section 164 prohibits contravening a development approval: 4,500 penalty units. The shared shape''s records duty is NOT adopted: the Vegetation Management Act 1999 keeps a register of clearing notifications (s 115), but that is the chief executive''s register to keep, not a record the contractor must hold, so there is no clause to cite.'
