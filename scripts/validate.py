@@ -107,6 +107,18 @@ def obligation_data_files() -> list[Path]:
     return sorted(ROOT.glob("obligations/*/*.yaml"))
 
 
+def model_data_files() -> list[Path]:
+    """SM031: the abstract bases under `obligations/_model/`. The concrete glob
+    above cannot reach them - pathlib's `*` does not cross `/`, so
+    `obligations/_model/model-law/whs_act_2011.yaml` is one segment too deep and
+    was never matched. Before this package a base was simply never validated."""
+    return sorted(ROOT.glob("obligations/_model/**/*.yaml"))
+
+
+def instrument_data_files() -> list[Path]:
+    return model_data_files() + obligation_data_files()
+
+
 def _load_vocab(name: str) -> dict:
     return json.loads((ROOT / "vocab" / f"{name}.json").read_text())
 
@@ -114,9 +126,11 @@ def _load_vocab(name: str) -> dict:
 def _obligation_schema_registry() -> tuple[dict, Registry]:
     instrument_schema = json.loads((ROOT / "contracts" / "instrument.schema.json").read_text())
     obligation_schema = json.loads((ROOT / "contracts" / "obligation.schema.json").read_text())
+    override_schema = json.loads((ROOT / "contracts" / "obligation_override.schema.json").read_text())
     resources = [
         (instrument_schema["$id"], Resource.from_contents(instrument_schema)),
         (obligation_schema["$id"], Resource.from_contents(obligation_schema)),
+        (override_schema["$id"], Resource.from_contents(override_schema)),
     ]
     registry: Registry = Registry().with_resources(resources)  # type: ignore[assignment]
     return instrument_schema, registry
@@ -160,6 +174,8 @@ def validate_instrument_doc(
     if source is not None and source not in sources:
         errors.append(f"{label}: source {source!r} is not in vocab/sources.json")
 
+    is_override_doc = "extends" in doc
+    is_abstract = doc.get("abstract") is True
     for obligation in doc.get("obligations") or []:
         if not isinstance(obligation, dict):
             continue
@@ -171,8 +187,18 @@ def validate_instrument_doc(
                 seen_keys[key] = label
         if obligation.get("grade") == "demiton_default" and not obligation.get("basis"):
             errors.append(f"{label}: {key}: a demiton_default row must name its basis")
-        if obligation.get("grade") != "demiton_default" and obligation.get("basis"):
+        if obligation.get("grade") not in (None, "demiton_default") and obligation.get("basis"):
             errors.append(f"{label}: {key}: basis is only for a demiton_default grade")
+        if is_override_doc:
+            # SM031: an override is not a whole obligation - duty, protection_type
+            # and disease live on the base it names, so the threshold and grade
+            # checks below would misread it. The override schema carries its own.
+            continue
+        if not is_abstract and not obligation.get("grade"):
+            errors.append(
+                f"{label}: {key}: a concrete obligation must carry a grade - only an abstract base "
+                f"may leave it to the concrete that first reads the jurisdiction's text"
+            )
         is_threshold = obligation.get("protection_type") == "threshold"
         if is_threshold and not obligation.get("threshold"):
             errors.append(f"{label}: {key}: a threshold obligation must say its threshold (direction, set_by)")
@@ -183,12 +209,12 @@ def validate_instrument_doc(
 
 
 def validate_obligation_data() -> tuple[list[str], list[str]]:
-    """Every `obligations/*/*.yaml` instrument in the real tree."""
+    """Every instrument in the real tree: the concretes and the SM031 bases."""
     errors: list[str] = []
     warnings: list[str] = []
     seen_keys: dict[str, str] = {}
 
-    for path in obligation_data_files():
+    for path in instrument_data_files():
         rel = str(path.relative_to(ROOT))
         try:
             doc = yaml.safe_load(path.read_text())
@@ -196,6 +222,15 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
             errors.append(f"{rel}: not valid YAML: {exc}")
             continue
         errors.extend(validate_instrument_doc(doc, rel, seen_keys=seen_keys))
+
+    # SM031: the checks one document cannot reach - id uniqueness, a resolvable
+    # and acyclic `extends`, an abstract target, an override that names a real
+    # base obligation, and no silent drop from a model_law base. They live in
+    # resolve.py, which also owns the flattening, so the two can never drift.
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import resolve  # noqa: PLC0415 - script-local, mirrors how the tests import validate
+
+    errors.extend(resolve.tree_errors())
 
     return errors, warnings
 
@@ -258,7 +293,7 @@ def main() -> int:
         print(f"warning: {w}")
     for e in errors:
         print(f"error: {e}")
-    total = len(research_schemas()) + len(shaped_contracts()) + len(obligation_data_files())
+    total = len(research_schemas()) + len(shaped_contracts()) + len(instrument_data_files())
     print(f"{len(errors)} error(s), {len(warnings)} warning(s), {total} document(s) checked")
     return 1 if errors else 0
 

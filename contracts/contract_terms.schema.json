@@ -6,7 +6,7 @@
       "description": "The standard conditions of contract the document is based on (amended or not), so an evidence standard can fall back to the form's own notice windows when the contract states none.",
       "type": "string",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "n/a (closed vocabulary, enforced by the parser: `GC21`, `TMR_TIC`, `MRWA_MAJOR`, `MRWA_MINOR`, `AS4000_1997`, `AS4000_2025`, `AS2124`, `AS4902`, `NZS3910_2013`, `NZS3910_2023`, `other`)"
+      "x-demiton-unit": "n/a (closed vocabulary, enforced by the parser: `GC21`, `TFNSW_GC21` (Transport for NSW's amended GC21, C2-GC21), `TMR_TIC`, `MRWA_MAJOR`, `MRWA_MINOR`, `AS4000_1997`, `AS4000_2025`, `AS2124`, `AS4902`, `NZS3910_2013`, `NZS3910_2023`, `other`)"
     },
     "contract_sum": {
       "description": "Total contract/subcontract price or lump sum. Parser rejects <1000 as a clause-number artefact.",
@@ -321,7 +321,7 @@
   ],
   "title": "contract_terms contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.3.0",
+  "x-demiton-contract-version": "1.3.1",
   "x-demiton-provenance": {
     "standards": [
       {

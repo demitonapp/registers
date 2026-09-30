@@ -1,6 +1,5 @@
 id: whs_act_2012_sa
-source: law
-instrument_type: act
+extends: model_whs_act_2011
 title: Work Health and Safety Act 2012 (SA)
 publisher: Parliament of South Australia
 jurisdictions:
@@ -10,64 +9,26 @@ citation:
   access_date: '2026-09-28'
   version: Version 1.7.2025 (amendments not yet commenced were not read)
 obligations:
-- key: whs.incident_notice.au-sa
-  duty: Notify the regulator immediately after becoming aware of a notifiable incident
-  consequence: offence
-  protection_type: watch
-  disease: non_compliance
-  severity: 3
-  grade: primary_read
+- overrides: whs.incident_notice
+  key: whs.incident_notice.au-sa
   citation:
     url: https://www.legislation.sa.gov.au/lz?path=/c/a/work%20health%20and%20safety%20act%202012
     clause: s 38(1)-(3)
     access_date: '2026-09-28'
-  evidence:
-    kind: not_collected
-    register: safety_incident
-  clause: s 38(1)-(3)
   caveat: '''Immediately'', by the fastest possible means - no number, so no window is recorded. Maximum
     penalty $50,000 (body corporate). The incident site must also be left undisturbed until an inspector
     arrives or directs otherwise (s 39), not recorded as its own row. The safety_incident register holds
     each incident and its worst outcome, but not whether or when the regulator was told, so this is recorded
     not_collected.'
-- key: whs.incident_written_notice.au-sa
-  duty: Give written notice of a notifiable incident within 48 hours when the regulator requires it
-  consequence: offence
-  protection_type: watch
-  disease: non_compliance
-  severity: 3
-  grade: primary_read
+- overrides: whs.incident_written_notice
+  key: whs.incident_written_notice.au-sa
   citation:
     url: https://www.legislation.sa.gov.au/lz?path=/c/a/work%20health%20and%20safety%20act%202012
     clause: s 38(4)
     access_date: '2026-09-28'
-  evidence:
-    kind: not_collected
-    register: safety_incident
-  clause: s 38(4)
-  window:
-    value: 48
-    unit: hours
-  caveat: 'Runs from the regulator''s requirement, not from the incident. It carries no penalty of its
-    own: a failure is a failure of s 38(1)''s duty. The safety_incident register holds each incident and
-    its worst outcome, but not whether or when the regulator was told, so this is recorded not_collected.'
-- key: whs.incident_record.au-sa
-  duty: Keep a record of each notifiable incident for at least 5 years from the day notice is given
-  consequence: offence
-  protection_type: check
-  disease: non_compliance
-  severity: 3
-  grade: primary_read
+- overrides: whs.incident_record
+  key: whs.incident_record.au-sa
   citation:
     url: https://www.legislation.sa.gov.au/lz?path=/c/a/work%20health%20and%20safety%20act%202012
     clause: s 38(7)
     access_date: '2026-09-28'
-  evidence:
-    kind: not_collected
-    register: safety_incident
-  clause: s 38(7)
-  window:
-    value: 60
-    unit: months
-  caveat: 5 years converted to 60 months. The safety_incident register holds each incident and its worst
-    outcome, but not whether or when the regulator was told, so this is recorded not_collected.

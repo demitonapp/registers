@@ -1,0 +1,35 @@
+# SM031 M6: the first New South Wales approvals instrument. legislation.nsw.gov.au
+# returns HTTP 403 to this environment, so the clauses were read from the Internet
+# Archive's copy of the government's own whole-Act page (archived 30 November 2025).
+# The citation is the canonical NSW URL; the version records how it was read. The
+# shared shape's records duty is not adopted: s 66 lets a licence carry monitoring
+# and information conditions, but the retention period is set by the conditions
+# themselves, so there is no clause in the Act to cite for it.
+id: environmental_protection_licence_poeo_act_1997_nsw
+extends: model_environmental_authority
+title: Environment protection licence (Protection of the Environment Operations Act 1997 (NSW))
+jurisdictions: [AU-NSW]
+citation:
+  url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1997-156
+  version: Current version as archived 30 November 2025; read 2026-09-30 from the Internet Archive copy because legislation.nsw.gov.au returns HTTP 403 to this environment
+  access_date: '2026-09-30'
+obligations:
+- overrides: approvals.environmental_authority_conditions
+  key: approvals.environmental_authority_conditions.au-nsw
+  clause: s 64
+  grade: primary_read
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1997-156
+    clause: s 64
+    access_date: '2026-09-30'
+  caveat: 'Section 64(1) makes each holder of the licence guilty of an offence if any condition of the licence is contravened: for a corporation $2,000,000 and a further $240,000 for each day the offence continues; for an individual $500,000 and $120,000 per day. Section 64(2) provides a defence where the contravention was caused by another person and the holder took reasonable precautions. The conditions themselves are imposed under s 63.'
+- overrides: approvals.environmental_authority_incident_notice
+  key: approvals.environmental_authority_incident_notice.au-nsw
+  clause: s 148(2), (3)
+  grade: primary_read
+  window: null
+  citation:
+    url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1997-156
+    clause: s 148(2), (3)
+    access_date: '2026-09-30'
+  caveat: 'Section 148(2) requires the person carrying on the activity to notify each relevant authority, immediately after becoming aware, of a pollution incident that causes or threatens material harm to the environment, and s 148(3) requires an employee to notify the employer. "Immediately" carries no number, so the base''s 24-hour window is cleared rather than inherited. Contravening Part 5.7 is an offence under s 152: $4,000,000 for a corporation and $1,000,000 for an individual, plus daily penalties.'

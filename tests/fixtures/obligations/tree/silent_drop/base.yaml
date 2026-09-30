@@ -1,0 +1,42 @@
+# SM031 M4 invalid fixture: the base of the silent-drop pair. model_law shares
+# the whole obligation, so a concrete must carry every duty the base holds.
+id: silent_drop_base
+source: law
+instrument_type: act
+title: Silent Drop Base (test data only)
+publisher: Fixture Parliament
+jurisdictions: []
+abstract: true
+model_type: model_law
+citation:
+  url: https://example.invalid/silent-drop-base
+  access_date: "2026-09-30"
+obligations:
+  - key: drop.one
+    duty: Do the first thing
+    consequence: offence
+    protection_type: watch
+    disease: non_compliance
+    severity: 2
+    grade: primary_read
+    citation:
+      url: https://example.invalid/silent-drop-base
+      clause: s 1
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: drop_register
+  - key: drop.two
+    duty: Do the second thing
+    consequence: offence
+    protection_type: check
+    disease: non_compliance
+    severity: 2
+    grade: primary_read
+    citation:
+      url: https://example.invalid/silent-drop-base
+      clause: s 2
+      access_date: "2026-09-30"
+    evidence:
+      kind: not_collected
+      register: drop_register

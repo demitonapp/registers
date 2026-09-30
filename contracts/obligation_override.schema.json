@@ -1,0 +1,88 @@
+{
+  "$id": "demiton:registers/obligation_override/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "SM031: one concrete obligation that instantiates a base obligation. Lives nested under an extending concrete instrument's `obligations[]`, never as a standalone file and never in a base or a standalone concrete. `overrides` names the base obligation's `key` (decision 4 as amended 2026-09-30: matched by an explicit base-key reference, not by carrying the same key, because every concrete's own keys are jurisdiction-suffixed - `whs.incident_notice.au-qld` against `whs.incident_notice.au-nsw` - and one base key cannot match two states). `additionalProperties: false` is the control that refuses an override of a forbidden field: duty, consequence, protection_type, disease, severity and evidence have no place here, so a state that genuinely differs on them is a new obligation under a new key (decision 5), not an override.",
+  "title": "obligation override v1",
+  "type": "object",
+  "properties": {
+    "overrides": {
+      "description": "the `key` of the base obligation this row instantiates. Resolved against the base named by the instrument's `extends`; a key absent from that base is refused (M4: orphan override).",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+(\\.[a-z0-9_-]+)+$"
+    },
+    "key": {
+      "description": "the flattened obligation's own stable id (SM031 decision 4: the base key is only a handle, the concrete's key is what a project reads). Required unless `removed` is true.",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+(\\.[a-z0-9_-]+)+$"
+    },
+    "clause": {
+      "description": "the clause, section or paragraph in THIS jurisdiction's instrument",
+      "type": "string"
+    },
+    "window": {
+      "description": "the time the duty allows in this jurisdiction, when it has one. Set it to null to clear a window the base states, where this instrument imposes the same duty with no fixed period - New South Wales' notification duty runs 'within a reasonable time', which is not a window, and inheriting the base's 24 hours would misstate the law.",
+      "type": ["object", "null"],
+      "properties": {
+        "value": { "type": "number" },
+        "unit": {
+          "type": "string",
+          "enum": ["hours", "days", "business_days", "working_days", "months"]
+        }
+      },
+      "required": ["value", "unit"]
+    },
+    "window_source_field": {
+      "description": "the `contract_terms` field whose value overrides `window.value` when the contract states its own window (SM030 decision 5)",
+      "type": "string"
+    },
+    "threshold": {
+      "description": "for a `threshold` base obligation only: the line this jurisdiction's instrument draws",
+      "type": "object",
+      "properties": {
+        "direction": { "type": "string", "enum": ["max", "min"] },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "set_by": { "type": "string", "enum": ["library", "org"] }
+      },
+      "required": ["direction", "set_by"]
+    },
+    "citation": {
+      "description": "the primary source for this exact duty in this jurisdiction - the base's own citation is the model or representative instrument, never this state's text",
+      "type": "object",
+      "properties": {
+        "url": { "type": "string" },
+        "clause": { "type": "string" },
+        "access_date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      },
+      "required": ["url", "access_date"]
+    },
+    "caveat": {
+      "description": "what bounds this obligation in this jurisdiction - a local penalty, an exclusion, an amendment. Overridable (SM031 decision 4 as amended): the states' caveats genuinely differ, e.g. Queensland's 100 penalty units against New South Wales' 607 body-corporate units plus the mines exclusion.",
+      "type": "string"
+    },
+    "grade": {
+      "description": "how close to the primary source THIS jurisdiction's row was read. `inherited` (SM031 decision 6) says the concrete was instantiated without re-reading the clause, so the register never claims it verified what it inherited.",
+      "type": "string",
+      "enum": ["primary_read", "primary_via_secondary", "demiton_default", "inherited"]
+    },
+    "basis": {
+      "description": "for a `demiton_default` grade only: the citation this default stands around",
+      "type": "string"
+    },
+    "removed": {
+      "description": "SM031 decision 10: true when this jurisdiction's instrument genuinely does not carry the base obligation. A Tier 1 concrete that drops a base obligation without this row is refused (M4: silent drop). A `shared_shape` concrete simply does not list the duties its instrument lacks, because its base is a catalogue both states draw from.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["overrides"],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "removed": { "const": true } }, "required": ["removed"] },
+      "then": true,
+      "else": { "required": ["key"] }
+    }
+  ],
+  "x-demiton-contract-version": "1.0.0"
+}
