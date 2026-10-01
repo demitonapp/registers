@@ -1,0 +1,34 @@
+# SM033 E2 (Demiton): the high risk work licence duties, the first concrete of the
+# competency shape. Same document as whs_regulation_2011_qld (which extends the
+# model WHS Regulations); a concrete extends one base, so the licensing duties
+# are their own instrument. Sections read 2026-10-01 through AustLII's and the
+# Queensland Government's published text (search summaries quoting the sections),
+# not from a full read of the Part, hence primary_via_secondary.
+id: high_risk_work_licence_whs_regulation_2011_qld
+extends: model_competency
+title: Work Health and Safety Regulation 2011 (Qld), Part 4.5 Division 1 (Licensing of high risk work)
+publisher: Queensland Parliament
+jurisdictions: [AU-QLD]
+citation:
+  url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+  version: Current as at 29 March 2026
+  access_date: '2026-10-01'
+obligations:
+- overrides: own_commitments.competency_hold
+  key: own_commitments.competency_hold.au-qld
+  clause: s 81
+  grade: primary_via_secondary
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: s 81
+    access_date: '2026-10-01'
+  caveat: Section 81 says a person must not carry out a class of high risk work unless they hold a high risk work licence for that class, except as section 82 provides (training under a licensed supervisor; a certification holder for 60 days while applying). Schedule 3 sets the licence classes. The duty is the worker's; the contractor's matching duty to see the licence is s 85, the next row.
+- overrides: own_commitments.competency_evidence
+  key: own_commitments.competency_evidence.au-qld
+  clause: s 85
+  grade: primary_via_secondary
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: s 85
+    access_date: '2026-10-01'
+  caveat: Section 85 requires a person conducting a business or undertaking to see, and keep, written evidence that a worker holds the relevant high risk work licence before directing or allowing them to carry out or supervise high risk work. That is the duty a site check of who is allocated today evidences. The base's wording (keep it current and available on request) is the shape; the section is the contractor's own duty to look before work starts.

@@ -1,0 +1,30 @@
+id: demiton_subcontractor_insurance_au
+source: own_commitments
+instrument_type: practice_standard
+title: Subcontractor insurance on site (the contractor's own commitment)
+publisher: Demiton
+jurisdictions:
+- AU
+citation:
+  url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+  access_date: '2026-10-01'
+  version: section 6.1
+obligations:
+- key: own_commitments.subcontractor_insurance_current.au
+  duty: Hold a current public liability and workers' compensation certificate of currency for every subcontractor working on site, and stop work for one whose cover has lapsed
+  consequence: guidance
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  severity: 3
+  grade: demiton_default
+  basis: Demiton check rule (a subcontractor on site with lapsed cover leaves the contractor carrying an uninsured loss), METHOD.md section 6.1
+  citation:
+    url: https://github.com/demitonapp/registers/blob/main/METHOD.md
+    clause: section 6.1
+    access_date: '2026-10-01'
+  evidence:
+    kind: register
+    register: insurance_certificate
+    system_type: document_store
+  caveat: No single public instrument states this duty in these words. The contract's insurances clause sets which policies a subcontractor must hold and for how much, and each state's workers' compensation Act makes an employer insure its workers; a lapsed certificate on site is the point where both stop protecting the contractor. This row checks the certificate's expiry date, nothing about the amounts. A concrete reading of each standard form's insurances clause and each state's workers' compensation Act should replace this default as those are read.

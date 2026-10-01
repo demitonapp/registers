@@ -19,6 +19,16 @@
   although a document carrying `media_kind` alone stops validating. A
   requirement under `if` still counts for nothing, since failing an `if`
   invalidates no document. First tests for the script: `tests/test_bump_check.py`.
+- **High risk work licence duties (QLD, NSW) and a subcontractor insurance
+  default**. The first two concretes of the competency shape:
+  Work Health and Safety Regulation 2011 (Qld) and 2025 (NSW), s 81 (hold the
+  licence) and s 85 (the business must see written evidence of it before the
+  work), graded `primary_via_secondary`: sections confirmed through published
+  text quoted by AustLII and legislation-site summaries, not a full read of the
+  Part. And `own_commitments.subcontractor_insurance_current.au`, a labelled
+  Demiton default (METHOD.md 6.1) checking a subcontractor's certificate of
+  currency is in date. 247 to 252 flattened rows.
+
 - **`approval_class` on every obligation** (contract `obligation` 2.1.0, a MINOR
   bump: a new optional property). `vocab/approval_classes.json` fixes six classes
   (geotechnical, quality, safety_environment, variations_claims, payments,

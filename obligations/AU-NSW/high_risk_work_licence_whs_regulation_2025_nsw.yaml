@@ -1,0 +1,32 @@
+# SM033 E2 (Demiton): the high risk work licence duties in New South Wales'
+# remade regulation. Same reasoning and same reading grade as the Queensland
+# concrete: sections confirmed 2026-10-01 through published summaries quoting
+# the text, not a full read of the Part.
+id: high_risk_work_licence_whs_regulation_2025_nsw
+extends: model_competency
+title: Work Health and Safety Regulation 2025 (NSW), Part 4.5 Division 1 (Licensing of high risk work)
+publisher: NSW Parliamentary Counsel's Office
+jurisdictions: [AU-NSW]
+citation:
+  url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-440
+  version: Work Health and Safety Regulation 2025 (2025-440)
+  access_date: '2026-10-01'
+obligations:
+- overrides: own_commitments.competency_hold
+  key: own_commitments.competency_hold.au-nsw
+  clause: s 81
+  grade: primary_via_secondary
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-440
+    clause: s 81
+    access_date: '2026-10-01'
+  caveat: Section 81 says a person must not carry out a class of high risk work unless they hold a high risk work licence for that class, except as section 82 provides. Schedule 3 sets the licence classes. The contractor's matching duty to see the licence is s 85, the next row.
+- overrides: own_commitments.competency_evidence
+  key: own_commitments.competency_evidence.au-nsw
+  clause: s 85
+  grade: primary_via_secondary
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-440
+    clause: s 85
+    access_date: '2026-10-01'
+  caveat: Section 85 says a person conducting a business or undertaking at a workplace must not direct or allow a worker to carry out high risk work for which a licence is required unless they see written evidence from the worker that the worker holds the relevant licence. That is the duty a site check of who is allocated today evidences.

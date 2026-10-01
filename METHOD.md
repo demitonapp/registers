@@ -113,6 +113,15 @@ more distinct jobs is a routine consumable, and a repeat order of anything else
 is rework. That is the frequency baseline Demiton's rework check already
 applied, so an org that switches the obligation on without choosing a value
 sees the same results it saw before.
+**Subcontractor insurance default: certificate current.** No single public
+instrument states a contractor's duty to hold a current certificate of currency
+for each subcontractor on site; the contract's insurances clause sets which
+policies and amounts, and each state's workers' compensation Act makes an
+employer insure. Until those are read row by row, the library carries one
+labelled default (`own_commitments.subcontractor_insurance_current.au`): the
+certificate's expiry date is checked, nothing else. It is a check, not a
+threshold, so it carries no `threshold`.
+
 ### 6.2 Inheritance is an authoring concern of this repository
 
 Some law is shared. Seven states and territories enacted the model WHS Act, so
