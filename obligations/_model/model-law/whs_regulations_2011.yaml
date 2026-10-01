@@ -25,6 +25,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: safety_environment
   severity: 3
   grade: primary_read
   citation:

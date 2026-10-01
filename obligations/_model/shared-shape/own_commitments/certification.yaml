@@ -21,6 +21,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: non_compliance
+  approval_class: quality
   severity: 2
   citation:
     url: https://www.jasanz.org
@@ -35,6 +36,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: rework
+  approval_class: quality
   severity: 3
   citation:
     url: https://www.jasanz.org

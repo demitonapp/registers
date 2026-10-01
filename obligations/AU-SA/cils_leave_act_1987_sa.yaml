@@ -15,6 +15,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: payments
   severity: 3
   grade: primary_read
   citation:

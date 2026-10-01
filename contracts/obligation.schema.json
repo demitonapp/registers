@@ -63,6 +63,11 @@
       "type": "string",
       "enum": ["rework", "overrun", "forfeited_entitlements", "disputes", "non_compliance"]
     },
+    "approval_class": {
+      "description": "what kind of sign-off this obligation's evidence needs - a member of vocab/approval_classes.json (SM037, Delegation of Authority). Optional here so an override, which inherits it from its base, stays valid; scripts/validate.py requires it on every resolved row.",
+      "type": "string",
+      "enum": ["geotechnical", "quality", "safety_environment", "variations_claims", "payments", "general"]
+    },
     "severity": {
       "description": "the contract-risk tier this obligation belongs to (1 = entitlement at risk .. 4 = cash position), set by the library author and reviewed in its pull request (SM030 decision 18)",
       "type": "integer",
@@ -116,5 +121,5 @@
     }
   },
   "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "citation", "evidence"],
-  "x-demiton-contract-version": "2.0.0"
+  "x-demiton-contract-version": "2.1.0"
 }

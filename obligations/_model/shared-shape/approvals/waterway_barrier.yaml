@@ -20,6 +20,7 @@ obligations:
   consequence: barred
   protection_type: check
   disease: non_compliance
+  approval_class: safety_environment
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
@@ -33,6 +34,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: rework
+  approval_class: safety_environment
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
@@ -46,6 +48,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: safety_environment
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034

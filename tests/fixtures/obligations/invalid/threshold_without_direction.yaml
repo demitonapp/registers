@@ -14,6 +14,7 @@ obligations:
     consequence: breach
     protection_type: threshold
     disease: rework
+    approval_class: general
     severity: 3
     grade: primary_read
     citation:

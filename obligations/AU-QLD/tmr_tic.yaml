@@ -15,6 +15,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 3
   grade: primary_read
   citation:
@@ -37,6 +38,7 @@ obligations:
   consequence: barred
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 1
   grade: primary_read
   citation:
@@ -57,6 +59,7 @@ obligations:
   consequence: barred
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 1
   grade: primary_read
   citation:
@@ -77,6 +80,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 3
   grade: primary_read
   citation:
@@ -98,6 +102,7 @@ obligations:
   consequence: costs_excluded
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 1
   grade: primary_read
   citation:
@@ -119,6 +124,7 @@ obligations:
   consequence: guidance
   protection_type: check
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_read
   citation:
@@ -139,6 +145,7 @@ obligations:
   consequence: barred
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 1
   grade: primary_read
   citation:
@@ -159,6 +166,7 @@ obligations:
   consequence: costs_excluded
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 1
   grade: primary_read
   citation:

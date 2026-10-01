@@ -21,6 +21,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: safety_environment
   severity: 3
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240
@@ -36,6 +37,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: safety_environment
   severity: 1
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240

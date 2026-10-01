@@ -202,6 +202,19 @@ def tree_errors(docs: list[tuple[str, dict]] | None = None) -> list[str]:
                     f"{rel}: obligation {override.get('key')!r} resolves with no grade - the base leaves it to the "
                     f"concrete that first reads this jurisdiction's text, so the concrete must supply one"
                 )
+    # SM037 (Demiton, Delegation of Authority): every resolved row says what kind
+    # of sign-off its evidence needs. An override cannot set approval_class (its
+    # schema refuses the field), so checking every base and standalone row is
+    # checking every resolved row.
+    for doc, rel in by_id.values():
+        if "extends" in doc:
+            continue
+        for ob in doc.get("obligations") or []:
+            if not ob.get("approval_class"):
+                errors.append(
+                    f"{rel}: obligation {ob.get('key')!r} has no approval_class - every row names one of "
+                    f"vocab/approval_classes.json, so an approval can be routed (SM037)"
+                )
     return errors
 
 

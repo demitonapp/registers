@@ -16,6 +16,7 @@ obligations:
     consequence: barred
     protection_type: check
     disease: non_compliance
+    approval_class: general
     severity: 3
     citation:
       url: https://example.invalid/orphan-base

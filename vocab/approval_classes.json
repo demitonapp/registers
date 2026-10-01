@@ -1,0 +1,9 @@
+{
+  "$comment": "SM037 (Demiton, Delegation of Authority): what kind of sign-off an obligation's evidence needs. Exactly six, fixed by Demiton: an organisation maps each class to its own approval ladder and cannot add a class. The fixed list is half of the cap on DoA complexity.",
+  "geotechnical": "Ground, compaction and earthworks results: a geotechnical engineer's sign-off.",
+  "quality": "Conformance, nonconformance, as-built and quality records: the quality or site manager's sign-off.",
+  "safety_environment": "Work health and safety, environmental and heritage approvals and notices, plant, vehicles and the people who operate them.",
+  "variations_claims": "Delay, extension of time, variation and latent condition notices and claims: the contract's time-barred entitlements.",
+  "payments": "Payment claims, schedules, adjudication, retention, security, levies, wages and cost against budget: money in or out.",
+  "general": "Everything else: own commitments, insurance notifications and records that fit no class above."
+}

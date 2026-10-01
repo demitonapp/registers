@@ -15,6 +15,7 @@ obligations:
   consequence: barred
   protection_type: countdown
   disease: disputes
+  approval_class: payments
   severity: 1
   grade: primary_via_secondary
   citation:
@@ -39,6 +40,7 @@ obligations:
   consequence: guidance
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_read
   citation:
@@ -59,6 +61,7 @@ obligations:
   consequence: guidance
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_via_secondary
   citation:
@@ -81,6 +84,7 @@ obligations:
   consequence: guidance
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_via_secondary
   citation:
@@ -102,6 +106,7 @@ obligations:
   consequence: guidance
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_via_secondary
   citation:
@@ -122,6 +127,7 @@ obligations:
   consequence: guidance
   protection_type: watch
   disease: forfeited_entitlements
+  approval_class: variations_claims
   severity: 4
   grade: primary_via_secondary
   citation:

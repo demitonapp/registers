@@ -22,6 +22,7 @@ obligations:
   consequence: breach
   protection_type: check
   disease: disputes
+  approval_class: payments
   severity: 3
   citation:
     url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement
@@ -36,6 +37,7 @@ obligations:
   consequence: offence
   protection_type: check
   disease: non_compliance
+  approval_class: payments
   severity: 3
   citation:
     url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement

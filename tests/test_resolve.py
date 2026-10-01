@@ -246,3 +246,12 @@ def test_new_south_wales_approvals_resolve_and_clear_a_window() -> None:
     notice = next(o for o in poeo["obligations"] if o["key"].endswith("incident_notice.au-nsw"))
     assert notice["clause"] == "s 148(2), (3)"
     assert "window" not in notice
+
+
+def test_a_row_without_an_approval_class_is_refused() -> None:
+    # SM037: every resolved row names the kind of sign-off its evidence needs.
+    tree = _tree("tree/silent_drop/base.yaml", "tree/silent_drop/concrete.yaml")
+    _rel, base = tree[0]
+    del base["obligations"][0]["approval_class"]
+    errors = resolve.tree_errors(tree)
+    assert any("has no approval_class" in e for e in errors), errors

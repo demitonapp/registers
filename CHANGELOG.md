@@ -19,6 +19,15 @@
   although a document carrying `media_kind` alone stops validating. A
   requirement under `if` still counts for nothing, since failing an `if`
   invalidates no document. First tests for the script: `tests/test_bump_check.py`.
+- **`approval_class` on every obligation** (contract `obligation` 2.1.0, a MINOR
+  bump: a new optional property). `vocab/approval_classes.json` fixes six classes
+  (geotechnical, quality, safety_environment, variations_claims, payments,
+  general); every base and standalone row names one, overrides inherit it, and
+  `resolve.tree_errors` refuses a resolved row without one. It says what kind of
+  sign-off a row's evidence needs, so a consumer can route an approval through
+  its own delegation of authority (Demiton SM037). Proposed classes for all 247
+  flattened rows: payments 112, safety_environment 69, variations_claims 53,
+  quality 9, general 2, geotechnical 2. **Every class is a proposal for review.**
 
 - CLOCS-A, the construction logistics heavy vehicle standard (v1.6, 21 April
   2026): `obligations/AU/clocs_a_standard.yaml`, 14 rows read in the Standard's
