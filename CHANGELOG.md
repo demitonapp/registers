@@ -54,6 +54,9 @@
   its own delegation of authority (Demiton SM037). Proposed classes for all 247
   flattened rows: payments 112, safety_environment 69, variations_claims 53,
   quality 9, general 2, geotechnical 2. **Every class is a proposal for review.**
+- **`plant_registration` 2.1.0**: an optional `expires_on`, so a check can flag a
+  registration before it lapses (Demiton SM035 rows 12 and 24).
+  MINOR: a new optional property.
 
 - CLOCS-A, the construction logistics heavy vehicle standard (v1.6, 21 April
   2026): `obligations/AU/clocs_a_standard.yaml`, 14 rows read in the Standard's
