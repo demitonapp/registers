@@ -199,12 +199,44 @@ def validate_instrument_doc(
                 f"{label}: {key}: a concrete obligation must carry a grade - only an abstract base "
                 f"may leave it to the concrete that first reads the jurisdiction's text"
             )
+        trigger = obligation.get("trigger")
+        if trigger is not None and trigger not in _load_vocab("event_types"):
+            errors.append(f"{label}: {key}: trigger {trigger!r} is not in vocab/event_types.json")
         is_threshold = obligation.get("protection_type") == "threshold"
         if is_threshold and not obligation.get("threshold"):
             errors.append(f"{label}: {key}: a threshold obligation must say its threshold (direction, set_by)")
         if not is_threshold and obligation.get("threshold"):
             errors.append(f"{label}: {key}: threshold is only for a threshold obligation")
 
+    return errors
+
+
+def validate_event_types(catalogue: dict | None = None) -> list[str]:
+    """Demiton SM038: every event type names a register in contracts/ and fields
+    that register declares, so a trigger cannot point at a field that is not there."""
+    catalogue = catalogue if catalogue is not None else _load_vocab("event_types")
+    errors: list[str] = []
+    for key, et in catalogue.items():
+        if key.startswith("$"):
+            continue
+        register = et.get("register")
+        path = ROOT / "contracts" / f"{register}.schema.json"
+        if not path.exists():
+            errors.append(f"vocab/event_types.json: {key}: register {register!r} has no contract")
+            continue
+        props = (json.loads(path.read_text()).get("properties") or {})
+        fields = [et.get("date_field"), et.get("reference_field"), et.get("requires_non_empty"), *(et.get("match") or {})]
+        for field in [f for f in fields if f]:
+            if field not in props:
+                errors.append(f"vocab/event_types.json: {key}: {register} has no field {field!r}")
+        if et.get("subject") not in ("project", "asset", "worker", "reference"):
+            errors.append(f"vocab/event_types.json: {key}: subject must be project, asset, worker or reference")
+        if et.get("subject") == "reference" and not et.get("reference_field"):
+            errors.append(f"vocab/event_types.json: {key}: a reference subject needs a reference_field")
+        for proof_register, proof_field in (et.get("proof_reference_fields") or {}).items():
+            proof_path = ROOT / "contracts" / f"{proof_register}.schema.json"
+            if not proof_path.exists() or proof_field not in (json.loads(proof_path.read_text()).get("properties") or {}):
+                errors.append(f"vocab/event_types.json: {key}: {proof_register} has no field {proof_field!r}")
     return errors
 
 
@@ -231,6 +263,7 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
     import resolve  # noqa: PLC0415 - script-local, mirrors how the tests import validate
 
     errors.extend(resolve.tree_errors())
+    errors.extend(validate_event_types())
 
     return errors, warnings
 

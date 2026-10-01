@@ -16,6 +16,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  trigger: incident_recorded
   severity: 3
   grade: primary_read
   citation:
@@ -38,6 +39,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  trigger: incident_recorded
   severity: 3
   grade: primary_read
   citation:

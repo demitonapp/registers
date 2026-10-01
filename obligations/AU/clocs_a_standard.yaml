@@ -207,6 +207,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  trigger: machine_started
   severity: 3
   grade: primary_read
   citation:

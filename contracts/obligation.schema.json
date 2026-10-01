@@ -63,6 +63,10 @@
       "type": "string",
       "enum": ["rework", "overrun", "forfeited_entitlements", "disputes", "non_compliance"]
     },
+    "trigger": {
+      "description": "the event that starts this obligation's clock - a key of vocab/event_types.json (Demiton SM038). Optional: a row with no trigger keeps its window unanchored. Overrides inherit it from their base.",
+      "type": "string"
+    },
     "approval_class": {
       "description": "what kind of sign-off this obligation's evidence needs - a member of vocab/approval_classes.json (SM037, Delegation of Authority). Optional here so an override, which inherits it from its base, stays valid; scripts/validate.py requires it on every resolved row.",
       "type": "string",
@@ -121,5 +125,5 @@
     }
   },
   "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "citation", "evidence"],
-  "x-demiton-contract-version": "2.1.0"
+  "x-demiton-contract-version": "2.2.0"
 }

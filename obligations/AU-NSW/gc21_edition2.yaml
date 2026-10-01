@@ -61,6 +61,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  trigger: delay_recorded
   severity: 2
   grade: primary_read
   citation:

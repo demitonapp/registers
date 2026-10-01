@@ -103,6 +103,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  trigger: latent_condition_reported
   severity: 1
   grade: primary_read
   citation:

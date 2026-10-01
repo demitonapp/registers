@@ -19,6 +19,18 @@
   although a document carrying `media_kind` alone stops validating. A
   requirement under `if` still counts for nothing, since failing an `if`
   invalidates no document. First tests for the script: `tests/test_bump_check.py`.
+- **An event-type catalogue and `trigger` on obligations** (contract `obligation`
+  2.2.0, MINOR). `vocab/event_types.json` defines the events that
+  start an obligation's clock: `claim_lodged`, `machine_started`, `incident_recorded`,
+  `ncr_raised`, `delay_recorded`, `latent_condition_reported`. Each names its
+  register, date field, subject (project, asset, worker or reference) and, where the
+  proof names its trigger, the proof's reference field. Not a register of events: the
+  events stay facts in their own registers. 19 source rows carry a `trigger` (31
+  flattened duties: every state's payment-schedule and incident-notice rows share one
+  definition each). `validate.py` refuses a trigger not in the catalogue and a
+  catalogue entry naming a register or field that does not exist. **Review:** the
+  `machine_started` match value (`event_type: ignition`).
+
 - **High risk work licence duties (QLD, NSW) and a subcontractor insurance
   default**. The first two concretes of the competency shape:
   Work Health and Safety Regulation 2011 (Qld) and 2025 (NSW), s 81 (hold the

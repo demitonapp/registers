@@ -121,3 +121,27 @@ def test_shared_shape_bases_are_abstract() -> None:
         assert doc.get("model_type") in ("model_law", "shared_shape"), path
         assert doc.get("jurisdictions") == [], path
         assert doc["model_type"].replace("_", "-") in path.parts, f"{path} is not filed under its model_type"
+
+
+def test_unknown_trigger_is_refused() -> None:
+    # Demiton SM038: a trigger must name an event type in vocab/event_types.json.
+    doc = _load(FIXTURES / "valid" / "example.yaml")
+    doc["obligations"][0]["trigger"] = "no_such_event"
+    errors = validate_instrument_doc(doc, "example.yaml")
+    assert any("is not in vocab/event_types.json" in e for e in errors), errors
+
+
+def test_event_type_naming_a_missing_field_is_refused() -> None:
+    from validate import validate_event_types
+
+    errors = validate_event_types({
+        "claim_lodged": {"register": "progress_claim", "date_field": "no_such_field",
+                         "subject": "reference", "reference_field": "document_no"},
+    })
+    assert any("has no field 'no_such_field'" in e for e in errors), errors
+
+
+def test_shipped_catalogue_is_valid() -> None:
+    from validate import validate_event_types
+
+    assert validate_event_types() == []

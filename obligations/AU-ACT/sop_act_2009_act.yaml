@@ -60,6 +60,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  trigger: claim_lodged
   severity: 4
   grade: primary_read
   citation:
