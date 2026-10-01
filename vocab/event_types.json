@@ -1,19 +1,23 @@
 {
-  "$comment": "Demiton SM038: the events that start an obligation's clock. Each is a fact already held in a register; this catalogue says which facts count as which event, which field dates them, and whose clock they start. Not a register of events. An obligation names one as its `trigger`. `subject`: project (one clock per job), asset or worker (one per spine entity), reference (one per triggering record, matched by `reference_field` on the trigger and `proof_reference_fields` on the proof). `match`: field values a trigger record must have. Fields are checked against contracts/ by scripts/validate.py.",
+  "$comment": "Demiton SM038: the events that start an obligation's clock. Each is a fact already held in a register; this catalogue says which facts count as which event, which field dates them, and whose clock they start. Not a register of events. An obligation names one as its `trigger`. `subject`: project (one clock per job), asset or worker (one per spine entity), reference (one per triggering record, matched by `reference_field` on the trigger and `proof_reference_fields` on the proof). `match`: field values a trigger record must have. `requires_item`: the record must have an entry in that array field (matching `match` within the entry, if given). Fields are checked against contracts/ by scripts/validate.py.",
   "claim_lodged": {
     "description": "A payment claim was lodged (given) under the contract or a security of payment Act.",
     "register": "progress_claim",
     "date_field": "occurred_at",
     "subject": "reference",
     "reference_field": "document_no",
-    "proof_reference_fields": {"payment_schedule": "claim"}
+    "proof_reference_fields": {
+      "payment_schedule": "claim"
+    }
   },
   "machine_started": {
     "description": "A machine's ignition was switched on. REVIEW: the value `ignition` is this draft's reading of the contract's discriminator; the compliance gate today reads the raw telematics field `action == \"ON\"`, so confirm what the Navman projection writes before release.",
     "register": "gps_event",
     "date_field": "occurred_at",
     "subject": "asset",
-    "match": {"event_type": "ignition"}
+    "match": {
+      "event_type": "ignition"
+    }
   },
   "incident_recorded": {
     "description": "A safety incident was recorded (the event a regulator notice runs from).",
@@ -30,18 +34,24 @@
     "reference_field": "external_id"
   },
   "delay_recorded": {
-    "description": "A site diary recorded a delay: any entry in its `delays` list, whatever the wording (no source system classifies delays).",
+    "description": "A site diary recorded a delay: any entry in its `delays` list, of any kind.",
     "register": "site_diary",
     "date_field": "occurred_on",
     "subject": "project",
-    "requires_non_empty": "delays"
+    "requires_item": {
+      "field": "delays"
+    }
   },
   "latent_condition_reported": {
-    "description": "A latent condition was reported: a contract_notice of kind latent_condition, written unserved by the person who found it; its service is the proof.",
-    "register": "contract_notice",
-    "date_field": "event_occurred_on",
-    "subject": "reference",
-    "reference_field": "external_id",
-    "match": {"notice_kind": "latent_condition"}
+    "description": "A site diary recorded a delay of kind `latent_condition` (site_diary 1.1.0). A diary whose source fills no `kind` starts no latent-condition clock.",
+    "register": "site_diary",
+    "date_field": "occurred_on",
+    "subject": "project",
+    "requires_item": {
+      "field": "delays",
+      "match": {
+        "kind": "latent_condition"
+      }
+    }
   }
 }

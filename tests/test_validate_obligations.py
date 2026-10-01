@@ -145,3 +145,13 @@ def test_shipped_catalogue_is_valid() -> None:
     from validate import validate_event_types
 
     assert validate_event_types() == []
+
+
+def test_requires_item_naming_a_missing_item_field_is_refused() -> None:
+    from validate import validate_event_types
+
+    errors = validate_event_types({
+        "latent_condition_reported": {"register": "site_diary", "date_field": "occurred_on", "subject": "project",
+                                      "requires_item": {"field": "delays", "match": {"no_such": "x"}}},
+    })
+    assert any("delays[] has no field 'no_such'" in e for e in errors), errors

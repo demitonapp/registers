@@ -225,10 +225,19 @@ def validate_event_types(catalogue: dict | None = None) -> list[str]:
             errors.append(f"vocab/event_types.json: {key}: register {register!r} has no contract")
             continue
         props = (json.loads(path.read_text()).get("properties") or {})
-        fields = [et.get("date_field"), et.get("reference_field"), et.get("requires_non_empty"), *(et.get("match") or {})]
+        fields = [et.get("date_field"), et.get("reference_field"), *(et.get("match") or {})]
         for field in [f for f in fields if f]:
             if field not in props:
                 errors.append(f"vocab/event_types.json: {key}: {register} has no field {field!r}")
+        item = et.get("requires_item")
+        if item:
+            array = props.get(item.get("field")) or {}
+            if array.get("type") != "array":
+                errors.append(f"vocab/event_types.json: {key}: {register}.{item.get('field')} is not an array")
+            item_props = (array.get("items") or {}).get("properties") or {}
+            for field in (item.get("match") or {}):
+                if field not in item_props:
+                    errors.append(f"vocab/event_types.json: {key}: {register}.{item.get('field')}[] has no field {field!r}")
         if et.get("subject") not in ("project", "asset", "worker", "reference"):
             errors.append(f"vocab/event_types.json: {key}: subject must be project, asset, worker or reference")
         if et.get("subject") == "reference" and not et.get("reference_field"):

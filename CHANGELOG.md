@@ -19,10 +19,14 @@
   although a document carrying `media_kind` alone stops validating. A
   requirement under `if` still counts for nothing, since failing an `if`
   invalidates no document. First tests for the script: `tests/test_bump_check.py`.
+- **`site_diary` 1.1.0**: an optional `kind` on each `delays` entry (`weather`,
+  `latent_condition`, `direction`, `access`, `supply`, `other`), so a latent condition
+  written in a diary can start its own clock (Demiton SM038 decision 6). MINOR: a new optional property. No source system fills it yet.
 - **An event-type catalogue and `trigger` on obligations** (contract `obligation`
   2.2.0, MINOR). `vocab/event_types.json` defines the events that
   start an obligation's clock: `claim_lodged`, `machine_started`, `incident_recorded`,
-  `ncr_raised`, `delay_recorded`, `latent_condition_reported`. Each names its
+  `ncr_raised`, `delay_recorded` (any diary delay), `latent_condition_reported` (a diary
+  delay of kind `latent_condition`). Each names its
   register, date field, subject (project, asset, worker or reference) and, where the
   proof names its trigger, the proof's reference field. Not a register of events: the
   events stay facts in their own registers. 19 source rows carry a `trigger` (31
