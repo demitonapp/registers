@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- `bump_check.py` now calls a requirement added under `allOf`, `then` or
+  `else` MAJOR when the document it binds already existed. It used to skip any
+  `required` list at a new location, the rule meant for a property that is
+  itself new, so `if media_kind then required approval_state` read as MINOR
+  although a document carrying `media_kind` alone stops validating. A
+  requirement under `if` still counts for nothing, since failing an `if`
+  invalidates no document. First tests for the script: `tests/test_bump_check.py`.
+
 - CLOCS-A, the construction logistics heavy vehicle standard (v1.6, 21 April
   2026): `obligations/AU/clocs_a_standard.yaml`, 14 rows read in the Standard's
   own text. Principal Contractor duties (six-monthly risk register review, CLMP
