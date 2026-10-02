@@ -30,6 +30,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SEMVER = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
 VERSION_KEYS = ("x-schema-version", "x-demiton-contract-version")
+# `allOf` branches and an `if`'s `then`/`else` validate the same document as the
+# schema they sit in. A `required` there binds that document, not a new property.
+# `if` itself is left alone: failing it invalidates nothing.
+SAME_DOCUMENT = re.compile(r"(?:/allOf/\d+|/then|/else)+$")
 
 
 def _version_key(doc: dict) -> str | None:
@@ -71,7 +75,12 @@ def schema_bump_needed(old: dict, new: dict) -> str | None:
         any(p not in b["props"] or not a["props"][p] <= b["props"][p] for p in a["props"])
         # A required list inside a property that did not exist before cannot break an
         # existing document (the whole property is new, unless the parent requires it).
-        or any(not b["required"][p] <= a["required"].get(p, set()) for p in b["required"] if p in a["props"] or p in a["required"])
+        # A required list under allOf/then/else binds its parent's document: judge it there.
+        or any(
+            not b["required"][p] <= a["required"].get(p, set())
+            for p in b["required"]
+            if (doc := SAME_DOCUMENT.sub("", p)) in a["props"] or doc in a["required"]
+        )
         or any(p in b["enum"] and not a["enum"][p] <= b["enum"][p] for p in a["enum"])
         or any(p in b["type"] and a["type"][p] != b["type"][p] for p in a["type"])
     ):
