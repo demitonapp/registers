@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- **Event types narrowed to the event each clause names** (Demiton SM038). Three
+  v5 types matched every record in their register, while the clauses citing them run
+  from something narrower: `incident_recorded` is replaced by
+  `notifiable_incident_recorded` (`safety_incident.notifiable` is true) and
+  `written_notice_required` (dated by `safety_incident.written_notice_required_at`:
+  model WHS Act s 38(4) and HSWA s 56(3)(b) run from the regulator's requirement,
+  not from the incident), and `ncr_raised` by `notifiable_ncr_raised`
+  (`safety_ncr.notifiable` is true, MRTS50 cl 10.2). Retargeted: 10 flattened duties
+  to `notifiable_incident_recorded` (every state's `whs.incident_notice`, and VIC's
+  written record, which s 38(3) runs from the duty to notify), 8 to
+  `written_notice_required`, 1 to `notifiable_ncr_raised`. Still 31 triggered duties.
+  A record whose `date_field` is empty is not an event of that type. `validate.py`
+  now refuses a `match` value its field can never hold (a string against a boolean,
+  a value outside an enum), which would otherwise start no clock at all.
 - **`safety_ncr` 2.1.0**: an optional `notifiable`, true when a nonconformance meets
   a notification trigger in the contract that governs it (MRTS50 cl 10.2 (a) to (j)).
   MINOR: a new optional property.

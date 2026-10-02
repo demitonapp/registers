@@ -1,5 +1,5 @@
 {
-  "$comment": "Demiton SM038: the events that start an obligation's clock. Each is a fact already held in a register; this catalogue says which facts count as which event, which field dates them, and whose clock they start. Not a register of events. An obligation names one as its `trigger`. `subject`: project (one clock per job), asset or worker (one per spine entity), reference (one per triggering record, matched by `reference_field` on the trigger and `proof_reference_fields` on the proof). `match`: field values a trigger record must have. `requires_item`: the record must have an entry in that array field (matching `match` within the entry, if given). Fields are checked against contracts/ by scripts/validate.py.",
+  "$comment": "Demiton SM038: the events that start an obligation's clock. Each is a fact already held in a register; this catalogue says which facts count as which event, which field dates them, and whose clock they start. Not a register of events. An obligation names one as its `trigger`. `subject`: project (one clock per job), asset or worker (one per spine entity), reference (one per triggering record, matched by `reference_field` on the trigger and `proof_reference_fields` on the proof). `match`: field values a trigger record must have. A record whose `date_field` is empty is not an event of that type. `requires_item`: the record must have an entry in that array field (matching `match` within the entry, if given). Fields are checked against contracts/ by scripts/validate.py.",
   "claim_lodged": {
     "description": "A payment claim was lodged (given) under the contract or a security of payment Act.",
     "register": "progress_claim",
@@ -19,19 +19,32 @@
       "event_type": "ignition"
     }
   },
-  "incident_recorded": {
-    "description": "A safety incident was recorded (the event a regulator notice runs from).",
+  "notifiable_incident_recorded": {
+    "description": "A notifiable incident was recorded: a death, a serious injury or illness, or a dangerous incident (model WHS Act s 35; OHS Act 2004 (Vic) s 37; HSWA 2015 (NZ) s 25). An incident whose source does not say it is notifiable starts no clock.",
     "register": "safety_incident",
     "date_field": "occurred_at",
     "subject": "reference",
+    "reference_field": "external_id",
+    "match": {
+      "notifiable": true
+    }
+  },
+  "written_notice_required": {
+    "description": "The regulator required written notice of an incident (model WHS Act s 38(4); HSWA 2015 (NZ) s 56(3)(b)). The clock runs from the requirement, not from the incident.",
+    "register": "safety_incident",
+    "date_field": "written_notice_required_at",
+    "subject": "reference",
     "reference_field": "external_id"
   },
-  "ncr_raised": {
-    "description": "A nonconformance report was raised.",
+  "notifiable_ncr_raised": {
+    "description": "A nonconformance meeting a notification trigger in the governing contract was raised (for example MRTS50 cl 10.2 (a) to (j)). A nonconformance whose source does not say it meets one starts no clock.",
     "register": "safety_ncr",
     "date_field": "occurred_at",
     "subject": "reference",
-    "reference_field": "external_id"
+    "reference_field": "external_id",
+    "match": {
+      "notifiable": true
+    }
   },
   "delay_recorded": {
     "description": "A site diary recorded a delay: any entry in its `delays` list, of any kind.",

@@ -60,7 +60,7 @@ obligations:
   protection_type: watch
   disease: rework
   approval_class: quality
-  trigger: ncr_raised
+  trigger: notifiable_ncr_raised
   severity: 3
   grade: primary_read
   citation:
