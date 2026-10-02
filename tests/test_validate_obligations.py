@@ -155,3 +155,17 @@ def test_requires_item_naming_a_missing_item_field_is_refused() -> None:
                                       "requires_item": {"field": "delays", "match": {"no_such": "x"}}},
     })
     assert any("delays[] has no field 'no_such'" in e for e in errors), errors
+
+
+def test_match_value_the_field_can_never_hold_is_refused() -> None:
+    from validate import validate_event_types
+
+    errors = validate_event_types({
+        "notifiable_incident_recorded": {"register": "safety_incident", "date_field": "occurred_at",
+                                         "subject": "reference", "reference_field": "external_id",
+                                         "match": {"notifiable": "true"}},
+        "latent_condition_reported": {"register": "site_diary", "date_field": "occurred_on", "subject": "project",
+                                      "requires_item": {"field": "delays", "match": {"kind": "latent"}}},
+    })
+    assert any("notifiable is a boolean, not 'true'" in e for e in errors), errors
+    assert any("delays[].kind is never 'latent'" in e for e in errors), errors

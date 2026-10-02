@@ -211,6 +211,21 @@ def validate_instrument_doc(
     return errors
 
 
+def _match_value_errors(key: str, where: str, match: dict, props: dict) -> list[str]:
+    """A `match` value the field can never hold (a string against a boolean, a value outside
+    an enum) is not a validation error in any one record: it silently starts no clock at all."""
+    errors = []
+    for field, value in match.items():
+        spec = props.get(field)
+        if spec is None:
+            continue  # reported as a missing field
+        if "enum" in spec and value not in spec["enum"]:
+            errors.append(f"vocab/event_types.json: {key}: {where}.{field} is never {value!r} (enum {spec['enum']})")
+        elif spec.get("type") == "boolean" and not isinstance(value, bool):
+            errors.append(f"vocab/event_types.json: {key}: {where}.{field} is a boolean, not {value!r}")
+    return errors
+
+
 def validate_event_types(catalogue: dict | None = None) -> list[str]:
     """Demiton SM038: every event type names a register in contracts/ and fields
     that register declares, so a trigger cannot point at a field that is not there."""
@@ -229,6 +244,7 @@ def validate_event_types(catalogue: dict | None = None) -> list[str]:
         for field in [f for f in fields if f]:
             if field not in props:
                 errors.append(f"vocab/event_types.json: {key}: {register} has no field {field!r}")
+        errors.extend(_match_value_errors(key, register, et.get("match") or {}, props))
         item = et.get("requires_item")
         if item:
             array = props.get(item.get("field")) or {}
@@ -238,6 +254,7 @@ def validate_event_types(catalogue: dict | None = None) -> list[str]:
             for field in (item.get("match") or {}):
                 if field not in item_props:
                     errors.append(f"vocab/event_types.json: {key}: {register}.{item.get('field')}[] has no field {field!r}")
+            errors.extend(_match_value_errors(key, f"{register}.{item.get('field')}[]", item.get("match") or {}, item_props))
         if et.get("subject") not in ("project", "asset", "worker", "reference"):
             errors.append(f"vocab/event_types.json: {key}: subject must be project, asset, worker or reference")
         if et.get("subject") == "reference" and not et.get("reference_field"):

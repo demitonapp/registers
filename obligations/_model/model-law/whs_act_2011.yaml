@@ -25,7 +25,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
-  trigger: incident_recorded
+  trigger: notifiable_incident_recorded
   severity: 3
   grade: primary_read
   citation:
@@ -42,7 +42,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
-  trigger: incident_recorded
+  trigger: written_notice_required
   severity: 3
   grade: primary_read
   citation:
@@ -57,8 +57,9 @@ obligations:
     value: 48
     unit: hours
   caveat: 'Runs from the regulator''s requirement, not from the incident. It carries no penalty of its
-    own: a failure is a failure of s 38(1)''s duty. The safety_incident register holds each incident and
-    its worst outcome, but not whether or when the regulator was told, so this is recorded not_collected.'
+    own: a failure is a failure of s 38(1)''s duty. The safety_incident register records when the regulator
+    required it (written_notice_required_at, the trigger of this duty), but not whether or when the notice
+    was given, so this is recorded not_collected.'
 - key: whs.incident_record
   duty: Keep a record of each notifiable incident for at least 5 years from the day notice is given
   consequence: offence
