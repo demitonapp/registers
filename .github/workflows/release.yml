@@ -10,7 +10,9 @@ name: release
 # `obligations/_model/` into the concrete instruments that extend them. A consumer
 # therefore never sees a base or an `extends` (SM031 decisions 7 and 8), and
 # `vocab/` travels with it because every jurisdiction code and instrument_type in
-# the flattened set is checked against that directory.
+# the flattened set is checked against that directory. `holidays/` travels with it
+# too: an obligation's window in business days means nothing without the state's
+# public holidays to count around.
 on:
   push:
     tags: ["v*"]
@@ -35,10 +37,11 @@ jobs:
           mkdir -p dist/obligations
           uv run python scripts/resolve.py --out dist/obligations
           cp -r vocab dist/vocab
+          cp -r holidays dist/holidays
           tar -czf "registers-contracts-${TAG}.tar.gz" contracts
           tar -czf "registers-research-${TAG}.tar.gz" research
           tar -czf "registers-history-${TAG}.tar.gz" history
-          tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab
+          tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab holidays
         env:
           TAG: ${{ github.ref_name }}
       - run: |

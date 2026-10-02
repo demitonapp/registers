@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- **Public holiday calendars** (`holidays/`): all eight Australian states and
+  territories, 2025 to 2027 (NT 2026 to 2027: no complete 2025 list of its show
+  days was found). Each date was read from the Fair Work Ombudsman's yearly lists
+  and checked against the state's own page; each file cites its holidays Act.
+  Flagged, because security of payment Acts count them differently: area-only days
+  (`localities_vary`: Melbourne Cup, WA King's Birthday, NT show days, and every
+  Tasmanian Schedule 1 and 2 local day, which TAS SOP Act s 4A(2) counts
+  statewide), part-day (`part_day`) and bank-only days (`bank_holiday`: the ACT's
+  first Monday in August). Left out, and named in each file's `not_included`:
+  evening part-days, other states' show days and one-area holidays, and NSW's
+  bank-only day. Victoria's 2027 AFL Grand Final Friday is not yet set and is
+  published as a range. `validate.py` checks the new tier; the obligations
+  release asset now carries `holidays/`.
 - **Event types narrowed to the event each clause names** (Demiton SM038). Three
   v5 types matched every record in their register, while the clauses citing them run
   from something narrower: `incident_recorded` is replaced by

@@ -1,0 +1,216 @@
+# Statutory Holidays Act 2000 (Tas): every whole-day public holiday declared for the whole of AU-TAS.
+# Shape: holidays/calendar.schema.json. Dates read from the sources below, not computed.
+jurisdiction: AU-TAS
+holidays_act:
+  title: "Statutory Holidays Act 2000 (Tas)"
+  url: https://www.legislation.tas.gov.au/view/html/inforce/current/act-2000-096
+weekend_rule: "WorkSafe Tasmania: when New Year's Day, Australia Day, Christmas Day or Boxing Day fall on a weekend the public holiday is held on the following Monday (or Tuesday in some cases). If 25 December is a Saturday, both the Saturday and the following Monday are holidays; if a Sunday, both the Sunday and the following Tuesday. When Anzac Day falls on a Saturday or Sunday, no substitute or additional holiday is observed."
+years: [2025, 2026, 2027]
+sources:
+  - title: "Fair Work Ombudsman, 2025 public holidays"
+    url: https://www.fairwork.gov.au/employment-conditions/public-holidays/2025-public-holidays
+    read: "2026-10-03"
+  - title: "Fair Work Ombudsman, 2026 public holidays"
+    url: https://www.fairwork.gov.au/employment-conditions/public-holidays/2026-public-holidays
+    read: "2026-10-03"
+  - title: "Fair Work Ombudsman, 2027 public holidays"
+    url: https://www.fairwork.gov.au/employment-conditions/public-holidays/2027-public-holidays
+    read: "2026-10-03"
+  - title: "WorkSafe Tasmania, Public holidays"
+    url: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
+    read: "2026-10-03"
+holidays:
+  - date: "2025-01-01"
+    name: "New Year's Day"
+  - date: "2025-01-08"
+    name: "Devonport Cup"
+    localities_vary: true
+    part_day: true
+    note: "Sch 2 Pt 2: municipal area of Devonport, part day"
+  - date: "2025-01-27"
+    name: "Australia Day"
+  - date: "2025-02-10"
+    name: "Royal Hobart Regatta"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 1: south of and including Oatlands and Swansea, with exclusions"
+  - date: "2025-02-26"
+    name: "Launceston Cup"
+    localities_vary: true
+    note: "Sch 2 Pt 1 (all day, Launceston surrounds) and Pt 2 (Launceston city centre, part day)"
+  - date: "2025-03-04"
+    name: "King Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 3: King Island"
+  - date: "2025-03-10"
+    name: "Eight Hours Day"
+  - date: "2025-04-18"
+    name: "Good Friday"
+  - date: "2025-04-21"
+    name: "Easter Monday"
+  - date: "2025-04-25"
+    name: "Anzac Day"
+  - date: "2025-05-02"
+    name: "Agfest"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 10: Circular Head"
+  - date: "2025-06-09"
+    name: "King's Birthday"
+  - date: "2025-10-03"
+    name: "Burnie Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 4: Burnie, Waratah-Wynyard and West Coast"
+  - date: "2025-10-09"
+    name: "Royal Launceston Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 5: Launceston and surrounding municipal areas"
+  - date: "2025-10-17"
+    name: "Flinders Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 6: Flinders"
+  - date: "2025-10-23"
+    name: "Royal Hobart Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 7: southern Tasmania, excluding the West Coast"
+  - date: "2025-11-03"
+    name: "Recreation Day"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 8: everywhere Royal Hobart Regatta is not observed"
+  - date: "2025-11-28"
+    name: "Devonport Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 9: Devonport, Kentish and Latrobe"
+  - date: "2025-12-25"
+    name: "Christmas Day"
+  - date: "2025-12-26"
+    name: "Boxing Day"
+  - date: "2026-01-01"
+    name: "New Year's Day"
+  - date: "2026-01-07"
+    name: "Devonport Cup"
+    localities_vary: true
+    part_day: true
+    note: "Sch 2 Pt 2: municipal area of Devonport, part day"
+  - date: "2026-01-26"
+    name: "Australia Day"
+  - date: "2026-02-09"
+    name: "Royal Hobart Regatta"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 1: south of and including Oatlands and Swansea, with exclusions"
+  - date: "2026-02-25"
+    name: "Launceston Cup"
+    localities_vary: true
+    note: "Sch 2 Pt 1 (all day, Launceston surrounds) and Pt 2 (Launceston city centre, part day)"
+  - date: "2026-03-03"
+    name: "King Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 3: King Island"
+  - date: "2026-03-09"
+    name: "Eight Hours Day"
+  - date: "2026-04-03"
+    name: "Good Friday"
+  - date: "2026-04-06"
+    name: "Easter Monday"
+  - date: "2026-04-25"
+    name: "Anzac Day"
+  - date: "2026-05-08"
+    name: "Agfest"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 10: Circular Head"
+  - date: "2026-06-08"
+    name: "King's Birthday"
+  - date: "2026-10-02"
+    name: "Burnie Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 4: Burnie, Waratah-Wynyard and West Coast"
+  - date: "2026-10-08"
+    name: "Royal Launceston Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 5: Launceston and surrounding municipal areas"
+  - date: "2026-10-16"
+    name: "Flinders Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 6: Flinders"
+  - date: "2026-10-22"
+    name: "Royal Hobart Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 7: southern Tasmania, excluding the West Coast"
+  - date: "2026-11-02"
+    name: "Recreation Day"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 8: everywhere Royal Hobart Regatta is not observed"
+  - date: "2026-11-27"
+    name: "Devonport Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 9: Devonport, Kentish and Latrobe"
+  - date: "2026-12-25"
+    name: "Christmas Day"
+  - date: "2026-12-28"
+    name: "Boxing Day"
+  - date: "2027-01-01"
+    name: "New Year's Day"
+  - date: "2027-01-06"
+    name: "Devonport Cup"
+    localities_vary: true
+    part_day: true
+    note: "Sch 2 Pt 2: municipal area of Devonport, part day"
+  - date: "2027-01-26"
+    name: "Australia Day"
+  - date: "2027-02-08"
+    name: "Royal Hobart Regatta"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 1: south of and including Oatlands and Swansea, with exclusions"
+  - date: "2027-02-24"
+    name: "Launceston Cup"
+    localities_vary: true
+    note: "Sch 2 Pt 1 (all day, Launceston surrounds) and Pt 2 (Launceston city centre, part day)"
+  - date: "2027-03-02"
+    name: "King Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 3: King Island"
+  - date: "2027-03-08"
+    name: "Eight Hours Day"
+  - date: "2027-03-26"
+    name: "Good Friday"
+  - date: "2027-03-29"
+    name: "Easter Monday"
+  - date: "2027-04-25"
+    name: "Anzac Day"
+  - date: "2027-05-07"
+    name: "Agfest"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 10: Circular Head"
+  - date: "2027-06-14"
+    name: "King's Birthday"
+  - date: "2027-10-01"
+    name: "Burnie Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 4: Burnie, Waratah-Wynyard and West Coast"
+  - date: "2027-10-07"
+    name: "Royal Launceston Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 5: Launceston and surrounding municipal areas"
+  - date: "2027-10-15"
+    name: "Flinders Island Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 6: Flinders"
+  - date: "2027-10-21"
+    name: "Royal Hobart Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 7: southern Tasmania, excluding the West Coast"
+  - date: "2027-11-01"
+    name: "Recreation Day"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 8: everywhere Royal Hobart Regatta is not observed"
+  - date: "2027-11-26"
+    name: "Devonport Show"
+    localities_vary: true
+    note: "Sch 1 Pt 1 item 9: Devonport, Kentish and Latrobe"
+  - date: "2027-12-25"
+    name: "Christmas Day"
+  - date: "2027-12-27"
+    name: "Additional public holiday for Christmas Day"
+  - date: "2027-12-28"
+    name: "Boxing Day"
+not_included:
+  - name: "Easter Tuesday"
+    reason: "generally the Tasmanian Public Service only; a government holiday under s 6, not a statutory holiday"
