@@ -27,12 +27,12 @@
       "x-demiton-requiredness": "optional"
     },
     "approved_at": {
-      "description": "When the evidence was approved or rejected",
+      "description": "When the evidence was approved",
       "type": "datetime",
       "x-demiton-requiredness": "optional"
     },
     "approved_by": {
-      "description": "User id of the person who approved or rejected the evidence; never the submitter on an approval",
+      "description": "User id of the person who approved the evidence; never its submitter",
       "type": "integer",
       "x-demiton-requiredness": "optional"
     },
@@ -106,6 +106,16 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "rejected_by": {
+      "description": "User id of the person who rejected the evidence; may be its submitter withdrawing it",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "rejected_at": {
+      "description": "When the evidence was rejected",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
     "requirement_id": {
       "description": "Requirement clause the evidence covers",
       "type": "string",
@@ -173,7 +183,7 @@
   ],
   "title": "compliance_evidence contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": [
       {

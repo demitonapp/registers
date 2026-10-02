@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- **`compliance_evidence` 2.1.0**: `rejected_by` and `rejected_at`, so a
+  rejection no longer writes its decider into `approved_by` and `approved_at`.
+  Those two now mean approved and nothing else. MINOR: two new optional
+  properties.
 - `compliance_evidence` 2.0.0 (MAJOR): evidence a person uploads now carries
   four eyes. Ten optional fields: `media_kind` (`photo`, `document`),
   `media_sha256`, `submitted_by` and `submitted_at`, `approval_state`
