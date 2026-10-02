@@ -1,0 +1,174 @@
+{
+  "$id": "demiton:registers/holiday_calendar/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "One file per state or territory under holidays/, named by its ISO 3166-2 code (holidays/AU-QLD.yaml). Lists every whole-day public holiday the state's holidays Act declares for the WHOLE state, by date, for each year in `years`, including the additional weekday the Act gives when a holiday falls on a weekend. A file may also list, flagged, days that are a holiday in only some areas (`localities_vary`), only part of the day (`part_day`) or only for banks (`bank_holiday`), when its sources set those days out completely; whatever else of that kind exists is named in `not_included`. The flags matter because the laws that count business days treat these days differently: some exclude a day only if it is a holiday throughout the state, some in the place where the act is done, some exclude bank holidays too, and Tasmania's security of payment Act treats every listed local and part-day holiday as a whole-day holiday everywhere. Dates, not rules: some holidays are set each year by proclamation or by an event (Victoria's AFL Grand Final Friday, Western Australia's King's Birthday), so no rule reproduces them. A consumer asked about a year outside `years` has no answer and must say so, not assume a weekday.",
+  "x-schema-version": "1.0.0",
+  "title": "holiday calendar v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "jurisdiction",
+    "holidays_act",
+    "years",
+    "sources",
+    "holidays"
+  ],
+  "properties": {
+    "jurisdiction": {
+      "description": "the state or territory, as an ISO 3166-2 code in vocab/jurisdictions.json; must match the file name",
+      "type": "string",
+      "pattern": "^[A-Z]{2}-[A-Z]+$"
+    },
+    "holidays_act": {
+      "description": "the Act that declares these holidays",
+      "$ref": "#/$defs/citation"
+    },
+    "weekend_rule": {
+      "description": "what the Act gives when a holiday falls on a Saturday or Sunday, in the words of the source it was read from. Absent where the source did not state it; the dates in `holidays` still carry the effect.",
+      "type": "string"
+    },
+    "years": {
+      "description": "the calendar years this file lists completely. Every holiday dated in one of these years is listed; a year not here is unknown.",
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 2000,
+        "maximum": 2100
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "sources": {
+      "description": "where the dates were read",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "url",
+          "read"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "read": {
+            "description": "the date the source was read",
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "holidays": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "between": {
+            "description": "for a holiday whose date is not yet fixed: the inclusive range it must fall in. A consumer cannot treat any day in the range as an ordinary day.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from",
+              "to"
+            ],
+            "properties": {
+              "from": {
+                "type": "string",
+                "format": "date"
+              },
+              "to": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "localities_vary": {
+            "description": "true when this day is a holiday in some areas of the state and not in others: an area-only holiday, or a statewide one that some areas move to another date",
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string"
+          },
+          "part_day": {
+            "description": "true when the holiday covers only part of the day (for example from 11 am)",
+            "type": "boolean"
+          },
+          "bank_holiday": {
+            "description": "true when the day is a bank holiday under the holidays Act but not a public holiday",
+            "type": "boolean"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "date"
+            ]
+          },
+          {
+            "required": [
+              "between"
+            ]
+          }
+        ]
+      }
+    },
+    "not_included": {
+      "description": "holidays the source lists that this file deliberately leaves out, and why",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "reason"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "url"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

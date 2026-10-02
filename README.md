@@ -23,6 +23,12 @@ built from this repository. The [research registers](research/) also power
   What a civil job in Demiton is protected against comes from here, not the other way round. Shape:
   [`contracts/instrument.schema.json`](contracts/instrument.schema.json) and
   [`contracts/obligation.schema.json`](contracts/obligation.schema.json). Populated by SM030 O2.
+- **[`holidays/`](holidays)** - every Australian state's and territory's public holidays, by date,
+  one file per jurisdiction (`holidays/AU-QLD.yaml`), so a window of "15 business days" can be
+  counted. Every whole-day, whole-state holiday, including the extra weekday given when a holiday
+  falls on a weekend, plus flagged days a business-day count treats differently from state to
+  state: area-only (`localities_vary`), part-day (`part_day`) and bank-only (`bank_holiday`). A
+  year not in a file's `years` is unknown. Shape: [`holidays/calendar.schema.json`](holidays/calendar.schema.json).
 
 ## What is deliberately not here
 

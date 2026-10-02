@@ -294,9 +294,53 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
     return errors, warnings
 
 
+def holiday_calendar_files() -> list[Path]:
+    return sorted((ROOT / "holidays").glob("*.yaml"))
+
+
+def validate_holiday_calendar(doc: object, label: str, stem: str | None = None) -> list[str]:
+    """A fourth tier: holidays/<jurisdiction>.yaml, one state's public holidays by
+    date, checked against holidays/calendar.schema.json plus what a schema cannot
+    say: the code is a real jurisdiction and matches the file name, every dated
+    holiday sits inside `years` (a consumer reads `years` as "complete for these"),
+    no date is listed twice, and a `between` range runs forwards."""
+    schema = json.loads((ROOT / "holidays" / "calendar.schema.json").read_text())
+    errors = [
+        f"{label}: {'/'.join(str(p) for p in e.path) or '#'}: {e.message}"
+        for e in sorted(Draft202012Validator(schema).iter_errors(doc), key=lambda e: list(e.path))
+    ]
+    if errors or not isinstance(doc, dict):
+        return errors or [f"{label}: not a YAML mapping"]
+    if doc["jurisdiction"] not in _load_vocab("jurisdictions"):
+        errors.append(f"{label}: jurisdiction {doc['jurisdiction']!r} is not in vocab/jurisdictions.json")
+    if stem is not None and stem != doc["jurisdiction"]:
+        errors.append(f"{label}: file is named {stem!r} but declares {doc['jurisdiction']!r}")
+    years, seen = set(doc["years"]), set()
+    for h in doc["holidays"]:
+        days = [h["date"]] if "date" in h else [h["between"]["from"], h["between"]["to"]]
+        for day in days:
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", day) or int(day[:4]) not in years:
+                errors.append(f"{label}: {h['name']}: {day!r} is not a date in one of the listed years {sorted(years)}")
+        if "between" in h and days[0] > days[1]:
+            errors.append(f"{label}: {h['name']}: between runs backwards")
+        if "date" in h:
+            if h["date"] in seen:
+                errors.append(f"{label}: {h['date']} is listed twice")
+            seen.add(h["date"])
+    return errors
+
+
 def validate() -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
+
+    for path in holiday_calendar_files():
+        try:
+            doc = yaml.safe_load(path.read_text())
+        except yaml.YAMLError as exc:
+            errors.append(f"{path.relative_to(ROOT)}: not valid YAML: {exc}")
+            continue
+        errors.extend(validate_holiday_calendar(doc, str(path.relative_to(ROOT)), path.stem))
 
     research_docs: dict[str, dict] = {}
     for path in research_schemas():
@@ -352,7 +396,7 @@ def main() -> int:
         print(f"warning: {w}")
     for e in errors:
         print(f"error: {e}")
-    total = len(research_schemas()) + len(shaped_contracts()) + len(instrument_data_files())
+    total = len(research_schemas()) + len(shaped_contracts()) + len(instrument_data_files()) + len(holiday_calendar_files())
     print(f"{len(errors)} error(s), {len(warnings)} warning(s), {total} document(s) checked")
     return 1 if errors else 0
 
