@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- `compliance_evidence` 2.0.0 (MAJOR): evidence a person uploads now carries
+  four eyes. Ten optional fields: `media_kind` (`photo`, `document`),
+  `media_sha256`, `submitted_by` and `submitted_at`, `approval_state`
+  (`submitted`, `approved`, `rejected`), `approved_by` and `approved_at`,
+  `rejection_reason`, `captured_at`, `captured_on_site`. MAJOR because of one
+  new requirement: `approval_state` is required whenever `media_kind` is set
+  (`allOf` if/then). A row from a connected system carries no `media_kind`, so
+  every row such a system wrote still validates; the system is its second pair
+  of eyes. A reader counts an uploaded row only once it is `approved`, by someone
+  other than its submitter. 1.0.2 is kept in `history/`.
 - `bump_check.py` now calls a requirement added under `allOf`, `then` or
   `else` MAJOR when the document it binds already existed. It used to skip any
   `required` list at a new location, the rule meant for a property that is
