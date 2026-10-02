@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- **`safety_ncr` 2.1.0**: an optional `notifiable`, true when a nonconformance meets
+  a notification trigger in the contract that governs it (MRTS50 cl 10.2 (a) to (j)).
+  MINOR: a new optional property.
+- **`safety_incident` 2.1.0**: an optional `notifiable` (a death, a serious injury or
+  illness, or a dangerous incident: model WHS Act ss 35-37, OHS Act 2004 (Vic) s 37,
+  HSWA 2015 (NZ) s 25) and an optional `written_notice_required_at` (when the
+  regulator required written notice). MINOR: two new optional properties. No source
+  system fills either yet; until one does, an incident starts no notification clock.
 - **`compliance_evidence` 2.1.0**: `rejected_by` and `rejected_at`, so a
   rejection no longer writes its decider into `approved_by` and `approved_at`.
   Those two now mean approved and nothing else. MINOR: two new optional
