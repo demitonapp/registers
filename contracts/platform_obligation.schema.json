@@ -1,7 +1,7 @@
 {
   "$id": "demiton:shelf/platform_obligation/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`dispute_type`, `kind`, `register`, `register_match`) a verdict recompute needs to evaluate it against a project's own registers. Those four are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line). Field names below deliberately match the retiring platform_evidence_standard contract where the concept is the same (`standard_key`, `source_title`, `source_clause`, `source_url`, `dispute_type`) so the verdict engine that reads this shelf changes its data source, not its field access.",
+  "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`dispute_type`, `kind`, `register`, `register_match`, `measure`, `anchor`) a verdict recompute needs to evaluate it against a project's own registers. Those six are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line). Field names below deliberately match the retiring platform_evidence_standard contract where the concept is the same (`standard_key`, `source_title`, `source_clause`, `source_url`, `dispute_type`) so the verdict engine that reads this shelf changes its data source, not its field access. Every field the projection writes is declared here: a consumer that compares a stored row with a new one through this contract ignores an undeclared key present on one side only, so an undeclared field never reaches a row already stored.",
   "properties": {
     "standard_key": {
       "description": "the obligation's stable key, e.g. `payment.schedule_due.au-qld`",
@@ -57,6 +57,12 @@
       "type": "integer",
       "x-demiton-requiredness": "required"
     },
+    "approval_class": {
+      "description": "what kind of sign-off this obligation's evidence needs: the obligation's `approval_class`, a member of vocab/approval_classes.json",
+      "enum": ["geotechnical", "quality", "safety_environment", "variations_claims", "payments", "general"],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "grade": {
       "description": "how close to the primary source the reading was",
       "enum": ["primary_read", "primary_via_secondary", "demiton_default", "inherited"],
@@ -111,6 +117,11 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
+    "measure": {
+      "description": "ENGINE ROUTING, not published: the computation that judges this row, `kind` unless a named strategy overrides it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "register": {
       "description": "ENGINE ROUTING, not published: the tenant register this obligation is evaluated against",
       "type": "string",
@@ -118,6 +129,21 @@
     },
     "register_match": {
       "description": "ENGINE ROUTING, not published: equality predicate on `register` selecting the evidence",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "anchor": {
+      "description": "ENGINE ROUTING, not published: for an `event_bound` row, the event its window runs from (`register`, `date_field`, `target_date_field`)",
+      "type": "object",
+      "x-demiton-requiredness": "optional"
+    },
+    "trigger": {
+      "description": "the event that starts this obligation's clock: the obligation's `trigger`, a key of vocab/event_types.json. Empty when the window is not anchored to an event",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "trigger_event": {
+      "description": "the `trigger`'s entry in vocab/event_types.json, resolved beside it: register, date field, subject, and the match, requires_item and reference fields that say which records count",
       "type": "object",
       "x-demiton-requiredness": "optional"
     },
@@ -178,7 +204,7 @@
   ],
   "title": "platform_obligation contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.2.0",
   "x-demiton-domain": "platform",
   "x-demiton-memory-type": "procedural",
   "x-demiton-provenance": {
