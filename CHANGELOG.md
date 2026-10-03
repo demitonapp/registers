@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- **Payment schedules read from their register**: the eight
+  `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
+  `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system
+  type `finance`). The register exists, and its `claim` field names the claim each
+  schedule answers, which `claim_lodged`'s `proof_reference_fields` already pairs
+  on. A consumer that skips `not_collected` rows before reading any register can
+  now give each claim its own clock (Demiton SM038/X1). No contract changes.
 - **`platform_obligation` 1.2.0**: declares the five fields the projection already
   writes: `approval_class`, `trigger` and `trigger_event` (the trigger's resolved
   catalogue entry), and the engine-routing `measure` and `anchor`. A consumer that

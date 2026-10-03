@@ -218,8 +218,9 @@ obligations:
     clause: s 25(1), s 26
     access_date: '2026-09-16'
   evidence:
-    kind: not_collected
+    kind: register
     register: payment_schedule
+    system_type: finance
   research_row: P4
   clause: s 25(1), s 26
   window:

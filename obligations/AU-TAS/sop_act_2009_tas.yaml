@@ -67,8 +67,9 @@ obligations:
     clause: s 19(2), (3)(b)
     access_date: '2026-09-28'
   evidence:
-    kind: not_collected
+    kind: register
     register: payment_schedule
+    system_type: finance
   clause: s 19(2), (3)(b)
   window:
     value: 10
