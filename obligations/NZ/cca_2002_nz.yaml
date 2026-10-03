@@ -401,8 +401,9 @@ obligations:
     clause: s 22
     access_date: '2026-09-16'
   evidence:
-    kind: not_collected
+    kind: register
     register: payment_schedule
+    system_type: finance
   research_row: NP5
   clause: s 22
   window:
