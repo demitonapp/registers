@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- **`platform_obligation` 1.2.0**: declares the five fields the projection already
+  writes: `approval_class`, `trigger` and `trigger_event` (the trigger's resolved
+  catalogue entry), and the engine-routing `measure` and `anchor`. A consumer that
+  compares a stored row with a new one through this contract ignores an undeclared
+  key present on one side only, so none of the five ever reached a row stored before
+  it existed (found in Demiton SM038/X0's review). MINOR: five new optional
+  properties.
 - **Public holiday calendars** (`holidays/`): all eight Australian states and
   territories, 2025 to 2027 (NT 2026 to 2027: no complete 2025 list of its show
   days was found). Each date was read from the Fair Work Ombudsman's yearly lists
