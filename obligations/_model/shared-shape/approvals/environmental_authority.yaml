@@ -28,8 +28,8 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-062
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: environmental_authority
+    kind: record_in_demiton
+    register: compliance_evidence
   caveat: Each state enacts its own instrument - the duty to comply with the authority's conditions is the one part that does not vary, while the conditions themselves (limits, monitoring points, hours) are set authority by authority and state by state. The concrete that extends this base supplies its own citation, clause and conditions summary. Nothing in the library yet holds an authority's conditions, so the register here is a placeholder name.
 - key: approvals.environmental_authority_incident_notice
   duty: Notify the regulator that an incident has caused or threatens material environmental harm within the window the authority or the Act states
@@ -61,6 +61,6 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-062
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: environmental_authority
-  caveat: Retention periods are set per authority and per state; no single period is stated here. The maintenance_record and inspection_test_result registers hold adjacent facts (plant servicing, test results) but not the authority's own monitoring record, so this is recorded not_collected rather than pointed at a register that would answer a different question.
+    kind: record_in_demiton
+    register: compliance_evidence
+  caveat: Retention periods are set per authority and per state; no single period is stated here. The maintenance_record and inspection_test_result registers hold adjacent facts (plant servicing, test results) but not the authority's own monitoring record, so rather than point at a register that would answer a different question, the evidence is an approved upload in compliance_evidence (a copy of the approval or record, filed against this obligation and accepted by a second person), which is the question the duty asks.

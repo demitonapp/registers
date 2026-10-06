@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- **Library gaps from the 2026-10-06 obligations audit**: every obligation now
+  names a register that exists. Prequalification standing reads
+  `compliance_prequal`, and the insurance shape's records row reads
+  `insurance_certificate` (neither named register existed). The ten approvals
+  rows that recorded `not_collected` against a register no contract defines
+  (`environmental_authority`, `waterway_barrier_approval`, `vegetation_clearing`,
+  `aboriginal_cultural_heritage`), and TfNSW C2's proof of payment, are now
+  `record_in_demiton` against `compliance_evidence`: a copy of the approval or
+  record, filed against the obligation and accepted by a second person. Two rows
+  still name `subcontractor_payment`, which no contract defines: it needs a
+  payment-made register fed by a finance system, which is a register to design,
+  not a row to re-point. `counterparties` stays empty on purpose (SM031 M6). No
+  contract changes.
+
 - **`duty_shape` on every obligation** (contract `obligation` 2.3.0 and
   `platform_obligation` 1.3.0, MINOR: one new optional property each).
   `vocab/duty_shapes.json` names 116 duties, each in a contractor's words, so a
