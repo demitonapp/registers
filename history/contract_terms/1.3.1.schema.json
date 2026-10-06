@@ -9,10 +9,10 @@
       "x-demiton-unit": "n/a (closed vocabulary, enforced by the parser: `GC21`, `TFNSW_GC21` (Transport for NSW's amended GC21, C2-GC21), `TMR_TIC`, `MRWA_MAJOR`, `MRWA_MINOR`, `AS4000_1997`, `AS4000_2025`, `AS2124`, `AS4902`, `NZS3910_2013`, `NZS3910_2023`, `other`)"
     },
     "contract_sum": {
-      "description": "Total contract/subcontract price or lump sum, excluding GST. A sum the document states GST-inclusive is stored with the GST taken out: the document's own GST figure when it states one, otherwise the governing country's rate (AU 10%, NZ 15%); with neither, no sum is stored. Parser rejects <1000 as a clause-number artefact.",
+      "description": "Total contract/subcontract price or lump sum. Parser rejects <1000 as a clause-number artefact.",
       "type": "number",
       "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD ex GST, plain (no `$`/commas)"
+      "x-demiton-unit": "AUD, plain (no `$`/commas)"
     },
     "defects_liability_months": {
       "description": "Defects liability/correction period.",
@@ -321,7 +321,7 @@
   ],
   "title": "contract_terms contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.3.2",
+  "x-demiton-contract-version": "1.3.1",
   "x-demiton-provenance": {
     "standards": [
       {
