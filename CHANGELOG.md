@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- `contract_terms` 1.3.2 (PATCH): `contract_sum` is ex GST, and its description
+  now says so. A letter of acceptance that states the sum "(inclusive of GST)"
+  was stored as written, so a consumer reading the sum as the ex GST contract
+  value overstated it by the GST. The reader takes the GST out: the document's
+  own GST figure when it states one, otherwise the governing country's rate. No
+  property, type or requirement changes. 1.3.1 kept in `history/`.
 - **Payment schedules read from their register**: the eight
   `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
   `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system
