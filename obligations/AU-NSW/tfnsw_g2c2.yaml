@@ -16,6 +16,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_update
   severity: 3
   grade: primary_read
   citation:
@@ -40,6 +41,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.wet_weather_days
   severity: 2
   grade: primary_read
   citation:
@@ -59,6 +61,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.day_works
   severity: 4
   grade: primary_read
   citation:

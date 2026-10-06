@@ -25,6 +25,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.incident_notice
   trigger: notifiable_incident_recorded
   severity: 3
   grade: primary_read
@@ -42,6 +43,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.incident_written_notice
   trigger: written_notice_required
   severity: 3
   grade: primary_read
@@ -66,6 +68,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.incident_record
   severity: 3
   grade: primary_read
   citation:

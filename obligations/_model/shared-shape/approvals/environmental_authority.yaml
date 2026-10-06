@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.environmental_authority_conditions
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-062
@@ -36,6 +37,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.environmental_authority_incident_notice
   severity: 3
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-062
@@ -53,6 +55,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.environmental_authority_records
   severity: 3
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1994-062

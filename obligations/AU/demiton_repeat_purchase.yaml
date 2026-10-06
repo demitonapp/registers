@@ -19,6 +19,7 @@ obligations:
   protection_type: threshold
   disease: rework
   approval_class: quality
+  duty_shape: rework.repeat_purchase
   severity: 4
   grade: demiton_default
   basis: Demiton rework check rule (a repeat order of an item the job plan did not

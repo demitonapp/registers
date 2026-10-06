@@ -23,6 +23,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: workforce.construction_award_pay
   severity: 4
   citation:
     url: https://www.fwc.gov.au/documents/modern_awards/pdf/ma000020.pdf
@@ -39,6 +40,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: fair_work.records
   severity: 3
   citation:
     url: https://www.fwc.gov.au/documents/modern_awards/pdf/ma000020.pdf

@@ -21,6 +21,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.waterway_barrier_approval
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
@@ -35,6 +36,7 @@ obligations:
   protection_type: check
   disease: rework
   approval_class: safety_environment
+  duty_shape: approvals.waterway_barrier_fish_passage
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034
@@ -49,6 +51,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.waterway_barrier_conditions
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2000-034

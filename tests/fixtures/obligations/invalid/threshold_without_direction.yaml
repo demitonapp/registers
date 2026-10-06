@@ -15,6 +15,7 @@ obligations:
     protection_type: threshold
     disease: rework
     approval_class: general
+    duty_shape: latent_conditions.notice
     severity: 3
     grade: primary_read
     citation:

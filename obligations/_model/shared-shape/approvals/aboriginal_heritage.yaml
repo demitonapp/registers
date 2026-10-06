@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.aboriginal_heritage_harm
   severity: 1
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
@@ -36,6 +37,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.aboriginal_heritage_find
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
@@ -53,6 +55,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.aboriginal_heritage_plan_conditions
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079

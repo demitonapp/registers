@@ -23,6 +23,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: workforce.enterprise_agreement_apply
   severity: 3
   citation:
     url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement
@@ -38,6 +39,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: fair_work.records
   severity: 3
   citation:
     url: https://www.fairwork.gov.au/employment-conditions/agreements/finding-an-agreement

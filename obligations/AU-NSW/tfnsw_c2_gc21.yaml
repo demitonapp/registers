@@ -17,6 +17,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.proof_of_payment
   severity: 3
   grade: primary_read
   citation:
@@ -42,6 +43,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.subcontractor_payment
   severity: 3
   grade: primary_read
   citation:
