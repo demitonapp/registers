@@ -24,6 +24,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: counterparties.insurance_notification_notice
   severity: 3
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/contract/road-maintenance-performance-contract-manual/generalconditions.pdf?rev=dc8826aa9b9044fa9aea4c3444221e06&sc_lang=en&extension=pdf&size=613945&hash=208A60A75B332E3CE164ADA231E5A70C
@@ -42,6 +43,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: counterparties.insurance_notification_records
   severity: 3
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/contract/road-maintenance-performance-contract-manual/generalconditions.pdf?rev=dc8826aa9b9044fa9aea4c3444221e06&sc_lang=en&extension=pdf&size=613945&hash=208A60A75B332E3CE164ADA231E5A70C

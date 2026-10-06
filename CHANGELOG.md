@@ -2,6 +2,20 @@
 
 ## Unreleased
 
+- **`duty_shape` on every obligation** (contract `obligation` 2.3.0 and
+  `platform_obligation` 1.3.0, MINOR: one new optional property each).
+  `vocab/duty_shapes.json` names 116 duties, each in a contractor's words, so a
+  reader sees one duty from several standards side by side: the latent condition
+  notice from AS 2124, AS 4000, AS 4902, GC21, the TMR TIC, MRWA Major Works and
+  NZS 3910:2013 is one shape. A row's shape is its key's first two segments,
+  except 29 rows that state an existing duty under another key and name that
+  duty's shape (NZS 3910's `unforeseen_conditions_notice` is
+  `latent_conditions.notice`). 234 base and standalone rows carry it; overrides
+  inherit it, and all 252 flattened rows resolve with one: 107 shapes, 45 of
+  them stated by two or more instruments. `resolve.tree_errors` refuses a row
+  without a shape or with one outside the vocabulary, and `validate.py` refuses a
+  shape no row names.
+
 - **Payment schedules read from their register**: the eight
   `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
   `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system

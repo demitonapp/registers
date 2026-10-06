@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_standing
   severity: 1
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD
@@ -38,6 +39,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_change_notice
   severity: 2
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD

@@ -21,6 +21,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.vegetation_clearing_approval
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090
@@ -35,6 +36,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.vegetation_clearing_conditions
   severity: 2
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090
@@ -49,6 +51,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: approvals.vegetation_clearing_records
   severity: 3
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090

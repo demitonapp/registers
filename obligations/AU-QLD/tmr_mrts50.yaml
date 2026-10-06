@@ -16,6 +16,7 @@ obligations:
   protection_type: check
   disease: rework
   approval_class: quality
+  duty_shape: closeout.as_constructed_records
   severity: 1
   grade: primary_read
   citation:
@@ -38,6 +39,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: quality
+  duty_shape: closeout.records_retention
   severity: 4
   grade: primary_read
   citation:
@@ -60,6 +62,7 @@ obligations:
   protection_type: watch
   disease: rework
   approval_class: quality
+  duty_shape: closeout.nonconformance_notice
   trigger: notifiable_ncr_raised
   severity: 3
   grade: primary_read

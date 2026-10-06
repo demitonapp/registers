@@ -15,6 +15,7 @@ obligations:
   protection_type: watch
   disease: rework
   approval_class: quality
+  duty_shape: closeout.as_constructed_records
   severity: 3
   grade: primary_read
   citation:
@@ -36,6 +37,7 @@ obligations:
   protection_type: watch
   disease: rework
   approval_class: quality
+  duty_shape: closeout.nonconformance_notice
   severity: 4
   grade: primary_read
   citation:
@@ -59,6 +61,7 @@ obligations:
   protection_type: watch
   disease: rework
   approval_class: quality
+  duty_shape: closeout.quality_records_handover
   severity: 3
   grade: primary_read
   citation:

@@ -266,6 +266,23 @@ def validate_event_types(catalogue: dict | None = None) -> list[str]:
     return errors
 
 
+def unused_duty_shapes() -> list[str]:
+    """A duty shape no row names is a card nothing fills: refuse it, so the
+    vocabulary cannot drift from the library. Real tree only - a fixture tree
+    names a handful of shapes on purpose."""
+    named = {
+        obligation.get("duty_shape")
+        for path in instrument_data_files()
+        for obligation in (yaml.safe_load(path.read_text()) or {}).get("obligations") or []
+        if isinstance(obligation, dict)
+    }
+    return [
+        f"vocab/duty_shapes.json: {shape} is named by no obligation"
+        for shape in _load_vocab("duty_shapes")
+        if not shape.startswith("$") and shape not in named
+    ]
+
+
 def validate_obligation_data() -> tuple[list[str], list[str]]:
     """Every instrument in the real tree: the concretes and the SM031 bases."""
     errors: list[str] = []
@@ -290,6 +307,7 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
 
     errors.extend(resolve.tree_errors())
     errors.extend(validate_event_types())
+    errors.extend(unused_duty_shapes())
 
     return errors, warnings
 

@@ -16,6 +16,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.contractors_bond
   severity: 1
   grade: primary_read
   citation:
@@ -39,6 +40,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: quality
+  duty_shape: closeout.defects_notification_period
   severity: 4
   grade: primary_read
   citation:
@@ -63,6 +65,7 @@ obligations:
   protection_type: countdown
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.final_claim
   severity: 1
   grade: primary_read
   citation:
@@ -86,6 +89,7 @@ obligations:
   protection_type: countdown
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.final_payment_schedule
   severity: 4
   grade: primary_read
   citation:
@@ -109,6 +113,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 3
   grade: primary_via_secondary
   citation:
@@ -133,6 +138,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_release
   severity: 3
   grade: primary_read
   citation:
@@ -157,6 +163,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.eot_decision
   severity: 4
   grade: primary_read
   citation:
@@ -178,6 +185,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.eot_claim
   severity: 4
   grade: primary_read
   citation:
@@ -200,6 +208,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_submission
   severity: 1
   grade: primary_read
   citation:
@@ -224,6 +233,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: variations_claims
+  duty_shape: latent_conditions.unforeseen_conditions_details
   severity: 4
   grade: primary_read
   citation:
@@ -243,6 +253,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: variations_claims
+  duty_shape: latent_conditions.notice
   severity: 4
   grade: primary_read
   citation:
@@ -262,6 +273,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: variations_claims
+  duty_shape: latent_conditions.weather_exclusion_rule
   severity: 4
   grade: primary_read
   citation:
@@ -282,6 +294,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.day_works
   severity: 4
   grade: primary_read
   citation:
@@ -304,6 +317,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.claim
   severity: 4
   grade: primary_via_secondary
   citation:
@@ -327,6 +341,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.other_matter_notice
   severity: 4
   grade: primary_via_secondary
   citation:
@@ -349,6 +364,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.proposed_value
   severity: 4
   grade: primary_read
   citation:
@@ -371,6 +387,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.response_to_notice
   severity: 4
   grade: primary_via_secondary
   citation:

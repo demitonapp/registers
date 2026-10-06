@@ -26,6 +26,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: latent_conditions.utility_check
   severity: 3
   grade: primary_read
   citation:

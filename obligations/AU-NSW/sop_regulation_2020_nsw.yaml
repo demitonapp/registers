@@ -15,6 +15,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: closeout.retention_ledger
   severity: 3
   grade: primary_via_secondary
   citation:

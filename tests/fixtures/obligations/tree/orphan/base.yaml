@@ -17,6 +17,7 @@ obligations:
     protection_type: check
     disease: non_compliance
     approval_class: general
+    duty_shape: latent_conditions.notice
     severity: 3
     citation:
       url: https://example.invalid/orphan-base

@@ -15,6 +15,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: quality
+  duty_shape: closeout.dlp_end_notice
   severity: 3
   grade: primary_read
   citation:
@@ -37,6 +38,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_cap
   severity: 1
   grade: primary_read
   citation:
@@ -58,6 +60,7 @@ obligations:
   protection_type: countdown
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_release_default
   severity: 3
   grade: primary_read
   citation:
@@ -80,6 +83,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: closeout.set_off_notice
   severity: 1
   grade: primary_read
   citation:

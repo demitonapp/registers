@@ -17,6 +17,7 @@ obligations:
   protection_type: threshold
   disease: rework
   approval_class: geotechnical
+  duty_shape: rework.lot_compaction
   severity: 3
   grade: primary_read
   citation:
