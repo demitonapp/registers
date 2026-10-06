@@ -51,6 +51,6 @@ obligations:
     access_date: '2026-09-30'
   evidence:
     kind: register
-    register: insurance_policy
+    register: insurance_certificate
     system_type: document_store
   caveat: A contract that requires evidence of insurance on request, and a policy that requires a notification to be provable after the event, both depend on these records existing. The retention period is set by the contract of the day, so none is stated here. The concrete that extends this base supplies its own citation, clause and period.
