@@ -11,6 +11,7 @@
 id: vegetation_clearing_lls_act_2013_nsw
 extends: model_vegetation_clearing
 title: Native vegetation clearing (Local Land Services Act 2013 (NSW))
+publisher: Local Land Services NSW
 jurisdictions: [AU-NSW]
 citation:
   url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-2013-051
