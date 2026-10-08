@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- **`contract_terms` 1.4.0**: adds `currency`, the ISO 4217 code every amount
+  on the record is in. The six money fields (`contract_sum`, `ld_rate`, `ld_cap`,
+  `ld_milestones`, `public_liability`, `professional_indemnity`) said `AUD` in
+  their unit, so a reader of the record had no currency to carry beside the
+  amount and a New Zealand contract had nowhere to say so. Their units now read
+  "in `currency`". MINOR: one new optional property.
 - **Payment schedules read from their register**: the eight
   `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
   `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system
