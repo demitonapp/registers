@@ -12,7 +12,14 @@
       "description": "Total contract/subcontract price or lump sum. Parser rejects <1000 as a clause-number artefact.",
       "type": "number",
       "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD, plain (no `$`/commas)"
+      "x-demiton-unit": "in `currency`, plain (no symbol/commas)"
+    },
+    "currency": {
+      "description": "The currency every amount on this record is in (contract_sum, ld_rate, ld_cap, ld_milestones, public_liability, professional_indemnity). As the document states it; where it states only a symbol such as `$`, the currency of the country whose law governs the contract (`jurisdiction`). A record with no currency has no usable amount.",
+      "pattern": "^[A-Z]{3}$",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217 alpha-3 code (e.g. `AUD`, `NZD`)"
     },
     "defects_liability_months": {
       "description": "Defects liability/correction period.",
@@ -71,7 +78,7 @@
       "description": "Liquidated damages ceiling for the whole contract (a per-milestone cap is `ld_milestones[].cap_amount`).",
       "type": "number",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-unit": "in `currency`"
     },
     "ld_milestones": {
       "description": "Damages stated per milestone or separable portion (sectional completion), one entry per clause. A single contract-wide LD stays in `ld_rate`/`ld_cap`.",
@@ -116,13 +123,13 @@
       },
       "type": "array",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "n/a (object list; rate_per_day and cap_amount in AUD)"
+      "x-demiton-unit": "n/a (object list; rate_per_day and cap_amount in `currency`)"
     },
     "ld_rate": {
       "description": "Liquidated damages rate per calendar day.",
       "type": "number",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD per day"
+      "x-demiton-unit": "in `currency`, per day"
     },
     "notice_eot_days": {
       "description": "Contractual notice window to raise a delay / extension-of-time claim after the delaying event.",
@@ -164,13 +171,13 @@
       "description": "Professional indemnity cover amount.",
       "type": "number",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-unit": "in `currency`"
     },
     "public_liability": {
       "description": "Public liability insurance cover amount.",
       "type": "number",
       "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-unit": "in `currency`"
     },
     "retention_pct": {
       "description": "Retention/security percentage of the contract price.",
@@ -321,7 +328,7 @@
   ],
   "title": "contract_terms contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.3.1",
+  "x-demiton-contract-version": "1.4.0",
   "x-demiton-provenance": {
     "standards": [
       {
