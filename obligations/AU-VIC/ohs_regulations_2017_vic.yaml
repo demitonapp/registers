@@ -1,0 +1,114 @@
+# The safe work method statement duties of Victoria's own construction Part
+# (Part 5.1). Victoria never adopted the model WHS law, so these stand alone and
+# extend no base: the wording, the duty holder and the review trigger all differ
+# from the model rows under obligations/_model/model-law/whs_regulations_2011.yaml.
+id: ohs_regulations_2017_vic
+source: law
+instrument_type: regulation
+title: Occupational Health and Safety Regulations 2017 (Vic)
+publisher: AU-VIC Government
+jurisdictions:
+- AU-VIC
+citation:
+  url: https://content.legislation.vic.gov.au/sites/default/files/2026-07/17-22sra017-authorised.pdf
+  access_date: '2026-10-09'
+  version: Authorised Version No. 017, incorporating amendments as at 29 July 2026
+obligations:
+- key: whs.swms_prepare.au-vic
+  duty: Prepare a safe work method statement before starting high risk construction work that poses a risk
+    to anyone's health or safety
+  clause: r 327(1)(a)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-07/17-22sra017-authorised.pdf
+    clause: r 327(1)(a)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: 'Victoria is not harmonised: this binds an employer or self-employed person, and only where the work
+    poses a risk to a person''s health or safety. Before the work starts, with no day count, so no
+    window is recorded. High risk construction work is the 19 kinds r 322 lists, among them a risk
+    of a person falling more than 2 metres, any demolition, a trench or shaft deeper than 1.5
+    metres, a tunnel, work on or adjacent to roadways or railways used by traffic, and a workplace
+    where powered mobile plant moves. Regulation 324 sets what the statement must contain. For asbestos
+    removal or disturbance, an asbestos control plan under r 272 counts as the statement (r 327(3)).
+    It carries no penalty of its own: its Act compliance note names ss 21, 23 and 24 of the OHS Act
+    2004, and r 7 says a failure to comply with those duties is an offence. The compliance_documents
+    register can hold a statement (its document_type names the class), but not which high risk
+    construction work it covers or when that work started, so this is recorded not_collected.'
+- key: whs.swms_comply.au-vic
+  duty: Perform high risk construction work in accordance with its safe work method statement, and stop work
+    that is not
+  clause: r 327(1)(b), (2)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-07/17-22sra017-authorised.pdf
+    clause: r 327(1)(b), (2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: 'A standing duty with no window. Work that departs from its statement must stop immediately or as
+    soon as it is safe to do so, and not resume until the statement is complied with or reviewed
+    and, if necessary, revised under r 328. It carries no penalty of its own: its Act compliance
+    note names ss 21, 23 and 24 of the OHS Act 2004, and r 7 says a failure to comply with those
+    duties is an offence. No register records whether the work on site followed its statement, so
+    this is recorded not_collected against compliance_documents, which holds the statement itself.'
+- key: whs.swms_review.au-vic
+  duty: Review the safe work method statement, and revise it as necessary, whenever the work changes or its
+    controls are not controlling the risks
+  clause: r 328
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-07/17-22sra017-authorised.pdf
+    clause: r 328
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: 'Wider than the model regulation, which runs only from a revision of control measures: Victoria''s
+    runs whenever the high risk construction work changes, or there is an indication the controls
+    are not controlling the risks, including after any incident during the work. No day count, so no
+    window is recorded, and no trigger is set because no register records a change to the work. It
+    carries no penalty of its own: its Act compliance note names ss 21, 23 and 24 of the OHS Act
+    2004, and r 7 says a failure to comply with those duties is an offence. The compliance_documents
+    register keeps a revision for each document, but not what prompted it, so this is recorded
+    not_collected.'
+- key: whs.swms_keep.au-vic
+  duty: Keep a copy of the safe work method statement for the duration of the high risk construction work
+  clause: r 329
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://content.legislation.vic.gov.au/sites/default/files/2026-07/17-22sra017-authorised.pdf
+    clause: r 329
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: 'Runs for the duration of the work, not for a fixed period, so no window is recorded. Penalty 60
+    penalty units for a natural person, 300 for a body corporate. Victoria has no counterpart to the
+    model''s 2 years after a notifiable incident, and no duty on the principal contractor to obtain
+    or receive the statement: the principal contractor''s duties are the health and safety
+    co-ordination plan (rr 335 to 337), not recorded here. The compliance_documents register holds
+    the statement but not when the work it covers was completed, so this is recorded not_collected.'

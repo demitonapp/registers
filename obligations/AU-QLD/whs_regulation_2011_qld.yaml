@@ -14,3 +14,62 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
     clause: r 304(2), (6)
     access_date: '2026-09-27'
+- overrides: whs.swms_prepare
+  key: whs.swms_prepare.au-qld
+  clause: r 299(1)
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 299(1)
+    access_date: '2026-10-09'
+  caveat: 'Before the work starts, with no day count, so no window is recorded. High risk construction work is
+    the 18 kinds of construction work r 291 lists, among them a risk of a person falling more than
+    2m, a shaft or trench deeper than 1.5m, a tunnel, work on or next to a road or railway in use by
+    traffic, and an area where powered mobile plant moves. Provision 299(2) to (4) set what the statement
+    must contain; a statement another person already prepared satisfies the duty. Queensland adds r
+    299(4): where the work risks a fall of more than 2m and the only controls are administrative
+    controls or personal protective equipment, the statement must describe every control measure
+    considered. The compliance_documents register can hold a statement (its document_type names the
+    class), but not which high risk construction work it covers or when that work started, so this
+    is recorded not_collected.'
+- overrides: whs.swms_comply
+  key: whs.swms_comply.au-qld
+  clause: r 300(1)-(2)
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 300(1)-(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_copy_to_principal
+  key: whs.swms_copy_to_principal.au-qld
+  clause: r 301
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 301
+    access_date: '2026-10-09'
+- overrides: whs.swms_review
+  key: whs.swms_review.au-qld
+  clause: r 302
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 302
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep
+  key: whs.swms_keep.au-qld
+  clause: r 303(1), (3), (4)
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 303(1), (3), (4)
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep_after_incident
+  key: whs.swms_keep_after_incident.au-qld
+  clause: r 303(2)
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 303(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_principal_obtain
+  key: whs.swms_principal_obtain.au-qld
+  clause: r 312
+  citation:
+    url: https://www.legislation.qld.gov.au/view/pdf/inforce/current/sl-2011-0240
+    clause: r 312
+    access_date: '2026-10-09'

@@ -1,8 +1,13 @@
 # SM031 M2: the model WHS Regulations, held once for the four jurisdictions
-# whose regulation carries the harmonised excavation-work record duty (ACT, NSW,
-# QLD, SA). NSW calls the provision a section rather than a regulation, so its
-# concrete overrides `clause`; the caveat is identical across all four and is
-# written once, here.
+# whose regulation is in this library (ACT, NSW, QLD, SA). NSW calls the provision
+# a section rather than a regulation, so its concrete overrides `clause`; a caveat
+# identical across all four is written once, here.
+#
+# The seven `whs.swms_*` rows are the high risk construction work duties of
+# Part 6.3 Division 2 (rr 299-303) and the principal contractor's r 312, read
+# from Safe Work Australia's 5 December 2025 text and from each state's own on
+# 2026-10-09. Caveats name a provision by its bare number, because it is a
+# regulation in three states and a section in NSW.
 id: model_whs_regulations_2011
 source: law
 instrument_type: regulation
@@ -42,3 +47,158 @@ obligations:
     the same duty but could not be pinned to a clean, current, official URL within this session''s scope
     - see library-transcription.md Corrections. Victoria is correctly excluded: it runs its own OHS Act/Regulations,
     never harmonised.'
+- key: whs.swms_prepare
+  duty: Ensure a safe work method statement is prepared for high risk construction work before the work starts
+  clause: r 299(1)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 299(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: Before the work starts, with no day count, so no window is recorded. High risk construction
+    work is the 18 kinds of construction work provision 291 lists, among them a risk of a person falling
+    more than 2m, a shaft or trench deeper than 1.5m, a tunnel, work on or next to a road or railway in
+    use by traffic, and an area where powered mobile plant moves. Provision 299(2) and (3) set what the
+    statement must contain; a statement another person already prepared satisfies the duty. The compliance_documents
+    register can hold a statement (its document_type names the class), but not which high risk construction
+    work it covers or when that work started, so this is recorded not_collected.
+- key: whs.swms_comply
+  duty: Put arrangements in place so high risk construction work is done in accordance with its safe work
+    method statement, and stop work that is not
+  clause: r 300(1)-(2)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 300(1)-(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: A standing duty with no window. Work that departs from its statement must stop immediately or
+    as soon as it is safe to do so, and resume only in accordance with the statement (provision 300(2)).
+    No register records whether the work on site followed its statement, so this is recorded not_collected
+    against compliance_documents, which holds the statement itself.
+- key: whs.swms_copy_to_principal
+  duty: Give the principal contractor a copy of the safe work method statement before high risk construction
+    work on a construction project starts
+  clause: r 301
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 301
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: Before the work starts, with no day count, so no window is recorded. Applies only to work on
+    a construction project, which provision 292 defines as construction work costing $250,000 or more.
+    The principal contractor's matching duty to obtain the copy is provision 312, its own row. The compliance_documents
+    register can hold a statement but not whether or when a copy went to the principal contractor, so
+    this is recorded not_collected.
+- key: whs.swms_review
+  duty: Review the safe work method statement, and revise it as necessary, when the relevant control measures
+    are revised
+  clause: r 302
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 302
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: Runs from a revision of control measures under provision 38 (the duty to review control measures),
+    with no day count, so no window is recorded. No trigger is set, because no register records a revision
+    of control measures. The compliance_documents register keeps a revision for each document, but not
+    what prompted it, so this is recorded not_collected.
+- key: whs.swms_keep
+  duty: Keep a copy of the safe work method statement until the high risk construction work it covers
+    is complete
+  clause: r 303(1), (3), (4)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 303(1), (3), (4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: Runs to completion of the work, not for a fixed period, so no window is recorded. For as long
+    as it must be kept, a copy must be readily accessible to every worker engaged to do the work (provision
+    303(3)) and available for inspection under the Act (303(4)). The 2 year rule after a notifiable incident
+    is its own row. The compliance_documents register holds the statement but not when the work it covers
+    was completed, so this is recorded not_collected.
+- key: whs.swms_keep_after_incident
+  duty: Keep the safe work method statement for at least 2 years after a notifiable incident in connection
+    with the work it covers
+  clause: r 303(2)
+  window:
+    value: 24
+    unit: months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 303(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: 2 years converted to 24 months, running from the day the incident occurs. No trigger is set
+    - notifiable_incident_recorded starts on every notifiable incident, and the safety_incident register
+    does not say which high risk construction work an incident was connected with. The compliance_documents
+    register holds the statement but not that link, so this is recorded not_collected.
+- key: whs.swms_principal_obtain
+  duty: As principal contractor, take all reasonable steps to obtain a copy of the safe work method statement
+    before high risk construction work on the project starts
+  clause: r 312
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.safeworkaustralia.gov.au/doc/model-whs-regulations
+    clause: r 312
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: Before the work starts, with no day count, so no window is recorded. Binds the principal contractor
+    for a construction project (provision 292 - construction work costing $250,000 or more). The matching
+    duty on the business doing the work is provision 301, its own row. The compliance_documents register
+    can hold a statement but not whether the principal contractor held it before the work started, so
+    this is recorded not_collected.
