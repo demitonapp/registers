@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- **Two New Zealand rows corrected** (no row added or removed). NZS 3910:2013
+  `latent_conditions.weather_exclusion_rule.nzs3910_2013`: the duty said adverse
+  weather is excluded from an extension of time claim, which cl 9.5.1 does not
+  say. Cl 9.5.1 excludes weather, and conditions due to weather on the Site,
+  from the unforeseen physical conditions claim only; cl 10.3.1 lists inclement
+  weather as a ground for an extension of time. The duty and caveat now say so,
+  and the caveat's "unless the contractor is away from the Site" becomes the
+  clause's "weather away from the Site". HSE Regulations 1995
+  `whs.notifiable_work_notice.nz`: consequence `breach` becomes `guidance`.
+  Reg 26 states no penalty, and `breach` read as a breach of contract for a
+  statutory duty. Both re-read at source on 2026-10-10.
+
 - **Ontario's first obligations** (49 rows, `obligations/CA-ON/`), read on
   2026-10-09 from Ontario e-Laws. `construction_act_1990_on` (32): proper
   invoices and the 7 day deficiency notice, the owner's 14 day notice of
