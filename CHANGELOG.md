@@ -2,6 +2,29 @@
 
 ## Unreleased
 
+- **South Africa, first obligations** (34 rows, five standalone instruments
+  under `obligations/ZA/`, all read from primary text on 2026-10-09). The
+  Construction Regulations, 2014 (19): the construction work permit (r 3(1),
+  30 days before work, with the Chief Inspector's Notice 850 of 2018 narrowing
+  which work needs one) and starting only once it is issued (r 3(7)), the
+  7-day notice of construction work (r 4(1)), the client's specification, the
+  principal contractor's and each contractor's health and safety plan and file,
+  the file handover, written appointments, Compensation Fund good standing,
+  30-day audits and the 7-day audit report, the construction manager and
+  health and safety officer, risk assessments and their review, site induction,
+  medical fitness, and the client's fatality report. The Occupational Health
+  and Safety Act 85 of 1993 (1): leave an incident site undisturbed (s 24(2)).
+  The General Administrative Regulations, 2003 (4): the 7-day incident notice,
+  the forthwith report, the 3-year record and the 7-day investigation (rr 8,
+  9). The CIDB Act 38 of 2000 (3): hold a registration for public sector work
+  (s 18), notify changed particulars within 30 days (s 17(1)), renew three
+  months before expiry (s 20). The CIDB Regulations, 2004 (7): the annual fee
+  and annual confirmation (regs 35(2), 36(2)), the tax clearance certificate
+  within three months (reg 36(3)), the grade a tender needs (reg 25), and the
+  employer's project registration, status report and dispute notice (regs 18,
+  21). No vocab changes: `ZA` was already in `vocab/jurisdictions.json`
+  (`supported: false`, unchanged). 309 to 343 flattened rows. No contract
+  changes.
 - **Ireland's first obligations** (25 rows, `obligations/IE/`), read on
   2026-10-09 from the Irish Statute Book. `construction_contracts_act_2013_ie`
   (14): which contracts the Act governs, the payment claim dates and 30 day

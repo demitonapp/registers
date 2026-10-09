@@ -1,0 +1,49 @@
+# South Africa's Occupational Health and Safety Act 85 of 1993. Its own
+# incident-reporting duty, s 24(1), says only "within the prescribed period and
+# in the prescribed manner": the 7 days and the forms are in the General
+# Administrative Regulations, 2003, so the reporting rows live in
+# general_administrative_regulations_2003_za.yaml. This file carries the one
+# incident duty the Act states in full. Read on 2026-10-09 from the Department of
+# Employment and Labour's copy, which shows the Act as amended by Act 181 of 1993.
+id: ohs_act_1993_za
+source: law
+instrument_type: act
+title: Occupational Health and Safety Act, 1993 (Act 85 of 1993)
+publisher: Parliament of the Republic of South Africa
+jurisdictions:
+- ZA
+citation:
+  url: https://www.labour.gov.za/DocumentCenter/Acts/Occupational%20Health%20and%20Safety/Occupational%20Health%20and%20Safety%20Act,%201993.pdf
+  access_date: '2026-10-09'
+  version: As amended by the Occupational Health and Safety Amendment Act 181 of 1993 (Department of Employment
+    and Labour copy)
+obligations:
+- key: whs.incident_site_preserve.za
+  duty: Do not disturb the site of an incident in which a person died, is likely to die or lost a limb or part
+    of a limb, or remove anything involved, without an inspector's consent
+  clause: s 24(2)
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Acts/Occupational%20Health%20and%20Safety/Occupational%20Health%20and%20Safety%20Act,%201993.pdf
+    clause: s 24(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    Binds any person. The site may still be disturbed as far as needed to prevent a further incident, remove
+    the injured or dead, or rescue people from danger. It lasts until an inspector consents, with no day
+    count, so no window is recorded. Section 38(1)(a) makes a breach of s 24(1) or (2) an offence: a fine
+    of up to R50,000 or up to one year's imprisonment, or both, as the copy read states it (later changes to
+    fine amounts were not checked). The incidents s 24(1) makes reportable are a death, unconsciousness,
+    loss of a limb, an injury or illness likely to cause death, a permanent physical defect or at least 14
+    days off work, a major incident, and four kinds of dangerous occurrence; notifiable_incident_recorded is
+    the closest event type, though this duty covers a narrower set. Nothing in the Act or its copy read was
+    found amending s 24 after 1993. No register records the site's release by an inspector, so this is
+    recorded not_collected.
