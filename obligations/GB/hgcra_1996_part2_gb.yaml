@@ -1,0 +1,352 @@
+# The Construction Act: Part II of the Housing Grants, Construction and
+# Regeneration Act 1996, as amended by Part 8 of the Local Democracy, Economic
+# Development and Construction Act 2009. Read in full (ss 104 to 117) from
+# legislation.gov.uk on 2026-10-09, latest available (revised) version dated
+# 19 May 2025. The two outstanding effects legislation.gov.uk lists against the
+# Act touch Part I only (s 3(2)(h), Sch 1 para 12).
+#
+# Where it applies: construction operations in England, Wales or Scotland
+# (s 104(6)(b)), whatever law governs the contract (s 104(7)). Not Northern
+# Ireland. This library has no code for Great Britain, so the instrument
+# carries `GB`, the ISO 3166-1 code for the whole United Kingdom, and the
+# applicability row says where it stops. The 2009 amendments (payment notices,
+# pay less notices, oral contracts, adjudication costs) apply only to contracts
+# entered into on or after their commencement: 1 October 2011 in England and
+# Wales, 1 November 2011 in Scotland (LDEDCA 2009 s 149(3), (4) and the
+# commencement annotations legislation.gov.uk carries on each section).
+#
+# The Act mostly states what a construction contract must contain. Where a
+# contract does not comply, the Scheme for Construction Contracts fills the gap
+# as implied terms (ss 108(5), 109(3), 110(3), 110A(5), 111(7)(b), 113(6),
+# 114(4)). Each nation has its own Scheme; this library carries England's
+# (scheme_construction_contracts_1998_eng). A row here is a rule the Act itself
+# states; a default only the Scheme sets lives there.
+#
+# Periods: a period after or from a date begins immediately after that date,
+# and Christmas Day, Good Friday and the bank holidays of England and Wales (or
+# Scotland) are excluded (s 116). Weekends are not excluded, so windows are
+# recorded in calendar days. This library holds no United Kingdom holiday
+# calendar yet.
+id: hgcra_1996_part2_gb
+source: law
+instrument_type: act
+title: Housing Grants, Construction and Regeneration Act 1996, Part II (Construction Contracts)
+publisher: UK Parliament
+jurisdictions:
+- GB
+citation:
+  url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+  access_date: '2026-10-09'
+  version: 1996 c. 53 Part II, latest available (revised) version dated 19 May 2025, as amended by the
+    Local Democracy, Economic Development and Construction Act 2009 Part 8 (in force 1 October 2011 in
+    England and Wales, 1 November 2011 in Scotland); applies to construction operations in England, Wales
+    and Scotland
+obligations:
+- key: payment.act_applicability.gb
+  duty: Determine whether the contract is a construction contract the Construction Act governs
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 104, 105, 106, 106A, 117
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: s 104, 105, 106, 106A, 117
+  caveat: A construction contract is an agreement to carry out construction operations, arrange for others
+    to carry them out, or provide labour for them, and includes architectural, design, surveying and advisory
+    work in relation to them (s 104(1), (2)); not a contract of employment (s 104(3)). It must relate to
+    construction operations in England, Wales or Scotland (s 104(6)). Construction operations include building
+    and civil engineering works, roadworks, pipelines, sewers, site clearance, earth-moving, excavation,
+    scaffolding and landscaping (s 105(1)); they exclude oil, gas and mineral extraction, plant and steelwork
+    on process, power, water treatment and similar sites, delivery of materials or components without
+    installation, and artistic works (s 105(2)). The Act does not apply to a contract with a residential
+    occupier, one principally about a dwelling a party lives in or intends to (s 106), or to a description
+    of contract excluded by order (s 106A; in England the Construction Contracts (England) Exclusion Order
+    2011, S.I. 2011/2332, not read). An oral or partly oral contract is covered since s 107 was repealed
+    (1 October 2011 in England and Wales, 1 November 2011 in Scotland). It binds the Crown (s 117). Not itself an evidence record, but the rule
+    for whether every other row in this instrument applies.
+- key: payment.stage_payments.gb
+  duty: Be paid by instalments, stage or periodic payments for work expected to last 45 days or more
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 109(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 109(1)-(4)
+  caveat: The entitlement does not arise where the contract specifies, or the parties agree, that the work
+    will last less than 45 days (s 109(1)). The parties are free to agree the amounts and intervals; failing
+    agreement the Scheme sets them (s 109(3)), in England a 28 day relevant period (see payment.due_date_default.gb).
+    The Act sets no interval of its own, so no window is recorded, and states no consequence for the entitlement
+    itself.
+- key: payment.conditional_payment_void.gb
+  duty: Do not rely on a term that makes payment conditional on payment from a third party, or on performance
+    or certification under another contract
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 110(1), 110(1A)-(1D), 113(1)-(6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: s 110(1), 110(1A)-(1D), 113(1)-(6)
+  caveat: 'Every construction contract must give an adequate mechanism for what payments become due and
+    when, and a final date for payment of each (s 110(1)). Three terms fail that test: payment conditional
+    on performance of obligations under another contract, or on someone''s decision that they were performed
+    (pay when certified, s 110(1A)), except where the other contract is the subcontract for those same operations
+    (s 110(1C)); and a due date set by the payee giving a notice of what is due (s 110(1D)). A pay when paid
+    term is ineffective unless the third party, or anyone up the chain whose payment conditions it, is insolvent
+    as s 113(2) to (5) define (s 113(1)). The Scheme fills the gap (ss 110(3), 113(6)). There is no void
+    term member in the consequence list; mapped to guidance (judgment call), as the Irish and New Zealand
+    void term rows are.'
+- key: payment.payment_notice.gb
+  duty: Receive a payment notice within 5 days after each payment due date, stating the sum considered due
+    and how it is calculated
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 110A(1)-(6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: payment_schedule
+    system_type: finance
+  clause: s 110A(1)-(6)
+  window:
+    value: 5
+    unit: days
+  caveat: 'The contract must require the payer or a person it specifies to give the notice not later than
+    5 days after the payment due date (s 110A(1)(a)), or require the payee to give it (s 110A(1)(b)). It
+    states the sum considered due at the due date and the basis of calculation, which may be zero (s 110A(2)-(4)).
+    Where the contract does not comply, the Scheme imposes the same 5 day notice on the payer (Scheme Pt
+    II para 9). The window comes from the Act: it is fixed, not the contract''s to set. Missing it does not
+    make the payee''s claim payable on its own; the payee may then give its own notice (payment.payee_default_notice.gb),
+    and that sum becomes payable unless a pay less notice is given (s 111(2)(c)), so this is guidance, not
+    liable_full_amount. The 5 days run from the payment due date, a contract date, not from the claim, so
+    no claim_lodged trigger is set. Days exclude Christmas Day, Good Friday and bank holidays (s 116).'
+- key: payment.payee_default_notice.gb
+  duty: Where no payment notice arrives in time, give the payer your own notice of the sum due and its basis,
+    because the final date for payment moves back one day for every day you wait
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 110B(1)-(4), 111(2)(c)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 110B(1)-(4), 111(2)(c)
+  caveat: 'Available at any time after the payer''s notice was due (s 110B(2)), so no window is recorded.
+    The final date for payment of the sum in the notice is postponed by as many days as the notice comes
+    after that date (s 110B(3)). Where the contract already let the payee state the sum and basis before
+    the payer''s notice was due (an application for payment), and the payee did, that application counts
+    as this notice and no other may be given (s 110B(4)). The sum in this notice is the notified sum (s 111(2)(c)).
+    No day is lost to the claim itself, but every day of delay is a day of cash; mapped to guidance. A payee
+    notice, not a contract notice in the usual sense; contract_notice and notice_kind claim_notice are the
+    closest available fit.'
+- key: payment.pay_less_notice.gb
+  duty: Receive any notice of intention to pay less than the notified sum no later than the prescribed period
+    before the final date for payment, or the notified sum is payable in full
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 111(1)-(7), 111(10), 111(11)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: s 111(1)-(7), 111(10), 111(11)
+  caveat: 'The payer must pay the notified sum on or before the final date unless it, or a specified person,
+    gives a notice of intention to pay less (s 111(1), (3)). The notice states the sum the payer considers
+    due on the date it is served and the basis of calculation, which may be zero (s 111(4)); where the notified
+    sum came from the payee''s notice, it may not be given before that notice (s 111(5)(b)). The prescribed
+    period is what the parties agree or, failing agreement, the Scheme''s (s 111(7)): in England 7 days
+    before the final date (payment.pay_less_notice_default.gb). The Act sets no number, so no window is
+    recorded here. A payee that becomes insolvent after the prescribed period loses the s 111(1) protection
+    where the contract says so (s 111(10)). The payment_schedule register can hold such a notice but cannot
+    tell it from a payment notice and holds no final date for payment, so this is recorded not_collected.'
+- key: payment.notified_sum.gb
+  duty: Be paid the notified sum, less only what a valid pay less notice states, on or before the final
+    date for payment
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 110(1)(b), 111(1), 111(2), 111(6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 110(1)(b), 111(1), 111(2), 111(6)
+  caveat: 'The notified sum is the sum in the payer''s payment notice, or in the payee''s notice where the
+    contract required it or the payee gave one in default (s 111(2)). The parties are free to agree the gap
+    between the due date and the final date (s 110(1)); failing agreement the Scheme sets it, in England
+    17 days (payment.final_date_default.gb). The Act sets no number, so no window is recorded here. Non-payment
+    opens the right to suspend (payment.suspension_notice.gb).'
+- key: payment.suspension_notice.gb
+  duty: Give at least 7 days written notice, stating the grounds, before suspending any or all work for
+    non-payment of the notified sum
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 112(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 112(1)-(4)
+  window:
+    value: 7
+    unit: days
+  caveat: Available where the notified sum is not paid by the final date (s 112(1)). The right ends when
+    payment is made in full (s 112(3)). The party in default must pay a reasonable amount for the costs
+    and expenses the suspension causes (s 112(3A)), and the suspension period is disregarded in computing
+    any contractual time limit, with a date adjusted to match (s 112(4)). Days exclude Christmas Day, Good
+    Friday and bank holidays (s 116). Recorded with notice_kind suspension.
+- key: payment.notice_of_adjudication.gb
+  duty: Give notice of intention to refer a dispute under the contract to adjudication, at any time
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 108(1), 108(2)(a), 108(5)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 108(1), 108(2)(a), 108(5)
+  caveat: Either party may refer any dispute arising under the contract, and a dispute includes any difference
+    (s 108(1)); not only payment disputes. The contract must let a party give notice at any time (s 108(2)(a)),
+    so no window is recorded. Where the contract does not meet s 108(1) to (4), the Scheme's adjudication
+    provisions apply (s 108(5)); in England the notice must also carry the content in payment.notice_of_adjudication_content.gb.
+    Recorded with notice_kind notice_of_intention.
+- key: payment.adjudication_referral.gb
+  duty: Refer the dispute to the adjudicator within 7 days of the notice of adjudication
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 108(2)(b)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 108(2)(b)
+  window:
+    value: 7
+    unit: days
+  caveat: 'The Act requires the contract to give a timetable with the object of securing the appointment
+    of the adjudicator and referral within 7 days of the notice (s 108(2)(b)). The hard 7 days is the contract''s
+    or the Scheme''s: in England, the referring party must refer in writing not later than 7 days from the
+    date of the notice, with copies or extracts of the contract and the documents it relies on, copied to
+    every other party at the same time (Scheme Pt I para 7(1)-(3)). Neither the Act nor the Scheme states
+    a consequence for a late referral. Days exclude Christmas Day, Good Friday and bank holidays (s 116).
+    Recorded with notice_kind adjudication_application.'
+- key: payment.determination.gb
+  duty: Receive the adjudicator's decision within 28 days of referral, or up to 14 days later with the referring
+    party's consent, or later if both parties agree
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 108(2)(c)-(f), 108(3), 108(3A), 108(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 108(2)(c)-(f), 108(3), 108(3A), 108(4)
+  window:
+    value: 28
+    unit: days
+  caveat: The contract must require the decision within 28 days of referral, or a longer period the parties
+    agree after referral, and let the adjudicator extend by up to 14 days with the referring party's consent
+    (s 108(2)(c), (d)). The decision binds until the dispute is finally determined by legal proceedings,
+    arbitration or agreement (s 108(3)); the adjudicator may correct a clerical or typographical slip (s
+    108(3A)). Under the English Scheme the 28 days run from receipt of the referral notice, 42 with the referring
+    party's consent, and if the decision is late any party may serve a fresh notice and start again (Scheme
+    Pt I para 19). A statutory duty on the adjudicator, not a party-filed notice; mapped to breach as the
+    Irish and New Zealand determination rows are, and register and notice_kind are the closest available
+    fit. Days exclude Christmas Day, Good Friday and bank holidays (s 116).
+- key: payment.adjudication_payment.gb
+  duty: Be paid any amount an adjudicator decides above the notified sum within 7 days of the decision,
+    or by the original final date for payment if later
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/ukpga/1996/53/part/II
+    clause: s 111(8), 111(9)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 111(8), 111(9)
+  window:
+    value: 7
+    unit: days
+  caveat: Applies where a payment notice was given (and no pay less notice), or a pay less notice was given,
+    and the adjudicator decides that more than the sum in that notice should be paid (s 111(8)). The decision
+    is then read as requiring the additional amount not later than 7 days from the decision or the date
+    that would have been the final date apart from the notice, whichever is later (s 111(9)). Days exclude
+    Christmas Day, Good Friday and bank holidays (s 116). No register holds an adjudicator's decision; contract_notice
+    is the closest available fit.

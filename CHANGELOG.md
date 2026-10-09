@@ -2,6 +2,34 @@
 
 ## Unreleased
 
+- **England's first obligations** (36 rows, `obligations/GB/`), read on
+  2026-10-09 from legislation.gov.uk's latest revised text.
+  `cdm_regulations_2015_gb` (17, S.I. 2015/51, applies in Great Britain):
+  client arrangements and pre-construction information, appointing a principal
+  designer and principal contractor in writing, notifying the HSE of a
+  notifiable project (over 30 working days with more than 20 workers at once,
+  or over 500 person days) and displaying the notice on site, the domestic
+  client rule, appointee competence, the construction phase plan, preparing
+  and handing over the health and safety file, the principal designer's,
+  principal contractor's and contractors' duties, worker consultation, written
+  demolition arrangements, and the excavation and cofferdam inspection report
+  (24 hours) and its retention (3 months). Every CDM row is an `offence`
+  through the Health and Safety at Work etc. Act 1974 s 33(1)(c).
+  `hgcra_1996_part2_gb` (12, the Construction Act as amended in 2009, applies
+  in England, Wales and Scotland): which contracts it governs, stage payments,
+  void pay when paid and pay when certified terms, the payment notice within 5
+  days of the due date, the payee's default notice, the pay less notice and
+  the notified sum, the 7 day suspension notice, and adjudication: notice at
+  any time, referral within 7 days, the decision within 28 days, and payment
+  of an adjudicated excess within 7 days. `scheme_construction_contracts_1998_eng`
+  (7, England's Scheme as amended by S.I. 2011/2333, applying only where the
+  contract does not comply): the 28 day period and 7 day due date, the final
+  payment 30 days after completion, the 17 day final date, the pay less notice
+  7 days before it, the notice of adjudication's content, nominating an
+  adjudicator within 5 days, and complying with the decision immediately. No
+  vocab or contract changes: `GB` was already a jurisdiction (`supported:
+  false`) and the library has no code for England or Great Britain. 343 to
+  379 flattened rows.
 - **South Africa, first obligations** (34 rows, five standalone instruments
   under `obligations/ZA/`, all read from primary text on 2026-10-09). The
   Construction Regulations, 2014 (19): the construction work permit (r 3(1),
