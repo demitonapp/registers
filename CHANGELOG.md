@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+- **Safe work method statement duties for high risk construction work** (32
+  rows). Seven duties added to the model WHS Regulations base, read from Safe
+  Work Australia's 5 December 2025 text: prepare the statement before the work
+  starts (r 299(1)), do the work in accordance with it and stop work that is not
+  (r 300), give the principal contractor a copy (r 301), review it when control
+  measures are revised (r 302), keep it until the work is complete (r 303(1),
+  (3), (4)) and for 2 years after a notifiable incident (r 303(2), the only row
+  with a window), and the principal contractor's duty to obtain it (r 312). All
+  four concretes override every one, each re-read against its own text on
+  2026-10-09: ACT, NSW (sections), QLD, SA. Local differences live in the
+  caveats: the ACT's 19th kind of high risk construction work (crystalline
+  silica) and its loose-fill asbestos construction project, Queensland's
+  r 299(4) on falls, and South Australia's $450,000 construction project. New
+  standalone instrument `ohs_regulations_2017_vic` carries Victoria's own four
+  (rr 327(1)(a), 327(1)(b) and (2), 328, 329): it has no copy-to-principal,
+  principal contractor or post-incident duty. Every row is `not_collected`
+  against `compliance_documents`, which holds a statement but not the work it
+  covers. 252 to 284 flattened rows. No contract changes.
 - **Payment schedules read from their register**: the eight
   `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
   `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system

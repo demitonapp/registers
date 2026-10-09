@@ -14,3 +14,73 @@ obligations:
     url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
     clause: r 304(2), (6)
     access_date: '2026-09-27'
+- overrides: whs.swms_prepare
+  key: whs.swms_prepare.au-act
+  clause: r 299(1)
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 299(1)
+    access_date: '2026-10-09'
+  caveat: 'Before the work starts, with no day count, so no window is recorded. High risk construction work is
+    the 19 kinds of construction work r 291 lists: the model''s 18 (among them a risk of a person
+    falling more than 2m, a shaft or trench deeper than 1.5m, a tunnel, work on or next to a road or
+    railway, including light rail, in use by traffic, and an area where powered mobile plant moves)
+    plus processing crystalline silica material with a power tool or another mechanical method (r
+    291(1)(s)). Provision 299(2) and (3) set what the statement must contain; a statement another person
+    already prepared satisfies the duty. The compliance_documents register can hold a statement (its
+    document_type names the class), but not which high risk construction work it covers or when that
+    work started, so this is recorded not_collected.'
+- overrides: whs.swms_comply
+  key: whs.swms_comply.au-act
+  clause: r 300(1)-(2)
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 300(1)-(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_copy_to_principal
+  key: whs.swms_copy_to_principal.au-act
+  clause: r 301
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 301
+    access_date: '2026-10-09'
+  caveat: Before the work starts, with no day count, so no window is recorded. Applies only to work on a
+    construction project, which r 292 defines as construction work costing $250,000 or more, or any
+    construction work that demolishes or refurbishes a structure containing loose-fill asbestos
+    insulation, whatever it costs. The principal contractor's matching duty to obtain the copy is r
+    312, its own row. The compliance_documents register can hold a statement but not whether or when
+    a copy went to the principal contractor, so this is recorded not_collected.
+- overrides: whs.swms_review
+  key: whs.swms_review.au-act
+  clause: r 302
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 302
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep
+  key: whs.swms_keep.au-act
+  clause: r 303(1), (3), (4)
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 303(1), (3), (4)
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep_after_incident
+  key: whs.swms_keep_after_incident.au-act
+  clause: r 303(2)
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 303(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_principal_obtain
+  key: whs.swms_principal_obtain.au-act
+  clause: r 312
+  citation:
+    url: https://www.legislation.act.gov.au/sl/2011-36/current/pdf/2011-36.pdf
+    clause: r 312
+    access_date: '2026-10-09'
+  caveat: Before the work starts, with no day count, so no window is recorded. Binds the principal contractor
+    for a construction project, which r 292 defines as construction work costing $250,000 or more,
+    or any construction work that demolishes or refurbishes a structure containing loose-fill
+    asbestos insulation, whatever it costs. The matching duty on the business doing the work is r
+    301, its own row. The compliance_documents register can hold a statement but not whether the
+    principal contractor held it before the work started, so this is recorded not_collected.

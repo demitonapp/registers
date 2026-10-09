@@ -14,3 +14,65 @@ obligations:
     url: https://www.legislation.sa.gov.au/__legislation/lz/c/r/work%20health%20and%20safety%20regulations%202012/current/2012.268.auth.pdf
     clause: r 304(2), (6)
     access_date: '2026-09-27'
+# The whs.swms_* rows were read 2026-10-09 from the RTF copy of the version in force
+# from 1 July 2026, on the same official site: the authorised PDF is served only as
+# a file download, which this reading could not open.
+- overrides: whs.swms_prepare
+  key: whs.swms_prepare.au-sa
+  clause: r 299(1)
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 299(1)
+    access_date: '2026-10-09'
+- overrides: whs.swms_comply
+  key: whs.swms_comply.au-sa
+  clause: r 300(1)-(2)
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 300(1)-(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_copy_to_principal
+  key: whs.swms_copy_to_principal.au-sa
+  clause: r 301
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 301
+    access_date: '2026-10-09'
+  caveat: Before the work starts, with no day count, so no window is recorded. Applies only to work on a
+    construction project, which r 292 defines as construction work costing $450,000 or more (the
+    model sets $250,000). The principal contractor's matching duty to obtain the copy is r 312, its
+    own row. The compliance_documents register can hold a statement but not whether or when a copy
+    went to the principal contractor, so this is recorded not_collected.
+- overrides: whs.swms_review
+  key: whs.swms_review.au-sa
+  clause: r 302
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 302
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep
+  key: whs.swms_keep.au-sa
+  clause: r 303(1), (3), (4)
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 303(1), (3), (4)
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep_after_incident
+  key: whs.swms_keep_after_incident.au-sa
+  clause: r 303(2)
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 303(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_principal_obtain
+  key: whs.swms_principal_obtain.au-sa
+  clause: r 312
+  citation:
+    url: https://www.legislation.sa.gov.au/_legislation-documents/lz/c/r/work-health-and-safety-regulations-2012/current/2012.268.un.rtf
+    clause: r 312
+    access_date: '2026-10-09'
+  caveat: Before the work starts, with no day count, so no window is recorded. Binds the principal contractor
+    for a construction project, which r 292 defines as construction work costing $450,000 or more
+    (the model sets $250,000). The matching duty on the business doing the work is r 301, its own
+    row. The compliance_documents register can hold a statement but not whether the principal
+    contractor held it before the work started, so this is recorded not_collected.
