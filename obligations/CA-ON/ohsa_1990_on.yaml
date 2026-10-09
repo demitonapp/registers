@@ -1,0 +1,193 @@
+# Ontario's Occupational Health and Safety Act, ss 51 to 53.1 and 66, read from
+# Ontario e-Laws on 2026-10-09 (consolidated from 27 November 2025 to the
+# e-Laws currency date; last amendment 2025, c. 13, Sched. 4), with O. Reg.
+# 420/21 (Notices and Reports under Sections 51 to 53.1, consolidated from
+# 1 January 2024; last amendment O. Reg. 242/23). The notice of project
+# (s 23(2)) and the other construction duties are in
+# construction_projects_regulation_1991_on.
+id: ohsa_1990_on
+source: law
+instrument_type: act
+title: Occupational Health and Safety Act, R.S.O. 1990, c. O.1 (Ontario)
+publisher: Legislative Assembly of Ontario
+jurisdictions:
+- CA-ON
+citation:
+  url: https://www.ontario.ca/laws/statute/90o01
+  access_date: '2026-10-09'
+  version: Consolidated from 27 November 2025 to the e-Laws currency date (last amendment 2025, c. 13, Sched.
+    4), read with O. Reg. 420/21 as consolidated from 1 January 2024
+obligations:
+- key: whs.incident_notice.ca-on
+  duty: Notify an inspector, and the joint health and safety committee, health and safety representative and
+    trade union, immediately when a person is killed or critically injured at a workplace
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90o01
+    clause: s 51(1), 66; O. Reg. 420/21 s 1(1)
+    access_date: '2026-10-09'
+  evidence: &id001
+    kind: not_collected
+    register: safety_incident
+  clause: s 51(1), 66; O. Reg. 420/21 s 1(1)
+  caveat: 'Binds the constructor and the employer, by telephone or other direct means. ''Critically injured''
+    (O. Reg. 420/21 s 1(1)) is an injury that places life in jeopardy, causes unconsciousness or substantial
+    blood loss, fractures a leg or arm, amputates a leg, arm, hand or foot, burns a major portion of the body,
+    or causes loss of sight in an eye; it is narrower than the model WHS Act''s serious injury, so the notifiable
+    flag on safety_incident must be set on this definition for the trigger to fire. ''Immediately'', with no
+    hour count, so no window is recorded. Contravening the Act or a regulation is an offence: an individual
+    faces a fine of up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of
+    up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.incident_written_notice.ca-on
+  duty: Send a Director, and the committee, representative and trade union, a written report within 48 hours
+    after a person is killed or critically injured at a workplace
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90o01
+    clause: s 51(1), 66; O. Reg. 420/21 s 3, 7
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 51(1), 66; O. Reg. 420/21 s 3, 7
+  window:
+    value: 48
+    unit: hours
+  caveat: 'Binds the employer. The report gives the employer''s and worker''s details, the constructor''s name
+    and address for an occurrence at a project, the nature and circumstances of the occurrence and any machinery
+    or procedure involved, its time, date and place, the attending practitioner or facility, witnesses, and
+    the steps taken to prevent a recurrence (O. Reg. 420/21 s 3(2)); it may be filed on the government''s website
+    (s 7). Runs from the occurrence, not from a regulator''s request, so the trigger is notifiable_incident_recorded,
+    as Victoria''s row is. Contravening the Act or a regulation is an offence: an individual faces a fine of
+    up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000
+    (OHSA s 66(1), (2)).'
+- key: whs.scene_preservation.ca-on
+  duty: Leave the wreckage and scene of a fatality or critical injury undisturbed until an inspector permits
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90o01
+    clause: s 51(2), 66
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 51(2), 66
+  caveat: 'Except to save life or relieve suffering, maintain an essential public utility or public transportation,
+    or prevent unnecessary damage to equipment or property. No window: the duty lasts until the inspector gives
+    permission. Contravening the Act or a regulation is an offence: an individual faces a fine of up to CAD
+    500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA
+    s 66(1), (2)).'
+- key: whs.accident_notice.ca-on
+  duty: Give written notice within 4 days when a worker is disabled from usual work or needs medical attention
+    because of an accident, explosion, fire or workplace violence
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90o01
+    clause: s 52(1)-(3), 66; O. Reg. 420/21 s 1(1), 3
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 52(1)-(3), 66; O. Reg. 420/21 s 1(1), 3
+  window:
+    value: 4
+    unit: days
+  caveat: 'Binds the employer, where nobody dies or is critically injured. The notice goes to the committee,
+    representative and trade union, and to a Director only if an inspector requires it (s 52(1)). ''Medical
+    attention'' means treatment by a legally qualified medical practitioner or a registered nurse holding an
+    extended certificate of registration (O. Reg. 420/21 s 1(1)). The same 4 days apply to notice to a Director,
+    committee or representative and union after the employer is told a worker or former worker has an occupational
+    illness or a WSIB claim for one (s 52(2), (3)). No event type marks a lost time or medical attention incident,
+    so no trigger is set. Contravening the Act or a regulation is an offence: an individual faces a fine of
+    up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000
+    (OHSA s 66(1), (2)).'
+- key: whs.project_incident_notice.ca-on
+  duty: Give a Director, and the committee, representative and trade union, written notice within 2 days of
+    a prescribed dangerous occurrence at a project site
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90o01
+    clause: s 53(1), (2)(a), 66; O. Reg. 420/21 s 4
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 53(1), (2)(a), 66; O. Reg. 420/21 s 4
+  window:
+    value: 2
+    unit: days
+  caveat: 'Binds the constructor. Occurrences: an accident, unexpected explosion, fire, flood or inrush of
+    water, cave-in or subsidence, or an equipment failure that could have risked a worker (s 53(1); O. Reg.
+    420/21 s 4(1)), and on a construction project a fall of 3 metres or more, a fall arrested by a fall arrest
+    system other than a fall restricting system, a worker becoming unconscious, contact with energized electrical
+    equipment, a crane or similar equipment contacting a conductor over 750 volts, and structural failures
+    of engineered falsework, a principal supporting member, scaffold supports, an earth or water retaining
+    structure or an engineered excavation wall, and crane overturning or loss of control of a crane or load
+    (O. Reg. 420/21 s 4(3) para 2). Not needed to the Director if a s 51 report or s 52 notice already went
+    to one (s 53(1)(b)). Several of these are not notifiable incidents in the model WHS sense, so no trigger
+    is set. Contravening the Act or a regulation is an offence: an individual faces a fine of up to CAD 500,000,
+    up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1),
+    (2)).'
+- key: whs.engineer_cause_opinion.ca-on
+  duty: Supplement the report or notice with an engineer's written opinion on the cause within 14 days after
+    a failure of works, a structure, an engineered excavation wall or a crane
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/210420
+    clause: OHSA s 53.1; O. Reg. 420/21 s 5
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: OHSA s 53.1; O. Reg. 420/21 s 5
+  window:
+    value: 14
+    unit: days
+  caveat: 'Binds the constructor or employer who reported or notified under s 51, 52 or 53, where the incident
+    at a construction project involves a failure of temporary or permanent works, a structure, an excavation
+    wall an engineer had declared stable, or a crane or similar hoisting device, or a failure to control a
+    crane or load (O. Reg. 420/21 s 5(1)(a), (a.1)). Contravening the Act or a regulation is an offence: an
+    individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation
+    a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.incident_record.ca-on
+  duty: Keep a copy of every written report or notice under sections 51 to 53.1 for at least 3 years
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/210420
+    clause: O. Reg. 420/21 s 6
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: O. Reg. 420/21 s 6
+  window:
+    value: 36
+    unit: months
+  caveat: 'Binds the employer or constructor, from the date the report or notice is made. Contravening the
+    Act or a regulation is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment,
+    or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'

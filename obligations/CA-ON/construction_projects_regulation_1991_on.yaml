@@ -1,0 +1,241 @@
+# Ontario's Construction Projects regulation under the Occupational Health and
+# Safety Act, Part I (registration, notices and general requirements) and
+# reg 245, read from Ontario e-Laws on 2026-10-09 (consolidated from 20 April
+# 2026 to the e-Laws currency date; last amendment O. Reg. 116/26). The
+# provisions not yet in force (reg 22 from 1 July 2027, regs 143 to 149
+# revoked from 1 January 2027) touch none of the rows below. A regulation
+# states no penalty of its own; contravening one is an offence under OHSA
+# s 66, which is why every row is `offence`.
+id: construction_projects_regulation_1991_on
+source: law
+instrument_type: regulation
+title: Construction Projects, O. Reg. 213/91 (Ontario)
+publisher: Government of Ontario
+jurisdictions:
+- CA-ON
+citation:
+  url: https://www.ontario.ca/laws/regulation/910213
+  access_date: '2026-10-09'
+  version: Consolidated from 20 April 2026 to the e-Laws currency date (last amendment O. Reg. 116/26)
+obligations:
+- key: whs.registration.ca-on
+  duty: Complete the approved registration form before beginning work at a project, and as constructor collect
+    every employer's form and keep a copy on site
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 5(1), (2)
+    access_date: '2026-10-09'
+  evidence: &id001
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 5(1), (2)
+  caveat: 'Binds each constructor and each employer engaged in construction (reg 5(1)); the constructor must
+    get every employer''s completed form and keep a copy at the project while that employer works there (reg
+    5(2)). ''Before beginning work'', with no day count, so no window is recorded. Contravening the Act or
+    a regulation is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment,
+    or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.notice_of_project.ca-on
+  duty: File a notice of project with the Ministry before beginning work on a project that meets a threshold
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: OHSA s 23(2); reg 6(1)-(5)
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: OHSA s 23(2); reg 6(1)-(5)
+  caveat: 'Binds the constructor. Thresholds (reg 6(1)): labour and materials expected to exceed CAD 50,000
+    (CAD 250,000 in an automobile factory); erecting or structurally altering a building over two storeys or
+    7.5 metres; demolishing a building at least 4 metres high with at least 30 square metres of floor; a bridge
+    or earth or water retaining structure over 3 metres, or a silo or chimney over 7.5 metres; work in compressed
+    air; a tunnel, caisson, cofferdam or enterable well; an enterable trench over 300 metres long, or over
+    1.2 metres deep and over 30 metres long; an ice road; or any work the regulation requires an engineer to
+    design. Filed at the nearest Ministry office or online (reg 6(3)); for work expected to take no more than
+    14 days, faxed or phoned to an inspector (reg 6(4)); emergency work may start first after telephone or
+    fax notice to an inspector (reg 6(5)). ''Before beginning work'', with no day count, so no window is recorded.
+    Contravening the Act or a regulation is an offence: an individual faces a fine of up to CAD 500,000, up
+    to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.notice_of_project_posting.ca-on
+  duty: Keep the completed notice of project posted in a conspicuous place at the project, or available there
+    for an inspector
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 6(6), 19
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 6(6), 19
+  caveat: 'Binds the constructor. A record the regulation requires to be kept available at a project is kept
+    for at least one year after the project is finished (reg 19). Contravening the Act or a regulation is an
+    offence: an individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment, or both, and
+    a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.trench_notice.ca-on
+  duty: Notify the nearest Ministry office before work begins on a project with an enterable trench over 1.2
+    metres deep, where no notice of project is required
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 7
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 7
+  caveat: 'Binds the constructor, in person, by telephone or by fax. Applies only where reg 6 does not. ''Before
+    any work at the project is begun'', with no day count, so no window is recorded. Contravening the Act or
+    a regulation is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment,
+    or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.suspended_platform_notice.ca-on
+  duty: Give the Ministry the approved notification form at least 48 hours before a suspended work platform
+    system is first used at a project
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 7.1
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 7.1
+  window:
+    value: 48
+    unit: hours
+  caveat: 'Binds the constructor: by fax, in person at the nearest Ministry office or online (reg 7.1(2)).
+    In an emergency the system may be used first after oral notice to an inspector, with the form within 24
+    hours of first use (reg 7.1(3), (4)). A copy is kept in a conspicuous place at the project (reg 7.1(5)).
+    The window is a lead time before first use, which no register dates, so no trigger is set. Contravening
+    the Act or a regulation is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months''
+    imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.tunnel_notice.ca-on
+  duty: File a notice with a Director, with engineer-sealed drawings of the support system, before beginning
+    work on a tunnel, shaft, caisson or cofferdam
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 245
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 245
+  caveat: 'Binds the employer who will construct it. The notice describes the work, gives profiles, sections
+    and plans signed and sealed by the engineer who designed the support system, details all temporary and
+    permanent ground support, names the constructor, owner, employer and supervisor in charge, locates the
+    work, and states its start date and duration (reg 245(2)). ''Before beginning work'', with no day count,
+    so no window is recorded. Contravening the Act or a regulation is an offence: an individual faces a fine
+    of up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000
+    (OHSA s 66(1), (2)).'
+- key: whs.constructor_site_notice.ca-on
+  duty: Post at the project the constructor's name, head office and the nearest Ministry office, and add the
+    health and safety representative or committee members within 48 hours of their selection
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 13(1), (2)
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 13(1), (2)
+  window:
+    value: 48
+    unit: hours
+  caveat: 'Binds the constructor, in a conspicuous place, kept posted while work is done (reg 13(1)). The 48
+    hours apply only to adding the name, trade and employer of the representative or each committee member
+    (reg 13(2)). Contravening the Act or a regulation is an offence: an individual faces a fine of up to CAD
+    500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA
+    s 66(1), (2)).'
+- key: whs.supervisor_inspection.ca-on
+  duty: Appoint a supervisor where five or more workers work at the same time, and have the supervisor inspect
+    machinery, equipment and structures at least weekly
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 14(1)-(5), 15
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: site_inspection
+  clause: reg 14(1)-(5), 15
+  window:
+    value: 7
+    unit: days
+  caveat: 'The constructor appoints a supervisor for the project (reg 14(1)), and each employer of five or
+    more workers on the project one for its workers (reg 15). The supervisor or a competent person inspects
+    machinery and equipment, fire extinguishing equipment, magazines, electrical installations, communications,
+    sanitation and medical facilities, structures, temporary supports and access and egress at least once a
+    week (reg 14(3), (4)). The site_inspection register holds inspections but not which of these items each
+    covered, so this is recorded not_collected. Contravening the Act or a regulation is an offence: an individual
+    faces a fine of up to CAD 500,000, up to 12 months'' imprisonment, or both, and a corporation a fine of
+    up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.emergency_procedures.ca-on
+  duty: Establish written emergency procedures for the project, review them with the committee or representative,
+    post them, and give every worker two-way communication
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 17, 18
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 17, 18
+  caveat: 'Binds the constructor, which must also ensure the procedures are followed (reg 17(1)). Contravening
+    the Act or a regulation is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months''
+    imprisonment, or both, and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
+- key: whs.project_records_keep.ca-on
+  duty: Keep every record the regulation requires to be available at a project for at least one year after
+    the project is finished
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/regulation/910213
+    clause: reg 19
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: reg 19
+  window:
+    value: 12
+    unit: months
+  caveat: 'Binds the constructor or employer, whichever the requirement names. Contravening the Act or a regulation
+    is an offence: an individual faces a fine of up to CAD 500,000, up to 12 months'' imprisonment, or both,
+    and a corporation a fine of up to CAD 2,000,000 (OHSA s 66(1), (2)).'
