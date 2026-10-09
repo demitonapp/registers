@@ -1,0 +1,468 @@
+# Great Britain's construction safety regulations, read in full from
+# legislation.gov.uk on 2026-10-09: the latest available (revised) version of
+# S.I. 2015/51, in force from 1 January 2018. legislation.gov.uk lists no
+# outstanding effects for these Regulations as at 2026-10-09. Read: Parts 1 to
+# 3 (regs 1 to 15), reg 16, regs 20 and 22 to 24 of Part 4, Part 5, and
+# Schedules 1 and 3.
+#
+# Where they apply: reg 3 says Great Britain (England, Wales and Scotland), plus
+# some premises and activities outside it; Northern Ireland is outside that
+# reach. This library has no code for Great
+# Britain, so the instrument carries `GB`, the ISO 3166-1 code for the whole
+# United Kingdom, and every row's caveat is bounded by reg 3.
+#
+# A regulation states no penalty of its own. Contravening health and safety
+# regulations is an offence under the Health and Safety at Work etc. Act 1974
+# s 33(1)(c) (read on legislation.gov.uk, revised version in force from 16 July
+# 2026), with the mode of trial and maximum penalty in its Schedule 3A, which
+# is why every row is `offence`. Penalty amounts are not recorded, matching the
+# Australian WHS rows.
+#
+# No duty below carries a day count except the inspection report (24 hours)
+# and its retention (3 months). "As soon as is practicable", "before the
+# construction phase begins" and "during the pre-construction phase" are
+# timings with no number, so those rows carry no window, and each caveat says
+# so. "The Executive" is the Health and Safety Executive (HSE).
+id: cdm_regulations_2015_gb
+source: law
+instrument_type: regulation
+title: The Construction (Design and Management) Regulations 2015 (Great Britain)
+publisher: Secretary of State for Work and Pensions
+jurisdictions:
+- GB
+citation:
+  url: https://www.legislation.gov.uk/uksi/2015/51
+  access_date: '2026-10-09'
+  version: S.I. 2015/51, latest available (revised) version in force from 1 January 2018; no outstanding
+    effects listed as at 2026-10-09; applies in Great Britain (reg 3)
+obligations:
+- key: whs.client_arrangements.gb
+  duty: As client, make suitable arrangements for managing the project, including enough time and resources,
+    and maintain and review them throughout
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 4(1)-(3), 4(6), 4(8)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 4(1)-(3), 4(6), 4(8)
+  caveat: Binds the client, which includes a contractor's own client and a contractor that is itself a non-domestic
+    client. Arrangements are suitable if the work can be carried out, so far as is reasonably practicable,
+    without risk to health or safety, and the Schedule 2 welfare facilities are provided. The client must
+    also take reasonable steps to ensure the principal designer and principal contractor carry out their
+    duties (reg 4(6)). Where there is more than one client, they may agree in writing which of them is treated
+    as the client (reg 4(8)). A standing duty with no day count, so no window is recorded. Applies in Great
+    Britain only (reg 3); for a domestic client see whs.domestic_client_duties.gb. No register holds a client's
+    management arrangements, so this is recorded not_collected.
+- key: whs.pre_construction_information.gb
+  duty: Provide pre-construction information as soon as is practicable to every designer and contractor
+    appointed, or being considered for appointment
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 4(4), 8(6), 11(6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 4(4), 8(6), 11(6)
+  caveat: Binds the client (reg 4(4)); the principal designer must assist it and, so far as within its control,
+    provide the information promptly to every designer and contractor (reg 11(6)). Pre-construction information
+    is what the client holds or can reasonably obtain about the project, its planning and management, its
+    hazards and any existing health and safety file (reg 2(1)). 'As soon as is practicable', with no day
+    count, so no window is recorded; any information these Regulations require must be comprehensible
+    (reg 8(6)). Applies in Great Britain only (reg 3). No register records what information was sent to
+    whom, so this is recorded not_collected.
+- key: whs.duty_holders_appoint.gb
+  duty: Where more than one contractor will work on the project, appoint in writing a principal designer
+    and a principal contractor, as soon as is practicable and before the construction phase begins
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 5(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 5(1)-(4)
+  caveat: Binds the client. Required where there is more than one contractor, or it is reasonably foreseeable
+    that more than one will work on the project at any time. The principal designer must be a designer with
+    control over the pre-construction phase; the principal contractor must be a contractor. A client that
+    fails to appoint must carry out the principal designer's duties (regs 11, 12) or the principal contractor's
+    (regs 12 to 14) itself (reg 5(3), (4)); for a domestic client the designer and contractor in control
+    take the roles instead (reg 7(2)). 'As soon as is practicable' and 'before the construction phase begins',
+    with no day count, so no window is recorded. Applies in Great Britain only (reg 3). The compliance_documents
+    register can hold a letter of appointment but not which role or project it covers, so this is recorded
+    not_collected.
+- key: whs.project_notification.gb
+  duty: Where the project is notifiable, give the HSE written notice with the Schedule 1 particulars as
+    soon as is practicable before the construction phase begins
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 6(1)-(5); Sch 1
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 6(1)-(5); Sch 1
+  caveat: 'Binds the client (the contractor or principal contractor where the client is domestic, reg 7(1)).
+    A project is notifiable if the construction work on a site is scheduled to last longer than 30 working
+    days and have more than 20 workers working at the same time at any point, or to exceed 500 person days
+    (reg 6(1)); a working day is any day on which construction work takes place (reg 2(1)). These are the
+    thresholds for the duty, not its window: ''as soon as is practicable before the construction phase begins''
+    has no day count, so no window is recorded. Schedule 1 lists 15 particulars, among them the site address,
+    the local authority, the client, principal designer and principal contractor, the planned start date
+    and duration of the construction phase, the estimated maximum number of people on site, and a declaration
+    signed for the client that it is aware of its duties. Notice goes to the Office of Rail and Road instead
+    for railway and guided transport work it enforces (reg 6(4)), and to the Office for Nuclear Regulation
+    for a nuclear, authorised defence or new nuclear build site (reg 6(5)). These Regulations name no form;
+    the HSE takes the notice only through its online form F10 and no longer accepts paper, email or post
+    (hse.gov.uk/forms/notification/f10.htm, read 2026-10-09). Applies in Great Britain only (reg 3). No
+    register holds a notice to the regulator of this kind, so this is recorded not_collected.'
+- key: whs.notification_display.gb
+  duty: Display the notification clearly in the construction site office, where any worker can read it,
+    and update it when needed
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 6(3)(b), 6(3)(c)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 6(3)(b), 6(3)(c)
+  caveat: A requirement of the reg 6 notice itself, so it binds the client that gives the notice; the regulation
+    does not name who puts it up on site. It must be in a comprehensible form and periodically updated if
+    necessary. A standing duty for as long as the site office exists, with no day count, so no window is
+    recorded. Applies in Great Britain only (reg 3). No register records what is displayed on site, so this
+    is recorded not_collected.
+- key: whs.domestic_client_duties.gb
+  duty: Where the client is a domestic client, carry out the client's duties under regs 4(1) to (7) and
+    6 as the sole contractor, the principal contractor, or the principal designer by written agreement
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 2(1), 7(1)-(3), 8(7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: reg 2(1), 7(1)-(3), 8(7)
+  caveat: A domestic client is one for whom a project is carried out not in the course or furtherance of
+    its business (reg 2(1)). Its client duties, including the reg 6 notification, pass to the contractor
+    where there is only one, to the principal contractor where there is more than one, or to the principal
+    designer where they agree in writing (reg 7(1)); reg 8(3), (4) and (6) pass the same way (reg 8(7)).
+    If a domestic client makes no appointment, the designer in control of the pre-construction phase is
+    the principal designer and the contractor in control of the construction phase is the principal contractor
+    (reg 7(2)). Not itself an evidence record, but the rule for which of the client rows a contractor carries.
+    Applies in Great Britain only (reg 3).
+- key: whs.appointee_competence.gb
+  duty: Accept an appointment as designer or contractor only with the skills, knowledge, experience and
+    organisational capability the role needs, and check the same of anyone you appoint
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 8(1)-(3), 15(7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 8(1)-(3), 15(7)
+  caveat: Organisational capability applies where the appointee is an organisation (reg 8(1)). A person
+    who appoints a designer or contractor must take reasonable steps to satisfy itself of this (reg 8(3)),
+    which binds a principal contractor appointing subcontractors. A contractor must not employ or appoint
+    a person to work on site unless they have, or are obtaining, the skills, knowledge, training and experience
+    for their tasks (reg 15(7)). Before the appointment, with no day count, so no window is recorded. Applies
+    in Great Britain only (reg 3). No register records the check made before an appointment, so this is
+    recorded not_collected.
+- key: whs.construction_phase_plan.gb
+  duty: Draw up a construction phase plan during the pre-construction phase and before setting up the construction
+    site, and keep it reviewed and updated throughout the project
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 4(5)(a), 12(1)-(4), 15(5), 15(6); Sch 3
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 4(5)(a), 12(1)-(4), 15(5), 15(6); Sch 3
+  caveat: Binds the principal contractor (reg 12(1), (4)), or the only contractor, as soon as is practicable
+    before setting up the site (reg 15(5)); the client must ensure a plan is drawn up before the construction
+    phase begins (reg 4(5)(a)), and the principal designer must give the principal contractor what it holds
+    that is relevant (reg 12(3)). The plan sets out the health and safety arrangements and site rules and,
+    where applicable, specific measures for the Schedule 3 work involving particular risks, among them burial
+    under earthfalls, falls from height, work near high voltage power lines, drowning, wells, underground
+    earthworks and tunnels, explosives, and assembling or dismantling heavy prefabricated components. Before
+    the site is set up, with no day count, so no window is recorded. Applies in Great Britain only (reg 3).
+    The compliance_documents register can hold a plan but not which project it covers or when the site
+    was set up, so this is recorded not_collected.
+- key: whs.health_safety_file_prepare.gb
+  duty: Prepare a health and safety file for the project during the pre-construction phase, keep it updated,
+    and feed it with the principal contractor's relevant information
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 4(5)(b), 12(5)-(7), 12(9)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 4(5)(b), 12(5)-(7), 12(9)
+  caveat: Binds the principal designer, who prepares and updates the file (reg 12(5), (6)), and the principal
+    contractor, which must give the principal designer any information it holds that is relevant to the
+    file during the project (reg 12(7)) and takes over updating the file if the principal designer's appointment
+    ends first (reg 12(9)). The client must ensure the file is prepared, revised and kept available for
+    inspection (reg 4(5)(b)). The file holds the information likely to be needed for the health and safety
+    of anyone on a later project. A duty during the project, with no day count, so no window is recorded.
+    Applies in Great Britain only (reg 3). No register holds a health and safety file, so this is recorded
+    not_collected.
+- key: whs.health_safety_file_handover.gb
+  duty: Pass the health and safety file to the client at the end of the project, or to the principal contractor
+    if the principal designer's appointment ends first
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 4(7), 12(8), 12(10)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 4(7), 12(8), 12(10)
+  caveat: At the end of the project the principal designer, or where there is none the principal contractor,
+    passes the file to the client (reg 12(10)). A client that disposes of its interest in the structure
+    must give the file to the person who acquires it and make sure they know its nature and purpose (reg
+    4(7)). 'At the end of the project', with no day count, so no window is recorded. Applies in Great Britain
+    only (reg 3). No register records the handover of a file, so this is recorded not_collected.
+- key: whs.principal_designer_duties.gb
+  duty: As principal designer, plan, manage, monitor and coordinate health and safety in the pre-construction
+    phase, and liaise with the principal contractor for the whole appointment
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 11(1)-(7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 11(1)-(7)
+  caveat: The principal designer must take account of the general principles of prevention, identify and
+    eliminate or control foreseeable risks so far as is reasonably practicable, ensure every designer complies
+    with reg 9, ensure everyone in the pre-construction phase cooperates, help the client provide pre-construction
+    information, and share with the principal contractor what is relevant to the construction phase (reg
+    11(7)). Binds a contractor that takes the role, or a client that fails to appoint one (reg 5(3)). A
+    standing duty for the appointment, with no day count, so no window is recorded. This is the CDM principal
+    designer only; any other instrument that uses the same title was not read. Applies in Great Britain only (reg 3). No register records these
+    duties being carried out, so this is recorded not_collected.
+- key: whs.principal_contractor_duties.gb
+  duty: As principal contractor, plan, manage, monitor and coordinate health and safety in the construction
+    phase, provide a site induction, keep unauthorised people off site and provide welfare facilities
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 13(1)-(5); Sch 2
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 13(1)-(5); Sch 2
+  caveat: The principal contractor must also organise cooperation between contractors, coordinate their
+    compliance with health and safety law, ensure employers apply the general principles of prevention and
+    follow the construction phase plan (reg 13(3)), and liaise with the principal designer for the whole
+    of its appointment (reg 13(5)). Schedule 2 sets the minimum welfare facilities (toilets, washing, drinking
+    water, changing rooms and lockers, rest facilities), provided throughout the construction phase (reg
+    13(4)(c)). Binds a client that fails to appoint a principal contractor (reg 5(4)). A standing duty for
+    the construction phase, with no day count, so no window is recorded. Applies in Great Britain only (reg
+    3). The induction_onboarding register holds inductions per worker but not whether every worker on this
+    site had one, so this is recorded not_collected.
+- key: whs.worker_consultation.gb
+  duty: As principal contractor, make and keep arrangements for workers to cooperate on health, safety and
+    welfare, consult them in good time, and let them inspect and copy the health and safety information
+    held
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 14
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 14
+  caveat: Consultation is on matters connected with the project that may affect workers' health, safety
+    or welfare, so far as their employer has not already consulted them (reg 14(b)). Information that may
+    be withheld includes anything against national security, information about an individual without their
+    consent, commercially damaging information and information obtained for legal proceedings (reg 14(c)(i)-(v)).
+    'In good time', with no day count, so no window is recorded. Applies in Great Britain only (reg 3). No
+    register records consultation of this kind, so this is recorded not_collected.
+- key: whs.contractor_duties.gb
+  duty: As a contractor, start work only once satisfied the client knows its duties and the site is secured,
+    follow the principal designer's and principal contractor's directions and the plan, and supervise, instruct
+    and induct every worker
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 15(1)-(3), 15(8)-(11)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 15(1)-(3), 15(8)-(11)
+  caveat: Binds every contractor, including subcontractors. Where there is more than one contractor, each
+    must comply with directions from the principal designer or principal contractor and with the parts of
+    the construction phase plan relevant to its work (reg 15(3)). Worker information must include a site
+    induction where the principal contractor has not provided one, emergency procedures, and the risks from
+    its own and other contractors' work (reg 15(9)). Before starting work, with no day count, so no window
+    is recorded. Applies in Great Britain only (reg 3). No register records these steps, so this is recorded
+    not_collected.
+- key: whs.demolition_arrangements.gb
+  duty: Record in writing the arrangements for any demolition or dismantling of a structure before that
+    work begins
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 16(2), 20(1), 20(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 16(2), 20(1), 20(2)
+  caveat: Part 4 binds a contractor carrying out construction work so far as it affects the contractor,
+    its workers or matters in its control (reg 16(2)). The demolition must be planned and carried out to
+    prevent danger, or reduce it as low as reasonably practicable (reg 20(1)). Before the work begins, with
+    no day count, so no window is recorded. Applies in Great Britain only (reg 3). The compliance_documents
+    register can hold a method statement but not which demolition it covers or when that work began, so
+    this is recorded not_collected.
+- key: whs.inspection_report.gb
+  duty: Where an inspection of a supported excavation, cofferdam or caisson finds it unsafe, tell the person
+    it was done for before the end of the shift, and give them a written report within 24 hours
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 22(4), 22(5), 23(2), 23(3), 24(1), 24(2), 24(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 22(4), 22(5), 23(2), 23(3), 24(1), 24(2), 24(4)
+  window:
+    value: 24
+    unit: hours
+  caveat: A competent person must inspect a supported or battered excavation, or a cofferdam or caisson,
+    at the start of every shift in which work is done, after any event likely to affect its stability, and
+    (for an excavation) after any material falls or is dislodged; work may not proceed until the inspector
+    is satisfied (regs 22(4), 23(2)). The report duty arises only where the inspector is not satisfied work
+    can proceed safely, and the 24 hours run from completing the inspection (reg 24(1)(c)); reg 24(1)(b)
+    lists what the report must contain. Work must not proceed until the matter is remedied (regs 22(5),
+    23(3)). One report covers repeat inspections within 7 days under regs 22(4)(a)(i) and 23(2)(a)(i) (reg
+    24(4)). Whoever controls the inspector must ensure the report is made (reg 24(2)). No trigger is set,
+    because no register records an inspection of this kind or its outcome. Applies in Great Britain only
+    (reg 3). The compliance_documents register can hold an inspection report but not what was inspected
+    or when, so this is recorded not_collected.
+- key: whs.inspection_report_keep.gb
+  duty: Keep each excavation, cofferdam or caisson inspection report available for an HSE inspector on site
+    until the construction work is complete, and for 3 months after
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/2015/51
+    clause: reg 24(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 24(3)
+  window:
+    value: 3
+    unit: months
+  caveat: Binds the person on whose behalf the inspection was carried out, who must also send the inspector
+    any extracts or copies the inspector asks for (reg 24(3)(b)). The 3 months run from completion of the
+    construction work, a date no register records, so no trigger is set. Applies in Great Britain only (reg
+    3). The compliance_documents register can hold a report but not which inspection or project it covers,
+    so this is recorded not_collected.
