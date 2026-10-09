@@ -1,0 +1,359 @@
+# Ireland's payment and statutory adjudication law, read in full from the
+# Irish Statute Book on 2026-10-09. The Law Reform Commission publishes no
+# revised version of this Act, and the Statute Book's legislation directory
+# lists no textual amendment to it (only a transfer of the Minister's
+# functions, S.I. No. 476 of 2014), so the enacted text is the current text.
+#
+# Day counts are calendar days: the Act defines no business or working day.
+# Section 10(3) moves the last day of a notice that must be delivered "not
+# later than" a number of days "after" a date (ss 4(1), 4(3)(a)) to the next
+# day that is not a Saturday, Sunday or public holiday. The windows in s 6 and
+# s 7 run "beginning with" a day, so that day is day 1. This library holds no
+# Irish public holiday calendar yet.
+id: construction_contracts_act_2013_ie
+source: law
+instrument_type: act
+title: Construction Contracts Act 2013 (Ireland)
+publisher: Houses of the Oireachtas
+jurisdictions:
+- IE
+citation:
+  url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+  access_date: '2026-10-09'
+  version: Number 34 of 2013 as enacted 29 July 2013, unamended as at 2026-10-09; applies to construction
+    contracts entered into after 25 July 2016 (S.I. No. 165 of 2016)
+obligations:
+- key: payment.act_applicability.ie
+  duty: Determine whether the contract is a construction contract the Act governs
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 1, 2, 12(2); S.I. No. 165 of 2016 art 2
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: s 1, 2, 12(2); S.I. No. 165 of 2016 art 2
+  caveat: The Act applies only to a construction contract entered into after 25 July 2016. It does not
+    apply to a contract worth not more than EUR 10,000, to a contract of employment, to a contract between
+    a State authority and its public private partnership partner, or to a contract that relates only to
+    a dwelling of not more than 200 square metres that one party occupies or intends to occupy. Design,
+    surveying, engineering and project management services ancillary to construction operations are included
+    (s 1(2)); manufacture or delivery of components, materials or plant is not, unless the same contract
+    also installs them (s 1(3), (4)). The parties cannot contract out, and a foreign governing law does
+    not exclude it (s 2(5)). Not itself an evidence record, but the rule for whether every other row in
+    this instrument applies.
+- key: payment.claim_cadence.ie
+  duty: Make a payment claim on the payment claim dates the contract sets, or every 30 days where the Schedule
+    applies
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 3(2)-(4); Sch para 1, 2
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 3(2)-(4); Sch para 1, 2
+  window:
+    value: 30
+    unit: days
+  caveat: 'The contract must set the payment claim dates and the period from each to the payment due date
+    (s 3(2)). Where a main contract does not, the Schedule fills the gap (s 3(3)); a subcontract gets the
+    Schedule unless its own terms are more favourable to the party doing the work (s 3(4)). Schedule dates:
+    30 days after the contract commences, then every 30 days to substantial completion, then 30 days after
+    final completion; for work expected to last less than 45 consecutive days, one claim date 14 days after
+    completion. No consequence is stated for the cadence itself.'
+- key: payment.claim_notice.ie
+  duty: Deliver a payment claim notice within 5 days after each payment claim date
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 4(1), 10(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: progress_claim
+  clause: s 4(1), 10(3)
+  window:
+    value: 5
+    unit: days
+  caveat: Section 4 applies only where the notice reaches the other party, or the person the contract names,
+    not later than 5 days after the payment claim date. A notice delivered later does not extinguish the
+    contractual claim, but the other party is then under no s 4 duty to respond with its proposed amount
+    and reasons; mapped to barred on that basis (judgment call). The clock runs from the payment claim date
+    the contract or the Schedule sets, not from when the claim is posted, so no trigger is set; if day 5
+    falls on a Saturday, Sunday or public holiday, the next day that is not one is in time (s 10(3)). The
+    progress_claim register holds the claim but neither its payment claim date nor when the notice was delivered,
+    so this is recorded not_collected.
+- key: payment.claim_content.ie
+  duty: 'Make every payment claim notice state the amount claimed (even if zero), the period, stage or activity
+    it covers, its subject matter and the basis of calculation'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 4(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: progress_claim
+  clause: s 4(2)
+  caveat: A notice missing any of the four items is not a payment claim notice as s 4(2) defines one, so
+    the s 4(3) duty to respond does not arise; mapped to barred, as the other jurisdictions' claim content
+    rows are. The progress_claim register holds the amount but not the period, subject matter or basis
+    of calculation, so this is recorded not_collected.
+- key: payment.schedule_due.ie
+  duty: Receive a response within 21 days after the payment claim date if the other party contests the
+    amount claimed
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 4(3)(a), 10(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: payment_schedule
+    system_type: finance
+  clause: s 4(3)(a), 10(3)
+  window:
+    value: 21
+    unit: days
+  caveat: The Act's equivalent of a payment schedule. The 21 days run from the payment claim date, not from
+    delivery of the claim, so this row carries no claim_lodged trigger (that event dates the claim's posting,
+    which can be up to 5 days later and would put the deadline late). Unlike the Australian and New Zealand
+    Acts, the Act states no consequence for a missing or late response; it does not make the claimed amount
+    payable, so this is guidance, not liable_full_amount. If the last day falls on a Saturday, Sunday or
+    public holiday, the next day that is not one is in time (s 10(3)).
+- key: payment.schedule_content.ie
+  duty: Make a response state the amount proposed, the reasons for the difference and how the amount was
+    calculated, with particulars of any set-off claim
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 4(3)(a)(i)-(iii), 4(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: s 4(3)(a)(i)-(iii), 4(4)
+  caveat: Where the difference comes from a claim for loss or damage from an alleged breach by the party
+    doing the work, or any other claim against it, the response must also say when the loss was incurred
+    or the claim arose, its particulars, and the portion of the difference each accounts for (s 4(4)). The
+    Act states no consequence for a response that omits these. The payment_schedule register holds the
+    amount, reasons and calculation basis but nothing for the s 4(4) particulars, so this is recorded not_collected.
+- key: payment.due_date_default.ie
+  duty: Be paid no later than 30 days after the payment claim date where the Schedule applies
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 3(3), 3(4), 4(3)(b); Sch para 3
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 3(3), 3(4), 4(3)(b); Sch para 3
+  window:
+    value: 30
+    unit: days
+  caveat: Applies to a main contract silent on the period, and to a subcontract unless its own terms are
+    more favourable to the party doing the work, which makes 30 days the longest period a subcontract can
+    set. Where the other party contests the claim and it is not settled by the due date, it must pay at
+    least the amount its response proposed on that day (s 4(3)(b)). No consequence is stated for the due
+    date rule itself; non-payment opens the right to suspend (s 5, the suspension notice row).
+- key: payment.conditional_payment_void.ie
+  duty: Do not rely on a term that makes payment, or its timing, conditional on payment by someone outside
+    the contract
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 3(5), 3(6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: s 3(5), 3(6)
+  caveat: A pay when paid term is ineffective, except after the third party's insolvency event listed in
+    s 3(6) (winding up, receivership, examinership, bankruptcy adjudication, or the equivalent under EU
+    insolvency law). There is no void term member in the consequence list; mapped to guidance (judgment
+    call), as the New Zealand retention release terms row is.
+- key: payment.suspension_notice.ie
+  duty: Give at least 7 days written notice, stating the grounds, before suspending work for non-payment
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 5(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 5(1)-(4)
+  window:
+    value: 7
+    unit: days
+  caveat: Available where an amount is not paid in full by its due date. The notice may be delivered no
+    earlier than the day after the due date and at least 7 days before the suspension starts. Work may not
+    be suspended after the amount is paid, or after either party serves a notice of intention to refer the
+    payment dispute to adjudication (s 5(3)). A justified suspension is disregarded in computing the contract's
+    time limits (s 5(4)); an unjustified one leaves the party that suspended open to a damages claim (s 5(7)).
+    Recorded with notice_kind suspension.
+- key: payment.notice_of_intention.ie
+  duty: Serve a notice of intention to refer a payment dispute to adjudication, at any time
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 6(1), 6(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6(1), 6(2)
+  caveat: Either party may refer any dispute relating to payment, at any time, so no window is recorded.
+    Serving this notice ends the right to suspend for that amount under s 5(3)(b). Recorded with notice_kind
+    notice_of_intention.
+- key: payment.adjudicator_selection.ie
+  duty: Agree an adjudicator within 5 days of the notice of intention, or the panel chair appoints one
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 6(3), 6(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6(3), 6(4)
+  window:
+    value: 5
+    unit: days
+  caveat: The 5 days begin with the day the notice of intention is served, so that day is day 1. The parties
+    may choose anyone or a member of the Minister's panel; failing agreement, the chair of the panel appoints.
+    A procedural step, not itself a notice document; register and notice_kind are the closest available
+    fit.
+- key: payment.adjudication_application.ie
+  duty: Refer the payment dispute to the adjudicator within 7 days of the appointment, copying the referral
+    and its documents to the other party at the same time
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 6(5)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6(5)
+  window:
+    value: 7
+    unit: days
+  caveat: Binds the party that served the notice of intention. The 7 days begin with the day the appointment
+    is made, so that day is day 1. The Act states no consequence for a late referral. Recorded with notice_kind
+    adjudication_application.
+- key: payment.determination.ie
+  duty: Receive the adjudicator's decision within 28 days of the referral
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 6(6), 6(7), 6(10)-(12)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6(6), 6(7), 6(10)-(12)
+  window:
+    value: 28
+    unit: days
+  caveat: The 28 days begin with the day the referral is made, so that day is day 1. The adjudicator may
+    extend by up to 14 days with the referring party's consent, or longer if both parties agree after the
+    referral. The decision binds until the dispute is finally settled, arbitrated or decided by a court,
+    and is enforceable by action or, with the High Court's leave, as a judgment. A statutory duty on the
+    adjudicator, not a party-filed notice; mapped to breach as the New Zealand determination row is, and
+    register and notice_kind are the closest available fit.
+- key: payment.suspension_notice_adjudication.ie
+  duty: Give at least 7 days written notice, stating the grounds, before suspending work for failure to
+    pay an adjudicator's decision
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/act/34/enacted/en/html
+    clause: s 7(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 7(1)-(4)
+  window:
+    value: 7
+    unit: days
+  caveat: Available where an amount due under the decision is not paid in full before the end of 7 days
+    beginning with the day the decision is made. Work may not be suspended after payment, or after the decision
+    is referred to arbitration or court proceedings are started on it (s 7(3)). The suspension period is
+    disregarded in computing the contract's time limits (s 7(4)). Recorded with notice_kind suspension.

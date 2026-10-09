@@ -2,6 +2,28 @@
 
 ## Unreleased
 
+- **Ireland's first obligations** (25 rows, `obligations/IE/`), read on
+  2026-10-09 from the Irish Statute Book. `construction_contracts_act_2013_ie`
+  (14): which contracts the Act governs, the payment claim dates and 30 day
+  Schedule default, the payment claim notice within 5 days of the payment claim
+  date and its content, the response within 21 days of that date and its
+  content, the 30 day due date, the void pay when paid term, the two 7 day
+  suspension notices (non-payment, s 5; an unpaid adjudicator's decision, s 7),
+  and adjudication: notice of intention at any time, an adjudicator within 5
+  days, the referral within 7 days, the decision within 28. The Act states no
+  consequence for a missing response, so its row is `guidance`, not
+  `liable_full_amount`, and it carries no trigger: its 21 days run from the
+  payment claim date, not from when a claim is posted.
+  `construction_regulations_2013_ie` (11, S.I. No. 291 of 2013 read with its
+  2019 to 2021 amendments): appointing both project supervisors, the client's
+  and the construction stage supervisor's notices to the Health and Safety
+  Authority, the safety and health plan, the safety file, the safety adviser
+  and safety officer headcount duties, Safe Pass and construction skills cards
+  and the first-day confirmation, and passing accident notifications to the
+  project supervisor. Every regulation row is an `offence` through the Safety,
+  Health and Welfare at Work Act 2005 s 77(2)(c). No vocab or contract changes:
+  `IE` was already a jurisdiction (`supported: false`). 284 to 309 flattened
+  rows.
 - **Safe work method statement duties for high risk construction work** (32
   rows). Seven duties added to the model WHS Regulations base, read from Safe
   Work Australia's 5 December 2025 text: prepare the statement before the work
