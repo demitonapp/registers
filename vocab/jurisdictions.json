@@ -1028,6 +1028,10 @@
     "level": "state",
     "supported": true
   },
+  "CA-ON": {
+    "level": "state",
+    "supported": false
+  },
   "NZ-AUK": {
     "level": "regional",
     "supported": true

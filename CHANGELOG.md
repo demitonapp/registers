@@ -2,6 +2,23 @@
 
 ## Unreleased
 
+- **Ontario's first obligations** (49 rows, `obligations/CA-ON/`), read on
+  2026-10-09 from Ontario e-Laws. `construction_act_1990_on` (32): proper
+  invoices and the 7 day deficiency notice, the owner's 14 day notice of
+  non-payment and 28 day payment, interest, paying subcontractors in 7 days
+  (35 days if the owner has not paid) and the contractor's own notices,
+  adjudication (90 day limit, notice, appointment in 4 days, documents in 5,
+  determination in 30, payment in 15, leave for judicial review in 35), the 10%
+  holdback and its annual and final release, publishing the certificate of
+  substantial performance and a notice of termination, preserving a lien in 60
+  days and perfecting it in 90, information requests, trust funds and public
+  contract bonds. `ohsa_1990_on` (7): critical injury, accident and project
+  incident notices, the engineer's opinion and records.
+  `construction_projects_regulation_1991_on` (10): registration, the notice of
+  project and its posting, trench, suspended platform and tunnel notices, site
+  notices, supervisors, emergency procedures and records. New jurisdiction code
+  `CA-ON` (`level: state`, `supported: false`). 379 to 428 flattened rows. No
+  contract changes.
 - **England's first obligations** (36 rows, `obligations/GB/`), read on
   2026-10-09 from legislation.gov.uk's latest revised text.
   `cdm_regulations_2015_gb` (17, S.I. 2015/51, applies in Great Britain):
