@@ -1,0 +1,493 @@
+# South Africa's Construction Regulations, 2014, made under section 43 of the
+# Occupational Health and Safety Act 85 of 1993. South Africa did not adopt the
+# model WHS law, so every row stands alone and extends no base. Read on
+# 2026-10-09 from the gazette (Government Gazette 37305, 7 February 2014) as the
+# Department of Employment and Labour hosts it; that copy is a scan with no text
+# layer, so it was read against the text layer of the same gazette in the
+# OpenGazettes archive. Draft Construction Regulations meant to replace these
+# were published for comment on 12 March 2025; no final text was found, so the
+# 2014 text is treated as in force.
+id: construction_regulations_2014_za
+source: law
+instrument_type: regulation
+title: Construction Regulations, 2014
+publisher: Department of Employment and Labour
+jurisdictions:
+- ZA
+citation:
+  url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+  access_date: '2026-10-09'
+  version: Government Notice R. 84, Government Gazette 37305, 7 February 2014
+obligations:
+- key: whs.construction_work_permit_apply.za
+  duty: Apply in writing to the provincial director for a construction work permit at least 30 days before
+    permit-scale construction work is to start
+  clause: r 3(1), (2)
+  window:
+    value: 30
+    unit: days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 3(1), (2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The duty is the client's, and where a permit is needed the client must also appoint a competent agent in
+    writing (r 5(5)), registered with the statutory body the Chief Inspector approved (r 5(7)(b)). The 30 days
+    run back from the day the work is to start, not forward from an event, so no trigger is set. As
+    gazetted, r 3(1) applies where the work will exceed 180 days, involve more than 1,800 person days, or
+    the works contract is worth R13 million or more or CIDB grading level 6. Regulation 3 commenced 18
+    months after 7 February 2014 (r 34(2)). The Chief Inspector's temporary exemption, Notice 850 of 2018
+    (Government Gazette 41839, 17 August 2018, read in the OpenGazettes archive copy), narrows the trigger
+    for work starting from 7 August 2018 to work that will exceed 365 days and involve more than 3,600
+    person days, or whose tender value limit is CIDB grade 7, 8 or 9. No later notice withdrawing or
+    replacing it was found, and whether it is still in force was not confirmed. The provincial director
+    must issue the permit within 30 days of the application (r 3(3)). Regulation 2(2) excludes a single
+    storey dwelling for a client who will live in it. Regulation 33 makes a breach an offence: a fine or
+    up to 12 months' imprisonment, and for a continuing offence a further R200 or one day for each day it
+    continues, the extra imprisonment capped at 90 days. compliance_documents can hold an application or a
+    permit, but not the date the work was due to start, so this is recorded not_collected.
+- key: whs.construction_work_permit_before_start.za
+  duty: Do not start permit-scale construction work until the permit is issued and the site specific number
+    assigned; display the number at the main site entrance and keep a copy of the permit in the health and
+    safety file
+  clause: r 3(4), (6), (7)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 3(4), (6), (7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    Regulation 3(7) binds anyone who would start or carry out the work, not only the client. The client must
+    ensure the principal contractor keeps the copy in the occupational health and safety file for an
+    inspector, the client, its agent or an employee (r 3(6)). The number is conspicuously displayed at the
+    main entrance (r 3(4)) and is not transferable (r 3(8)). Which work needs a permit is set by r 3(1) as
+    narrowed by Notice 850 of 2018 (see whs.construction_work_permit_apply.za). A standing duty with no
+    window. Penalty under r 33 as for r 3(1). compliance_documents can hold the permit, but not whether work
+    started before it was issued or whether the number is displayed, so this is recorded not_collected.
+- key: whs.construction_work_notice.za
+  duty: Notify the provincial director in writing at least 7 days before construction work that includes
+    excavation, work at height with a risk of falling, demolition or the use of explosives
+  clause: r 4(1)
+  window:
+    value: 7
+    unit: days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 4(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    A contractor's duty, for work that does not need a permit under r 3(1), in a form similar to Annexure 2.
+    Regulation 4(2) adds the same 7-day notice for building a single storey dwelling for a client who will
+    live in it. The 7 days run back from the day the work is to start, so no trigger is set. Penalty under
+    r 33: a fine or up to 12 months' imprisonment, and a further R200 or one day for each day a continuing
+    offence continues. No register records a notice to the provincial director or the start date it runs
+    back from, so this is recorded not_collected against compliance_documents, which can hold the notice.
+- key: whs.hs_specification.za
+  duty: Prepare a baseline risk assessment and a site specific health and safety specification for the
+    intended work, and include the specification in the tender documents
+  clause: r 5(1)(a), (b), (f)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 5(1)(a), (b), (f)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The client's duty, before tender, with no day count, so no window is recorded. The client must also give
+    the specification to the designer (r 5(1)(c)), ensure tenderers have priced health and safety
+    (r 5(1)(g)), and ensure the principal contractor it appoints has the competencies and resources to work
+    safely (r 5(1)(h)). A permit is granted only once the documents in r 5(1)(a) and (b) are submitted
+    (r 3(5)(a)). Regulation 2(2) excludes a single storey dwelling for a client who will live in it. Penalty
+    under r 33. compliance_documents can hold the specification but not which tender it went into, so this
+    is recorded not_collected.
+- key: whs.hs_plan.za
+  duty: Give the client a site specific health and safety plan based on its specification, apply it from the
+    start of the work, and review and update it as the work progresses
+  clause: r 7(1)(a)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(a)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor's duty. The client must discuss and negotiate the plan with the principal
+    contractor and then finally approve it (r 5(1)(l)), and take reasonable steps to ensure it is implemented
+    and maintained (r 5(1)(n)). A copy must be available on request to an employee, an inspector, a
+    contractor, the client or its agent (r 7(1)(d)). No day count, so no window is recorded. Penalty under
+    r 33. compliance_documents keeps a revision for each document, but not whether the client approved it
+    or whether it was applied from the start, so this is recorded not_collected.
+- key: whs.hs_plan_contractor.za
+  duty: Before performing construction work, give the principal contractor a health and safety plan based on
+    the relevant sections of the client's specification, and review and update it as the work progresses
+  clause: r 7(2)(a)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(2)(a)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    Binds every contractor working under a principal contractor. The principal contractor must give tendering
+    contractors the relevant sections of the specification (r 7(1)(c)(i)), and must discuss, negotiate and
+    finally approve each contractor's plan (r 7(1)(c)(x)). Before work, with no day count, so no window is
+    recorded. Penalty under r 33. compliance_documents can hold the plan, but not who approved it or when the
+    contractor's work started, so this is recorded not_collected.
+- key: whs.hs_file.za
+  duty: Open and keep on site a health and safety file holding every document the Act and these Regulations
+    require, available on request to an inspector, the client, the client's agent or a contractor
+  clause: r 7(1)(b), (2)(b)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(b), (2)(b)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor (r 7(1)(b)) and each contractor (r 7(2)(b)) keep their own file. The principal
+    contractor's file must also list every contractor on site accountable to it, the agreements between the
+    parties and the type of work each does (r 7(1)(f)), and the client must ensure the principal contractor
+    keeps and maintains it (r 5(1)(s)). A standing duty with no window. Penalty under r 33.
+    compliance_documents holds individual documents, not whether a site's file is complete, so this is
+    recorded not_collected.
+- key: whs.hs_file_handover.za
+  duty: Hand the client a consolidated health and safety file on completion of the construction work,
+    including a record of the drawings, designs, materials used and similar information about the structure
+  clause: r 7(1)(e)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(e)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor's duty, and a contractor's when it appoints another contractor (r 7(3)). "Upon
+    completion", with no day count, so no window is recorded. Penalty under r 33. No register records the
+    handover of the file, so this is recorded not_collected.
+- key: whs.contractor_appointment.za
+  duty: Appoint each contractor in writing, and only once reasonably satisfied it has the competencies and
+    resources to do the construction work safely
+  clause: r 7(1)(c)(iii), (v)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(c)(iii), (v)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor's duty. The client carries the same duties for every principal contractor
+    (r 5(1)(h), (k)), and a contractor who appoints another contractor must be reasonably satisfied in the
+    same way (r 7(2)(c)) and takes on the principal contractor's duties in r 7(1)(b) to (g) (r 7(3)). Before
+    appointment, with no day count, so no window is recorded. Penalty under r 33. No register records a
+    written appointment or the competency assessment behind it, so this is recorded not_collected.
+- key: whs.compensation_good_standing.za
+  duty: Before work starts on site, make sure every contractor is registered and in good standing with the
+    Compensation Fund or a licensed compensation insurer
+  clause: r 7(1)(c)(iv)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(c)(iv)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: insurance_certificate
+  caveat: >-
+    The principal contractor's duty, under the Compensation for Occupational Injuries and Diseases Act 130 of
+    1993. The client must ensure the same of every principal contractor (r 5(1)(j)), and a permit is granted
+    only on written proof of the principal contractor's registration and good standing (r 3(5)(b)(ii)).
+    Before work starts, with no day count, so no window is recorded. Penalty under r 33. The
+    insurance_certificate register holds a policy's certificate and its expiry, but a letter of good
+    standing from the Compensation Fund is not a policy it names, so this is recorded not_collected.
+- key: whs.hs_audit.za
+  duty: Have health and safety audits and document verification of each contractor carried out at least once
+    every 30 days
+  clause: r 7(1)(c)(vii)
+  window:
+    value: 30
+    unit: days
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(1)(c)(vii)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor's duty, at intervals it agrees with each contractor but at least once every 30
+    days: the window is that longest interval. The client must ensure the same audits happen on the same
+    cadence (r 5(1)(o)) and give the principal contractor the report within 7 days (see
+    whs.hs_audit_report.za). Penalty under r 33. No register records an audit or its date, so this is
+    recorded not_collected.
+- key: whs.hs_audit_report.za
+  duty: Give the principal contractor a copy of each health and safety audit report within 7 days after the
+    audit
+  clause: r 5(1)(p)
+  window:
+    value: 7
+    unit: days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 5(1)(p)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The client's duty, for the audits r 5(1)(o) requires at least once every 30 days. The clock runs from the
+    audit, and no register records an audit, so no trigger is set. Penalty under r 33. This is recorded
+    not_collected.
+- key: whs.construction_manager.za
+  duty: Appoint in writing one full-time competent construction manager for each site, and an alternate for
+    when the manager is absent
+  clause: r 8(1)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 8(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The principal contractor's duty. A construction manager may manage only the site they are appointed to
+    (r 8(4)). Assistant construction managers are appointed in writing according to the size of the project
+    (r 8(2)), and an inspector may direct more (r 8(3)). The construction manager must appoint construction
+    supervisors in writing (r 8(7)), and a supervisor may supervise only their own site unless enough
+    competent employees are designated on every site (r 8(10)). A standing duty with no window. Penalty
+    under r 33. No register records a written appointment, so this is recorded not_collected.
+- key: whs.hs_officer.za
+  duty: After consulting the client, appoint in writing a full-time or part-time construction health and
+    safety officer registered with the statutory body the Chief Inspector approved, where the project's
+    size or hazards call for one
+  clause: r 8(5), (6)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 8(5), (6)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    A contractor's duty. Whether an officer is needed turns on the size of the project, the degree of danger
+    and the accumulation of hazards, and an inspector's decision is decisive (r 8(5)). Government Notice
+    R. 85 of 7 February 2014, published in the same gazette, approves the South African Council for the
+    Project and Construction Management Professions as that statutory body. A standing duty with no window.
+    Penalty under r 33. No register records the appointment or the officer's registration, so this is
+    recorded not_collected.
+- key: whs.risk_assessment.za
+  duty: Before construction work starts, and while it continues, have risk assessments performed by a
+    competent person appointed in writing, as part of the site health and safety plan
+  clause: r 9(1)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 9(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    A contractor's duty. The assessment must identify the hazards, analyse and evaluate them by a documented
+    method, and carry a documented control plan with safe work procedures, a monitoring plan and a review
+    plan (r 9(1)(a) to (e)). Employees must be trained on the hazards before work starts (r 9(3)), and copies
+    must be on site (r 9(6)). Before work, with no day count, so no window is recorded. Penalty under r 33.
+    compliance_documents can hold an assessment but not the work it covers or when that work started, so
+    this is recorded not_collected.
+- key: whs.risk_assessment_review.za
+  duty: Review the risk assessment when a change to the design or construction changes the risk profile, or
+    when an incident has occurred
+  clause: r 9(7)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 9(7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    A contractor's duty. It runs from any incident, not only a reportable one, so the notifiable incident
+    event type would miss most of them and no trigger is set; no day count, so no window is recorded.
+    Penalty under r 33. compliance_documents keeps a revision for each document, but not what prompted it,
+    so this is recorded not_collected.
+- key: whs.site_induction.za
+  duty: Allow no employee or other person onto site until they have had health and safety induction training
+    on the hazards on site at the time, and keep the induction records on site
+  clause: r 7(5), (7)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(5), (7)
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: induction_onboarding
+    system_type: site_and_field
+  caveat: >-
+    A contractor's duty. Visitors must also be inducted and have the personal protective equipment they need
+    (r 7(6)). The records must be available on request to an inspector, the client, its agent or the
+    principal contractor; r 7(7) as gazetted refers to the induction in subregulation (6), the visitors' one,
+    not (5). A standing duty with no window. Penalty under r 33. The induction_onboarding register holds
+    each worker's induction and the site or company it covers.
+- key: whs.medical_fitness.za
+  duty: Make sure every employee holds a valid medical certificate of fitness for the construction work they
+    do, issued by an occupational health practitioner in the form of Annexure 3
+  clause: r 7(8)
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 7(8)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    Every contractor's duty; r 7(1)(g) places the same duty on the principal contractor for its own
+    employees. The regulation sets no validity period for a certificate, so no window is recorded. Penalty
+    under r 33. compliance_documents can hold a worker's certificate and its expiry, but not the work it was
+    issued for, so this is recorded not_collected.
+- key: whs.fatality_report.za
+  duty: Where a fatality or permanent disabling injury occurs on site, make sure the contractor reports it to
+    the provincial director under section 24 of the Act, including the measures it intends to take to keep
+    the site safe
+  clause: r 5(3)
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.labour.gov.za/DocumentCenter/Regulations%20and%20Notices/Regulations/Occupational%20Health%20and%20Safety/ConstructionRegulation_2014.pdf
+    clause: r 5(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    The client's duty. The regulation states no day count of its own: it requires the report in accordance
+    with regulations 8 and 9 of the General Administrative Regulations, which set 7 days for an injury or
+    death (whs.incident_notice.za), so no window is recorded here. The gazette names those regulations
+    "2013"; no 2013 General Administrative Regulations were found, and regulations 8 and 9 of the 2003
+    regulations (Government Notice R. 929) match what r 5(3) describes. A fatality or permanent disabling
+    injury is narrower than the incidents section 24(1) lists; notifiable_incident_recorded is the closest
+    event type. Penalty under r 33. The safety_incident register holds each incident and its worst outcome,
+    but not whether or when the provincial director was told, so this is recorded not_collected.
