@@ -1,0 +1,289 @@
+id: tfnsw_c41
+source: contract
+instrument_type: conditions_of_contract
+title: C41 Terms for Contracted Work (Minor Physical Works and Services), Transport for NSW
+publisher: Transport for NSW
+jurisdictions:
+- AU-NSW
+citation:
+  url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+  access_date: '2026-10-09'
+  version: RMS edition, document D11032802 (the public copy is ICAC exhibit E23-1349-AS-25-0001, 67 pages)
+obligations:
+- key: delay_eot.delay_notice.tfnsw_c41
+  duty: Notify RMS in writing, promptly, of anything that may delay the progress of the Contracted Work,
+    with details of the possible delay and its cause
+  consequence: breach
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 5.3
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 5.3
+  caveat: '"Promptly": cl 5.3 states no number of days. The 28-day window that decides an extension is
+    cl 5.4.2, its own row (delay_eot.eot_claim.tfnsw_c41).'
+- key: delay_eot.eot_claim.tfnsw_c41
+  duty: Give RMS written notice of a delay, with its details, causes and the extra time claimed, within
+    28 days of the start of the delay
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 5.4.2
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 5.4.2
+  window:
+    value: 28
+    unit: days
+  window_source_field: notice_eot_days
+  caveat: Applies only where the Contract specifies a Date for Completion (cl 5.4). The six conditions of
+    cl 5.4.2 are cumulative, and the length of any extension is the RMS Representative's to decide, acting
+    reasonably. Liquidated damages for every week past the Date for Completion follow (cl 5.4.3). A
+    Contract Schedule or a later TfNSW edition may state a shorter window; the job's own notice_eot_days
+    reading governs when it is stricter (window_source_field).
+- key: variations.claim.tfnsw_c41
+  duty: Write to the RMS Representative, before complying where possible and within 7 days of the direction,
+    setting out why a direction that is not stated to be a variation direction is one
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 9.2
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 9.2
+  window:
+    value: 7
+    unit: days
+  window_source_field: notice_variation_days
+  caveat: If the notice is not given within 7 days of the date of the direction, you cannot later claim
+    that the direction was a variation (cl 9.2). A direction the RMS Representative states to be a
+    variation direction needs no notice (cl 9.1). A Contract Schedule or a later TfNSW edition may state
+    a shorter window; the job's own notice_variation_days reading governs when it is stricter.
+- key: delay_eot.programme_change_notice.tfnsw_c41
+  duty: Perform the Contracted Work to the program submitted to RMS and notify RMS of every change to it
+  consequence: breach
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 5.2
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: programme
+    system_type: document_store
+  clause: cl 5.2
+  caveat: Only where the Contract requires a program. No cadence is stated; the duty is to notify each
+    change, and nothing in a program limits the Contract's own time requirements (cl 5.2).
+- key: payment.claim_day.tfnsw_c41
+  duty: Submit each month's Payment Claim on the Payment Claim Day the Contract Schedule names, lodged
+    electronically at the Contract Schedule address
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 23.1.1, 23.1.2
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: cl 23.1.1, 23.1.2
+  window:
+    value: 1
+    unit: months
+  caveat: A claim received after the Payment Claim Day is, at RMS's sole discretion, returned or held over
+    to the next Payment Claim Day; a claim lodged early is deemed served on the Payment Claim Day
+    (cl 23.1.1). Lodgement at the Contract Schedule address is service for s 13(1) of the Building and
+    Construction Industry Security of Payment Act 1999 (NSW) (cl 23.1.2). The day itself is in the
+    Contract Schedule, not the terms. RMS pays within 15 business days of the Payment Claim Date (cl 23.4).
+- key: payment.quality_records_with_claim.tfnsw_c41
+  duty: Submit with every Payment Claim a summary of product quality records showing each lot or component
+    of the Contracted Work conforms with the Contract
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  approval_class: quality
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 4.6.3
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: inspection_test_result
+    system_type: document_store
+  clause: cl 4.6.3
+  window:
+    value: 1
+    unit: months
+  caveat: Applies only where a Quality System is specified in the Contract Schedule (cl 4.6). Entitlement
+    to payment may be reduced for incomplete records or records that do not show full conformance
+    (cl 4.6.3).
+- key: closeout.quality_records_retention.tfnsw_c41
+  duty: Retain quality records for at least 5 years after the end of the last warranty period, and give
+    RMS access to them or deliver them on request
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: quality
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 4.6.4
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: inspection_test_result
+    system_type: document_store
+  clause: cl 4.6.4
+  window:
+    value: 60
+    unit: months
+  caveat: Only where a Quality System is specified (cl 4.6). 5 years converted to 60 months (no 'years'
+    unit). After the last warranty period RMS must give at least 14 days' notice before requiring access
+    or delivery (cl 4.6.4).
+- key: payment.security_lodgement.tfnsw_c41
+  duty: Lodge the security the Contract Schedule requires, in cash or an unconditional undertaking in the
+    Schedule 1 form, within 14 days of the date of RMS's letter accepting the tender
+  consequence: breach
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: payments
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 20, 3.1
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: bank_guarantee
+    system_type: finance
+  clause: cl 20, 3.1
+  window:
+    value: 14
+    unit: days
+  caveat: Only where the Contract Schedule states that security is required; lodging it is also a thing to
+    do before starting (cl 3.1.1). The provider must be a bank, financial institution or insurer under
+    APRA's prudential supervision (cl 20).
+- key: closeout.security_release.tfnsw_c41
+  duty: After the last warranty period ends, request the release of the security; RMS releases it within
+    14 days of the request if satisfied
+  consequence: guidance
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: payments
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 27
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 27
+  caveat: The release runs from YOUR request, not from the warranty end; nothing in the terms releases
+    security unasked. RMS must be satisfied that the last warranty period has expired, every obligation
+    is fulfilled, and no claim by you or a third party is outstanding (cl 27.1-27.4). No window is stated
+    for the request itself.
+- key: delay_eot.commencement.tfnsw_c41
+  duty: Satisfy the cl 3.1 conditions and start the Contracted Work within 14 days of the date of the
+    Letter of Award, unless otherwise advised
+  consequence: breach
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: general
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 3.2
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: site_diary
+    system_type: site_and_field
+  clause: cl 3.2
+  window:
+    value: 14
+    unit: days
+  caveat: Project Contracts. A Work-as-Ordered Contract starts within the time in the Specification or
+    Work Order, else as soon as possible and not later than 14 days from the Work Order; a Term Services
+    Contract starts on the first day of the Term (cl 3.2).
+- key: insurance.evidence_of_currency.tfnsw_c41
+  duty: Before starting, give RMS certificates of currency for the insurances you must hold, and the
+    details the RMS Insurer needs for Principal Arranged Insurance
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 3.1.2, 19.1.3
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: insurance_certificate
+    system_type: document_store
+  clause: cl 3.1.2, 19.1.3
+  caveat: Contract works and third party liability are Principal Arranged Insurance (cl 19.2), with an
+    excess the contractor pays (cl 19.2.1); the contractor's own policies are those cl 19.1 and the
+    Contract Schedule list, with approved insurers (cl 19.1.1).
+- key: default.show_cause.tfnsw_c41
+  duty: Respond to a show cause notice within 14 days, showing cause to RMS's satisfaction why the Contract
+    should not be terminated
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.icac.nsw.gov.au/ArticleDocuments/1134/Exhibit%200115.pdf.aspx
+    clause: cl 29
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: cl 29
+  window:
+    value: 14
+    unit: days
+  caveat: RMS may suspend payment until the breach or default is rectified to its satisfaction, and may
+    terminate by written notice taking effect immediately if cause is not shown within 14 days (cl 29).
+    Termination under cl 29 does not end a Work-as-Ordered Contract's standing offer.
+form: TFNSW_C41
