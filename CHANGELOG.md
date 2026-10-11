@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- `contract_terms` 1.3.2 (PATCH): `contract_sum` is ex GST, and its description
+  now says so. A letter of acceptance that states the sum "(inclusive of GST)"
+  was stored as written, so a consumer reading the sum as the ex GST contract
+  value overstated it by the GST. The reader takes the GST out: the document's
+  own GST figure when it states one, otherwise the governing country's rate. No
+  property, type or requirement changes. 1.3.1 kept in `history/`.
+
 - **Two New Zealand rows corrected** (no row added or removed). NZS 3910:2013
   `latent_conditions.weather_exclusion_rule.nzs3910_2013`: the duty said adverse
   weather is excluded from an extension of time claim, which cl 9.5.1 does not
