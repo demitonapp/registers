@@ -17,6 +17,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: levy.worker_registration
   severity: 3
   grade: primary_read
   citation:

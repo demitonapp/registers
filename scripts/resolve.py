@@ -202,6 +202,7 @@ def tree_errors(docs: list[tuple[str, dict]] | None = None) -> list[str]:
                     f"{rel}: obligation {override.get('key')!r} resolves with no grade - the base leaves it to the "
                     f"concrete that first reads this jurisdiction's text, so the concrete must supply one"
                 )
+    duty_shapes = json.loads((ROOT / "vocab" / "duty_shapes.json").read_text())
     # SM037 (Demiton, Delegation of Authority): every resolved row says what kind
     # of sign-off its evidence needs. An override cannot set approval_class (its
     # schema refuses the field), so checking every base and standalone row is
@@ -215,6 +216,16 @@ def tree_errors(docs: list[tuple[str, dict]] | None = None) -> list[str]:
                     f"{rel}: obligation {ob.get('key')!r} has no approval_class - every row names one of "
                     f"vocab/approval_classes.json, so an approval can be routed (SM037)"
                 )
+            # The same reasoning for duty_shape: an override cannot set it, so a
+            # base or standalone row without one leaves a resolved row without one.
+            shape = ob.get("duty_shape")
+            if not shape:
+                errors.append(
+                    f"{rel}: obligation {ob.get('key')!r} has no duty_shape - every row names the duty it "
+                    f"states, a key of vocab/duty_shapes.json, so it reads beside the same duty elsewhere"
+                )
+            elif shape not in duty_shapes:
+                errors.append(f"{rel}: obligation {ob.get('key')!r}: duty_shape {shape!r} is not in vocab/duty_shapes.json")
     return errors
 
 

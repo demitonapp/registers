@@ -25,6 +25,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.registration
   severity: 3
   grade: primary_read
   citation:
@@ -46,6 +47,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -72,6 +74,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notice_of_project_posting
   severity: 3
   grade: primary_read
   citation:
@@ -91,6 +94,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -110,6 +114,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -134,6 +139,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -156,6 +162,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.constructor_site_notice
   severity: 3
   grade: primary_read
   citation:
@@ -179,6 +186,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.supervisor_inspection
   severity: 3
   grade: primary_read
   citation:
@@ -207,6 +215,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.emergency_procedures
   severity: 3
   grade: primary_read
   citation:
@@ -225,6 +234,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.project_records_keep
   severity: 3
   grade: primary_read
   citation:

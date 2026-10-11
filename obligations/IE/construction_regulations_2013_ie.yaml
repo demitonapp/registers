@@ -33,6 +33,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.duty_holders_appoint
   severity: 3
   grade: primary_read
   citation:
@@ -59,6 +60,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -80,6 +82,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -103,6 +106,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
   severity: 3
   grade: primary_read
   citation:
@@ -128,6 +132,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.health_safety_file_prepare
   severity: 3
   grade: primary_read
   citation:
@@ -149,6 +154,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.health_safety_file_handover
   severity: 3
   grade: primary_read
   citation:
@@ -170,6 +176,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.safety_adviser
   severity: 3
   grade: primary_read
   citation:
@@ -190,6 +197,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.safety_officer
   severity: 3
   grade: primary_read
   citation:
@@ -211,6 +219,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: own_commitments.competency_hold
   severity: 3
   grade: primary_read
   citation:
@@ -237,6 +246,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: own_commitments.competency_evidence
   severity: 3
   grade: primary_read
   citation:
@@ -258,6 +268,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.incident_info_to_pscs
   severity: 3
   grade: primary_read
   citation:

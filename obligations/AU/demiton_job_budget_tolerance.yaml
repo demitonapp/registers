@@ -16,6 +16,7 @@ obligations:
   protection_type: threshold
   disease: overrun
   approval_class: payments
+  duty_shape: overrun.budget_tolerance
   severity: 4
   grade: demiton_default
   basis: Demiton overrun check rule (cost or committed cost above budget), METHOD.md section 6.1

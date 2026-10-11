@@ -31,6 +31,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: cidb.annual_fee
   severity: 1
   grade: primary_read
   citation:
@@ -58,6 +59,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: cidb.annual_confirmation
   severity: 1
   grade: primary_read
   citation:
@@ -84,6 +86,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: cidb.tax_clearance
   severity: 2
   grade: primary_read
   citation:
@@ -109,6 +112,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_standing
   severity: 1
   grade: primary_read
   citation:
@@ -142,6 +146,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: general
+  duty_shape: cidb.project_registration
   severity: 3
   grade: primary_read
   citation:
@@ -172,6 +177,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: general
+  duty_shape: cidb.project_status_report
   severity: 3
   grade: primary_read
   citation:
@@ -198,6 +204,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: general
+  duty_shape: cidb.project_dispute_notice
   severity: 3
   grade: primary_read
   citation:

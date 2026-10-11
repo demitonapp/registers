@@ -16,6 +16,7 @@ obligations:
   protection_type: countdown
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.final_claim
   severity: 1
   grade: primary_read
   citation:
@@ -38,6 +39,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_submission
   severity: 3
   grade: primary_read
   citation:
@@ -61,6 +63,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.delay_notice
   trigger: delay_recorded
   severity: 2
   grade: primary_read
@@ -83,6 +86,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.eot_claim
   severity: 2
   grade: primary_read
   citation:
@@ -105,6 +109,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_update
   severity: 3
   grade: primary_read
   citation:
@@ -128,6 +133,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: latent_conditions.notice
   severity: 1
   grade: primary_read
   citation:
@@ -150,6 +156,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.claim
   severity: 2
   grade: primary_read
   citation:
@@ -172,6 +179,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.day_works
   severity: 4
   grade: primary_read
   citation:
@@ -194,6 +202,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.statutory_change_notice
   severity: 1
   grade: primary_read
   citation:
@@ -216,6 +225,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.unordered_variation_notice
   severity: 1
   grade: primary_read
   citation:
@@ -237,6 +247,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.written_confirmation
   severity: 4
   grade: primary_read
   citation:

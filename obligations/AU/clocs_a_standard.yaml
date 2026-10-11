@@ -16,6 +16,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.risk_register_review
   severity: 3
   grade: primary_read
   citation:
@@ -39,6 +40,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.logistics_plan_update
   severity: 3
   grade: primary_read
   citation:
@@ -62,6 +64,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.traffic_management_plan
   severity: 3
   grade: primary_read
   citation:
@@ -82,6 +85,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.driver_licence
   severity: 3
   grade: primary_read
   citation:
@@ -103,6 +107,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.driver_training
   severity: 3
   grade: primary_read
   citation:
@@ -124,6 +129,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.driver_induction
   severity: 3
   grade: primary_read
   citation:
@@ -143,6 +149,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.incident_investigation
   severity: 3
   grade: primary_read
   citation:
@@ -163,6 +170,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.client_reporting
   severity: 3
   grade: primary_read
   citation:
@@ -185,6 +193,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.vehicle_safety_spec
   severity: 3
   grade: primary_read
   citation:
@@ -207,6 +216,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.daily_inspection
   trigger: machine_started
   severity: 3
   grade: primary_read
@@ -230,6 +240,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.licence_check
   severity: 3
   grade: primary_read
   citation:
@@ -249,6 +260,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.speed_monitoring
   severity: 3
   grade: primary_read
   citation:
@@ -270,6 +282,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.harsh_driving_monitoring
   severity: 3
   grade: primary_read
   citation:
@@ -290,6 +303,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.operator_reporting
   severity: 3
   grade: primary_read
   citation:

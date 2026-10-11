@@ -25,6 +25,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_standing
   severity: 1
   grade: primary_read
   citation:
@@ -58,6 +59,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_change_notice
   severity: 2
   grade: primary_read
   citation:
@@ -85,6 +87,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: cidb.registration_renewal
   severity: 1
   grade: primary_read
   citation:

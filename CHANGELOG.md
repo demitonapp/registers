@@ -2,6 +2,39 @@
 
 ## Unreleased
 
+- **Library gaps from the 2026-10-06 obligations audit**: every obligation now
+  names a register that exists. Prequalification standing reads
+  `compliance_prequal`, and the insurance shape's records row reads
+  `insurance_certificate` (neither named register existed). The ten approvals
+  rows that recorded `not_collected` against a register no contract defines
+  (`environmental_authority`, `waterway_barrier_approval`, `vegetation_clearing`,
+  `aboriginal_cultural_heritage`), and TfNSW C2's proof of payment, are now
+  `record_in_demiton` against `compliance_evidence`: a copy of the approval or
+  record, filed against the obligation and accepted by a second person. Two rows
+  still name `subcontractor_payment`, which no contract defines: it needs a
+  payment-made register fed by a finance system, which is a register to design,
+  not a row to re-point. `counterparties` stays empty on purpose (SM031 M6). No
+  contract changes.
+
+- **`duty_shape` on every obligation** (contract `obligation` 2.3.0 and
+  `platform_obligation` 1.3.0, MINOR: one new optional property each).
+  `vocab/duty_shapes.json` names 193 duties, each in a contractor's words, so a
+  reader sees one duty from several standards side by side: the latent condition
+  notice from AS 2124, AS 4000, AS 4902, GC21, the TMR TIC, MRWA Major Works and
+  NZS 3910:2013 is one shape. A row's shape is its key's first two segments,
+  except 86 rows that state an existing duty under another key and name that
+  duty's shape (NZS 3910's `unforeseen_conditions_notice` is
+  `latent_conditions.notice`). 401 base and standalone rows carry it; overrides
+  inherit it, and all 440 flattened rows resolve with one: 184 shapes, 77 of
+  them stated by two or more instruments. `resolve.tree_errors` refuses a row
+  without a shape or with one outside the vocabulary, and `validate.py` refuses a
+  shape no row names. The 167 rows added while this was open (SWMS, TfNSW C41,
+  Ireland, South Africa, England, Ontario) are shaped too, 57 of them onto a duty
+  already named: a notice of project in Ontario, England, Ireland or South Africa
+  is `whs.notifiable_work_notice`, England's notified sum and Ireland's default
+  due date are `payment.due_date`, and cidb registration is
+  `own_commitments.prequalification_standing`.
+
 - **`contract_terms` 1.4.0**: adds `currency`, the ISO 4217 code every amount
   on the record is in. The six money fields (`contract_sum`, `ld_rate`, `ld_cap`,
   `ld_milestones`, `public_liability`, `professional_indemnity`) said `AUD` in

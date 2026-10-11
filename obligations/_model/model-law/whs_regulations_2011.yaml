@@ -31,6 +31,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: latent_conditions.utility_check
   severity: 3
   grade: primary_read
   citation:
@@ -54,6 +55,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_prepare
   severity: 3
   grade: primary_read
   citation:
@@ -78,6 +80,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_comply
   severity: 3
   grade: primary_read
   citation:
@@ -99,6 +102,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_copy_to_principal
   severity: 3
   grade: primary_read
   citation:
@@ -121,6 +125,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_review
   severity: 3
   grade: primary_read
   citation:
@@ -142,6 +147,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_keep
   severity: 3
   grade: primary_read
   citation:
@@ -167,6 +173,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_keep_after_incident
   severity: 3
   grade: primary_read
   citation:
@@ -188,6 +195,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.swms_principal_obtain
   severity: 3
   grade: primary_read
   citation:

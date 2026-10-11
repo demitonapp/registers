@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: own_commitments.competency_hold
   severity: 3
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240
@@ -38,6 +39,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: own_commitments.competency_evidence
   severity: 1
   citation:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2011-0240

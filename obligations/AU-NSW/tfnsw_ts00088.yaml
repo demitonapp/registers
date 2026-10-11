@@ -17,6 +17,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.registration
   severity: 3
   grade: primary_read
   citation:
@@ -38,6 +39,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.plant_registration
   severity: 3
   grade: primary_read
   citation:
@@ -58,6 +60,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.operating_information
   severity: 3
   grade: primary_read
   citation:
@@ -78,6 +81,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.daily_inspection
   trigger: machine_started
   severity: 3
   grade: primary_read
@@ -102,6 +106,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: vehicles.service_records
   severity: 3
   grade: primary_read
   citation:
@@ -122,6 +127,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: clocs_a.vehicle_safety_spec
   severity: 3
   grade: primary_read
   citation:

@@ -15,6 +15,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: latent_conditions.contamination_notice
   severity: 3
   grade: primary_via_secondary
   citation:

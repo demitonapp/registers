@@ -16,6 +16,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: general
+  duty_shape: own_commitments.subcontractor_insurance_current
   severity: 3
   grade: demiton_default
   basis: Demiton check rule (a subcontractor on site with lapsed cover leaves the contractor carrying an uninsured loss), METHOD.md section 6.1

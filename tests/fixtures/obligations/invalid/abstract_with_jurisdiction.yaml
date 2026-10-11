@@ -18,6 +18,7 @@ obligations:
     protection_type: watch
     disease: non_compliance
     approval_class: general
+    duty_shape: latent_conditions.notice
     severity: 2
     citation:
       url: https://example.invalid/fixture-placed-base-2026

@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_standing
   severity: 1
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD
@@ -29,7 +30,7 @@ obligations:
     access_date: '2026-09-30'
   evidence:
     kind: register
-    register: prequalification
+    register: compliance_prequal
     system_type: document_store
   caveat: Each principal runs its own scheme and its own categories and financial levels - TMR's volume 3 is representative, and the same contractor may hold a different standing with each agency. The scheme requires annual financial updates and a renewal application at least every three years (section 6.2), but the concrete that extends this base supplies its own citation, clause and levels. Severity is 1 because losing the standing removes the entitlement to tender, not a payment.
 - key: own_commitments.prequalification_change_notice
@@ -38,6 +39,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: own_commitments.prequalification_change_notice
   severity: 2
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/project-delivery-and-maintenance/tipds/tipds_volume3.pdf?sc_lang=en&hash=04BF179C0C4FAB9C27CC88C8DA89CEBD

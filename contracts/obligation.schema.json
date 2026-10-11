@@ -72,6 +72,11 @@
       "type": "string",
       "enum": ["geotechnical", "quality", "safety_environment", "variations_claims", "payments", "general"]
     },
+    "duty_shape": {
+      "description": "the duty this row states, named once across every instrument that states it - a key of vocab/duty_shapes.json, so a reader sees one duty from several standards side by side. Usually the first two segments of `key`; a row that states an existing duty under another key names that duty's shape instead. Optional here so an override, which inherits it from its base, stays valid; scripts/resolve.py requires it on every resolved row.",
+      "type": "string",
+      "pattern": "^[a-z0-9_]+\\.[a-z0-9_]+$"
+    },
     "severity": {
       "description": "the contract-risk tier this obligation belongs to (1 = entitlement at risk .. 4 = cash position), set by the library author and reviewed in its pull request (SM030 decision 18)",
       "type": "integer",
@@ -125,5 +130,5 @@
     }
   },
   "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "citation", "evidence"],
-  "x-demiton-contract-version": "2.2.0"
+  "x-demiton-contract-version": "2.3.0"
 }

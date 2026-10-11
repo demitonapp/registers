@@ -17,6 +17,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_content
   severity: 1
   grade: primary_read
   citation:
@@ -37,6 +38,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 4
   grade: primary_read
   citation:
@@ -59,6 +61,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.schedule_due
   trigger: claim_lodged
   severity: 4
   grade: primary_read
@@ -82,6 +85,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.due_date
   severity: 4
   grade: primary_read
   citation:
@@ -104,6 +108,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.notice_of_intention
   severity: 4
   grade: primary_read
   citation:
@@ -124,6 +129,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_application
   severity: 4
   grade: primary_read
   citation:
@@ -147,6 +153,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_response
   severity: 4
   grade: primary_read
   citation:

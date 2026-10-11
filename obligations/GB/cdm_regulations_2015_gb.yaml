@@ -43,6 +43,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.client_arrangements
   severity: 3
   grade: primary_read
   citation:
@@ -68,6 +69,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.pre_construction_information
   severity: 3
   grade: primary_read
   citation:
@@ -92,6 +94,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.duty_holders_appoint
   severity: 3
   grade: primary_read
   citation:
@@ -118,6 +121,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -149,6 +153,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notice_of_project_posting
   severity: 3
   grade: primary_read
   citation:
@@ -171,6 +176,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.domestic_client_duties
   severity: 3
   grade: primary_read
   citation:
@@ -196,6 +202,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.appointee_competence
   severity: 3
   grade: primary_read
   citation:
@@ -220,6 +227,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
   severity: 3
   grade: primary_read
   citation:
@@ -247,6 +255,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.health_safety_file_prepare
   severity: 3
   grade: primary_read
   citation:
@@ -272,6 +281,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.health_safety_file_handover
   severity: 3
   grade: primary_read
   citation:
@@ -294,6 +304,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.principal_designer_duties
   severity: 3
   grade: primary_read
   citation:
@@ -319,6 +330,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.principal_contractor_duties
   severity: 3
   grade: primary_read
   citation:
@@ -346,6 +358,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.worker_consultation
   severity: 3
   grade: primary_read
   citation:
@@ -370,6 +383,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.contractor_duties
   severity: 3
   grade: primary_read
   citation:
@@ -394,6 +408,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.demolition_arrangements
   severity: 3
   grade: primary_read
   citation:
@@ -417,6 +432,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.inspection_report
   severity: 3
   grade: primary_read
   citation:
@@ -448,6 +464,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.inspection_report_keep
   severity: 3
   grade: primary_read
   citation:

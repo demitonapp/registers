@@ -16,6 +16,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.daily_report
   severity: 3
   grade: primary_read
   citation:
@@ -39,6 +40,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.eot_claim
   severity: 1
   grade: primary_read
   citation:
@@ -60,6 +62,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.delay_notice
   severity: 1
   grade: primary_read
   citation:
@@ -81,6 +84,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_update
   severity: 3
   grade: primary_read
   citation:
@@ -103,6 +107,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: latent_conditions.notice
   trigger: latent_condition_reported
   severity: 1
   grade: primary_read
@@ -126,6 +131,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.day_works
   severity: 4
   grade: primary_read
   citation:
@@ -147,6 +153,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.written_confirmation
   severity: 1
   grade: primary_read
   citation:
@@ -168,6 +175,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.claim
   severity: 1
   grade: primary_read
   citation:

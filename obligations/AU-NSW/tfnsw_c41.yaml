@@ -17,6 +17,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.delay_notice
   severity: 3
   grade: primary_read
   citation:
@@ -36,6 +37,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.eot_claim
   severity: 1
   grade: primary_read
   citation:
@@ -62,6 +64,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: variations.claim
   severity: 1
   grade: primary_read
   citation:
@@ -86,6 +89,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: variations_claims
+  duty_shape: delay_eot.programme_update
   severity: 4
   grade: primary_read
   citation:
@@ -106,6 +110,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 2
   grade: primary_read
   citation:
@@ -132,6 +137,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: quality
+  duty_shape: payment.quality_records_with_claim
   severity: 2
   grade: primary_read
   citation:
@@ -156,6 +162,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: quality
+  duty_shape: closeout.records_retention
   severity: 3
   grade: primary_read
   citation:
@@ -180,6 +187,7 @@ obligations:
   protection_type: countdown
   disease: non_compliance
   approval_class: payments
+  duty_shape: closeout.contractors_bond
   severity: 2
   grade: primary_read
   citation:
@@ -204,6 +212,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: closeout.security_release_claim
   severity: 2
   grade: primary_read
   citation:
@@ -225,6 +234,7 @@ obligations:
   protection_type: countdown
   disease: non_compliance
   approval_class: general
+  duty_shape: delay_eot.commencement
   severity: 3
   grade: primary_read
   citation:
@@ -249,6 +259,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: general
+  duty_shape: insurance.evidence_of_currency
   severity: 2
   grade: primary_read
   citation:
@@ -270,6 +281,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: general
+  duty_shape: default.show_cause
   severity: 1
   grade: primary_read
   citation:

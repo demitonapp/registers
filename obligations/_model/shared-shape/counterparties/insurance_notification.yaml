@@ -24,6 +24,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: counterparties.insurance_notification_notice
   severity: 3
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/contract/road-maintenance-performance-contract-manual/generalconditions.pdf?rev=dc8826aa9b9044fa9aea4c3444221e06&sc_lang=en&extension=pdf&size=613945&hash=208A60A75B332E3CE164ADA231E5A70C
@@ -42,6 +43,7 @@ obligations:
   protection_type: check
   disease: forfeited_entitlements
   approval_class: general
+  duty_shape: counterparties.insurance_notification_records
   severity: 3
   citation:
     url: https://www.tmr.qld.gov.au/_/media/busind/techstdpubs/contract/road-maintenance-performance-contract-manual/generalconditions.pdf?rev=dc8826aa9b9044fa9aea4c3444221e06&sc_lang=en&extension=pdf&size=613945&hash=208A60A75B332E3CE164ADA231E5A70C
@@ -49,6 +51,6 @@ obligations:
     access_date: '2026-09-30'
   evidence:
     kind: register
-    register: insurance_policy
+    register: insurance_certificate
     system_type: document_store
   caveat: A contract that requires evidence of insurance on request, and a policy that requires a notification to be provable after the event, both depend on these records existing. The retention period is set by the contract of the day, so none is stated here. The concrete that extends this base supplies its own citation, clause and period.

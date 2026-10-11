@@ -30,6 +30,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_work_permit_apply
   severity: 3
   grade: primary_read
   citation:
@@ -64,6 +65,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_work_permit_before_start
   severity: 3
   grade: primary_read
   citation:
@@ -92,6 +94,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
   severity: 3
   grade: primary_read
   citation:
@@ -116,6 +119,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.pre_construction_information
   severity: 3
   grade: primary_read
   citation:
@@ -141,6 +145,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
   severity: 3
   grade: primary_read
   citation:
@@ -165,6 +170,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
   severity: 3
   grade: primary_read
   citation:
@@ -188,6 +194,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.hs_file
   severity: 3
   grade: primary_read
   citation:
@@ -212,6 +219,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.health_safety_file_handover
   severity: 3
   grade: primary_read
   citation:
@@ -233,6 +241,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.appointee_competence
   severity: 3
   grade: primary_read
   citation:
@@ -256,6 +265,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.compensation_good_standing
   severity: 3
   grade: primary_read
   citation:
@@ -283,6 +293,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.hs_audit
   severity: 3
   grade: primary_read
   citation:
@@ -309,6 +320,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.hs_audit_report
   severity: 3
   grade: primary_read
   citation:
@@ -330,6 +342,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.construction_manager
   severity: 3
   grade: primary_read
   citation:
@@ -355,6 +368,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.safety_officer
   severity: 3
   grade: primary_read
   citation:
@@ -379,6 +393,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.risk_assessment
   severity: 3
   grade: primary_read
   citation:
@@ -403,6 +418,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.risk_assessment_review
   severity: 3
   grade: primary_read
   citation:
@@ -425,6 +441,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.site_induction
   severity: 3
   grade: primary_read
   citation:
@@ -449,6 +466,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.medical_fitness
   severity: 3
   grade: primary_read
   citation:
@@ -472,6 +490,7 @@ obligations:
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
+  duty_shape: whs.incident_notice
   trigger: notifiable_incident_recorded
   severity: 3
   grade: primary_read

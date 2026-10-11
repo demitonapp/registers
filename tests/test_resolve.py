@@ -255,3 +255,22 @@ def test_a_row_without_an_approval_class_is_refused() -> None:
     del base["obligations"][0]["approval_class"]
     errors = resolve.tree_errors(tree)
     assert any("has no approval_class" in e for e in errors), errors
+
+
+def test_a_row_without_a_duty_shape_is_refused() -> None:
+    # Every resolved row names the duty it states, so it reads beside the same
+    # duty from another instrument. An override inherits it, so a base without
+    # one leaves its resolved rows without one.
+    tree = _tree("tree/silent_drop/base.yaml", "tree/silent_drop/concrete.yaml")
+    _rel, base = tree[0]
+    del base["obligations"][0]["duty_shape"]
+    errors = resolve.tree_errors(tree)
+    assert any("has no duty_shape" in e for e in errors), errors
+
+
+def test_a_duty_shape_outside_the_vocabulary_is_refused() -> None:
+    tree = _tree("tree/silent_drop/base.yaml", "tree/silent_drop/concrete.yaml")
+    _rel, base = tree[0]
+    base["obligations"][0]["duty_shape"] = "latent_conditions.made_up"
+    errors = resolve.tree_errors(tree)
+    assert any("'latent_conditions.made_up' is not in vocab/duty_shapes.json" in e for e in errors), errors

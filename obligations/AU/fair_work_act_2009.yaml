@@ -19,6 +19,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: fair_work.records
   severity: 3
   grade: primary_read
   citation:

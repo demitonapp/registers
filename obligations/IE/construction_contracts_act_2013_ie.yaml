@@ -29,6 +29,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.act_applicability
   severity: 4
   grade: primary_read
   citation:
@@ -55,6 +56,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 4
   grade: primary_read
   citation:
@@ -81,6 +83,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 1
   grade: primary_read
   citation:
@@ -109,6 +112,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_content
   severity: 1
   grade: primary_read
   citation:
@@ -130,6 +134,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.schedule_due
   severity: 4
   grade: primary_read
   citation:
@@ -157,6 +162,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.schedule_content
   severity: 4
   grade: primary_read
   citation:
@@ -178,6 +184,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.due_date
   severity: 4
   grade: primary_read
   citation:
@@ -204,6 +211,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.conditional_payment_void
   severity: 4
   grade: primary_read
   citation:
@@ -224,6 +232,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.suspension_notice
   severity: 4
   grade: primary_read
   citation:
@@ -249,6 +258,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.notice_of_intention
   severity: 4
   grade: primary_read
   citation:
@@ -268,6 +278,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudicator_selection
   severity: 4
   grade: primary_read
   citation:
@@ -292,6 +303,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_application
   severity: 4
   grade: primary_read
   citation:
@@ -314,6 +326,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.determination
   severity: 3
   grade: primary_read
   citation:
@@ -340,6 +353,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.suspension_notice
   severity: 4
   grade: primary_read
   citation:

@@ -22,6 +22,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: quality
+  duty_shape: own_commitments.certification_current
   severity: 2
   citation:
     url: https://www.jasanz.org
@@ -37,6 +38,7 @@ obligations:
   protection_type: check
   disease: rework
   approval_class: quality
+  duty_shape: own_commitments.certification_records
   severity: 3
   citation:
     url: https://www.jasanz.org

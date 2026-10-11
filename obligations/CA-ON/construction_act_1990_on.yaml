@@ -35,6 +35,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.act_applicability
   severity: 4
   grade: primary_read
   citation:
@@ -63,6 +64,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_cadence
   severity: 4
   grade: primary_read
   citation:
@@ -89,6 +91,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.claim_content
   severity: 1
   grade: primary_read
   citation:
@@ -111,6 +114,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.invoice_deficiency_notice
   severity: 4
   grade: primary_read
   citation:
@@ -140,6 +144,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.schedule_due
   trigger: claim_lodged
   severity: 4
   grade: primary_read
@@ -171,6 +176,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.due_date
   severity: 4
   grade: primary_read
   citation:
@@ -195,6 +201,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: payment.interest
   severity: 2
   grade: primary_read
   citation:
@@ -218,6 +225,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.subcontractor_payment
   severity: 3
   grade: primary_read
   citation:
@@ -248,6 +256,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.subcontractor_payment
   severity: 3
   grade: primary_read
   citation:
@@ -277,6 +286,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.non_payment_notice_to_subcontractor
   severity: 4
   grade: primary_read
   citation:
@@ -304,6 +314,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_undertaking
   severity: 4
   grade: primary_read
   citation:
@@ -326,6 +337,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_deadline
   severity: 1
   grade: primary_read
   citation:
@@ -355,6 +367,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_notice
   severity: 4
   grade: primary_read
   citation:
@@ -374,6 +387,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudicator_selection
   severity: 4
   grade: primary_read
   citation:
@@ -399,6 +413,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_application
   severity: 4
   grade: primary_read
   citation:
@@ -424,6 +439,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.adjudication_response
   severity: 4
   grade: primary_read
   citation:
@@ -441,6 +457,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.determination
   severity: 3
   grade: primary_read
   citation:
@@ -468,6 +485,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.determination_payment
   severity: 4
   grade: primary_read
   citation:
@@ -494,6 +512,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.judicial_review_leave
   severity: 1
   grade: primary_read
   citation:
@@ -519,6 +538,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: payment.information_request
   severity: 3
   grade: primary_read
   citation:
@@ -548,6 +568,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: payment.trust_funds
   severity: 3
   grade: primary_read
   citation:
@@ -571,6 +592,7 @@ obligations:
   protection_type: check
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.holdback_retain
   severity: 3
   grade: primary_read
   citation:
@@ -597,6 +619,7 @@ obligations:
   protection_type: countdown
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.holdback_annual_release_notice
   severity: 4
   grade: primary_read
   citation:
@@ -624,6 +647,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_release
   severity: 4
   grade: primary_read
   citation:
@@ -650,6 +674,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_release
   severity: 3
   grade: primary_read
   citation:
@@ -674,6 +699,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.retention_release
   severity: 4
   grade: primary_read
   citation:
@@ -699,6 +725,7 @@ obligations:
   protection_type: watch
   disease: disputes
   approval_class: payments
+  duty_shape: closeout.substantial_performance_publication
   severity: 4
   grade: primary_read
   citation:
@@ -732,6 +759,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: lien.preserve
   severity: 1
   grade: primary_read
   citation:
@@ -764,6 +792,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: lien.perfect
   severity: 1
   grade: primary_read
   citation:
@@ -789,6 +818,7 @@ obligations:
   protection_type: countdown
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: lien.perfected_expiry
   severity: 1
   grade: primary_read
   citation:
@@ -810,6 +840,7 @@ obligations:
   protection_type: watch
   disease: forfeited_entitlements
   approval_class: payments
+  duty_shape: lien.termination_notice
   severity: 4
   grade: primary_read
   citation:
@@ -836,6 +867,7 @@ obligations:
   protection_type: check
   disease: non_compliance
   approval_class: payments
+  duty_shape: closeout.contractors_bond
   severity: 3
   grade: primary_read
   citation:
