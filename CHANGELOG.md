@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- **Ireland, England, South Africa and Ontario are project countries.**
+  `vocab/jurisdictions.json` marks `IE`, `GB`, `ZA` and `CA` `supported: true`,
+  switches on `CA-ON`, and adds the subdivisions a project sits in: England
+  (`GB-ENG`, `level: state`), Ireland's 26 counties (`IE-CW` to `IE-WW`,
+  `level: regional`) and South Africa's 9 provinces (`ZA-EC` to `ZA-WC`,
+  `level: state`). Scotland, Wales, Northern Ireland and the other Canadian
+  provinces stay absent: the library holds England's Scheme for Construction
+  Contracts and Ontario's Construction Act, not theirs. No holiday calendars
+  yet: 66 of these countries' 67 windowed rows count days, months or hours;
+  South Africa's one working-day row reads unmeasurable until it has a
+  calendar. No contract
+  or row changes.
+
 - **Library gaps from the 2026-10-06 obligations audit**: every obligation now
   names a register that exists. Prequalification standing reads
   `compliance_prequal`, and the insurance shape's records row reads
