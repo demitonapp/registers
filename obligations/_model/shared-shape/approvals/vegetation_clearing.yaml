@@ -27,8 +27,8 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: vegetation_clearing
+    kind: record_in_demiton
+    register: compliance_evidence
   caveat: Each state enacts its own instrument and its own exemptions - Queensland assesses clearing against the vegetation management framework, New South Wales against the Biodiversity Conservation Act 2016 and the Local Land Services Act 2013 - and some clearing is accepted development with no approval at all. The concrete that extends this base supplies its own citation, clause and the path its state takes.
 - key: approvals.vegetation_clearing_conditions
   duty: Comply with the conditions attached to the clearing approval or notification
@@ -42,8 +42,8 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: vegetation_clearing
+    kind: record_in_demiton
+    register: compliance_evidence
   caveat: Conditions are imposed approval by approval - retained trees, staged clearing, offsets, fauna spotter-catcher attendance - and differ per state. The concrete supplies its own citation and clause.
 - key: approvals.vegetation_clearing_records
   duty: Keep the clearing approval, the notification and the clearing records for the period the state's instrument requires
@@ -57,6 +57,6 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1999-090
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: vegetation_clearing
-  caveat: Retention periods and the records that must be kept vary by state and by approval. The clearing records could sit in a document store, but no shelf_type in the library describes them today, so this is recorded not_collected rather than invented as a register.
+    kind: record_in_demiton
+    register: compliance_evidence
+  caveat: Retention periods and the records that must be kept vary by state and by approval. No shelf_type describes clearing records, so rather than invent one, the evidence is an approved upload in compliance_evidence (a copy of the approval or record, filed against this obligation and accepted by a second person), which is the question the duty asks.

@@ -28,8 +28,8 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: aboriginal_cultural_heritage
+    kind: record_in_demiton
+    register: compliance_evidence
   caveat: Each state enacts its own instrument, its own definition of cultural heritage and its own duty of care, and the penalties differ widely. The concrete that extends this base supplies its own citation, clause and consent route. Severity is 1 because harm to heritage, or work stopped over it, puts the whole entitlement to be on site at risk, not just a payment.
 - key: approvals.aboriginal_heritage_find
   duty: Stop work in the area and report the find to the regulator and the Aboriginal party within the window the state's instrument states
@@ -61,6 +61,6 @@ obligations:
     url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2003-079
     access_date: '2026-09-30'
   evidence:
-    kind: not_collected
-    register: aboriginal_cultural_heritage
+    kind: record_in_demiton
+    register: compliance_evidence
   caveat: A management plan is imposed work area by work area, and its conditions - monitors present, no-go zones, salvage procedure - differ per state and per Aboriginal party. The concrete that extends this base supplies its own citation, clause and plan reference.

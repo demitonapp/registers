@@ -30,7 +30,7 @@ obligations:
     access_date: '2026-09-30'
   evidence:
     kind: register
-    register: prequalification
+    register: compliance_prequal
     system_type: document_store
   caveat: Each principal runs its own scheme and its own categories and financial levels - TMR's volume 3 is representative, and the same contractor may hold a different standing with each agency. The scheme requires annual financial updates and a renewal application at least every three years (section 6.2), but the concrete that extends this base supplies its own citation, clause and levels. Severity is 1 because losing the standing removes the entitlement to tender, not a payment.
 - key: own_commitments.prequalification_change_notice
