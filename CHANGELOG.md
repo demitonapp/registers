@@ -18,18 +18,158 @@
 
 - **`duty_shape` on every obligation** (contract `obligation` 2.3.0 and
   `platform_obligation` 1.3.0, MINOR: one new optional property each).
-  `vocab/duty_shapes.json` names 116 duties, each in a contractor's words, so a
+  `vocab/duty_shapes.json` names 193 duties, each in a contractor's words, so a
   reader sees one duty from several standards side by side: the latent condition
   notice from AS 2124, AS 4000, AS 4902, GC21, the TMR TIC, MRWA Major Works and
   NZS 3910:2013 is one shape. A row's shape is its key's first two segments,
-  except 29 rows that state an existing duty under another key and name that
+  except 86 rows that state an existing duty under another key and name that
   duty's shape (NZS 3910's `unforeseen_conditions_notice` is
-  `latent_conditions.notice`). 234 base and standalone rows carry it; overrides
-  inherit it, and all 252 flattened rows resolve with one: 107 shapes, 45 of
+  `latent_conditions.notice`). 401 base and standalone rows carry it; overrides
+  inherit it, and all 440 flattened rows resolve with one: 184 shapes, 77 of
   them stated by two or more instruments. `resolve.tree_errors` refuses a row
   without a shape or with one outside the vocabulary, and `validate.py` refuses a
-  shape no row names.
+  shape no row names. The 167 rows added while this was open (SWMS, TfNSW C41,
+  Ireland, South Africa, England, Ontario) are shaped too, 57 of them onto a duty
+  already named: a notice of project in Ontario, England, Ireland or South Africa
+  is `whs.notifiable_work_notice`, England's notified sum and Ireland's default
+  due date are `payment.due_date`, and cidb registration is
+  `own_commitments.prequalification_standing`.
 
+- **`contract_terms` 1.4.0**: adds `currency`, the ISO 4217 code every amount
+  on the record is in. The six money fields (`contract_sum`, `ld_rate`, `ld_cap`,
+  `ld_milestones`, `public_liability`, `professional_indemnity`) said `AUD` in
+  their unit, so a reader of the record had no currency to carry beside the
+  amount and a New Zealand contract had nowhere to say so. Their units now read
+  "in `currency`". MINOR: one new optional property. 1.3.2 kept in
+  `history/`.
+
+- `contract_terms` 1.3.2 (PATCH): `contract_sum` is ex GST, and its description
+  now says so. A letter of acceptance that states the sum "(inclusive of GST)"
+  was stored as written, so a consumer reading the sum as the ex GST contract
+  value overstated it by the GST. The reader takes the GST out: the document's
+  own GST figure when it states one, otherwise the governing country's rate. No
+  property, type or requirement changes. 1.3.1 kept in `history/`.
+
+- **Two New Zealand rows corrected** (no row added or removed). NZS 3910:2013
+  `latent_conditions.weather_exclusion_rule.nzs3910_2013`: the duty said adverse
+  weather is excluded from an extension of time claim, which cl 9.5.1 does not
+  say. Cl 9.5.1 excludes weather, and conditions due to weather on the Site,
+  from the unforeseen physical conditions claim only; cl 10.3.1 lists inclement
+  weather as a ground for an extension of time. The duty and caveat now say so,
+  and the caveat's "unless the contractor is away from the Site" becomes the
+  clause's "weather away from the Site". HSE Regulations 1995
+  `whs.notifiable_work_notice.nz`: consequence `breach` becomes `guidance`.
+  Reg 26 states no penalty, and `breach` read as a breach of contract for a
+  statutory duty. Both re-read at source on 2026-10-10.
+
+- **Ontario's first obligations** (49 rows, `obligations/CA-ON/`), read on
+  2026-10-09 from Ontario e-Laws. `construction_act_1990_on` (32): proper
+  invoices and the 7 day deficiency notice, the owner's 14 day notice of
+  non-payment and 28 day payment, interest, paying subcontractors in 7 days
+  (35 days if the owner has not paid) and the contractor's own notices,
+  adjudication (90 day limit, notice, appointment in 4 days, documents in 5,
+  determination in 30, payment in 15, leave for judicial review in 35), the 10%
+  holdback and its annual and final release, publishing the certificate of
+  substantial performance and a notice of termination, preserving a lien in 60
+  days and perfecting it in 90, information requests, trust funds and public
+  contract bonds. `ohsa_1990_on` (7): critical injury, accident and project
+  incident notices, the engineer's opinion and records.
+  `construction_projects_regulation_1991_on` (10): registration, the notice of
+  project and its posting, trench, suspended platform and tunnel notices, site
+  notices, supervisors, emergency procedures and records. New jurisdiction code
+  `CA-ON` (`level: state`, `supported: false`). 379 to 428 flattened rows. No
+  contract changes.
+- **England's first obligations** (36 rows, `obligations/GB/`), read on
+  2026-10-09 from legislation.gov.uk's latest revised text.
+  `cdm_regulations_2015_gb` (17, S.I. 2015/51, applies in Great Britain):
+  client arrangements and pre-construction information, appointing a principal
+  designer and principal contractor in writing, notifying the HSE of a
+  notifiable project (over 30 working days with more than 20 workers at once,
+  or over 500 person days) and displaying the notice on site, the domestic
+  client rule, appointee competence, the construction phase plan, preparing
+  and handing over the health and safety file, the principal designer's,
+  principal contractor's and contractors' duties, worker consultation, written
+  demolition arrangements, and the excavation and cofferdam inspection report
+  (24 hours) and its retention (3 months). Every CDM row is an `offence`
+  through the Health and Safety at Work etc. Act 1974 s 33(1)(c).
+  `hgcra_1996_part2_gb` (12, the Construction Act as amended in 2009, applies
+  in England, Wales and Scotland): which contracts it governs, stage payments,
+  void pay when paid and pay when certified terms, the payment notice within 5
+  days of the due date, the payee's default notice, the pay less notice and
+  the notified sum, the 7 day suspension notice, and adjudication: notice at
+  any time, referral within 7 days, the decision within 28 days, and payment
+  of an adjudicated excess within 7 days. `scheme_construction_contracts_1998_eng`
+  (7, England's Scheme as amended by S.I. 2011/2333, applying only where the
+  contract does not comply): the 28 day period and 7 day due date, the final
+  payment 30 days after completion, the 17 day final date, the pay less notice
+  7 days before it, the notice of adjudication's content, nominating an
+  adjudicator within 5 days, and complying with the decision immediately. No
+  vocab or contract changes: `GB` was already a jurisdiction (`supported:
+  false`) and the library has no code for England or Great Britain. 343 to
+  379 flattened rows.
+- **South Africa, first obligations** (34 rows, five standalone instruments
+  under `obligations/ZA/`, all read from primary text on 2026-10-09). The
+  Construction Regulations, 2014 (19): the construction work permit (r 3(1),
+  30 days before work, with the Chief Inspector's Notice 850 of 2018 narrowing
+  which work needs one) and starting only once it is issued (r 3(7)), the
+  7-day notice of construction work (r 4(1)), the client's specification, the
+  principal contractor's and each contractor's health and safety plan and file,
+  the file handover, written appointments, Compensation Fund good standing,
+  30-day audits and the 7-day audit report, the construction manager and
+  health and safety officer, risk assessments and their review, site induction,
+  medical fitness, and the client's fatality report. The Occupational Health
+  and Safety Act 85 of 1993 (1): leave an incident site undisturbed (s 24(2)).
+  The General Administrative Regulations, 2003 (4): the 7-day incident notice,
+  the forthwith report, the 3-year record and the 7-day investigation (rr 8,
+  9). The CIDB Act 38 of 2000 (3): hold a registration for public sector work
+  (s 18), notify changed particulars within 30 days (s 17(1)), renew three
+  months before expiry (s 20). The CIDB Regulations, 2004 (7): the annual fee
+  and annual confirmation (regs 35(2), 36(2)), the tax clearance certificate
+  within three months (reg 36(3)), the grade a tender needs (reg 25), and the
+  employer's project registration, status report and dispute notice (regs 18,
+  21). No vocab changes: `ZA` was already in `vocab/jurisdictions.json`
+  (`supported: false`, unchanged). 309 to 343 flattened rows. No contract
+  changes.
+- **Ireland's first obligations** (25 rows, `obligations/IE/`), read on
+  2026-10-09 from the Irish Statute Book. `construction_contracts_act_2013_ie`
+  (14): which contracts the Act governs, the payment claim dates and 30 day
+  Schedule default, the payment claim notice within 5 days of the payment claim
+  date and its content, the response within 21 days of that date and its
+  content, the 30 day due date, the void pay when paid term, the two 7 day
+  suspension notices (non-payment, s 5; an unpaid adjudicator's decision, s 7),
+  and adjudication: notice of intention at any time, an adjudicator within 5
+  days, the referral within 7 days, the decision within 28. The Act states no
+  consequence for a missing response, so its row is `guidance`, not
+  `liable_full_amount`, and it carries no trigger: its 21 days run from the
+  payment claim date, not from when a claim is posted.
+  `construction_regulations_2013_ie` (11, S.I. No. 291 of 2013 read with its
+  2019 to 2021 amendments): appointing both project supervisors, the client's
+  and the construction stage supervisor's notices to the Health and Safety
+  Authority, the safety and health plan, the safety file, the safety adviser
+  and safety officer headcount duties, Safe Pass and construction skills cards
+  and the first-day confirmation, and passing accident notifications to the
+  project supervisor. Every regulation row is an `offence` through the Safety,
+  Health and Welfare at Work Act 2005 s 77(2)(c). No vocab or contract changes:
+  `IE` was already a jurisdiction (`supported: false`). 284 to 309 flattened
+  rows.
+- **Safe work method statement duties for high risk construction work** (32
+  rows). Seven duties added to the model WHS Regulations base, read from Safe
+  Work Australia's 5 December 2025 text: prepare the statement before the work
+  starts (r 299(1)), do the work in accordance with it and stop work that is not
+  (r 300), give the principal contractor a copy (r 301), review it when control
+  measures are revised (r 302), keep it until the work is complete (r 303(1),
+  (3), (4)) and for 2 years after a notifiable incident (r 303(2), the only row
+  with a window), and the principal contractor's duty to obtain it (r 312). All
+  four concretes override every one, each re-read against its own text on
+  2026-10-09: ACT, NSW (sections), QLD, SA. Local differences live in the
+  caveats: the ACT's 19th kind of high risk construction work (crystalline
+  silica) and its loose-fill asbestos construction project, Queensland's
+  r 299(4) on falls, and South Australia's $450,000 construction project. New
+  standalone instrument `ohs_regulations_2017_vic` carries Victoria's own four
+  (rr 327(1)(a), 327(1)(b) and (2), 328, 329): it has no copy-to-principal,
+  principal contractor or post-incident duty. Every row is `not_collected`
+  against `compliance_documents`, which holds a statement but not the work it
+  covers. 252 to 284 flattened rows. No contract changes.
 - **Payment schedules read from their register**: the eight
   `payment.schedule_due` rows (ACT, NSW, QLD, SA, TAS, VIC, WA, NZ) change
   `evidence.kind` from `not_collected` to `register` (`payment_schedule`, system

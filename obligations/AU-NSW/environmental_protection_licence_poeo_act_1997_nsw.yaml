@@ -8,6 +8,7 @@
 id: environmental_protection_licence_poeo_act_1997_nsw
 extends: model_environmental_authority
 title: Environment protection licence (Protection of the Environment Operations Act 1997 (NSW))
+publisher: NSW Environment Protection Authority
 jurisdictions: [AU-NSW]
 citation:
   url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1997-156
