@@ -81,7 +81,7 @@ obligations:
     and its worst outcome, but not whether or when the regulator was told, so this is recorded not_collected.
 - key: whs.notifiable_work_notice.nz
   duty: Give WorkSafe NZ written notice at least 24 hours before starting notifiable work
-  consequence: breach
+  consequence: guidance
   protection_type: watch
   disease: non_compliance
   approval_class: safety_environment
@@ -90,7 +90,7 @@ obligations:
   citation:
     url: https://www.legislation.govt.nz/regulation/public/1995/0167/latest/DLM202765.html
     clause: reg 26
-    access_date: '2026-09-28'
+    access_date: '2026-10-10'
   evidence:
     kind: not_collected
     register: safety_incident
@@ -107,6 +107,7 @@ obligations:
     forklifts, mobile cranes); and a pit, shaft, trench or excavation deeper than 1.5 m where the depth
     exceeds the surface width. Emergency work is exempt (reg 26(4)). Reg 26 itself states no penalty for
     a breach - enforced, if at all, through HSWA's general duty and offence provisions - so this is mapped
-    to breach, not offence, and the amount is not recorded. No register captures a pre-start notice of
+    to guidance (no penalty stated), not offence, and the amount is not recorded. Corrected 2026-10-10 from
+    breach, which read as a breach of contract for a statutory duty; reg 26 re-read on legislation.govt.nz the same day. No register captures a pre-start notice of
     this kind today; safety_incident is the closest one this library uses for a WHS notice and is recorded
     not_collected.
