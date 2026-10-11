@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- **`contract_terms` 1.4.0**: adds `currency`, the ISO 4217 code every amount
+  on the record is in. The six money fields (`contract_sum`, `ld_rate`, `ld_cap`,
+  `ld_milestones`, `public_liability`, `professional_indemnity`) said `AUD` in
+  their unit, so a reader of the record had no currency to carry beside the
+  amount and a New Zealand contract had nowhere to say so. Their units now read
+  "in `currency`". MINOR: one new optional property. 1.3.2 kept in
+  `history/`.
+
 - `contract_terms` 1.3.2 (PATCH): `contract_sum` is ex GST, and its description
   now says so. A letter of acceptance that states the sum "(inclusive of GST)"
   was stored as written, so a consumer reading the sum as the ex GST contract
