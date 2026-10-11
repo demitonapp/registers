@@ -1,0 +1,105 @@
+# South Africa's Construction Industry Development Board Act 38 of 2000: the
+# register of contractors (Chapter 3). Read on 2026-10-09 from the gazetted Act
+# (Government Gazette 21755, 17 November 2000) as the cidb hosts it. A draft
+# CIDB Amendment Bill was published for comment on 3 May 2024; no enacted
+# amendment to sections 17, 18 or 20 was found. The grade and tender value table
+# that decides which grade a tender needs is reference data, not a duty, and is
+# not recorded here.
+id: cidb_act_2000_za
+source: law
+instrument_type: act
+title: Construction Industry Development Board Act, 2000 (Act 38 of 2000)
+publisher: Parliament of the Republic of South Africa
+jurisdictions:
+- ZA
+citation:
+  url: https://www.cidb.org.za/wp-content/uploads/2026/06/Construction-Industry-Development-Board-Act-2000-Act-No.-38-of-2000.pdf
+  access_date: '2026-10-09'
+  version: Government Gazette 21755, 17 November 2000 (the cidb's copy of the gazetted Act)
+obligations:
+- key: cidb.registration_held.za
+  duty: Do not undertake, carry out or complete public sector construction works awarded by competitive tender
+    or quotation unless registered with the cidb and holding a valid registration
+  clause: s 18(1), (2)
+  consequence: offence
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/wp-content/uploads/2026/06/Construction-Industry-Development-Board-Act-2000-Act-No.-38-of-2000.pdf
+    clause: s 18(1), (2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  caveat: >-
+    A contractor who carries out or attempts public sector construction works unregistered commits an offence,
+    with a fine of up to ten per cent of the value of the contract carried out (s 18(2)), and must stop
+    public sector work on the Board's written notice (s 18(3)), though the Board may let it complete a
+    current contract (s 18(4)). Under the Regulations, the registration particulars on the cidb's website
+    serve as the registration certificate (regs 7(11), 7A(10)), and a public sector tender is evaluated only
+    from a contractor registered in the grade and class it names or higher (reg 25(1), see
+    cidb.tender_grade.za). Exempt from registration: a homebuilder registered under the Housing Consumer
+    Protection Measures Act 95 of 1998 for a home, and a contract substantially for labour or for supplies
+    (reg 4). Severity 1 because losing the registration removes the entitlement to public sector work. A
+    standing duty with no window. compliance_prequal is the register for a contractor's scheme standing, but
+    its shape requires an Australian Business Number and its scheme codes name no cidb scheme, so this is
+    recorded not_collected.
+- key: cidb.particulars_change_notice.za
+  duty: Tell the cidb in writing of any substantive change to the registered particulars within 30 days after
+    the change
+  clause: s 17(1)
+  window:
+    value: 30
+    unit: days
+  consequence: breach
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/wp-content/uploads/2026/06/Construction-Industry-Development-Board-Act-2000-Act-No.-38-of-2000.pdf
+    clause: s 17(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  caveat: >-
+    The Act attaches no penalty to s 17(1) itself, so it is mapped to breach. Regulation 36(1) restates the
+    duty without a day count, and reg 30(1)(d) makes any failure to comply with the Regulations an offence
+    with a fine of up to R100,000. The change runs the clock, and no register records a change to a
+    contractor's own registered particulars, so no trigger is set. A contractor may also apply to amend its
+    category status (s 17(2)). The contract_notice register holds the notice as a record, as the
+    prequalification change-notice rows do.
+- key: cidb.registration_renewal.za
+  duty: Apply to the cidb to renew a registration three months before it expires, or on the sale or transfer
+    of the business, and pay the renewal fee
+  clause: s 20(1), (2)
+  window:
+    value: 3
+    unit: months
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/wp-content/uploads/2026/06/Construction-Industry-Development-Board-Act-2000-Act-No.-38-of-2000.pdf
+    clause: s 20(1), (2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  caveat: >-
+    Registration is valid for three years (s 20(1)); the application is due three months before expiry. The
+    Act states no penalty for a late application; a registration that lapses leaves the contractor
+    unregistered under s 18, which is why this is mapped to barred (a judgment call: the enum has no member
+    for a lapse). The Board need not renew a registration because it is current (s 20(3)). The cidb's own
+    register page says a contractor must prove it still meets the grading criteria after six years and that
+    the three-year renewal requirements are temporarily relaxed; neither is in the Act or the Regulations
+    read. compliance_prequal could hold the expiry date (expires_at), but its shape requires an Australian
+    Business Number and names no cidb scheme, so this is recorded not_collected.

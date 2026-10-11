@@ -1,0 +1,853 @@
+# Ontario's Construction Act, read in full from Ontario e-Laws on 2026-10-09
+# (consolidated from 1 January 2026 to the e-Laws currency date; last
+# amendment 2025, c. 14, Sched. 2), with the regulations its rows rely on:
+# O. Reg. 264/25 (Adjudications under Part II.1, in force 1 January 2026,
+# which revoked O. Reg. 306/18), O. Reg. 304/18 (General) and O. Reg. 303/18
+# (Forms), each consolidated from 1 January 2026.
+#
+# Parts I.1 (prompt payment) and II.1 (adjudication) govern only contracts
+# entered into on or after 1 October 2019 whose procurement began on or after
+# that day (s 87.3(4)). The Building Ontario For You Act (Budget Measures),
+# 2024, Sched. 4 and the Fighting Delays, Building Faster Act, 2025, Sched. 2
+# changed several windows from 1 January 2026; the rows carry the current text
+# and say where it changed. Day counts are calendar days (the Act defines no
+# business day); the Legislation Act, 2006 ss 88 and 89 exclude the day of the
+# event and extend a period that ends on a holiday (Sunday and the listed
+# public holidays, not Saturday). This library holds no Ontario holiday
+# calendar.
+id: construction_act_1990_on
+source: law
+instrument_type: act
+title: Construction Act, R.S.O. 1990, c. C.30 (Ontario)
+publisher: Legislative Assembly of Ontario
+jurisdictions:
+- CA-ON
+citation:
+  url: https://www.ontario.ca/laws/statute/90c30
+  access_date: '2026-10-09'
+  version: Consolidated from 1 January 2026 to the e-Laws currency date (last amendment 2025, c. 14, Sched.
+    2), read with O. Reg. 264/25, O. Reg. 304/18 and O. Reg. 303/18 as consolidated from 1 January 2026
+obligations:
+- key: payment.act_applicability.ca-on
+  duty: Determine which version of the Act, and whether its prompt payment and adjudication Parts, govern the
+    contract
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 1(4), 4, 5(1), 87.3(1), (4), 87.4; O. Reg. 304/18 s 13
+    access_date: '2026-10-09'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: s 1(4), 4, 5(1), 87.3(1), (4), 87.4; O. Reg. 304/18 s 13
+  caveat: 'Parts I.1 (prompt payment) and II.1 (adjudication) do not apply to a contract entered into before
+    1 October 2019, to a later contract whose procurement the owner commenced before that day, or to a subcontract
+    under either (s 87.3(4)). A procurement commences at the earliest request for qualifications, request for
+    quotation, request for proposals or call for tenders (s 1(4)). A contract entered into, or procured, before
+    1 July 2018 stays under the Act as it read on 29 June 2018 (s 87.3(1)). The amendments in force on 1 January
+    2026 (Building Ontario For You Act (Budget Measures), 2024, Sched. 4) apply to every other improvement
+    from that day (s 87.4(2)), except as s 87.4(3) to (7) provide: the annual holdback release starts later
+    for a contract entered into before that day (s 87.4(4)). Parts I.1 and II.1 do not apply to a Class I nuclear
+    facility (O. Reg. 304/18 s 13), and apply with modifications to an alternative financing and procurement
+    project agreement (s 1.1). An agreement that the Act does not apply is void (s 4), and every contract and
+    subcontract is deemed amended to conform (s 5(1)). Not itself an evidence record, but the rule for whether
+    the other rows in this instrument apply.'
+- key: payment.claim_cadence.ca-on
+  duty: Give the owner a proper invoice every month, unless the contract sets another cadence
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.3(1)-(4)
+    access_date: '2026-10-09'
+  evidence: &id001
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 6.3(1)-(4)
+  window:
+    value: 1
+    unit: months
+  caveat: Monthly unless the contract provides otherwise (s 6.3(1)). A term that makes giving a proper invoice
+    conditional on a payment certifier's prior certification or the owner's prior approval is of no force or
+    effect (s 6.3(2)); certification or approval after the invoice is given, and testing and commissioning
+    terms, are allowed (s 6.3(3), (4)). No consequence is stated for the cadence itself.
+- key: payment.claim_content.ca-on
+  duty: 'Make every invoice to the owner a proper invoice: contractor''s name and address, date and period
+    or milestone, the contract reference, a description of what was supplied, the amount and payment terms,
+    and who is to be paid'
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.1(1), 6.3(5), (6)
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 6.1(1), 6.3(5), (6)
+  caveat: 'Also any information the owner reasonably requests for its accounts payable system, any other requirement
+    the contract specifies, and anything prescribed (s 6.1(1) para 6.1, 7). From 1 January 2026 an invoice
+    that misses a requirement is still deemed a proper invoice unless the owner gives a written deficiency
+    notice within 7 days of receiving it (s 6.1(2), its own row). Once given, a proper invoice may be revised
+    only with the owner''s advance agreement and without changing its date (s 6.3(5)). Mapped to barred as
+    the other jurisdictions'' claim content rows are (judgment call): an invoice the owner rejects in time
+    starts no 28 day payment clock.'
+- key: payment.invoice_deficiency_notice.ca-on
+  duty: Receive any written notice that an invoice is deficient within 7 days after the owner receives it,
+    or the invoice is deemed a proper invoice
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.1(2), 6.3(6)
+    access_date: '2026-10-09'
+  evidence: &id002
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6.1(2), 6.3(6)
+  window:
+    value: 7
+    unit: days
+  caveat: 'In force from 1 January 2026. The owner''s notice must say what is deficient and what is required
+    to address it; without one in time, the invoice is deemed proper for Part I.1 and the 28 day payment and
+    14 day non-payment clocks run. Applies the same way to a revised invoice (s 6.3(6)). The clock runs from
+    the owner''s receipt; a document sent by certified or registered mail is deemed received on the fifth day
+    after mailing, excluding Saturdays and holidays (s 87(2)). No trigger is set: claim_lodged dates the invoice
+    when given, and its proof pairs with a payment schedule, not this notice. Calendar days: the Act defines
+    no business day. ''No later than N days after'' an event excludes the day of the event (Legislation Act,
+    2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is not one (s 89(1)); Sunday
+    is a holiday there, Saturday is not.'
+- key: payment.schedule_due.ca-on
+  duty: Receive any notice of non-payment within 14 days after the owner receives a proper invoice, or the
+    full amount is payable by day 28
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  trigger: claim_lodged
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.4(2), (3), 6.7; O. Reg. 303/18 s 3(a); O. Reg. 304/18 s 4
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: payment_schedule
+    system_type: finance
+  clause: s 6.4(2), (3), 6.7; O. Reg. 303/18 s 3(a); O. Reg. 304/18 s 4
+  window:
+    value: 14
+    unit: days
+  caveat: 'Ontario''s equivalent of a payment schedule. The owner may withhold only the amount a notice of
+    non-payment specifies, and the notice must be in Form 1.1 (paper or electronic) and detail all of the reasons;
+    every other amount stays due within 28 days (s 6.4(1), (3)). Reasons may include set-off under s 12 or
+    s 17(3) (s 6.7). The Act counts from the owner''s receipt of the invoice, while claim_lodged dates the
+    invoice when given; the two are the same day for an invoice delivered electronically, but a mailed invoice
+    is deemed received on the fifth day after mailing, excluding Saturdays and holidays (s 87(2)), so this
+    deadline then runs early. Calendar days: the Act defines no business day. ''No later than N days after''
+    an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday
+    runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.due_date.ca-on
+  duty: Be paid every amount of a proper invoice that no notice of non-payment disputes within 28 days after
+    the owner receives it
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.2, 6.4(1), (3)
+    access_date: '2026-10-09'
+  evidence: *id001
+  clause: s 6.2, 6.4(1), (3)
+  window:
+    value: 28
+    unit: days
+  caveat: 'Subject to the 10% holdback (s 6.2). Unpaid amounts carry interest (s 6.9, its own row) and may
+    be referred to adjudication (O. Reg. 264/25 s 19(1)). No trigger is set, as for the other jurisdictions''
+    due date rows; the clock runs from the owner''s receipt (see payment.schedule_due.ca-on). Calendar days:
+    the Act defines no business day. ''No later than N days after'' an event excludes the day of the event
+    (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is not
+    one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.interest.ca-on
+  duty: Charge interest on any amount not paid when the Act makes it due, at the prejudgment interest rate
+    or the contract rate if higher
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.9, 13.19(3), (4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: progress_claim
+  clause: s 6.9, 13.19(3), (4)
+  caveat: Interest begins to accrue on the due date, at the prejudgment interest rate under the Courts of Justice
+    Act s 127(2) or, if the contract or subcontract specifies a different rate, the greater of the two (s 6.9).
+    The same rule applies to an amount an adjudicator determines (s 13.19(3)), without compounding on interest
+    already under s 6.9 (s 13.19(4)). The rate itself is set under the Courts of Justice Act and is not recorded
+    here. The progress_claim register holds the amount but not the interest charged on it, so this is recorded
+    not_collected.
+- key: payment.subcontractor_payment.ca-on
+  duty: Pay each subcontractor whose work was in a proper invoice within 7 days after receiving the owner's
+    payment of it
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.5(1)-(3), 6.6(1)-(3), (11)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: payable_entry
+  clause: s 6.5(1)-(3), 6.6(1)-(3), (11)
+  window:
+    value: 7
+    unit: days
+  caveat: 'Applies to full and partial payment; a partial payment is shared rateably, with any amount the owner
+    withheld for a particular subcontractor''s work held back from that subcontractor only (s 6.5(3)). The
+    same 7 days bind each subcontractor towards its own subcontractors (s 6.6). Subject to the holdback (s
+    6.2) and to the contractor''s own notice of non-payment (its own row); wages obligations are not reduced
+    (s 6.8). The Act states no offence: a late payment carries interest (s 6.9) and can be adjudicated (O.
+    Reg. 264/25 s 19(1)). No register dates the owner''s payment against the invoice it pays, so no trigger
+    is set and this is recorded not_collected. Calendar days: the Act defines no business day. ''No later than
+    N days after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit
+    ending on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday
+    is not.'
+- key: payment.subcontractor_payment_unpaid.ca-on
+  duty: Pay each subcontractor within 35 days after giving the owner the proper invoice, even if the owner
+    has not paid, unless a notice of non-payment is given
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.5(4), 6.6(4), (5), (10)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: payable_entry
+  clause: s 6.5(4), 6.6(4), (5), (10)
+  window:
+    value: 35
+    unit: days
+  caveat: 'Applies to the amount the owner did not pay within 28 days, to the extent the subcontractor was
+    not paid under s 6.5(2). A subcontractor paying its own subcontractor has 7 days after it is paid or, if
+    it is not paid, 42 days after the proper invoice was given to the owner (s 6.6(5)), and may ask the contractor
+    to confirm that date, which the contractor must give as soon as possible (s 6.6(10)). The clock runs from
+    the day the contractor gives the invoice, which is the date claim_lodged records; no trigger is set because
+    claim_lodged''s proof is a payment schedule, not a payment to a subcontractor. The Act states no offence.
+    Calendar days: the Act defines no business day. ''No later than N days after'' an event excludes the day
+    of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day
+    that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.non_payment_notice_to_subcontractor.ca-on
+  duty: Give a subcontractor any notice of non-payment within 7 days after receiving the owner's notice of
+    non-payment, or before day 35 after the invoice if the owner gave none
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.5(5)-(8), 6.6(6)-(9); O. Reg. 303/18 s 3(b)-(e); O. Reg. 304/18 s 4
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 6.5(5)-(8), 6.6(6)-(9); O. Reg. 303/18 s 3(b)-(e); O. Reg. 304/18 s 4
+  window:
+    value: 7
+    unit: days
+  caveat: 'Two kinds. Where the owner has not paid: Form 1.2, stating the amount not paid because of the owner''s
+    non-payment, with a copy of any owner''s notice and an undertaking to refer the matter to adjudication
+    within 21 days (s 6.5(5)). Where the contractor disputes the subcontractor''s entitlement: Form 1.3, specifying
+    the amount and detailing all of the reasons (s 6.5(6)). Without a notice in time, the contractor must pay
+    within the 7 or 35 days. A subcontractor''s notice to its own subcontractor is Form 1.4 or 1.5 on the same
+    timing (s 6.6(6)-(8)). Once the owner pays an amount covered by a Form 1.2 notice, the 7 day payment rule
+    applies to it (s 6.5(8)). Calendar days: the Act defines no business day. ''No later than N days after''
+    an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday
+    runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.adjudication_undertaking.ca-on
+  duty: Refer the owner's non-payment to adjudication within 21 days after giving a subcontractor a notice
+    of non-payment that undertakes to do so
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 6.5(5)(a)(iii), 6.6(6)(a)(iii)
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 6.5(5)(a)(iii), 6.6(6)(a)(iii)
+  window:
+    value: 21
+    unit: days
+  caveat: 'The undertaking is a required part of a Form 1.2 or Form 1.4 notice (a Form 1.4 needs none where
+    the chain broke at the owner). The Act states no consequence for failing to refer within the 21 days. Calendar
+    days: the Act defines no business day. ''No later than N days after'' an event excludes the day of the
+    event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is
+    not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.adjudication_deadline.ca-on
+  duty: Give any notice of adjudication within 90 days after the contract is completed, abandoned or terminated
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.5(1)-(3.1), (4), (5); O. Reg. 264/25 s 19
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.5(1)-(3.1), (4), (5); O. Reg. 264/25 s 19
+  window:
+    value: 90
+    unit: days
+  caveat: 'After the 90 days an adjudication may not be commenced unless the parties agree otherwise (s 13.5(3)).
+    For a subcontract the 90 days run from the earliest of that date, the date the subcontract is certified
+    complete under s 33, and the date the subcontractor last supplied (s 13.5(3.1)). This text is in force
+    from 1 January 2026; the earlier text was not read. Adjudicable matters (O. Reg. 264/25 s 19): valuation,
+    payment including change orders approved or not, any dispute in a notice of non-payment, set-off amounts,
+    holdback payment under s 26, and scope, price change or extension of time where needed to decide one of
+    those. One dispute per adjudication unless the parties and the adjudicator agree (s 13.5(4)), even if a
+    court action or arbitration is under way (s 13.5(5)). No register dates completion, abandonment or termination,
+    so no trigger is set. Calendar days: the Act defines no business day. ''No later than N days after'' an
+    event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday
+    runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.notice_of_adjudication.ca-on
+  duty: Give the other party a written notice of adjudication with the content the Act requires, and send a
+    copy to the Authority the same day
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.7(1); O. Reg. 264/25 s 20
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.7(1); O. Reg. 264/25 s 20
+  caveat: The notice states the parties' names and addresses, the nature of the dispute and how and when it
+    arose, the redress sought, a proposed adjudicator, and any previous adjudication on the same contract or
+    subcontract with its determination (s 13.7(1)). The copy to the Authorized Nominating Authority is electronic
+    and on the same day (O. Reg. 264/25 s 20); 'same day' is the only timing, so no window is recorded.
+- key: payment.adjudicator_appointment.ca-on
+  duty: Ask the Authority to appoint a registry adjudicator if the agreed adjudicator has not consented within
+    4 days after the notice of adjudication
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.9(2)-(6); O. Reg. 264/25 s 21, 22
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.9(2)-(6); O. Reg. 264/25 s 21, 22
+  window:
+    value: 4
+    unit: days
+  caveat: 'Binds the party who gave the notice (s 13.9(4)), and also applies as soon as there is no prospect
+    of agreeing an adjudicator (O. Reg. 264/25 s 22). The Authority appoints within 7 days after the request
+    (s 13.9(5)). A private adjudicator needs a written agreement signed by the parties and the adjudicator
+    with a fee of at least CAD 1,000 an hour (O. Reg. 264/25 s 21). A contract term naming an adjudicator is
+    of no force or effect (s 13.9(3)). Calendar days: the Act defines no business day. ''No later than N days
+    after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending
+    on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.adjudication_documents.ca-on
+  duty: Give the adjudicator the notice, and the adjudicator and the other party the contract and every document
+    relied on, within 5 days after the adjudicator agrees or is appointed
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.11; O. Reg. 264/25 s 24
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.11; O. Reg. 264/25 s 24
+  window:
+    value: 5
+    unit: days
+  caveat: 'Binds the party who gave the notice of adjudication. Served as the rules of court permit for a document
+    other than an originating process, to the adjudicator and the other party on the same day, unless the adjudicator
+    directs otherwise (O. Reg. 264/25 s 24). The adjudicator''s 30 days run from receiving these documents
+    (s 13.13(1)). The Act states no consequence for lateness. Calendar days: the Act defines no business day.
+    ''No later than N days after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)),
+    and a time limit ending on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday
+    there, Saturday is not.'
+- key: payment.adjudication_response.ca-on
+  duty: Respond in writing to a notice of adjudication by the day the adjudicator specifies, copied to the
+    adjudicator and every other party the same day
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.11.1; O. Reg. 264/25 s 25
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.11.1; O. Reg. 264/25 s 25
+  caveat: Responding is optional (s 13.11.1 says a party 'may'). The adjudicator sets the day (O. Reg. 264/25
+    s 25(3)); neither the Act nor the regulation states a day count, so no window is recorded. An objection
+    to the adjudicator's jurisdiction must be made when the party first makes submissions (s 13.12.1).
+- key: payment.determination.ca-on
+  duty: Receive the adjudicator's written determination within 30 days after the adjudicator receives the documents
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.13(1)-(6), 13.17.1; O. Reg. 264/25 s 30, 32
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.13(1)-(6), 13.17.1; O. Reg. 264/25 s 30, 32
+  window:
+    value: 30
+    unit: days
+  caveat: 'Extendable before expiry by up to 14 days on the adjudicator''s request with the parties'' written
+    consent, or by any period the parties agree in writing with the adjudicator''s consent (s 13.13(2)); a
+    party who gave a notice of non-payment on the matter must pass on notice of the extension (s 13.13(3),
+    (4)). A determination made late is of no force or effect (s 13.13(5)), and the referring party may give
+    a fresh notice of adjudication (O. Reg. 264/25 s 32). The adjudicator sends an electronic copy, then a
+    certified copy within 7 days (O. Reg. 264/25 s 30), and may correct errors within 5 days after communicating
+    it (s 13.17.1). A duty on the adjudicator, mapped to breach as the other jurisdictions'' determination
+    rows are. Calendar days: the Act defines no business day. ''No later than N days after'' an event excludes
+    the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the
+    next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.determination_payment.ca-on
+  duty: Pay any amount an adjudicator's determination requires within 15 days after it is communicated
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.15, 13.19(1)-(6), 13.20
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.15, 13.19(1)-(6), 13.20
+  window:
+    value: 15
+    unit: days
+  caveat: '15 days from 1 January 2026 (2024, c. 20, Sched. 4, s. 23); the Act said 10 days before then. Subject
+    to the holdback (s 13.19(1)). The determination binds until a court, an arbitration or a written agreement
+    decides the matter (s 13.15). An unpaid amount carries interest (s 13.19(3)), and the unpaid contractor
+    or subcontractor may suspend work until paid the amount, interest and the reasonable costs of suspending,
+    and is then owed the reasonable costs of resuming (s 13.19(5), (6)). A certified copy may be filed with
+    the court and enforced as its order within 2 years, and the filing party must notify the other within 10
+    days of filing (s 13.20). Calendar days: the Act defines no business day. ''No later than N days after''
+    an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday
+    runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.judicial_review_leave.ca-on
+  duty: File any motion for leave to seek judicial review of a determination within 35 days after it is communicated
+  consequence: barred
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 13.12.1, 13.18(1)-(7)
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 13.12.1, 13.18(1)-(7)
+  window:
+    value: 35
+    unit: days
+  caveat: 'Leave of the Divisional Court is required, with proof of service (s 13.18(1), (2)). A determination
+    can be set aside only on the grounds in s 13.18(5), and on a ground that could have been raised as a jurisdictional
+    objection in the adjudication only if failing to object was justified (s 13.18(5.1), 13.12.1). An application
+    does not stay the determination unless the court orders (s 13.18(7)), so the 15 day payment still runs.
+    Calendar days: the Act defines no business day. ''No later than N days after'' an event excludes the day
+    of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day
+    that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.information_request.ca-on
+  duty: Answer a written request for contract or subcontract information within a reasonable time, not more
+    than 21 days
+  consequence: damages_only
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 39(1)-(6)
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 39(1)-(6)
+  window:
+    value: 21
+    unit: days
+  caveat: 'Anyone with a lien, a trust beneficiary under Part II or a mortgagee may ask. The owner or contractor
+    gives the parties, contract date, procurement start, contract price, a state of accounts (price supplied,
+    amounts paid, holdbacks, balance and set-off, s 39(4.1)) and any payment bond; the contractor or a subcontractor
+    gives the same for a subcontract (s 39(1)). A workers'' trust fund trustee may inspect payroll records
+    on the same timing (s 39(3)). The contractor must also confirm the date and place the certificate of substantial
+    performance was published, within a reasonable time with no day count (s 39(4)). Failing to answer, or
+    knowingly or negligently misstating, makes the person liable for the requester''s damages (s 39(5)), and
+    the court may order compliance (s 39(6)). Calendar days: the Act defines no business day. ''No later than
+    N days after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit
+    ending on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday
+    is not.'
+- key: payment.trust_funds.ca-on
+  duty: Hold every amount owed or received on a contract or subcontract in trust for the subcontractors and
+    suppliers owed, in a bank account in the trustee's name, with written records of every amount in and out
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 8(1), (2), 8.1, 10, 13
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: gl_journal_entry
+  clause: s 8(1), (2), 8.1, 10, 13
+  caveat: The contractor or subcontractor is trustee and may not use the fund for itself until everyone it
+    owes for the improvement is paid (s 8(2)), holdback included (s 8(1)). Several trusts may share one account
+    if records are kept separately for each (s 8.1(1) para 3, 8.1(2)). Payment to those owed discharges the
+    trust to that extent (s 10). Directors, officers and anyone in effective control who assent to a breach
+    of trust are personally liable, jointly and severally (s 13). The Act states no offence. No register holds
+    trust account records per improvement, so this is recorded not_collected.
+- key: closeout.holdback_retain.ca-on
+  duty: Retain a holdback of 10% of the price of the services or materials as they are supplied, until every
+    lien that may be claimed against it has expired or been discharged
+  consequence: liable_full_amount
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 22(1)-(4), 23, 24, 30
+    access_date: '2026-10-09'
+  evidence: &id003
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: s 22(1)-(4), 23, 24, 30
+  caveat: 'Binds every payer: the owner, the contractor and each subcontractor (s 22(1)). After substantial
+    performance, a separate 10% holdback applies to the finishing work (s 22(2)). It may be held as a letter
+    of credit or a demand-worded holdback repayment bond in the prescribed form (s 22(4)). A payer may pay
+    up to 90% without jeopardy unless it has received written notice of a lien, when it must also retain enough
+    to satisfy the lien (s 24). An owner is personally liable to lien claimants for the holdback it was required
+    to retain (s 23). On abandonment or termination, holdback may not be applied to substitute work or a claim
+    against the contractor until the liens expire (s 30). Applies to the contractor in both directions: it
+    is held from the contractor, and the contractor holds it from its subcontractors.'
+- key: closeout.holdback_annual_release_notice.ca-on
+  duty: Watch for the owner's notice of annual release of holdback, due within 14 days after each anniversary
+    of the day the contract was entered into
+  consequence: breach
+  protection_type: countdown
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 26(2), (3), 87.4(4); O. Reg. 303/18 s 2(6); O. Reg. 304/18 s 1, 7
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 26(2), (3), 87.4(4); O. Reg. 303/18 s 2(6); O. Reg. 304/18 s 1, 7
+  window:
+    value: 14
+    unit: days
+  caveat: 'A duty on the owner, in force from 1 January 2026: Form 6, published on a construction trade news
+    website (the Daily Commercial News, Link2Build or Ontario Construction News), stating the holdback it intends
+    to pay and the payment date. For a contract entered into before 1 January 2026, the first anniversary that
+    counts is the second one after that day, and that payment includes all holdback accrued before it (s 87.4(4)).
+    A dispute over payment of holdback under s 26 can be adjudicated (O. Reg. 264/25 s 19(1) para 5). The Act
+    states no consequence for a missed notice. Calendar days: the Act defines no business day. ''No later than
+    N days after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit
+    ending on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday
+    is not.'
+- key: closeout.holdback_annual_release_payment.ca-on
+  duty: Be paid the holdback accrued in the contract year between 60 and 74 days after the owner publishes
+    the notice of annual release, unless a lien is preserved and still standing
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 26(4), (7), (9), 87.4(4)
+    access_date: '2026-10-09'
+  evidence: *id003
+  clause: s 26(4), (7), (9), 87.4(4)
+  window:
+    value: 74
+    unit: days
+  caveat: 'In force from 1 January 2026. The owner pays all holdback accrued on the contractor''s supply in
+    the year before the anniversary, at least 60 and not later than 74 days after the notice, unless a lien
+    has been preserved or perfected on the contract and not discharged or vacated (s 26(4)). Holdback held
+    back for that reason is payable within 14 days after the reason ends (s 26(7)). Each payment reduces the
+    holdback the owner must keep (s 26(9)). The window is the outer 74 days. Calendar days: the Act defines
+    no business day. ''No later than N days after'' an event excludes the day of the event (Legislation Act,
+    2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is not one (s 89(1)); Sunday
+    is a holiday there, Saturday is not.'
+- key: closeout.holdback_release_to_subcontractor.ca-on
+  duty: Pay each subcontractor its accrued holdback within 14 days after receiving the matching holdback from
+    the owner
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 26(5)-(8)
+    access_date: '2026-10-09'
+  evidence: *id003
+  clause: s 26(5)-(8)
+  window:
+    value: 14
+    unit: days
+  caveat: 'Applies to the annual release (s 26(5)), to holdback that becomes payable once a lien is discharged
+    (s 26(7)), and to the final release after liens expire (s 26(8) para 2), unless a lien is preserved and
+    standing on that subcontract. Each subcontractor owes the same to its own subcontractors (s 26(6), 26(8)
+    para 3). Calendar days: the Act defines no business day. ''No later than N days after'' an event excludes
+    the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the
+    next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: closeout.holdback_final_release.ca-on
+  duty: Be paid all remaining basic holdback within 14 days after every lien that may be claimed against it
+    has expired or been discharged
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 26(8) para 1, 27
+    access_date: '2026-10-09'
+  evidence: *id003
+  clause: s 26(8) para 1, 27
+  window:
+    value: 14
+    unit: days
+  caveat: 'Covers holdback not paid in an annual release. The separate finishing work holdback is paid once
+    the liens against it have expired or been discharged, with no day count (s 27). For supply up to substantial
+    performance, liens expire 60 days after the certificate is published (s 31), so this payment falls due
+    about 74 days after publication when no lien is preserved. Calendar days: the Act defines no business day.
+    ''No later than N days after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)),
+    and a time limit ending on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday
+    there, Saturday is not.'
+- key: closeout.substantial_performance_publication.ca-on
+  duty: Publish the certificate of substantial performance on a construction trade news website within 7 days
+    of receiving the signed copy
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 2(1), 32(1)-(4); O. Reg. 303/18 s 2(9); O. Reg. 304/18 s 1, 9
+    access_date: '2026-10-09'
+  evidence: &id004
+    kind: not_collected
+    register: compliance_documents
+  clause: s 2(1), 32(1)-(4); O. Reg. 303/18 s 2(9); O. Reg. 304/18 s 1, 9
+  window:
+    value: 7
+    unit: days
+  caveat: 'On the contractor''s application, the payment certifier (or, if there is none, the owner and the
+    contractor jointly) decides whether the contract is substantially performed: ready for use and completable
+    for no more than 3% of the first CAD 1,000,000 of the price, 2% of the next CAD 1,000,000 and 1% of the
+    rest (s 2(1)), and signs Form 9. The certifier gives a copy to the owner and contractor within 7 days of
+    signing, or is liable for the resulting damages (s 32(1) para 4, 32(4)). The contractor publishes it on
+    the Daily Commercial News, Link2Build or Ontario Construction News; if it has not within 7 days, anyone
+    may (s 32(1) paras 5, 6). The certificate has no effect until published (s 32(1) para 10), and publication
+    starts the 60 day lien periods (s 31). Refusing to certify within a reasonable time when performance is
+    clear makes the certifier liable for damages, and a court may declare it (s 32(1) para 7, 32(3)). No register
+    holds the certificate with its publication date, so this is recorded not_collected. Calendar days: the
+    Act defines no business day. ''No later than N days after'' an event excludes the day of the event (Legislation
+    Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is not one (s 89(1));
+    Sunday is a holiday there, Saturday is not.'
+- key: lien.preserve.ca-on
+  duty: Preserve a lien within 60 days, by registering a claim for lien on title or, where the lien cannot
+    attach to the premises, giving the owner a copy
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 15, 16, 31(2)-(7), 34(1), (3)-(5); O. Reg. 304/18 s 11, 11.1
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 15, 16, 31(2)-(7), 34(1), (3)-(5); O. Reg. 304/18 s 11, 11.1
+  window:
+    value: 60
+    unit: days
+  caveat: A contractor's lien for supply up to substantial performance expires 60 days after the earlier of
+    publication of the certificate or declaration of substantial performance and completion, abandonment or
+    termination of the contract; for later supply, or with no certificate, 60 days after the earlier of completion
+    and abandonment or termination (s 31(2)). A subcontractor's or supplier's lien runs from the earliest of
+    publication, its last supply, the contract's completion, abandonment or termination, and the subcontract's
+    certified completion (s 31(3)). A contract is deemed complete when what remains costs no more than the
+    lesser of 1% of the price and CAD 5,000 (s 2(3)). If a notice of termination is published, the termination
+    date is the publication date (s 31(7)). A lien does not attach to a Crown, municipal or railway right-of-way
+    premises and is preserved by giving the copy to the prescribed Crown office, the municipal clerk or the
+    railway (s 16, 34(3)-(4); O. Reg. 304/18 s 11, 11.1). The claim states the matters in s 34(5); a wilfully
+    exaggerated claim makes the claimant liable for damages (s 35). 'The 60-day period next following' excludes
+    the day of the event (Legislation Act, 2006 s 89(5)); a period ending on a holiday, or on a day the land
+    registry office is closed, runs to the next day it is open (s 89(1), (2)). No register dates the triggering
+    events, so no trigger is set.
+- key: lien.perfect.ca-on
+  duty: Perfect a preserved lien within 90 days after the last day it could have been preserved, by starting
+    an action and registering a certificate of action on title
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 36(1)-(6)
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 36(1)-(6)
+  window:
+    value: 90
+    unit: days
+  caveat: 'A preserved lien not perfected in time expires (s 36(2)). Where the lien does not attach to the
+    premises, starting the action perfects it (s 36(3)(b)). A preserved lien is also perfected by sheltering
+    under another claimant''s perfected lien on the same improvement, as to the defendants and relief in that
+    claim (s 36(4)). The 90 days run from the last day of the 60 day preservation period, so up to about 150
+    days from the triggering event. Calendar days: the Act defines no business day. ''No later than N days
+    after'' an event excludes the day of the event (Legislation Act, 2006 s 89(5)), and a time limit ending
+    on a holiday runs to the next day that is not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: lien.perfected_expiry.ca-on
+  duty: Have the action that perfected a lien set down for trial, or an order for trial made, by the second
+    anniversary of the action
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: payments
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 37(1), (2)
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 37(1), (2)
+  window:
+    value: 24
+    unit: months
+  caveat: A perfected lien expires immediately after the second anniversary of the commencement of the action
+    unless, on or before it, the action is set down for trial or an order is made for its trial (s 37(1)).
+    An expired lien may be dismissed on motion (s 37(2), 46). Expiry of the lien does not end other legal rights
+    to the debt (s 38).
+- key: lien.termination_notice.ca-on
+  duty: Publish a notice of termination within 7 days after a contract is terminated
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 31(6)-(8), 87.4(6); O. Reg. 303/18 s 2(8); O. Reg. 304/18 s 1, 8
+    access_date: '2026-10-09'
+  evidence: *id002
+  clause: s 31(6)-(8), 87.4(6); O. Reg. 303/18 s 2(8); O. Reg. 304/18 s 1, 8
+  window:
+    value: 7
+    unit: days
+  caveat: 'This text is in force from 1 January 2026 (Fighting Delays, Building Faster Act, 2025, Sched. 2,
+    s. 6); the earlier s 31(6) and (7) continue for a notice published before that day (s 87.4(6)). The owner,
+    the contractor or any other person whose lien is subject to expiry publishes Form 8 on a construction trade
+    news website. Once published, the publication date is the termination date for lien expiry (s 31(7)), and
+    the termination can still be contested (s 31(8)). The Act states no consequence for not publishing. Calendar
+    days: the Act defines no business day. ''No later than N days after'' an event excludes the day of the
+    event (Legislation Act, 2006 s 89(5)), and a time limit ending on a holiday runs to the next day that is
+    not one (s 89(1)); Sunday is a holiday there, Saturday is not.'
+- key: payment.public_contract_bonds.ca-on
+  duty: On entering a public contract of CAD 500,000 or more, give the owner a labour and material payment
+    bond and a performance bond, each covering at least 50% of the contract price
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.ontario.ca/laws/statute/90c30
+    clause: s 85.1(1)-(7), 85.2; O. Reg. 304/18 s 12, 12.1
+    access_date: '2026-10-09'
+  evidence: *id004
+  clause: s 85.1(1)-(7), 85.2; O. Reg. 304/18 s 12, 12.1
+  caveat: A public contract is one whose owner is the Crown, a municipality or a broader public sector organization
+    (s 85.1(1)); an architect or engineer contractor is exempt (s 85.1(3)). Bonds are in the prescribed form,
+    from an insurer licensed to write surety and fidelity insurance, and the payment bond protects subcontractors
+    and suppliers (s 85.1(4), (5)). Above CAD 500,000,000 the owner sets the limit, at least CAD 250,000,000
+    (O. Reg. 304/18 s 12.1(2)). A person the payment bond guarantees may sue on it (s 85.2) or refer a dispute
+    to adjudication (O. Reg. 264/25 s 33). The Act states no consequence for a contractor that does not furnish
+    them; mapped to breach.

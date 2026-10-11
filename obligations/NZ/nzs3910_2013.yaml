@@ -257,7 +257,7 @@ obligations:
   caveat: '''As soon as practicable and where possible before the conditions are disturbed'', confirmed
     in writing. No express time bar; a Variation to the extent unforeseeable (cl 9.5.4).'
 - key: latent_conditions.weather_exclusion_rule.nzs3910_2013
-  duty: Adverse weather is excluded from an extension of time claim
+  duty: Do not claim weather, or conditions due to weather on the Site, as an unforeseen physical condition
   consequence: guidance
   protection_type: check
   disease: non_compliance
@@ -267,15 +267,21 @@ obligations:
   citation:
     url: https://consultations.standards.govt.nz/draft-standards/nzs-3910-conditions-of-contract/user_uploads/compare-document-nzs3910_2013-to-dz3910.pdf
     clause: cl 9.5.1
-    access_date: '2026-09-16'
+    access_date: '2026-10-10'
   evidence:
     kind: record_in_demiton
     register: contract_notice
   research_row: NL3
   clause: cl 9.5.1
-  caveat: Defines 'physical conditions' to exclude weather unless the contractor is away from the Site
-    - a definitional rule, not itself a record requirement, included for completeness as a cited primary_read
-    row.
+  caveat: Cl 9.5.1 defines 'physical conditions' for the unforeseen physical conditions claim under cl 9.5
+    to include artificial obstructions but not weather conditions or conditions due to weather, unless those
+    conditions occur as a result of weather away from the Site. It does not exclude weather from an extension
+    of time; cl 10.3.1 lists weather sufficiently inclement to interfere with the progress of the works as
+    a ground for one. A definitional rule, not itself a record requirement, included for completeness as a
+    cited primary_read row. Corrected 2026-10-10 - the duty previously read 'Adverse weather is excluded
+    from an extension of time claim', which cl 9.5.1 does not say, and this caveat said 'unless the contractor
+    is away from the Site', where the clause says weather away from the Site; both re-read in the cited
+    Standards NZ comparison document.
 - key: variations.day_works.nzs3910
   duty: Record day works on the day they occur
   consequence: guidance

@@ -1,0 +1,132 @@
+# The General Administrative Regulations, 2003, under South Africa's
+# Occupational Health and Safety Act 85 of 1993: the period and manner section
+# 24(1) of the Act leaves to regulation, and the incident record and
+# investigation. Read on 2026-10-09 from the gazette (Government Gazette 25129,
+# 25 June 2003) on gov.za. The penalty figure in r 12 was read from a 300 dpi
+# render of the page because the text layer garbles it.
+id: general_administrative_regulations_2003_za
+source: law
+instrument_type: regulation
+title: General Administrative Regulations, 2003
+publisher: Department of Employment and Labour
+jurisdictions:
+- ZA
+citation:
+  url: https://www.gov.za/sites/default/files/gcis_document/201409/251290.pdf
+  access_date: '2026-10-09'
+  version: Government Notice R. 929, Government Gazette 25129, 25 June 2003
+obligations:
+- key: whs.incident_notice.za
+  duty: Give the provincial director notice of an incident in which a person was killed, injured or made ill
+    within 7 days, on form WCL 1 or WCL 2
+  clause: r 8(1)(a)
+  window:
+    value: 7
+    unit: days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gov.za/sites/default/files/gcis_document/201409/251290.pdf
+    clause: r 8(1)(a)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    The employer's or user's duty, and the period and manner s 24(1) of the Act prescribes. It covers the
+    incidents in s 24(1)(a): a person dies, becomes unconscious, loses a limb or part of one, or is injured
+    or ill enough to be likely to die, suffer a permanent physical defect or be unable to work for at least
+    14 days. A major incident or dangerous occurrence under s 24(1)(b) or (c) is reported forthwith under
+    r 8(1)(b) instead (whs.incident_immediate_report.za). Regulation 12 makes a breach an offence: a fine or
+    up to 12 months' imprisonment, and for a continuing offence a further R200 or one day for each day it
+    continues, the extra imprisonment capped at 90 days; s 38(1)(a) of the Act separately makes a breach of
+    s 24(1) an offence. s 24(1)(a) is a differently worded list from the model WHS Act's;
+    notifiable_incident_recorded is the closest event type. The safety_incident register holds each
+    incident and its worst outcome, but not whether or when the provincial director was told, so this is
+    recorded not_collected.
+- key: whs.incident_immediate_report.za
+  duty: Report forthwith, by telephone or similar means, an incident in which a person died, became
+    unconscious, lost a limb or was likely to die or suffer a permanent physical defect, and any major
+    incident or dangerous occurrence
+  clause: r 8(1)(b)
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gov.za/sites/default/files/gcis_document/201409/251290.pdf
+    clause: r 8(1)(b)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    "Forthwith", with no number, so no window is recorded. This is in addition to the 7-day written notice
+    under r 8(1)(a) for the injury cases, and the only report the regulation names for a major incident or
+    dangerous occurrence under s 24(1)(b) and (c) of the Act. If an injured person dies after the notice was
+    given, the provincial director must be told forthwith (r 8(2)), and an incident affecting people who are
+    not employees is notified forthwith with the details r 8(3) lists; neither is recorded as its own row.
+    Penalty under r 12, as for r 8(1)(a). The safety_incident register holds each incident but not whether
+    or when the provincial director was told, so this is recorded not_collected.
+- key: whs.incident_record.za
+  duty: Keep at the workplace, for at least 3 years, a record in the form of Annexure 1 of every incident
+    reportable under section 24 of the Act and every other incident needing medical treatment beyond first
+    aid
+  clause: r 9(1)
+  window:
+    value: 36
+    unit: months
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gov.za/sites/default/files/gcis_document/201409/251290.pdf
+    clause: r 9(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    3 years converted to 36 months. The record is open for inspection by an inspector, and the health and
+    safety committee examines each one at its next meeting (r 9(4)). Penalty under r 12. The safety_incident
+    register holds each incident and its worst outcome, but not whether it needed treatment beyond first aid
+    or the investigation findings Annexure 1 holds, so this is recorded not_collected.
+- key: whs.incident_investigate.za
+  duty: Have every recordable incident investigated within 7 days from the incident, and enter the findings
+    in the Annexure 1 record as soon as the investigation is complete
+  clause: r 9(2), (3)
+  window:
+    value: 7
+    unit: days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gov.za/sites/default/files/gcis_document/201409/251290.pdf
+    clause: r 9(2), (3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    The investigation is by the employer, a person it appoints, a health and safety representative or a
+    committee member. The text requires the investigation within 7 days from the date of the incident and
+    its finalisation as soon as reasonably practicable, or within the contracted period for contracted
+    workers; it does not say how far the investigation must have gone by day 7. It covers every incident r 9(1) records, including those
+    needing only medical treatment beyond first aid, so the notifiable incident event type would miss some
+    and no trigger is set. Penalty under r 12. No register records an investigation or its findings, so this
+    is recorded not_collected.
