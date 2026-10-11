@@ -9,6 +9,7 @@
 id: waterway_barrier_fisheries_management_act_1994_nsw
 extends: model_waterway_barrier
 title: In-water works permit and fish passage (Fisheries Management Act 1994 (NSW))
+publisher: NSW Department of Primary Industries (Fisheries)
 jurisdictions: [AU-NSW]
 citation:
   url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1994-038

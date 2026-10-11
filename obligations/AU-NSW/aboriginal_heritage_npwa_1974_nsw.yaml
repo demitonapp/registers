@@ -9,6 +9,7 @@
 id: aboriginal_heritage_npwa_1974_nsw
 extends: model_aboriginal_heritage
 title: Aboriginal objects and places (National Parks and Wildlife Act 1974 (NSW))
+publisher: Heritage NSW
 jurisdictions: [AU-NSW]
 citation:
   url: https://legislation.nsw.gov.au/view/whole/html/inforce/current/act-1974-080

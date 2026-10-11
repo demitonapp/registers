@@ -16,3 +16,52 @@ obligations:
     clause: s 304(2), (6)
     access_date: '2026-09-27'
   clause: s 304(2), (6)
+- overrides: whs.swms_prepare
+  key: whs.swms_prepare.au-nsw
+  clause: s 299(1)
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 299(1)
+    access_date: '2026-10-09'
+- overrides: whs.swms_comply
+  key: whs.swms_comply.au-nsw
+  clause: s 300(1)-(2)
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 300(1)-(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_copy_to_principal
+  key: whs.swms_copy_to_principal.au-nsw
+  clause: s 301
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 301
+    access_date: '2026-10-09'
+- overrides: whs.swms_review
+  key: whs.swms_review.au-nsw
+  clause: s 302
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 302
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep
+  key: whs.swms_keep.au-nsw
+  clause: s 303(1), (3), (4)
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 303(1), (3), (4)
+    access_date: '2026-10-09'
+- overrides: whs.swms_keep_after_incident
+  key: whs.swms_keep_after_incident.au-nsw
+  clause: s 303(2)
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 303(2)
+    access_date: '2026-10-09'
+- overrides: whs.swms_principal_obtain
+  key: whs.swms_principal_obtain.au-nsw
+  clause: s 312
+  citation:
+    url: https://legislation.nsw.gov.au/view/html/inforce/current/sl-2025-0440
+    clause: s 312
+    access_date: '2026-10-09'

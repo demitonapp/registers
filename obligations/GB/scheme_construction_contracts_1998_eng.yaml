@@ -1,0 +1,218 @@
+# The Scheme for Construction Contracts (England and Wales) Regulations 1998,
+# as amended for England by S.I. 2011/2333. Read in full from legislation.gov.uk
+# on 2026-10-09, latest available (revised) version in force from 1 October
+# 2011, with the amending S.I. 2011/2333 (as made) read the same day.
+# legislation.gov.uk lists no outstanding effects for the Scheme as at
+# 2026-10-09.
+#
+# The Scheme is a default, not a floor. Its Part I adjudication provisions
+# apply only where the contract does not meet s 108(1) to (4) of the Act (reg
+# 2), and each Part II payment provision only where the parties failed to agree
+# that matter or the contract does not make the provision ss 110 or 110A
+# require (reg 3). Where it applies, it has effect as implied terms of the
+# contract (Act s 114(4)), so a breach of it is a breach of contract. Every
+# row below holds only when the Scheme applies to that point; a compliant
+# contract's own period replaces it. Rules the Act states for every contract
+# are in hgcra_1996_part2_gb.
+#
+# Where it applies: England only, as transcribed. The Regulations extend to
+# England and Wales (reg 1(2)), but S.I. 2011/2333 applies only to contracts
+# for operations in England entered into on or after 1 October 2011 (its reg
+# 1(2), (3)). Wales amended the Scheme by its own instrument, which was not
+# read, and Scotland has a separate Scheme. This library has no code for
+# England, so the instrument carries `GB`, the ISO 3166-1 code for the whole
+# United Kingdom, and every row's caveat says England.
+#
+# The Scheme states no rule for reckoning periods of its own; the Act's s 116
+# reckons periods "for the purposes of this Part" (begin after the date,
+# exclude Christmas Day, Good Friday and bank holidays). Windows are recorded
+# in calendar days.
+id: scheme_construction_contracts_1998_eng
+source: law
+instrument_type: regulation
+title: The Scheme for Construction Contracts (England and Wales) Regulations 1998, as amended for England
+publisher: Secretary of State
+jurisdictions:
+- GB
+citation:
+  url: https://www.legislation.gov.uk/uksi/1998/649
+  access_date: '2026-10-09'
+  version: S.I. 1998/649, latest available (revised) version in force from 1 October 2011, incorporating
+    S.I. 2011/2333 (England, contracts entered into on or after 1 October 2011); no outstanding effects listed
+    as at 2026-10-09
+obligations:
+- key: payment.due_date_default.gb
+  duty: Where the contract sets no payment mechanism, be due each interim payment on the later of 7 days
+    after the end of each 28 day period or the making of your claim
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 3; Sch Pt II para 1, 2, 3, 4, 12
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: reg 3; Sch Pt II para 1, 2, 3, 4, 12
+  window:
+    value: 7
+    unit: days
+  caveat: 'Scheme only, England: applies where the parties fail to agree the amount or intervals of stage
+    payments (para 1) or to give an adequate mechanism for what is due and when (para 3). The relevant period
+    is the one the contract specifies or, failing that, 28 days (para 12). Each payment is the value of
+    work (and, if the contract pays for them, materials on or brought to site) to the end of the period,
+    less what has been paid or is due (para 2). A claim by the payee is a written notice of the amount it
+    considers due and how it is calculated (para 12). Applies to a contract of 45 days or more (a relevant
+    construction contract, para 12). Due is not the final date for payment; see payment.final_date_default.gb.'
+- key: payment.final_payment_due_default.gb
+  duty: Where the contract sets no payment mechanism, be due the final payment on the later of 30 days after
+    completion of the work or the making of your claim
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 3; Sch Pt II para 3, 5, 6, 7
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: reg 3; Sch Pt II para 3, 5, 6, 7
+  window:
+    value: 30
+    unit: days
+  caveat: 'Scheme only, England. The final payment is the contract price less the stage payments that have
+    become due (para 5). The same 30 days apply to the whole contract price under a contract of less than
+    45 days (para 6). Any other payment is due on the later of 7 days after completion of the work it relates
+    to or the claim (para 7). No register records the completion date, so no trigger is set.'
+- key: payment.final_date_default.gb
+  duty: Where the contract sets no final date for payment, be paid within 17 days of the date each payment
+    becomes due
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 3(b); Sch Pt II para 8
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: reg 3(b); Sch Pt II para 8
+  window:
+    value: 17
+    unit: days
+  caveat: 'Scheme only, England: applies where the contract does not provide a final date for payment, as
+    Act s 110(1)(b) requires. The final date is the last day to pay the notified sum (Act s 111(1)) and the
+    date a pay less notice is counted back from (payment.pay_less_notice_default.gb). No consequence is
+    stated for the default itself; non-payment opens the right to suspend (payment.suspension_notice.gb).
+    The progress_claim register holds the due date (due_date) the 17 days run from.'
+- key: payment.pay_less_notice_default.gb
+  duty: Where the parties agreed no period, receive any pay less notice not later than 7 days before the
+    final date for payment
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 3(a); Sch Pt II para 10
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: payment_schedule
+  clause: reg 3(a); Sch Pt II para 10
+  window:
+    value: 7
+    unit: days
+  caveat: 'Scheme only, England: the prescribed period of Act s 111(5) and (7)(b) where the parties did not
+    agree one. Counted back from the final date the contract sets or, failing that, the Scheme''s 17 days
+    (para 8). A pay less notice not given in time leaves the payer liable for the notified sum (Act s 111(1)).
+    The duty and its content are the Act''s (payment.pay_less_notice.gb). The payment_schedule register cannot
+    tell a pay less notice from a payment notice and holds no final date, so this is recorded not_collected.'
+- key: payment.notice_of_adjudication_content.gb
+  duty: Give the notice of adjudication in writing to every other party, setting out the dispute, where
+    and when it arose, the redress sought, and the parties' names and addresses
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 2; Sch Pt I para 1(1)-(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: reg 2; Sch Pt I para 1(1)-(3)
+  caveat: 'Scheme only, England: applies where the contract does not meet Act s 108(1) to (4). The notice
+    may be given at any time (para 1(1)), and the referral follows within 7 days of it (para 7, see payment.adjudication_referral.gb).
+    Addresses include any the parties have specified for giving notices (para 1(3)(d)). No consequence is
+    stated for a notice that omits an item. Recorded with notice_kind notice_of_intention.'
+- key: payment.adjudicator_nomination.gb
+  duty: Ask the named adjudicator or a nominating body to act after the notice of adjudication; a nominating
+    body must select an adjudicator within 5 days of the request
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 2; Sch Pt I para 2, 3, 4, 5, 6
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: reg 2; Sch Pt I para 2, 3, 4, 5, 6
+  window:
+    value: 5
+    unit: days
+  caveat: 'Scheme only, England. The referring party asks the person named in the contract, else the nominating
+    body the contract names, else any adjudicator nominating body, sending a copy of the notice of adjudication
+    (paras 2(1), 3). A person asked must say within 2 days of the request whether they will act (paras 2(2),
+    5(3), 6(2)). A nominating body must communicate its selection within 5 days of the request; if it does
+    not, the referring party may agree a person with the other party or ask another body (para 5). The adjudicator
+    must be a natural person, not an employee of a party, and must declare any interest (para 4). A procedural
+    step, not itself a notice document; register and notice_kind are the closest available fit.'
+- key: payment.comply_with_decision.gb
+  duty: Comply with an adjudicator's decision immediately on its delivery, unless the adjudicator directs
+    a time, and until the dispute is finally determined
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.gov.uk/uksi/1998/649
+    clause: reg 2; Sch Pt I para 20(b), 21, 23(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: reg 2; Sch Pt I para 20(b), 21, 23(2)
+  caveat: 'Scheme only, England. ''Immediately'', with no day count, so no window is recorded. The decision
+    binds and the parties must comply until the dispute is finally determined by legal proceedings, arbitration
+    or agreement (para 23(2)). Where it orders a payment, the adjudicator may set when it is due and its
+    final date, subject to Act s 111(9) (para 20(b); see payment.adjudication_payment.gb). As an implied
+    term (Act s 114(4)), failure to comply is a breach of contract; the Scheme states no other consequence.
+    No register holds an adjudicator''s decision; contract_notice is the closest available fit.'

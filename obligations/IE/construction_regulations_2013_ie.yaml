@@ -1,0 +1,277 @@
+# Ireland's construction safety regulations, read from the Irish Statute Book
+# on 2026-10-09 (Parts 1 to 3, regulations 1 to 29, and Schedules 1, 3, 4 and
+# 5). Three amending instruments were read the same day: S.I. No. 129 of 2019
+# (regulation 2 definitions, Schedules 4 and 5: SOLAS replaces FAS, Safe Pass
+# valid 4 years), S.I. No. 102 of 2020 and S.I. No. 528 of 2021 (a Covid-19
+# extension of Safe Pass validity and its wind-down). None touches a duty
+# below other than through Schedule 4. The Statute Book publishes no revised
+# text of these Regulations, and no amendment after 2021 was found.
+#
+# A regulation states no penalty of its own. Contravening any relevant
+# statutory provision, these Regulations included, is an offence under the
+# Safety, Health and Welfare at Work Act 2005 s 77(2)(c), penalties in s 78,
+# which is why every row is `offence`. "The Authority" is the Health and
+# Safety Authority.
+id: construction_regulations_2013_ie
+source: law
+instrument_type: regulation
+title: Safety, Health and Welfare at Work (Construction) Regulations 2013 (Ireland)
+publisher: Minister for Jobs, Enterprise and Innovation
+jurisdictions:
+- IE
+citation:
+  url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+  access_date: '2026-10-09'
+  version: S.I. No. 291 of 2013 as made, in operation 1 August 2013, read with S.I. No. 129 of 2019, S.I.
+    No. 102 of 2020 and S.I. No. 528 of 2021
+obligations:
+- key: whs.project_supervisors_appoint.ie
+  duty: Appoint in writing a competent project supervisor for the design process before design starts,
+    and one for the construction stage before construction work starts, and get each appointee's written
+    acceptance
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 6(1)-(5), 7(1), 7(3), 24(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 6(1)-(5), 7(1), 7(3), 24(2)
+  caveat: Binds the client. Required only where the work involves a particular risk (Schedule 1 lists falls
+    from height, burial under earthfalls, work near high voltage lines, wells, underground earthworks and
+    tunnels, explosives and others), more than one contractor is involved, or the project must be notified
+    under reg 10. Before the design process or construction work starts, with no day count, so no window
+    is recorded. The client may appoint itself, or one person to both roles, if competent (reg 6(2)), and
+    must be satisfied each appointee has allocated adequate resources (reg 7). A contractor that is not
+    aware of the appointments must promptly tell the client of its duties under reg 6 (reg 24(2)). The
+    compliance_documents register can hold a letter of appointment but not which role or project it covers,
+    so this is recorded not_collected.
+- key: whs.project_notification_client.ie
+  duty: Notify the Health and Safety Authority promptly, in writing on its approved form, of the project
+    supervisor appointments when the work will last more than 30 working days or exceed 500 person days
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 10
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 10
+  caveat: Binds the client. 'Promptly', with no day count, so no window is recorded; 30 working days and
+    500 person days are the thresholds for the duty, not its window. Sent by registered post or as the Authority
+    directs. No register holds a notice to the regulator of this kind, so this is recorded not_collected.
+- key: whs.project_notification_pscs.ie
+  duty: Notify the Health and Safety Authority in writing, before construction work begins, with the particulars
+    Schedule 3 lists, when the work will last more than 30 working days or exceed 500 person days, and display
+    those particulars on site
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 22(1), 22(2); Sch 3
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 22(1), 22(2); Sch 3
+  caveat: Binds the project supervisor for the construction stage, a role a main contractor often holds.
+    Before the work begins and 'promptly', with no day count, so no window is recorded. Schedule 3 particulars
+    include the client, both project supervisors, the site address, the planned start date and duration,
+    the maximum number of workers on site and the contractors chosen. The displayed particulars must be
+    updated as necessary (reg 22(2)). No register holds a notice to the regulator of this kind, so this
+    is recorded not_collected.
+- key: whs.safety_health_plan.ie
+  duty: Develop the safety and health plan before construction work starts, keep it adjusted as the work
+    progresses, and bring it and its rules to the attention of every contractor
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 16; 24(1)(g)-(i)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 16; 24(1)(g)-(i)
+  caveat: Binds the project supervisor for the construction stage, who develops the preliminary plan the
+    project supervisor for the design process prepared (reg 12) and the client provided to everyone tendering
+    for the role (reg 9). The plan must include specific measures for Schedule 1 particular risks and written
+    site rules (reg 16(d)-(f)). Each contractor must bring the plan's rules to its employees' attention
+    and comply with them (reg 24(1)(g)-(i)). Where the project need not be notified, a plan is required
+    only for work involving a particular risk (reg 12(2)). Before construction work starts, with no day
+    count, so no window is recorded. The compliance_documents register can hold a plan but not which project
+    or revision it is, so this is recorded not_collected.
+- key: whs.safety_file_information.ie
+  duty: Give the project supervisor, in writing and promptly, the information needed to prepare the safety
+    file
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 21(1), 24(1)(e)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 21(1), 24(1)(e)
+  caveat: Every contractor gives the information to the project supervisor for the construction stage (reg
+    24(1)(e)), who coordinates it and passes it to the project supervisor for the design process, who completes
+    the file (reg 21(1), 13). 'Promptly', with no day count, so no window is recorded. No register holds
+    the safety file or what was given towards it, so this is recorded not_collected.
+- key: whs.safety_file_keep.ie
+  duty: Keep the safety file available for inspection by anyone who needs it for later construction work
+    on the structure, and hand it over when the structure is sold
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 8(1)-(3), 13(b)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 8(1)-(3), 13(b)
+  caveat: Binds the client and each later owner. The project supervisor for the design process must deliver
+    the file to the client promptly on completion (reg 13(b)); the client keeps it available, and delivering
+    it to the buyer of the client's interest satisfies the duty (reg 8(2)). A standing duty with no end
+    date, so no window is recorded. No register holds the safety file, so this is recorded not_collected.
+- key: whs.safety_adviser.ie
+  duty: Appoint in writing a full-time competent safety adviser for a site that normally has more than 100
+    people engaged in construction work at any one time
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 18
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 18
+  caveat: Binds the project supervisor for the construction stage. A standing duty triggered by headcount,
+    with no window. No register records who is the site's safety adviser or the site's normal headcount,
+    so this is recorded not_collected.
+- key: whs.safety_officer.ie
+  duty: Appoint in writing one or more competent safety officers when more than 20 people on a site, or
+    30 in construction work, are under your direct control
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 26(1)-(4)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: reg 26(1)-(4)
+  caveat: Binds every contractor that normally has that many people under its direct control at any one
+    time. One safety officer may serve a group of sites or several contractors jointly (reg 26(3)), and
+    the site's safety adviser may also be its safety officer (reg 26(4)). A standing duty triggered by headcount,
+    with no window. No register records the appointment, so this is recorded not_collected.
+- key: whs.safe_pass_card.ie
+  duty: Make sure every construction worker under your direct control holds a valid Safe Pass card, and
+    a construction skills card for any task Schedule 5 lists
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 4(2)-(4), 25(1); Sch 4 para 2 (S.I. No. 129 of 2019 reg 4), Sch 5
+    access_date: '2026-10-09'
+  evidence:
+    kind: register
+    register: worker_qualification
+    system_type: site_and_field
+  clause: reg 4(2)-(4), 25(1); Sch 4 para 2 (S.I. No. 129 of 2019 reg 4), Sch 5
+  caveat: Safe Pass applies to craft and general construction workers and on-site security staff (reg 4(2)).
+    A card is valid for 4 years from completing the programme (Sch 4 para 2, substituted by S.I. No. 129
+    of 2019; the Covid-19 extensions in S.I. No. 102 of 2020 and No. 528 of 2021 have all run out). Schedule
+    5 tasks include scaffolding, crane operation, slinging and signalling, telescopic handler, dumper and
+    excavator operation. A services installer domiciled and employed outside the State and on the project
+    no more than 20 working days in 12 months needs no card, but must carry the employer's letter describing
+    the work and the person's competence, and receive a site-specific induction (reg 4(3), (4), 25(1)(c)).
+    The worker_qualification register holds each card and its expiry_date.
+- key: whs.safe_pass_confirmation.ie
+  duty: On each worker's first day on site, ask to see their registration card and give the project supervisor
+    written confirmation that they hold it and the other certificates the law requires
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 25(2), 17(5)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: induction_onboarding
+  clause: reg 25(2), 17(5)
+  caveat: On the worker's first day, with no day count, so no window is recorded. The project supervisor
+    for the construction stage keeps a record of the names each contractor confirms, available for inspection
+    (reg 17(5)). The induction_onboarding register holds a site induction per worker but not the written
+    confirmation given to the project supervisor, so this is recorded not_collected.
+- key: whs.incident_info_to_pscs.ie
+  duty: Give the project supervisor information on every accident or dangerous occurrence you must notify
+    or report, with a copy of the notification
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.irishstatutebook.ie/eli/2013/si/291/made/en/html
+    clause: reg 24(1)(d), 17(1)(e)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: reg 24(1)(d), 17(1)(e)
+  caveat: Binds every contractor. No day count, so no window is recorded. Which accidents and dangerous
+    occurrences must be notified is set elsewhere (the Safety, Health and Welfare at Work (General Application)
+    Regulations, not read for this row), so no trigger is set; the notifiable_incident_recorded event type
+    is defined by the Australian and New Zealand Acts and would mis-match. The project supervisor keeps
+    a record of what contractors provide and must answer the Authority's request for it as soon as possible
+    (reg 17(1)(e)). The safety_incident register holds each incident but not whether it was passed to the
+    project supervisor, so this is recorded not_collected.

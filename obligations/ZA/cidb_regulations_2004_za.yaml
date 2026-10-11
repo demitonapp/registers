@@ -1,0 +1,216 @@
+# South Africa's Construction Industry Development Regulations, 2004, made under
+# section 33 of the CIDB Act 38 of 2000. Read on 2026-10-09 from the cidb's
+# published consolidations: the annotated text as at July 2013 (annotations by
+# Juta, published by the cidb) and the cidb's own consolidation as at 14 November
+# 2008, which agree on every regulation cited here, checked against the amending
+# gazette of 2 July 2013 (GN R464, Government Gazette 36629). The 2007 and 2008
+# amending gazettes themselves (GN 1121, GN R1224) were not read. The cidb's list
+# of regulation notices shows no amendment to the text after 2013 other than the
+# 2019 tender value range adjustment (Notice 357 of 2019, Government Gazette
+# 42561), which changes the grade table and none of these duties; its other
+# notices are, by title, schemes, standards, sanctions and drafts. No prompt payment or
+# adjudication regulation was found in force.
+id: cidb_regulations_2004_za
+source: law
+instrument_type: regulation
+title: Construction Industry Development Regulations, 2004
+publisher: Department of Public Works and Infrastructure
+jurisdictions:
+- ZA
+citation:
+  url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+  access_date: '2026-10-09'
+  version: Government Notice 692, Government Gazette 26427, 9 June 2004, as amended to GN R464 of 2 July 2013
+    (the cidb's annotated consolidation)
+obligations:
+- key: cidb.annual_fee.za
+  duty: Pay the cidb's annual fee for the highest grade held on the date of registration and on each of the
+    next two anniversaries of registration
+  clause: reg 35(2)
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 35(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  caveat: >-
+    Grades 2 to 9 only; grade 1 pays no annual fee (Schedule 2, Table 2). The anniversary is the deadline
+    itself, so no window is recorded. A contractor more than 90 days in arrears after being notified is
+    suspended until it pays or makes an arrangement the Board accepts (reg 27(1)), and is removed from the
+    register if it has not put that right one year after suspension (reg 27(3)). Mapped to barred as a
+    judgment call: a suspended registration is taken not to meet reg 25(1), so the contractor's tenders
+    would not be evaluated. The cidb's own
+    register page says a grade not updated for two consecutive years is suspended, a different rule from
+    the regulation's. compliance_prequal could hold the registration date the anniversary runs from, but its
+    shape requires an Australian Business Number and names no cidb scheme, so this is recorded not_collected.
+- key: cidb.annual_confirmation.za
+  duty: Confirm the registered particulars to the cidb on the approved form on each anniversary of
+    registration
+  clause: reg 36(2)
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 36(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  caveat: >-
+    Due on the date reg 35(2) sets for the annual fee, so for grades 2 to 9; the cidb's register page says
+    annual updates do not apply to grade 1. The anniversary is the deadline itself, so no window is
+    recorded. A contractor who does not confirm is suspended until it does (reg 27(2)) and is removed from
+    the register if it has not done so one year after suspension (reg 27(3)), which is why this is mapped
+    to barred. compliance_prequal could hold the registration date, but its shape requires an Australian
+    Business Number and names no cidb scheme, so this is recorded not_collected.
+- key: cidb.tax_clearance.za
+  duty: Give the cidb a current tax clearance certificate within three months after the previous one expires
+  clause: reg 36(3)
+  window:
+    value: 3
+    unit: months
+  consequence: offence
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 36(3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    Inserted by GN R1224 of 14 November 2008. Regulation 30(1)(d) makes a failure to comply with the
+    Regulations an offence with a fine of up to R100,000; reg 27(2)'s suspension names a certificate missing
+    from the application under reg 7, not this one, so suspension is not recorded as its consequence. The
+    cidb's 2026 register guide says only that tax matters must be kept up to date; how this regulation reads
+    against the South African Revenue Service's current compliance system was not checked.
+    compliance_documents can hold a certificate and its expiry, but not whether the cidb was given it, so
+    this is recorded not_collected.
+- key: cidb.tender_grade.za
+  duty: To have a public sector tender or expression of interest evaluated, be registered in the grade and
+    class of works it names or higher, or be capable of being registered before evaluation
+  clause: reg 25(1), (1A), (3)
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: general
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 25(1), (1A), (3)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  caveat: >-
+    Part IV binds an organ of state as client or employer on a construction works contract worth more than
+    R30,000 (reg 23); for the contractor it decides whether its offer counts. An expression of interest from
+    a contractor not yet registered may be evaluated only if it can be registered within 21 working days
+    after the closing date; a tender, only if it can be registered before evaluation; under extreme
+    conditions the client may accept only contractors already registered (reg 25(2)). That day count binds
+    expressions of interest alone, so no window is recorded. A joint venture qualifies only if every member
+    is registered and the lead partner is no more than one grade below the grade required (reg 25(5)).
+    Before award the employer must be satisfied the contractor is registered and not prohibited from
+    tendering (reg 25(9)). The grade a tender needs comes from its estimated value and the grade table
+    (regs 17 and 25(3)), reference data this library does not hold. compliance_prequal is the register for a
+    contractor's scheme standing, but its shape requires an Australian Business Number and names no cidb
+    scheme, so this is recorded not_collected.
+- key: cidb.project_registration.za
+  duty: As employer, apply to the cidb to register a construction works contract above the threshold within
+    21 working days after accepting the contractor's offer in writing
+  clause: reg 18(1A), (1)
+  window:
+    value: 21
+    unit: working_days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: general
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 18(1A), (1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: contract_notice
+  caveat: >-
+    The employer's duty: the person or organ of state that enters into a prime contract with the contractor,
+    so a contractor carries it only where it lets a prime contract, not when it subcontracts. A single
+    construction works contract must be registered where it is worth more than R200,000 for the public
+    sector, or more than R10 million for the private sector or a public entity listed in Schedule 2 of the
+    Public Finance Management Act 1 of 1999 (reg 18(1A)). The client that initiated the project pays the
+    fee (reg 18(4)). Mining excavations and certain process plant and materials handling work are exempt
+    (reg 19). Regulation 30(1)(b) makes failing to register a project an offence, with a fine of up to
+    R100,000. No event type records a contract award, so no trigger is set, and no register records a
+    registration with the cidb, so this is recorded not_collected.
+- key: cidb.project_status_report.za
+  duty: As employer, give the cidb a status report on a registered contract within one calendar month of
+    practical completion, renewal, cancellation or termination, and final settlement
+  clause: reg 21(1)
+  window:
+    value: 1
+    unit: months
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: general
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 21(1)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: contract_notice
+  caveat: >-
+    The employer's duty, on a contract registered under reg 18. Each of the four events (the practical
+    completion certificate, a renewal, a cancellation or termination, and the settling of all amounts owed
+    to the contractor) starts its own month. Regulation 30(1)(d) makes a failure to comply an offence with a
+    fine of up to R100,000. No event type records these four events, so no trigger is set, and no register
+    records a report to the cidb, so this is recorded not_collected.
+- key: cidb.project_dispute_notice.za
+  duty: As employer, tell the cidb of any arbitration or litigation on a registered contract within one
+    calendar month from its start
+  clause: reg 21(2)
+  window:
+    value: 1
+    unit: months
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: general
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.cidb.org.za/download/123/2013/6197/annotated-cid-regulations-as-at-july-2013-2.pdf
+    clause: reg 21(2)
+    access_date: '2026-10-09'
+  evidence:
+    kind: not_collected
+    register: contract_notice
+  caveat: >-
+    The employer's duty, on a contract registered under reg 18. A court, arbitrator or adjudicator that finds
+    a contractor in default may restrict or prohibit it from tendering to organs of state for up to ten
+    years and must tell the cidb (reg 26), which is why the cidb wants to know a dispute has started.
+    Regulation 30(1)(d) makes a failure to comply an offence with a fine of up to R100,000. No event type
+    records the start of an arbitration or litigation, so no trigger is set, and no register records the
+    notice to the cidb, so this is recorded not_collected.
