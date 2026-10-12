@@ -1,5 +1,5 @@
 {
-  "$comment": "Every ISO 3166-1 alpha-2 country (249), each with `supported` (true only for AU and NZ, SM030 decision 15) and `level` (`commonwealth` for a country). Plus the ISO 3166-2 subdivisions of the two supported countries: AU's 8 states/territories and NZ's 17 regions, `level: state` and `level: regional` respectively. A code absent from this file is not a jurisdiction an instrument or obligation may cite; `supported: false` still lets an org record that it operates there (SM030 O4), it just gets no protection yet.",
+  "$comment": "Every ISO 3166-1 alpha-2 country (249), each with `supported` and `level` (`commonwealth` for a country). `supported` is true for AU, NZ, IE, GB, ZA and CA (AU and NZ from SM030 decision 15; IE, GB, ZA and CA from 2026-10-12, when Ireland, England, South Africa and Ontario became project countries). Plus ISO 3166-2 subdivisions: AU's 8 states/territories (`level: state`), NZ's 17 regions (`level: regional`), Ireland's 26 counties (`level: regional`), South Africa's 9 provinces (`level: state`), England (GB-ENG, `level: state`) and Ontario (CA-ON, `level: state`). A project sits in a supported subdivision; a country's other subdivisions (Scotland, Wales, Northern Ireland, the other Canadian provinces) are absent, so a project cannot be placed there. A code absent from this file is not a jurisdiction an instrument or obligation may cite; `supported: false` still lets an org record that it operates there (SM030 O4), it just gets no protection yet.",
   "AD": {
     "level": "commonwealth",
     "supported": false
@@ -150,7 +150,7 @@
   },
   "CA": {
     "level": "commonwealth",
-    "supported": false
+    "supported": true
   },
   "CC": {
     "level": "commonwealth",
@@ -306,7 +306,7 @@
   },
   "GB": {
     "level": "commonwealth",
-    "supported": false
+    "supported": true
   },
   "GD": {
     "level": "commonwealth",
@@ -406,7 +406,7 @@
   },
   "IE": {
     "level": "commonwealth",
-    "supported": false
+    "supported": true
   },
   "IL": {
     "level": "commonwealth",
@@ -986,7 +986,7 @@
   },
   "ZA": {
     "level": "commonwealth",
-    "supported": false
+    "supported": true
   },
   "ZM": {
     "level": "commonwealth",
@@ -1030,7 +1030,115 @@
   },
   "CA-ON": {
     "level": "state",
-    "supported": false
+    "supported": true
+  },
+  "GB-ENG": {
+    "level": "state",
+    "supported": true
+  },
+  "IE-CE": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-CN": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-CO": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-CW": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-D": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-DL": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-G": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-KE": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-KK": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-KY": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-LD": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-LH": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-LK": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-LM": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-LS": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-MH": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-MN": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-MO": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-OY": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-RN": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-SO": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-TA": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-WD": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-WH": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-WW": {
+    "level": "regional",
+    "supported": true
+  },
+  "IE-WX": {
+    "level": "regional",
+    "supported": true
   },
   "NZ-AUK": {
     "level": "regional",
@@ -1098,6 +1206,42 @@
   },
   "NZ-WTC": {
     "level": "regional",
+    "supported": true
+  },
+  "ZA-EC": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-FS": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-GP": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-KZN": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-LP": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-MP": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-NC": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-NW": {
+    "level": "state",
+    "supported": true
+  },
+  "ZA-WC": {
+    "level": "state",
     "supported": true
   }
 }
