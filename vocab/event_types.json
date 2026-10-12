@@ -66,5 +66,14 @@
         "kind": "latent_condition"
       }
     }
+  },
+  "practical_completion_reached": {
+    "description": "Practical Completion was reached: the project's practical_completion milestone has an actual date. Starts the handover clocks that run from Practical Completion (for example MRTS50 cl 12.4.2).",
+    "register": "project_milestone",
+    "date_field": "actual_date",
+    "subject": "project",
+    "match": {
+      "milestone_type": "practical_completion"
+    }
   }
 }

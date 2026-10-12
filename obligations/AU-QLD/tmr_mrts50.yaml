@@ -84,3 +84,148 @@ obligations:
     referenced by the TMR TIC contract, not the base contract text - applies_to_form recorded as TMR_TIC
     (judgment call). Covers quality NCRs; safety_ncr is the closest existing register - SM026's own register
     audit notes quality NCRs have no dedicated register today.
+- key: quality.lot_notification_daily.tmr_mrts50
+  duty: Give the Administrator, early each working day, the list of lots on which work started and the lots physically completed on the preceding working day
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.lot_notification_daily
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 7.4
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: site_diary
+  clause: cl 7.4
+  window:
+    value: 1
+    unit: working_days
+  caveat: "'Early each working day' read as a one-working-day cadence. The lot list is a quality record, not a diary entry; site_diary is the closest register that is kept daily. Recorded as not_collected because no register holds lots."
+- key: quality.hold_point_release.tmr_mrts50
+  duty: Do not proceed past a Hold Point until the Administrator releases it in writing, and allow at least one working day for the response after submitting the evidence
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.hold_point_release
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 8.3.2
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: document_transmittal
+  clause: cl 8.3.2
+  window:
+    value: 1
+    unit: working_days
+  caveat: "The window is the Administrator's minimum response time after the Contractor's evidence is in, not a deadline on the Contractor. Which Hold Points apply is set by each Technical Specification's Quality Clause, the Contract, or a Nonconformance Report or corrective action request (cl 8.3.2 (a) to (c)); this row carries the release rule once. A watch needs a hold-point register that does not exist; document_transmittal is the nearest record of the evidence submission."
+- key: quality.witness_point_notice.tmr_mrts50
+  duty: Give the Administrator at least one working day's notice of an approaching Witness Point, unless the Technical Specification says otherwise
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.witness_point_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 8.3.3
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: document_transmittal
+  clause: cl 8.3.3
+  window:
+    value: 1
+    unit: working_days
+  caveat: "The Contractor may proceed once the notice period has run whether or not the Administrator attends. Which Witness Points apply is set by each Technical Specification. Recorded as not_collected: the notice is correspondence, and document_transmittal is the nearest register."
+- key: quality.testing_frequency_nomination.tmr_mrts50
+  duty: Nominate the testing frequency and minimum number of tests, and submit them to the Administrator at least 14 days before testing starts, where the Technical Specification gives none
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.testing_frequency_nomination
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 8.5
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: inspection_test_result
+  clause: cl 8.5
+  window:
+    value: 14
+    unit: days
+  caveat: "Applies only where the relevant Technical Specification states no minimum frequency or number of tests. Specified frequencies are a floor; the Contractor remains responsible for enough testing to show each lot complies."
+- key: quality.conformance_report.tmr_mrts50
+  duty: Give the Administrator a Conformance Report for each lot on its completion and before substantial progress on subsequent lots
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.conformance_report
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 10.1.1
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: inspection_test_result
+  clause: cl 10.1.1
+  caveat: "No day count: the deadline is 'before substantial progress on subsequent lots'. The report holds the inspection and test records, the compliance analysis, any RPEQ-certified design revision drawing and the MRTS56 As Constructed survey. An Indicative Conformance report under cl 10.1.2 may precede it with the Administrator's approval; the full report still follows once results are in."
+- key: closeout.corrective_action_ncr.tmr_mrts50
+  duty: Issue a Nonconformance Report within one working day of receiving the Administrator's corrective action request
+  consequence: breach
+  protection_type: check
+  disease: rework
+  approval_class: quality
+  duty_shape: closeout.corrective_action_ncr
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 10.2
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: safety_ncr
+  clause: cl 10.2
+  window:
+    value: 1
+    unit: working_days
+  caveat: "The second clock in cl 10.2, distinct from closeout.nonconformance_notice.tmr_mrts50 (one working day from detection where a trigger applies): this one runs from receipt of the Administrator's corrective action request after the Contractor failed to act on an observed Nonconformance. Where the correction leaves work non-complying, the request is itself a Hold Point (cl 8.3.2). Quality NCRs have no dedicated register; safety_ncr is the closest."
+- key: closeout.handover_documents_after_completion.tmr_mrts50
+  duty: Deliver every As Constructed document other than the drawings not later than four weeks after Practical Completion
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: quality
+  duty_shape: closeout.handover_documents_after_completion
+  trigger: practical_completion_reached
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.tmr.qld.gov.au/-/media/busind/techstdpubs/Specifications-and-drawings/Specifications/1-Overarching-Specifications/MRTS50.pdf?la=en
+    clause: cl 12.4.2
+    access_date: '2026-10-13'
+  evidence:
+    kind: not_collected
+    register: drawing_register
+  clause: cl 12.4.2
+  window:
+    value: 28
+    unit: days
+  caveat: "'Four weeks' converted to 28 days (no weeks unit). The drawings themselves are closeout.as_constructed_records.tmr_mrts50 (cl 12.1, a condition precedent to the Certificate of Practical Completion). Documents may be delivered progressively, and data the Administrator needs during construction to release Hold Points or accept works is given in real time on request without shortening this window. Recorded as not_collected against drawing_register, the nearest register to a handover set."
