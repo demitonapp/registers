@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- **MRTS50 carries its quality-system clocks, not only its closeout rows.**
+  `obligations/AU-QLD/tmr_mrts50.yaml` gains seven rows read from the March
+  2025 edition: the daily lot list (cl 7.4), the one-working-day Hold Point
+  release response (cl 8.3.2), the one-working-day Witness Point notice
+  (cl 8.3.3), the 14-day testing-frequency nomination (cl 8.5), the per-lot
+  Conformance Report (cl 10.1.1), the Nonconformance Report owed within one
+  working day of a corrective action request (cl 10.2, the clause's second
+  clock) and the four-week handover of the other As Constructed documents
+  (cl 12.4.2). Seven duty shapes are added for them, and one event type,
+  `practical_completion_reached` on `project_milestone`, for the handover
+  watch. No contract changes.
+
 - **Ireland, England, South Africa and Ontario are project countries.**
   `vocab/jurisdictions.json` marks `IE`, `GB`, `ZA` and `CA` `supported: true`,
   switches on `CA-ON`, and adds the subdivisions a project sits in: England
