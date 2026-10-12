@@ -1,0 +1,106 @@
+"""SM052 D5: a release's kinds are computed from the diff against the previous tag,
+and a tag whose CHANGELOG section does not declare them is refused.
+
+    python -m pytest tests/test_release_kind.py -q
+
+The first three tests read real tags, so the checkout needs them (CI checks out
+with fetch-depth 0). The rest use two-row trees: no row carries `in_force` until
+dated versions land, so the amendment rules have no real tag to read yet.
+"""
+from __future__ import annotations
+
+import sys
+from datetime import date
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from release_kind import Tree, business_days_between, classify, computed_kinds, refusals, release_json, tree_at  # noqa: E402
+
+V16_DATE = date(2026, 10, 12)  # v14, v15 and v16 were all tagged that day
+
+
+@pytest.fixture(scope="module")
+def tags() -> dict[str, Tree]:
+    return {t: tree_at(t) for t in ("v13", "v14", "v15", "v16")}
+
+
+def test_v13_to_v14_is_a_correction_only(tags) -> None:
+    # Two NZ rows reworded (hswa_2015, nzs3910_2013); nothing added.
+    assert computed_kinds(classify(tags["v13"], tags["v14"], V16_DATE)) == {"correction"}
+
+
+def test_v14_to_v15_includes_a_wave(tags) -> None:
+    changes = classify(tags["v14"], tags["v15"], V16_DATE)
+    assert computed_kinds(changes) == {"wave", "correction"}
+    assert {c.key for c in changes if c.kind == "wave"} == {
+        r["key"] for i in tags["v15"].instruments if i["id"] == "tfnsw_c41" for r in i["obligations"]
+    }
+    # duty_shape added to every existing row is a changed field: a correction.
+    assert sum(c.kind == "correction" for c in changes) == 428
+
+
+def test_v15_to_v16_is_a_wave_only(tags) -> None:
+    changes = classify(tags["v15"], tags["v16"], V16_DATE)
+    assert computed_kinds(changes) == {"wave"}
+    assert {"IE", "GB", "ZA", "CA", "GB-ENG", "CA-ON"} <= {c.key for c in changes}
+
+
+TAG_DATE = date(2026, 11, 2)
+
+
+def _tree(*rows: dict, instrument: str = "act", supported: tuple[str, ...] = ("AU",)) -> Tree:
+    return Tree([{"id": instrument, "title": "An Act", "obligations": list(rows)}], frozenset(supported))
+
+
+def _row(key: str = "a.b.c", **extra) -> dict:
+    return {"key": key, "duty": "Give notice.", **extra}
+
+
+def test_a_version_in_force_after_the_tag_is_an_amendment() -> None:
+    old = _tree(_row())
+    new = _tree(_row(in_force={"until": "2026-12-31"}), _row(duty="Give written notice.", in_force={"from": "2027-01-01"}))
+    changes = classify(old, new, TAG_DATE)
+    assert computed_kinds(changes) == {"amendment"}
+    assert {c.commences for c in changes} == {date(2027, 1, 1)}
+
+
+def test_a_version_in_force_on_or_before_the_tag_is_a_correction() -> None:
+    old = _tree(_row())
+    new = _tree(_row(in_force={"from": "2026-11-02"}))
+    assert computed_kinds(classify(old, new, TAG_DATE)) == {"correction"}
+
+
+def test_a_removed_key_is_a_correction_and_a_new_instrument_a_wave() -> None:
+    old = _tree(_row("a.b.c"), _row("a.b.d"))
+    new = Tree(_tree(_row("a.b.c")).instruments + _tree(_row("x.y.z"), instrument="new_act").instruments, frozenset({"AU"}))
+    changes = classify(old, new, TAG_DATE)
+    assert {(c.kind, c.key) for c in changes} == {("correction", "a.b.d"), ("wave", "x.y.z")}
+
+
+def test_a_new_undated_key_in_an_existing_instrument_is_a_wave_its_author_may_call_a_correction() -> None:
+    changes = classify(_tree(_row("a.b.c")), _tree(_row("a.b.c"), _row("a.b.d")), TAG_DATE)
+    assert [(c.kind, c.alt) for c in changes] == [("wave", "correction")]
+    assert refusals(changes, "## v17, 2026-11-02: correction\n", "v17", TAG_DATE) == []
+    assert refusals(changes, "## v17, 2026-11-02: amendment\n", "v17", TAG_DATE) != []
+
+
+def test_a_tag_must_declare_every_computed_kind_and_a_real_wave_day() -> None:
+    old = _tree(_row())
+    new = Tree(_tree(_row(duty="Fixed.")).instruments + _tree(_row("x.y.z"), instrument="new_act").instruments, frozenset({"AU"}))
+    changes = classify(old, new, TAG_DATE)
+    assert refusals(changes, "# Changelog\n", "v17", TAG_DATE)  # no section at all
+    assert refusals(changes, "## v17, 2026-10-14: correction\n", "v17", TAG_DATE)  # the wave undeclared
+    assert refusals(changes, "## v17, 2026-10-14: wave, correction\n", "v17", TAG_DATE)  # no wave date
+    assert refusals(changes, "## v17, 2026-10-14: wave of 2026-11-09, correction\n", "v17", TAG_DATE)  # second Monday
+    good = "## v17, 2026-10-14: wave of 2026-11-02, correction\n"
+    assert refusals(changes, good, "v17", date(2026, 10, 14)) == []
+    assert release_json(changes, good, "v17") == {"tag": "v17", "kinds": ["wave", "correction"], "wave_on": "2026-11-02", "amendments": []}
+
+
+def test_the_amendment_lead_counts_weekdays() -> None:
+    # Monday 2 Nov to Monday 30 Nov 2026: four weeks, 20 weekdays.
+    assert business_days_between(date(2026, 11, 2), date(2026, 11, 30)) == 20

@@ -39,6 +39,24 @@ proposal opened by Demiton's own product on a customer's behalf (an org admin
 proposing a public obligation their job needs) is reviewed the same way as one
 opened by anyone else.
 
+## When an obligation change reaches a release
+
+Every release names the kinds of change it carries, in its CHANGELOG section and
+in the `RELEASE.json` inside its obligations asset, and the release workflow
+computes them rather than trusting the label (CONTRIBUTING.md, "Which branch").
+
+- **A wave** (additions) is released on the first Monday of February, May, August
+  or November, with its notes in this CHANGELOG at least four weeks before. No
+  wave falls over Christmas. The first, on 2 November 2026, was announced with
+  less than four weeks' notice.
+- **An amendment** to a law the library already carries is released before the
+  amendment commences, whatever the date. A tag cut fewer than 20 business days
+  before commencement is released anyway, with a warning in its notes.
+- **A correction** is released the same day it is merged.
+
+Each wave opens with a review of the supported instruments for new versions and
+amendments, and a choice of the standards to add.
+
 ## How fast
 
 A first response to every dispute issue and pull request within **10 working days**.

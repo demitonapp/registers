@@ -2,7 +2,7 @@ name: validate
 
 on:
   push:
-    branches: [main]
+    branches: [main, next]
   pull_request:
 
 jobs:
@@ -20,6 +20,10 @@ jobs:
       - run: uv run python scripts/validate.py
       - run: uv run python -m pytest tests/ -q
       - run: uv run python scripts/bump_check.py --base "origin/${{ github.base_ref || 'main' }}"
+        if: github.event_name == 'pull_request'
+      # Informational: the kinds this pull request carries. A `wave` belongs on `next`
+      # (CONTRIBUTING.md); `main` takes amendments and corrections.
+      - run: uv run python scripts/release_kind.py --base "origin/${{ github.base_ref }}"
         if: github.event_name == 'pull_request'
       - name: leak check
         run: uv run python scripts/leak_check.py
