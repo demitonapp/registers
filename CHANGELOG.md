@@ -7,9 +7,10 @@ date), `amendment` (a rule in force from a date after the tag) or `correction`
 (a row that was wrong). `scripts/release_kind.py` computes the kinds from the
 diff against the previous tag, and the release workflow refuses a tag whose
 section does not declare every one. Cutting a tag turns `## Unreleased` into
-that section. The bullets under `## Unreleased` today cover v1 to v16 as well:
-the next tag moves the ones added since v16 into its own section and heads the
-rest `## v16 and earlier`, text unchanged.
+that section. The bullets under `## Unreleased` today cover v1 to v17 as well
+(v17, MRTS50's seven rows, was cut before this rule and declared a correction):
+the next tag moves the ones added since v17 into its own section and heads the
+rest `## v17 and earlier`, text unchanged.
 
 ## Unreleased
 
