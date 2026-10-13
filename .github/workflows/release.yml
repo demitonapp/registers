@@ -13,6 +13,11 @@ name: release
 # the flattened set is checked against that directory. `holidays/` travels with it
 # too: an obligation's window in business days means nothing without the state's
 # public holidays to count around.
+#
+# `RELEASE.json` rides in the obligations asset too (SM052 D5): `release_kind.py`
+# computes the release's kinds from the diff against the previous tag and refuses
+# the tag when CHANGELOG.md's `## vN, YYYY-MM-DD: <kinds>` section does not declare
+# every one. The monorepo's release gate reads the file's `wave_on`.
 on:
   push:
     tags: ["v*"]
@@ -25,6 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # the previous tag, for release_kind.py and its tests
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -32,16 +39,21 @@ jobs:
       - run: uv sync --locked
       - run: uv run python scripts/validate.py
       - run: uv run python -m pytest tests/ -q
+      - name: release kind
+        run: uv run python scripts/release_kind.py --base "$(git describe --tags --abbrev=0 "${TAG}^")" --tag "$TAG" --out RELEASE.json
+        env:
+          TAG: ${{ github.ref_name }}
       - run: |
           rm -rf dist
           mkdir -p dist/obligations
+          cp RELEASE.json dist/RELEASE.json
           uv run python scripts/resolve.py --out dist/obligations
           cp -r vocab dist/vocab
           cp -r holidays dist/holidays
           tar -czf "registers-contracts-${TAG}.tar.gz" contracts
           tar -czf "registers-research-${TAG}.tar.gz" research
           tar -czf "registers-history-${TAG}.tar.gz" history
-          tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab holidays
+          tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab holidays RELEASE.json
         env:
           TAG: ${{ github.ref_name }}
       - run: |

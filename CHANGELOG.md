@@ -1,6 +1,30 @@
 # Changelog
 
+From the next tag on, each release has its own section, headed
+`## vN, YYYY-MM-DD: <kinds>`: the tag, its date, and every kind of change it
+carries, `wave of YYYY-MM-DD` (an addition, which production takes only on that
+date), `amendment` (a rule in force from a date after the tag) or `correction`
+(a row that was wrong). `scripts/release_kind.py` computes the kinds from the
+diff against the previous tag, and the release workflow refuses a tag whose
+section does not declare every one. Cutting a tag turns `## Unreleased` into
+that section. The bullets under `## Unreleased` today cover v1 to v17 as well
+(v17, MRTS50's seven rows, was cut before this rule and declared a correction):
+the next tag moves the ones added since v17 into its own section and heads the
+rest `## v17 and earlier`, text unchanged.
+
 ## Unreleased
+
+- **Each release says its kind.** `scripts/release_kind.py --base <previous tag>`
+  flattens both trees and classifies every difference: a new instrument, or a
+  jurisdiction switched to `supported`, is a wave; a version in force from after
+  the tag date is an amendment; a changed field, a removed key, or a version in
+  force on or before the tag date is a correction. A new key with no in-force
+  date in an instrument that already existed computes as a wave, and its section
+  may declare it a correction instead. The release workflow refuses a tag whose
+  section does not declare every computed kind, and the obligations asset
+  carries `RELEASE.json` (`{tag, kinds, wave_on, amendments}`). Waves fall on
+  the first Monday of February, May, August and November; the first is
+  2 November 2026. No contract or row changes.
 
 - **MRTS50 carries its quality-system clocks, not only its closeout rows.**
   `obligations/AU-QLD/tmr_mrts50.yaml` gains seven rows read from the March
