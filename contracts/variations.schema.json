@@ -120,6 +120,11 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "submission_date": {
+      "description": "Date the advice was submitted to the client, as printed on the form; the day its notice window runs from",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
     "summary": {
       "description": "Engine-generated human summary folding the parsed keys",
       "type": "string",
@@ -147,7 +152,7 @@
   ],
   "title": "variations contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.1.0",
   "x-demiton-provenance": {
     "standards": [
       {

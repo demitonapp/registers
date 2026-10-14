@@ -14,6 +14,12 @@ rest `## v17 and earlier`, text unchanged.
 
 ## Unreleased
 
+- **`submission_date` on `variations`** (contract `variations` 1.1.0, MINOR: one
+  new optional property). The date an advice was submitted to the client, as
+  printed on the form. A variation notice window runs from it: the day a
+  document happens to be read is not when the advice was given, and a re-read
+  would move it. No obligation rows change.
+
 - **Each release says its kind.** `scripts/release_kind.py --base <previous tag>`
   flattens both trees and classifies every difference: a new instrument, or a
   jurisdiction switched to `supported`, is a wave; a version in force from after
