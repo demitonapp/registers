@@ -7,12 +7,13 @@ date), `amendment` (a rule in force from a date after the tag) or `correction`
 (a row that was wrong). `scripts/release_kind.py` computes the kinds from the
 diff against the previous tag, and the release workflow refuses a tag whose
 section does not declare every one. Cutting a tag turns `## Unreleased` into
-that section. The bullets under `## Unreleased` today cover v1 to v17 as well
-(v17, MRTS50's seven rows, was cut before this rule and declared a correction):
-the next tag moves the ones added since v17 into its own section and heads the
-rest `## v17 and earlier`, text unchanged.
+that section. v18 is the first tag cut this way; `## v17 and earlier` holds
+every bullet from v1 to v17, text unchanged (v17, MRTS50's seven rows, was cut
+before this rule and declared a correction).
 
 ## Unreleased
+
+## v18, 2026-10-14: no obligation rows change
 
 - **`submission_date` on `variations`** (contract `variations` 1.1.0, MINOR: one
   new optional property). The date an advice was submitted to the client, as
@@ -31,6 +32,8 @@ rest `## v17 and earlier`, text unchanged.
   carries `RELEASE.json` (`{tag, kinds, wave_on, amendments}`). Waves fall on
   the first Monday of February, May, August and November; the first is
   2 November 2026. No contract or row changes.
+
+## v17 and earlier
 
 - **MRTS50 carries its quality-system clocks, not only its closeout rows.**
   `obligations/AU-QLD/tmr_mrts50.yaml` gains seven rows read from the March
