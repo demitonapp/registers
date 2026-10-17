@@ -1,0 +1,118 @@
+# Chapter 39.08 RCW (Contractor's bond), read in full from app.leg.wa.gov/RCW
+# on 2026-10-18. The latest session law in the chapter is 2025 c 103 s 2 (RCW
+# 39.08.030). RCW 39.08.010 was last amended by 2017 c 75, 39.08.015 dates from
+# 1909, and 39.08.065 was last amended by 2011 c 336. Read with RCW 39.04.152(5)
+# (small works bonds) and RCW 60.28.011 (retainage).
+#
+# The bond is required whenever the state, a county, a municipality or another
+# public body contracts for work (RCW 39.08.010(1)(a)). Days are counted under
+# RCW 1.12.040 (the first day excluded, the last included unless it is a
+# Saturday, Sunday or holiday, which is then also excluded). This library holds
+# no Washington holiday calendar.
+id: rcw_39_08_contractors_bond_us_wa
+source: law
+instrument_type: act
+title: Contractor's Bond, chapter 39.08 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.08
+  access_date: '2026-10-18'
+  version: Chapter 39.08 RCW as published on app.leg.wa.gov on 2026-10-18 (latest session law in the chapter 2025
+    c 103 s 2, amending RCW 39.08.030)
+obligations:
+- key: closeout.public_works_bond.us-wa
+  duty: Give the public body a bond with a surety company, for the full contract price, conditioned to perform the
+    contract and to pay all laborers, mechanics, subcontractors and suppliers
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: closeout.contractors_bond
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.08.010
+    clause: RCW 39.08.010(1)-(5), 39.08.015, 39.08.030(1)(a), (2); 39.04.152(5)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.08.010(1)-(5), 39.08.015, 39.08.030(1)(a), (2); 39.04.152(5)
+  caveat: The bond also covers the taxes, increases and penalties under Titles 50, 51 and 82 RCW on a federally
+    funded transportation project with no retainage, or where it is so conditioned (RCW 39.08.010(1)(a)(iii)). Cities,
+    towns, public transportation benefit areas and passenger-only ferry service districts may fix a lower amount,
+    not below 25% of the contract price, and water-sewer districts not below the full price (RCW 39.08.030(1)(a)).
+    On a contract of USD 150,000 or less, at the contractor's option the public body may instead retain 10% of the
+    contract amount for 30 days after final acceptance or until the DOR, ESD and L&I releases and settlement of
+    any chapter 60.28 RCW liens, whichever is later, and may accept a payment and performance bond from individual
+    sureties (RCW 39.08.010(3), (4)). A small public works contract under USD 5,000 needs no performance bond (RCW
+    39.04.152(5)). Job order contracts are bonded to the value of all open work orders, and design-build contracts
+    to the construction portion (RCW 39.08.030(2)). The surety must agree to be bound by Washington law and courts
+    (RCW 39.08.010(5)). A county, city, town or other municipal corporation that fails to take the bond is liable
+    to the protected persons for the full amount of their debts (RCW 39.08.015). The chapter states no consequence
+    for the contractor; mapped to breach as a condition of contracting. No register holds the bond, so this is recorded
+    not_collected.
+- key: payment.bond_claim_notice.us-wa
+  duty: As a laborer, mechanic, subcontractor or supplier, file a written notice of claim against the contractor's
+    bond with the public body within 30 days after the contract is completed and the work accepted
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: payment.bond_claim_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.08.030
+    clause: RCW 39.08.010(1), (2), 39.08.030(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 39.08.010(1), (2), 39.08.030(1)
+  window:
+    value: 30
+    unit: days
+  caveat: 'Who may claim: laborers, mechanics, subcontractors, material suppliers and anyone who supplies the contractor
+    or its subcontractors with provisions and supplies for the work (RCW 39.08.010(1)(a)(ii)); a person furnishing
+    services or material to a subcontractor has the same rights as if it furnished the contractor (RCW 39.08.010(1)(b)).
+    Money loaned or advanced to a contractor is not covered (RCW 39.08.010(2)). The 30 days run from the completion
+    of the contract with an acceptance of the work by the affirmative action of the public body (RCW 39.08.030(1)(a)).
+    The notice follows in substance the form in the section, is signed by the claimant and becomes a public record
+    (RCW 39.08.030(1)). A claimant that sues on the bond recovers reasonable attorneys'' fees, but not in a suit
+    brought within 30 days after filing the notice (RCW 39.08.030(1)(b)). The 30 days do not apply to the state''s
+    claims for taxes (RCW 39.08.030(1)(b)). A supplier to a subcontractor must also have given the contractor the
+    RCW 39.08.065 notice (its own row). The section was last amended by 2025 c 103 s 2. No register dates the acceptance,
+    so no trigger is set. Calendar days: the chapter defines no business day. RCW 1.12.040 excludes the first day
+    and includes the last, unless the last day is a Saturday, Sunday or holiday, in which case that day is also
+    excluded.'
+- key: lien.bond_supplier_notice.us-wa
+  duty: When supplying materials, supplies or provisions to a subcontractor on a public work, give the contractor
+    written notice within 10 days after the first delivery that the contractor and its bond will be held for payment
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.prelien_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.08.065
+    clause: RCW 39.08.065
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 39.08.065
+  window:
+    value: 10
+    unit: days
+  caveat: 'The notice is delivered or mailed to the contractor, names the subcontractor or agent ordering or receiving
+    the materials, and states that the supplier has commenced to deliver and that the contractor and its bond will
+    be held for payment (RCW 39.08.065). Without it, no suit may be maintained against the contractor or its bond
+    for those materials, supplies or provisions (RCW 39.08.065). It applies to materials, supplies and provisions,
+    not to labor. Applies to the contractor when it supplies another contractor''s subcontractor. Calendar days:
+    the chapter defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless the last
+    day is a Saturday, Sunday or holiday, in which case that day is also excluded.'

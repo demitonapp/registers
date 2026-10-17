@@ -1,0 +1,183 @@
+# Chapter 60.04 RCW (Mechanics' and materialmen's liens), read in full from
+# app.leg.wa.gov/RCW on 2026-10-18. The latest session law in the chapter is
+# 2008 c 6 s 641 (RCW 60.04.211); the sections these rows rely on were last
+# amended by 1992 c 126 (RCW 60.04.011, .031, .091, .141) or date from 1991 c
+# 281 (RCW 60.04.021, .101, .131, .261), 1984 c 202 as amended by 1991 c 281
+# (RCW 60.04.230) and 2006 c 192 (RCW 60.04.081).
+#
+# These rows are for private works: the lien attaches to the owner's interest
+# in the improved land (RCW 60.04.051). On a public work, the remedies these
+# instruments record are the retainage lien (chapter 60.28 RCW) and the bond
+# claim (chapter 39.08 RCW). A contractor or subcontractor that must be
+# registered or licensed has lien rights only if it is (RCW 60.04.011(11),
+# 60.04.041). Days are counted under RCW 1.12.040 (the first day excluded, the
+# last included unless it is a Saturday, Sunday or holiday, which is then also
+# excluded). This library holds no Washington holiday calendar.
+id: rcw_60_04_mechanics_liens_us_wa
+source: law
+instrument_type: act
+title: Mechanics' and Materialmen's Liens, chapter 60.04 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04
+  access_date: '2026-10-18'
+  version: Chapter 60.04 RCW as published on app.leg.wa.gov on 2026-10-18 (latest session law in the chapter 2008
+    c 6 s 641; the sections relied on last amended by 1992 c 126)
+obligations:
+- key: lien.notice_to_owner.us-wa
+  duty: When furnishing professional services, materials or equipment without a contract with the owner or the prime
+    contractor, give the owner notice of the right to claim a lien, since it protects only what was supplied from
+    60 days before it
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.prelien_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04.031
+    clause: RCW 60.04.031(1)-(4), (6), 60.04.035
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.04.031(1)-(4), (6), 60.04.035
+  window:
+    value: 60
+    unit: days
+  caveat: 'Not required of a person contracting directly with the owner or its common law agent, of a laborer claiming
+    only for labor, or of a subcontractor contracting directly with the prime contractor (RCW 60.04.031(2)). Where
+    the prime contractor has complied with RCW 19.27.095, 60.04.230 and 60.04.261, the notice also goes to the prime
+    contractor unless the claimant contracted directly with it (RCW 60.04.031(1)). It may be given at any time but
+    protects only what was supplied after the date 60 days before it is mailed by certified or registered mail,
+    or delivered personally with a signed receipt or an affidavit of service (RCW 60.04.031(1)). For new construction
+    of a single-family residence the look-back is 10 days, and repair of an existing owner-occupied residence has
+    its own rules (RCW 60.04.031(1), (3)). The notice substantially follows the NOTICE TO OWNER form in the section
+    (RCW 60.04.031(4)). A lien is not enforced unless the claimant has complied with the section (RCW 60.04.031(6)).
+    The window is the look-back: notice within 60 days of first supply keeps all of it protected. Coercing a supplier
+    not to give this notice is an unfair or deceptive act under the consumer protection act (RCW 60.04.035). Calendar
+    days: the chapter defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless
+    the last day is a Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: lien.record_claim.us-wa
+  duty: Record a notice of claim of lien in the county where the property is located within 90 days after you last
+    furnished labor, professional services, materials or equipment
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.preserve
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04.091
+    clause: RCW 60.04.021, 60.04.081, 60.04.091, 60.04.101, 60.04.131
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.04.021, 60.04.081, 60.04.091, 60.04.101, 60.04.131
+  window:
+    value: 90
+    unit: days
+  caveat: 'Any person furnishing labor, professional services, materials or equipment for the improvement of real
+    property at the instance of the owner, its agent or its construction agent has a lien for the contract price
+    (RCW 60.04.021). For employee benefit contributions, the 90 days run from the last date they were due (RCW 60.04.091).
+    The notice states the claimant, the first and last dates of furnishing, the person indebted, the property, the
+    owner if known and the principal amount, and is signed under penalty of perjury and acknowledged (RCW 60.04.091(1),
+    (2)). The recording period is a period of limitation, and no action to foreclose may be maintained on a claim
+    not recorded within it (RCW 60.04.091). For two or more separate residential units the period runs from the
+    last furnishing on each (RCW 60.04.101). A claim recorded against two or more separate properties must designate
+    the amount due on each, or it is subordinated to other liens (RCW 60.04.131). A frivolous or clearly excessive
+    claim can be released or reduced on motion, with costs and attorneys'' fees against the claimant (RCW 60.04.081).
+    No register dates the last day of furnishing, so no trigger is set. Calendar days: the chapter defines no business
+    day. RCW 1.12.040 excludes the first day and includes the last, unless the last day is a Saturday, Sunday or
+    holiday, in which case that day is also excluded.'
+- key: lien.claim_copy_to_owner.us-wa
+  duty: Give the owner a copy of the claim of lien by certified or registered mail or personal service within 14
+    days of filing it for recording
+  consequence: costs_excluded
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.claim_service
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04.091
+    clause: RCW 60.04.091
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.04.091
+  window:
+    value: 14
+    unit: days
+  caveat: 'Failing to give the copy in time forfeits any right the claimant has to attorneys'' fees and costs against
+    the owner under RCW 60.04.181 (RCW 60.04.091). The section states no other consequence. The copy goes to the
+    owner or reputed owner (RCW 60.04.091). Calendar days: the chapter defines no business day. RCW 1.12.040 excludes
+    the first day and includes the last, unless the last day is a Saturday, Sunday or holiday, in which case that
+    day is also excluded.'
+- key: lien.foreclosure.us-wa
+  duty: File an action to enforce the lien in the superior court of the county where the property is within 8 calendar
+    months after recording the claim, and serve the owner within 90 days of filing it
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.perfect
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04.141
+    clause: RCW 60.04.141
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.04.141
+  window:
+    value: 8
+    unit: months
+  caveat: Without the action and service in time, the lien no longer binds the property (RCW 60.04.141). Where credit
+    is given and its terms are stated in the claim of lien, the 8 months run from the expiry of the credit (RCW
+    60.04.141). It is a period of limitation, tolled by an owner's petition for protection under Title 11 of the
+    United States Code (RCW 60.04.141). An action not prosecuted to judgment within two years may be dismissed for
+    want of prosecution at the court's discretion, and the dismissal cancels the lien (RCW 60.04.141). The 90 days
+    for service are calendar days under RCW 1.12.040, which excludes the first day and includes the last, unless
+    the last day is a Saturday, Sunday or holiday, in which case that day is also excluded. RCW 1.12.040 excludes
+    the first day and includes the last, and excludes a last day that is a Saturday, Sunday or holiday; whether
+    that extension reaches a period stated in months was not checked.
+- key: lien.jobsite_posting.us-wa
+  duty: As prime contractor on a project costing more than USD 5,000, post a legible notice in plain view at the
+    jobsite for the whole project with the property, owner and prime contractor details and the construction lender
+    or payment bond surety
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: whs.constructor_site_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.04.230
+    clause: RCW 60.04.011(12), 60.04.230, 60.04.261
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 60.04.011(12), 60.04.230, 60.04.261
+  caveat: The notice shows the legal description or tax parcel number and street address, the owner's name, address
+    and phone number, the prime contractor's business name, address, phone number and current state contractor registration
+    number, and either the office of the lender administering interim construction financing or the surety on a
+    payment bond for at least 50% of the project (RCW 60.04.230(1)). Where the project needs a building permit,
+    complying with the posting rule of RCW 19.27.095 satisfies this section (RCW 60.04.230(2)). Failure exposes
+    the prime contractor to a civil penalty of up to USD 5,000, payable to the county where the project is (RCW
+    60.04.230(3)). The prime contractor must also immediately give the information listed in RCW 19.27.095(2) to
+    each subcontractor, supplier and professional once it learns their identity and mailing address (RCW 60.04.261);
+    RCW 19.27.095 itself was not read. A prime contractor is one that contracts directly with the owner or its common
+    law agent (RCW 60.04.011(12)). The section sets no day count. No register holds site postings, so this is recorded
+    not_collected.

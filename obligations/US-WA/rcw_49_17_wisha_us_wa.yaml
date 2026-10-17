@@ -1,0 +1,66 @@
+# Washington Industrial Safety and Health Act (WISHA), chapter 49.17 RCW, read
+# on app.leg.wa.gov on 2026-10-18: ss 49.17.120, 49.17.140, 49.17.180 and
+# 49.17.190 in full, and the section list. Section 49.17.140 was last amended
+# by 2026 c 77 s 16 (notice by a tracked or delivery-confirmed method,
+# electronic or not), s 49.17.120 by 2026 c 19 s 1.
+#
+# Only one row is drawn from the Act. Its incident reporting duty is in WAC
+# 296-27-031 (see wac_296_27_incident_reporting_us_wa), so the contractor-facing
+# duty here with a clear window that that instrument does not cover is the
+# appeal of a citation. The Act counts it in working days and does not define
+# a working day. WAC 296-155-012 (construction, read the same day) defines one
+# for that chapter as a calendar day except Saturdays, Sundays and legal
+# holidays under RCW 1.16.050, excluding the first working day and including
+# the last; that definition is stated for chapter 296-155 WAC only. RCW
+# 1.12.040 excludes the first day and includes the last, and excludes a last
+# day that is a holiday, Saturday or Sunday. This library holds no Washington
+# holiday calendar.
+id: rcw_49_17_wisha_us_wa
+source: law
+instrument_type: act
+title: Washington Industrial Safety and Health Act, chapter 49.17 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=49.17
+  access_date: '2026-10-18'
+  version: Revised Code of Washington as published on app.leg.wa.gov on 2026-10-18; s 49.17.140 last amended
+    by 2026 c 77 s 16
+obligations:
+- key: whs.citation_appeal.us-wa
+  duty: Notify the director of Labor and Industries within 15 working days of a citation or penalty notice
+    that you wish to appeal it, or it becomes a final order that no court or agency can review
+  consequence: barred
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.citation_appeal
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=49.17.140
+    clause: RCW 49.17.120(3), (4), 49.17.140(1)-(5), (8)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 49.17.120(3), (4), 49.17.140(1)-(5), (8)
+  window:
+    value: 15
+    unit: working_days
+  caveat: 'Binds the employer cited after an inspection or investigation (s 49.17.140(1)). The same 15 working
+    days apply to a notice that a cited violation was not corrected and to a notice of violating an order
+    of immediate restraint (s 49.17.140(2), (3)). The period runs from the communication of the notice, which
+    the department must send by a method that can be tracked or whose delivery can be confirmed (s 49.17.140(1)),
+    and before its first electronic notice it must offer the employer a nonelectronic method (s 49.17.140(8)). If the director reassumes
+    jurisdiction, the redetermination is due within 75 working days and becomes final unless appealed to
+    the Board of Industrial Insurance Appeals within 15 working days (s 49.17.140(4)). A notice of appeal
+    stays the citation and penalty, but not an order of immediate restraint (s 49.17.140(4)). An appeal of
+    a serious, willful or repeated serious violation, or a failure to abate one, does not stay the abatement
+    dates unless the notice of appeal asks for a stay, and abatement is stayed only while that request is
+    pending or once it is granted (s 49.17.140(5)(a), (f)). Each citation must be posted prominently
+    at or near each place a violation occurred (s 49.17.120(3)), and none may issue more than 6 months after
+    the inspection (s 49.17.120(4)). The Act does not define a working day, so this row reads one as a calendar
+    day other than a Saturday, Sunday or legal holiday, the definition WAC 296-155-012 gives for the construction
+    rules. No register records a citation or its date of communication, so this is recorded not_collected.'

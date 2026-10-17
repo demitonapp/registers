@@ -1,0 +1,148 @@
+# Chapter 39.76 RCW (Interest on unpaid public contracts), read in full from
+# app.leg.wa.gov/RCW on 2026-10-18. RCW 39.76.011 dates from 1992 c 223 s 1
+# (in force 1 September 1992) and RCW 39.76.020 was last amended by 2009 c
+# 219; no later session law amends the chapter.
+#
+# The chapter binds every state agency, county, city, town, school district,
+# board, commission and other public body on written contracts for public works,
+# personal services, goods and services, equipment and travel (RCW
+# 39.76.011(1)), and the prime contractor on a public works contract when it
+# withholds from a subcontractor (RCW 39.76.011(2)(e)). It mixes calendar days
+# and working days and defines neither; days are counted under RCW 1.12.040 (the
+# first day excluded, the last included unless it is a Saturday, Sunday or
+# holiday, which is then also excluded). This library holds no Washington
+# holiday calendar.
+id: rcw_39_76_interest_unpaid_public_contracts_us_wa
+source: law
+instrument_type: act
+title: Interest on Unpaid Public Contracts, chapter 39.76 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.76
+  access_date: '2026-10-18'
+  version: Chapter 39.76 RCW as published on app.leg.wa.gov on 2026-10-18 (RCW 39.76.011 as enacted by 1992 c 223
+    s 1; RCW 39.76.020 last amended by 2009 c 219 s 5)
+obligations:
+- key: payment.public_body_due_date.us-wa
+  duty: Be paid by the public body on the date the contract specifies, and not later than 30 days after it receives
+    a properly completed invoice or the goods or services, whichever is later
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.due_date
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.76.011
+    clause: RCW 39.76.011(1), (2)(a), (3)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: RCW 39.76.011(1), (2)(a), (3)
+  window:
+    value: 30
+    unit: days
+  caveat: 'On a contract funded by grant or federal money the public body pays the prime contractor for satisfactory
+    performance within 30 calendar days of receiving a payment request that complies with the contract, or of actually
+    receiving the grant or federal money, whichever is later (RCW 39.76.011(2)(a)). A payment is made when mailed
+    or personally delivered (RCW 39.76.011(3)(a)). An invoice is received when date-stamped or otherwise marked
+    as delivered, and otherwise on the date of the invoice (RCW 39.76.011(3)(b)). Late payment carries interest
+    at 1% per month (its own row). No trigger is set, as for the other jurisdictions'' due date rows. Calendar days:
+    the chapter defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless the last
+    day is a Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: payment.public_works_withholding_notice.us-wa
+  duty: Receive any written notice that a public works payment is withheld, stating specifically why and the remedial
+    action required, within 8 working days after the public body receives the payment request
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.schedule_due
+  trigger: claim_lodged
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.76.011
+    clause: RCW 39.76.011(2)(b)-(d), (3)(b)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: payment_schedule
+    system_type: finance
+  clause: RCW 39.76.011(2)(b)-(d), (3)(b)
+  window:
+    value: 8
+    unit: working_days
+  caveat: Applies on written contracts for public works when the public body withholds part or all of a payment
+    for unsatisfactory performance or because the request does not comply with the contract (RCW 39.76.011(2)(b)).
+    A notice that does not state the reasons and remedial actions costs the public body interest at 1% per month
+    from the ninth working day after receipt of the request until the contractor receives a notice that does (RCW
+    39.76.011(2)(c)). A withheld amount is due within 30 calendar days after the prime contractor satisfactorily
+    completes the remedial actions, and carries interest from the thirty-first calendar day until paid (RCW 39.76.011(2)(d)).
+    The section counts from the public body's receipt of the request, while claim_lodged dates the request when
+    given; an invoice is received when date-stamped or marked as delivered, and otherwise on its own date (RCW 39.76.011(3)(b)).
+    The chapter does not define a working day. RCW 1.12.040 excludes the first day and includes the last, unless
+    the last day is a Saturday, Sunday or holiday, in which case that day is also excluded.
+- key: payment.public_body_interest.us-wa
+  duty: Charge the public body interest at 1% per month, and at least USD 1 a month, on any amount it does not pay
+    on time
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.interest
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.76.011
+    clause: RCW 39.76.011(1), 39.76.020, 39.76.040
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: progress_claim
+  clause: RCW 39.76.011(1), 39.76.020, 39.76.040
+  caveat: The chapter does not apply to interagency or intergovernmental transactions; to expense reimbursements
+    of public employees; to belated claims for any delinquency after July 31 following the second year of the fiscal
+    biennium; to a claim in good faith dispute where, before the date of timely payment, notice of the dispute is
+    sent by certified mail, personally delivered or sent as the contract provides; to delinquencies from natural
+    disasters, disruption of postal or delivery service, labor dispute work stoppages, power failures or any other
+    cause clearly beyond the public body's control; to contracts entered before 26 July 1981; or to payments from
+    the listed retirement systems (RCW 39.76.020). The prevailing party in an action to collect the interest is
+    entitled to reasonable attorney fees (RCW 39.76.040). The progress_claim register holds the amount but not the
+    interest charged on it, so this is recorded not_collected.
+- key: payment.subcontractor_withholding_notice.us-wa
+  duty: Before withholding a subcontractor's payment for unsatisfactory performance, give it notice of the remedial
+    action needed before its payment is due, copy the notice to the public body, and pay within 8 working days after
+    the remedy is complete
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.non_payment_notice_to_subcontractor
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.76.011
+    clause: RCW 39.76.011(2)(e)
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 39.76.011(2)(e)
+  window:
+    value: 8
+    unit: working_days
+  caveat: Applies to the prime contractor on a public works contract that, after requesting payment from the public
+    body and before paying the subcontractor, discovers that part or all of the subcontractor's payment is subject
+    to withholding under the subcontract for unsatisfactory performance (RCW 39.76.011(2)(e)(i)). The subcontract
+    must allow the withholding, and the notice is given as soon as practicable after the cause is determined and
+    before the subcontractor's payment is due (RCW 39.76.011(2)(e)(i)(A)). A prime contractor that does not follow
+    the notice and payment rules owes the subcontractor interest on the withheld amount at 1% per month from the
+    eighth working day (RCW 39.76.011(2)(e)(ii)). The 10 day rule for paying amounts not withheld is in rcw_39_04_public_works_us_wa.
+    The chapter does not define a working day. RCW 1.12.040 excludes the first day and includes the last, unless
+    the last day is a Saturday, Sunday or holiday, in which case that day is also excluded.

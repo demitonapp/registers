@@ -1,0 +1,279 @@
+# Chapter 60.28 RCW (Lien for labor, materials, taxes on public works), read in
+# full from app.leg.wa.gov/RCW on 2026-10-18. The latest session law in the
+# chapter is 2017 c 302 s 1 (RCW 60.28.011); RCW 60.28.015 was last amended by
+# 1986 c 314, 60.28.021 by 2009 c 432, 60.28.030 by 2012 c 117, 60.28.040 by
+# 2014 c 97, 60.28.051 by 2009 c 432 and 60.28.060 by 2012 c 117. Read with RCW
+# 39.12.040 (the affidavit of wages paid before retainage is released) and RCW
+# 39.04.152(5) (small works retainage).
+#
+# The chapter governs every public improvement contract of the state or a
+# county, city, town, district, board or other public body, other than for
+# professional services (RCW 60.28.011(12)). A contract funded in whole or part
+# by federal transportation funds holds no retainage and relies on the chapter
+# 39.08 RCW bond (RCW 60.28.011(1)(b)), and a farmers home administration
+# project is outside RCW 60.28.011(1) to (9) (RCW 60.28.011(10)). The
+# department of revenue (DOR), the employment security department (ESD) and the
+# department of labor and industries (L&I) each certify the contractor's taxes
+# before retainage is paid out. Days are counted under RCW 1.12.040 (the first
+# day excluded, the last included unless it is a Saturday, Sunday or holiday,
+# which is then also excluded). This library holds no Washington holiday
+# calendar.
+id: rcw_60_28_retainage_us_wa
+source: law
+instrument_type: act
+title: Lien for Labor, Materials, Taxes on Public Works (retained percentage), chapter 60.28 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28
+  access_date: '2026-10-18'
+  version: Chapter 60.28 RCW as published on app.leg.wa.gov on 2026-10-18 (latest session law in the chapter 2017
+    c 302 s 1, amending RCW 60.28.011)
+obligations:
+- key: closeout.retainage_cap.us-wa
+  duty: Have the public body retain no more than 5% of the moneys earned, held at the contractor's option in a fund,
+    an interest-bearing account or escrow
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_cap
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(1), (3), (4), (9), (10), 60.28.040(5); 39.04.152(5)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: RCW 60.28.011(1), (3), (4), (9), (10), 60.28.040(5); 39.04.152(5)
+  caveat: The retainage is a trust fund for the claims of any person arising under the contract and for the state's
+    taxes, increases and penalties under Titles 50, 51 and 82 RCW (RCW 60.28.011(1)(a)). The contractor chooses
+    whether it is kept in a fund by the public body, deposited in an interest-bearing account with the interest
+    paid to the contractor, or placed in escrow in bonds and securities the contractor chooses and the public body
+    approves (RCW 60.28.011(4)). The contractor may at any time ask that retainage be reduced to 100% of the value
+    of the work remaining (RCW 60.28.011(3)). No other reservation from the moneys earned is allowed (RCW 60.28.011(9)).
+    A contract funded in whole or part by federal transportation funds holds no retainage and relies on the contract
+    bond under chapter 39.08 RCW (RCW 60.28.011(1)(b)). A small public works contract under USD 5,000 needs no retainage,
+    and above that the awarding body may reduce or waive retainage, assuming liability for the contractor's nonpayment
+    of its workers, subcontractors and suppliers and of the state's taxes (RCW 39.04.152(5)). Employees not paid
+    the prevailing wage have a first priority lien on the bond or retainage (RCW 60.28.040(5)). The chapter states
+    no consequence for retaining more.
+- key: closeout.retainage_from_subcontractors.us-wa
+  duty: Withhold no more than 5% of the moneys a subcontractor or supplier earns on a public project, and pay it
+    interest on that retainage at the rate you receive on your own
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_cap
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(4), (5); 39.04.250(2)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: RCW 60.28.011(4), (5); 39.04.250(2)
+  caveat: Binds the contractor and each subcontractor towards the subcontractors, sub-subcontractors and suppliers
+    it contracts with for labor, materials or equipment on the public project (RCW 60.28.011(5)). The interest rate
+    equals the rate the contractor or subcontractor receives from its own reserved funds, so it follows the option
+    chosen for the public body's retainage under RCW 60.28.011(4) (RCW 60.28.011(5)). Those not party to a good
+    faith dispute are entitled to full and prompt payment of their portion of released retainage (RCW 39.04.250(2)).
+    The section states no consequence of its own.
+- key: closeout.retainage_bond_release.us-wa
+  duty: Be released the bonded portion of retainage within 30 days after the public body accepts a retainage bond
+    you submit
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_release
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(6)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: RCW 60.28.011(6)
+  window:
+    value: 30
+    unit: days
+  caveat: 'The bond may cover all or any portion of the retainage, in a form acceptable to the public body and from
+    an authorized surety insurer; the public body may require a minimum A.M. Best financial strength rating no higher
+    than A- (RCW 60.28.011(6)). The bond and any proceeds are subject to all claims and liens in the same manner
+    and priority as retained percentages (RCW 60.28.011(6)). The section states no consequence for a late release.
+    Calendar days: the chapter defines no business day. RCW 1.12.040 excludes the first day and includes the last,
+    unless the last day is a Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: closeout.retainage_bond_for_subcontractor.us-wa
+  duty: Within 30 days of a subcontractor's request made before final acceptance, give the public body a bond for
+    the subcontractor's share of retainage, and release a subcontractor's retainage within 30 days after accepting
+    its like bond
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_bond_in_lieu
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(6)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: RCW 60.28.011(6)
+  window:
+    value: 30
+    unit: days
+  caveat: 'A subcontractor may ask at any time before final formal acceptance of the project, and the contractor
+    may withhold the subcontractor''s portion of the bond premium (RCW 60.28.011(6)). The duty does not arise if
+    the public body shows good cause to refuse the bond, the bond is not commercially available, or the subcontractor
+    refuses to pay its portion of the premium and to give the contractor a like bond (RCW 60.28.011(6)). Once the
+    public body accepts a bond in lieu from the contractor, the contractor must accept like bonds from any subcontractors
+    or suppliers it holds retainage from, and release their retainage within 30 days after accepting each bond (RCW
+    60.28.011(6)). The section states no consequence of its own. Calendar days: the chapter defines no business
+    day. RCW 1.12.040 excludes the first day and includes the last, unless the last day is a Saturday, Sunday or
+    holiday, in which case that day is also excluded.'
+- key: closeout.retainage_release.us-wa
+  duty: Be paid the retainage in full 60 days after completion of all contract work, once the lien notice period
+    has run and the DOR, ESD and L&I releases are in hand
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_release
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(3), (7), 60.28.021, 60.28.051, 60.28.060; 39.12.040(1)(b)
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: RCW 60.28.011(3), (7), 60.28.021, 60.28.051, 60.28.060; 39.12.040(1)(b)
+  window:
+    value: 60
+    unit: days
+  caveat: 'The release is subject to chapter 39.12 RCW and chapter 60.28 RCW (RCW 60.28.011(3)(b)), so each affidavit
+    of wages paid must be filed first (RCW 39.12.040(1)(b)). On completion of a contract over USD 35,000 the disbursing
+    officer notifies DOR, ESD and L&I, and may pay nothing from the retainage until each certifies that the contractor''s
+    taxes, increases and penalties are paid or readily collectible (RCW 60.28.051). Each department has 30 days
+    after that notice to certify any amount due, which the officer pays within 10 days (RCW 60.28.060). After the
+    45 day lien notice period and the three certificates, and once filed claims are paid with a sum to cover foreclosure
+    costs and attorneys'' fees, the public body may withhold for its own claims against the contractor and pays
+    the balance (RCW 60.28.021). Where taxes or claims remain unpaid, it keeps an amount equal to them plus those
+    costs and fees and releases the rest (RCW 60.28.021). After completion of all work other than landscaping the
+    contractor may ask for release, and 60 days later the public body releases all but 5% retained for landscaping
+    (RCW 60.28.011(3)(a)). If the public body deletes the remaining work for unreasonable delay with the contractor''s
+    agreement, retainage is held for 60 days following that completion (RCW 60.28.011(7)). Completion of all contract
+    work comes before final acceptance, and no register dates it, so no trigger is set. Calendar days: the chapter
+    defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless the last day is a
+    Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: lien.retainage_claim_notice.us-wa
+  duty: As a person who performed labor or furnished supplies on a public improvement, give notice of a lien on
+    the retainage within 45 days of completion of the contract work
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.preserve
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.011
+    clause: RCW 60.28.011(2), (11), 60.28.021; 39.08.030(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.28.011(2), (11), 60.28.021; 39.08.030(1)
+  window:
+    value: 45
+    unit: days
+  caveat: 'Every person performing labor or furnishing supplies toward completion of a public improvement contract
+    has a lien on the moneys the public body reserves (RCW 60.28.011(2)). The notice is given in the manner RCW
+    39.08.030 sets for a bond claim: a signed written notice filed with the public body naming the claimant, the
+    amount, the principal and surety and the work (RCW 60.28.011(2), 39.08.030(1)). Once the 45 day period has expired,
+    the certificates are in and filed claims are paid or provided for, the public body pays the balance to the contractor
+    (RCW 60.28.021). A supplier of materials, supplies or equipment must also have given the contractor the RCW
+    60.28.015 notice (its own row). On a general contractor/construction manager project, the public body may accept
+    a subcontract completed within the first half of the contract time, and claims against its retained funds after
+    the 45 day period are not valid (RCW 60.28.011(11)). Applies to the contractor when it is a subcontractor or
+    supplier. No register dates completion of the contract work, so no trigger is set. Calendar days: the chapter
+    defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless the last day is a
+    Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: lien.retainage_supplier_notice.us-wa
+  duty: When supplying materials, supplies or equipment for a public work, give the contractor written notice that
+    a lien on the retained percentage may be claimed, since it covers only what was furnished from 60 days before
+    it
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.prelien_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.015
+    clause: RCW 60.28.015
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.28.015
+  window:
+    value: 60
+    unit: days
+  caveat: 'The notice names the subcontractor that ordered the materials, supplies or equipment and states that
+    a lien against the retained percentage may be claimed (RCW 60.28.015). It is given by registered or certified
+    mail addressed to the contractor, or by personal service on the contractor or its representative with a signed
+    receipt or acknowledgment (RCW 60.28.015). Without it, no suit may be maintained against the retained percentage
+    for those materials, supplies or equipment (RCW 60.28.015). The notice covers what was furnished or leased in
+    the 60 days before it and everything after, so the window is 60 days from the first delivery to keep all of
+    it covered. Applies to the contractor when it supplies or leases to another contractor''s subcontractor; the
+    10 day notice for a claim on the contractor''s bond is in rcw_39_08_contractors_bond_us_wa. Calendar days: the
+    chapter defines no business day. RCW 1.12.040 excludes the first day and includes the last, unless the last
+    day is a Saturday, Sunday or holiday, in which case that day is also excluded.'
+- key: lien.retainage_foreclosure.us-wa
+  duty: Bring an action to foreclose a lien on the retainage within 4 months from filing the claim
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: lien.perfect
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=60.28.030
+    clause: RCW 60.28.030
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: RCW 60.28.030
+  window:
+    value: 4
+    unit: months
+  caveat: The action is brought in the superior court of the county where the claim was filed, and a prevailing
+    claimant recovers reasonable attorney fees in addition to costs (RCW 60.28.030). The public body certifies to
+    the court the contract, the dates of completion and final acceptance, the amount retained, the taxes certified
+    and the claims filed, which arrests payment of enough of the retainage to discharge them (RCW 60.28.030). If
+    no action is brought within the 4 months, the retainage is discharged from that claim and paid to the contractor;
+    the limit does not bar a suit against the contractor or its surety that seeks no foreclosure on the fund (RCW
+    60.28.030). RCW 1.12.040 excludes the first day and includes the last, and excludes a last day that is a Saturday,
+    Sunday or holiday; whether that extension reaches a period stated in months was not checked.

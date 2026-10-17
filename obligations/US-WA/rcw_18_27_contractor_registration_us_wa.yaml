@@ -1,0 +1,221 @@
+# Washington's registration of contractors, chapter 18.27 RCW, read on
+# app.leg.wa.gov on 2026-10-18: ss 18.27.010 to 18.27.111, 18.27.200, 18.27.205,
+# 18.27.250, 18.27.270 and 18.27.340 in full, and the section list. The chapter
+# was last amended by 2026 c 77 (ss 18.27.010, 18.27.060), and the bond amounts
+# by 2023 c 213 (s 18.27.040). Registration is with the Department of Labor
+# and Industries (L&I).
+#
+# "Contractor" is wide: anyone who, in an independent business, undertakes,
+# offers or bids to build, alter, repair, improve, develop or demolish any
+# building, highway, road, railroad, excavation or other structure, project or
+# improvement attached to real estate (s 18.27.010(1)(a)). Civil work is in
+# scope, subject to the s 18.27.090 exemptions, two of which matter on a civil
+# job: work within a site or reservation under federal jurisdiction (s
+# 18.27.090(7)) and contractors on highway projects prequalified with the
+# Department of Transportation under RCW 47.28.070 (s 18.27.090(16)). Public
+# works contracts with unregistered contractors are dealt with in RCW
+# 39.06.010 (s 18.27.111), which this read did not cover.
+#
+# Only the renewal row carries a period (the 2 year certificate). RCW 1.12.040
+# excludes the first day and includes the last, and excludes a last day that
+# is a holiday, Saturday or Sunday.
+id: rcw_18_27_contractor_registration_us_wa
+source: law
+instrument_type: act
+title: Registration of Contractors, chapter 18.27 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27
+  access_date: '2026-10-18'
+  version: Revised Code of Washington as published on app.leg.wa.gov on 2026-10-18, chapter last amended
+    by 2026 c 77
+obligations:
+- key: approvals.contractor_registration.us-wa
+  duty: Be registered with Labor and Industries before advertising, offering to do work, bidding or performing
+    any work as a contractor, and do no such thing while the registration is suspended or revoked
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: own_commitments.prequalification_standing
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.020
+    clause: RCW 18.27.010(1)(a), (15), 18.27.020(1), (2)(a), (b), (5), 18.27.090, 18.27.200(1), 18.27.205,
+      18.27.340
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  clause: RCW 18.27.010(1)(a), (15), 18.27.020(1), (2)(a), (b), (5), 18.27.090, 18.27.200(1), 18.27.205, 18.27.340
+  caveat: 'Every contractor must register with the department (s 18.27.020(1)). Advertising, offering to
+    do work, bidding or performing work unregistered, or while suspended or revoked, is a gross misdemeanor
+    (s 18.27.020(2)(a), (b)). Each worksite is a separate gross misdemeanor, and so is each day worked unregistered
+    after a citation from the department (s 18.27.020(5)). The same acts are also infractions (s 18.27.200(1)),
+    with a monetary penalty of USD 200 to 10,000, or USD 1,200 to 10,000 for failing to register, which
+    the director may reduce to no less than USD 600 if the contractor registers within 10 days of a first
+    notice of infraction (s 18.27.340(1), (3)). Performing work unregistered also brings the penalties of
+    RCW 39.12.055 (s 18.27.205). A contractor whose registration has lapsed for 30 days or fewer, and who
+    kept the bond and the insurance or assigned account in force, is not an unregistered contractor (s 18.27.010(15)).
+    The exemptions in s 18.27.090 include government representatives, public utilities doing work incidental
+    to their own business, work on a federal site or reservation, and highway contractors prequalified with
+    the Department of Transportation. A standing duty with no day count, so no window is recorded. compliance_prequal
+    is the register for a contractor''s scheme standing, but its shape requires an Australian Business Number
+    and names no Washington scheme, so this is recorded not_collected.'
+- key: approvals.registration_before_suit.us-wa
+  duty: Hold a current registration, with the bond and insurance in force throughout, when contracting for
+    the work, or lose the right to sue for payment or for breach of the contract
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: approvals.registration_before_suit
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.080
+    clause: RCW 18.27.080
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  clause: RCW 18.27.080
+  caveat: 'No contractor may bring or maintain an action in a Washington court to collect compensation for
+    work, or for breach of a contract, for which registration is required, without alleging and proving
+    that it was registered and held a current and valid certificate when it contracted for the work or entered
+    into the contract (s 18.27.080). A court may not find substantial compliance unless the department has
+    the s 18.27.030 information on file and the contractor has at all times had the bond or other security
+    and the insurance in force (s 18.27.080(1)-(3)). In judging substantial compliance the court considers
+    how long the contractor was without a valid certificate (s 18.27.080). Severity 1 because the loss is
+    the right to sue for payment. A standing condition with no day count, so no window is recorded. No register
+    holds a Washington registration and its history, so this is recorded not_collected.'
+- key: approvals.subcontractor_registration.us-wa
+  duty: Use only registered subcontractors, and keep a list of all direct subcontractors with a copy of each
+    one's certificate of registration available for inspection by Labor and Industries
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: own_commitments.subcontractor_registration
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.062
+    clause: RCW 18.27.020(2)(d), (e), (3), 18.27.062, 18.27.200(1)(c), (e)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: subcontractor_list
+  clause: RCW 18.27.020(2)(d), (e), (3), 18.27.062, 18.27.200(1)(c), (e)
+  caveat: 'Subcontracting to or using an unregistered contractor is a gross misdemeanor (s 18.27.020(2)(e))
+    and an infraction (s 18.27.200(1)(e)), and so is letting an unregistered contractor work under one''s
+    own registration (s 18.27.020(2)(d), 18.27.200(1)(c)). It is not unlawful to employ a contractor that
+    was registered when it entered into the contract, unless the department has notified the registered
+    contractor in writing that the other has become unregistered (s 18.27.020(3)). The list of direct subcontractors
+    and their certificates is required by s 18.27.062, which states no penalty of its own. A standing duty
+    with no day count, so no window is recorded. The subcontractor_list register holds subcontractors but
+    not their Washington registration numbers or certificates, so this is recorded not_collected.'
+- key: approvals.registration_display.us-wa
+  duty: Show the registered name or address on all advertising, contracts, correspondence and signs that
+    show the contractor's name or address, and the current registration number on all advertising that
+    shows them
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: approvals.registration_display
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.100
+    clause: RCW 18.27.020(2)(c), 18.27.100(1)-(5), (8)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 18.27.020(2)(c), 18.27.100(1)-(5), (8)
+  caveat: 'All advertising and all contracts, correspondence, cards, signs, posters, papers and documents
+    that show the contractor''s name or address must show them as registered (s 18.27.100(2)). The current
+    registration number is required on all advertising that shows the name or address, and on all materials
+    used to solicit business directly from retail customers who are not businesses (s 18.27.100(3)(a)).
+    The section does not expressly require the number on a bid or a contract, only the registered name or
+    address. An alphabetized listing giving only name, address and telephone number, signs on motor vehicles
+    subject to RCW 46.16A.030, on-premises signs and airwave advertising are outside the number rule (s 18.27.100(3)(a)).
+    A contractor may not work under an unregistered name (s 18.27.100(1)), use a false or expired number
+    (s 18.27.100(5)), or advertise that it is bonded and insured because of the registration bond and insurance
+    (s 18.27.100(4)). A violation found by the director after an Administrative Procedure Act hearing carries
+    a penalty of up to USD 10,000, but not for an inadvertent error (s 18.27.100(8)), which is why this row
+    is mapped to breach. Using a false or expired number to buy advertising that requires one is a gross
+    misdemeanor (s 18.27.020(2)(c)). A standing duty with no day count, so no window is recorded. No register
+    records what advertising or documents show, so this is recorded not_collected.'
+- key: approvals.registration_security.us-wa
+  duty: Keep on file with Labor and Industries a continuous surety bond of USD 30,000 for a general contractor
+    or USD 15,000 for a specialty contractor, and liability insurance of USD 50,000 for property damage,
+    USD 100,000 for one person and USD 200,000 for more than one person
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: general
+  duty_shape: approvals.registration_security
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.040
+    clause: RCW 18.27.010(5), (12), 18.27.040(1)-(3), (7), (8), (11), 18.27.050, 18.27.060(3)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: insurance_certificate
+  clause: RCW 18.27.010(5), (12), 18.27.040(1)-(3), (7), (8), (11), 18.27.050, 18.27.060(3)
+  caveat: 'A general contractor uses more than one building trade on a single job or under a single building
+    permit, or superintends or consults on contractor work; every other contractor is a specialty contractor
+    (s 18.27.010(5), (12)). The bond names the State of Washington as obligee, and is conditioned to pay labor
+    and employee benefits, state taxes and contributions, suppliers and equipment renters, and judgments
+    for breach of contract (s 18.27.040(1)). An assigned savings account may replace the bond (s 18.27.040(8)).
+    A contractor registered on 30 June 2024 that maintains its registration complies until its next renewal
+    (s 18.27.040(2)). The director may require a bond of up to three times the amount after a final judgment
+    involving a residential single-family dwelling in the past 5 years (s 18.27.040(11)). Cancelling the
+    bond, or the bond being impaired by an unsatisfied judgment, automatically suspends the registration
+    until a new bond is filed and approved (s 18.27.040(1), (7)). Expiry, cancellation or revocation of the
+    insurance does the same (s 18.27.050(2)), and the department must notify the contractor within 2 days
+    of the suspension (s 18.27.060(3)). An assigned account may replace the insurance, but then the contractor
+    must tell everyone it contracts with or bids to that it has filed one and that a claimant needs a court
+    judgment to recover from it (s 18.27.050(3)(c)). A suit on the bond must be filed within 2 years by a
+    residential homeowner and within 1 year by anyone else (s 18.27.040(3)). Mapped to barred because a suspended
+    registration bars bidding and working (s 18.27.020(2)(b)) and suing for payment (s 18.27.080). A standing
+    duty with no day count, so no window is recorded. The insurance_certificate register holds certificates
+    but not the registration bond or what is on file with the department, so this is recorded not_collected.'
+- key: approvals.registration_renewal.us-wa
+  duty: Renew the certificate of registration, with the fee and proof of bond and liability insurance, on
+    or before its expiry date two years after issue
+  consequence: barred
+  protection_type: countdown
+  disease: forfeited_entitlements
+  approval_class: general
+  duty_shape: cidb.registration_renewal
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=18.27.060
+    clause: RCW 18.27.010(15), 18.27.040(2), 18.27.060(1), (4)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_prequal
+  clause: RCW 18.27.010(15), 18.27.040(2), 18.27.060(1), (4)
+  window:
+    value: 24
+    unit: months
+  caveat: 'A certificate of registration is valid for two years and must be renewed on or before its expiration
+    date (s 18.27.060(1)). The 24 months are the certificate''s life; the renewal is due on or before the
+    expiry date on the certificate, with no earlier lead time stated. A renewal is valid on the day the department
+    receives the fee and proof of bond and liability insurance, if sent by certified mail or another means
+    with proof of delivery, and the receipt serves as proof of renewal until the department verifies it
+    (s 18.27.060(4)). The bond or other security must be provided at renewal (s 18.27.040(2)). A registration
+    lapsed for 30 days or fewer, with the bond and insurance kept in force, does not make the contractor
+    unregistered (s 18.27.010(15)). After that, working, bidding and suing for payment are barred as for any
+    unregistered contractor (s 18.27.020(2)(a), 18.27.080). No register holds a Washington registration and
+    its expiry date, so this is recorded not_collected.'

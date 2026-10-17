@@ -1,0 +1,128 @@
+# Washington's rule for reporting a serious work-related incident to the
+# Division of Occupational Safety and Health (DOSH) of the Department of Labor
+# and Industries, read in full from app.leg.wa.gov on 2026-10-18: WAC
+# 296-27-031 as amended by WSR 25-18-088 (filed 2 September 2025, effective 3
+# October 2025). Read with the rule its own notes point to, WAC 296-800-320
+# (summary) and 296-800-32010 to 32025 (the safety and health core rules on
+# not moving equipment, assisting the investigation and the preliminary
+# investigation), last amended by WSR 18-22-116, effective 7 December 2018.
+# The core rules apply to construction work except where chapter 296-155 WAC
+# (construction) conflicts with them (WAC 296-155-005(2), read the same day).
+# This read did not search chapter 296-155 WAC for a conflicting rule.
+#
+# The windows are in hours (8 and 24), so no weekend or holiday rule applies.
+# A rule states no penalty of its own: contravening a WISHA rule is cited by
+# L&I and penalised under RCW 49.17.180 (read the same day): up to USD 7,000
+# for each serious or other violation, up to USD 70,000 for a willful or
+# repeated one with a USD 5,000 minimum for willful, or the higher federal
+# maximum if a state plan requires it. A willful and knowing violation that
+# causes an employee's death is a gross misdemeanor (RCW 49.17.190(3)).
+# Because the penalty for missing a report is civil, the rows are mapped to
+# breach.
+id: wac_296_27_incident_reporting_us_wa
+source: law
+instrument_type: regulation
+title: WAC 296-27-031 Reporting fatalities, inpatient hospitalizations, amputations, and losses of an eye,
+  read with WAC 296-800-320 (Washington)
+publisher: Washington State Department of Labor and Industries
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/WAC/default.aspx?cite=296-27-031
+  access_date: '2026-10-18'
+  version: WAC 296-27-031 as amended by WSR 25-18-088, effective 3 October 2025; WAC 296-800-320 and 296-800-32010
+    to 32025 as amended by WSR 18-22-116, effective 7 December 2018; as published on app.leg.wa.gov on 2026-10-18
+obligations:
+- key: whs.incident_notice.us-wa
+  duty: Report to DOSH within 8 hours a work-related incident that kills an employee or puts an employee
+    in hospital as an inpatient
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.incident_notice
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/WAC/default.aspx?cite=296-27-031
+    clause: WAC 296-27-031(1), (3)-(11)
+    access_date: '2026-10-18'
+  evidence: &id001
+    kind: not_collected
+    register: safety_incident
+  clause: WAC 296-27-031(1), (3)-(11)
+  window:
+    value: 8
+    unit: hours
+  caveat: 'Binds the employer, for a fatality or an inpatient hospitalization of any employee (WAC 296-27-031(1)).
+    The 8 hours run from the incident, or, if the employer learns later, from when the employer or its agent
+    learns of the death or hospitalization or learns it was work-related (WAC 296-27-031(3)(a), (4)(a)).
+    A death that does not occur during or right after the incident is reportable only if it occurs within
+    30 days of it (WAC 296-27-031(8)). An inpatient hospitalization only for observation or diagnostic testing
+    is not reportable (WAC 296-27-031(11)). Report by telephone to 1-800-423-7233 (1-800-4BE-SAFE) or in
+    person at the nearest DOSH office, by telephone to OSHA at 1-800-321-6742, or to DOSH by any other means;
+    when the local office is closed, by one of those two numbers (WAC 296-27-031(5), (6)). The report must
+    give the establishment name, the location, time and date, the type of event, the number and names of
+    employees affected, a contact person and number, and a brief description (WAC 296-27-031(7)). A heart
+    attack at work that results in death or inpatient hospitalization must be reported (WAC 296-27-031(10)).
+    An incident on a commercial or public transportation system need not be reported, though it must still
+    be recorded where the employer keeps injury and illness records (WAC 296-27-031(9)). The safety_incident
+    register holds each incident and its worst outcome, but not whether or when DOSH was told, so this is
+    recorded not_collected, and its notifiable flag must be set on this definition for the trigger to fire.'
+- key: whs.incident_notice_24h.us-wa
+  duty: Report to DOSH within 24 hours a work-related incident that causes an employee an amputation or the
+    loss of an eye without inpatient hospitalization
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.incident_notice
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/WAC/default.aspx?cite=296-27-031
+    clause: WAC 296-27-031(2)-(7)
+    access_date: '2026-10-18'
+  evidence: *id001
+  clause: WAC 296-27-031(2)-(7)
+  window:
+    value: 24
+    unit: hours
+  caveat: 'Binds the employer (WAC 296-27-031(2)). An amputation or loss of an eye that does require inpatient
+    hospitalization falls under the 8 hour rule instead (WAC 296-27-031(2), note 1; see whs.incident_notice.us-wa).
+    The 24 hours run from the incident, or from when the employer or its agent learns of the injury or learns
+    it was work-related (WAC 296-27-031(3)(b), (4)(b)). The methods and the details to give are the same
+    as for the 8 hour report (WAC 296-27-031(5)-(7)). Hours, not days, so no weekend or holiday rule applies.
+    The safety_incident register holds each incident and its worst outcome, but not whether or when DOSH
+    was told, so this is recorded not_collected, and its notifiable flag must be set on this definition for
+    the trigger to fire.'
+- key: whs.scene_preservation.us-wa
+  duty: Do not move equipment involved in a work-related accident that caused a death, inpatient hospitalization,
+    amputation or loss of an eye until L&I has investigated and released it, except to remove a victim or
+    prevent further injury
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.scene_preservation
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/WAC/default.aspx?cite=296-800-32010
+    clause: WAC 296-800-32010, 296-800-32015, 296-800-32020, 296-800-32025; 296-27-031(1), notes 1 and 2
+    access_date: '2026-10-18'
+  evidence: *id001
+  clause: WAC 296-800-32010, 296-800-32015, 296-800-32020, 296-800-32025; 296-27-031(1), notes 1 and 2
+  caveat: 'Equipment may be moved before L&I releases it only where necessary to remove a victim or to prevent
+    further incidents and injuries (WAC 296-800-32010(2)). The employer must also assign the immediate supervisor,
+    the employees who witnessed the incident and any others the investigator needs to assist L&I at the scene
+    (WAC 296-800-32015). A preliminary investigation of the cause must be conducted by an employer designee,
+    the injured employee''s immediate supervisor, witnesses and an employee representative, and its findings
+    documented for any formal investigation (WAC 296-800-32020, 32025). WAC 296-27-031(1) points to these
+    rules in its notes, including protective equipment, tools and machinery in what must not be moved. The
+    core rules give way to chapter 296-155 WAC only where the construction rules conflict (WAC 296-155-005(2)).
+    Until release, with no day count, so no window is recorded. The safety_incident register holds each
+    incident but not whether the scene was held, so this is recorded not_collected.'
