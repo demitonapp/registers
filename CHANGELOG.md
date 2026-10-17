@@ -13,6 +13,14 @@ before this rule and declared a correction).
 
 ## Unreleased
 
+- **`lang` on an instrument** (contract `instrument` 2.1.0, MINOR: one new
+  optional property). The language the instrument's own words are written in,
+  as a BCP 47 primary subtag; absent means `en`. French law is read and
+  paraphrased in French, not translated into English and back: a duty quoted on
+  a French page has to be the French a French contractor reads in the code.
+  `scripts/resolve.py` carries it on a concrete's header, so the flattened
+  asset says which language each row is in. No obligation rows change.
+
 ## v18, 2026-10-14: no obligation rows change
 
 - **`submission_date` on `variations`** (contract `variations` 1.1.0, MINOR: one
