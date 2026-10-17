@@ -1,0 +1,471 @@
+# Cahier des clauses administratives générales des marchés publics de travaux (CCAG-Travaux),
+# annexé à l'arrêté du 30 mars 2021, lu sur Légifrance le 18 octobre 2026 dans sa version
+# consolidée (page « en vigueur au 17 octobre 2026 », dernière mise à jour des données le
+# 1er juillet 2024). Lus : les articles 1 à 3 de l'arrêté et, dans l'annexe, les articles 1.2,
+# 3.1, 3.2, 3.8, 12.1 à 12.4, 13, 18, 33, 41.1 à 41.3 et 55. Les articles 3 et 12 de l'annexe
+# sont dans leur rédaction issue de l'arrêté du 30 septembre 2021 (en vigueur le 8 octobre
+# 2021), l'article 18 dans celle de l'arrêté du 29 décembre 2022 (en vigueur le 1er janvier
+# 2023) ; les autres articles lus sont dans leur rédaction du 1er avril 2021.
+#
+# Le CCAG n'est applicable qu'aux marchés qui s'y réfèrent (arrêté, art. 1), et le CCAP peut
+# déroger à ses stipulations à condition de citer les articles auxquels il déroge, récapitulés
+# dans son dernier article (annexe, art. 1.2). Le CCAG 2021 régit les marchés dont la
+# consultation a été engagée à compter du 1er avril 2021 ; un marché lancé entre le 1er avril
+# et le 30 septembre 2021 qui ne vise pas expressément l'arrêté de 2021 reste réputé se
+# référer au CCAG de 2009 (arrêté, art. 3). Les numéros d'articles cités sont ceux du texte de
+# 2021, qui diffèrent de ceux de 2009.
+#
+# Computation (art. 3.2) : un délai court à 0 heure le lendemain du fait qui le déclenche ; en
+# jours, il s'entend en jours calendaires et expire à minuit le dernier jour ; en mois, il se
+# compte de quantième en quantième ; s'il expire un samedi, un dimanche ou un jour férié, il est
+# prolongé jusqu'au premier jour ouvrable suivant à minuit. Un délai en jours ouvrés exclut
+# samedis, dimanches et jours fériés. Les notifications qui font courir un délai sont datées
+# par leur réception (art. 3.1). Les « jours » des lignes ci-dessous sont donc des jours
+# calendaires (unit: days). Cette bibliothèque ne contient pas de calendrier des jours fériés
+# français.
+id: ccag_travaux_2021_fr
+lang: fr
+source: contract
+instrument_type: conditions_of_contract
+form: CCAG_TRAVAUX_2021
+title: Cahier des clauses administratives générales des marchés publics de travaux (CCAG-Travaux), annexé à l'arrêté
+  du 30 mars 2021
+publisher: Ministres signataires de l'arrêté du 30 mars 2021 (Journal officiel de la République française)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+  access_date: '2026-10-18'
+  version: 'Version consolidée en vigueur au 18 octobre 2026 sur Légifrance (dernière mise à jour des données :
+    1er juillet 2024), intégrant les arrêtés du 30 septembre 2021 et du 29 décembre 2022'
+obligations:
+- key: payment.ccag_applicability.fr
+  duty: Vérifier que le marché se réfère au CCAG-Travaux 2021 et relever, au dernier article du CCAP, les articles
+    auxquels il déroge
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.act_applicability
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: arrêté, art. 1 et 3 ; annexe, art. 1.2 et 3.2
+    access_date: '2026-10-18'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: arrêté, art. 1 et 3 ; annexe, art. 1.2 et 3.2
+  caveat: 'Le CCAG n''est applicable qu''aux marchés qui s''y réfèrent (arrêté du 30 mars 2021, art. 1). Le marché
+    peut déroger à ses stipulations, mais les dérogations doivent figurer dans le CCAP et le dernier article du
+    CCAP en donne la liste récapitulative (annexe, art. 1.2). Le CCAG 2021 vaut pour les marchés dont la consultation
+    a été engagée ou l''avis envoyé à la publication à compter du 1er avril 2021 ; ceux lancés entre le 1er avril
+    et le 30 septembre 2021 restent réputés se référer au CCAG de 2009, sauf référence expresse à l''arrêté de 2021
+    (arrêté, art. 3). Les marchés lancés avant le 1er avril 2021 restent régis par le CCAG de 2009, dont la numérotation
+    diffère. Les délais se computent selon l''article 3.2 du CCAG : ils courent à 0 heure le lendemain du fait qui
+    les déclenche, s''entendent en jours calendaires et expirent à minuit le dernier jour. Un délai qui expire un
+    samedi, un dimanche ou un jour férié est prolongé jusqu''à la fin du premier jour ouvrable suivant (art. 3.2.4).
+    La date de réception de la notification fait courir le délai (art. 3.1.2). Ce n''est pas une pièce justificative,
+    mais la règle qui dit si les autres lignes de cet instrument s''appliquent.'
+- key: variations.os_observations.fr
+  duty: Notifier au maître d'œuvre et au maître d'ouvrage ses observations sur un ordre de service dans les quinze
+    jours de sa réception, sous peine de forclusion
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: variations.response_to_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 3.8.2 et 3.8.3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 3.8.2 et 3.8.3
+  window:
+    value: 15
+    unit: days
+  caveat: 'Le délai court de la réception de l''ordre de service ; les observations sont notifiées au signataire
+    de l''ordre, copie à l''autre (art. 3.8.2). Passé quinze jours, le titulaire est forclos à contester les prescriptions
+    de l''ordre. Il doit en principe exécuter l''ordre même s''il a formulé des observations (art. 3.8.3). Si les
+    observations motivées signalent un risque pour la sécurité ou la santé, ou une contrariété à la loi, l''exécution
+    est suspendue jusqu''à la réponse du maître d''ouvrage, et le titulaire n''est pas tenu d''exécuter faute de
+    réponse dans quinze jours (art. 3.8.2). Un ordre de service du maître d''œuvre qui modifie le délai, la durée
+    ou le montant sans validation préalable du maître d''ouvrage jointe n''a pas à être exécuté (art. 3.8.1). En
+    sous-traitance ou en groupement, seul le titulaire ou le mandataire a qualité pour formuler des observations
+    (art. 3.8.4 et 3.8.5). Les délais se computent selon l''article 3.2 du CCAG : ils courent à 0 heure le lendemain
+    du fait qui les déclenche, s''entendent en jours calendaires et expirent à minuit le dernier jour. Un délai
+    qui expire un samedi, un dimanche ou un jour férié est prolongé jusqu''à la fin du premier jour ouvrable suivant
+    (art. 3.2.4). La date de réception de la notification fait courir le délai (art. 3.1.2). Ne s''applique que
+    si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier article du CCAP (art.
+    1.2).'
+- key: variations.prix_nouveaux_observations.fr
+  duty: Présenter au maître d'œuvre, dans les trente jours de l'ordre de service qui fixe des prix provisoires,
+    les prix proposés avec leurs justifications, faute de quoi ces prix sont réputés acceptés
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: variations.proposed_value
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 13.4 et 13.5
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 13.4 et 13.5
+  window:
+    value: 30
+    unit: days
+  caveat: 'Vise les prestations supplémentaires ou modificatives notifiées par ordre de service et pour lesquelles
+    le marché n''a pas prévu de prix (art. 13.1). L''ordre de service fixe des prix provisoires, arrêtés par le
+    maître d''œuvre avec l''accord du maître d''ouvrage après consultation du titulaire (art. 13.4). Sans observation
+    motivée dans les trente jours suivant cet ordre, le titulaire est réputé avoir accepté les prix pour l''établissement
+    des décomptes, et ils deviennent définitifs sans avenant (art. 13.5). En cas de désaccord, le maître d''ouvrage
+    paie provisoirement les sommes qu''il admet (art. 13.5). Les délais se computent selon l''article 3.2 du CCAG
+    : ils courent à 0 heure le lendemain du fait qui les déclenche, s''entendent en jours calendaires et expirent
+    à minuit le dernier jour. Un délai qui expire un samedi, un dimanche ou un jour férié est prolongé jusqu''à
+    la fin du premier jour ouvrable suivant (art. 3.2.4). La date de réception de la notification fait courir le
+    délai (art. 3.1.2). Ne s''applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée
+    au dernier article du CCAP (art. 1.2).'
+- key: variations.os_non_valorise_refus.fr
+  duty: Notifier par écrit au maître d'œuvre, dans les quinze jours, le refus d'exécuter un ordre de service de
+    prestations nouvelles qui n'a fait l'objet d'aucune valorisation financière
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: variations.response_to_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 13.6
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 13.6
+  window:
+    value: 15
+    unit: days
+  caveat: 'Le titulaire n''est pas tenu d''exécuter un ordre de service de prestations supplémentaires ou modificatives
+    qui ne comporte aucune valorisation financière (art. 13.6). Le refus n''est recevable que s''il est notifié
+    par écrit, avec les justifications nécessaires, au maître d''œuvre dans les quinze jours suivant la notification
+    de l''ordre, copie au maître d''ouvrage (art. 13.6). Passé ce délai, le refus est irrecevable et l''article
+    3.8.3 impose d''exécuter l''ordre. Les délais se computent selon l''article 3.2 du CCAG : ils courent à 0 heure
+    le lendemain du fait qui les déclenche, s''entendent en jours calendaires et expirent à minuit le dernier jour.
+    Un délai qui expire un samedi, un dimanche ou un jour férié est prolongé jusqu''à la fin du premier jour ouvrable
+    suivant (art. 3.2.4). La date de réception de la notification fait courir le délai (art. 3.1.2). Ne s''applique
+    que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier article du CCAP (art.
+    1.2).'
+- key: payment.claim_cadence.fr
+  duty: Remettre au maître d'œuvre, avant la fin de chaque mois, la demande de paiement mensuelle sous la forme
+    d'un projet de décompte
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.claim_cadence
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 12.1.1, 12.1.7 et 12.1.8
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: art. 12.1.1, 12.1.7 et 12.1.8
+  window:
+    value: 1
+    unit: months
+  caveat: Le projet de décompte mensuel récapitule le montant total auquel le titulaire prétend depuis la notification
+    du marché, aux prix initiaux, hors actualisation, révision et TVA (art. 12.1.1). Il est accompagné des calculs
+    de quantités, des coefficients d'actualisation ou de révision, des justificatifs de débours et des demandes
+    de paiement des sous-traitants acceptées (art. 12.1.7). Il constitue la demande de paiement, datée, envoyée
+    par tout moyen donnant date certaine (art. 12.1.8). Les décomptes mensuels n'ont pas de caractère définitif
+    (art. 12.1.10). Le CCAG n'attache aucune sanction propre au retard d'une demande mensuelle. Ne s'applique que
+    si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier article du CCAP (art.
+    1.2).
+- key: payment.schedule_due.fr
+  duty: Recevoir l'état d'acompte mensuel du maître d'œuvre dans les sept jours de la réception de la demande de
+    paiement, et sinon en informer le maître d'ouvrage
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.schedule_due
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 12.2.2
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: payment_schedule
+    system_type: finance
+  clause: art. 12.2.2
+  window:
+    value: 7
+    unit: days
+  caveat: 'Le maître d''œuvre notifie l''état d''acompte au titulaire et propose au maître d''ouvrage de régler
+    les sommes qu''il admet, dans les sept jours de la réception de la demande de paiement mensuelle (art. 12.2.2).
+    À défaut, le titulaire en informe le maître d''ouvrage, qui paie sur la base des sommes qu''il admet (art. 12.2.2).
+    En cas de contestation, le complément est payé après résolution du désaccord, majoré s''il y a lieu des intérêts
+    moratoires (art. 12.2.2). Le délai de paiement lui-même relève du code de la commande publique, non lu ici.
+    Les délais se computent selon l''article 3.2 du CCAG : ils courent à 0 heure le lendemain du fait qui les déclenche,
+    s''entendent en jours calendaires et expirent à minuit le dernier jour. Un délai qui expire un samedi, un dimanche
+    ou un jour férié est prolongé jusqu''à la fin du premier jour ouvrable suivant (art. 3.2.4). La date de réception
+    de la notification fait courir le délai (art. 3.1.2). Ne s''applique que si le marché se réfère au CCAG-Travaux
+    2021 et sauf dérogation récapitulée au dernier article du CCAP (art. 1.2).'
+- key: closeout.projet_decompte_final.fr
+  duty: Notifier le projet de décompte final au maître d'œuvre et au maître d'ouvrage dans les trente jours de la
+    notification de la décision de réception
+  consequence: breach
+  protection_type: countdown
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.final_claim
+  trigger: practical_completion_reached
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 12.3.1, 12.3.2 et 12.3.4 ; art. 41.3
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: art. 12.3.1, 12.3.2 et 12.3.4 ; art. 41.3
+  window:
+    value: 30
+    unit: days
+  caveat: 'Le délai court de la notification de la décision de réception (art. 41.3) ou, à défaut, de la fin de
+    l''un des délais de trente jours des articles 41.1.3 et 41.3 (art. 12.3.2). Le déclencheur practical_completion_reached
+    date la réception elle-même, qui précède cette notification : l''horloge part donc un peu tôt. Le titulaire
+    est lié par les indications de son projet de décompte final, qui doit récapituler les observations non acceptées
+    sous peine de les voir abandonnées (art. 12.3.1 et son commentaire). En cas de retard, le maître d''ouvrage
+    met le titulaire en demeure de transmettre son projet sous quinze jours ; à défaut, le maître d''œuvre établit
+    d''office le décompte final aux frais du titulaire (art. 12.3.4). Les délais se computent selon l''article 3.2
+    du CCAG : ils courent à 0 heure le lendemain du fait qui les déclenche, s''entendent en jours calendaires et
+    expirent à minuit le dernier jour. Un délai qui expire un samedi, un dimanche ou un jour férié est prolongé
+    jusqu''à la fin du premier jour ouvrable suivant (art. 3.2.4). La date de réception de la notification fait
+    courir le délai (art. 3.1.2). Ne s''applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation
+    récapitulée au dernier article du CCAP (art. 1.2).'
+- key: closeout.decompte_general_reponse.fr
+  duty: Renvoyer au maître d'ouvrage, dans les trente jours de sa notification, le décompte général signé avec des
+    réserves motivées et chiffrées dans un mémoire en réclamation, ou les motifs du refus de signer
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: closeout.final_account_response
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 12.4.3, 12.4.5 et 55.1.1
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 12.4.3, 12.4.5 et 55.1.1
+  window:
+    value: 30
+    unit: days
+  caveat: 'Le délai court de la notification du décompte général au titulaire (art. 12.4.3). Une signature sans
+    réserve rend le décompte général et définitif et lie définitivement les parties, hors révisions de prix et intérêts
+    moratoires du solde (art. 12.4.3). Si le titulaire ne renvoie pas le décompte dans les trente jours, ou ne motive
+    pas son refus, ou n''expose pas en détail et ne chiffre pas ses réserves comme l''exige l''article 55.1, le
+    décompte notifié est réputé accepté et devient définitif (art. 12.4.5). Le mémoire en réclamation sur le décompte
+    général est transmis dans le même délai de trente jours et doit reprendre, sous peine de forclusion, les réclamations
+    antérieures non réglées (art. 55.1.1). Des réserves partielles valent acceptation des autres éléments (art.
+    12.4.3). En cas de contestation, le maître d''ouvrage paie dans les trente jours les sommes admises (art. 12.4.3).
+    Les délais se computent selon l''article 3.2 du CCAG : ils courent à 0 heure le lendemain du fait qui les déclenche,
+    s''entendent en jours calendaires et expirent à minuit le dernier jour. Un délai qui expire un samedi, un dimanche
+    ou un jour férié est prolongé jusqu''à la fin du premier jour ouvrable suivant (art. 3.2.4). La date de réception
+    de la notification fait courir le délai (art. 3.1.2). Ne s''applique que si le marché se réfère au CCAG-Travaux
+    2021 et sauf dérogation récapitulée au dernier article du CCAP (art. 1.2).'
+- key: closeout.decompte_general_tacite.fr
+  duty: Si le décompte général n'est pas notifié dans les trente jours de la demande de paiement finale, notifier
+    au maître d'ouvrage un projet de décompte général signé
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.payee_default_notice
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 12.4.2 et 12.4.4
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 12.4.2 et 12.4.4
+  window:
+    value: 30
+    unit: days
+  caveat: 'Le maître d''ouvrage notifie le décompte général au plus tard trente jours après la plus tardive des
+    réceptions de la demande de paiement finale par le maître d''œuvre et par lui-même (art. 12.4.2). À défaut,
+    le titulaire notifie, copie au maître d''œuvre, un projet de décompte général signé composé du projet de décompte
+    final, du projet d''état du solde et du projet de récapitulation des acomptes (art. 12.4.4). Si le maître d''ouvrage
+    ne notifie pas le décompte général dans les dix jours de leur réception, le projet du titulaire devient le décompte
+    général et définitif, et le délai de paiement du solde court du lendemain (art. 12.4.4). Le CCAG ne fixe pas
+    de délai au titulaire pour cette démarche : la fenêtre enregistrée est celle du maître d''ouvrage. Les délais
+    se computent selon l''article 3.2 du CCAG : ils courent à 0 heure le lendemain du fait qui les déclenche, s''entendent
+    en jours calendaires et expirent à minuit le dernier jour. Un délai qui expire un samedi, un dimanche ou un
+    jour férié est prolongé jusqu''à la fin du premier jour ouvrable suivant (art. 3.2.4). La date de réception
+    de la notification fait courir le délai (art. 3.1.2). Ne s''applique que si le marché se réfère au CCAG-Travaux
+    2021 et sauf dérogation récapitulée au dernier article du CCAP (art. 1.2).'
+- key: variations.memoire_reclamation.fr
+  duty: Exposer tout différend avec le maître d'œuvre ou le maître d'ouvrage dans un mémoire en réclamation motivé
+    et chiffré, notifié au maître d'ouvrage
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: variations.dispute_claim
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 55.1.1 à 55.1.4 et 55.3.1
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 55.1.1 à 55.1.4 et 55.3.1
+  caveat: Tout différend doit faire l'objet d'un mémoire en réclamation exposant ses motifs et, pour chaque chef,
+    le montant réclamé et sa justification, notifié au maître d'ouvrage avec copie au maître d'œuvre (art. 55.1.1).
+    Le CCAG 2021 ne fixe de délai à ce mémoire que s'il porte sur le décompte général (trente jours, voir closeout.decompte_general_reponse.fr)
+    ; aucune fenêtre n'est donc enregistrée. Toute réclamation antérieure non réglée doit être reprise dans le mémoire
+    sur le décompte général, sous peine de forclusion (art. 55.1.1). Le maître d'ouvrage notifie sa décision motivée
+    dans les trente jours de la réception du mémoire, et son silence vaut rejet (art. 55.1.2 et 55.1.3). Devant
+    le tribunal administratif, le titulaire ne peut invoquer que les chefs et motifs énoncés dans ses mémoires en
+    réclamation (art. 55.3.1). Ne s'applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation
+    récapitulée au dernier article du CCAP (art. 1.2).
+- key: payment.recours_contentieux.fr
+  duty: Porter devant le tribunal administratif, dans les six mois de la décision du maître d'ouvrage ou de son
+    rejet implicite, les réclamations nées du décompte général
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: payment.litigation_deadline
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 55.1.2, 55.1.3, 55.2.3, 55.3.2 et 55.3.3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 55.1.2, 55.1.3, 55.2.3, 55.3.2 et 55.3.3
+  window:
+    value: 6
+    unit: months
+  caveat: Le délai de six mois court de la notification de la décision motivée du maître d'ouvrage sur le mémoire
+    en réclamation, ou de la décision implicite de rejet née de son silence pendant trente jours (art. 55.1.2, 55.1.3
+    et 55.3.2). Passé ce délai, le titulaire est réputé avoir accepté la décision et toute réclamation est irrecevable
+    (art. 55.3.3). La saisine d'un comité consultatif de règlement amiable, d'un conciliateur ou d'un médiateur
+    interrompt les délais de recours contentieux (art. 55.2.3). Un délai en mois se compte de quantième en quantième
+    et expire à minuit le dernier jour, prolongé au premier jour ouvrable s'il tombe un samedi, un dimanche ou un
+    jour férié (art. 3.2.3 et 3.2.4). Ne s'applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation
+    récapitulée au dernier article du CCAP (art. 1.2).
+- key: delay_eot.prolongation.fr
+  duty: Faire valoir auprès du maître d'ouvrage, consulté sur proposition du maître d'œuvre, les causes de prolongation
+    du délai d'exécution que le CCAG admet, et contester par mémoire en réclamation une prolongation refusée
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: delay_eot.eot_claim
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 18.2.1, 18.2.2 et 33.4 ; art. 55.1
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 18.2.1, 18.2.2 et 33.4 ; art. 55.1
+  caveat: 'Hors intempéries et réquisition, la prolongation ne peut résulter que d''un avenant ou des causes de
+    l''article 18.2.2 : changement du montant des travaux ou de l''importance de natures d''ouvrages, substitution
+    d''ouvrages, difficultés ou circonstances imprévues, ajournement décidé par le maître d''ouvrage, retard d''opérations
+    préliminaires ou d''autorisations à sa charge (art. 18.2.1 et 18.2.2). Le maître d''ouvrage décide de l''importance
+    de la prolongation sur proposition du maître d''œuvre, après consultation du titulaire, et la notifie par ordre
+    de service (art. 18.2.2). Le CCAG ne fixe au titulaire aucun délai pour demander une prolongation ; aucune fenêtre
+    n''est donc enregistrée, mais l''ordre de service qui notifie la prolongation relève du délai d''observations
+    de quinze jours de l''article 3.8.2. Les découvertes archéologiques ouvrent droit à prolongation dans ces conditions
+    (art. 33.4). Article 18 dans sa rédaction issue de l''arrêté du 29 décembre 2022, en vigueur le 1er janvier
+    2023. Ne s''applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier
+    article du CCAP (art. 1.2).'
+- key: delay_eot.intemperies.fr
+  duty: Faire constater les journées d'arrêt de travail dues aux intempéries pour obtenir la prolongation du délai
+    d'exécution, déduction faite des journées prévisibles fixées au marché
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: delay_eot.wet_weather_days
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 18.2.3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. 18.2.3
+  caveat: Les intempéries au sens des dispositions législatives ou réglementaires qui entraînent un arrêt de travail
+    prolongent de droit le délai d'exécution, par ordre de service qui en fixe la durée (art. 18.2.3). Cette durée
+    égale le nombre de journées d'arrêt réellement constatées, moins les journées d'intempéries prévisibles indiquées
+    aux documents particuliers ; les samedis, dimanches et jours fériés ou chômés compris dans la période d'intempéries
+    s'y ajoutent (art. 18.2.3). Pour les intempéries hors régime légal et les autres phénomènes naturels, la prolongation
+    n'existe que si les documents particuliers la prévoient selon leurs propres critères (art. 18.2.3). Le CCAG
+    ne fixe ni délai ni forme au constat ; le régime légal des intempéries auquel il renvoie n'a pas été lu ici.
+    Ne s'applique que si le marché se réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier article
+    du CCAP (art. 1.2).
+- key: approvals.archaeological_find_ccag.fr
+  duty: Signaler au maître d'œuvre toute mise au jour d'objets ou de vestiges, faire avec le maître d'ouvrage la
+    déclaration au maire, ne pas les déplacer, et aviser immédiatement le maire de restes humains
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000043310421/
+    clause: art. 33.1 à 33.4 ; art. 18.2.2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: art. 33.1 à 33.4 ; art. 18.2.2
+  caveat: 'Le titulaire signale la découverte au maître d''œuvre et fait conjointement avec le maître d''ouvrage
+    la déclaration réglementaire au maire de la commune ; il ne déplace pas les objets ou vestiges sans autorisation
+    du maître d''ouvrage et met en lieu sûr ceux détachés fortuitement (art. 33.2). Des restes humains sont signalés
+    immédiatement au maire, compte rendu au maître d''œuvre (art. 33.3). Le titulaire a droit à l''indemnisation
+    des dépenses justifiées et à une prolongation de délai (art. 33.4 et 18.2.2) ; l''arrêt des travaux décidé par
+    les services des affaires culturelles est un ajournement au sens de l''article 53.1 (commentaire de l''art.
+    33.4). Aucun délai chiffré : pas de fenêtre. L''obligation légale de déclaration immédiate est celle de l''article
+    L. 531-14 du code du patrimoine (voir approvals.archaeological_find.fr). Ne s''applique que si le marché se
+    réfère au CCAG-Travaux 2021 et sauf dérogation récapitulée au dernier article du CCAP (art. 1.2).'

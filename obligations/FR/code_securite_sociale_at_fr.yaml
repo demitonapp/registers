@@ -1,0 +1,53 @@
+# Code de la sécurité sociale, lu sur Légifrance le 18 octobre 2026 dans la version en
+# vigueur : articles L. 441-2, R. 441-1 à R. 441-5, L. 471-1 et R. 471-3.
+#
+# Computation : l'employeur déclare l'accident « dans les quarante-huit heures non compris les
+# dimanches et jours fériés » (art. R. 441-3) ; les samedis comptent. Cette bibliothèque ne
+# contient pas de calendrier des jours fériés français.
+id: code_securite_sociale_at_fr
+lang: fr
+source: law
+instrument_type: act
+title: 'Code de la sécurité sociale : déclaration de l''accident du travail par l''employeur'
+publisher: République française (Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006073189/
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 (R. 441-3 dans sa rédaction issue du décret n° 2019-356 du 23 avril
+    2019, en vigueur le 1er décembre 2019)
+obligations:
+- key: whs.incident_notice.fr
+  duty: Déclarer à la caisse primaire d'assurance maladie tout accident du travail connu, dans les quarante-huit
+    heures, dimanches et jours fériés non compris
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.incident_notice
+  trigger: notifiable_incident_recorded
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073189/LEGISCTA000006173458/
+    clause: art. L. 441-2, R. 441-3, R. 441-4, L. 471-1 et R. 471-3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: art. L. 441-2, R. 441-3, R. 441-4, L. 471-1 et R. 471-3
+  window:
+    value: 48
+    unit: hours
+  caveat: L'employeur ou l'un de ses préposés déclare tout accident dont il a eu connaissance à la caisse primaire
+    dont relève la victime (art. L. 441-2), par tout moyen conférant date certaine à sa réception, dans les quarante-huit
+    heures non compris les dimanches et jours fériés (art. R. 441-3). Pour un accident survenu hors des locaux de
+    l'établissement à l'une des personnes visées par les 1°, 2°, 4°, 6°, 8° et 13° de l'article L. 311-3, le délai
+    ne court que du jour où l'employeur en a été informé (art. R. 441-3). L'attestation de salaire est adressée
+    en même temps ou à l'arrêt de travail s'il est postérieur (art. R. 441-4). Le défaut de déclaration est puni
+    de l'amende des contraventions de 4e classe, de 5e classe en cas de récidive dans l'année (art. R. 471-3), et
+    la caisse recouvre auprès de l'employeur la totalité des dépenses faites à l'occasion de l'accident et peut
+    prononcer une pénalité (art. L. 471-1). Le déclencheur notifiable_incident_recorded date l'accident enregistré
+    ; le délai court de la connaissance qu'en a l'employeur. Le registre safety_incident ne dit pas si la déclaration
+    a été faite, d'où not_collected.

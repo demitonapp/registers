@@ -1,0 +1,46 @@
+# Code du patrimoine, livre V, titre III, chapitre Ier, section 3 (découvertes fortuites) et
+# titre IV, chapitre IV (dispositions pénales), lus sur Légifrance le 18 octobre 2026 dans la
+# version en vigueur : articles L. 531-14, L. 531-15, L. 531-19 et L. 544-1 à L. 544-4-1.
+#
+# « Déclaration immédiate » ne porte pas de nombre : la ligne n'a pas de fenêtre. Le volet
+# réglementaire (partie R) et l'archéologie préventive n'ont pas été lus.
+id: code_patrimoine_archeologie_fr
+lang: fr
+source: law
+instrument_type: act
+title: 'Code du patrimoine : découvertes archéologiques fortuites'
+publisher: République française (Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006074236/
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 (L. 531-14 et L. 544-3 inchangés depuis le 24 février 2004)
+obligations:
+- key: approvals.archaeological_find.fr
+  duty: Déclarer immédiatement au maire de la commune toute mise au jour, par suite de travaux, de vestiges ou d'objets
+    pouvant intéresser la préhistoire, l'histoire, l'art, l'archéologie ou la numismatique
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074236/LEGISCTA000006177313/
+    clause: art. L. 531-14, L. 531-15, L. 544-3 et L. 544-4
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: art. L. 531-14, L. 531-15, L. 544-3 et L. 544-4
+  caveat: 'L''obligation pèse sur l''inventeur des vestiges ou objets et sur le propriétaire de l''immeuble ; le
+    maire transmet sans délai au préfet (art. L. 531-14). Le propriétaire est responsable de la conservation provisoire
+    des vestiges immobiliers, et le dépositaire des objets de leur garde (art. L. 531-14). L''autorité administrative
+    peut visiter les lieux, prescrire les mesures de conservation et ordonner la suspension des recherches pour
+    six mois à compter de la notification (art. L. 531-14 et L. 531-15). Ne pas déclarer, ou déclarer faussement,
+    est puni de 3 750 euros d''amende (art. L. 544-3) ; aliéner ou acquérir un objet dissimulé est puni de deux
+    ans d''emprisonnement et de 4 500 euros d''amende (art. L. 544-4). « Déclaration immédiate », sans nombre :
+    pas de fenêtre. Dans un marché au CCAG-Travaux 2021, la déclaration est faite par le titulaire conjointement
+    avec le maître d''ouvrage (voir approvals.archaeological_find_ccag.fr).'
