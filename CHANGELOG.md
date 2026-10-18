@@ -13,6 +13,34 @@ before this rule and declared a correction).
 
 ## Unreleased
 
+- **Germany: building contract, payment and site law, in German** (wave of
+  2026-11-02). Eight instruments under `obligations/DE/`, `DE-BY/` and `DE-NW/`,
+  53 rows, each carrying `lang: de` and read on 2026-10-18: the BGB's building
+  contract law (30 days after a change request before the client may order it,
+  80% of an offered variation price billable on account, deemed acceptance,
+  30 days to object to a final invoice, security for the price under s 650f), the
+  VOB/B 2016 standard form (12 Werktage to start work and to send the final
+  invoice, 21 days for an interim payment, 30 for the final, 28 days to reserve
+  claims, 4 years of defect liability; it binds only where the contract adopts it,
+  and every row says so), the Baustellenverordnung (14 days' advance notice), the
+  Arbeitnehmer-Entsendegesetz and the Mindestlohngesetz (guarantor liability for a
+  subcontractor's wages), and on site Bavarian and North Rhine-Westphalian
+  heritage law (report a find, leave it for a week, permits and who pays) and
+  North Rhine-Westphalia's ordnance ordinance. New jurisdictions `DE-BY` and
+  `DE-NW` (`level: state`, `supported: false`); `DE` stays `supported: false`:
+  the law is here to be read, and no project can be placed in Germany yet.
+  25 new duty shapes. The VOB/B counts Werktage (Monday to Saturday); the library
+  has no such unit, so those windows are in calendar days (12 Werktage as 14), with
+  the direction of the error stated in each row.
+
+- **`lang` on an instrument** (contract `instrument` 2.1.0, MINOR: one new
+  optional property). The language the instrument's own words are written in,
+  as a BCP 47 primary subtag; absent means `en`. French law is read and
+  paraphrased in French, not translated into English and back: a duty quoted on
+  a French page has to be the French a French contractor reads in the code.
+  `scripts/resolve.py` carries it on a concrete's header, so the flattened
+  asset says which language each row is in. No obligation rows change.
+
 ## v18, 2026-10-14: no obligation rows change
 
 - **`submission_date` on `variations`** (contract `variations` 1.1.0, MINOR: one
