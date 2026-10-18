@@ -1,0 +1,85 @@
+# Ordnungsbehördliche Verordnung zur Verhütung von Schäden durch Kampfmittel (Kampfmittelverordnung des Landes Nordrhein-Westfalen, KampfmittelVO NRW) vom
+# 12. November 2003 (GV. NRW. S. 685), geändert durch Artikel 12 der Verordnung vom 16. Juli 2013 (GV. NRW. S. 483) und durch die Verordnung vom 16. März 2022
+# (GV. NRW. S. 354, in Kraft seit 1. Juni 2022). Nach der Änderung von 2022 tritt sie am 31. Dezember 2031 außer Kraft (s 7 Abs 2). In dieser Datei steht "s" für Paragraf.
+#
+# Quellenlage: Ich konnte auf recht.nrw.de keine konsolidierte Fassung öffnen. Der geltende Text ist aus der amtlichen Fassung von 2003 mit den Änderungen von 2013
+# (recht.nrw.de/system/files/BH/5199-21392.htm, die Seite trägt den Vermerk "siehe Norm ab 01.06.2022") und der amtlichen Änderungsverordnung von 2022 (recht.nrw.de/gvnrw/2022-s354)
+# zusammengesetzt; er stimmt mit der konsolidierten Fassung vom 31.05.2022 auf lexaris.de überein, die ich nur zum Abgleich gelesen habe. Eine Änderung nach dem 1. Juni 2022 ist
+# damit nicht ausgeschlossen; die Fußnoten der amtlichen Seite nennen keine. Die Zeilen tragen deshalb die URL der Fassung, aus der der Wortlaut stammt.
+#
+# Kampfmittel sind gewahrsamslos gewordene Gegenstände militärischer Herkunft aus der Zeit bis zum Ende des zweiten Weltkrieges und Teile solcher Gegenstände, die
+# Explosivstoffe oder Kampfstoffe, Nebelstoffe, Brandkampfstoffe oder Reizstoffe enthalten (s 1 Abs 2). Das Land unterhält den staatlichen Kampfmittelbeseitigungsdienst bei den
+# Bezirksregierungen Arnsberg und Düsseldorf (s 1 Abs 1). Die Verordnung gilt nicht für die Bundeswehr, die Stationierungsstreitkräfte, die Polizeien des Bundes und des Landes
+# und die Kontrolleinheiten der Hauptzollämter (s 6 Abs 1). Die Verordnung nennt keine Frist in Tagen.
+id: kampfmittelverordnung_nrw_de_nw
+lang: de
+source: law
+instrument_type: regulation
+title: 'Kampfmittelverordnung Nordrhein-Westfalen (KampfmittelVO NRW): Anzeige, Behandlungsverbot und Absperrung'
+publisher: Land Nordrhein-Westfalen (Ministerium des Innern, recht.nrw.de)
+jurisdictions:
+- DE-NW
+citation:
+  url: https://recht.nrw.de/system/files/BH/5199-21392.htm
+  access_date: '2026-10-18'
+  version: Verordnung vom 12. November 2003 (GV. NRW. S. 685), geändert 2013 und durch Verordnung vom 16. März 2022 (GV.
+    NRW. S. 354, in Kraft seit 1. Juni 2022); Text aus den amtlichen Fassungen zusammengesetzt, gelesen am 18. Oktober 2026
+obligations:
+- key: approvals.ordnance_find_notice.de-nw
+  duty: Wer Kampfmittel entdeckt oder in Besitz hat, muss dies unverzüglich der nächsten örtlichen Ordnungs- oder Polizeibehörde
+    anzeigen
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.ordnance_find_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/system/files/BH/5199-21392.htm
+    clause: s 2; s 4; s 5 Abs 1 Nr 1, 6, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: s 2; s 4; s 5 Abs 1 Nr 1, 6, Abs 2
+  caveat: Wortlaut von s 2 stammt aus der Fassung der Verordnung von 2013 (die Änderung von 2022 berührt ihn nicht). Das
+    Betreten von Flächen, auf denen Kampfmittel entdeckt worden sind, ist nur den Angehörigen der für die Gefahrenabwehr
+    zuständigen Behörden und den Stellen gestattet, die die Bezirksregierung mit der Beseitigung beauftragt hat (s 4). Wer
+    die Entdeckung oder den Besitz nicht oder nicht unverzüglich anzeigt oder die Fläche betritt, handelt ordnungswidrig
+    (s 5 Abs 1 Nr 1, 6). Die Geldbuße beträgt in diesen Fällen bis zu tausend Euro; geschieht es im Rahmen einer gewerblichen
+    Tätigkeit, kann sie bis zu fünfundzwanzigtausend Euro betragen (s 5 Abs 2, nach der Änderungsverordnung von 2022, GV.
+    NRW. S. 354, recht.nrw.de/gvnrw/2022-s354). "Unverzüglich" hat keine Zahl, deshalb kein Fenster. Das Register safety_incident
+    ist das nächstliegende für ein Ereignis auf der Baustelle; es kennt keine Kampfmittel, deshalb ist die Zuordnung ein
+    Näherungswert.
+- key: approvals.ordnance_handling_ban.de-nw
+  duty: Kampfmittel nicht suchen, sammeln, bearbeiten oder sonst behandeln, es sei denn, die Bezirksregierung hat mit der
+    Beseitigung beauftragt, oder die Ausnahme für Bohrlochdetektion und baubegleitende Räumung durch Räumfirmen mit Erlaubnis
+    nach dem Sprengstoffgesetz greift
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.ordnance_handling_ban
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/gvnrw/2022-s354
+    clause: s 3 Abs 1, 2; s 5 Abs 1 Nr 2, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: s 3 Abs 1, 2; s 5 Abs 1 Nr 2, Abs 2
+  caveat: Wortlaut von Abs 2 und der Bußgeldregel nach der Änderungsverordnung von 2022 (GV. NRW. S. 354, Art 1 Nr 3 und
+    4). Suchen, Sammeln, Bearbeiten und sonstiges Behandeln sowie der Besitz sind nur den Stellen gestattet, die die Bezirksregierung
+    mit der Beseitigung beauftragt hat (Abs 1). Ausgenommen sind Bohrlochdetektionen im Rahmen von Spezialtiefbaumaßnahmen
+    einschließlich der Öffnung der daraus folgenden Verdachtsmomente und die baubegleitende Kampfmittelräumung in Bereichen,
+    die vorab nicht mit anerkannten Detektionsverfahren ergebnisorientiert untersucht werden konnten, jeweils durch Räumfirmen
+    mit Berechtigung nach den s 7, 9, 19 und 20 des Sprengstoffgesetzes (Abs 2 Nr 1, 2). Die Tätigkeiten dürfen nur auf
+    Flächen erfolgen, für die nach Einschätzung des staatlichen Kampfmittelbeseitigungsdienstes keine konkreten Hinweise
+    auf eine Kampfmittelbelastung vorliegen, mit einem Mindestabstand von 10 Metern zu Bereichen mit konkreten Belastungshinweisen.
+    Ein Bauunternehmen ohne diese Berechtigung darf Kampfmittel also nicht selbst behandeln, auch nicht zum Abräumen. Verstoß
+    ist eine Ordnungswidrigkeit mit Geldbuße bis zu tausend Euro, im Rahmen einer gewerblichen Tätigkeit bis zu fünfundzwanzigtausend
+    Euro (s 5 Abs 1 Nr 2, Abs 2). Kein Fenster. Das Register safety_incident kennt keine Kampfmittel, deshalb ist die Zuordnung
+    ein Näherungswert.

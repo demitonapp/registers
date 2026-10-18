@@ -1,0 +1,105 @@
+# Gesetz über zwingende Arbeitsbedingungen für grenzüberschreitend entsandte und für regelmäßig im Inland beschäftigte Arbeitnehmer und
+# Arbeitnehmerinnen (Arbeitnehmer-Entsendegesetz, AEntG) vom 20. April 2009 (BGBl. I S. 799), zuletzt geändert durch Art. 8 Abs. 4 G v.
+# 12.5.2026 (BGBl. 2026 I Nr. 137). Gelesen auf gesetze-im-internet.de am 18. Oktober 2026: s 4, 5 (Anfang), 7, 8, 13, 14 und 23. In dieser
+# Datei steht "s" für Paragraf.
+#
+# Das Gesetz erstreckt Tarifverträge des Bauhauptgewerbes und des Baunebengewerbes (s 4 Abs 1 Nr 1) durch Rechtsverordnung (s 7) auf alle
+# Arbeitgeber der Branche. Die Branchenverordnung selbst und die Höhe des Mindestentgelts habe ich nicht gelesen. Die "gemeinsame Einrichtung der
+# Tarifvertragsparteien" (s 8 Abs 1 S 1, s 14) ist im Baugewerbe in der Praxis die Sozialkasse der Bauwirtschaft; der Name steht nicht im
+# Gesetzestext. Die Meldepflichten für Arbeitgeber mit Sitz im Ausland (s 18) und die Prüfung durch die Zollverwaltung (s 16, 17, 19) habe ich nicht
+# gelesen. Das Gesetz zählt in diesen Paragrafen keine Fristen in Tagen.
+id: arbeitnehmer_entsendegesetz_de
+lang: de
+source: law
+instrument_type: act
+title: 'Arbeitnehmer-Entsendegesetz (AEntG): Mindestarbeitsbedingungen im Baugewerbe, Haftung des Auftraggebers und Bußgeld'
+publisher: Bundesrepublik Deutschland (Bundesministerium der Justiz, Gesetze im Internet)
+jurisdictions:
+- DE
+citation:
+  url: https://www.gesetze-im-internet.de/aentg_2009/
+  access_date: '2026-10-18'
+  version: Arbeitnehmer-Entsendegesetz vom 20. April 2009 (BGBl. I S. 799), zuletzt geändert durch Art. 8 Abs. 4 G v. 12.5.2026
+    (BGBl. 2026 I Nr. 137); gelesen am 18. Oktober 2026
+obligations:
+- key: workforce.construction_minimum_terms.de-aentg
+  duty: Den Arbeitnehmern mindestens die im erstreckten Tarifvertrag des Bauhaupt- oder Baunebengewerbes für den Beschäftigungsort
+    vorgeschriebenen Arbeitsbedingungen gewähren und der gemeinsamen Einrichtung der Tarifvertragsparteien die ihr zustehenden
+    Beiträge leisten
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.construction_award_pay
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/aentg_2009/__8.html
+    clause: s 8 Abs 1, 2, 3; s 4 Abs 1 Nr 1; s 23 Abs 1 Nr 1, Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 8 Abs 1, 2, 3; s 4 Abs 1 Nr 1; s 23 Abs 1 Nr 1, Abs 3
+  caveat: Bindet jeden Arbeitgeber mit Sitz im In- oder Ausland, der unter den Geltungsbereich eines für allgemeinverbindlich
+    erklärten Tarifvertrags nach s 3 S 1 Nr 1 oder einer Rechtsverordnung nach s 7 oder s 7a fällt, unabhängig davon, ob
+    er tarifgebunden ist (s 8 Abs 1 S 2). Hat der Arbeitgeber einen anderen Tarifvertrag, gilt der erstreckte dennoch (Abs
+    2). Beim Einsatz von Leiharbeitnehmern trifft die Pflicht den Verleiher (Abs 3). Die Arbeitsbedingungen, die ein Tarifvertrag
+    regeln kann, nennt s 5, unter anderem Mindestentgeltsätze, Urlaubsdauer, Urlaubsentgelt und Urlaubsgeld. Wer eine Arbeitsbedingung,
+    deren Einhaltung die Zollverwaltung nach s 16 prüft, nicht oder nicht rechtzeitig gewährt oder einen Beitrag nicht oder
+    nicht rechtzeitig leistet, handelt ordnungswidrig; die Geldbuße beträgt bis zu fünfhunderttausend Euro (s 23 Abs 1 Nr
+    1, Abs 3). Welcher Tarifvertrag in der Branche erstreckt ist und was er verlangt, habe ich nicht gelesen. Kein Fenster;
+    das Gesetz nennt die Fälligkeit nicht. Das Register payroll_run führt Lohnläufe, nicht den Tarif des Beschäftigungsorts,
+    deshalb not_collected.
+- key: workforce.subcontractor_wage_liability.de-aentg
+  duty: Wie ein Bürge, der auf die Einrede der Vorausklage verzichtet hat, für die Pflicht des beauftragten Unternehmers,
+    eines Nachunternehmers oder eines beauftragten Verleihers haften, das Mindestentgelt zu zahlen und die Beiträge an die
+    gemeinsame Einrichtung der Tarifvertragsparteien zu leisten
+  consequence: liable_full_amount
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.subcontractor_wage_liability
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/aentg_2009/__14.html
+    clause: s 14
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 14
+  caveat: Bindet jeden Unternehmer, der einen anderen Unternehmer mit Werk- oder Dienstleistungen beauftragt, also den Auftragnehmer
+    gegenüber seinen Nachunternehmern und die Kette bis zum letzten Glied. Das Mindestentgelt umfasst nur den Nettobetrag
+    nach Abzug der Steuern und der Beiträge zur Sozialversicherung und zur Arbeitsförderung (Satz 2); die Haftung für die
+    Beiträge an die gemeinsame Einrichtung steht daneben. Ob ein Bauherr, der für den Eigenbedarf bauen lässt, als "Unternehmer"
+    haftet, sagt der Wortlaut nicht; die Rechtsprechung dazu habe ich nicht gelesen. Das Gesetz nennt keine Frist, innerhalb
+    derer der Auftraggeber prüfen muss; der Wortlaut verlangt kein Verschulden. Einen Entlastungsnachweis nennt der Text
+    nicht. Das Mindestlohngesetz wendet s 14 für den Mindestlohn entsprechend an (siehe mindestlohngesetz_de). Das Register
+    compliance_documents kann Nachweise der Nachunternehmer enthalten, nicht deren Zahlung, deshalb not_collected.
+- key: workforce.subcontractor_wage_diligence.de-aentg
+  duty: Keine Werk- oder Dienstleistungen in erheblichem Umfang von einem Unternehmer ausführen lassen, von dem man weiß
+    oder fahrlässig nicht weiß, dass er oder sein Nachunternehmer die vorgeschriebenen Arbeitsbedingungen nicht oder nicht
+    rechtzeitig gewährt oder Beiträge nicht leistet
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.subcontractor_wage_diligence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/aentg_2009/__23.html
+    clause: s 23 Abs 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 23 Abs 2, 3
+  caveat: 'Bindet den Unternehmer, der einen anderen Unternehmer beauftragt. Ordnungswidrig handelt auch, wer fahrlässig
+    nicht weiß; die Geldbuße beträgt bis zu fünfhunderttausend Euro (Abs 3). Das Gesetz nennt nicht, was "in erheblichem
+    Umfang" heißt. Zwei Fälle: der beauftragte Unternehmer gewährt die Bedingungen nicht oder leistet Beiträge nicht, oder
+    er setzt einen Nachunternehmer ein oder lässt ihn tätig werden, der es nicht tut. Das Mindestlohngesetz hat denselben
+    Tatbestand für den Mindestlohn (s 21 Abs 2 MiLoG, siehe mindestlohngesetz_de). Kein Fenster. Das Register compliance_documents
+    hält die Prüfung eines Nachunternehmers nicht fest, deshalb not_collected.'
