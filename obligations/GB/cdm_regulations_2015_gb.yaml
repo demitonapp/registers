@@ -110,10 +110,13 @@ obligations:
     control over the pre-construction phase; the principal contractor must be a contractor. A client that
     fails to appoint must carry out the principal designer's duties (regs 11, 12) or the principal contractor's
     (regs 12 to 14) itself (reg 5(3), (4)); for a domestic client the designer and contractor in control
-    take the roles instead (reg 7(2)). 'As soon as is practicable' and 'before the construction phase begins',
-    with no day count, so no window is recorded. Applies in Great Britain only (reg 3). The compliance_documents
-    register can hold a letter of appointment but not which role or project it covers, so this is recorded
-    not_collected.
+    take the roles instead (reg 7(2)). Reg 5(1) names a designer for one role and a contractor for the other,
+    and 'designer' includes a contractor that prepares or modifies a design (reg 2(1)); nothing in reg 5 bars
+    one organisation from holding both appointments, and each appointment must meet the skills, knowledge,
+    experience and organisational capability test for that role (reg 8(1), (2)). 'As soon as is practicable'
+    and 'before the construction phase begins', with no day count, so no window is recorded. Applies in Great
+    Britain only (reg 3). The compliance_documents register can hold a letter of appointment but not which
+    role or project it covers, so this is recorded not_collected.
 - key: whs.project_notification.gb
   duty: Where the project is notifiable, give the HSE written notice with the Schedule 1 particulars as
     soon as is practicable before the construction phase begins
