@@ -13,6 +13,8 @@ before this rule and declared a correction).
 
 ## Unreleased
 
+## v19, 2026-10-18: correction
+
 - **correction** `whs.duty_holders_appoint.gb` (CDM Regulations 2015): the caveat
   now records what reg 5 says about one organisation holding both the principal
   designer and principal contractor appointments. Reg 5(1) names a designer for one
