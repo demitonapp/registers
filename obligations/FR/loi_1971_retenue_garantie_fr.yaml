@@ -1,0 +1,106 @@
+# Loi n° 71-584 du 16 juillet 1971 tendant à réglementer les retenues de garantie en matière de
+# marchés de travaux définis par l'article 1779-3° du code civil, lue en entier sur Légifrance le
+# 18 octobre 2026 (page « en vigueur au 17 octobre 2026 », dernière mise à jour des données du texte :
+# 1er janvier 2020). L'article 1er est dans sa rédaction issue de l'ordonnance n° 2019-964 du
+# 18 septembre 2019 (tribunal judiciaire), en vigueur le 1er janvier 2020 ; les articles 2 et 3 sont
+# d'origine ; l'article 4 (loi n° 72-1166 du 23 décembre 1972) étend la loi aux conventions de
+# sous-traitance.
+#
+# La loi compte en années (« délai d'une année », art. 2), rendu ici par 12 mois faute d'unité
+# « années ». Elle ne fixe ni mode de computation ni report d'un délai qui expire un samedi, un
+# dimanche ou un jour férié.
+id: loi_1971_retenue_garantie_fr
+lang: fr
+source: law
+instrument_type: act
+title: Loi n° 71-584 du 16 juillet 1971 tendant à réglementer les retenues de garantie en matière de marchés de
+  travaux définis par l'article 1779-3° du code civil
+publisher: République française (Journal officiel, texte consolidé publié par Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000687670
+  access_date: '2026-10-18'
+  version: 'Version en vigueur au 17 octobre 2026 (dernière mise à jour des données du texte : 1er janvier 2020,
+    ordonnance n° 2019-964 du 18 septembre 2019)'
+obligations:
+- key: closeout.retention_cap.fr
+  duty: Ne subir sur les acomptes d'un marché de travaux privé qu'une retenue de garantie stipulée au contrat et
+    au plus égale à 5 % de leur montant
+  consequence: barred
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_cap
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006474229
+    clause: art. 1er, 3, 4
+    access_date: '2026-10-18'
+  evidence: &id001
+    kind: register
+    register: retention_position
+    system_type: finance
+  clause: art. 1er, 3, 4
+  caveat: 'La loi vise les marchés de travaux privés relevant de l''article 1779, 3° du code civil (art. 1er) et
+    s''applique aux conventions de sous-traitance (art. 4). Les acomptes « peuvent être amputés » d''une retenue
+    au plus égale à 5 % de leur montant, garantissant contractuellement l''exécution des travaux, pour satisfaire,
+    le cas échéant, aux réserves faites à la réception par le maître de l''ouvrage (art. 1er, al. 1) : sans stipulation,
+    il n''y a pas de retenue. Sont nuls et de nul effet, quelle qu''en soit la forme, les clauses, stipulations
+    et arrangements qui auraient pour effet de faire échec aux articles 1er et 2 (art. 3). La nullité de la stipulation
+    excédentaire est rendue par barred, la valeur la plus proche de l''énumération. Le plafond se lit sur chaque
+    acompte et n''ouvre aucun délai.'
+- key: closeout.retention_consignation.fr
+  duty: Exiger que le maître de l'ouvrage consigne une somme égale à la retenue entre les mains d'un consignataire,
+    ou y substituer une caution personnelle et solidaire d'un montant égal
+  consequence: breach
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_complying_account
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006474229
+    clause: art. 1er, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: retention_position
+  clause: art. 1er, 3
+  caveat: Le maître de l'ouvrage doit consigner une somme égale à la retenue effectuée entre les mains d'un consignataire
+    accepté par les deux parties ou, à défaut, désigné par le président du tribunal judiciaire ou du tribunal de
+    commerce (art. 1er, al. 2). Si les sommes retenues dépassent la consignation, il doit la compléter jusqu'à leur
+    montant (art. 1er, al. 3). La retenue stipulée n'est pas pratiquée si l'entrepreneur fournit, pour un montant
+    égal, une caution personnelle et solidaire émanant d'un établissement financier figurant sur une liste fixée
+    par décret (art. 1er, al. 4). L'article ne fixe aucun délai pour consigner et n'énonce pas de sanction propre
+    ; les clauses contraires sont nulles (art. 3). Aucun registre ne date une consignation, d'où not_collected.
+- key: closeout.retention_release.fr
+  duty: Être libéré de la caution ou recevoir les sommes consignées un an après la réception, faite avec ou sans
+    réserve, sauf opposition motivée du maître de l'ouvrage notifiée par lettre recommandée
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.retention_release
+  trigger: practical_completion_reached
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006474230
+    clause: art. 2, 3
+    access_date: '2026-10-18'
+  evidence: *id001
+  clause: art. 2, 3
+  window:
+    value: 12
+    unit: months
+  caveat: À l'expiration du délai d'une année à compter de la réception, faite avec ou sans réserve, la caution
+    est libérée ou les sommes consignées sont versées à l'entrepreneur, même en l'absence de mainlevée (art. 2).
+    Seule l'en empêche une opposition du maître de l'ouvrage, notifiée à la caution ou au consignataire par lettre
+    recommandée et motivée par l'inexécution des obligations de l'entrepreneur (art. 2). L'opposition abusive entraîne
+    la condamnation de l'opposant à des dommages-intérêts (art. 2). Les clauses qui feraient échec à cette libération
+    sont nulles (art. 3). Le délai court de la réception, que trigger practical_completion_reached rapproche de
+    l'achèvement pratique ; « une année » est rendue par 12 mois. La loi ne fixe ni mode de computation ni report
+    d'un délai qui expire un samedi, un dimanche ou un jour férié.

@@ -1,0 +1,204 @@
+# Code du travail, lu sur Légifrance le 18 octobre 2026 dans la version en vigueur :
+# articles L. 8291-1 à L. 8291-3, R. 8291-1 à R. 8291-6, R. 8292-1 à R. 8292-4, R. 8293-1
+# et R. 8294-1 à R. 8294-7 (carte d'identification professionnelle du BTP, rédaction du
+# décret n° 2024-112 du 15 février 2024 en vigueur le 1er avril 2024) ; L. 8222-1 à L. 8222-7,
+# R. 8222-1 à R. 8222-3, D. 8222-4 et D. 8222-5 (obligation de vigilance) ; L. 4532-9,
+# R. 4532-56 à R. 4532-74 et L. 4744-4 et L. 4744-5 (plan particulier de sécurité et de
+# protection de la santé, PPSPS).
+#
+# Modification à venir : la loi n° 2026-534 du 25 juin 2026 (art. 95) crée un article
+# L. 8222-1-1 (vigilance du maître de l'ouvrage sur le sous-traitant accepté) et modifie
+# L. 8222-2 en conséquence, au plus tard le 26 décembre 2026 (date affichée par Légifrance) ;
+# les lignes portent le texte en vigueur au 18 octobre 2026.
+#
+# Computation : les délais du PPSPS sont exprimés en jours, sans précision ; la vigilance est
+# semestrielle. Les articles lus ne disent rien d'un délai qui expire un samedi, un dimanche
+# ou un jour férié.
+id: code_travail_btp_fr
+lang: fr
+source: law
+instrument_type: act
+title: 'Code du travail : carte d''identification professionnelle du BTP, obligation de vigilance et plan particulier
+  de sécurité et de protection de la santé'
+publisher: République française (Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006072050/
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 ; L. 8222-2 dans sa rédaction en vigueur jusqu'à l'entrée en vigueur
+    de l'article 95 de la loi n° 2026-534 du 25 juin 2026
+obligations:
+- key: workforce.carte_btp.fr
+  duty: Déclarer chaque salarié embauché à l'association CIBTP France pour obtenir sa carte d'identification professionnelle
+    du BTP
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: workforce.site_id_card
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000031275618/
+    clause: art. L. 8291-1, L. 8291-2, R. 8291-1, R. 8293-1, R. 8294-5 et R. 8294-7
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: employee_list
+  clause: art. L. 8291-1, L. 8291-2, R. 8291-1, R. 8293-1, R. 8294-5 et R. 8294-7
+  caveat: 'Vise les employeurs établis en France dont les salariés accomplissent, dirigent ou organisent, même à
+    titre occasionnel, des travaux de bâtiment ou de travaux publics sur un site ou un chantier, les entreprises
+    de travail temporaire et les employeurs étrangers qui détachent des salariés (art. R. 8291-1). En sont exclus
+    notamment les architectes, métreurs, coordonnateurs SPS, chauffeurs et livreurs et géomètres (art. R. 8291-1).
+    La déclaration est faite lors de l''embauche, par voie dématérialisée auprès de CIBTP France (art. R. 8293-1,
+    I). Le salarié présente sa carte sans délai aux agents de contrôle et au maître d''ouvrage ou donneur d''ordre
+    (art. R. 8294-5 et R. 8294-7). Le manquement à la déclaration est passible d''une amende administrative d''au
+    plus 4 000 euros par salarié, 8 000 euros en cas de récidive dans les deux ans, plafonnée à 500 000 euros (art.
+    L. 8291-2). Mappé à offence comme les autres manquements sanctionnés, bien que l''amende soit administrative.
+    « Lors de l''embauche », sans nombre de jours : pas de fenêtre. Le registre employee_list ne dit pas si la carte
+    a été demandée, d''où not_collected.'
+- key: workforce.vigilance_sous_traitants.fr
+  duty: Se faire remettre par chaque cocontractant, à la conclusion de tout contrat d'au moins 5 000 euros hors
+    taxes puis tous les six mois jusqu'à la fin de son exécution, l'attestation de vigilance et la preuve de son
+    immatriculation
+  consequence: liable_full_amount
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: general
+  duty_shape: workforce.subcontractor_vigilance
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006178268/
+    clause: art. L. 8222-1, L. 8222-2, L. 8222-3, R. 8222-1 et D. 8222-5
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: art. L. 8222-1, L. 8222-2, L. 8222-3, R. 8222-1 et D. 8222-5
+  window:
+    value: 6
+    unit: months
+  caveat: Le seuil est de 5 000 euros hors taxes par opération (art. R. 8222-1). La vérification est réputée faite
+    si le donneur d'ordre se fait remettre, à la conclusion et tous les six mois, une attestation de l'organisme
+    de recouvrement datant de moins de six mois, dont il vérifie l'authenticité, et, si l'immatriculation est obligatoire,
+    un extrait K ou K bis ou l'un des autres documents que cet article énumère (art. D. 8222-5). À défaut, il est
+    tenu solidairement avec le cocontractant verbalisé pour travail dissimulé au paiement des impôts, taxes, cotisations,
+    pénalités, aides publiques, rémunérations et charges (art. L. 8222-2), à due proportion de la valeur des travaux
+    (art. L. 8222-3). Informé par écrit d'une situation irrégulière d'un sous-traitant, le maître de l'ouvrage ou
+    donneur d'ordre enjoint aussitôt, par lettre recommandée avec avis de réception, d'y mettre fin, sous la même
+    solidarité (art. L. 8222-5 et R. 8222-2). La loi n° 2026-534 du 25 juin 2026 étend cette solidarité au maître
+    de l'ouvrage qui ne vérifie pas le sous-traitant qu'il accepte, à compter d'une date fixée par décret et au
+    plus tard le 26 décembre 2026 (futurs art. L. 8222-1-1 et L. 8222-2). Le registre compliance_documents ne rattache
+    pas une attestation à un sous-traitant et à une date, d'où not_collected.
+- key: whs.ppsps.fr
+  duty: Établir le plan particulier de sécurité et de protection de la santé avant le début des travaux, dans les
+    trente jours de la réception du contrat signé par le maître de l'ouvrage, et le remettre au coordonnateur
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018491898/
+    clause: art. L. 4532-9, R. 4532-56, R. 4532-57, R. 4532-63 à R. 4532-67 et L. 4744-5
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: art. L. 4532-9, R. 4532-56, R. 4532-57, R. 4532-63 à R. 4532-67 et L. 4744-5
+  window:
+    value: 30
+    unit: days
+  caveat: Obligatoire pour chaque entreprise, sous-traitants compris, appelée à intervenir sur un chantier soumis
+    à un plan général de coordination ; le plan est communiqué au coordonnateur (art. L. 4532-9). L'entreprise qui
+    intervient seule l'établit aussi pour des travaux de plus d'un an employant à un moment plus de cinquante travailleurs
+    pendant plus de dix jours ouvrés consécutifs, et le remet au maître d'ouvrage (art. L. 4532-9 et R. 4532-57).
+    Le délai de trente jours court de la réception du contrat signé par le maître de l'ouvrage (art. R. 4532-56).
+    Le contenu est fixé aux articles R. 4532-63 à R. 4532-67. Ne pas remettre le plan au maître d'ouvrage ou au
+    coordonnateur est puni d'une amende de 9 000 euros, et la récidive est punie d'un an d'emprisonnement et de
+    15 000 euros d'amende (art. L. 4744-5). Le registre compliance_documents peut contenir le plan mais pas le chantier
+    ni la date de remise, d'où not_collected.
+- key: whs.ppsps_sous_traitant.fr
+  duty: Remettre à chaque sous-traitant le plan général de coordination et lui laisser au moins trente jours, ou
+    huit jours pour des lots accessoires de génie civil, après réception du contrat signé pour établir son PPSPS
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.subcontractor_safety_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018491898/
+    clause: art. R. 4532-60 à R. 4532-62
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: subcontract
+  clause: art. R. 4532-60 à R. 4532-62
+  window:
+    value: 30
+    unit: days
+  caveat: L'entrepreneur qui sous-traite remet au sous-traitant un exemplaire du plan général de coordination et,
+    le cas échéant, un document sur ses mesures d'organisation générales (art. R. 4532-60). Le sous-traitant dispose
+    d'au moins trente jours à compter de la réception du contrat signé par l'entrepreneur ; ce délai est réduit
+    à huit jours pour le second œuvre d'une opération de bâtiment ou pour les lots ou travaux accessoires d'une
+    opération de génie civil qui ne figurent pas sur la liste des travaux à risques particuliers de l'article L.
+    4532-8 (art. R. 4532-62). La fenêtre enregistrée est le délai minimal de trente jours. Les articles lus n'attachent
+    pas de sanction propre à ce délai ; l'amende de l'article L. 4744-5 vise le défaut de remise du plan par l'entrepreneur
+    qui le doit. Le registre subcontract ne date pas la réception du contrat par le sous-traitant, d'où not_collected.
+- key: whs.ppsps_transmission.fr
+  duty: Pour le gros œuvre, le lot principal ou des travaux à risques particuliers, adresser le PPSPS à l'inspection
+    du travail, au service de prévention de la sécurité sociale et à l'OPPBTP avant toute intervention, et en tenir
+    un exemplaire à jour sur le chantier
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.safety_plan_to_regulator
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018491898/
+    clause: art. R. 4532-69 à R. 4532-72
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: art. R. 4532-69 à R. 4532-72
+  caveat: 'Vise l''entrepreneur chargé du gros œuvre ou du lot principal et celui qui exécute des travaux à risques
+    particuliers de la liste de l''article L. 4532-8 ; les avis du médecin du travail et du comité social et économique,
+    s''ils ont été donnés, sont joints (art. R. 4532-69 et R. 4532-70). Un exemplaire à jour, avec ces avis, est
+    tenu en permanence sur le chantier par tous les entrepreneurs (art. R. 4532-71). Une mesure du plan qui n''a
+    pu être appliquée est remplacée par un moyen d''efficacité au moins équivalente, porté sur le plan et signalé
+    au coordonnateur et aux mêmes organismes (art. R. 4532-72). « Avant toute intervention », sans nombre : pas
+    de fenêtre. Les articles lus n''attachent pas de sanction propre à cette transmission.'
+- key: closeout.ppsps_conservation.fr
+  duty: Conserver le plan particulier de sécurité tenu sur le chantier pendant cinq ans à compter de la réception
+    de l'ouvrage
+  consequence: breach
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: closeout.records_retention
+  trigger: practical_completion_reached
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018491898/
+    clause: art. R. 4532-74
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: art. R. 4532-74
+  window:
+    value: 60
+    unit: months
+  caveat: Cinq années à compter de la date de réception de l'ouvrage, soit soixante mois (art. R. 4532-74). Les
+    articles lus n'attachent pas de sanction propre à cette conservation. Le registre compliance_documents ne date
+    pas la réception de l'ouvrage, d'où not_collected.

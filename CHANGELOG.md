@@ -33,6 +33,23 @@ before this rule and declared a correction).
   has no such unit, so those windows are in calendar days (12 Werktage as 14), with
   the direction of the error stated in each row.
 
+- **France: public works conditions, payment and site law, in French**
+  (wave of 2026-11-02). Eleven instruments under `obligations/FR/`, 51 rows,
+  each carrying `lang: fr` and read on Légifrance on 2026-10-18: the
+  CCAG-Travaux 2021 (15 days to object to an ordre de service, 30 days to answer
+  the décompte général, 6 months to sue), the Code de la commande publique
+  (payment within 30 days, interest at the ECB rate plus 8 points, the 40 euro
+  indemnity, the avance, direct payment of subcontractors, the 5% retenue de
+  garantie), the loi du 31 décembre 1975 on subcontracting, the loi du
+  16 juillet 1971 on retention, the Code civil (art. 1799-1, the payment
+  guarantee), the Code de commerce (L. 441-10, private payment periods), and on
+  site the DT-DICT (Code de l'environnement), the carte BTP, the obligation de
+  vigilance and the PPSPS (Code du travail), the accident declaration within
+  48 hours (Code de la sécurité sociale), archaeological finds (Code du
+  patrimoine) and décennale insurance (Code des assurances). `FR` was already
+  in the vocabulary and stays `supported: false`. 17 new duty shapes, their
+  titles in English like every other shape.
+
 - **`lang` on an instrument** (contract `instrument` 2.1.0, MINOR: one new
   optional property). The language the instrument's own words are written in,
   as a BCP 47 primary subtag; absent means `en`. French law is read and
