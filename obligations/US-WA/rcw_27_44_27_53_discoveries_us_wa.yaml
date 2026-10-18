@@ -1,0 +1,142 @@
+# Washington's law on what a contractor finds in the ground, read in full from
+# app.leg.wa.gov on 2026-10-18: chapter 27.53 RCW (archaeological sites and
+# resources, every section 27.53.010 to 27.53.150), chapter 27.44 RCW (Indian
+# graves and records, 27.44.020 to 27.44.901) and RCW 68.50.645 (skeletal
+# human remains).
+#
+# ONE combined instrument, not three, because the three are written to be read
+# together: s 27.53.060(1) carves Indian graves, cairns and glyptic or painted
+# records out of the permit offence and sends them to the felony in s 27.44.040;
+# s 27.44.055 and s 68.50.645 state the same human remains duty in the same
+# words (both enacted by 2008 c 275); and s 27.44.040(4) makes a proper report
+# of an accidental discovery part of the defence. Each row cites its own
+# section URL.
+#
+# Neither chapter requires a contractor to stop and report an archaeological
+# find that is not human remains: s 27.53.070(1) only encourages persons who
+# know of a site to tell the Department of Archaeology and Historic
+# Preservation (DAHP). The binding find duty is the human remains row. No
+# contractor duty here carries a day count ("in the most expeditious manner
+# possible" has no number), so no row has a window. The coroner's, DAHP's and
+# the tribes' later steps run in business days, which these sections do not
+# define; RCW 1.12.040 excludes the first day and includes the last, and
+# excludes a last day that is a holiday, Saturday or Sunday. This library holds
+# no Washington holiday calendar.
+id: rcw_27_44_27_53_discoveries_us_wa
+source: law
+instrument_type: act
+title: Archaeological Sites and Resources (chapter 27.53 RCW), Indian Graves and Records (chapter 27.44
+  RCW) and Skeletal Human Remains (RCW 68.50.645) (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=27.53
+  access_date: '2026-10-18'
+  version: Revised Code of Washington as published on app.leg.wa.gov on 2026-10-18; chapter 27.53 last
+    amended by 2013 c 23 (s 27.53.030), chapter 27.44 by 2008 c 275 (s 27.44.055), RCW 68.50.645 enacted
+    by 2008 c 275 s 1
+obligations:
+- key: approvals.archaeological_permit.us-wa
+  duty: Hold the written permit of the director of the Department of Archaeology and Historic Preservation
+    before knowingly digging into, altering or removing any part of an archaeological site, and keep it
+    on site while the work goes on
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_permit
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=27.53.060
+    clause: RCW 27.53.030(2), (3), 27.53.060(1), (2), (4), (5), 27.53.070(1), 27.53.090, 27.53.095(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 27.53.030(2), (3), 27.53.060(1), (2), (4), (5), 27.53.070(1), 27.53.090, 27.53.095(1)
+  caveat: 'Applies on private and public lands, to any person, firm, corporation or public agency that knowingly
+    removes, alters, digs into or excavates, or damages, defaces or destroys, a historic or prehistoric archaeological
+    resource or site (s 27.53.060(1)). An archaeological site is a place in Washington, including submerged
+    lands, that contains archaeological objects, the physical evidence of an indigenous and subsequent culture
+    (s 27.53.030(2), (3)). The director must have the landowner''s or managing agency''s consent before issuing
+    the permit (s 27.53.060(2)). The permit, and any agreement or lease the public landowner requires, must
+    be physically present while the activity is conducted (s 27.53.060(4)). No permit is needed to remove
+    artifacts exposed on the surface that are not historic archaeological resources or sites (s 27.53.060(5)).
+    Violating the chapter is a misdemeanor, and each day of continued violation is a separate offense (s 27.53.090).
+    A knowing and willful failure to obtain or comply with a permit can also bring the costs of an independent
+    archaeologist''s investigation and of site restoration, and a civil penalty set by the director of up
+    to USD 5,000 per violation (s 27.53.095(1)). Indian graves and cairns, glyptic or painted records, and
+    historic graves under chapter 68.05 RCW are carved out of this section because disturbing them is a class
+    C felony (s 27.53.060(1)); see approvals.indian_graves.us-wa. The chapter imposes no duty to stop and
+    report an archaeological find; it only encourages people to tell the department (s 27.53.070(1)). A permit
+    held before the work, with no day count, so no window is recorded. The compliance_documents register
+    can hold a permit but not the site or works it covers, so this is recorded not_collected.'
+- key: approvals.indian_graves.us-wa
+  duty: Do not knowingly remove, injure or destroy a native Indian cairn or grave or a glyptic or painted
+    record, and if the work disturbs one by accident, reinter the remains under the supervision of the appropriate
+    Indian tribe
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.aboriginal_heritage_harm
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=27.44.040
+    clause: RCW 27.44.020, 27.44.040, 27.44.050
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 27.44.020, 27.44.040, 27.44.050
+  caveat: 'Knowingly removing, mutilating, defacing, injuring or destroying a native Indian cairn or grave,
+    or a glyptic or painted record of any tribe or peoples, is a class C felony (s 27.44.040(1)), and so is
+    selling artifacts or human remains known to come from one (s 27.44.040(2)). A person who disturbs a native
+    Indian grave through inadvertence, including through construction, must reinter the human remains under
+    the supervision of the appropriate tribe, at the expense of the Department of Archaeology and Historic
+    Preservation (s 27.44.040(1)). It is a complete defense to prove, on the preponderance of evidence, that
+    the acts were accidental or inadvertent, that reasonable efforts were made to preserve what was disturbed,
+    and that the accidental discovery was properly reported (s 27.44.040(4)). The section names no recipient
+    or time for that report; the duty that does is approvals.human_remains_find.us-wa. Material may be removed
+    from a cairn or grave only for reburial or perpetual preservation in a recognized repository and with
+    the permission of the state historic preservation officer, who must notify the affected tribes (s 27.44.020).
+    An Indian tribe or enrolled member may sue within 2 years of discovering the violation, recovering the
+    greater of USD 500 imputed damages and actual damages, and punitive damages for a willful violation
+    (s 27.44.050). A standing duty with no day count, so no window is recorded. No register records a grave
+    or its reinterment, so this is recorded not_collected.'
+- key: approvals.human_remains_find.us-wa
+  duty: On finding skeletal human remains during ground disturbing work, stop any activity that may disturb
+    them further, protect the area, and report them to the coroner and local law enforcement in the most
+    expeditious manner possible
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.human_remains_find
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=68.50.645
+    clause: RCW 68.50.645(1)-(4); 27.44.055
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: RCW 68.50.645(1)-(4); 27.44.055
+  caveat: 'Binds any person engaged in ground disturbing activity who encounters or discovers skeletal human
+    remains in or on the ground (s 68.50.645(2)); s 27.44.055(2) states the same duty. Any person who knows
+    of the remains and has no good reason to believe the coroner and local law enforcement already know,
+    and fails to tell them, is guilty of a misdemeanor (s 68.50.645(1)). A person who meets the duty after
+    an inadvertent discovery, and is otherwise in compliance with the law, is held harmless from criminal
+    and civil liability under the section (s 68.50.645(2)(d)). In the most expeditious manner possible,
+    with no hour count, so no window is recorded. The later steps bind others and run in business days:
+    the coroner decides within 5 business days whether the remains are forensic, where the evidence allows,
+    and notifies the Department of Archaeology and Historic Preservation within 2 business days if they are
+    not (s 68.50.645(3), (3)(a)). The department then notifies cemeteries and affected tribes within 2 business
+    days, the state physical anthropologist makes an initial Indian or non-Indian determination within 2
+    business days, and the affected tribes have 5 business days to respond (s 68.50.645(3)(b)-(d)). The
+    section does not say when the stopped work may resume. The safety_incident register can hold the find
+    as a record in Demiton.'

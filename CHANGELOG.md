@@ -50,6 +50,24 @@ before this rule and declared a correction).
   in the vocabulary and stays `supported: false`. 17 new duty shapes, their
   titles in English like every other shape.
 
+- **Washington State's payment, lien and site law** (wave of 2026-11-02).
+  Eleven instruments under `obligations/US-WA/`, 51 rows, every one read from
+  app.leg.wa.gov on 2026-10-18: prevailing wages (RCW 39.12: the statement of
+  intent before any payment, the affidavit before retainage is released,
+  certified payroll monthly), retainage on public works (RCW 60.28: 5%, released
+  60 days after completion), the contractor's bond (RCW 39.08: a claim within
+  30 days of completion and acceptance), mechanics' liens (RCW 60.04: record
+  within 90 days, foreclose within 8 months), public works subcontractor payment
+  within 10 days and apprentice utilization (RCW 39.04), interest on unpaid
+  public contracts (RCW 39.76), underground utility locates (RCW 19.122),
+  archaeological sites, Indian graves and human remains (RCW 27.53, 27.44,
+  68.50.645), injury reporting within 8 and 24 hours (WAC 296-27), WISHA
+  citation appeals (RCW 49.17) and contractor registration (RCW 18.27). New
+  jurisdiction `US-WA` (`level: state`, `supported: false`): the law is here to
+  be read, and no project can be placed in Washington yet. 26 new duty shapes.
+  Days are counted under RCW 1.12.040, stated in every caveat that counts them;
+  the library holds no Washington holiday calendar.
+
 - **`lang` on an instrument** (contract `instrument` 2.1.0, MINOR: one new
   optional property). The language the instrument's own words are written in,
   as a BCP 47 primary subtag; absent means `en`. French law is read and

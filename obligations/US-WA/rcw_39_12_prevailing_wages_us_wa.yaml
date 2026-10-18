@@ -1,0 +1,218 @@
+# Chapter 39.12 RCW (Prevailing wages on public works), read in full from
+# app.leg.wa.gov/RCW on 2026-10-18. The latest session law in the chapter is
+# 2026 c 105 (RCW 39.12.105). The sections these rows rely on were last amended
+# by 2025 c 99 s 2 (RCW 39.12.010, in force 1 January 2026), 2025 c 99 s 3
+# (RCW 39.12.120), 2023 c 395 s 29 (RCW 39.12.040), 2023 c 88 (RCW 39.12.050,
+# .055, .065), 2023 c 145 (RCW 39.12.055) and 2011 c 92 (RCW 39.12.110).
+#
+# The chapter binds the prime contractor and every subcontractor tier on a
+# public work of the state or any county, municipality or political subdivision
+# (RCW 39.12.020, .040); "contractor" includes any prime contractor,
+# subcontractor or other employer (RCW 39.12.010(8)). It does not apply to
+# workers regularly employed by the public body (RCW 39.12.020). Its penalties
+# are civil, imposed by the director of labor and industries after a hearing
+# under chapter 34.05 RCW; the legislature's 2019 finding records the shift in
+# the 1980s from criminal to civil penalties, so no row is an offence. Filing
+# runs through the department of labor and industries' online system, which the
+# statute names (RCW 39.12.120(2)); no lni.wa.gov page was read, so no row
+# states L&I's own procedure. Days are counted under RCW 1.12.040 (the first day
+# excluded, the last included unless it is a Saturday, Sunday or holiday, which
+# is then also excluded); the reviser's note there records that the courts treat
+# it as of general application. This library holds no Washington holiday
+# calendar.
+id: rcw_39_12_prevailing_wages_us_wa
+source: law
+instrument_type: act
+title: Prevailing Wages on Public Works, chapter 39.12 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12
+  access_date: '2026-10-18'
+  version: Chapter 39.12 RCW as published on app.leg.wa.gov on 2026-10-18 (latest session law in the chapter 2026
+    c 105; RCW 39.12.120 last amended by 2025 c 99 s 3; RCW 39.12.010 as amended by 2025 c 99 s 2, in force 1 January
+    2026)
+obligations:
+- key: workforce.prevailing_wage_pay.us-wa
+  duty: Pay every laborer, worker and mechanic on a public work at least the prevailing rate of wage for the trade
+    in the county where the work is done
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.prevailing_wage
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.020
+    clause: RCW 39.12.010(1)-(3), (6), 39.12.015, 39.12.020, 39.12.021, 39.12.065(1)-(6)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: RCW 39.12.010(1)-(3), (6), 39.12.015, 39.12.020, 39.12.021, 39.12.065(1)-(6)
+  caveat: The prevailing rate is the hourly wage, usual benefits and overtime the industrial statistician of the
+    department of labor and industries sets for the trade, and the locality is the largest city in the county where
+    the physical work is performed (RCW 39.12.010(1)-(3), 39.12.015). Wages are unpaid if not paid by the regularly
+    established payday for the period in which the workweek ends, and wages other than usual benefits must be paid
+    at least once a month (RCW 39.12.010(6)). An apprentice is paid the apprentice rate only under an apprenticeship
+    agreement registered with and approved by the state apprenticeship council; any other worker is paid the journey
+    level rate (RCW 39.12.021). A contractor or subcontractor found to have underpaid owes the unpaid wages with
+    interest at 1% per month and a civil penalty of the greater of USD 5,000 and 50% of the violation found on the
+    contract, and may not bid on any public works contract until the penalty is paid; a second violation within
+    five years adds a two year bar (RCW 39.12.065(1), (3)). Paying the wages, the interest and a penalty of the
+    greater of USD 1,000 and 20% after an investigation starts and before a notice of violation resolves the violation
+    without further penalty, unless a notice of violation against the contractor became a final judgment in the
+    last five years (RCW 39.12.065(5), (6)). The director may waive or reduce a penalty but not the interest (RCW
+    39.12.065(4)). The amount is withheld first from the retainage or the bond in lieu of retainage, and unpaid
+    wages are a lien against the bonds and retainage (RCW 39.12.065(2), (3), 39.12.050(1)). A complaint is filed
+    with the department within 60 days from the acceptance date of the project, and the department may still recover
+    unpaid wages within two years from acceptance (RCW 39.12.065(1)). The payroll register holds what was paid,
+    not the classification and prevailing rate it was owed, so this is recorded not_collected.
+- key: workforce.prevailing_wage_intent.us-wa
+  duty: File a Statement of Intent to Pay Prevailing Wages, approved by the department of labor and industries,
+    before the public body makes any payment on the contract
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.prevailing_wage_intent
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.040
+    clause: RCW 39.12.040(1)(a), (b), (2)(a), 39.12.050(1), (2), 39.12.070(2)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.12.040(1)(a), (b), (2)(a), 39.12.050(1), (2), 39.12.070(2)
+  caveat: 'Before any sum due on a public works contract is paid, the disbursing officer must require a statement
+    from the contractor and from each subcontractor at every tier (RCW 39.12.040(1)(a)). On a contract over USD
+    10,000 it gives the contractor''s registration certificate number and, for each classification of worker, the
+    prevailing rate and the estimated number of workers (RCW 39.12.040(1)(a)). The industrial statistician approves
+    it before it is submitted, and unless the department authorizes otherwise each voucher claim for a progress
+    payment must state that prevailing wages have been paid in accordance with the statements on file (RCW 39.12.040(1)(b)).
+    On a project of USD 5,000 or less under the RCW 39.04.152 procedure, the awarding agency may accept the statement
+    without the department''s approval (RCW 39.12.040(2)(a)). Failing to file, or filing a false statement, forfeits
+    a civil penalty of USD 500 for each filing, after a hearing, and bars bidding on any public works contract until
+    it is paid; a second finding within five years adds a one year bar (RCW 39.12.050(1), (2)). An inadvertent filing
+    or reporting error, which the contractor must prove, carries no penalty (RCW 39.12.050(1)). The department''s
+    fee for approval is USD 40 or less (RCW 39.12.070(2)). The statute sets no day count: the deadline is the first
+    payment. No register holds the approved statement, so this is recorded not_collected.'
+- key: workforce.prevailing_wage_posting.us-wa
+  duty: On a contract over USD 10,000, post the approved statement of intent and the industrial statistician's address
+    and telephone number where workers can readily see them at the jobsite
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: workforce.prevailing_wage_posting
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.020
+    clause: RCW 39.12.020, 39.12.050(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.12.020, 39.12.050(1)
+  caveat: Binds every contractor required to pay the prevailing rate of wage (RCW 39.12.020). On road construction,
+    sewer line, pipeline, transmission line, street or alley improvement projects with no field office, the statement
+    may be posted at the contractor's local office or its gravel crushing, concrete or asphalt batch plant, if a
+    copy is given to any employee who asks (RCW 39.12.020). Failing to post a document the chapter requires forfeits
+    a civil penalty of USD 500 for each failure, after a hearing, and bars bidding on any public works contract
+    until it is paid (RCW 39.12.050(1)). The statute sets no day count. No register holds site postings, so this
+    is recorded not_collected.
+- key: workforce.prevailing_wage_affidavit.us-wa
+  duty: After final acceptance, file an Affidavit of Wages Paid, certified by the department of labor and industries,
+    before the retainage is released
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.prevailing_wage_affidavit
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.040
+    clause: RCW 39.12.040(1)(b), (2)(b), 39.12.050(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.12.040(1)(b), (2)(b), 39.12.050(1)
+  caveat: Following final acceptance, the disbursing officer requires an affidavit from the contractor and from
+    each subcontractor at every tier before releasing the funds retained under RCW 60.28.011; where no retainage
+    is withheld, the affidavit is due before final acceptance (RCW 39.12.040(1)(b)). The industrial statistician
+    certifies each affidavit before it is submitted (RCW 39.12.040(1)(b)). If a subcontractor that has ceased operations
+    or failed to file does not submit one, the contractor or subcontractor it contracted with may file on its behalf,
+    and in doing so accepts responsibility for any prevailing wages that subcontractor left unpaid; filing a false
+    affidavit for it carries the RCW 39.12.050 penalties (RCW 39.12.040(1)(b)). On a project of USD 5,000 or less
+    under the alternative procedure, the agency may pay in full, retainage included, on receiving the affidavit,
+    and sends it to the department for approval within 30 days (RCW 39.12.040(2)(b)). Failing to file forfeits a
+    civil penalty of USD 500, after a hearing, and bars bidding until it is paid (RCW 39.12.050(1)). The retainage
+    release itself is a row in rcw_60_28_retainage_us_wa. No register holds the certified affidavit, so this is
+    recorded not_collected.
+- key: workforce.certified_payroll.us-wa
+  duty: File certified payroll records for each public works project with the department of labor and industries
+    at least once a month
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.certified_payroll
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.120
+    clause: RCW 39.12.120(2)-(4), 39.12.050(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.12.120(2)-(4), 39.12.050(1)
+  window:
+    value: 1
+    unit: months
+  caveat: 'Binds each contractor, subcontractor and employer on the project (RCW 39.12.120(2)). Filing is through
+    the department''s online system or, if that is not used, directly with the department in a format it approves
+    (RCW 39.12.120(2)). The department gives a copy to any interested party who asks, which includes a contractor,
+    a worker and an organization whose members'' wages are affected (RCW 39.12.120(3), 39.12.010(4)). Noncompliance
+    is a violation of RCW 39.12.050: a civil penalty of USD 500 for each failure to file, after a hearing, and a
+    bar on bidding until it is paid (RCW 39.12.120(4), 39.12.050(1)). The section was last amended by 2025 c 99
+    s 3. The statute says at least once per month and fixes no filing day within the month. No register holds the
+    filings, so this is recorded not_collected.'
+- key: workforce.payroll_records_retention.us-wa
+  duty: Keep accurate payroll records for each worker on a public works project for 3 years from the date the awarding
+    agency accepts the project
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: fair_work.records
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.12.120
+    clause: RCW 39.12.120(1), (4), 39.12.110
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: RCW 39.12.120(1), (4), 39.12.110
+  window:
+    value: 36
+    unit: months
+  caveat: The records show each employee's full name, address, social security number, trade or occupation, classification,
+    straight and overtime rates, hourly rate of usual benefits, hours worked each day and week, any authorizations
+    under RCW 49.28.065, and the gross wages, itemized deductions, withholdings and net wages paid (RCW 39.12.120(1)).
+    Noncompliance is a violation of RCW 39.12.050 (RCW 39.12.120(4)). A contractor that fails to provide records,
+    or to allow adequate inspection, within 60 calendar days of service of the department's request in an investigation
+    may not use them in any proceeding under the chapter to challenge the department's determination (RCW 39.12.110).
+    The 3 years are recorded as 36 months and run from acceptance, not completion. The payroll register holds pay
+    runs but not every field the section lists, so this is recorded not_collected. RCW 1.12.040 excludes the first
+    day and includes the last, and excludes a last day that is a Saturday, Sunday or holiday; whether that extension
+    reaches a period stated in months was not checked.
