@@ -1,0 +1,76 @@
+# Gesetz zur Regelung eines allgemeinen Mindestlohns (Mindestlohngesetz, MiLoG) vom 11. August 2014 (BGBl. I S. 1348), zuletzt geändert
+# durch Art. 8 Abs. 3 G v. 12.5.2026 (BGBl. 2026 I Nr. 137). Gelesen auf gesetze-im-internet.de am 18. Oktober 2026: s 1, 2, 13, 14, 20 und 21.
+# In dieser Datei steht "s" für Paragraf.
+#
+# Die Höhe des Mindestlohns steht in s 1 Abs 2 S 1 mit 12 Euro je Zeitstunde seit dem 1. Oktober 2022; s 1 Abs 2 S 2 lässt die Mindestlohnkommission eine
+# Änderung durch Rechtsverordnung vorschlagen, und die Fußnote nennt Anpassungen durch V v. 24.11.2023 I Nr. 321 und V v. 5.11.2025 I Nr. 268. Die
+# Verordnungen habe ich nicht gelesen; der heute geltende Betrag steht in keiner Zeile. Branchenmindestlöhne nach dem Arbeitnehmer-Entsendegesetz gehen
+# vor, soweit sie den Mindestlohn nicht unterschreiten (s 1 Abs 3; siehe arbeitnehmer_entsendegesetz_de).
+id: mindestlohngesetz_de
+lang: de
+source: law
+instrument_type: act
+title: 'Mindestlohngesetz (MiLoG): Zahlung des Mindestlohns und Haftung des Auftraggebers'
+publisher: Bundesrepublik Deutschland (Bundesministerium der Justiz, Gesetze im Internet)
+jurisdictions:
+- DE
+citation:
+  url: https://www.gesetze-im-internet.de/milog/
+  access_date: '2026-10-18'
+  version: Mindestlohngesetz vom 11. August 2014 (BGBl. I S. 1348), zuletzt geändert durch Art. 8 Abs. 3 G v. 12.5.2026
+    (BGBl. 2026 I Nr. 137); gelesen am 18. Oktober 2026
+obligations:
+- key: workforce.minimum_wage.de-milog
+  duty: Jedem im Inland beschäftigten Arbeitnehmer mindestens den Mindestlohn zahlen, spätestens am letzten Bankarbeitstag
+    (Frankfurt am Main) des Monats, der auf den Monat der Arbeitsleistung folgt
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.minimum_wage
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/milog/__20.html
+    clause: s 1 Abs 1, 2, 3; s 2 Abs 1; s 20; s 21 Abs 1 Nr 13, Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payroll_run
+  clause: s 1 Abs 1, 2, 3; s 2 Abs 1; s 20; s 21 Abs 1 Nr 13, Abs 3
+  caveat: 'Bindet jeden Arbeitgeber mit Sitz im In- oder Ausland (s 20). Jede Arbeitnehmerin und jeder Arbeitnehmer hat
+    Anspruch auf ein Arbeitsentgelt mindestens in Höhe des Mindestlohns (s 1 Abs 1). Fällig ist er zum vereinbarten Zeitpunkt,
+    spätestens am letzten Bankarbeitstag (Frankfurt am Main) des Folgemonats (s 2 Abs 1 S 1 Nr 1, 2); Überstunden auf einem
+    schriftlich vereinbarten Arbeitszeitkonto sind innerhalb von zwölf Kalendermonaten auszugleichen, monatlich höchstens
+    50 Prozent der vertraglichen Arbeitszeit (s 2 Abs 2). Wer das Entgelt nicht oder nicht rechtzeitig zahlt, handelt ordnungswidrig
+    mit einer Geldbuße bis zu fünfhunderttausend Euro (s 21 Abs 1 Nr 13, Abs 3). Das Fenster steht nicht in der Zeile: die
+    Frist ist der Monatsletzte des Folgemonats, nicht ein Monat ab der Arbeitsleistung. Den Betrag des Mindestlohns und
+    die Branchenmindestlöhne enthält die Zeile nicht (siehe Kopf der Datei). Das Register payroll_run führt Lohnläufe, nicht
+    den Mindestlohn oder dessen Fälligkeit, deshalb not_collected.'
+- key: workforce.subcontractor_wage_liability.de-milog
+  duty: Wie ein Bürge, der auf die Einrede der Vorausklage verzichtet hat, dafür haften, dass der beauftragte Unternehmer,
+    sein Nachunternehmer oder dessen Verleiher den Mindestlohn zahlt
+  consequence: liable_full_amount
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: workforce.subcontractor_wage_liability
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/milog/__13.html
+    clause: s 13 MiLoG; s 14 AEntG; s 21 Abs 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 13 MiLoG; s 14 AEntG; s 21 Abs 2, 3
+  caveat: Bindet jeden Unternehmer, der einen anderen Unternehmer mit Werk- oder Dienstleistungen beauftragt. s 13 MiLoG
+    sagt nur, dass s 14 des Arbeitnehmer-Entsendegesetzes entsprechende Anwendung findet; den Inhalt habe ich in s 14 AEntG
+    gelesen (Bürgenhaftung ohne Einrede der Vorausklage, Mindestentgelt nur als Nettobetrag nach Abzug der Steuern und Sozialbeiträge).
+    Wie die Verweisung auf den Mindestlohn zu übertragen ist, insbesondere das Wort "Beiträge an eine gemeinsame Einrichtung",
+    die im Mindestlohn fehlen, ist meine Auslegung; die Rechtsprechung habe ich nicht gelesen. Ordnungswidrig handelt außerdem,
+    wer Werk- oder Dienstleistungen in erheblichem Umfang ausführen lässt, indem er einen Unternehmer beauftragt, von dem
+    er weiß oder fahrlässig nicht weiß, dass er oder sein Nachunternehmer den Mindestlohn nicht oder nicht rechtzeitig zahlt;
+    die Geldbuße beträgt bis zu fünfhunderttausend Euro (s 21 Abs 2, 3). Kein Fenster. Das Register compliance_documents
+    hält die Zahlung der Nachunternehmer nicht fest, deshalb not_collected.

@@ -1,0 +1,145 @@
+# Verordnung über Sicherheit und Gesundheitsschutz auf Baustellen (Baustellenverordnung, BaustellV) vom 10. Juni 1998
+# (BGBl. I S. 1283), zuletzt geändert durch Art. 2 V v. 17.12.2025 (BGBl. 2025 I Nr. 337). Gelesen auf gesetze-im-internet.de am
+# 18. Oktober 2026: s 1 bis 8 und die Anhänge I und II. In dieser Datei steht "s" für Paragraf.
+#
+# Wen die Verordnung bindet: Die Maßnahmen nach s 2 und s 3 Abs 1 S 1 hat der Bauherr zu treffen, es sei denn, er beauftragt einen Dritten,
+# sie in eigener Verantwortung zu treffen (s 4). Ein Auftragnehmer ist an die Zeilen zu s 2 und s 3 nur gebunden, wenn der Bauherr ihm diese
+# Maßnahmen übertragen hat (zum Beispiel einem Generalunternehmer oder Projektsteuerer); die Beauftragung entbindet den Bauherrn nicht
+# (s 3 Abs 1a). s 5 und s 6 binden jeden Arbeitgeber und jeden Unternehmer ohne Beschäftigte unmittelbar. Die Verordnung nennt keine Frist
+# in Werktagen; "zwei Wochen" (s 2 Abs 2) sind 14 Tage. Die zuständige Behörde für die Vorankündigung bestimmt das Landesrecht; sie steht
+# nicht in der Verordnung und ich habe sie nicht nachgeschlagen. Die Höhe der Geldbuße steht im Arbeitsschutzgesetz (s 25), das ich nicht
+# gelesen habe.
+id: baustellenverordnung_de
+lang: de
+source: law
+instrument_type: regulation
+title: 'Baustellenverordnung (BaustellV): Vorankündigung, Sicherheits- und Gesundheitsschutzplan, Koordination und Pflichten
+  der Arbeitgeber'
+publisher: Bundesrepublik Deutschland (Bundesministerium der Justiz, Gesetze im Internet)
+jurisdictions:
+- DE
+citation:
+  url: https://www.gesetze-im-internet.de/baustellv/
+  access_date: '2026-10-18'
+  version: Baustellenverordnung vom 10. Juni 1998 (BGBl. I S. 1283), zuletzt geändert durch Art. 2 V v. 17.12.2025 (BGBl.
+    2025 I Nr. 337); gelesen am 18. Oktober 2026
+obligations:
+- key: whs.advance_notice.de-baustellv
+  duty: Der zuständigen Behörde spätestens zwei Wochen vor Einrichtung der Baustelle eine Vorankündigung mit den Angaben
+    nach Anhang I übermitteln, sie sichtbar auf der Baustelle aushängen und bei erheblichen Änderungen anpassen, wenn die
+    Arbeiten mehr als 30 Arbeitstage dauern und gleichzeitig mehr als 20 Beschäftigte tätig werden oder der Umfang 500 Personentage
+    überschreitet
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.notifiable_work_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/baustellv/__2.html
+    clause: s 2 Abs 2; s 7 Abs 1 Nr 1, Abs 2; Anhang I
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 2 Abs 2; s 7 Abs 1 Nr 1, Abs 2; Anhang I
+  window:
+    value: 14
+    unit: days
+  caveat: 'Bindet den Bauherrn oder den nach s 4 beauftragten Dritten (Auftragnehmer nur, wenn ihm die Maßnahme übertragen
+    wurde). Die Schwelle ist erreicht, wenn die voraussichtliche Dauer der Arbeiten mehr als 30 Arbeitstage beträgt und
+    gleichzeitig mehr als 20 Beschäftigte tätig werden, oder der Umfang der Arbeiten voraussichtlich 500 Personentage überschreitet
+    (Nr 1, 2). "Arbeitstage" und "Personentage" definiert die Verordnung nicht. Anhang I verlangt neun Angaben: Ort, Bauherr,
+    Art des Bauvorhabens, verantwortlicher Dritter, Koordinator, voraussichtlicher Beginn und Dauer, Höchstzahl der Beschäftigten,
+    Zahl der Arbeitgeber und Unternehmer ohne Beschäftigte, bereits ausgewählte Arbeitgeber und Unternehmer. Ordnungswidrig
+    handelt, wer die Vorankündigung nicht, nicht richtig, nicht vollständig oder nicht rechtzeitig übermittelt (s 7 Abs
+    1 Nr 1, im Sinne von s 25 Abs 1 Nr 1 ArbSchG); wer durch eine solche vorsätzliche Handlung Leben oder Gesundheit eines
+    Beschäftigten gefährdet, ist nach s 26 Nr 2 ArbSchG strafbar (s 7 Abs 2). Beide Vorschriften des ArbSchG habe ich nicht
+    gelesen, die Höhe der Geldbuße kenne ich nicht. Zwei Wochen vor Einrichtung der Baustelle sind 14 Tage; das Gesetz sagt
+    nichts über ein Fristende am Wochenende. Das Register compliance_documents kann die Vorankündigung enthalten, nicht
+    aber den Baustellenbeginn, deshalb not_collected.'
+- key: whs.safety_plan.de-baustellv
+  duty: Dafür sorgen, dass vor Einrichtung der Baustelle ein Sicherheits- und Gesundheitsschutzplan erstellt wird, wenn
+    Beschäftigte mehrerer Arbeitgeber tätig werden und eine Vorankündigung zu übermitteln ist oder besonders gefährliche
+    Arbeiten nach Anhang II ausgeführt werden
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.construction_phase_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/baustellv/__2.html
+    clause: s 2 Abs 3, 4; s 3 Abs 2 Nr 2; s 7 Abs 1 Nr 2; Anhang II
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 2 Abs 3, 4; s 3 Abs 2 Nr 2; s 7 Abs 1 Nr 2; Anhang II
+  caveat: 'Bindet den Bauherrn oder den nach s 4 beauftragten Dritten. Der Plan muss die anzuwendenden Arbeitsschutzbestimmungen
+    erkennen lassen und besondere Maßnahmen für die besonders gefährlichen Arbeiten nach Anhang II enthalten, erforderlichenfalls
+    unter Berücksichtigung betrieblicher Tätigkeiten auf dem Gelände (Abs 3 S 2, 3). Anhang II nennt zehn Arten, darunter
+    Arbeiten mit Gefahr des Verschüttetwerdens in Baugruben oder Gräben mit mehr als 5 m Tiefe oder des Absturzes aus mehr
+    als 7 m Höhe, Arbeiten in geringerem Abstand als 5 m von Hochspannungsleitungen, Brunnenbau, unterirdische Erdarbeiten
+    und Tunnelbau sowie Arbeiten, bei denen Sprengstoff eingesetzt wird. Ausgearbeitet wird der Plan vom Koordinator (s
+    3 Abs 2 Nr 2) und bei Änderungen angepasst (s 3 Abs 3 Nr 3). Wird auf der Baustelle jeder Beschäftigte für denselben
+    Arbeitgeber tätig, tritt an die Stelle des Plans die Unterrichtung dieses Arbeitgebers über die Umstände auf dem Gelände
+    (Abs 4). Ordnungswidrig handelt, wer nicht dafür sorgt, dass der Plan vor Einrichtung der Baustelle erstellt wird (s
+    7 Abs 1 Nr 2). Kein Fenster: "vor Einrichtung der Baustelle" ist ein Ereignis. Das Register compliance_documents kann
+    den Plan enthalten, nicht aber den Baustellenbeginn, deshalb not_collected.'
+- key: whs.coordinator_appointment.de-baustellv
+  duty: Für Baustellen, auf denen Beschäftigte mehrerer Arbeitgeber tätig werden, einen oder mehrere geeignete Koordinatoren
+    bestellen
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.duty_holders_appoint
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/baustellv/__3.html
+    clause: s 3 Abs 1, 1a, 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 3 Abs 1, 1a, 2, 3
+  caveat: Bindet den Bauherrn oder den nach s 4 beauftragten Dritten; er kann die Aufgaben des Koordinators selbst wahrnehmen
+    (Abs 1 S 2). Die Beauftragung geeigneter Koordinatoren entbindet nicht von der Verantwortung (Abs 1a). In der Planung
+    koordiniert der Koordinator die Maßnahmen nach s 2 Abs 1, arbeitet den Sicherheits- und Gesundheitsschutzplan aus oder
+    lässt ihn ausarbeiten und stellt eine Unterlage mit den bei späteren Arbeiten an der baulichen Anlage zu berücksichtigenden
+    Angaben zusammen (Abs 2). In der Ausführung koordiniert er die Anwendung der allgemeinen Grundsätze des Arbeitsschutzes,
+    achtet darauf, dass Arbeitgeber und Unternehmer ohne Beschäftigte ihre Pflichten erfüllen, passt den Plan an, organisiert
+    die Zusammenarbeit und koordiniert die Überwachung der Arbeitsverfahren (Abs 3). s 7 nennt für s 3 keinen Bußgeldtatbestand
+    (nur s 2 Abs 2 S 1 und Abs 3 S 1), deshalb breach. Das Register compliance_documents kann die Bestellung enthalten,
+    nicht aber die Baustelle, für die sie gilt, deshalb not_collected.
+- key: whs.contractor_duties.de-baustellv
+  duty: Als Arbeitgeber bei der Ausführung die erforderlichen Arbeitsschutzmaßnahmen treffen, die Hinweise des Koordinators
+    und den Sicherheits- und Gesundheitsschutzplan berücksichtigen und die Beschäftigten in verständlicher Form und Sprache
+    über die Schutzmaßnahmen informieren
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.contractor_duties
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/baustellv/__5.html
+    clause: s 5 Abs 1, 2, 3; s 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 5 Abs 1, 2, 3; s 6
+  caveat: Bindet jeden Arbeitgeber auf der Baustelle unmittelbar, auch Unternehmer ohne Beschäftigte und Arbeitgeber, die
+    selbst auf der Baustelle tätig sind (s 6). Die Maßnahmen betreffen insbesondere die Instandhaltung der Arbeitsmittel,
+    Lagerung und Entsorgung von Arbeitsstoffen und Abfällen, die Anpassung der Ausführungszeiten, die Zusammenarbeit, die
+    Wechselwirkungen mit anderen betrieblichen Tätigkeiten und die Ausführung besonders gefährlicher Arbeiten nach Anhang
+    II (Abs 1 Nr 1 bis 6). Die Verantwortlichkeit des Arbeitgebers für seine Arbeitsschutzpflichten wird durch die Maßnahmen
+    nach s 2 und s 3 nicht berührt (Abs 3). s 7 nennt für s 5 und s 6 keinen Bußgeldtatbestand; Folgen können sich aus dem
+    Arbeitsschutzgesetz ergeben, das ich nicht gelesen habe, deshalb breach. Kein Fenster. Das Register compliance_documents
+    kann Unterweisungsnachweise enthalten, nicht aber die Information zu den Schutzmaßnahmen dieser Baustelle, deshalb not_collected.

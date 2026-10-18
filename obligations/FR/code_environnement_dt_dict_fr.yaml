@@ -1,0 +1,207 @@
+# Code de l'environnement, livre V, titre V, chapitre IV (sécurité des réseaux souterrains,
+# aériens ou subaquatiques de transport ou de distribution), lu sur Légifrance le 18 octobre
+# 2026 dans la version en vigueur : articles R. 554-20 à R. 554-31, R. 554-33 et R. 554-35.
+# Les articles R. 554-21, R. 554-22, R. 554-26 et R. 554-35 sont dans leur rédaction issue du
+# décret n° 2024-1022 du 13 novembre 2024, en vigueur le 1er janvier 2025.
+#
+# Les lignes visent l'exécutant des travaux, qui adresse la déclaration d'intention de
+# commencement de travaux (DICT). La déclaration de projet de travaux (DT) incombe au
+# responsable du projet, en pratique le maître d'ouvrage (art. R. 554-21) ; elle n'est pas
+# reprise ici. Le guide technique, les arrêtés d'application (formulaires, AIPR, précision
+# des plans, constat contradictoire) et le guichet unique n'ont pas été lus.
+#
+# Computation : les exploitants répondent dans un délai exprimé en jours, « jours fériés non
+# compris » (art. R. 554-22 et R. 554-26) ; samedis et dimanches comptent. La relance
+# appelle une réponse en deux jours ouvrés (art. R. 554-26, VI). Le code ne dit pas ici ce qu'il
+# advient d'un délai qui expire un samedi ou un dimanche. Sanction : amende administrative
+# d'au plus 1 500 euros par manquement, doublée en cas de récidive (art. R. 554-35).
+id: code_environnement_dt_dict_fr
+lang: fr
+source: law
+instrument_type: regulation
+title: 'Code de l''environnement, articles R. 554-20 à R. 554-35 : travaux à proximité des réseaux (DT-DICT)'
+publisher: République française (Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006074220/
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 (rédaction issue du décret n° 2024-1022 du 13 novembre 2024 pour
+    les articles R. 554-21, R. 554-22, R. 554-26 et R. 554-35)
+obligations:
+- key: approvals.dict_declaration.fr
+  duty: Avant les travaux, consulter le guichet unique et adresser une déclaration d'intention de commencement de
+    travaux à chaque exploitant de réseau dont la zone d'implantation est touchée par l'emprise
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.utility_works_declaration
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643876/
+    clause: art. R. 554-24, R. 554-25 et R. 554-35, 6° bis
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. R. 554-24, R. 554-25 et R. 554-35, 6° bis
+  caveat: Vise l'exécutant des travaux (art. R. 554-24 et R. 554-25). Sont dispensés les exploitants exemptés de
+    DT au I de l'article R. 554-21 et ceux qui ont indiqué, dans un récépissé de DT de moins de trois mois relatif
+    au même projet, ne pas être concernés (art. R. 554-25, I). La DICT reprend exactement les informations de la
+    DT et précise l'emprise, la nature des travaux et les techniques opératoires (art. R. 554-25, II). DT et DICT
+    peuvent être faites conjointement sur un document unique quand il est matériellement impossible d'attendre la
+    réponse à la DT (art. R. 554-25, IV). Le défaut de DICT est le manquement 6° bis de l'article R. 554-35. Chaque
+    manquement listé à l'article R. 554-35 est passible d'une amende administrative d'au plus 1 500 euros, doublée
+    en cas de récidive, sans préjudice des sanctions pénales du II de l'article L. 554-1-1, non lu ici (art. R.
+    554-35). Mappé à offence comme les autres manquements réglementaires sanctionnés, bien qu'il s'agisse d'une
+    amende administrative et non pénale. Le registre contract_notice ne distingue pas une DICT d'un autre avis.
+- key: approvals.dict_reponses.fr
+  duty: 'Ne pas commencer les travaux avant d''avoir les informations de localisation des exploitants : ceux-ci
+    répondent dans les sept jours, jours fériés non compris, de la réception d''une DICT dématérialisée'
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.utility_works_response
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643876/
+    clause: art. R. 554-26, I et VI ; R. 554-31, II ; R. 554-35, 7°
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. R. 554-26, I et VI ; R. 554-31, II ; R. 554-35, 7°
+  window:
+    value: 7
+    unit: days
+  caveat: 'Sept jours pour une DICT dématérialisée, neuf jours pour une DICT papier, jours fériés non compris, à
+    compter de la réception de la déclaration dûment remplie ; pour une DT-DICT conjointe, le délai est celui de
+    la DT, neuf ou quinze jours (art. R. 554-26, I et R. 554-22, I). Une demande de compléments reporte le départ
+    du délai à leur réception (art. R. 554-26, I). Faute de réponse, l''exécutant renouvelle sa déclaration par
+    lettre recommandée avec accusé de réception ou moyen équivalent, et l''exploitant répond sous deux jours ouvrés
+    (art. R. 554-26, VI). Les travaux ne peuvent être entrepris avant l''obtention de tous les récépissés relatifs
+    à des ouvrages sensibles pour la sécurité (art. R. 554-26, VI). Travailler à proximité d''un ouvrage avant d''avoir
+    obtenu les informations de localisation est le manquement 7° (art. R. 554-35). Le marché doit prévoir que l''exécutant
+    ne subit pas de préjudice d''un retard dû à l''absence de réponse à une relance fondée (art. R. 554-26, VI).
+    L''exécutant conserve un exemplaire du récépissé sur le chantier pendant toute sa durée (art. R. 554-31, II).
+    Les délais de réponse se comptent en jours, jours fériés non compris : samedis et dimanches sont comptés, seuls
+    les jours fériés sont exclus (art. R. 554-26). Chaque manquement listé à l''article R. 554-35 est passible d''une
+    amende administrative d''au plus 1 500 euros, doublée en cas de récidive, sans préjudice des sanctions pénales
+    du II de l''article L. 554-1-1, non lu ici (art. R. 554-35).'
+- key: approvals.dict_renouvellement.fr
+  duty: Renouveler la DICT si les travaux ne sont pas entrepris dans les trois mois de la consultation du guichet
+    unique, après une interruption de plus de trois mois, ou au-delà de six mois de travaux
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.utility_works_declaration_renewal
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643896/
+    clause: art. R. 554-33 ; R. 554-35, 6° bis
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. R. 554-33 ; R. 554-35, 6° bis
+  window:
+    value: 3
+    unit: months
+  caveat: Les trois mois courent de la consultation du guichet unique faite par l'exécutant (art. R. 554-33, I et
+    R. 554-24). Une interruption des travaux de plus de trois mois impose aussi une nouvelle déclaration (art. R.
+    554-33, II). Si les travaux durent plus de six mois, ou dépassent le délai annoncé, une nouvelle déclaration
+    est due aux exploitants d'ouvrages sensibles pour la sécurité, sauf réunions périodiques planifiées dès le démarrage
+    (art. R. 554-33, III). Ne pas renouveler la déclaration est le manquement 6° bis (art. R. 554-35). Chaque manquement
+    listé à l'article R. 554-35 est passible d'une amende administrative d'au plus 1 500 euros, doublée en cas de
+    récidive, sans préjudice des sanctions pénales du II de l'article L. 554-1-1, non lu ici (art. R. 554-35).
+- key: latent_conditions.reseau_imprevu.fr
+  duty: Informer par écrit le responsable du projet de tout ouvrage découvert après la commande, et surseoir aux
+    travaux adjacents, s'il peut être sensible ou si le sous-sol diffère notablement, jusqu'à son ordre écrit
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: latent_conditions.notice
+  trigger: latent_condition_reported
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643886/
+    clause: art. R. 554-28, I à IV ; R. 554-35, 9°
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: art. R. 554-28, I à IV ; R. 554-35, 9°
+  caveat: 'L''information écrite vaut pour tout ouvrage découvert après la commande ou la signature du marché ;
+    les actions complémentaires donnent lieu à avenant ou à nouveau marché à la charge du responsable du projet
+    si le marché ne les a pas prévues (art. R. 554-28, I). Le sursis aux travaux adjacents s''impose si l''ouvrage
+    découvert est susceptible d''être sensible pour la sécurité, ou si une différence notable entre le sous-sol
+    constaté et les informations reçues crée un risque pour les personnes lié à un ouvrage sensible (art. R. 554-28,
+    I et II). Les parties définissent avant le lancement du chantier les modalités de l''arrêt de travaux (art.
+    R. 554-28, III). Le marché doit garantir l''exécutant contre tout préjudice d''un arrêt justifié et fixer son
+    indemnisation (art. R. 554-28, IV). Engager ou poursuivre des travaux en contradiction avec l''ordre écrit est
+    le manquement 9° (art. R. 554-35). Aucun délai chiffré : pas de fenêtre. Chaque manquement listé à l''article
+    R. 554-35 est passible d''une amende administrative d''au plus 1 500 euros, doublée en cas de récidive, sans
+    préjudice des sanctions pénales du II de l''article L. 554-1-1, non lu ici (art. R. 554-35).'
+- key: approvals.dommage_reseau.fr
+  duty: Aviser l'exploitant dans les plus brefs délais de toute dégradation, même superficielle, d'un ouvrage en
+    service, de tout déplacement accidentel de plus de 10 cm d'un ouvrage souterrain flexible, ou de toute autre
+    anomalie
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.utility_damage_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643886/
+    clause: art. R. 554-29, R. 554-31, II ; R. 554-35, 10°
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: art. R. 554-29, R. 554-31, II ; R. 554-35, 10°
+  caveat: 'L''avis peut prendre la forme d''un constat contradictoire entre l''exécutant et l''exploitant (art.
+    R. 554-31, II). Les dispositions immédiates de sécurité à prendre en cas d''endommagement et l''information
+    des services de secours sont fixées par un arrêté qui approuve le guide technique (art. R. 554-29), non lu ici
+    : cette ligne ne dit donc pas quand arrêter le chantier après un dommage. Mettre en œuvre des travaux sans respecter
+    les articles R. 554-29 ou R. 554-31 est le manquement 10° (art. R. 554-35). « Dans les plus brefs délais »,
+    sans nombre : pas de fenêtre. Chaque manquement listé à l''article R. 554-35 est passible d''une amende administrative
+    d''au plus 1 500 euros, doublée en cas de récidive, sans préjudice des sanctions pénales du II de l''article
+    L. 554-1-1, non lu ici (art. R. 554-35).'
+- key: own_commitments.aipr.fr
+  duty: Informer le personnel de la localisation des réseaux et des mesures de prévention, et s'assurer de sa formation,
+    de sa qualification et, le cas échéant, de son autorisation d'intervention à proximité des réseaux
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: own_commitments.competency_hold
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074220/LEGISCTA000024643886/
+    clause: art. R. 554-27, IV ; R. 554-31, II et III ; R. 554-35, 8° et 10°
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: worker_qualification
+    system_type: document_store
+  clause: art. R. 554-27, IV ; R. 554-31, II et III ; R. 554-35, 8° et 10°
+  caveat: 'L''exécutant informe les personnes travaillant sous sa direction de la localisation des ouvrages repérés
+    et des mesures de prévention, et s''assure de leur formation, de leur qualification et, le cas échéant, de leur
+    autorisation d''intervention à proximité des réseaux (AIPR), systématiquement pour les travaux urgents (art.
+    R. 554-31, II). Les règles de compétence et d''autorisation sont fixées par un arrêté non lu ici (art. R. 554-31,
+    III). Chaque exécutant maintient en bon état le marquage ou piquetage au fur et à mesure de ses interventions
+    (art. R. 554-27, IV) ; y manquer est le manquement 8°, et méconnaître l''article R. 554-31 le manquement 10°
+    (art. R. 554-35). Obligation permanente sans délai : pas de fenêtre. Chaque manquement listé à l''article R.
+    554-35 est passible d''une amende administrative d''au plus 1 500 euros, doublée en cas de récidive, sans préjudice
+    des sanctions pénales du II de l''article L. 554-1-1, non lu ici (art. R. 554-35).'

@@ -63,9 +63,11 @@ OVERRIDABLE = (
 CLEARABLE = ("window", "window_source_field", "threshold", "caveat", "basis")
 
 #: Fields a concrete instrument states for itself; everything else is inherited.
+#: `lang` is here because the concrete's words are its own: a base in one language
+#: says nothing about the language a jurisdiction's text is read in.
 #: `publisher` is here rather than inherited because a state's Act is published by
 #: that state's parliament, not by whoever published the model law.
-CONCRETE_HEADER = ("id", "title", "publisher", "jurisdictions", "citation")
+CONCRETE_HEADER = ("id", "lang", "title", "publisher", "jurisdictions", "citation")
 #: Fields a concrete instrument may inherit when it does not state them. `publisher`
 #: is here as well as in CONCRETE_HEADER: a state's Act is published by that state's
 #: parliament and states its own, while an approval-type instrument is published by

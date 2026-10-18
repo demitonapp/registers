@@ -1,0 +1,464 @@
+# Bürgerliches Gesetzbuch (BGB), Werkvertrags- und Bauvertragsrecht, Paragraf für Paragraf gelesen auf
+# gesetze-im-internet.de (Bundesministerium der Justiz) am 18. Oktober 2026. Gelesen: s 187, 188, 193, 271a, 286, 288,
+# 314, 631, 632a, 634, 634a, 640, 641, 642, 643, 648, 648a, 650a bis 650h, 650k und 650m. Stand laut Gesetzesseite:
+# neugefasst durch Bek. v. 2.1.2002, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. Welche Paragrafen dieses
+# Änderungsgesetz berührt, habe ich nicht geprüft; keiner der gelesenen Paragrafen trägt einen Fußnotenhinweis auf eine
+# künftige Änderung. In dieser Datei steht "s" für Paragraf.
+#
+# Wen die Zeilen binden: Das Werkvertragsrecht des BGB gilt kraft Gesetzes für jeden Werk- und Bauvertrag, auch wenn die
+# VOB/B vereinbart ist, soweit diese nichts anderes regelt. Jede Zeile sagt in der Caveat, ob die Pflicht den Unternehmer
+# trifft, der fordert (Auftragnehmer), oder den Unternehmer als Besteller gegenüber seinem Nachunternehmer. Die Vorschriften
+# des Bauvertragsrechts (s 650a bis 650h) gelten nur für einen Bauvertrag im Sinne von s 650a. Der Verbraucherbauvertrag und
+# der Bauträgervertrag (s 650i bis 650v) sind nicht in Zeilen gefasst; s 650k und 650m habe ich gelesen, sie tragen keine Zeile.
+#
+# Fristen: Das BGB zählt Tage als Kalendertage; keiner der gelesenen Paragrafen setzt eine Frist in Werktagen. Der Tag des
+# Ereignisses zählt nicht mit (s 187 Abs 1); eine Tagesfrist endet mit Ablauf ihres letzten Tages (s 188 Abs 1). Fällt der
+# letzte Tag einer Frist, innerhalb derer eine Erklärung abzugeben oder eine Leistung zu bewirken ist, auf einen Samstag,
+# Sonntag oder einen am Leistungsort staatlich anerkannten Feiertag, tritt der nächste Werktag an seine Stelle (s 193).
+# Die Bibliothek enthält keinen deutschen Feiertagskalender.
+#
+# Nicht in Zeilen gefasst, obwohl gelesen: s 271a (Zahlungsfristen über 60 Tage, Abschlagszahlungen ausgenommen), s 641 Abs 2
+# (Fälligkeit bei Weitergabe an einen Dritten), s 642 und 643 (Entschädigung und Kündigung bei unterlassener Mitwirkung),
+# s 648 (freie Kündigung des Bestellers) und s 650e (Sicherungshypothek). Sie sind Rechte oder Folgen, keine eigene Pflicht
+# mit einem Fenster, das die Bibliothek verfolgen könnte; soweit eine Zeile sie berührt, nennt ihre Caveat sie.
+id: bgb_bauvertragsrecht_de
+lang: de
+source: law
+instrument_type: act
+title: 'Bürgerliches Gesetzbuch (BGB): Werkvertrags- und Bauvertragsrecht (Abschlagszahlung, Änderung, Abnahme, Kündigung,
+  Sicherheit, Verjährung)'
+publisher: Bundesrepublik Deutschland (Bundesministerium der Justiz, Gesetze im Internet)
+jurisdictions:
+- DE
+citation:
+  url: https://www.gesetze-im-internet.de/bgb/
+  access_date: '2026-10-18'
+  version: 'Stand: neugefasst durch Bek. v. 2.1.2002, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226; gelesen am
+    18. Oktober 2026'
+obligations:
+- key: payment.interim_claim_statement.de
+  duty: Eine Abschlagszahlung in Höhe des Wertes der erbrachten, vertragsgemäßen Leistungen verlangen und die Leistungen
+    durch eine Aufstellung nachweisen, die eine rasche und sichere Beurteilung ermöglicht
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.claim_content
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__632a.html
+    clause: s 632a Abs 1 S 1, 2, 3, 5, 6, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 632a Abs 1 S 1, 2, 3, 5, 6, Abs 2
+  caveat: Bindet den Unternehmer, der fordert. Sind die Leistungen nicht vertragsgemäß, kann der Besteller einen angemessenen
+    Teil des Abschlags verweigern (Abs 1 S 2); die Beweislast für die vertragsgemäße Leistung bleibt bis zur Abnahme beim
+    Unternehmer (S 3); s 641 Abs 3 gilt entsprechend (S 4), danach ist ein Einbehalt in der Regel das Doppelte der Mängelbeseitigungskosten.
+    Angelieferte oder eigens angefertigte Stoffe und Bauteile zählen nur, wenn dem Besteller nach seiner Wahl das Eigentum
+    übertragen oder Sicherheit geleistet wird (S 6), auch durch Garantie eines Kreditinstituts oder Kreditversicherers (Abs
+    2). Das Gesetz nennt weder eine Frist für die Zahlung noch eine Folge für eine ungenügende Aufstellung, deshalb guidance
+    (Einordnung nach eigenem Urteil). s 650m Abs 1 begrenzt die Abschläge auf 90 Prozent der Gesamtvergütung; die Vorschrift
+    steht im Recht des Verbraucherbauvertrags, ihre Anwendungsvoraussetzungen (s 650i) habe ich nicht gelesen, sie ist nicht
+    Teil dieser Zeile. Die VOB/B sieht für denselben Anspruch eine Fälligkeit nach 21 Tagen vor (siehe vob_b_2016_de, s
+    16 Abs 1 Nr 3).
+- key: payment.variation_interim_share.de
+  duty: Bei Abschlagszahlungen auf eine angeordnete Änderung, über deren Preis keine Einigung besteht, höchstens 80 Prozent
+    der im Angebot genannten Mehrvergütung ansetzen und den Rest erst nach der Abnahme fordern
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.variation_interim_share
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650c.html
+    clause: s 650c Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 650c Abs 3
+  caveat: Bindet den Unternehmer, der fordert. Voraussetzung ist ein Angebot nach s 650b Abs 1 S 2, keine Einigung über
+    die Höhe und keine abweichende gerichtliche Entscheidung (Abs 3 S 1). Wählt der Unternehmer diesen Weg und ergeht keine
+    abweichende Entscheidung, wird die nach Abs 1 und 2 geschuldete Mehrvergütung erst nach der Abnahme fällig (S 2). Zahlungen,
+    die die geschuldete Mehrvergütung übersteigen, sind zurückzugewähren und ab Eingang zu verzinsen, nach s 288 Abs 1 S
+    2, Abs 2 und s 289 S 1 (S 3, 4). Das Gesetz sagt "kann"; es ist ein Wahlrecht ohne Folge bei Nichtgebrauch, deshalb
+    guidance. Gilt für vereinbarte oder nach s 632a geschuldete Abschlagszahlungen.
+- key: variations.change_offer.de
+  duty: Auf ein Änderungsbegehren des Bestellers ein Angebot über die Mehr- oder Mindervergütung erstellen, bei einer Änderung
+    des vereinbarten Werkerfolgs aber nur, wenn die Ausführung zumutbar ist
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: variations_claims
+  duty_shape: variations.proposed_value
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650b.html
+    clause: s 650b Abs 1
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 650b Abs 1
+  caveat: Bindet den Unternehmer, der das Begehren empfängt. Die Parteien streben Einvernehmen über die Änderung und die
+    Vergütung an (S 1). Die Pflicht zum Angebot gilt bei einer Änderung, die zur Erreichung des vereinbarten Werkerfolgs
+    notwendig ist (Nr 2), ohne Einschränkung; bei einer Änderung des Werkerfolgs selbst (Nr 1) nur, wenn die Ausführung
+    zumutbar ist (S 2). Beruft sich der Unternehmer auf betriebsinterne Vorgänge, trifft ihn die Beweislast (S 3). Trägt
+    der Besteller die Verantwortung für die Planung, muss der Unternehmer erst anbieten, wenn der Besteller die erforderliche
+    Planung vorgenommen und zur Verfügung gestellt hat (S 4). Für eine Änderung, für die nach s 650c Abs 1 S 2 kein Anspruch
+    auf Vergütung für vermehrten Aufwand besteht, wird nur Einvernehmen über die Änderung angestrebt (S 5). Das Gesetz nennt
+    für das Angebot keine Frist und keine Folge, deshalb kein Fenster und guidance; die 30 Tage laufen für den Besteller
+    (siehe change_order_compliance). Das Angebot ist die Grundlage der 80-Prozent-Regel in s 650c Abs 3.
+- key: variations.change_order_compliance.de
+  duty: Eine vom Besteller in Textform angeordnete Änderung ausführen, wenn binnen 30 Tagen nach Zugang des Änderungsbegehrens
+    keine Einigung zustande kam, bei einer Änderung des Werkerfolgs aber nur, wenn die Ausführung zumutbar ist
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: variations_claims
+  duty_shape: variations.change_order_compliance
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650b.html
+    clause: s 650b Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 650b Abs 2
+  window:
+    value: 30
+    unit: days
+  caveat: 'Bindet den Unternehmer, der die Anordnung empfängt. Die 30 Tage laufen ab Zugang des Änderungsbegehrens beim
+    Unternehmer; der Tag des Zugangs zählt nicht mit (s 187 Abs 1), die Frist endet mit Ablauf des 30. Tages (s 188 Abs
+    1). Sie ist eine Wartefrist des Bestellers, keine Frist, die der Unternehmer einhalten müsste: erst danach kann der
+    Besteller anordnen, und nur in Textform (S 1). Die Pflicht zur Ausführung gilt bei einer Änderung nach Abs 1 S 1 Nr
+    1 nur, wenn die Ausführung zumutbar ist; die Beweislast für betriebsinterne Gründe trägt der Unternehmer (S 2, 3). Das
+    Gesetz nennt keine Folge der Weigerung; eine Weigerung ist eine Vertragsverletzung, deshalb breach (Einordnung nach
+    eigenem Urteil). Ein Streit über Anordnung oder Preis kann nach Baubeginn im einstweiligen Verfügungsverfahren geführt
+    werden (s 650d). Es gibt kein Ereignis für ein Änderungsbegehren, deshalb kein trigger.'
+- key: variations.change_dispute_injunction.de
+  duty: Einen Streit über das Anordnungsrecht nach s 650b oder die Vergütungsanpassung nach s 650c nach Beginn der Bauausführung
+    im einstweiligen Verfügungsverfahren klären können, ohne den Verfügungsgrund glaubhaft machen zu müssen
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: variations_claims
+  duty_shape: variations.change_dispute_injunction
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650d.html
+    clause: s 650d
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: contract_notice
+  clause: s 650d
+  caveat: Ein Verfahrensrecht beider Parteien, keine Pflicht zu handeln; die Zeile hält fest, dass das Gesetz einen Streit
+    über eine Änderungsanordnung schnell klärbar macht. Der Wortlaut befreit nur vom Verfügungsgrund und erst nach Beginn
+    der Bauausführung; einen Verfügungsanspruch muss weiterhin zeigen, wer die Verfügung beantragt (Schluss aus dem Wortlaut,
+    Rechtsprechung nicht gelesen). Kein Fenster. Das Register contract_notice führt keine Verfügungsanträge, deshalb not_collected.
+- key: closeout.deemed_acceptance.de
+  duty: Dem Besteller nach Fertigstellung eine angemessene Frist zur Abnahme setzen, damit das Werk als abgenommen gilt,
+    wenn er die Abnahme nicht innerhalb der Frist unter Angabe mindestens eines Mangels verweigert
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.deemed_acceptance
+  trigger: practical_completion_reached
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__640.html
+    clause: s 640 Abs 1, 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 640 Abs 1, 2
+  caveat: Bindet den Unternehmer, der fordert. Ohne Abnahme wird die Vergütung nicht fällig (s 641 Abs 1), beginnt die Verjährung
+    der Mängelansprüche nicht (s 634a Abs 2) und bleibt die Beweislast für die vertragsgemäße Leistung beim Unternehmer
+    (s 632a Abs 1 S 3). Die Frist muss angemessen sein; das Gesetz nennt keine Zahl, deshalb kein Fenster. Ist der Besteller
+    Verbraucher, tritt die Fiktion nur ein, wenn der Unternehmer ihn mit der Aufforderung in Textform auf die Folgen hingewiesen
+    hat (Abs 2 S 2). Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden (Abs 1 S 2); wie das die Fiktion
+    berührt, regelt der Text nicht (Rechtsprechung nicht gelesen). Das Gesetz sieht keine Strafe für den Unternehmer vor,
+    der keine Frist setzt, deshalb guidance. Der trigger practical_completion_reached steht für die Fertigstellung und ist
+    nur eine Näherung. Die VOB/B regelt die Abnahme eigenständig (siehe vob_b_2016_de, s 12).
+- key: closeout.acceptance_reservation.de
+  duty: Bei der Abnahme eines Werks, dessen Mangel man kennt, sich die Rechte wegen des Mangels vorbehalten
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: quality
+  duty_shape: closeout.acceptance_reservation
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__640.html
+    clause: s 640 Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: punch_list
+  clause: s 640 Abs 3
+  caveat: 'Bindet den Unternehmer als Besteller gegenüber seinem Nachunternehmer (und jeden anderen Besteller). Nimmt er
+    ein mangelhaftes Werk in Kenntnis des Mangels ab, ohne sich die Rechte vorzubehalten, stehen ihm die in s 634 Nr 1 bis
+    3 bezeichneten Rechte nicht mehr zu: Nacherfüllung, Selbstvornahme mit Ersatz der Aufwendungen, Rücktritt und Minderung.
+    Schadensersatz (s 634 Nr 4) nennt s 640 Abs 3 nicht; daraus schließe ich, dass er bleibt, habe aber die Rechtsprechung
+    nicht gelesen. Eine Form oder Frist für den Vorbehalt nennt das Gesetz nicht, deshalb kein Fenster. Das Register punch_list
+    ist die nächstliegende Mängelliste, hält aber keinen Vorbehalt fest, deshalb not_collected. Die VOB/B verlangt zusätzlich
+    den Vorbehalt wegen Vertragsstrafen (siehe vob_b_2016_de, s 11 Abs 4).'
+- key: closeout.condition_record.de
+  duty: Nach einer unter Angabe von Mängeln verweigerten Abnahme die gemeinsame Zustandsfeststellung verlangen und, wenn
+    der Besteller einem Termin fernbleibt, die Feststellung einseitig vornehmen, mit dem Tag der Anfertigung versehen, unterschreiben
+    und dem Besteller abschriftlich zur Verfügung stellen
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: quality
+  duty_shape: closeout.condition_record
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650g.html
+    clause: s 650a Abs 1 S 2; s 650g Abs 1, 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: punch_list
+  clause: s 650a Abs 1 S 2; s 650g Abs 1, 2, 3
+  caveat: Bindet den Unternehmer, der fordert, bei einem Bauvertrag nach s 650a; der Besteller hat auf Verlangen mitzuwirken
+    (Abs 1 S 1). Die gemeinsame Feststellung soll mit dem Tag der Anfertigung versehen und von beiden Parteien unterschrieben
+    werden (S 2). Bleibt der Besteller einem vereinbarten oder einem vom Unternehmer innerhalb einer angemessenen Frist
+    bestimmten Termin fern, kann der Unternehmer einseitig feststellen, außer der Besteller bleibt aus einem Umstand fern,
+    den er nicht zu vertreten und dem Unternehmer unverzüglich mitgeteilt hat (Abs 2 S 1, 2). Ist das Werk dem Besteller
+    verschafft worden und ein offenkundiger Mangel in der Feststellung nicht angegeben, wird vermutet, dass er nach der
+    Feststellung entstanden und vom Besteller zu vertreten ist; das gilt nicht, wenn der Mangel nach seiner Art nicht vom
+    Besteller verursacht worden sein kann (Abs 3). Das Gesetz nennt für den Termin keine Zahl, deshalb kein Fenster, und
+    für das Unterlassen keine Folge außer dem Verlust der Vermutung, deshalb guidance. Die Parallelregel nach einer Kündigung
+    steht in s 648a Abs 4 (siehe die Zeile default.termination_for_cause.de). Das Register punch_list führt Mängel, nicht
+    die Zustandsfeststellung, deshalb not_collected.
+- key: closeout.final_invoice_issue.de
+  duty: Dem Besteller eine prüffähige Schlussrechnung mit übersichtlicher Aufstellung der erbrachten Leistungen erteilen,
+    weil die Vergütung beim Bauvertrag erst mit Abnahme und prüffähiger Schlussrechnung zu entrichten ist
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.final_claim
+  trigger: practical_completion_reached
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650g.html
+    clause: s 650a Abs 1 S 2; s 650g Abs 4 S 1, 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: invoice_issued
+    system_type: finance
+  clause: s 650a Abs 1 S 2; s 650g Abs 4 S 1, 2
+  caveat: Bindet den Unternehmer, der fordert, bei einem Bauvertrag nach s 650a. Die Vergütung ist zu entrichten, wenn der
+    Besteller das Werk abgenommen hat (oder die Abnahme nach dem Wortlaut "nach s 641 Abs 2" entbehrlich ist; wie diese
+    Verweisung mit dem Inhalt von s 641 Abs 2 zusammenpasst, habe ich nicht geprüft) und der Unternehmer eine prüffähige
+    Schlussrechnung erteilt hat (S 1). Prüffähig ist sie, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen
+    enthält und für den Besteller nachvollziehbar ist (S 2). Das Gesetz setzt dem Unternehmer keine Frist für die Schlussrechnung;
+    die VOB/B tut es (siehe vob_b_2016_de, s 14 Abs 3). Die 30-Tage-Regel des Verzugs knüpft an den Zugang einer Rechnung
+    an (s 286 Abs 3 S 1). Folge ist ein Aufschub, keine Strafe, deshalb guidance. Der trigger steht für die Fertigstellung;
+    die Abnahme kann später liegen.
+- key: closeout.final_invoice_objection.de
+  duty: Gegen eine erhaltene Schlussrechnung binnen 30 Tagen nach Zugang begründete Einwendungen gegen ihre Prüffähigkeit
+    erheben, sonst gilt sie als prüffähig
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: closeout.final_account_response
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650g.html
+    clause: s 650a Abs 1 S 2; s 650g Abs 4 S 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payable_entry
+  clause: s 650a Abs 1 S 2; s 650g Abs 4 S 3
+  window:
+    value: 30
+    unit: days
+  caveat: Bindet den Unternehmer als Besteller gegenüber seinem Nachunternehmer, der ihm eine Schlussrechnung stellt. Die
+    30 Tage laufen ab Zugang der Schlussrechnung; der Tag des Zugangs zählt nicht mit (s 187 Abs 1), die Frist endet mit
+    Ablauf des 30. Tages (s 188 Abs 1). Ob s 193 ein auf einen Samstag, Sonntag oder Feiertag fallendes Fristende verschiebt,
+    hängt davon ab, ob die Einwendung eine innerhalb der Frist abzugebende Erklärung ist; ich nehme das an (Einordnung nach
+    eigenem Urteil). Nach Fristablauf gilt die Rechnung nur als prüffähig; der Wortlaut sagt nicht, dass ihr Betrag anerkannt
+    wäre, sachliche Einwendungen gegen die Höhe bleiben also nach dem Wortlaut offen. Die VOB/B kennt dieselbe Ausschlusswirkung
+    mit 30 Tagen oder 60 bei ausdrücklicher Vereinbarung (siehe vob_b_2016_de, s 16 Abs 3 Nr 1 S 3). Das Register payable_entry
+    führt eingehende Rechnungen, nicht die Einwendung, deshalb not_collected.
+- key: payment.interest.de
+  duty: Gegen einen Schuldner, der kein Verbraucher ist, Verzugszinsen von neun Prozentpunkten über dem Basiszinssatz fordern;
+    Verzug tritt spätestens 30 Tage nach Fälligkeit und Zugang der Rechnung ein
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.interest
+  trigger: claim_lodged
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__286.html
+    clause: s 286 Abs 1 bis 3, 5; s 288 Abs 1, 2, 5, 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: invoice_issued
+    system_type: finance
+  clause: s 286 Abs 1 bis 3, 5; s 288 Abs 1, 2, 5, 6
+  window:
+    value: 30
+    unit: days
+  caveat: Bindet den Unternehmer, der fordert. Der Schuldner einer Entgeltforderung kommt spätestens in Verzug, wenn er
+    nicht innerhalb von 30 Tagen nach Fälligkeit und Zugang einer Rechnung oder gleichwertigen Zahlungsaufstellung leistet
+    (s 286 Abs 3 S 1); gegenüber einem Verbraucher nur, wenn die Rechnung darauf besonders hinweist. Ist der Zugang unsicher,
+    tritt der Verzug eines Nichtverbrauchers 30 Tage nach Fälligkeit und Empfang der Gegenleistung ein (S 2). Eine Mahnung
+    nach Fälligkeit (Abs 1) oder eine nach dem Kalender bestimmte Leistungszeit (Abs 2 Nr 1) führen früher zum Verzug. Der
+    Zinssatz für Entgeltforderungen beträgt bei Geschäften ohne Verbraucher neun Prozentpunkte über dem Basiszinssatz (s
+    288 Abs 2); die Höhe des Basiszinssatzes (s 247) habe ich nicht gelesen. Ein im Voraus vereinbarter Ausschluss der Verzugszinsen
+    ist unwirksam (s 288 Abs 6 S 1). Abweichende Vereinbarungen über den Verzugseintritt richten sich nach s 271a Abs 1
+    bis 5 (s 286 Abs 5). Die 30 Tage laufen ab dem späteren von Fälligkeit und Zugang; der trigger claim_lodged datiert
+    nur die Abgabe der Forderung, die Fälligkeit (Abnahme und Schlussrechnung nach s 650g Abs 4) kann später liegen. Die
+    VOB/B hat eine eigene Regel mit Nachfrist (siehe vob_b_2016_de, s 16 Abs 5 Nr 3). Daneben steht dem Gläubiger bei Verzug
+    eines Schuldners, der kein Verbraucher ist, eine Pauschale von 40 Euro zu, auch bei Abschlagszahlungen; sie ist auf
+    geschuldeten Schadensersatz anzurechnen, soweit der Schaden in Rechtsverfolgungskosten besteht, und ein Ausschluss im
+    Voraus ist im Zweifel grob unbillig (s 288 Abs 5, 6 S 2, 3). Die Pauschale hat keine eigene Zeile.
+- key: default.termination_for_cause.de
+  duty: Einen Bauvertrag aus wichtigem Grund nur nach erfolglos abgelaufener Abhilfefrist oder Abmahnung, innerhalb angemessener
+    Frist nach Kenntnis des Grundes und schriftlich kündigen
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: default.termination_for_cause
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__648a.html
+    clause: s 648a Abs 1 bis 6; s 314 Abs 2, 3; s 650h
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 648a Abs 1 bis 6; s 314 Abs 2, 3; s 650h
+  caveat: Bindet jede Partei, die kündigt; für den Unternehmer ist es das Recht, bei Zahlungs- oder Mitwirkungsverzug des
+    Bestellers zu kündigen, und die Pflicht, als Besteller einen Nachunternehmer richtig zu kündigen. Beide Parteien können
+    ohne Kündigungsfrist aus wichtigem Grund kündigen, wenn ihnen die Fortsetzung bis zur Fertigstellung nicht zugemutet
+    werden kann (s 648a Abs 1); auch teilweise, für einen abgrenzbaren Teil des Werks (Abs 2). Liegt der Grund in einer
+    Pflichtverletzung, ist die Kündigung erst nach erfolglosem Ablauf einer Abhilfefrist oder nach erfolgloser Abmahnung
+    zulässig (s 314 Abs 2 S 1, über s 648a Abs 3); sie ist entbehrlich unter den Voraussetzungen von s 323 Abs 2 Nr 1 und
+    2 (nicht gelesen) und bei besonderen Umständen (s 314 Abs 2 S 2, 3). Der Berechtigte kann nur innerhalb einer angemessenen
+    Frist nach Kenntnis des Grundes kündigen (s 314 Abs 3); das Gesetz nennt keine Zahl. Die Kündigung bedarf der schriftlichen
+    Form (s 650h). Nach der Kündigung kann jede Partei eine gemeinsame Feststellung des Leistungsstands verlangen; wer nicht
+    mitwirkt oder einen Termin versäumt, trägt die Beweislast für den Stand bei Kündigung, außer er bleibt aus einem nicht
+    zu vertretenden, unverzüglich mitgeteilten Grund fern (Abs 4). Bei Kündigung aus wichtigem Grund kann der Unternehmer
+    nur die Vergütung für den bis dahin erbrachten Teil verlangen (Abs 5); Schadensersatz bleibt unberührt (Abs 6). Barred
+    ist die nächstliegende Einordnung der unzulässigen Kündigung (Einordnung nach eigenem Urteil). Die VOB/B regelt die
+    Kündigung durch den Unternehmer gesondert (siehe vob_b_2016_de, s 9).
+- key: payment.security_for_price.de
+  duty: Vom Besteller Sicherheit für die vereinbarte, noch nicht gezahlte Vergütung einschließlich der mit 10 Prozent anzusetzenden
+    Nebenforderungen verlangen und ihm die üblichen Kosten der Sicherheit bis zu 2 Prozent im Jahr erstatten
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: payment.security_for_price
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650f.html
+    clause: s 650f Abs 1 bis 4, 6, 7
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: bank_guarantee
+    system_type: finance
+  clause: s 650f Abs 1 bis 4, 6, 7
+  caveat: Bindet den Unternehmer, der fordert, bei einem Bauvertrag nach s 650a. Erfasst sind auch in Zusatzaufträgen vereinbarte
+    Vergütungen (Abs 1 S 1); der Anspruch besteht trotz Erfüllungsverlangen oder Abnahme (S 3). Gegenansprüche, mit denen
+    aufgerechnet werden kann, zählen nur, wenn sie unstreitig oder rechtskräftig festgestellt sind (S 4). Die Sicherheit
+    kann auch durch Garantie oder Zahlungsversprechen eines Kreditinstituts oder Kreditversicherers geleistet werden, das
+    nur zahlen darf, soweit der Besteller die Vergütung anerkennt oder durch vorläufig vollstreckbares Urteil verurteilt
+    ist (Abs 2). Der Unternehmer erstattet die üblichen Kosten bis zu 2 Prozent für das Jahr, nicht soweit die Sicherheit
+    wegen unbegründeter Einwendungen des Bestellers aufrechterhalten werden muss (Abs 3). Hat er eine Sicherheit erlangt,
+    ist die Sicherungshypothek nach s 650e ausgeschlossen (Abs 4). Der Anspruch besteht nicht gegen juristische Personen
+    des öffentlichen Rechts und öffentlich-rechtliche Sondervermögen, über deren Vermögen ein Insolvenzverfahren unzulässig
+    ist, und nicht gegen Verbraucher bei einem Verbraucherbauvertrag (s 650i) oder Bauträgervertrag (s 650u); beide Vorschriften
+    habe ich nicht gelesen (Abs 6). Eine abweichende Vereinbarung ist unwirksam (Abs 7). Das Gesetz sagt "kann verlangen"
+    und nennt für das Unterlassen keine Folge, deshalb guidance. Kein Fenster. Das Register bank_guarantee führt Sicherheiten,
+    die richtungsweise unterscheiden.
+- key: payment.security_deadline_notice.de
+  duty: Dem Besteller für die Leistung der Sicherheit eine angemessene Frist setzen, bevor die Leistung verweigert oder
+    der Vertrag gekündigt wird
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: payment.security_deadline_notice
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__650f.html
+    clause: s 650f Abs 5
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 650f Abs 5
+  caveat: Bindet den Unternehmer, der fordert. Erst nach erfolglosem Ablauf einer angemessenen Frist darf er die Leistung
+    verweigern oder den Vertrag kündigen (Abs 5 S 1); ohne Fristsetzung fehlt die Voraussetzung, deshalb barred (Einordnung
+    nach eigenem Urteil). Das Gesetz nennt keine Zahl, deshalb kein Fenster. Kündigt er, ist er berechtigt, die vereinbarte
+    Vergütung zu verlangen, muss sich aber Ersparnisse und anderweitigen Erwerb anrechnen lassen (S 2); vermutet wird, dass
+    ihm 5 Prozent der auf den nicht erbrachten Teil entfallenden Vergütung zustehen (S 3). Die Ausnahmen aus s 650f Abs
+    6 gelten auch hier. Die Kündigung bedarf der schriftlichen Form (s 650h). Im Register contract_notice ist notice_kind
+    suspension die nächstliegende Art (Verweigerung der Leistung).
+- key: closeout.warranty_period.de
+  duty: Für Mängelansprüche an einem Bauwerk fünf Jahre ab der Abnahme einstehen
+  consequence: guidance
+  protection_type: countdown
+  disease: rework
+  approval_class: quality
+  duty_shape: closeout.warranty_period
+  trigger: practical_completion_reached
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-im-internet.de/bgb/__634a.html
+    clause: s 634a Abs 1 Nr 1, 2, Abs 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: project_milestone
+  clause: s 634a Abs 1 Nr 1, 2, Abs 2, 3
+  window:
+    value: 60
+    unit: months
+  caveat: Bindet den Unternehmer als Schuldner der Mängelansprüche. Die Ansprüche auf Nacherfüllung, Selbstvornahme und
+    Schadensersatz (s 634 Nr 1, 2 und 4) verjähren in fünf Jahren bei einem Bauwerk und bei Planungs- oder Überwachungsleistungen
+    dafür (Abs 1 Nr 2), in zwei Jahren bei anderen Werken, deren Erfolg in der Herstellung, Wartung oder Veränderung einer
+    Sache besteht (Nr 1). Die Verjährung beginnt mit der Abnahme (Abs 2); bei Arglist gilt die regelmäßige Verjährungsfrist
+    (s 195 und 199, nicht gelesen), im Falle der Nr 2 aber nicht vor Ablauf der fünf Jahre (Abs 3). Rücktritt und Minderung
+    unterliegen s 218 (Abs 4, 5). Die Parteien können vereinbaren, was das Gesetz zulässt; die VOB/B setzt vier Jahre (siehe
+    vob_b_2016_de, s 13 Abs 4). 60 Monate sind fünf Jahre. Der trigger practical_completion_reached steht für die Abnahme
+    und ist nur eine Näherung; die Abnahme kann später liegen. Kein Register hält das Abnahmedatum, deshalb not_collected
+    (project_milestone ist am nächsten).
