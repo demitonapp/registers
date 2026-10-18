@@ -1,0 +1,197 @@
+# Denkmalschutzgesetz (DSchG NRW) vom 13. April 2022 (GV. NRW. S. 662), zuletzt geändert durch Artikel 2 des Gesetzes vom 21. Juli 2026 (GV. NRW. S. 537), in Kraft
+# getreten am 1. September 2026. Gelesen auf recht.nrw.de am 18. Oktober 2026 in der Fassung vom 01.09.2026, die seit diesem Tag gilt (vorher galt die Fassung vom
+# 01.06.2022): s 2 Abs 5, s 9, s 14 bis 18, s 24 bis 27 und s 41. Die Änderung vom 21. Juli 2026 betrifft s 15 Abs 1 und s 24 Abs 2, 5 und 6 (Fußnoten des Gesetzestextes)
+# und fügt s 38a ein. In dieser Datei steht "s" für Paragraf.
+#
+# Bodendenkmäler sind bewegliche oder unbewegliche Denkmäler, die sich im Boden oder in Gewässern befinden oder befanden, und gelten auch als solche, soweit konkrete,
+# wissenschaftlich begründete Anhaltspunkte sie vermuten lassen (s 2 Abs 5). Untere Denkmalbehörden und Obere Denkmalbehörden sind nach s 21 bestimmt; ich habe s 21
+# nicht gelesen und nenne die Behörden so, wie die gelesenen Paragrafen sie nennen. "Eine Woche" in s 16 Abs 2 zähle ich als 7 Tage; das Gesetz sagt nichts über ein
+# Fristende am Wochenende. Nach s 41 Abs 2 kann eine Ordnungswidrigkeit mit einer Geldbuße bis zu fünfhunderttausend Euro geahndet werden, die Verjährung beträgt fünf
+# Jahre (Abs 3). Baudenkmäler (s 9) und Gartendenkmäler (s 13) sind nicht in Zeilen gefasst. s 38a habe ich nicht gelesen.
+id: dschg_nrw_de_nw
+lang: de
+source: law
+instrument_type: act
+title: 'Denkmalschutzgesetz Nordrhein-Westfalen (DSchG NRW): Bodendenkmäler, Erlaubnis, Entdeckung und Kosten'
+publisher: Land Nordrhein-Westfalen (Ministerium des Innern, recht.nrw.de)
+jurisdictions:
+- DE-NW
+citation:
+  url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+  access_date: '2026-10-18'
+  version: Fassung vom 01.09.2026 (Denkmalschutzgesetz vom 13. April 2022, GV. NRW. S. 662, zuletzt geändert durch Art.
+    2 des Gesetzes vom 21. Juli 2026, GV. NRW. S. 537); gelesen am 18. Oktober 2026
+obligations:
+- key: approvals.archaeological_find.de-nw
+  duty: Eine Entdeckung von Bodendenkmälern unverzüglich der Unteren Denkmalbehörde oder dem zuständigen Denkmalfachamt
+    anzeigen
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 16 Abs 1, 3; s 41 Abs 1 Nr 1, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: s 16 Abs 1, 3; s 41 Abs 1 Nr 1, Abs 2
+  caveat: Zur Anzeige verpflichtet sind der Entdecker, der Eigentümer, der Besitzer des Grundstücks, der Unternehmer und
+    der Leiter der Arbeiten, die zu der Entdeckung geführt haben; die Anzeige eines Verpflichteten befreit die übrigen (Abs
+    1 S 3 bis 5). Nimmt der Entdecker aufgrund eines Arbeitsverhältnisses an den Arbeiten teil, befreit ihn die Anzeige
+    an den Unternehmer oder den Leiter der Arbeiten. Die Stelle, die die Anzeige erhält, unterrichtet die andere Stelle
+    und die Obere Denkmalbehörde (S 2). Das gilt nicht bei Arbeiten der Denkmalfachämter oder unter ihrer Mitwirkung (Abs
+    3). Wer die Anzeige nicht oder nicht rechtzeitig erstattet, handelt ordnungswidrig; Geldbuße bis zu fünfhunderttausend
+    Euro (s 41 Abs 1 Nr 1, Abs 2). "Unverzüglich" hat keine Zahl, deshalb kein Fenster. Das Register safety_incident kennt
+    keinen Fund, deshalb ist die Zuordnung ein Näherungswert.
+- key: approvals.archaeological_find_standstill.de-nw
+  duty: Das entdeckte Bodendenkmal und die Entdeckungsstätte bis zum Ablauf einer Woche nach der Anzeige unverändert lassen,
+    wenn nicht die Obere Denkmalbehörde die Entdeckungsstätte früher freigibt oder die Fortsetzung der Arbeiten gestattet
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_standstill
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 16 Abs 2, 3, 4; s 41 Abs 1 Nr 3, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: s 16 Abs 2, 3, 4; s 41 Abs 1 Nr 3, Abs 2
+  window:
+    value: 7
+    unit: days
+  caveat: Die Woche läuft ab der Anzeige nach Abs 1. Die Obere Denkmalbehörde kann die Frist verlängern, wenn die sachgerechte
+    Untersuchung oder die Bergung des Bodendenkmals dies erfordern und es für die Betroffenen zumutbar ist (Abs 2 S 2);
+    das Fenster nennt daher nur die gesetzliche Mindestdauer von einer Woche. Gegenüber Eigentümer und Nutzungsberechtigten
+    kann angeordnet werden, notwendige Maßnahmen zur Bergung, zur Klärung der Fundumstände und zur Sicherung weiterer Bodendenkmäler
+    zu dulden (Abs 4). Gilt nicht bei Arbeiten der Denkmalfachämter oder unter ihrer Mitwirkung (Abs 3). Die Behörde, die
+    freigibt, ist in Nordrhein-Westfalen die Obere Denkmalbehörde, nicht wie in Bayern die Untere. Verstoß ist eine Ordnungswidrigkeit
+    mit Geldbuße bis zu fünfhunderttausend Euro (s 41 Abs 1 Nr 3, Abs 2). Das Register safety_incident kennt keinen Fund,
+    deshalb ist die Zuordnung ein Näherungswert.
+- key: approvals.archaeological_dig_permit.de-nw
+  duty: Vor dem Graben nach Bodendenkmälern oder deren Bergung die Erlaubnis der Oberen Denkmalbehörde einholen, vor dem
+    Beseitigen oder Verändern eines Bodendenkmals oder Maßnahmen in seiner engeren Umgebung, die sich auswirken können,
+    die Erlaubnis der Unteren Denkmalbehörde
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_dig_permit
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 15 Abs 1 bis 6; s 24 Abs 1, 4, 5; s 41 Abs 1 Nr 2, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 15 Abs 1 bis 6; s 24 Abs 1, 4, 5; s 41 Abs 1 Nr 2, Abs 2
+  caveat: Absatz 1 steht in der seit 1. September 2026 geltenden Fassung. Der Erlaubnis der Oberen Denkmalbehörde bedürfen
+    das Verwenden von Mess- und Suchgeräten, die Bodendenkmäler auffinden können, das Graben nach Bodendenkmälern und die
+    Bergung (Abs 1 Nr 1 bis 3); ausgenommen sind Nachforschungen unter Verantwortung des Landes, der Denkmalbehörden oder
+    der Denkmalfachämter. Der Erlaubnis der Unteren Denkmalbehörde bedarf, wer ein Bodendenkmal oder einen Teil beseitigen,
+    verändern, an einen anderen Ort verbringen oder dessen bisherige Nutzung ändern will, und wer in der engeren Umgebung
+    Anlagen errichten, verändern oder beseitigen oder andere Maßnahmen durchführen will, wenn sich das auf die denkmalwerte
+    Substanz oder das Erscheinungsbild auswirken kann (Abs 2). Sie ist zu erteilen, wenn Belange des Denkmalschutzes nicht
+    entgegenstehen oder ein überwiegendes öffentliches Interesse die Maßnahme verlangt (Abs 3). Die Erlaubnis nach Abs 1
+    S 1 wird nur bei erforderlicher Zuverlässigkeit erteilt (Abs 4), kann mit Auflagen und Bedingungen erteilt werden (Abs
+    5) und ist bei der Durchführung im Original oder in Kopie mitzuführen (Abs 6). Der Antrag ist in Textform bei der zuständigen
+    Denkmalbehörde zu stellen (s 24 Abs 1); die Entscheidung in Angelegenheiten des Bodendenkmalschutzes ergeht im Benehmen
+    mit dem zuständigen Landschaftsverband, das als hergestellt gilt, wenn nicht innerhalb von zwei Monaten eine Äußerung
+    vorliegt (s 24 Abs 4); die Behörde kann die Entscheidung für höchstens ein Jahr aussetzen (s 24 Abs 5). Maßnahmen ohne
+    die Erlaubnis oder abweichend von ihr sind eine Ordnungswidrigkeit mit Geldbuße bis zu fünfhunderttausend Euro (s 41
+    Abs 1 Nr 2). Die Behörde kann bei unerlaubten Handlungen die Einstellung der Arbeiten anordnen und die Baustelle versiegeln
+    (s 25 Abs 1, 2). Kein Fenster, weil das Gesetz für die Antragsentscheidung keine feste Dauer nennt. Das Register compliance_documents
+    kann die Erlaubnis enthalten, nicht aber den Bezug zu den Erdarbeiten, deshalb not_collected.
+- key: approvals.archaeological_find_costs.de-nw
+  duty: Die vorherige wissenschaftliche Untersuchung, die Bergung von Funden und die Dokumentation der Befunde sicherstellen
+    und die dafür anfallenden Kosten im Rahmen des Zumutbaren tragen
+  consequence: guidance
+  protection_type: check
+  disease: overrun
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_costs
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 27 Abs 1, 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: job_budget
+  clause: s 27 Abs 1, 2
+  caveat: Die Pflicht trifft den, der eine Erlaubnis nach s 9, 13, 15 oder 20 braucht oder ein in die Denkmalliste eingetragenes
+    Denkmal oder Bodendenkmal sonst verändert oder beseitigt, also den Veranlasser, im Regelfall den Bauherrn. Ob der Bauvertrag
+    die Kosten dem Auftragnehmer überträgt, steht nicht im Gesetz. Das Nähere regelt die Erlaubnis durch Nebenbestimmungen,
+    in anderen Fällen ein Verwaltungsakt (Abs 1 S 2). Die Behörde kann bestimmen, dass der Betroffene die voraussichtlichen
+    Kosten im Voraus zahlt; zahlt er nicht fristgerecht, können sie im Verwaltungszwangsverfahren beigetrieben werden (Abs
+    2). "Im Rahmen des Zumutbaren" ist nicht beziffert. Kein Fenster; guidance, weil das Gesetz keine Folge nennt. Das Register
+    job_budget führt Budgets, nicht den Kostenträger eines Fundes, deshalb not_collected.
+- key: approvals.archaeological_find_handover.de-nw
+  duty: Bewegliche Bodendenkmäler, die herrenlos oder so lange verborgen waren, dass der Eigentümer nicht mehr zu ermitteln
+    ist, unverzüglich melden und übergeben; Funde, die der Anzeigepflicht unterliegen, dem Land und dem Denkmalfachamt unverzüglich
+    bis zu sechs Monate zur Bergung, Auswertung und Erforschung überlassen
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_handover
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 17; s 18 Abs 1, 2; s 41 Abs 1 Nr 4, 5
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: s 17; s 18 Abs 1, 2; s 41 Abs 1 Nr 4, 5
+  window:
+    value: 6
+    unit: months
+  caveat: Solche beweglichen Bodendenkmäler werden mit der Entdeckung Eigentum des Landes; es kann das Eigentum auf den
+    Landschaftsverband, den Kreis, die Gemeinde, den Grundstückseigentümer oder den Entdecker übertragen (s 18 Abs 1). Wer
+    seiner Ablieferungspflicht nachkommt, soll eine angemessene Belohnung erhalten, außer bei unerlaubten Nachforschungen
+    (s 18 Abs 2). Die Überlassung nach s 17 ist vorübergehend; die sechs Monate sind die Höchstdauer, die die Obere Denkmalbehörde
+    verlängern kann, wenn es zur Erhaltung oder Erforschung erforderlich ist, und keine Frist, die der Pflichtige einhalten
+    müsste. Verstöße gegen die Überlassungspflicht (s 17) und die Melde- oder Übergabepflicht (s 18 Abs 1 S 2) sind Ordnungswidrigkeiten
+    mit Geldbuße bis zu fünfhunderttausend Euro (s 41 Abs 1 Nr 4, 5). Das Register safety_incident kennt keinen Fund, deshalb
+    ist die Zuordnung ein Näherungswert.
+- key: approvals.heritage_permit_lapse.de-nw
+  duty: Mit der Ausführung eines erlaubten Vorhabens innerhalb von drei Jahren nach Erteilung der Erlaubnis beginnen und
+    die Ausführung nicht länger als ein Jahr unterbrechen, sonst erlischt die Erlaubnis
+  consequence: barred
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.heritage_permit_lapse
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://recht.nrw.de/lrgv/gesetz/01092026-denkmalschutzgesetz-dschg-nrw
+    clause: s 24 Abs 7
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: s 24 Abs 7
+  window:
+    value: 36
+    unit: months
+  caveat: Gilt für jede Erlaubnis nach diesem Gesetz. Die Frist kann auf Antrag in Textform jeweils bis zu einem Jahr verlängert
+    werden, auch rückwirkend, wenn der Antrag vor Fristablauf bei der Denkmalbehörde eingegangen ist. Das Fenster nennt
+    die drei Jahre bis zum Beginn der Ausführung, in Monaten gerechnet (36); die Unterbrechungsfrist von einem Jahr läuft
+    ab Beginn jeder Unterbrechung und steht in der Zeile, nicht im Fenster. Der Absatz trägt im Gesetzestext die Nummer
+    7 und steht am Ende von s 24, vor s 25. Das Register compliance_documents kann die Erlaubnis enthalten, nicht aber das
+    Datum, an dem ihre Ausführung begann, deshalb not_collected.
