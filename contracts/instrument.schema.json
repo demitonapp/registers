@@ -27,6 +27,12 @@
       "description": "who publishes it",
       "type": "string"
     },
+    "lang": {
+      "description": "the language the instrument's own words are written in - its title, publisher, every duty, clause and caveat - as a BCP 47 primary language subtag (`fr`). Absent means `en`. The law is quoted and paraphrased in the language of the place it governs; keys, enum values and duty_shape keys are codes, the same in every language. A reader that shows a row says which language it is in (an HTML page sets `lang` on it) rather than translating it silently.",
+      "type": "string",
+      "pattern": "^[a-z]{2,3}$",
+      "default": "en"
+    },
     "jurisdictions": {
       "description": "where it applies - members of vocab/jurisdictions.json. A country code applies to every one of its states/regions too. Empty and only empty on an abstract base (SM031 decision 2): a base binds no job, so it names no place.",
       "type": "array",
@@ -111,5 +117,5 @@
       }
     }
   ],
-  "x-demiton-contract-version": "2.0.0"
+  "x-demiton-contract-version": "2.1.0"
 }
