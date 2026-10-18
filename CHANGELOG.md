@@ -13,6 +13,16 @@ before this rule and declared a correction).
 
 ## Unreleased
 
+- **correction** `whs.duty_holders_appoint.gb` (CDM Regulations 2015): the caveat
+  now records what reg 5 says about one organisation holding both the principal
+  designer and principal contractor appointments. Reg 5(1) names a designer for one
+  role and a contractor for the other, reg 2(1) defines 'designer' to include a
+  contractor that prepares or modifies a design, and nothing in reg 5 bars one
+  organisation from both roles; each appointment meets reg 8's capability test
+  for that role. Searched as "can the principal contractor be the principal
+  designer" (Search Console, 7-13 Oct 2026, about 40 impressions at positions 68
+  to 73, no answer on the page because the row did not say).
+
 ## v18, 2026-10-14: no obligation rows change
 
 - **`submission_date` on `variations`** (contract `variations` 1.1.0, MINOR: one
