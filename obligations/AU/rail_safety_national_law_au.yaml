@@ -1,0 +1,571 @@
+id: rail_safety_national_law_au
+source: law
+instrument_type: act
+title: Rail Safety National Law (South Australia) Act 2012
+publisher: South Australian Parliament
+jurisdictions:
+- AU
+citation:
+  url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+  access_date: '2026-10-19'
+  version: Rail Safety National Law (Queensland) reprint, current as at 26 May 2025; the national law is a Schedule to the South Australian Act and each state's adoption Act modifies its application
+obligations:
+- key: rail_safety.accreditation.rau
+  duty: Hold an accreditation before carrying out railway operations, unless the work is carried out for an accredited or exempt operator
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.accreditation
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 62(1)
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_evidence
+  caveat: >-
+    Binds the rail transport operator. A signalling contractor working for or on behalf of an accredited
+    operator does not need its own accreditation for that work (s 62(1)(b) and s 62(2)), but its own railway
+    operations would. Each state's adoption Act modifies the application, and the text read here is the
+    Queensland reprint of the national law.
+- key: rail_safety.sms.rau
+  duty: Have a safety management system in the form approved by the regulator, covering the risks, the controls and the matters Division 6 requires
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.sms
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 99(1)-(2)
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    The system must identify and assess risks, specify the controls, provide for monitoring and review, and
+    include the interface measures, security management plan, emergency management plan, health and fitness
+    program, drug and alcohol management program and fatigue risk management program (s 99(2)). The operator
+    must consult workers before establishing, reviewing or varying it (s 99(3)). Maximum penalty for a body
+    corporate is $1,500,000.
+- key: rail_safety.sms_implement.rau
+  duty: Implement the safety management system and comply with it for the operator's railway operations
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.sms_implement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 101(1)-(3)
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    Subsection (2) places an evidential burden on the accused to show a reasonable excuse. Maximum penalty
+    for a body corporate is $1,500,000.
+- key: rail_safety.sms_review.rau
+  duty: Review the safety management system at least once each year, or at the times the national regulations prescribe
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.sms_review
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 102
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  window:
+    value: 12
+    unit: months
+  caveat: >-
+    At least once each year where no period is prescribed, or at such other time as agreed between the
+    operator and the regulator. The review must consult workers (s 99(3)). The regulator may direct an
+    amendment under s 104.
+- key: rail_safety.sms_amendment.rau
+  duty: Amend the safety management system when the regulator directs, within the period the direction allows
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.sms_amendment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 104(1)-(4)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The direction must be in writing, state the reasons and include the cost-benefit results where one was
+    required. The period must be at least 28 days after the direction is given, so the window is the
+    direction's own period, not a number the library can set. Failing to comply without reasonable excuse is
+    an offence.
+- key: rail_safety.safety_performance_report.rau
+  duty: Give the regulator a safety performance report in the approved form within 6 months after the end of each reporting period
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.safety_performance_report
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 103(1)-(3)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  window:
+    value: 6
+    unit: months
+  caveat: >-
+    The reporting period is a financial year unless the regulator and the operator agree another period. The
+    report must describe and assess safety performance, comment on deficiencies and irregularities, and
+    describe safety initiatives (s 103(1)). It is filed with the regulator, and no register holds the filing.
+    Maximum penalty for a body corporate is $25,000.
+- key: rail_safety.notifiable_occurrence_a_immediate.rau
+  duty: Report a Category A notifiable occurrence immediately by telephone to the regulator
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.notifiable_occurrence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.onrsr.com.au/operator-essentials/reporting-requirements/notifiable-occurrences
+    clause: s 121(1); National Regulations reg 57; Category A
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    Category A covers rail safety incidents. The report is made by telephone to ONRSR on 1800 430 888 and is
+    followed by a written report within 7 days. "Immediately" has no number, so no window is recorded. The
+    safety_incident register holds the incident and its worst outcome, but not whether or when the regulator
+    was told.
+- key: rail_safety.notifiable_occurrence_a_written.rau
+  duty: Submit the written report of a Category A notifiable occurrence within 7 days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.notifiable_occurrence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.onrsr.com.au/operator-essentials/reporting-requirements/notifiable-occurrences
+    clause: s 121(1); National Regulations reg 57; Category A
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  window:
+    value: 7
+    unit: days
+  caveat: >-
+    The written report is submitted through the ONRSR Portal. Category A is the most serious class, reported
+    first by telephone and then in writing. The safety_incident register does not hold the report.
+- key: rail_safety.notifiable_occurrence_b_initial.rau
+  duty: Submit the initial written report of a Category B notifiable occurrence within 72 hours
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.notifiable_occurrence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.onrsr.com.au/operator-essentials/reporting-requirements/notifiable-occurrences
+    clause: s 121(1); National Regulations reg 57; Category B
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  window:
+    value: 72
+    unit: hours
+  caveat: >-
+    Category B is the middle class: an initial written report within 72 hours and complete data within 14
+    days, both through the ONRSR Portal. The safety_incident register does not hold the report.
+- key: rail_safety.notifiable_occurrence_b_complete.rau
+  duty: Submit the complete data for a Category B notifiable occurrence within 14 days
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.notifiable_occurrence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.onrsr.com.au/operator-essentials/reporting-requirements/notifiable-occurrences
+    clause: s 121(1); National Regulations reg 57; Category B
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  window:
+    value: 14
+    unit: days
+  caveat: >-
+    The complete data submission follows the initial 72-hour report. The safety_incident register does not hold
+    the submission.
+- key: rail_safety.notifiable_occurrence_c_annual.rau
+  duty: Report Category C notifiable occurrence counts annually within 6 months of the operator's reporting period
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.notifiable_occurrence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.onrsr.com.au/operator-essentials/reporting-requirements/notifiable-occurrences
+    clause: s 121(1); National Regulations reg 57; Category C
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  window:
+    value: 6
+    unit: months
+  caveat: >-
+    Category C is the annual count of less serious occurrences, reported through the ONRSR Portal within 6
+    months of the operator's reporting period. The safety_incident register does not hold the return.
+- key: rail_safety.occurrence_investigation.rau
+  duty: Investigate a notifiable occurrence when the regulator requires, in the manner and within the period the regulator specifies
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.occurrence_investigation
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 122(1)-(4)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  caveat: >-
+    The regulator may require the investigation by written notice. The level of investigation is set by the
+    severity and potential consequences and the focus is cause and contributing factors (s 122(2)). The
+    investigation must be conducted in the manner the regulator approves and within the period it specifies,
+    and the report follows within the period it specifies (s 122(3)-(4)).
+- key: rail_safety.interface_agreement_rto.rau
+  duty: Identify and assess interface risks with other rail transport operators and seek to enter an interface agreement
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.interface_agreement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 106
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The agreement must include the matters in s 105(1): the measures to manage the identified risks, how they
+    are evaluated, tested and revised, each party's roles and responsibilities, how information is exchanged
+    and compliance monitored, and a review process. Maximum penalty for a body corporate is $500,000. No
+    register holds the interface agreement register itself.
+- key: rail_safety.interface_agreement_road.rau
+  duty: Identify and assess level crossing interface risks with the road manager and seek to enter an interface agreement
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.interface_agreement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 107(1)-(2)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The duty sits on both sides: the rail infrastructure manager and the road manager must each identify and
+    assess the risks arising from the public road, the level crossing and the railway, determine the measures,
+    and seek to enter an interface agreement. Private roads are covered by s 108. Maximum penalty for a body
+    corporate is $500,000.
+- key: rail_safety.interface_register.rau
+  duty: Maintain a register of interface agreements and regulator arrangements that apply to the railway operations
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.interface_register
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 111(1)-(2)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The rail transport operator keeps a register of the interface agreements to which it is a party and the
+    regulator's arrangements under s 110; a road manager keeps the equivalent register for its roads.
+    Maximum penalty for a body corporate is $25,000. No register holds the interface register itself.
+- key: rail_safety.private_siding_registration.rau
+  duty: Register a private siding that is connected to, or has access to, an accredited railway or another private siding
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.private_siding_registration
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 83(1)-(2)
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_evidence
+  caveat: >-
+    The manager of the private siding must also comply with Division 6 Subdivision 2 so far as relevant to the
+    siding's railway operations and seek an interface agreement with the accredited person or the other private
+    siding manager (s 83(2)). Maximum penalty for a body corporate is $100,000.
+- key: rail_safety.health_fitness_program.rau
+  duty: Prepare and implement a health and fitness program for rail safety workers that meets the prescribed requirements
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.health_fitness_program
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 114
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    ONRSR names the National Transport Commission's National Standard for Health Assessment of Rail Safety
+    Workers, current edition effective 11 November 2024, as the standard the program must follow. Maximum
+    penalty for a body corporate is $500,000.
+- key: rail_safety.drug_alcohol_program.rau
+  duty: Prepare and implement a drug and alcohol management program for rail safety workers that meets the prescribed requirements
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.drug_alcohol_program
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 115
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    The National Regulations reg 28 covers drug and alcohol testing and reporting, and each state's adoption
+    regulations add detail. Maximum penalty for a body corporate is $500,000.
+- key: rail_safety.fatigue_program.rau
+  duty: Prepare and implement a fatigue risk management program for rail safety workers that meets the prescribed requirements
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.fatigue_program
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 116
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    The program must comply with the prescribed requirements relating to fatigue risk management. Maximum
+    penalty for a body corporate is $500,000.
+- key: rail_safety.competence.rau
+  duty: Ensure each rail safety worker who is to carry out rail safety work has the competence to carry out that work
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.competence
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 117(1)-(4)
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: competency_verification
+  caveat: >-
+    Competence must be assessed against the AQF qualifications or units of competence applicable to the work,
+    or the qualifications or competencies prescribed by the national regulations, and by reference to the
+    worker's knowledge and skills (s 117(2)). An AQF certificate is evidence of the qualification (s 117(3)).
+    The exception in s 117(4) applies where it is not reasonably practicable to assess the worker. Maximum
+    penalty for a body corporate is $500,000.
+- key: rail_safety.worker_identification.rau
+  duty: Give each rail safety worker identification that lets a rail safety officer check the worker's competence and training
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.worker_identification
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 118(1)-(2)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The identification must show the type of competence and training sufficiently for a rail safety officer to
+    check it. The worker must produce it when a rail safety officer requests it (s 118(2)). Maximum penalty
+    for a body corporate is $50,000, and the worker's own failure is $2,500. No register holds the issued
+    identification.
+- key: rail_safety.designer_supplier_duty.rau
+  duty: Ensure, so far as is reasonably practicable, that rail infrastructure or rolling stock you design, supply or install is safe, tested and accompanied by adequate information
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.designer_supplier_duty
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 53(1)
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    A person who designs, commissions, manufactures, supplies, installs or erects a thing, and who knows or
+    ought reasonably to know it is to be used in connection with rail infrastructure or rolling stock, must
+    ensure it is safe for its intended purpose, carry out the necessary testing and examination, and provide
+    adequate information about its use, the test results and the conditions for safe use (s 53(1)). This is
+    the duty a signalling designer or supplier carries. It is a safety duty under Subdivision 2, so the
+    Category 1 to 3 offence tiers in ss 58 to 60 apply.
+
+- key: rail_safety.accreditation_design_standard.rau
+  duty: Notify the regulator at least 28 days before adopting a new or changed safety standard for the design of rail infrastructure
+  consequence: offence
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.accreditation_design_standard
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2012-rsnlnr
+    clause: s 67(2), s 78; National Regulations reg 9(1) items 5 and 6
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  window:
+    value: 28
+    unit: days
+  caveat: >-
+    The notice goes to ONRSR before the operator adopts a new, or changed, safety standard for the design of
+    rail infrastructure. It is a notification, not an approval. Reg 9(2) excuses a notice where the matter is
+    the subject of a variation application, and reg 9(1)(c) covers an emergency. Breaching a condition of
+    accreditation is an offence under s 78, with a maximum penalty of $1,500,000 for a body corporate. Moving
+    from AS 7711:2018 to AS 7711:2026 is the kind of change this row catches.
+- key: rail_safety.interoperability_plan.rau
+  duty: Prepare an interoperability management plan before changing operations on the National Network for Interoperability
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.interoperability_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/sl-2012-rsnlnr
+    clause: National Regulations Sch 1 cl 20A
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    The safety management system must include systems and procedures for identifying interoperability matters
+    on the National Network for Interoperability, and an interoperability management plan where matters are
+    identified. The amendment commenced on 1 November 2025 and compliance was required from 28 February 2026.
+    Tourist and heritage operators are exempt (reg 16(2)). A new interlocking, a changed ETCS level or a
+    changed train control system on the NNI is the kind of change this row catches. There is no standalone
+    penalty; the duty is enforced through s 99 and s 101.
+- key: rail_safety.risk_change.rau
+  duty: Keep a current risk register and manage a change through a documented process that identifies the risks, consults, trains, re-assesses and reviews after go-live
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.risk_change
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-2017-rsnl
+    clause: s 99(1)(c)-(f), s 100; National Regulations Sch 1 cll 12, 16
+    access_date: '2026-10-19'
+  evidence:
+    kind: register
+    register: compliance_documents
+  caveat: >-
+    The safety management system must identify and assess the risks, specify controls and monitor them
+    (s 99(1)(c)-(f)), and the operator must conduct assessments for the identified risks (s 100). Schedule 1
+    cl 12 sets the management-of-change process and cl 16 the risk register. Section 100 and Schedule 1 carry
+    no standalone penalty; they bite through s 101 and the accreditation conditions, so the exposure is the
+    s 101 maximum of $1,500,000 for a body corporate.
+- key: rail_safety.worker_duties.rau
+  duty: As a rail safety worker, take reasonable care, follow reasonable safety instructions and do not interfere with safety equipment or recklessly endanger anyone
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: rail_safety.worker_duties
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legislation.qld.gov.au/view/html/inforce/current/act-2017-rsnl
+    clause: s 56(1)-(3); offences at s 57, ss 58-60
+    access_date: '2026-10-19'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  caveat: >-
+    The duty is personal and non-transferable (s 51(1)); the operator cannot discharge it for the worker, and a
+    contractor's employee doing rail safety work is a rail safety worker. The Category 1 offence carries up to
+    $300,000 or 5 years for an individual and $3,000,000 for a body corporate; Category 2 is $150,000 and
+    $1,500,000; Category 3 is $50,000 and $500,000. Induction and instruction records are the nearest evidence,
+    and no register holds them for the worker.
