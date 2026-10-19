@@ -1,0 +1,155 @@
+# Gesetz zum Schutz und zur Pflege der Denkmäler (Bayerisches Denkmalschutzgesetz, BayDSchG) vom 25. Juni 1973 (BayRS 2242-1-WK). Art 1, 6, 7, 8, 9,
+# 10, 11 und 20 gelesen auf gesetze-bayern.de (BAYERN.RECHT) am 18. Oktober 2026; die Seiten tragen den Vermerk "Text gilt ab: 01.05.2026" und
+# "Fassung: 25.06.1973". In dieser Datei steht "Art" für Artikel.
+#
+# Bodendenkmäler sind bewegliche und unbewegliche Denkmäler einschließlich der zugehörigen menschlichen Gebeine, tierischen und sonstigen organischen
+# Überreste, die sich im Boden befinden oder befanden und in der Regel aus vor- oder frühgeschichtlicher Zeit stammen (Art 1 Abs 4). Untere
+# Denkmalschutzbehörden sind die Kreisverwaltungsbehörden (Art 10 Abs 1). Nach Art 20 Abs 1 kann mit Geldbuße bis zu fünf Millionen Euro belegt
+# werden, wer vorsätzlich oder fahrlässig die dort genannten Pflichten verletzt; die Verfolgung verjährt in fünf Jahren (Abs 2). "Eine Woche" in Art 8
+# Abs 2 zähle ich als 7 Tage; das Gesetz sagt nichts über ein Fristende am Wochenende. Die Bayerische Bauordnung (BayBO) habe ich nicht gelesen. Art 6
+# (Baudenkmäler) ist nicht in einer Zeile gefasst: er betrifft Maßnahmen an Baudenkmälern und in ihrer Nähe, nicht die Entdeckung im Boden.
+id: baydschg_de_by
+lang: de
+source: law
+instrument_type: act
+title: 'Bayerisches Denkmalschutzgesetz (BayDSchG): Bodendenkmäler, Erdarbeiten und Funde'
+publisher: Freistaat Bayern (Bayerische Staatskanzlei, BAYERN.RECHT)
+jurisdictions:
+- DE-BY
+citation:
+  url: https://www.gesetze-bayern.de/Content/Document/BayDSchG
+  access_date: '2026-10-18'
+  version: 'Text gilt ab 1.5.2026 (Fassung: 25.6.1973), gelesen am 18. Oktober 2026'
+obligations:
+- key: approvals.archaeological_find.de-by
+  duty: Einen Fund von Bodendenkmälern unverzüglich der Unteren Denkmalschutzbehörde oder dem Landesamt für Denkmalpflege
+    anzeigen
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-bayern.de/Content/Document/BayDSchG-8
+    clause: Art 8 Abs 1, 3; Art 20 Abs 1 Nr 4, Abs 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: Art 8 Abs 1, 3; Art 20 Abs 1 Nr 4, Abs 2
+  caveat: Zur Anzeige verpflichtet sind der Finder, der Eigentümer und der Besitzer des Grundstücks sowie der Unternehmer
+    und der Leiter der Arbeiten, die zu dem Fund geführt haben (Abs 1 S 1, 2); die Anzeige eines der Verpflichteten befreit
+    die übrigen (S 3). Nimmt der Finder aufgrund eines Arbeitsverhältnisses an den Arbeiten teil, befreit ihn die Anzeige
+    an den Unternehmer oder den Leiter der Arbeiten (S 4). Das gilt nicht bei Arbeiten, die vom Landesamt oder unter seiner
+    Mitwirkung vorgenommen oder veranlasst werden (Abs 3). Wer die Anzeige nicht unverzüglich erstattet, handelt ordnungswidrig;
+    Geldbuße bis zu fünf Millionen Euro (Art 20 Abs 1 Nr 4). "Unverzüglich" hat keine Zahl, deshalb kein Fenster. Das Register
+    safety_incident ist das nächstliegende für ein Ereignis auf der Baustelle; es kennt keinen Fund, deshalb ist die Zuordnung
+    ein Näherungswert.
+- key: approvals.archaeological_find_standstill.de-by
+  duty: Die aufgefundenen Gegenstände und den Fundort bis zum Ablauf einer Woche nach der Anzeige unverändert lassen, wenn
+    nicht die Untere Denkmalschutzbehörde sie früher freigibt oder die Fortsetzung der Arbeiten gestattet
+  consequence: offence
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_standstill
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-bayern.de/Content/Document/BayDSchG-8
+    clause: Art 8 Abs 2, 3, 4; Art 20 Abs 1 Nr 5
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: Art 8 Abs 2, 3, 4; Art 20 Abs 1 Nr 5
+  window:
+    value: 7
+    unit: days
+  caveat: Die Woche läuft ab der Anzeige nach Abs 1; ohne Anzeige beginnt sie nicht. Der gelesene Wortlaut sieht keine Verlängerung
+    durch die Behörde vor; Eigentümer, dinglich Verfügungsberechtigte und unmittelbare Besitzer können aber verpflichtet
+    werden, notwendige Maßnahmen zur Bergung, zur Klärung der Fundumstände und zur Sicherung weiterer Bodendenkmäler zu
+    dulden (Abs 4). Gilt nicht bei Arbeiten des Landesamts oder unter seiner Mitwirkung (Abs 3). Verstoß ist eine Ordnungswidrigkeit
+    mit Geldbuße bis zu fünf Millionen Euro (Art 20 Abs 1 Nr 5). Das Register safety_incident kennt keinen Fund, deshalb
+    ist die Zuordnung ein Näherungswert.
+- key: approvals.archaeological_dig_permit.de-by
+  duty: Vor Erdarbeiten auf einem Grundstück die Erlaubnis einholen, wenn man weiß oder vermutet oder den Umständen nach
+    annehmen muss, dass sich dort Bodendenkmäler befinden
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_dig_permit
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-bayern.de/Content/Document/BayDSchG-7
+    clause: Art 7 Abs 1 S 1, 3, 4, Abs 3, 4, 5; Art 20 Abs 1 Nr 2, 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: Art 7 Abs 1 S 1, 3, 4, Abs 3, 4, 5; Art 20 Abs 1 Nr 2, 3
+  caveat: 'Bedarf der Erlaubnis, wer nach Bodendenkmälern graben oder zu einem anderen Zweck Erdarbeiten vornehmen will,
+    obwohl er weiß, vermutet oder den Umständen nach annehmen muss, dass sich dort Bodendenkmäler befinden. Die Erlaubnis
+    kann versagt werden, soweit es zum Schutz eines Bodendenkmals erforderlich ist (Abs 1 S 3). Erlaubnisfrei sind unter
+    anderem Hauseinführungen, Netzverteiler, Leitungen vollständig in bestehenden Leitungsgräben, im Schlitzverfahren oder
+    in bestehenden Straßenkörpern mit Mindertiefe sowie Start- und Zielgruben im Oberboden (Abs 3, Aufzählung dort); Grabungen
+    des Landesamts sind ausgenommen (Abs 4). Eine Erlaubnis braucht auch, wer in der Nähe oberirdisch erkennbarer Bodendenkmäler
+    Anlagen errichten, verändern oder beseitigen will, wenn sich das auf Bestand oder Erscheinungsbild auswirken kann (Abs
+    5 S 1). Abs 1 S 4 verweist nur auf Art 6 Abs 5 S 2; ob eine Baugenehmigung die Erlaubnis nach Art 7 ersetzt, habe ich
+    nicht geprüft (BayBO nicht gelesen). Ohne die Erlaubnis oder die an ihre Stelle tretende Genehmigung zu arbeiten, ist
+    eine Ordnungswidrigkeit mit Geldbuße bis zu fünf Millionen Euro (Art 20 Abs 1 Nr 2, 3). Wer die Erlaubnis einholen muss,
+    sagt das Gesetz mit "wer ... will": der Veranlasser, im Regelfall der Bauherr; ob der Bauvertrag sie dem Auftragnehmer
+    überträgt, steht nicht im Gesetz. Das Register compliance_documents kann die Erlaubnis enthalten, nicht aber den Bezug
+    zu den Erdarbeiten, deshalb not_collected.'
+- key: approvals.archaeological_find_costs.de-by
+  duty: Die Kosten der vorherigen wissenschaftlichen Untersuchung, der Bergung von Funden und der Dokumentation der Befunde
+    tragen, soweit es zuzumuten ist
+  consequence: guidance
+  protection_type: check
+  disease: overrun
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_costs
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-bayern.de/Content/Document/BayDSchG-7
+    clause: Art 7 Abs 1 S 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: job_budget
+  clause: Art 7 Abs 1 S 2
+  caveat: Die Pflicht trifft den, der nach Abs 1 S 1 die Erlaubnis braucht, also den Veranlasser der Erdarbeiten, im Regelfall
+    den Bauherrn. Ob der Bauvertrag die Kosten dem Auftragnehmer überträgt oder ihm erstattet, steht nicht im Gesetz; für
+    den Auftragnehmer ist die Zeile die Grundlage, den Kostenposten im Angebot und im Budget zu führen. "Soweit ihm das
+    zuzumuten ist" ist nicht beziffert. Das Gesetz nennt für die Kostentragung weder Frist noch Folge, deshalb kein Fenster
+    und guidance. Das Register job_budget führt Budgets, nicht den Kostenträger eines Funds, deshalb not_collected.
+- key: approvals.archaeological_find_handover.de-by
+  duty: Bewegliche Bodendenkmäler, die herrenlos oder so lange verborgen waren, dass ihr Eigentümer nicht mehr zu ermitteln
+    ist, unverzüglich dem Landesamt für Denkmalpflege übergeben
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.archaeological_find_handover
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.gesetze-bayern.de/Content/Document/BayDSchG-9
+    clause: Art 9 Abs 1, 2, 3, 4; Art 20 Abs 1 Nr 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: safety_incident
+  clause: Art 9 Abs 1, 2, 3, 4; Art 20 Abs 1 Nr 6
+  caveat: Solche Funde werden mit der Entdeckung Eigentum des Freistaates Bayern, unabhängig von einer Eintragung in die
+    Denkmalliste (Abs 1 S 1). Der Grundstückseigentümer hat gegen den Freistaat einen Anspruch auf Ausgleich, der Entdecker,
+    der nicht zugleich Grundstückseigentümer ist, einen Anspruch auf Belohnung nach s 971 BGB (Abs 2, 3); beide entfallen
+    für Objekte mit einem Verkehrswert unter 1000 Euro und für Funde, die unter Verstoß gegen gesetzliche Bestimmungen erfolgten
+    (Abs 2 S 3). Der Anspruch entsteht 24 Monate nach der Übergabe (Abs 4 S 1). Wer nicht unverzüglich übergibt, handelt
+    ordnungswidrig; Geldbuße bis zu fünf Millionen Euro (Art 20 Abs 1 Nr 6). "Unverzüglich" hat keine Zahl, deshalb kein
+    Fenster. Das Register safety_incident kennt keinen Fund, deshalb ist die Zuordnung ein Näherungswert.

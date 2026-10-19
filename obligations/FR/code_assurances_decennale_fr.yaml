@@ -1,0 +1,85 @@
+# Code des assurances, livre II, titre IV (assurance des travaux de construction), lu sur
+# Légifrance le 18 octobre 2026 dans la version en vigueur : articles L. 241-1 et L. 243-1 à
+# L. 243-3.
+#
+# Champ : l'obligation ne vise que les personnes dont la responsabilité décennale peut être
+# engagée sur le fondement des articles 1792 et suivants du code civil (non lus ici), et
+# l'article L. 243-1-1 en exclut la plupart des ouvrages de génie civil (voiries, réseaux,
+# canalisations, infrastructures routières, ferroviaires, portuaires, ouvrages d'énergie...),
+# sauf accessoires d'un ouvrage assujetti. Chaque ligne le rappelle. L'obligation de
+# justification « à l'ouverture de tout chantier » est à l'article L. 241-1, deuxième alinéa ;
+# l'article L. 243-2 en fixe la forme.
+id: code_assurances_decennale_fr
+lang: fr
+source: law
+instrument_type: act
+title: 'Code des assurances : assurance de responsabilité décennale obligatoire'
+publisher: République française (Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000006073984/
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 (L. 241-1 et L. 243-2 dans leur rédaction issue de la loi n° 2015-990
+    du 6 août 2015)
+obligations:
+- key: insurance.decennale.fr
+  duty: Être couvert par une assurance de responsabilité décennale pour les ouvrages dont la responsabilité décennale
+    peut être engagée, maintenue pour toute la durée de cette responsabilité
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: insurance.decennial_cover
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073984/LEGISCTA000006157911/
+    clause: art. L. 241-1, L. 243-1, L. 243-1-1 et L. 243-3
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: insurance_certificate
+    system_type: document_store
+  clause: art. L. 241-1, L. 243-1, L. 243-1-1 et L. 243-3
+  caveat: 'Toute personne dont la responsabilité décennale peut être engagée sur le fondement des articles 1792
+    et suivants du code civil doit être assurée (art. L. 241-1). Le contrat est réputé comporter une clause de maintien
+    de la garantie pour la durée de la responsabilité décennale (art. L. 241-1). Le défaut d''assurance est puni
+    de six mois d''emprisonnement et de 75 000 euros d''amende, ou de l''une de ces peines (art. L. 243-3). L''obligation
+    ne s''applique pas aux ouvrages maritimes, lacustres, fluviaux, aux infrastructures routières, portuaires, aéroportuaires
+    et ferroviaires, aux ouvrages de traitement des déchets et effluents, ni, sauf s''ils sont accessoires à un
+    ouvrage assujetti, aux voiries, réseaux divers, canalisations, lignes, ouvrages d''énergie et de télécommunications
+    et ouvrages sportifs non couverts (art. L. 243-1-1, I) : une grande part du génie civil en est donc exclue.
+    Elle ne vise pas les ouvrages existants avant l''ouverture du chantier, sauf s''ils deviennent techniquement
+    indivisibles de l''ouvrage neuf (art. L. 243-1-1, II), ni l''État construisant pour son compte (art. L. 243-1).'
+- key: insurance.attestation_decennale.fr
+  duty: Justifier à l'ouverture de tout chantier de l'assurance décennale souscrite, par une attestation d'assurance
+    jointe aux devis et factures
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: insurance.evidence_of_currency
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073984/LEGISCTA000006157911/
+    clause: art. L. 241-1, al. 2, L. 243-2 et L. 243-3
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: insurance_certificate
+    system_type: document_store
+  clause: art. L. 241-1, al. 2, L. 243-2 et L. 243-3
+  caveat: 'La justification est due à l''ouverture de tout chantier, et tout candidat à un marché public doit être
+    en mesure de la fournir (art. L. 241-1, al. 2). Elle prend la forme d''attestations d''assurance, sur un modèle
+    fixé par arrêté, jointes aux devis et factures (art. L. 243-2, al. 2) ; l''arrêté n''a pas été lu ici. Quiconque
+    contrevient aux articles L. 241-1 à L. 242-1 est puni de six mois d''emprisonnement et de 75 000 euros d''amende,
+    ou de l''une de ces peines (art. L. 243-3). « À l''ouverture de tout chantier », sans nombre de jours : pas
+    de fenêtre. L''obligation ne s''applique pas aux ouvrages maritimes, lacustres, fluviaux, aux infrastructures
+    routières, portuaires, aéroportuaires et ferroviaires, aux ouvrages de traitement des déchets et effluents,
+    ni, sauf s''ils sont accessoires à un ouvrage assujetti, aux voiries, réseaux divers, canalisations, lignes,
+    ouvrages d''énergie et de télécommunications et ouvrages sportifs non couverts (art. L. 243-1-1, I) : une grande
+    part du génie civil en est donc exclue. Elle ne vise pas les ouvrages existants avant l''ouverture du chantier,
+    sauf s''ils deviennent techniquement indivisibles de l''ouvrage neuf (art. L. 243-1-1, II), ni l''État construisant
+    pour son compte (art. L. 243-1).'

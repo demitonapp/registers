@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TMR and TfNSW obligations: protections in Demiton</title>
+<style>
+  :root{
+    --ink:#1a2330; --muted:#5b6675; --line:#e2e7ee; --bg:#f7f9fb;
+    --green:#0c7a3d; --green-bg:#e9f6ee; --amber:#9a5b00; --amber-bg:#fdf3e2;
+    --grey:#6b7280; --grey-bg:#eef1f4; --blue:#0b57a0; --blue-bg:#e8f1fb;
+    --purple:#5b21b6; --purple-bg:#f1ecfb; --teal:#0f6f6f; --teal-bg:#e6f4f4;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{
+    margin:0; color:var(--ink); background:#fff;
+    font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .page{max-width:960px;margin:0 auto;padding:28px 36px 40px}
+  h1{font-size:22px;margin:0 0 4px;letter-spacing:-.01em}
+  h2{font-size:15px;margin:26px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  h3{font-size:13.5px;margin:18px 0 6px}
+  .lede{color:var(--muted);font-size:13px;max-width:78ch;margin:6px 0 14px}
+  .meta{font-size:12px;color:var(--muted);margin:2px 0 0}
+  .statrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+  .stat{border:1px solid var(--line);border-radius:8px;padding:8px 12px;background:var(--bg);min-width:118px}
+  .stat .n{font-size:20px;font-weight:650;display:block}
+  .stat .l{font-size:11.5px;color:var(--muted)}
+  .chip{display:inline-block;border-radius:20px;padding:1px 9px;font-size:11px;font-weight:600;white-space:nowrap}
+  .eng-watch{background:var(--blue-bg);color:var(--blue)}
+  .eng-countdown{background:var(--purple-bg);color:var(--purple)}
+  .eng-check{background:var(--teal-bg);color:var(--teal)}
+  .eng-threshold{background:var(--amber-bg);color:var(--amber)}
+  .st-live{background:var(--green-bg);color:var(--green)}
+  .st-gap{background:var(--grey-bg);color:var(--grey)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{text-align:left;vertical-align:top;padding:5px 8px;border-bottom:1px solid var(--line)}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);border-bottom:2px solid var(--line)}
+  td.cl{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+  .disease{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;page-break-inside:avoid}
+  .disease header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .disease header .name{font-size:14.5px;font-weight:650}
+  .disease header .appkey{font-size:11px;color:var(--muted)}
+  .disease header .tally{margin-left:auto;font-size:12px;color:var(--muted)}
+  .conseq{font-size:11px;color:var(--muted)}
+  .note{font-size:12px;color:var(--muted);margin-top:6px;max-width:82ch}
+  .legend{font-size:12px;color:var(--muted)}
+  .legend b{color:var(--ink)}
+  footer{margin-top:30px;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;background:var(--bg);padding:0 4px;border-radius:4px}
+  @media print{
+    body{font-size:11.5px}
+    .page{max-width:none;padding:0}
+    .disease{page-break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>TMR and TfNSW obligations: protections in Demiton</h1>
+  <p class="lede">
+    <b>TMR</b> is Queensland's Department of Transport and Main Roads. <b>TfNSW</b> is Transport for New South Wales.
+    Their instruments govern civil road jobs in those two states: the TMR Transport Infrastructure Contract (TIC)
+    is the contract form itself, and the six specifications are what the principal calls up onto a job. In the
+    obligation library these enter through two of the seven sources: <b>contract</b> (the TIC) and <b>principal</b>
+    (the specifications).
+  </p>
+
+  <div class="statrow">
+    <div class="stat"><span class="n">7</span><span class="l">instruments</span></div>
+    <div class="stat"><span class="n">23</span><span class="l">obligations transcribed</span></div>
+    <div class="stat"><span class="n" style="color:var(--green)">14</span><span class="l">run today (evidence wired)</span></div>
+    <div class="stat"><span class="n" style="color:var(--grey)">9</span><span class="l">transcribed, not collected yet</span></div>
+  </div>
+
+  <h2>How an obligation becomes a protection</h2>
+  <p class="lede">
+    Each obligation names one duty, cited to its clause, and carries two independent tags:
+    a <b>protection type</b> (the engine that runs it) and a <b>disease</b> (the loss it guards against).
+    An obligation only runs as a protection once it is switched on for a project and the register behind it
+    has data. Rows whose evidence is <code>record_in_demiton</code> or <code>register</code> run today;
+    rows marked <code>not_collected</code> have an engine but no field or system feeding them yet.
+  </p>
+  <table>
+    <tr><th style="width:110px">Engine</th><th>What it does</th></tr>
+    <tr><td><span class="chip eng-watch">Watch</span></td><td>Waits for the event that opens a window, then tracks the deadline (EOT claim, latent-condition notice).</td></tr>
+    <tr><td><span class="chip eng-countdown">Countdown</span></td><td>Counts to a fixed date, flagged at 90, 30 and 7 days out (final claim after practical completion).</td></tr>
+    <tr><td><span class="chip eng-check">Check</span></td><td>Looks for evidence that must exist, on a cadence (daily inspection, as-constructed records).</td></tr>
+    <tr><td><span class="chip eng-threshold">Threshold</span></td><td>Tracks a measure against the line it must not cross (compaction at or above a minimum).</td></tr>
+  </table>
+  <p class="legend">
+    The five diseases, in research-cost order: <b>Rework</b>, <b>Baseline overrun</b>,
+    <b>Forfeited entitlements</b>, <b>Disputes</b>, <b>Non-compliance</b>. The type and the disease are set
+    separately: the same watch can guard forfeited entitlements or disputes; what decides the disease is what
+    the missed duty costs.
+  </p>
+
+  <h2>The seven instruments</h2>
+  <table>
+    <tr><th>Instrument</th><th>Title</th><th>Source</th><th>Where</th><th>Obligations</th></tr>
+    <tr><td><code>tmr_tic</code></td><td>TMR Transport Infrastructure Contract (C7830)</td><td>contract</td><td>AU-QLD</td><td>8</td></tr>
+    <tr><td><code>tmr_mrts04</code></td><td>TMR MRTS04 General Earthworks</td><td>principal</td><td>AU-QLD</td><td>1</td></tr>
+    <tr><td><code>tmr_mrts50</code></td><td>TMR MRTS50 Specific Quality System Requirements</td><td>principal</td><td>AU-QLD</td><td>3</td></tr>
+    <tr><td><code>tmr_cap010m</code></td><td>TMR Contract Administration Procedure CAP010M</td><td>principal</td><td>AU-QLD</td><td>1</td></tr>
+    <tr><td><code>tfnsw_g2c2</code></td><td>TfNSW G2-C2 General Requirements (TS 01566)</td><td>principal</td><td>AU-NSW</td><td>3</td></tr>
+    <tr><td><code>tfnsw_r44</code></td><td>TfNSW QA Specification R44 Earthworks</td><td>principal</td><td>AU-NSW</td><td>1</td></tr>
+    <tr><td><code>tfnsw_ts00088</code></td><td>TfNSW TS 00088 Contractor Vehicles</td><td>principal</td><td>AU-NSW</td><td>6</td></tr>
+  </table>
+
+  <h2>Protections today, by disease</h2>
+
+  <!-- REWORK -->
+  <div class="disease">
+    <header>
+      <span class="name">1. Rework</span>
+      <span class="appkey">in the app: <code>rework_signal</code></span>
+      <span class="tally">4 obligations, 0 run today, 4 not collected</span>
+    </header>
+    <table>
+      <tr><th>Obligation</th><th>Clause</th><th>Engine</th><th>State</th><th>What it guards</th></tr>
+      <tr><td>Compact each earthworks lot to the minimum</td><td class="cl">R44 cl 7.2.3, Table R44.7</td><td><span class="chip eng-threshold">Threshold</span></td><td><span class="chip st-gap">not collected</span></td><td>Lot fails, rework or re-check</td></tr>
+      <tr><td>Compact each earthworks lot to the minimum</td><td class="cl">MRTS04 cl 5.5.2, Table 15.3(b)</td><td><span class="chip eng-threshold">Threshold</span></td><td><span class="chip st-gap">not collected</span></td><td>Lot fails, rework under MRTS50 cl 10.1.2</td></tr>
+      <tr><td>Hand over As Constructed drawings</td><td class="cl">MRTS50 cl 12.1</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-gap">not collected</span></td><td>PC withheld until handed over</td></tr>
+      <tr><td>Notify a notifiable nonconformance</td><td class="cl">MRTS50 cl 10.2</td><td><span class="chip eng-watch">Watch</span></td><td><span class="chip st-gap">not collected</span></td><td>Within 1 working day of detection</td></tr>
+    </table>
+    <p class="note">All four rework obligations are transcribed and engine-known but none run: the two compaction
+      thresholds hold the test results without yet measuring a lot against its minimum, the as-constructed check needs
+      a status marker on the drawing register, and the nonconformance notice has no quality NCR register to read.</p>
+  </div>
+
+  <!-- OVERRUN -->
+  <div class="disease">
+    <header>
+      <span class="name">2. Baseline overrun</span>
+      <span class="appkey">in the app: <code>overrun_signal</code></span>
+      <span class="tally">0 obligations from TMR or TfNSW</span>
+    </header>
+    <p class="note">Neither TMR nor TfNSW publishes a baseline-overrun duty, so none of their 23 obligations guard
+      this disease. The overrun protection today is Demiton's own labelled default,
+      <code>overrun.budget_tolerance.au</code> and <code>.nz</code>, at 0% against a job budget, not a
+      principal-imposed duty.</p>
+  </div>
+
+  <!-- FORFEITED ENTITLEMENTS -->
+  <div class="disease">
+    <header>
+      <span class="name">3. Forfeited entitlements</span>
+      <span class="appkey">in the app: <code>claim_window</code></span>
+      <span class="tally">11 obligations, 9 run today, 2 not collected</span>
+    </header>
+    <table>
+      <tr><th>Obligation</th><th>Clause</th><th>Engine</th><th>Window</th><th>Miss it and</th></tr>
+      <tr><td>Notify a possible delay</td><td class="cl">TIC cl 35.5(a)</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">10 business days</td><td>barred</td></tr>
+      <tr><td>Claim an extension of time</td><td class="cl">TIC cl 35.5(c)(h)(l)</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">20 business days</td><td>barred</td></tr>
+      <tr><td>Confirm a verbal direction in writing</td><td class="cl">TIC cl 33.1(f)(g)</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">10 business days</td><td>barred</td></tr>
+      <tr><td>Give the prescribed variation notice</td><td class="cl">TIC cl 46.1</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">20 business days</td><td>costs excluded</td></tr>
+      <tr><td>Notify a latent condition as found</td><td class="cl">TIC cl 12.2, 12.4</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">1 business day</td><td>costs excluded</td></tr>
+      <tr><td>Submit the daily report</td><td class="cl">TIC cl 33.2.1, 33.2.2</td><td><span class="chip eng-check">Check</span></td><td class="cl">1 business day</td><td>breach</td></tr>
+      <tr><td>Update the programme</td><td class="cl">TIC cl 33.4.9</td><td><span class="chip eng-check">Check</span></td><td class="cl">1 month</td><td>breach</td></tr>
+      <tr><td>Update the programme</td><td class="cl">G2-C2 cl 39.2</td><td><span class="chip eng-check">Check</span></td><td class="cl">1 month</td><td>breach</td></tr>
+      <tr><td>Record wet weather days</td><td class="cl">G2-C2 cl 43</td><td><span class="chip eng-watch">Watch</span></td><td class="cl">per claim</td><td>damages only</td></tr>
+      <tr><td>Record day works on the day</td><td class="cl">TIC cl 41(a)</td><td><span class="chip eng-check">Check</span></td><td class="cl">1 day</td><td>guidance</td></tr>
+      <tr><td>Record day works on the day</td><td class="cl">G2-C2 cl 31</td><td><span class="chip eng-check">Check</span></td><td class="cl">1 day</td><td>guidance</td></tr>
+    </table>
+    <p class="note">The strongest disease for TMR and TfNSW: nine of eleven run today. Five are watches against the
+      TIC's strict-compliance notice clauses where the consequence is barred or costs excluded; the two day-works rows
+      are the gap, and they share the same register (<code>day_works_docket</code>) so one fix closes both.</p>
+  </div>
+
+  <!-- DISPUTES -->
+  <div class="disease">
+    <header>
+      <span class="name">4. Disputes</span>
+      <span class="appkey">in the app: <code>evidence_gap</code></span>
+      <span class="tally">2 obligations, 1 runs today, 1 not collected</span>
+    </header>
+    <table>
+      <tr><th>Obligation</th><th>Clause</th><th>Engine</th><th>State</th><th>Miss it and</th></tr>
+      <tr><td>Lodge the final claim</td><td class="cl">CAP010M cll 5, 37, 42</td><td><span class="chip eng-countdown">Countdown</span></td><td><span class="chip st-live">runs today</span></td><td>barred, 20 business days of PC</td></tr>
+      <tr><td>Keep the contract records</td><td class="cl">MRTS50 cl 11.2</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-gap">not collected</span></td><td>12 months after Final Certificate</td></tr>
+    </table>
+    <p class="note">The final-claim countdown runs on Demiton's own <code>contract_notice</code> record. The 12-month
+      retention check is transcribed but reads the drawing register, which nothing fills with a retention horizon today.</p>
+  </div>
+
+  <!-- NON-COMPLIANCE -->
+  <div class="disease">
+    <header>
+      <span class="name">5. Non-compliance</span>
+      <span class="appkey">in the app: <code>compliance_gate</code></span>
+      <span class="tally">6 obligations, 4 run today, 2 not collected</span>
+    </header>
+    <table>
+      <tr><th>Obligation</th><th>Clause</th><th>Engine</th><th>State</th></tr>
+      <tr><td>Keep registrable plant registered with SafeWork</td><td class="cl">TS 00088 cl 5.4</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-live">runs today</span></td></tr>
+      <tr><td>Keep operator manual, safety info and SWMS available</td><td class="cl">TS 00088 cl 6.8</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-live">runs today</span></td></tr>
+      <tr><td>Daily inspection before each shift</td><td class="cl">TS 00088 cl 6.9</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-live">runs today</span></td></tr>
+      <tr><td>Keep service records in the vehicle</td><td class="cl">TS 00088 cl 6.9</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-live">runs today</span></td></tr>
+      <tr><td>Keep every vehicle registered for the contract</td><td class="cl">TS 00088 cl 5.1</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-gap">not collected</span></td></tr>
+      <tr><td>Fit heavy vehicles with CLOCS-A Bronze or higher</td><td class="cl">TS 00088 cl 8, Table 1</td><td><span class="chip eng-check">Check</span></td><td><span class="chip st-gap">not collected</span></td></tr>
+    </table>
+    <p class="note">Four of six run on vehicle and plant registers. The two gaps are the same shape: the vehicle
+      register (<code>vehicle_list</code>) records the fleet but not registration expiry or fitted safety equipment,
+      so both checks are transcribed with nowhere to read the fact from.</p>
+  </div>
+
+  <h2>Relatively trivial to add</h2>
+  <p class="lede">
+    Nine obligations are already transcribed, cited and engine-routed, but <code>not_collected</code>. They split
+    by what is missing. The first two buckets are cheap: the register exists and only a field or a computation is
+    missing. The third needs a new register or a producer feeding an existing one.
+  </p>
+
+  <h3>A. Add a field to a register that exists</h3>
+  <table>
+    <tr><th>Obligation</th><th>Register</th><th>What is missing</th></tr>
+    <tr><td><code>vehicles.registration.ts00088_nsw</code></td><td>vehicle_list</td><td>registration expiry date on each vehicle</td></tr>
+    <tr><td><code>vehicles.clocs_a_tier.ts00088_nsw</code></td><td>vehicle_list</td><td>fitted-equipment / CLOCS-A tier on each heavy vehicle</td></tr>
+    <tr><td><code>closeout.as_constructed_records.tmr_mrts50</code></td><td>drawing_register</td><td>an "as-constructed issued" status or date, gated to PC</td></tr>
+    <tr><td><code>closeout.records_retention.tmr_mrts50</code></td><td>drawing_register</td><td>a retention horizon (12 months after Final Certificate) to check against</td></tr>
+  </table>
+
+  <h3>B. Compute against data already held</h3>
+  <table>
+    <tr><th>Obligation</th><th>Register</th><th>What is missing</th></tr>
+    <tr><td><code>rework.lot_compaction.tfnsw_r44</code></td><td>inspection_test_result</td><td>compute the lot characteristic value and compare it to Table R44.7 (test results already held)</td></tr>
+    <tr><td><code>rework.lot_compaction.tmr_mrts04</code></td><td>inspection_test_result</td><td>same computation against Table 15.3(b)</td></tr>
+  </table>
+
+  <h3>C. New register or producer</h3>
+  <table>
+    <tr><th>Obligation</th><th>Register</th><th>What is missing</th></tr>
+    <tr><td><code>closeout.nonconformance_notice.tmr_mrts50</code></td><td>safety_ncr (closest)</td><td>a dedicated quality NCR register; safety NCRs are the wrong kind and none exists today</td></tr>
+    <tr><td><code>variations.day_works.tmr_tic</code> and <code>.g2c2_nsw</code></td><td>day_works_docket</td><td>the register exists but no system type feeds it; one producer closes both rows</td></tr>
+  </table>
+
+  <h3>D. Clauses already cited in caveats, not yet their own rows</h3>
+  <table>
+    <tr><th>Instrument</th><th>Clause</th><th>Duty named in the caveat</th></tr>
+    <tr><td>TMR CAP010M</td><td class="cl">cll 5, 37, 42</td><td>Notice of anticipated practical completion at least 10 business days before</td></tr>
+    <tr><td>TMR CAP010M</td><td class="cl">cll 5, 37, 42</td><td>DLP 90 days by default</td></tr>
+    <tr><td>TMR CAP010M</td><td class="cl">cll 5, 37, 42</td><td>Security and retention released within 10 business days of the final certificate</td></tr>
+    <tr><td>TMR MRTS50</td><td class="cl">cl 12.4.2</td><td>Documents for structures other than the drawings due no later than four weeks after PC</td></tr>
+  </table>
+  <p class="note">These four are near-free: the clause and window are already named inside an existing obligation's
+    caveat, so each is a new row with its own engine, not new reading.</p>
+
+  <footer>
+    Source of truth: <code>obligations/AU-NSW/tfnsw_*.yaml</code> and <code>obligations/AU-QLD/tmr_*.yaml</code> in the
+    demitonapp/registers repository. "Runs today" means evidence is <code>record_in_demiton</code> (Demiton's own
+    <code>contract_notice</code>) or <code>register</code> (a register a connected system of the named type fills);
+    a <code>register</code> row still needs that system connected before an org sees a verdict. "Not collected" means
+    no field or system feeds the register today. This is a record of what the library holds, not a promise that the
+    list is complete, and not legal advice.
+  </footer>
+
+</div>
+</body>
+</html>

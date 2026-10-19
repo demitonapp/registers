@@ -1,0 +1,548 @@
+# Vergabe- und Vertragsordnung für Bauleistungen Teil B (VOB/B): Allgemeine Vertragsbedingungen für die Ausführung von
+# Bauleistungen, Ausgabe 2016 (Bekanntmachung vom 7. Januar 2016, BAnz AT 19.01.2016 B3, in Anwendung seit 18.4.2016).
+# Paragraf 1 bis 18 gelesen auf dejure.org am 18. Oktober 2026, nicht in der amtlichen Ausgabe des Deutschen Vergabe- und
+# Vertragsausschusses (DVA). In dieser Datei steht "s" für Paragraf.
+#
+# Welche Ausgabe gilt: Die Ausgabe 2016 ist die jüngste Fassung des Teils B, die ich fand. Nach einer Websuche am 18. Oktober
+# 2026 haben die späteren Gesamtausgaben der VOB (2019 und die Änderungen von 2023, die Teil A betreffen) Teil B unverändert
+# gelassen; die Bekanntmachungen im Bundesanzeiger habe ich nicht selbst geprüft. dejure.org vermerkt zur Fassung: "in Anwendung
+# seit dem 18.4.2016 gem. s 2 Vergabeverordnung i.V.m. s 8a Abs. 1 VOB/A 2016"; die VOB/A habe ich nicht gelesen.
+#
+# Die VOB/B ist kein Gesetz, sondern eine Vertragsbedingung. Sie bindet nur, wenn die Parteien sie vereinbaren, und sie ändert das
+# BGB-Werkvertragsrecht nur, soweit sie es regelt (siehe bgb_bauvertragsrecht_de). Jede Zeile gilt daher nur für einen Vertrag, der
+# die VOB/B in der Ausgabe 2016 einbezieht, und sagt es in der Caveat. Wird die VOB/B nicht als Ganzes vereinbart oder weicht der
+# Vertrag von ihr ab, unterliegen einzelne Klauseln nach meiner Kenntnis der Inhaltskontrolle für Allgemeine Geschäftsbedingungen;
+# diese Rechtsprechung habe ich nicht gelesen. Die Rollen heißen Auftragnehmer (der Unternehmer) und Auftraggeber (der Besteller).
+# Jede Zeile sagt, wen sie bindet: den Auftragnehmer, der fordert oder empfängt, oder den Unternehmer als Auftraggeber gegenüber seinem
+# Nachunternehmer.
+#
+# Werktage: Die VOB/B definiert den Werktag nicht. s 11 Abs 3 zeigt mit der Regel, dass bei einer nach Wochen bemessenen Vertragsstrafe
+# jeder Werktag einer angefangenen Woche als 1/6 Woche gerechnet wird, dass der Samstag mitzählt. Ob gesetzliche Feiertage ausgenommen
+# sind, sagt der Text nicht; ich habe die Rechtsprechung nicht gelesen und nehme an, dass sie ausgenommen sind. Die Bibliothek hat keine
+# Einheit "Werktage Montag bis Samstag". Die Fenster der Zeilen sind daher in Kalendertagen gesetzt: 6 Werktage sind 7 Kalendertage,
+# 12 Werktage 14 und 18 Werktage 21, solange kein gesetzlicher Feiertag in die Frist fällt; jeder Feiertag verlängert die Frist um einen
+# Tag. Die Bibliothek enthält keinen deutschen Feiertagskalender. Jede Zeile mit Werktagen sagt, in welche Richtung die Umrechnung irrt.
+# Alle anderen Fristen der VOB/B sind Kalendertage, Wochen oder Monate, wie der Text sie nennt.
+#
+# Nicht in Zeilen gefasst, obwohl gelesen: s 1 (Art und Umfang der Leistung), s 3 (Ausführungsunterlagen), s 6 Abs 7 (Kündigung nach
+# mehr als drei Monaten Unterbrechung), s 7 (Gefahrverteilung), s 8 Abs 1, 2, 4 und 5 (Kündigung durch den Auftraggeber außer s 8 Abs 3),
+# s 10 (Haftung, außer Abs 2 Nr 1 S 2 in der Zeile zur Bedenkenanzeige), s 11 (Vertragsstrafe, außer Abs 4 in der Abnahme-Zeile), s 15 (Stundenlohnarbeiten) und s 18 (Streitigkeiten, außer Abs 5 in der Zeile zur Arbeitseinstellung).
+id: vob_b_2016_de
+lang: de
+source: contract
+instrument_type: conditions_of_contract
+form: VOB_B_2016
+title: 'Vergabe- und Vertragsordnung für Bauleistungen Teil B (VOB/B), Ausgabe 2016: Allgemeine Vertragsbedingungen für
+  die Ausführung von Bauleistungen'
+publisher: Deutscher Vergabe- und Vertragsausschuss für Bauleistungen (DVA), Bekanntmachung im Bundesanzeiger
+jurisdictions:
+- DE
+citation:
+  url: https://dejure.org/gesetze/VOB-B
+  access_date: '2026-10-18'
+  version: Ausgabe 2016, Bekanntmachung vom 7. Januar 2016 (BAnz AT 19.01.2016 B3), in Anwendung seit 18.4.2016; gelesen
+    auf dejure.org am 18. Oktober 2026
+obligations:
+- key: variations.claim_announcement.vob_b_2016
+  duty: Den Anspruch auf besondere Vergütung für eine im Vertrag nicht vorgesehene, geforderte Leistung dem Auftraggeber
+    ankündigen, bevor mit ihrer Ausführung begonnen wird, und den neuen Preis möglichst vor der Ausführung vereinbaren
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: variations.claim
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/2.html
+    clause: s 2 Abs 5, Abs 6 Nr 1 und 2, Abs 7 Nr 2, Abs 8 Nr 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 2 Abs 5, Abs 6 Nr 1 und 2, Abs 7 Nr 2, Abs 8 Nr 2
+  caveat: Bindet den Auftragnehmer, der fordert. Wird eine im Vertrag nicht vorgesehene Leistung gefordert, hat er Anspruch
+    auf besondere Vergütung, muss ihn aber ankündigen, bevor er mit der Ausführung beginnt (Abs 6 Nr 1). Ändern Entwurfsänderungen
+    oder andere Anordnungen die Grundlagen des Preises einer vorgesehenen Leistung, ist ein neuer Preis zu vereinbaren,
+    und die Vereinbarung soll vor der Ausführung getroffen werden (Abs 5). Die Vergütung bestimmt sich nach den Grundlagen
+    der Preisermittlung und den besonderen Kosten der geforderten Leistung (Abs 6 Nr 2). Bei der Pauschalsumme gelten Abs
+    4, 5 und 6 ebenfalls (Abs 7 Nr 2). Leistungen ohne Auftrag oder in eigenmächtiger Abweichung werden nicht vergütet (Abs
+    8 Nr 1), außer der Auftraggeber erkennt sie nachträglich an, oder sie waren zur Vertragserfüllung notwendig, entsprachen
+    dem mutmaßlichen Willen und wurden unverzüglich angezeigt (Abs 8 Nr 2). Der Text nennt die Folge der unterlassenen Ankündigung
+    nicht; barred ist meine Einordnung; ob und wie die Rechtsprechung den Anspruch bei unterbliebener Ankündigung entfallen
+    lässt, habe ich nicht gelesen. Das Fenster ist ein Ereignis ("bevor er mit der Ausführung beginnt"), keine Zahl. Gilt
+    nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: quality.concerns_notice.vob_b_2016
+  duty: Bedenken gegen die vorgesehene Art der Ausführung, die Güte vom Auftraggeber gelieferter Stoffe oder Bauteile oder
+    gegen Leistungen anderer Unternehmer dem Auftraggeber unverzüglich, möglichst vor Beginn der Arbeiten, schriftlich mitteilen
+  consequence: liable_full_amount
+  protection_type: watch
+  disease: rework
+  approval_class: quality
+  duty_shape: quality.concerns_notice
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/4.html
+    clause: s 4 Abs 1 Nr 4, Abs 3; s 10 Abs 2 Nr 1; s 13 Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 4 Abs 1 Nr 4, Abs 3; s 10 Abs 2 Nr 1; s 13 Abs 3
+  caveat: Bindet den Auftragnehmer. Ist ein Mangel auf die Leistungsbeschreibung, Anordnungen des Auftraggebers, von ihm
+    gelieferte oder vorgeschriebene Stoffe oder Bauteile oder die Vorleistung eines anderen Unternehmers zurückzuführen,
+    haftet der Auftragnehmer, es sei denn, er hat die Mitteilung nach s 4 Abs 3 gemacht (s 13 Abs 3). Der Auftraggeber bleibt
+    für seine Angaben, Anordnungen und Lieferungen verantwortlich (s 4 Abs 3 Halbs 2). Ein Schaden, der nur Folge einer
+    vom Auftraggeber so angeordneten Maßnahme ist, trifft den Auftraggeber allein, wenn der Auftragnehmer auf die damit
+    verbundene Gefahr nach s 4 Abs 3 hingewiesen hat (s 10 Abs 2 Nr 1 S 2). Hält der Auftragnehmer Anordnungen für unberechtigt
+    oder unzweckmäßig, hat er seine Bedenken geltend zu machen, die Anordnungen aber auf Verlangen auszuführen, wenn nicht
+    gesetzliche oder behördliche Bestimmungen entgegenstehen; verursacht dies eine ungerechtfertigte Erschwerung, trägt
+    der Auftraggeber die Mehrkosten (s 4 Abs 1 Nr 4). "Unverzüglich" hat keine Zahl, deshalb kein Fenster. liable_full_amount
+    ist meine Einordnung der Haftung nach s 13 Abs 3 (Einordnung nach eigenem Urteil). notice_kind early_warning ist die
+    nächstliegende Art im Register contract_notice. Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: approvals.find_notice_to_client.vob_b_2016
+  duty: Funde von Gegenständen von Altertums-, Kunst- oder wissenschaftlichem Wert vor jedem weiteren Aufdecken oder Ändern
+    dem Auftraggeber anzeigen und sie nach dessen Weisung abliefern
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: approvals.find_notice_to_client
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/4.html
+    clause: s 4 Abs 9
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 4 Abs 9
+  caveat: 'Bindet den Auftragnehmer. Die Vergütung etwaiger Mehrkosten regelt sich nach s 2 Abs 6, setzt also die Ankündigung
+    vor Ausführung voraus (siehe die Zeile variations.claim_announcement.vob_b_2016). Die Rechte des Entdeckers (s 984 BGB)
+    hat der Auftraggeber. Das ist die vertragliche Anzeige an den Auftraggeber; die Anzeige an die Behörde und die Stillstandspflicht
+    ergeben sich aus dem Denkmalrecht des Landes (siehe baydschg_de_by und dschg_nrw_de_nw). Kein Fenster: das Ereignis
+    ist "vor jedem weiteren Aufdecken oder Ändern". Der Text nennt keine Folge, deshalb breach. Gilt nur, wenn die Parteien
+    die VOB/B (Ausgabe 2016) vereinbart haben.'
+- key: delay_eot.commencement.vob_b_2016
+  duty: Innerhalb von 12 Werktagen nach Aufforderung mit der Ausführung beginnen, wenn keine Beginnfrist vereinbart ist,
+    und den Beginn dem Auftraggeber anzeigen
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: general
+  duty_shape: delay_eot.commencement
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/5.html
+    clause: s 5 Abs 1 bis 4
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 5 Abs 1 bis 4
+  window:
+    value: 14
+    unit: days
+  caveat: 'Bindet den Auftragnehmer. Die Ausführung ist nach den verbindlichen Fristen (Vertragsfristen) zu beginnen, angemessen
+    zu fördern und zu vollenden; Einzelfristen eines Bauzeitenplans sind nur Vertragsfristen, wenn das ausdrücklich vereinbart
+    ist (Abs 1). Ist keine Beginnfrist vereinbart, hat der Auftraggeber auf Verlangen Auskunft über den voraussichtlichen
+    Beginn zu erteilen, und der Auftragnehmer beginnt binnen 12 Werktagen nach Aufforderung (Abs 2). Sind Arbeitskräfte,
+    Geräte, Gerüste, Stoffe oder Bauteile so unzureichend, dass die Fristen offenbar nicht eingehalten werden können, muss
+    er auf Verlangen unverzüglich Abhilfe schaffen (Abs 3). Verzögert er den Beginn, gerät er mit der Vollendung in Verzug
+    oder kommt er Abs 3 nicht nach, kann der Auftraggeber Schadensersatz nach s 6 Abs 6 verlangen oder eine angemessene
+    Frist setzen und die Kündigung androhen (Abs 4, s 8 Abs 3). Werktage: 12 Werktage sind 14 Kalendertage, wenn kein gesetzlicher
+    Feiertag hineinfällt; das Fenster von 14 Tagen ist daher die Untergrenze, jeder Feiertag verlängert die Frist um einen
+    Tag. Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.'
+- key: delay_eot.delay_notice.vob_b_2016
+  duty: Eine Behinderung der ordnungsgemäßen Ausführung dem Auftraggeber unverzüglich schriftlich anzeigen
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: delay_eot.delay_notice
+  trigger: delay_recorded
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/6.html
+    clause: s 6 Abs 1 bis 4, Abs 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 6 Abs 1 bis 4, Abs 6
+  caveat: Bindet den Auftragnehmer. Unterlässt er die Anzeige, hat er Anspruch auf Berücksichtigung der hindernden Umstände
+    nur, wenn dem Auftraggeber die Tatsache und deren hindernde Wirkung offenkundig bekannt waren (Abs 1 S 2); barred, mit
+    dieser Ausnahme. Die Ausführungsfristen werden verlängert, soweit die Behinderung verursacht ist durch einen Umstand
+    aus dem Risikobereich des Auftraggebers, durch Streik oder Aussperrung im Betrieb des Auftragnehmers oder in einem unmittelbar
+    für ihn arbeitenden Betrieb oder durch höhere Gewalt oder andere unabwendbare Umstände (Abs 2 Nr 1); Witterungseinflüsse,
+    mit denen bei Angebotsabgabe normalerweise gerechnet werden musste, gelten nicht als Behinderung (Abs 2 Nr 2). Die Verlängerung
+    berechnet sich nach der Dauer der Behinderung mit einem Zuschlag für die Wiederaufnahme und die etwaige Verschiebung
+    in eine ungünstigere Jahreszeit (Abs 4). Der Auftragnehmer hat alles zu tun, was ihm billigerweise zugemutet werden
+    kann, um die Weiterführung zu ermöglichen, und nimmt die Arbeiten unverzüglich wieder auf (Abs 3). Hat eine Partei die
+    Behinderung zu vertreten, hat die andere Anspruch auf Ersatz des nachweislich entstandenen Schadens, des entgangenen
+    Gewinns nur bei Vorsatz oder grober Fahrlässigkeit; der Anspruch auf Entschädigung nach s 642 BGB bleibt unberührt,
+    wenn die Anzeige erfolgt oder die Tatsache offenkundig ist (Abs 6). Schriftlich ist hier die Form der Anzeige; der trigger
+    delay_recorded datiert die Behinderung im Bautagebuch. "Unverzüglich" hat keine Zahl, deshalb kein Fenster. Gilt nur,
+    wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: default.termination_notice.vob_b_2016
+  duty: Vor einer Kündigung wegen Annahmeverzugs oder Zahlungsverzugs des Auftraggebers eine angemessene Frist zur Vertragserfüllung
+    setzen, die Kündigung für den Fall des fruchtlosen Fristablaufs androhen und dann schriftlich kündigen
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: default.termination_for_cause
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/9.html
+    clause: s 9 Abs 1 bis 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 9 Abs 1 bis 3
+  caveat: Bindet den Auftragnehmer, der kündigt. Der Auftragnehmer kann kündigen, wenn der Auftraggeber eine ihm obliegende
+    Handlung unterlässt und ihn dadurch außerstande setzt, die Leistung auszuführen (Annahmeverzug nach s 293 ff BGB), oder
+    wenn der Auftraggeber eine fällige Zahlung nicht leistet oder sonst in Schuldnerverzug gerät (Abs 1). Die Kündigung
+    ist schriftlich zu erklären und erst zulässig, wenn der Auftragnehmer dem Auftraggeber ohne Erfolg eine angemessene
+    Frist zur Vertragserfüllung gesetzt und erklärt hat, dass er nach fruchtlosem Ablauf kündigen werde (Abs 2). Die bisherigen
+    Leistungen sind nach den Vertragspreisen abzurechnen; außerdem besteht Anspruch auf angemessene Entschädigung nach s
+    642 BGB, weitergehende Ansprüche bleiben (Abs 3). Das Gesetz kennt daneben die Kündigung nach s 648a und s 643 BGB (siehe
+    bgb_bauvertragsrecht_de). Der Text nennt keine Zahl für die Frist, deshalb kein Fenster. barred ist die nächstliegende
+    Einordnung der unzulässigen Kündigung (Einordnung nach eigenem Urteil). Gilt nur, wenn die Parteien die VOB/B (Ausgabe
+    2016) vereinbart haben.
+- key: default.show_cause.vob_b_2016
+  duty: Auf eine Fristsetzung des Auftraggebers mit Kündigungsandrohung wegen mangelhafter Leistung, Leistung durch Nachunternehmer
+    ohne Zustimmung oder Verzug innerhalb der gesetzten Frist abhelfen
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: general
+  duty_shape: default.show_cause
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/8.html
+    clause: s 4 Abs 7, Abs 8 Nr 1; s 5 Abs 4; s 8 Abs 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 4 Abs 7, Abs 8 Nr 1; s 5 Abs 4; s 8 Abs 3
+  caveat: Bindet den Auftragnehmer, der die Fristsetzung empfängt. Der Auftraggeber kann den Vertrag kündigen, wenn die
+    nach s 4 Abs 7 (mangelhafte oder vertragswidrige Leistung), s 4 Abs 8 Nr 1 (Leistung ohne schriftliche Zustimmung nicht
+    im eigenen Betrieb, obwohl der Betrieb darauf eingerichtet ist) oder s 5 Abs 4 (Verzug, unzureichende Mittel) gesetzte
+    Frist fruchtlos abgelaufen ist (s 8 Abs 3 Nr 1 S 1); die Kündigung kann auf einen in sich abgeschlossenen Teil beschränkt
+    werden (S 2). Danach darf der Auftraggeber den nicht vollendeten Teil zu Lasten des Auftragnehmers durch einen Dritten
+    ausführen lassen, behält Ansprüche auf weiteren Schaden und kann bei weggefallenem Interesse Schadensersatz wegen Nichterfüllung
+    verlangen (Nr 2); er kann Geräte, Gerüste, Einrichtungen und angelieferte Stoffe gegen angemessene Vergütung in Anspruch
+    nehmen (Nr 3) und muss eine Aufstellung der Mehrkosten binnen 12 Werktagen nach der Abrechnung mit dem Dritten zusenden
+    (Nr 4; das sind 14 Kalendertage ohne Feiertag). Die Kündigung ist schriftlich zu erklären (Abs 6). Der Text nennt für
+    die Frist keine Zahl, sie muss angemessen sein, deshalb kein Fenster. Bindet auch den Unternehmer als Auftraggeber,
+    der seinem Nachunternehmer eine solche Frist setzt. Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart
+    haben.
+- key: closeout.completion_notice_acceptance.vob_b_2016
+  duty: 'Die Fertigstellung dem Auftraggeber schriftlich mitteilen oder die Abnahme verlangen: der Auftraggeber hat binnen
+    12 Werktagen abzunehmen, und ohne Verlangen gilt die Leistung 12 Werktage nach schriftlicher Mitteilung der Fertigstellung
+    als abgenommen'
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.deemed_acceptance
+  trigger: practical_completion_reached
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/12.html
+    clause: s 12 Abs 1 bis 4, Abs 5 Nr 1 und 2, Abs 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 12 Abs 1 bis 4, Abs 5 Nr 1 und 2, Abs 6
+  window:
+    value: 14
+    unit: days
+  caveat: 'Bindet den Auftragnehmer, der fordert. Verlangt er nach Fertigstellung die Abnahme, hat der Auftraggeber sie
+    binnen 12 Werktagen durchzuführen; eine andere Frist kann vereinbart werden (Abs 1). In sich abgeschlossene Teile sind
+    auf Verlangen besonders abzunehmen (Abs 2). Wegen wesentlicher Mängel kann die Abnahme bis zur Beseitigung verweigert
+    werden (Abs 3). Eine förmliche Abnahme findet statt, wenn eine Partei es verlangt; in die Niederschrift gehören Vorbehalte
+    wegen bekannter Mängel und Vertragsstrafen und Einwendungen des Auftragnehmers (Abs 4 Nr 1). Wird keine Abnahme verlangt,
+    gilt die Leistung als abgenommen mit Ablauf von 12 Werktagen nach schriftlicher Mitteilung über die Fertigstellung (Abs
+    5 Nr 1); hat der Auftraggeber die Leistung in Benutzung genommen, nach 6 Werktagen nach Beginn der Benutzung, wenn nichts
+    anderes vereinbart ist (Nr 2 S 1); die Benutzung von Teilen zur Weiterführung der Arbeiten ist keine Abnahme (S 2).
+    Mit der Abnahme geht die Gefahr auf den Auftraggeber über (Abs 6). Werktage: 12 Werktage sind 14 Kalendertage, wenn
+    kein gesetzlicher Feiertag hineinfällt, und jeder Feiertag verlängert die Frist um einen Tag; wer auf die Fiktion baut,
+    darf den 14. Tag nur annehmen, wenn kein Feiertag in der Frist liegt (das Fenster kann also zu früh enden). Der trigger
+    practical_completion_reached steht für die Fertigstellungsmitteilung und ist nur eine Näherung. Der Text nennt für den
+    Fristablauf keine Strafe, deshalb guidance. Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.'
+- key: closeout.acceptance_reservation.vob_b_2016
+  duty: Vorbehalte wegen bekannter Mängel und wegen Vertragsstrafen bei der Abnahme erklären, spätestens zu den Zeitpunkten,
+    zu denen die Abnahme nach s 12 Abs 5 als erfolgt gilt
+  consequence: barred
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: quality
+  duty_shape: closeout.acceptance_reservation
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/12.html
+    clause: s 11 Abs 4; s 12 Abs 4 Nr 1 S 4, Abs 5 Nr 3
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: punch_list
+  clause: s 11 Abs 4; s 12 Abs 4 Nr 1 S 4, Abs 5 Nr 3
+  caveat: Bindet den Unternehmer als Auftraggeber gegenüber seinem Nachunternehmer. Hat der Auftraggeber die Leistung abgenommen,
+    kann er eine Vertragsstrafe nur verlangen, wenn er dies bei der Abnahme vorbehalten hat (s 11 Abs 4); barred. Vorbehalte
+    wegen bekannter Mängel oder Vertragsstrafen hat er spätestens zu den Zeitpunkten geltend zu machen, zu denen die Abnahme
+    nach s 12 Abs 5 Nr 1 und 2 als erfolgt gilt, also 12 Werktage nach Mitteilung der Fertigstellung oder 6 Werktage nach
+    Beginn der Benutzung (s 12 Abs 5 Nr 3). Bei der förmlichen Abnahme gehören sie in die Niederschrift (s 12 Abs 4 Nr 1
+    S 4). Welche Folge der Vorbehalt wegen bekannter Mängel hat, regelt die VOB/B nicht; s 640 Abs 3 BGB ist die nächstliegende
+    Regel (siehe die Zeile closeout.acceptance_reservation.de; Einordnung nach eigenem Urteil). Kein Fenster, weil der Zeitpunkt
+    vom Abnahmeereignis abhängt (Umrechnung der Werktage siehe die Zeile closeout.completion_notice_acceptance). Das Register
+    punch_list führt Mängel, nicht den Vorbehalt, deshalb not_collected. Gilt nur, wenn die Parteien die VOB/B (Ausgabe
+    2016) vereinbart haben.
+- key: closeout.warranty_period.vob_b_2016
+  duty: Wenn der Vertrag keine Frist nennt, für Mängelansprüche an Bauwerken vier Jahre ab Abnahme einstehen und die während
+    der Frist schriftlich gerügten Mängel auf eigene Kosten beseitigen
+  consequence: guidance
+  protection_type: countdown
+  disease: rework
+  approval_class: quality
+  duty_shape: closeout.warranty_period
+  trigger: practical_completion_reached
+  severity: 2
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/13.html
+    clause: s 13 Abs 4 Nr 1, 3; Abs 5 Nr 1, 2
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: project_milestone
+  clause: s 13 Abs 4 Nr 1, 3; Abs 5 Nr 1, 2
+  window:
+    value: 48
+    unit: months
+  caveat: Bindet den Auftragnehmer. Ist für Mängelansprüche keine Verjährungsfrist im Vertrag vereinbart, beträgt sie für
+    Bauwerke 4 Jahre, für andere Werke, deren Erfolg in der Herstellung, Wartung oder Veränderung einer Sache besteht, und
+    für vom Feuer berührte Teile von Feuerungsanlagen 2 Jahre, für feuerberührte und abgasdämmende Teile industrieller Feuerungsanlagen
+    1 Jahr (Abs 4 Nr 1); für Teile maschineller und elektrotechnischer Anlagen mit sicherheitsrelevanter Wartung 2 Jahre,
+    wenn der Auftraggeber dem Auftragnehmer die Wartung nicht überträgt (Nr 2). Die Frist beginnt mit der Abnahme der gesamten
+    Leistung, für in sich abgeschlossene Teile mit der Teilabnahme (Nr 3). Der Auftragnehmer beseitigt alle während der
+    Frist hervortretenden, auf vertragswidrige Leistung zurückzuführenden Mängel auf seine Kosten, wenn der Auftraggeber
+    es vor Ablauf der Frist schriftlich verlangt (Abs 5 Nr 1 S 1); der Anspruch verjährt in 2 Jahren ab Zugang des Verlangens,
+    nicht vor Ablauf der Regelfrist, und für die Mängelbeseitigungsleistung beginnt nach ihrer Abnahme eine neue Frist von
+    2 Jahren (S 2, 3). Kommt der Auftragnehmer in einer gesetzten angemessenen Frist nicht nach, kann der Auftraggeber die
+    Mängel auf seine Kosten beseitigen lassen (Nr 2). Die gesetzliche Frist des BGB für ein Bauwerk beträgt fünf Jahre (siehe
+    die Zeile closeout.warranty_period.de). 48 Monate sind vier Jahre. Der trigger practical_completion_reached steht für
+    die Abnahme und ist nur eine Näherung. Kein Register hält das Abnahmedatum, deshalb not_collected. Gilt nur, wenn die
+    Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: closeout.final_claim.vob_b_2016
+  duty: Die Schlussrechnung prüfbar aufstellen und bei einer vertraglichen Ausführungsfrist von höchstens 3 Monaten spätestens
+    12 Werktage nach Fertigstellung einreichen
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.final_claim
+  trigger: practical_completion_reached
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/14.html
+    clause: s 14 Abs 1 bis 4
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: invoice_issued
+    system_type: finance
+  clause: s 14 Abs 1 bis 4
+  window:
+    value: 14
+    unit: days
+  caveat: 'Bindet den Auftragnehmer. Die Frist verlängert sich um je 6 Werktage für je weitere 3 Monate Ausführungsfrist,
+    wenn nichts anderes vereinbart ist (Abs 3). Reicht der Auftragnehmer eine prüfbare Rechnung nicht ein, obwohl ihm der
+    Auftraggeber eine angemessene Frist gesetzt hat, kann der Auftraggeber sie auf Kosten des Auftragnehmers selbst aufstellen
+    (Abs 4); breach ist meine Einordnung dieser Folge (Einordnung nach eigenem Urteil). Die Rechnung ist übersichtlich aufzustellen,
+    mit den Mengenberechnungen, Zeichnungen und anderen Belegen; Änderungen und Ergänzungen sind besonders kenntlich zu
+    machen (Abs 1). Die notwendigen Feststellungen sind dem Fortgang entsprechend möglichst gemeinsam vorzunehmen, schwer
+    feststellbare Leistungen rechtzeitig zu beantragen (Abs 2). Werktage: 12 Werktage sind 14 Kalendertage, wenn kein gesetzlicher
+    Feiertag hineinfällt; das Fenster ist die Untergrenze für die Fristberechnung nach dem Text, jeder Feiertag verlängert
+    sie. Der trigger practical_completion_reached steht für die Fertigstellung. Gilt nur, wenn die Parteien die VOB/B (Ausgabe
+    2016) vereinbart haben.'
+- key: payment.interim_due.vob_b_2016
+  duty: Abschlagszahlungen auf Antrag in möglichst kurzen Zeitabständen oder zu den vereinbarten Zeitpunkten in Höhe des
+    Wertes der nachgewiesenen vertragsgemäßen Leistungen erhalten; sie werden binnen 21 Tagen nach Zugang der Aufstellung
+    fällig
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.due_date
+  trigger: claim_lodged
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/16.html
+    clause: s 16 Abs 1 Nr 1 bis 4
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: progress_claim
+    system_type: finance
+  clause: s 16 Abs 1 Nr 1 bis 4
+  window:
+    value: 21
+    unit: days
+  caveat: Bindet den Auftragnehmer, der fordert. Die Leistungen sind durch eine prüfbare Aufstellung nachzuweisen, die eine
+    rasche und sichere Beurteilung ermöglicht (Nr 1 S 2); für eigens angefertigte Bauteile und angelieferte Stoffe gilt
+    dasselbe, wenn dem Auftraggeber nach seiner Wahl das Eigentum übertragen oder entsprechende Sicherheit gegeben wird
+    (S 3). Gegenforderungen können einbehalten werden; andere Einbehalte nur in den im Vertrag und in den gesetzlichen Bestimmungen
+    vorgesehenen Fällen (Nr 2). Abschlagszahlungen sind ohne Einfluss auf die Haftung und gelten nicht als Abnahme von Teilen
+    der Leistung (Nr 4). Der Auftraggeber kommt spätestens 30 Tage nach Zugang der Aufstellung in Zahlungsverzug (s 16 Abs
+    5 Nr 3 S 3; siehe die Zeile payment.interest.de). Die 21 Tage laufen ab Zugang der Aufstellung; der trigger claim_lodged
+    datiert die Abgabe der Forderung. Der Text nennt keine Folge der verspäteten Zahlung in dieser Nummer, deshalb guidance.
+    Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: payment.final_due.vob_b_2016
+  duty: Die Schlusszahlung spätestens 30 Tage nach Zugang der Schlussrechnung erhalten, bei ausdrücklich vereinbarter, sachlich
+    gerechtfertigter Verlängerung höchstens 60 Tage; als Auftraggeber Einwendungen gegen die Prüfbarkeit bis zum Fristablauf
+    erheben
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.due_date
+  trigger: claim_lodged
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/16.html
+    clause: s 16 Abs 3 Nr 1
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: invoice_issued
+    system_type: finance
+  clause: s 16 Abs 3 Nr 1
+  window:
+    value: 30
+    unit: days
+  caveat: Bindet den Auftragnehmer, der fordert, und den Unternehmer als Auftraggeber, der die Schlussrechnung seines Nachunternehmers
+    prüft. Der Anspruch auf Schlusszahlung wird alsbald nach Prüfung und Feststellung fällig, spätestens innerhalb von 30
+    Tagen nach Zugang der Schlussrechnung (S 1); die Frist verlängert sich auf höchstens 60 Tage, wenn dies aufgrund der
+    besonderen Natur oder Merkmale der Vereinbarung sachlich gerechtfertigt ist und ausdrücklich vereinbart wurde (S 2).
+    Werden Einwendungen gegen die Prüfbarkeit unter Angabe der Gründe nicht bis zum Ablauf der jeweiligen Frist erhoben,
+    kann sich der Auftraggeber nicht mehr auf die fehlende Prüfbarkeit berufen (S 3). Die Prüfung ist nach Möglichkeit zu
+    beschleunigen; verzögert sie sich, ist das unbestrittene Guthaben als Abschlagszahlung sofort zu zahlen (S 4, 5). Bei
+    ausdrücklicher Verlängerung gelten bis zu 60 Tage; das Fenster hält den Regelfall von 30 Tagen. Der trigger claim_lodged
+    datiert die Abgabe der Forderung. Der Text nennt in dieser Nummer keine Folge der verspäteten Zahlung, deshalb guidance.
+    Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: closeout.final_payment_reservation.vob_b_2016
+  duty: Nach Zugang der Mitteilung über die Schlusszahlung binnen 28 Tagen einen Vorbehalt erklären und binnen weiterer
+    28 Tage eine prüfbare Rechnung über die vorbehaltenen Forderungen einreichen oder den Vorbehalt eingehend begründen
+  consequence: barred
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: closeout.final_payment_reservation
+  severity: 1
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/16.html
+    clause: s 16 Abs 3 Nr 2 bis 6
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 16 Abs 3 Nr 2 bis 6
+  window:
+    value: 28
+    unit: days
+  caveat: Bindet den Auftragnehmer, der die Schlusszahlung empfängt. Die vorbehaltlose Annahme der Schlusszahlung schließt
+    Nachforderungen aus, wenn der Auftragnehmer über die Schlusszahlung schriftlich unterrichtet und auf die Ausschlusswirkung
+    hingewiesen wurde (Nr 2). Einer Schlusszahlung steht es gleich, wenn der Auftraggeber unter Hinweis auf geleistete Zahlungen
+    weitere Zahlungen endgültig und schriftlich ablehnt (Nr 3). Auch früher gestellte, aber unerledigte Forderungen werden
+    ausgeschlossen, wenn sie nicht nochmals vorbehalten werden (Nr 4). Der Vorbehalt ist innerhalb von 28 Tagen nach Zugang
+    der Mitteilung zu erklären; er wird hinfällig, wenn nicht innerhalb weiterer 28 Tage, beginnend am Tag nach Ablauf der
+    ersten 28 Tage, eine prüfbare Rechnung über die vorbehaltenen Forderungen eingereicht oder, wenn das nicht möglich ist,
+    der Vorbehalt eingehend begründet wird (Nr 5). Die Ausschlussfristen gelten nicht für ein Verlangen nach Richtigstellung
+    wegen Aufmaß-, Rechen- und Übertragungsfehlern (Nr 6). Das Fenster nennt die erste Frist von 28 Tagen; die zweite folgt
+    unmittelbar. Die Ausschlusswirkung setzt die schriftliche Unterrichtung und den Hinweis voraus; fehlen sie, läuft keine
+    Ausschlussfrist (Schluss aus dem Wortlaut der Nr 2). Gilt nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart
+    haben.
+- key: payment.suspension_notice.vob_b_2016
+  duty: Dem Auftraggeber bei Zahlungsverzug vor der Einstellung der Arbeiten eine angemessene Frist setzen und erst nach
+    ihrem erfolglosen Ablauf die Arbeiten bis zur Zahlung einstellen
+  consequence: guidance
+  protection_type: watch
+  disease: forfeited_entitlements
+  approval_class: payments
+  duty_shape: payment.suspension_notice
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/16.html
+    clause: s 16 Abs 5 Nr 3, 4; s 18 Abs 5
+    access_date: '2026-10-18'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  clause: s 16 Abs 5 Nr 3, 4; s 18 Abs 5
+  caveat: Bindet den Auftragnehmer, der fordert. Der Auftragnehmer darf die Arbeiten bei Zahlungsverzug bis zur Zahlung
+    einstellen, sofern eine dem Auftraggeber zuvor gesetzte angemessene Frist erfolglos verstrichen ist (Nr 4). Zahlt der
+    Auftraggeber bei Fälligkeit nicht, kann ihm der Auftragnehmer eine angemessene Nachfrist setzen und hat bei erfolglosem
+    Ablauf Anspruch auf Zinsen in Höhe der in s 288 Abs 2 BGB genannten Sätze, wenn er nicht einen höheren Verzugsschaden
+    nachweist (Nr 3 S 1, 2). Der Auftraggeber kommt jedoch ohne Nachfristsetzung spätestens 30 Tage nach Zugang der Rechnung
+    oder der Aufstellung bei Abschlagszahlungen in Zahlungsverzug, wenn der Auftragnehmer seine Pflichten erfüllt und den
+    fälligen Betrag nicht rechtzeitig erhalten hat, es sei denn, der Auftraggeber hat den Verzug nicht zu verantworten (S
+    3); die 30 Tage verlängern sich auf höchstens 60, wenn dies sachlich gerechtfertigt und ausdrücklich vereinbart ist
+    (S 4). Streitfälle berechtigen den Auftragnehmer nicht, die Arbeiten einzustellen (s 18 Abs 5). Der Text nennt keine
+    Folge einer Einstellung ohne vorherige Fristsetzung; eine zu frühe Einstellung wäre eine Vertragsverletzung (Schluss,
+    Rechtsprechung nicht gelesen), deshalb guidance. Kein Fenster, weil die Frist angemessen sein muss. Gilt nur, wenn die
+    Parteien die VOB/B (Ausgabe 2016) vereinbart haben.
+- key: closeout.contractors_bond.vob_b_2016
+  duty: Eine vereinbarte Sicherheit binnen 18 Werktagen nach Vertragsabschluss leisten, wenn nichts anderes vereinbart ist
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: closeout.contractors_bond
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://dejure.org/gesetze/VOB-B/17.html
+    clause: s 17 Abs 1 Nr 2, Abs 2 bis 4, Abs 6 bis 8
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: bank_guarantee
+    system_type: finance
+  clause: s 17 Abs 1 Nr 2, Abs 2 bis 4, Abs 6 bis 8
+  window:
+    value: 21
+    unit: days
+  caveat: 'Bindet den Auftragnehmer; Abs 6 und 8 binden den Unternehmer auch als Auftraggeber gegenüber seinem Nachunternehmer.
+    Hat der Auftragnehmer die Sicherheit nicht geleistet, darf der Auftraggeber vom Guthaben einen Betrag in Höhe der vereinbarten
+    Sicherheit einbehalten (Abs 7 S 2); guidance. Die Sicherheit dient der vertragsgemäßen Ausführung und den Mängelansprüchen
+    (Abs 1 Nr 2). Der Auftragnehmer hat die Wahl unter den Arten und kann eine Sicherheit durch eine andere ersetzen (Abs
+    3); wenn nichts anderes vereinbart ist, durch Einbehalt, Hinterlegung oder Bürgschaft eines in der Europäischen Gemeinschaft,
+    im Europäischen Wirtschaftsraum oder einem Vertragsstaat des WTO-Beschaffungsübereinkommens zugelassenen Kreditinstituts
+    oder Kreditversicherers (Abs 2). Die Bürgschaft ist schriftlich unter Verzicht auf die Einrede der Vorausklage abzugeben,
+    darf nicht auf bestimmte Zeit begrenzt sein; der Auftraggeber kann keine Bürgschaft auf erstes Anfordern fordern (Abs
+    4). Beim Einbehalt darf er die Zahlung um höchstens 10 Prozent kürzen, den Betrag dem Auftragnehmer mitteilen und binnen
+    18 Werktagen nach der Mitteilung auf ein Sperrkonto einzahlen (Abs 6 Nr 1); zahlt er nicht rechtzeitig ein, kann der
+    Auftragnehmer nach Nachfrist die sofortige Auszahlung verlangen und braucht dann keine Sicherheit mehr zu leisten (Nr
+    3). Eine nicht verwertete Sicherheit für die Vertragserfüllung ist zum vereinbarten Zeitpunkt, spätestens nach Abnahme
+    und Stellung der Sicherheit für Mängelansprüche, zurückzugeben (Abs 8 Nr 1), die für Mängelansprüche nach Ablauf von
+    2 Jahren, wenn nichts anderes vereinbart ist (Nr 2), soweit nicht geltend gemachte Ansprüche noch offen sind. Werktage:
+    18 Werktage sind 21 Kalendertage, wenn kein gesetzlicher Feiertag hineinfällt; das Fenster ist die Untergrenze. Gilt
+    nur, wenn die Parteien die VOB/B (Ausgabe 2016) vereinbart haben.'

@@ -169,3 +169,12 @@ def test_match_value_the_field_can_never_hold_is_refused() -> None:
     })
     assert any("notifiable is a boolean, not 'true'" in e for e in errors), errors
     assert any("delays[].kind is never 'latent'" in e for e in errors), errors
+
+
+def test_lang_is_a_primary_language_subtag() -> None:
+    doc = _load(FIXTURES / "valid" / "example.yaml")
+    doc["lang"] = "fr"
+    assert validate_instrument_doc(doc, "valid/example.yaml") == []
+    doc["lang"] = "French"
+    errors = validate_instrument_doc(doc, "valid/example.yaml")
+    assert any("lang" in e for e in errors), "a language name, not a subtag, must be refused"

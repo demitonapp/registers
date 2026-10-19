@@ -1,0 +1,141 @@
+# Code de commerce, articles L. 441-10, L. 441-16 et D. 441-5, lus sur Légifrance le 18 octobre 2026.
+# L. 441-10 est dans sa rédaction issue de l'ordonnance n° 2019-359 du 24 avril 2019 (en vigueur du
+# 26 avril 2019 au 1er janvier 2027) ; la version qui entre en vigueur le 1er janvier 2027
+# (ordonnance n° 2026-671 du 27 juillet 2026) a été lue et ne change que la référence de la facture
+# périodique (article L. 216-34 du code des impositions sur les biens et services au lieu du 3 du I de
+# l'article 289 du code général des impôts). L. 441-16 est en vigueur depuis le 1er novembre 2021
+# (ordonnance n° 2021-859 du 30 juin 2021), D. 441-5 depuis le 27 février 2021 (décret n° 2021-211 du
+# 24 février 2021).
+#
+# Ces articles régissent les sommes dues entre professionnels, donc les relations d'un entrepreneur
+# avec ses clients privés, ses sous-traitants et ses fournisseurs. Jours calendaires : ils ne visent
+# ni jours ouvrés ni jours ouvrables et ne prévoient pas de report lorsque le délai expire un samedi,
+# un dimanche ou un jour férié.
+id: code_commerce_fr
+lang: fr
+source: law
+instrument_type: act
+title: 'Code de commerce (délais de paiement entre professionnels : articles L. 441-10, L. 441-16 et D. 441-5)'
+publisher: République française (texte consolidé publié par Légifrance)
+jurisdictions:
+- FR
+citation:
+  url: https://www.legifrance.gouv.fr/codes/texte_lc/LEGITEXT000005634379
+  access_date: '2026-10-18'
+  version: Version en vigueur au 18 octobre 2026 ; article L. 441-10 dans sa rédaction issue de l'ordonnance n°
+    2019-359 du 24 avril 2019, modifiée au 1er janvier 2027 par l'ordonnance n° 2026-671 du 27 juillet 2026
+obligations:
+- key: payment.commercial_due_date.fr
+  duty: Être payé dans le délai convenu, qui ne peut dépasser 60 jours après la date d'émission de la facture, ou
+    45 jours fin de mois si le contrat le stipule expressément, et dans les 30 jours de l'exécution de la prestation
+    à défaut de convention
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.due_date
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038414392
+    clause: art. L. 441-10, I et III
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: invoice_issued
+    system_type: finance
+  clause: art. L. 441-10, I et III
+  window:
+    value: 60
+    unit: days
+  caveat: 'Sauf disposition contraire des conditions de vente ou convention des parties, le délai ne peut dépasser
+    trente jours après la réception des marchandises ou l''exécution de la prestation demandée (I, al. 1). Le délai
+    convenu ne peut dépasser soixante jours après l''émission de la facture (I, al. 2). Un délai de quarante-cinq
+    jours fin de mois peut être convenu s''il est expressément stipulé par contrat et ne constitue pas un abus manifeste
+    à l''égard du créancier (I, al. 3). Pour une facture périodique, le délai convenu ne peut dépasser quarante-cinq
+    jours après son émission (I, al. 4). Une procédure d''acceptation ou de vérification de la conformité n''excède
+    pas trente jours, sauf stipulation expresse non abusive, et ne peut ni allonger ni décaler le délai maximal
+    de paiement, sous la même réserve (III). La fenêtre retenue est le plafond de 60 jours ; le délai applicable
+    est celui du contrat, dans ces limites. Les entités adjudicatrices mentionnées aux 2° et 3° de l''article L.
+    1212-1 du code de la commande publique paient selon cet article (art. L. 2192-11 de ce code). Jours calendaires
+    : le texte ne vise ni jours ouvrés ni jours ouvrables et ne prévoit pas de report lorsque le délai expire un
+    samedi, un dimanche ou un jour férié.'
+- key: payment.commercial_late_penalties.fr
+  duty: Facturer les pénalités de retard exigibles dès le lendemain de la date de règlement portée sur la facture,
+    au taux de refinancement de la Banque centrale européenne majoré de 10 points, sauf taux contractuel d'au moins
+    trois fois le taux d'intérêt légal
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.interest
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038414392
+    clause: art. L. 441-10, II
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: invoice_issued
+  clause: art. L. 441-10, II
+  caveat: Les conditions de règlement précisent les conditions d'application et le taux des pénalités de retard
+    exigibles le jour suivant la date de règlement figurant sur la facture (II). Sauf disposition contraire, qui
+    ne peut fixer un taux inférieur à trois fois le taux d'intérêt légal, le taux est celui de la Banque centrale
+    européenne pour son opération de refinancement la plus récente, majoré de 10 points de pourcentage (II). Le
+    taux du premier semestre est celui en vigueur au 1er janvier, celui du second semestre celui en vigueur au 1er
+    juillet (II). Les pénalités sont exigibles sans qu'un rappel soit nécessaire (II). Omettre ces mentions dans
+    les conditions de règlement, ou fixer un taux non conforme, est passible de l'amende administrative de l'article
+    L. 441-16 (b et c). Le registre invoice_issued porte le montant facturé, non les pénalités, d'où not_collected.
+- key: payment.commercial_recovery_indemnity.fr
+  duty: Réclamer au professionnel en retard de paiement l'indemnité forfaitaire pour frais de recouvrement de 40
+    euros, et une indemnisation complémentaire sur justification si les frais exposés sont supérieurs
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.recovery_costs
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043197457
+    clause: art. L. 441-10, II ; art. D. 441-5
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: invoice_issued
+  clause: art. L. 441-10, II ; art. D. 441-5
+  caveat: Tout professionnel en retard de paiement est de plein droit débiteur de cette indemnité (L. 441-10, II),
+    dont le montant est fixé à 40 euros (D. 441-5). Les conditions de règlement doivent en indiquer le montant (L.
+    441-10, II). Le créancier ne peut invoquer ces indemnités lorsque l'ouverture d'une procédure de sauvegarde,
+    de redressement ou de liquidation judiciaire interdit le paiement de sa créance à son échéance (L. 441-10, II).
+    Le registre invoice_issued ne porte pas l'indemnité, d'où not_collected.
+- key: payment.commercial_payment_terms_fine.fr
+  duty: Payer ses fournisseurs et sous-traitants dans les délais du I de l'article L. 441-10, sous peine d'une amende
+    administrative pouvant atteindre 75 000 euros pour une personne physique et deux millions d'euros pour une personne
+    morale
+  consequence: offence
+  protection_type: check
+  disease: non_compliance
+  approval_class: payments
+  duty_shape: payment.subcontractor_payment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043750778
+    clause: art. L. 441-16
+    access_date: '2026-10-18'
+  evidence:
+    kind: register
+    register: payable_entry
+    system_type: finance
+  clause: art. L. 441-16
+  caveat: L'amende sanctionne le non-respect des délais du I de l'article L. 441-10, du II de l'article L. 441-11,
+    de l'article L. 441-12 et de l'article L. 441-13 (a), l'omission des mentions du II de l'article L. 441-10 dans
+    les conditions de règlement (b), un taux ou des conditions d'exigibilité des pénalités non conformes (c) et
+    le non-respect des modalités de computation convenues (d). Sont interdites sous les mêmes sanctions les clauses
+    ou pratiques ayant pour effet de retarder abusivement le point de départ des délais de paiement. Le maximum
+    est porté à 150 000 euros pour une personne physique et quatre millions d'euros pour une personne morale en
+    cas de réitération dans un délai de deux ans à compter de la date à laquelle la première décision de sanction
+    est devenue définitive. C'est une amende administrative, non une peine ; offence est la valeur la plus proche
+    de l'énumération.

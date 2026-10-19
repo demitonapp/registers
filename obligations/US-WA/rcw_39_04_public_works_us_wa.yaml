@@ -1,0 +1,151 @@
+# Chapter 39.04 RCW (Public works), read on app.leg.wa.gov/RCW on 2026-10-18:
+# RCW 39.04.152(5), 39.04.250, 39.04.320 and both versions of 39.04.350. The
+# latest session laws in the chapter are 2026 c 97 (RCW 39.04.152) and 2026 c
+# 183. RCW 39.04.250 dates from 1992 c 223 (in force 1 September 1992), RCW
+# 39.04.320 was last amended by 2023 c 342 s 1 (in force 1 July 2024), and RCW
+# 39.04.350 is in force as amended by 2025 c 63 s 1 and 2025 c 173 s 1 until 1
+# July 2027, when the version amended by 2025 c 63 s 2 replaces it.
+#
+# The bidder responsibility criteria in RCW 39.04.350(1) and (2) are a bid-stage
+# eligibility test, not a contract duty, and carry no row; the prime
+# contractor's duty to verify its subcontractors' responsibility sits in RCW
+# 39.06.020, which was not read. Days are counted under RCW 1.12.040 (the first
+# day excluded, the last included unless it is a Saturday, Sunday or holiday,
+# which is then also excluded). This library holds no Washington holiday
+# calendar.
+id: rcw_39_04_public_works_us_wa
+source: law
+instrument_type: act
+title: 'Public Works, chapter 39.04 RCW (Washington): subcontractor payment and apprentice utilization'
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.04
+  access_date: '2026-10-18'
+  version: Chapter 39.04 RCW as published on app.leg.wa.gov on 2026-10-18 (latest session laws in the chapter 2026
+    c 97 and 2026 c 183; RCW 39.04.320 last amended by 2023 c 342 s 1; RCW 39.04.350 as amended by 2025 c 63 s 1
+    and 2025 c 173 s 1, in force until 1 July 2027)
+obligations:
+- key: payment.subcontractor_payment_public_works.us-wa
+  duty: Pay each subcontractor its share of a payment received for public work within 10 days after receiving it
+  consequence: breach
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.subcontractor_payment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.04.250
+    clause: RCW 39.04.250(1)-(3)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: payable_entry
+  clause: RCW 39.04.250(1)-(3)
+  window:
+    value: 10
+    unit: days
+  caveat: 'Binds the prime contractor and each subcontractor towards its own subcontractors, for the amounts allowed
+    on account of each subcontractor''s work, to the extent of its interest in them (RCW 39.04.250(1)). In a good
+    faith dispute the payer may withhold no more than 150% of the disputed amount, and those not party to the dispute
+    are entitled to full and prompt payment of their portion of a draw, progress payment, final payment or released
+    retainage (RCW 39.04.250(2)). A wrongful withholding carries interest and the prevailing party''s costs and
+    attorneys'' fees (RCW 39.04.250(3), its own row). A prime contractor that withholds for unsatisfactory performance
+    after requesting payment from the public body follows the notice rule in RCW 39.76.011(2)(e), a row in rcw_39_76_interest_unpaid_public_contracts_us_wa.
+    No register dates the receipt of the owner''s payment against the subcontractor payments it funds, so no trigger
+    is set and this is recorded not_collected. Calendar days: the chapter defines no business day. RCW 1.12.040
+    excludes the first day and includes the last, unless the last day is a Saturday, Sunday or holiday, in which
+    case that day is also excluded.'
+- key: payment.interest_wrongful_withholding.us-wa
+  duty: Charge interest, for every month and part of a month, on any payment or retainage wrongfully withheld from
+    you on a public work, at the highest rate allowed under RCW 19.52.025
+  consequence: guidance
+  protection_type: check
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.interest
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.04.250
+    clause: RCW 39.04.250(3); 19.52.025
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: receivable_entry
+  clause: RCW 39.04.250(3); 19.52.025
+  caveat: Available, in addition to all other remedies, to any person from whom funds were withheld in breach of
+    RCW 39.04.250, against the person who withheld them (RCW 39.04.250(3)). The prevailing party in an action to
+    collect is entitled to costs of suit and reasonable attorneys' fees (RCW 39.04.250(3)). Each month the state
+    treasurer computes the highest rate permissible under RCW 19.52.020(1) for the next month and files it for publication
+    in the Washington State Register (RCW 19.52.025); the rate itself is not recorded here. Interest owed by the
+    public body on its own late payment is in rcw_39_76_interest_unpaid_public_contracts_us_wa. The receivable register
+    holds the amount but not the interest charged on it, so this is recorded not_collected.
+- key: workforce.apprentice_utilization.us-wa
+  duty: On a public work at or above the awarding body's cost threshold, have no less than 15% of the labor hours
+    performed by apprentices, as the contract specifications require
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: workforce.apprentice_utilization
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.04.320
+    clause: RCW 39.04.320(1)-(4), (8), (9); 39.12.055(3)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: timesheet_entry
+  clause: RCW 39.04.320(1)-(4), (8), (9); 39.12.055(3)
+  caveat: 'The duty binds through the contract: the statute requires the specifications to set the 15%, and the
+    contract to carry a line item saying the goals should be met, with monetary incentives for meeting them, monetary
+    penalties for not meeting them and an expected cost value to be included in the bid (RCW 39.04.320(1), (4)(b)).
+    The thresholds, by estimated cost: USD 1,000,000 for public works of the state from 1 January 2005, of a school
+    district on contracts advertised from 1 January 2010 and of a four-year institution of higher education from
+    1 January 2012; USD 2,000,000 for the department of transportation on contracts advertised from 1 July 2020;
+    and for a municipality USD 2,000,000 from 1 July 2024, USD 1,500,000 on contracts advertised from 1 July 2026
+    and USD 1,000,000 from 1 July 2028 (RCW 39.04.320(1)). It does not apply to contracts of state agencies headed
+    by a separately elected official or of housing authorities (RCW 39.04.320(4)(a)). The awarding body may adjust
+    the requirement for a project for lack of apprentices in the area, a high ratio of material costs to labor hours,
+    a contractor''s demonstrated good faith effort or other criteria (RCW 39.04.320(2)), and the department of transportation
+    may use its three strike system with a good faith allowance instead of the incentives and penalties (RCW 39.04.320(3),
+    (4)(c)). A contractor or subcontractor may not be required to exceed the requirement (RCW 39.04.320(8)), but
+    a local law more favorable to apprentices still applies on a municipality''s contracts (RCW 39.04.320(9)). The
+    awarding body reports utilization by contractor and subcontractor to the department of labor and industries
+    by final project acceptance (RCW 39.04.320(4)(b)). Being found to work apprentices out of ratio, without supervision
+    or outside their approved work processes counts toward the one year bidding bar for two violations within five
+    years (RCW 39.12.055(3)). The timesheet register holds hours but not each worker''s apprentice registration,
+    so this is recorded not_collected.'
+- key: workforce.apprentice_utilization_plan.us-wa
+  duty: On a project subject to apprentice utilization, give the awarding agency an apprentice utilization plan
+    before receiving the notice to proceed
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: general
+  duty_shape: workforce.apprentice_utilization_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=39.04.350
+    clause: RCW 39.04.350(3), (4)(e)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: RCW 39.04.350(3), (4)(e)
+  caveat: 'Required in addition to the bidder responsibility criteria (RCW 39.04.350(3)(a)). The agency may exempt
+    a bidder that met or exceeded the apprentice utilization requirements on the last public works project it completed,
+    relying on department of labor and industries records (RCW 39.04.350(3)(a)). The department''s template covers
+    the projected start and end dates, estimated total work hours, estimated apprentice hours by apprenticeable
+    occupation, the registered apprenticeship programs to be contacted and the expected training agents or sponsors,
+    and the department publishes completed plans on its website (RCW 39.04.350(3)(b), (c)). Under the version in
+    force until 1 July 2027, a bidder with a history of monetary penalties for missing utilization, or habitual
+    in using the good faith effort exception, must submit a plan within 10 business days immediately following the
+    notice to proceed date (RCW 39.04.350(4)(e)); the version in force from 1 July 2027 (2025 c 63 s 2) omits that
+    paragraph. The statute sets no day count for the plan itself: the deadline is the notice to proceed. The section
+    states no consequence of its own; mapped to breach. No register holds the plan, so this is recorded not_collected.'

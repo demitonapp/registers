@@ -17,6 +17,68 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 ## v20, 2026-10-20: addition
 
 - **addition** `rail_safety_national_law_au` (Rail Safety National Law (South Australia) Act 2012): 26 rows, jurisdiction AU. Covers accreditation, the safety management system, notifiable occurrences, rail safety workers, the interface agreements a signalling change touches, the 28-day notice before adopting a changed design safety standard, and the interoperability management plan. The two change hooks are the ones a signalling project meets first. Consumed by the `/railways` hub and the four `/australia/railways` chapters in demitonapp/monorepo.
+- **Germany: building contract, payment and site law, in German** (wave of
+  2026-11-02). Eight instruments under `obligations/DE/`, `DE-BY/` and `DE-NW/`,
+  53 rows, each carrying `lang: de` and read on 2026-10-18: the BGB's building
+  contract law (30 days after a change request before the client may order it,
+  80% of an offered variation price billable on account, deemed acceptance,
+  30 days to object to a final invoice, security for the price under s 650f), the
+  VOB/B 2016 standard form (12 Werktage to start work and to send the final
+  invoice, 21 days for an interim payment, 30 for the final, 28 days to reserve
+  claims, 4 years of defect liability; it binds only where the contract adopts it,
+  and every row says so), the Baustellenverordnung (14 days' advance notice), the
+  Arbeitnehmer-Entsendegesetz and the Mindestlohngesetz (guarantor liability for a
+  subcontractor's wages), and on site Bavarian and North Rhine-Westphalian
+  heritage law (report a find, leave it for a week, permits and who pays) and
+  North Rhine-Westphalia's ordnance ordinance. New jurisdictions `DE-BY` and
+  `DE-NW` (`level: state`, `supported: false`); `DE` stays `supported: false`:
+  the law is here to be read, and no project can be placed in Germany yet.
+  25 new duty shapes. The VOB/B counts Werktage (Monday to Saturday); the library
+  has no such unit, so those windows are in calendar days (12 Werktage as 14), with
+  the direction of the error stated in each row.
+
+- **France: public works conditions, payment and site law, in French**
+  (wave of 2026-11-02). Eleven instruments under `obligations/FR/`, 51 rows,
+  each carrying `lang: fr` and read on Légifrance on 2026-10-18: the
+  CCAG-Travaux 2021 (15 days to object to an ordre de service, 30 days to answer
+  the décompte général, 6 months to sue), the Code de la commande publique
+  (payment within 30 days, interest at the ECB rate plus 8 points, the 40 euro
+  indemnity, the avance, direct payment of subcontractors, the 5% retenue de
+  garantie), the loi du 31 décembre 1975 on subcontracting, the loi du
+  16 juillet 1971 on retention, the Code civil (art. 1799-1, the payment
+  guarantee), the Code de commerce (L. 441-10, private payment periods), and on
+  site the DT-DICT (Code de l'environnement), the carte BTP, the obligation de
+  vigilance and the PPSPS (Code du travail), the accident declaration within
+  48 hours (Code de la sécurité sociale), archaeological finds (Code du
+  patrimoine) and décennale insurance (Code des assurances). `FR` was already
+  in the vocabulary and stays `supported: false`. 17 new duty shapes, their
+  titles in English like every other shape.
+
+- **Washington State's payment, lien and site law** (wave of 2026-11-02).
+  Eleven instruments under `obligations/US-WA/`, 51 rows, every one read from
+  app.leg.wa.gov on 2026-10-18: prevailing wages (RCW 39.12: the statement of
+  intent before any payment, the affidavit before retainage is released,
+  certified payroll monthly), retainage on public works (RCW 60.28: 5%, released
+  60 days after completion), the contractor's bond (RCW 39.08: a claim within
+  30 days of completion and acceptance), mechanics' liens (RCW 60.04: record
+  within 90 days, foreclose within 8 months), public works subcontractor payment
+  within 10 days and apprentice utilization (RCW 39.04), interest on unpaid
+  public contracts (RCW 39.76), underground utility locates (RCW 19.122),
+  archaeological sites, Indian graves and human remains (RCW 27.53, 27.44,
+  68.50.645), injury reporting within 8 and 24 hours (WAC 296-27), WISHA
+  citation appeals (RCW 49.17) and contractor registration (RCW 18.27). New
+  jurisdiction `US-WA` (`level: state`, `supported: false`): the law is here to
+  be read, and no project can be placed in Washington yet. 26 new duty shapes.
+  Days are counted under RCW 1.12.040, stated in every caveat that counts them;
+  the library holds no Washington holiday calendar.
+
+- **`lang` on an instrument** (contract `instrument` 2.1.0, MINOR: one new
+  optional property). The language the instrument's own words are written in,
+  as a BCP 47 primary subtag; absent means `en`. French law is read and
+  paraphrased in French, not translated into English and back: a duty quoted on
+  a French page has to be the French a French contractor reads in the code.
+  `scripts/resolve.py` carries it on a concrete's header, so the flattened
+  asset says which language each row is in. No obligation rows change.
 
 ## v19, 2026-10-18: correction
 

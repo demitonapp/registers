@@ -1,0 +1,288 @@
+# Washington's underground utility damage prevention act, chapter 19.122 RCW,
+# read in full from app.leg.wa.gov on 2026-10-18 (every section, 19.122.010 to
+# 19.122.901), as last amended by 2025 c 292. The 2025 amendments added the
+# positive response rule (an excavator may not start until every operator in
+# the notified area has responded, from 1 January 2026, s 19.122.030(5)) and
+# the misdemeanor for digging near a transmission pipeline before the
+# work-to-begin date or a positive response (s 19.122.090(2), (3)).
+#
+# The chapter defines a business day as any day other than Saturday, Sunday,
+# or a legal local, state, or federal holiday (s 19.122.020(3)), and measures
+# the locate notice in full business days. Its other periods (45 days for marks
+# and for the damage report) are calendar days. RCW 1.12.040 (read the same
+# day) computes a time within which an act is to be done by excluding the first
+# day and including the last, and excludes the last day too if it is a
+# holiday, Saturday or Sunday. This library holds no Washington holiday
+# calendar.
+#
+# Penalties: most violations carry a civil penalty enforced by the Utilities
+# and Transportation Commission (ss 19.122.070, 19.122.140, 19.122.150); only
+# digging near a transmission pipeline without a code, before the work-to-begin
+# date or before positive response, and giving a false code, are crimes
+# (misdemeanors, ss 19.122.090, 19.122.110). Rows whose penalty is civil are
+# mapped to breach, and each caveat says when the misdemeanor applies.
+id: rcw_19_122_underground_utilities_us_wa
+source: law
+instrument_type: act
+title: Underground Utilities, chapter 19.122 RCW (Washington)
+publisher: Washington State Legislature
+jurisdictions:
+- US-WA
+citation:
+  url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122
+  access_date: '2026-10-18'
+  version: Revised Code of Washington as published on app.leg.wa.gov on 2026-10-18, chapter last amended
+    by 2025 c 292
+obligations:
+- key: whs.locate_request.us-wa
+  duty: Mark the excavation area in white and notify every facility operator and pipeline company through
+    the one-number locator service at least 2 full business days, and not more than 10, before the work-to-begin
+    date
+  consequence: breach
+  protection_type: countdown
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.locate_request
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.030
+    clause: RCW 19.122.020(3), (12), (40), 19.122.030(1), (2), 19.122.031(1), 19.122.033(1), 19.122.070
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  clause: RCW 19.122.020(3), (12), (40), 19.122.030(1), (2), 19.122.031(1), 19.122.033(1), 19.122.070
+  window:
+    value: 2
+    unit: business_days
+  caveat: 'Binds the excavator, any person who engages directly in excavation, and excavation includes installing
+    signs (s 19.122.020(10), (12)). The notice must give a work-to-begin date not less than 2 and not more
+    than 10 full business days from the day notice is given, unless the excavator and the facility operators
+    agree otherwise in writing (s 19.122.020(40), 19.122.030(1)(a), (2)). A business day excludes Saturday,
+    Sunday and legal local, state and federal holidays (s 19.122.020(3)), and this library holds no Washington
+    holiday calendar. Where white lining is infeasible, the notice must be given electronically (s 19.122.030(1)(b)).
+    A general contractor or other third party may give the notice, but the excavator keeps every duty under
+    the chapter (s 19.122.030(1)(c)). On multiple sites or a large project (over 700 linear feet, s 19.122.020(20)),
+    the excavator must also confer with operators so that each phase can be located in advance (s 19.122.030(2)).
+    Pipeline companies are notified through the locator service in the same way (s 19.122.033(1)). An emergency
+    excavation is exempt from the white lining and notice timing but must be notified at the earliest practicable
+    opportunity, and the other activities in s 19.122.031(1) are exempt from s 19.122.030. A violation carries
+    a civil penalty of up to USD 1,000, and up to USD 5,000 for each later violation within 3 years (s 19.122.070(1)),
+    or up to USD 25,000 for each violation that causes damage to a hazardous liquid or gas facility (s 19.122.055(1)).
+    Damage after a failure to notify known operators or the locator service is deemed willful and malicious
+    and carries treble the cost of repair or relocation (s 19.122.070(2)). Excavating within 35 feet of
+    a transmission pipeline without an excavation confirmation code is a misdemeanor (s 19.122.090(1)).
+    No register records a locate request or its work-to-begin date, so this is recorded not_collected.'
+- key: whs.locate_marks_wait.us-wa
+  duty: Do not excavate before the work-to-begin date, or until every known facility operator has marked
+    its facilities and every operator in the notified area has given a positive response
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.locate_marks_wait
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.030
+    clause: RCW 19.122.020(11), (29), (31), 19.122.030(3)-(5), (7), 19.122.090(2), (3)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  clause: RCW 19.122.020(11), (29), (31), 19.122.030(3)-(5), (7), 19.122.090(2), (3)
+  caveat: 'From 1 January 2026 an excavator may not start until it has received a positive response from
+    every operator with underground facilities in the area named in the notice (s 19.122.030(5)). A positive
+    response is the operator''s notice to the locator service that it has marked, or has given location
+    information on unlocatable facilities (s 19.122.020(29)). For facilities other than gas or hazardous
+    liquid pipelines, information on unlocatable facilities may stand in for marks (s 19.122.030(3)(b), (5)).
+    Operators must give the information no later than the work-to-begin date unless agreed in writing, and
+    a force majeure extension needs a written agreement (s 19.122.030(3)(a)(ii), (4)(a)). The excavation
+    confirmation code is not valid until the work-to-begin date (s 19.122.020(11)). Marks are reasonably
+    accurate if within 24 inches of both sides of the facility (s 19.122.020(31)). An excavator is owed
+    reasonable compensation by an operator that fails to locate as the section requires (s 19.122.030(7)).
+    Excavating within 35 feet of a transmission pipeline before the work-to-begin date, or before a positive
+    response from its operator, is a misdemeanor (s 19.122.090(2), (3)); elsewhere the civil penalties
+    of s 19.122.070(1) apply. A condition on starting work with no day count of its own, so no window is
+    recorded. No register records an operator''s marks or positive response, so this is recorded not_collected.'
+- key: whs.locate_marks_refresh.us-wa
+  duty: Keep the operators' marks accurate while excavating, and give a fresh notice before excavating
+    after the marks expire 45 calendar days from the first notice
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.locate_marks_refresh
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.030
+    clause: RCW 19.122.030(6), 19.122.075
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  clause: RCW 19.122.030(6), 19.122.075
+  window:
+    value: 45
+    unit: days
+  caveat: 'The excavator must keep the marks accurate for the shorter of 45 calendar days from its notice
+    and the excavation portion of the project (s 19.122.030(6)(a)). The marks expire 45 calendar days from
+    the notice, and excavation after that date needs an additional notice under s 19.122.030(1) (s 19.122.030(6)(c)).
+    That fresh notice needs its own lead time of at least 2 full business days (s 19.122.030(2)), so work
+    continues without a gap only if it is given that far ahead of the expiry. An operator may charge for
+    repeated locate requests caused by the excavator''s failure to maintain the marks (s 19.122.030(6)(b)).
+    Willfully damaging or removing a permanent marking, or a temporary marking before its intended use,
+    carries a civil penalty of up to USD 1,000, and up to USD 5,000 for each later violation within 3 years
+    (s 19.122.075). The 45 days are calendar days counted from the day notice was given. No register records
+    the notice date or the marks, so this is recorded not_collected.'
+- key: whs.excavation_reasonable_care.us-wa
+  duty: 'Use reasonable care to avoid damaging underground facilities: find the precise location of marked
+    facilities, plan the dig around them, support them, use safe and careful methods, and expose them before
+    directional boring'
+  consequence: damages_only
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.excavation_reasonable_care
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.040
+    clause: RCW 19.122.020(26), (32), 19.122.040(2)-(4), 19.122.045, 19.122.070
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  clause: RCW 19.122.020(26), (32), 19.122.040(2)-(4), 19.122.045, 19.122.070
+  caveat: 'The five limbs are in s 19.122.040(2)(a) to (e); directional boring must supplement white lining
+    with physical exposure, such as potholing, to avoid blind boring (s 19.122.040(2)(e), 19.122.020(26)).
+    Safe and careful work methods include potholing, hand digging when practical, vacuum excavation and pneumatic
+    hand tools (s 19.122.020(32)), and on a hard surface may include pneumatic hand tools (s 19.122.040(2)(d)).
+    A party whose failure to perform an obligation under the chapter causes damage is liable for any damages,
+    and a contract clause that allocates that liability, or shifts it by indemnity, differently from the
+    chapter is against public policy and unenforceable (s 19.122.040(3)). The parties may still allocate
+    the risk of changed or differing site conditions (s 19.122.040(3)), and the prevailing party in an action
+    under the section recovers reasonable attorneys'' fees (s 19.122.040(4)). An excavator that complies
+    with the chapter is liable for damage to a fiber optics facility only for the cost of repair (s 19.122.045).
+    Willfully or maliciously damaging a marked facility carries treble the repair or relocation costs, and
+    any violation the civil penalties of s 19.122.070(1). A standing duty with no day count, so no window
+    is recorded. No register records excavation methods against located facilities, so this is recorded
+    not_collected.'
+- key: latent_conditions.unidentified_utility.us-wa
+  duty: Treat an underground facility that the bid or contract documents did not identify, or that was not
+    located as the law requires, as a changed or differing site condition
+  consequence: guidance
+  protection_type: check
+  disease: forfeited_entitlements
+  approval_class: variations_claims
+  duty_shape: latent_conditions.unidentified_utility
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.040
+    clause: RCW 19.122.040(1), (3), 19.122.030(7)
+    access_date: '2026-10-18'
+  evidence:
+    kind: built_in
+    from: the contract
+  clause: RCW 19.122.040(1), (3), 19.122.030(7)
+  caveat: 'The project owner must show in the bid or contract documents the underground facilities it knows
+    to be within the proposed area of excavation (s 19.122.040(1)). A facility not identified as the chapter
+    or other law requires, or not located by the project owner, the facility operator, or an excavator that
+    is itself a facility operator, is deemed a changed or differing site condition (s 19.122.040(1)(a),
+    (b)). The section sets no notice period or procedure, so any notice and time bar for the claim comes
+    from the contract. The parties may contract on the allocation of risk for changed or differing site
+    conditions (s 19.122.040(3)). Separately, an excavator is owed reasonable compensation by an operator
+    that fails to locate its facilities as s 19.122.030 requires (s 19.122.030(7)). Not itself an evidence
+    record, but the rule for reading the contract''s differing site conditions clause.'
+- key: whs.unmarked_utility_found.us-wa
+  duty: Stop excavating near an underground facility that was not identified, and notify its operator immediately
+    through the one-number locator service
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.unmarked_utility_found
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.030
+    clause: RCW 19.122.030(10), 19.122.070(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: utility_location
+  clause: RCW 19.122.030(10), 19.122.070(1)
+  caveat: 'The duty to cease excavating in the vicinity and notify immediately applies to a facility that
+    was not identified (s 19.122.030(10)). An identified but unlocatable facility that is uncovered must
+    be notified through the locator service, with no stop duty stated (s 19.122.030(10)). The operator must
+    then allow for location of the uncovered portion, and may accept the excavator''s location information
+    for marking it (s 19.122.030(10)). Immediately, with no hour count, so no window is recorded. A violation
+    carries the civil penalties of s 19.122.070(1). No register records an unmarked facility found on site,
+    so this is recorded not_collected.'
+- key: whs.utility_strike_notice.us-wa
+  duty: On contacting or damaging an underground facility, notify its operator directly if known and the
+    one-number locator service, call 911 if the damage causes an emergency condition, and do not bury it
+    until it is repaired or relocated
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.utility_strike_notice
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.050
+    clause: RCW 19.122.020(7), 19.122.050, 19.122.055(1), 19.122.070(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: RCW 19.122.020(7), 19.122.050, 19.122.055(1), 19.122.070(1)
+  caveat: 'Binds the excavator that contacts or damages the facility, which must also report the damage
+    to the Commission under s 19.122.053 (see whs.utility_damage_report.us-wa) and, in an emergency, take
+    all appropriate steps to ensure public safety (s 19.122.050(1)). The 911 call is required for any emergency
+    condition, not only a gas or hazardous liquid release. An emergency is a condition that is a clear and
+    present danger to life, health or property, or an unplanned utility outage that requires immediate action
+    (s 19.122.020(7)). The operator arranges repair or relocation as soon as practical, or lets the excavator
+    do it at a mutually acceptable price (s 19.122.050(2)). For a pipeline, the duties to examine the pipe,
+    shut off flow and notify first responders bind the pipeline company, not the excavator (s 19.122.035).
+    An excavator that violates the chapter and damages a hazardous liquid or gas facility faces a civil
+    penalty of up to USD 25,000 for each violation (s 19.122.055(1)(a)); other violations carry the penalties
+    of s 19.122.070(1). The section states no hour count, so no window is recorded. The safety_incident register
+    holds an incident but not whether or when the operator, the locator service or 911 was told, so this
+    is recorded not_collected.'
+- key: whs.utility_damage_report.us-wa
+  duty: Report each damage event to the Utilities and Transportation Commission's office of pipeline safety
+    within 45 days, on its damage information reporting tool form or a similar form with the listed details
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: whs.utility_damage_report
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=19.122.053
+    clause: RCW 19.122.020(5), 19.122.053, 19.122.070(1)
+    access_date: '2026-10-18'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: RCW 19.122.020(5), 19.122.053, 19.122.070(1)
+  window:
+    value: 45
+    unit: days
+  caveat: 'Binds every excavator and facility operator that observes or causes damage to an underground
+    facility (s 19.122.053(1)). A nonpipeline facility operator, or its subcontractor, that strikes the operator''s
+    own facility while excavating for it need not report (s 19.122.053(2)). The 45 days run from the damage
+    event, or less where another law requires (s 19.122.053(3)). The report must give the 14 items in s 19.122.053(3)(a)
+    to (n), including the excavation confirmation code if the locator service was notified. Damage includes
+    weakening of support, harm to protective coating and partial or complete severance, to the extent the
+    project owner or operator decides repairs are needed (s 19.122.020(5)). Calendar days: RCW 1.12.040
+    excludes the day of the event and includes the last day, unless it is a Saturday, Sunday or holiday.
+    A violation carries the civil penalties of s 19.122.070(1). No trigger is set, because no register
+    records a utility damage event as such. The safety_incident register holds an incident but not whether
+    or when the Commission was told, so this is recorded not_collected.'

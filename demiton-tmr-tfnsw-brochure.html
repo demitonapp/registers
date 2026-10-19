@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demiton · Protection for TMR and TfNSW work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1220; --surface:#111827; --panel:#1F2937;
+    --steel:#5B8DB8; --steel-hover:#4A7BA3; --steel-text:#A7C4DD;
+    --violet:#7C3AED; --violet-hover:#6D28D9; --violet-text:#A78BFA;
+    --text:#F9FAFB; --muted:#9CA3AF; --dim:#6B7280;
+    --green:#059669; --amber:#D97706; --red:#DC2626;
+    --border:#374151;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    background:var(--bg); color:var(--text);
+    font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .serif{font-family:Newsreader,Georgia,"Times New Roman",serif}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .container{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:var(--steel);text-decoration:none}
+  a:hover{color:var(--steel-hover)}
+
+  /* toolbar */
+  .toolbar{max-width:1120px;margin:16px auto 0;padding:10px 16px;background:var(--surface);
+    border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;
+    justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
+  .toolbar b{color:var(--text);font-weight:500}
+  .toolbar button{background:var(--steel);color:#06101c;border:none;border-radius:6px;
+    padding:8px 16px;font-weight:500;font-size:13px;cursor:pointer;font-family:inherit}
+  .toolbar button:hover{background:var(--steel-hover)}
+
+  /* header */
+  header{border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;gap:14px;padding:18px 0}
+  .lockup{display:flex;align-items:center;gap:12px}
+  .lockup .mark{width:34px;height:34px;flex:0 0 auto}
+  .lockup .mark svg{width:100%;height:100%;display:block}
+  .lockup .word{font-weight:500;font-size:17px;letter-spacing:.15em;color:var(--text)}
+  .nav .ctx{margin-left:auto;text-align:right;font-size:12.5px;color:var(--muted);line-height:1.5}
+  .nav .ctx b{color:var(--text);font-weight:500}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:6px;padding:11px 20px;
+    font-weight:500;font-size:15px;font-family:inherit;cursor:pointer;transition:transform .2s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-violet{background:var(--violet);color:#fff;border:none}
+  .btn-violet:hover{background:var(--violet-hover);color:#fff}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn-ghost:hover{border-color:var(--dim)}
+
+  /* hero */
+  .hero{padding:72px 0 64px;border-bottom:1px solid var(--border)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
+    font-weight:600;margin-bottom:22px}
+  .hero h1{font-size:64px;line-height:1.05;font-weight:600;letter-spacing:-.015em;margin-bottom:24px}
+  .hero .moment{font-style:italic;font-weight:400;font-size:26px;color:var(--steel-text);
+    line-height:1.35;margin-bottom:26px;max-width:24em}
+  .hero .body{color:var(--muted);font-size:18px;line-height:1.65;max-width:38em;margin-bottom:32px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* section shared */
+  section{padding:64px 0;border-bottom:1px solid var(--border)}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
+    font-weight:600;margin-bottom:16px}
+  h2{font-size:40px;line-height:1.12;font-weight:600;letter-spacing:-.01em;margin-bottom:16px}
+  .lead{color:var(--muted);font-size:18px;line-height:1.65;max-width:42em}
+
+  /* authorities */
+  .authorities{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+  .auth{border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:26px}
+  .auth .flag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);
+    font-weight:600;margin-bottom:10px}
+  .auth h3{font-size:22px;font-weight:600;margin-bottom:6px}
+  .auth .desc{color:var(--muted);font-size:15px;margin-bottom:16px}
+  .auth ul{list-style:none}
+  .auth li{display:flex;gap:12px;padding:7px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text)}
+  .auth li:last-child{border-bottom:none}
+  .auth li .cl{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:13px;color:var(--steel-text);white-space:nowrap}
+  .auth .count{margin-top:16px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:13px;color:var(--dim)}
+
+  /* diseases */
+  .disease{display:grid;grid-template-columns:minmax(0,1fr);gap:0;border:1px solid var(--border);
+    border-radius:14px;background:var(--surface);padding:34px;margin-top:22px}
+  .disease .head{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+  .disease .num{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:14px;color:var(--dim)}
+  .disease .name{font-size:26px;font-weight:600}
+  .disease .live{margin-left:auto;font-size:12px;font-weight:600;color:var(--green);letter-spacing:.06em}
+  .disease .moment{font-size:30px;line-height:1.25;font-weight:500;margin-bottom:26px;max-width:22em}
+  .disease .cols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:34px}
+  .disease .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);
+    font-weight:600;margin-bottom:10px}
+  .disease .protect{color:var(--text);font-size:16px;line-height:1.6}
+  .obl{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;
+    padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+  .obl:last-of-type{border-bottom:none}
+  .obl .cl{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--steel-text);white-space:nowrap}
+  .obl .duty{color:var(--text)}
+  .obl .cons{font-size:11px;font-weight:600;color:var(--amber);white-space:nowrap}
+  .obl .cons.barred{color:var(--red)}
+  .obl .cons.excl{color:var(--amber)}
+  .cost{margin-top:18px;border-left:2px solid var(--steel);padding:12px 16px;background:rgba(91,141,184,.08);
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:13px;color:#cbd5e1;line-height:1.6}
+
+  /* research strip */
+  .proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+  .proof{border:1px solid var(--border);border-radius:10px;background:var(--surface);padding:18px}
+  .proof .fig{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:24px;font-weight:500;color:var(--text);margin-bottom:6px}
+  .proof .what{font-size:13px;color:var(--muted);line-height:1.4;margin-bottom:10px}
+  .proof .src{font-size:11.5px;color:var(--dim);line-height:1.4}
+  .proof-note{margin-top:22px;font-size:14px;color:var(--muted)}
+  .proof-note a{color:var(--steel)}
+
+  /* offer */
+  .offer .price{font-size:56px;line-height:1.05;font-weight:600;letter-spacing:-.01em;margin:10px 0 18px}
+  .offer .price .yr{font-size:22px;color:var(--muted);font-weight:400}
+  .offer .body{color:var(--muted);font-size:17px;line-height:1.65;max-width:42em;margin-bottom:12px}
+  .offer .bonus{border:1px solid var(--border);border-radius:10px;background:var(--surface);padding:20px;margin:22px 0}
+  .offer .bonus .row{font-size:15px;color:var(--text);line-height:1.6}
+  .offer .bonus .row + .row{margin-top:10px}
+  .offer .bonus .tag{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;color:var(--steel-text)}
+  .offer .dare{font-style:italic;font-weight:400;font-size:24px;color:var(--steel-text);margin:26px 0 30px}
+  .offer .ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+  /* limits */
+  .limits ul{list-style:none;margin-top:28px}
+  .limits li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);
+    color:var(--muted);font-size:15.5px;line-height:1.6;max-width:56em}
+  .limits li:last-child{border-bottom:none}
+  .limits li .mark{color:var(--steel);font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:14px;flex:0 0 auto}
+
+  /* footer */
+  footer{padding:44px 0 56px}
+  .foot{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .foot .tag{font-size:15px;color:var(--text);line-height:1.6}
+  .foot .dest{font-size:15px;color:var(--muted);line-height:1.6}
+  .foot .right{text-align:right;font-size:13px;color:var(--muted);line-height:1.7}
+  .foot .right a{color:var(--steel)}
+
+  @media (max-width:860px){
+    .hero h1{font-size:44px}
+    .disease .cols{grid-template-columns:1fr;gap:24px}
+    .authorities{grid-template-columns:1fr}
+    .proof-grid{grid-template-columns:1fr 1fr}
+    .nav .ctx{display:none}
+  }
+  @media print{
+    .toolbar{display:none}
+    @page{size:A4;margin:12mm}
+    .container{max-width:none;padding:0}
+    section{padding:28px 0}
+    .hero{padding:24px 0}
+    .hero h1{font-size:38px}
+    .disease{break-inside:avoid}
+    .proof{break-inside:avoid}
+    a{color:inherit}
+    body{font-size:12.5px}
+    .hero .moment{font-size:20px}
+    h2{font-size:28px}
+    .disease .moment{font-size:22px}
+    .offer .price{font-size:40px}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar container">
+  <span><b>Brochure</b> · Protection for TMR and TfNSW work · print, then Save as PDF</span>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+
+<header>
+  <div class="container nav">
+    <div class="lockup">
+      <div class="mark"><svg viewBox="0 0 792 793" xmlns="http://www.w3.org/2000/svg" aria-label="Demiton"><g transform="translate(0,793) scale(0.1,-0.1)" fill="#F9FAFB"><path d="M3775 7905 c-226 -35 -423 -121 -636 -275 -86 -62 -577 -551 -1487
+-1480 -235 -239 -431 -436 -437 -438 -5 -1 -86 74 -180 168 l-170 170 -3 541
+c-2 298 -1 552 2 565 6 24 6 24 633 24 l628 0 72 -72 73 -73 242 243 243 242
+-90 90 -90 90 -1117 0 -1118 0 0 -1131 0 -1132 92 -94 92 -94 92 98 92 98 63
+-62 63 -62 -80 -83 c-146 -153 -300 -413 -378 -636 -19 -56 -46 -153 -58 -215
+-19 -92 -23 -145 -23 -297 0 -152 4 -205 23 -297 39 -196 119 -398 225 -570
+131 -211 102 -180 1425 -1515 189 -190 343 -351 341 -356 -2 -5 -79 -87 -170
+-181 l-166 -171 -557 0 -556 0 0 477 0 477 151 152 c152 153 152 153 111 201
+-22 26 -79 86 -126 133 l-86 85 -205 -206 -205 -205 0 -742 0 -742 803 1 802
+0 790 798 c435 439 795 799 802 800 6 0 48 -34 93 -76 l80 -78 -832 -838 -833
+-838 -947 1 -948 0 0 921 0 922 219 220 219 221 -109 121 -110 122 -264 -266
+-265 -266 3 -1195 2 -1195 1156 -3 1155 -2 328 335 c180 184 331 335 336 335
+4 0 40 -27 79 -60 192 -161 382 -258 621 -318 92 -23 125 -26 275 -27 183 0
+257 11 410 61 101 32 251 107 348 172 137 93 260 207 592 548 386 397 648 663
+1340 1361 279 282 539 552 578 600 195 242 316 493 378 783 20 89 23 135 23
+300 0 165 -3 211 -22 300 -50 229 -137 434 -273 640 -94 142 -197 250 -1128
+1190 l-590 595 -160 -160 -161 -160 178 -180 c98 -99 468 -472 823 -830 468
+-472 659 -671 698 -728 29 -43 77 -126 106 -185 172 -344 163 -683 -29 -1026
+-64 -115 -150 -217 -351 -421 -109 -110 -526 -533 -928 -940 -402 -407 -853
+-863 -1001 -1014 -282 -285 -377 -366 -499 -425 -95 -47 -171 -66 -287 -73
+-166 -10 -323 34 -468 131 -70 47 -227 183 -227 197 0 4 146 156 324 339 l325
+331 270 -270 271 -271 272 279 272 279 -327 313 c-180 173 -388 373 -462 444
+-74 72 -184 178 -245 235 -367 350 -893 860 -1249 1212 l-200 196 380 373
+c208 205 487 479 619 609 132 129 240 240 240 245 0 6 -84 90 -187 188 -188
+179 -188 179 -214 158 -25 -19 -735 -714 -1217 -1190 l-207 -206 -70 70 -70
+71 170 169 170 170 -249 250 c-137 137 -253 251 -258 252 -9 3 -496 -482 -548
+-545 -27 -32 -27 -33 -9 -53 11 -12 139 -141 287 -287 147 -146 266 -270 265
+-274 -2 -4 -129 -136 -283 -294 -154 -157 -281 -289 -283 -293 -1 -3 50 -58
+113 -121 l115 -115 383 390 384 390 76 -69 c42 -38 77 -72 77 -76 0 -4 -173
+-182 -384 -396 l-385 -388 82 -86 c45 -47 105 -109 132 -138 l50 -52 325 325
+325 325 150 -142 c111 -105 668 -638 884 -846 12 -12 -10 -38 -145 -175 -88
+-89 -268 -271 -400 -405 l-239 -243 -279 283 c-153 156 -523 528 -821 828
+-485 489 -549 556 -613 653 -124 186 -188 346 -213 534 -32 237 42 506 206
+753 62 93 136 171 650 690 319 322 730 738 915 925 737 748 974 980 1047 1028
+186 123 402 165 599 117 163 -39 281 -109 440 -262 56 -54 105 -98 110 -98 5
+0 79 70 164 155 132 132 153 158 144 173 -20 31 -168 154 -259 215 -307 203
+-632 282 -950 232z M5125 7319 c-209 -209 -397 -394 -418 -411 -39 -31 -39
+-31 -113 43 l-74 73 -295 -294 c-163 -162 -298 -297 -300 -299 -3 -2 -98 88
+-213 200 -344 339 -348 342 -365 333 -8 -5 -119 -116 -246 -246 l-232 -237
+128 -123 c153 -148 489 -468 743 -708 102 -96 470 -447 819 -780 348 -333 638
+-607 643 -609 6 -2 54 41 109 95 l98 97 71 -71 c40 -40 70 -77 68 -83 -2 -6
+-327 -334 -721 -728 l-718 -717 187 -177 c103 -98 191 -176 195 -175 8 3 56
+49 839 813 317 308 586 569 598 579 23 20 23 20 347 -304 l325 -325 117 117
+117 118 -319 321 -320 321 297 292 297 292 -267 267 c-147 146 -270 269 -274
+273 -4 4 -156 -141 -338 -321 l-330 -328 -88 84 c-48 47 -330 316 -627 599
+-697 664 -842 804 -844 812 0 3 30 39 67 79 l69 73 157 -149 c86 -83 160 -151
+165 -153 8 -3 409 388 961 935 l285 283 668 0 667 0 0 -542 0 -543 -122 -122
+-122 -122 275 -278 c151 -153 275 -278 276 -278 1 0 47 45 103 100 l102 100 4
+1102 4 1103 -1038 0 -1037 0 -380 -381z M5787 3487 l-128 -122 264 -263 263
+-263 119 126 c66 70 121 127 122 129 1 1 -113 117 -255 258 l-257 257 -128
+-122z M7283 2806 l-111 -123 219 -219 219 -220 0 -922 0 -922 -958 0 -957 0
+-190 190 c-104 105 -194 190 -200 190 -6 0 -62 -52 -125 -115 l-114 -114 204
+-208 c112 -114 233 -238 270 -276 l68 -67 1153 2 1154 3 2 1195 2 1195 -263
+267 -263 266 -110 -122z M6881 2394 c-96 -100 -119 -130 -111 -143 5 -9 72
+-79 150 -156 l140 -140 0 -477 0 -478 -608 0 -608 0 -59 61 c-33 33 -73 70
+-88 81 -28 20 -28 20 -142 -95 l-114 -115 154 -151 155 -151 835 0 835 0 0
+738 0 737 -207 208 c-113 114 -207 207 -209 207 -1 0 -56 -57 -123 -126z"/></g></svg></div>
+      <div class="word">DEMITON</div>
+    </div>
+    <div class="ctx">
+      <b>For TMR and TfNSW work</b><br>
+      The overrun that never happens.
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Protection for Transport for NSW · Queensland TMR</div>
+    <h1 class="serif">Keep the margin you priced.</h1>
+    <div class="moment serif">The extra work was real. The notice went in three days late. Barred.</div>
+    <p class="body">
+      Transport for NSW and Queensland's TMR write time bars into every job they let. An extension of time
+      claimed 20 business days after the delay starts is barred. A verbal direction not confirmed in writing
+      within 10 business days is barred. Demiton watches each window before it shuts, and drafts the notice
+      while there is still time to act.
+    </p>
+    <div class="ctas">
+      <a class="btn btn-violet" href="#diseases">See the five protections</a>
+      <a class="btn btn-ghost" href="https://demiton.io/contact">Book a call</a>
+    </div>
+  </div>
+</section>
+
+<section id="authorities">
+  <div class="container">
+    <div class="kicker">What binds the job</div>
+    <h2 class="serif">Two authorities, twenty-three obligations, cited clause by clause.</h2>
+    <p class="lead">A standard binds a job only because the contract or the principal calls it up. These two call up seven documents. Every obligation carries its clause, its window and what missing it costs.</p>
+    <div class="authorities">
+      <div class="auth">
+        <div class="flag">Queensland · Transport and Main Roads</div>
+        <h3 class="serif">TMR</h3>
+        <p class="desc">The contract form, plus the specifications it calls up.</p>
+        <ul>
+          <li><span class="cl">TIC</span><span>Transport Infrastructure Contract</span></li>
+          <li><span class="cl">MRTS04</span><span>General Earthworks</span></li>
+          <li><span class="cl">MRTS50</span><span>Specific Quality System Requirements</span></li>
+          <li><span class="cl">CAP010M</span><span>Contract Administration Procedure</span></li>
+        </ul>
+        <div class="count">13 obligations transcribed</div>
+      </div>
+      <div class="auth">
+        <div class="flag">New South Wales · Transport for NSW</div>
+        <h3 class="serif">TfNSW</h3>
+        <p class="desc">Three specifications the principal calls up.</p>
+        <ul>
+          <li><span class="cl">G2-C2</span><span>General Requirements, TS 01566</span></li>
+          <li><span class="cl">R44</span><span>Earthworks</span></li>
+          <li><span class="cl">TS 00088</span><span>Minimum Requirements for Contractor Vehicles</span></li>
+        </ul>
+        <div class="count">10 obligations transcribed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diseases">
+  <div class="container">
+    <div class="kicker">What Demiton prevents</div>
+    <h2 class="serif">The five diseases on a TMR or TfNSW job.</h2>
+    <p class="lead">The same five every time. Each starts small and gets caught late. Demiton catches each one where it starts: in the register that already holds the fact.</p>
+
+    <div class="disease">
+      <div class="head"><span class="num">01</span><span class="name serif">Rework</span><span class="live">Live</span></div>
+      <div class="moment serif">The inspection failed. The next stage was already built on top of it.</div>
+      <div class="cols">
+        <div>
+          <div class="lbl">The protection</div>
+          <p class="protect">The failed result reaches the person who can stop the next stage the day it lands, with the close-out date attached.</p>
+        </div>
+        <div>
+          <div class="lbl">Where it is written</div>
+          <div class="obl"><span class="cl">R44 cl 7.2.3, Table R44.7</span><span class="duty">Compact each earthworks lot to its minimum.</span><span class="cons">Threshold</span></div>
+          <div class="obl"><span class="cl">MRTS04 cl 5.5.2, Table 15.3(b)</span><span class="duty">Compact each lot to its minimum.</span><span class="cons">Threshold</span></div>
+          <div class="obl"><span class="cl">MRTS50 cl 12.1</span><span class="duty">Hand over as-constructed drawings before practical completion.</span><span class="cons barred">Barred</span></div>
+          <div class="obl"><span class="cl">MRTS50 cl 10.2</span><span class="duty">Notify a notifiable nonconformance within 1 working day.</span><span class="cons">Breach</span></div>
+          <div class="cost">12.3% of a civil job is work done twice, direct plus indirect (161 Australian projects). On a $1M TMR lot, that is $123,000.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disease">
+      <div class="head"><span class="num">02</span><span class="name serif">Missed claims</span><span class="live">Live</span></div>
+      <div class="moment serif">The extra work was real, or it rained for four days. Both notices went in late.</div>
+      <div class="cols">
+        <div>
+          <div class="lbl">The protection</div>
+          <p class="protect">When the instruction arrives or the rain starts, the clock starts. The notice is drafted and waiting before the window shuts, while the ground is still wet.</p>
+        </div>
+        <div>
+          <div class="lbl">Where it is written</div>
+          <div class="obl"><span class="cl">TIC cl 35.5(a)</span><span class="duty">Notify a possible delay within 10 business days.</span><span class="cons barred">Barred</span></div>
+          <div class="obl"><span class="cl">TIC cl 35.5(c)(h)(l)</span><span class="duty">Claim an extension of time within 20 business days.</span><span class="cons barred">Barred</span></div>
+          <div class="obl"><span class="cl">TIC cl 33.1(f)(g)</span><span class="duty">Confirm a verbal direction in writing within 10 business days.</span><span class="cons barred">Barred</span></div>
+          <div class="obl"><span class="cl">TIC cl 46.1</span><span class="duty">Give the prescribed variation notice within 20 business days.</span><span class="cons excl">Costs excluded</span></div>
+          <div class="obl"><span class="cl">TIC cl 12.2, 12.4</span><span class="duty">Notify a latent condition as soon as it is found.</span><span class="cons excl">Costs excluded</span></div>
+          <div class="obl"><span class="cl">G2-C2 cl 43</span><span class="duty">Record wet weather days against the programme.</span><span class="cons">Damages only</span></div>
+          <div class="obl"><span class="cl">G2-C2 cl 31 · TIC cl 41(a)</span><span class="duty">Record day works on the day they occur.</span><span class="cons">Guidance</span></div>
+          <div class="cost">Variations run to 10.6% of a public job's value. In Queensland adjudication, 36.9% of the amount claimed is lost. What is never claimed is never paid.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disease">
+      <div class="head"><span class="num">03</span><span class="name serif">Disputes</span><span class="live">Live</span></div>
+      <div class="moment serif">It went to a lawyer, and the record for that week is empty.</div>
+      <div class="cols">
+        <div>
+          <div class="lbl">The protection</div>
+          <p class="protect">If the day's record isn't in by evening, you're told which one is missing while people still remember the day.</p>
+        </div>
+        <div>
+          <div class="lbl">Where it is written</div>
+          <div class="obl"><span class="cl">CAP010M cll 5, 37, 42</span><span class="duty">Lodge the final claim within 20 business days of practical completion.</span><span class="cons barred">Barred</span></div>
+          <div class="obl"><span class="cl">MRTS50 cl 11.2</span><span class="duty">Keep the contract records for 12 months after the Final Certificate.</span><span class="cons">Breach</span></div>
+          <div class="cost">33.4% of project value ends up in dispute (2,200+ projects, 114 countries). The average dispute is $60.1M and runs 12.5 months (Arcadis 2025). The record written on the day is what wins it or loses it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disease">
+      <div class="head"><span class="num">04</span><span class="name serif">Cost drift</span><span class="live">Live</span></div>
+      <div class="moment serif">Nobody saw the job drift until the final account.</div>
+      <div class="cols">
+        <div>
+          <div class="lbl">The protection</div>
+          <p class="protect">Drift against the price you quoted is flagged at $50K, not $5M.</p>
+        </div>
+        <div>
+          <div class="lbl">Where it is written</div>
+          <div class="obl"><span class="cl">No TMR or TfNSW clause</span><span class="duty">Neither authority sets a drift limit. This protection is Demiton's own: a 0% tolerance against the budget you priced, reconciled every night.</span><span class="cons">Default</span></div>
+          <div class="cost">Roads run 20.4% over the first promised cost, rail 44.7% (Flyvbjerg). The contractor's margin swing on finished Australian jobs is 7%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disease">
+      <div class="head"><span class="num">05</span><span class="name serif">Lapsed compliance</span><span class="live">Live</span></div>
+      <div class="moment serif">The insurance lapsed the week the client checked.</div>
+      <div class="cols">
+        <div>
+          <div class="lbl">The protection</div>
+          <p class="protect">Every expiry counts down at 90, 30 and 7 days, with the renewal attached.</p>
+        </div>
+        <div>
+          <div class="lbl">Where it is written</div>
+          <div class="obl"><span class="cl">TS 00088 cl 5.1</span><span class="duty">Keep every road vehicle registered for the whole contract.</span><span class="cons">Breach</span></div>
+          <div class="obl"><span class="cl">TS 00088 cl 5.4</span><span class="duty">Keep registrable plant registered with SafeWork NSW.</span><span class="cons">Breach</span></div>
+          <div class="obl"><span class="cl">TS 00088 cl 6.8</span><span class="duty">Operator manual, safety information and SWMS with the operator.</span><span class="cons">Breach</span></div>
+          <div class="obl"><span class="cl">TS 00088 cl 6.9</span><span class="duty">Daily inspection before every shift.</span><span class="cons">Breach</span></div>
+          <div class="obl"><span class="cl">TS 00088 cl 6.9</span><span class="duty">Service records kept in the vehicle.</span><span class="cons">Breach</span></div>
+          <div class="obl"><span class="cl">TS 00088 cl 8, Table 1</span><span class="duty">CLOCS-A Bronze equipment, or the tier the contract manager selects.</span><span class="cons">Breach</span></div>
+          <div class="cost">An accident costs 0.25% of the contract sum and $97,408 per incident. The right to bid is what lapses: TMR PQC and TfNSW prequalification check before you do.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="container">
+    <div class="kicker">The evidence</div>
+    <h2 class="serif">Every number proves itself.</h2>
+    <p class="lead">Published research, cited. The five diseases are listed in the order they cost a contractor, most first. Every figure, its source and how sure we are: research.demiton.io.</p>
+    <div class="proof-grid">
+      <div class="proof"><div class="fig">5-9%</div><div class="what">Rework, as a share of project cost.</div><div class="src">Construction Industry Institute</div></div>
+      <div class="proof"><div class="fig">12.3%</div><div class="what">Rework, direct plus indirect, 161 Australian projects.</div><div class="src">Demiton disease-economics, moderate confidence</div></div>
+      <div class="proof"><div class="fig">$60.1M</div><div class="what">Average construction dispute, running 12.5 months.</div><div class="src">Arcadis Global Construction Disputes, 2025</div></div>
+      <div class="proof"><div class="fig">20.4% / 44.7%</div><div class="what">Roads / rail over the first promised cost.</div><div class="src">Flyvbjerg, transport infrastructure</div></div>
+      <div class="proof"><div class="fig">64%</div><div class="what">Of 192 projects over US$1B ran over budget or schedule.</div><div class="src">EY, mining and metals, 2021</div></div>
+    </div>
+    <p class="proof-note">Demiton labels every figure: contractor loss, money at stake, owner's money or societal. Only contractor loss and money at stake are ever applied to your jobs. <a href="https://research.demiton.io">See the full record</a>.</p>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="container">
+    <div class="kicker">The offer</div>
+    <div class="price serif">AU$55k <span class="yr">a year</span></div>
+    <p class="body">Every plan gets all five protections, every register, the protection surface. No feature locks, no contract-value bands, no per-system fee. Flat to AU$100M of work under watch a year, reviewed against CPI at each anniversary.</p>
+    <div class="bonus">
+      <div class="row"><span class="tag">Margin bonus</span><br>A margin bonus of 25% of each signed-off catch on the first AU$1M recovered in a calendar year, and 12.5% above it. Cash recovered only. No dollar cap.</div>
+      <div class="row"><span class="tag">Free</span><br>Free opens with AU$1M of work under watch a year. No fee, no bonus.</div>
+    </div>
+    <div class="dare serif">If it doesn't show up in your margins, stop paying us.</div>
+    <div class="ctas">
+      <a class="btn btn-violet" href="https://demiton.io/contact">Book a call</a>
+      <a class="btn btn-ghost" href="https://demiton.io/pricing">Read the pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="limits">
+  <div class="container">
+    <div class="kicker">Said plainly</div>
+    <h2 class="serif">What Demiton does not claim.</h2>
+    <ul>
+      <li><span class="mark">01</span>Demiton is not an insurer. No risk transfer, no indemnity, no payout. It stops the problem before it costs money.</li>
+      <li><span class="mark">02</span>No library of law is complete. An obligation Demiton does not hold, and you did not add, is not protected.</li>
+      <li><span class="mark">03</span>A protection reads its register. Where a register is still empty, the screen names the kind of system that would fill it.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <div class="lockup" style="margin-bottom:18px">
+        <div class="mark"><svg viewBox="0 0 792 793" xmlns="http://www.w3.org/2000/svg" aria-label="Demiton"><g transform="translate(0,793) scale(0.1,-0.1)" fill="#F9FAFB"><path d="M3775 7905 c-226 -35 -423 -121 -636 -275 -86 -62 -577 -551 -1487
+-1480 -235 -239 -431 -436 -437 -438 -5 -1 -86 74 -180 168 l-170 170 -3 541
+c-2 298 -1 552 2 565 6 24 6 24 633 24 l628 0 72 -72 73 -73 242 243 243 242
+-90 90 -90 90 -1117 0 -1118 0 0 -1131 0 -1132 92 -94 92 -94 92 98 92 98 63
+-62 63 -62 -80 -83 c-146 -153 -300 -413 -378 -636 -19 -56 -46 -153 -58 -215
+-19 -92 -23 -145 -23 -297 0 -152 4 -205 23 -297 39 -196 119 -398 225 -570
+131 -211 102 -180 1425 -1515 189 -190 343 -351 341 -356 -2 -5 -79 -87 -170
+-181 l-166 -171 -557 0 -556 0 0 477 0 477 151 152 c152 153 152 153 111 201
+-22 26 -79 86 -126 133 l-86 85 -205 -206 -205 -205 0 -742 0 -742 803 1 802
+0 790 798 c435 439 795 799 802 800 6 0 48 -34 93 -76 l80 -78 -832 -838 -833
+-838 -947 1 -948 0 0 921 0 922 219 220 219 221 -109 121 -110 122 -264 -266
+-265 -266 3 -1195 2 -1195 1156 -3 1155 -2 328 335 c180 184 331 335 336 335
+4 0 40 -27 79 -60 192 -161 382 -258 621 -318 92 -23 125 -26 275 -27 183 0
+257 11 410 61 101 32 251 107 348 172 137 93 260 207 592 548 386 397 648 663
+1340 1361 279 282 539 552 578 600 195 242 316 493 378 783 20 89 23 135 23
+300 0 165 -3 211 -22 300 -50 229 -137 434 -273 640 -94 142 -197 250 -1128
+1190 l-590 595 -160 -160 -161 -160 178 -180 c98 -99 468 -472 823 -830 468
+-472 659 -671 698 -728 29 -43 77 -126 106 -185 172 -344 163 -683 -29 -1026
+-64 -115 -150 -217 -351 -421 -109 -110 -526 -533 -928 -940 -402 -407 -853
+-863 -1001 -1014 -282 -285 -377 -366 -499 -425 -95 -47 -171 -66 -287 -73
+-166 -10 -323 34 -468 131 -70 47 -227 183 -227 197 0 4 146 156 324 339 l325
+331 270 -270 271 -271 272 279 272 279 -327 313 c-180 173 -388 373 -462 444
+-74 72 -184 178 -245 235 -367 350 -893 860 -1249 1212 l-200 196 380 373
+c208 205 487 479 619 609 132 129 240 240 240 245 0 6 -84 90 -187 188 -188
+179 -188 179 -214 158 -25 -19 -735 -714 -1217 -1190 l-207 -206 -70 70 -70
+71 170 169 170 170 -249 250 c-137 137 -253 251 -258 252 -9 3 -496 -482 -548
+-545 -27 -32 -27 -33 -9 -53 11 -12 139 -141 287 -287 147 -146 266 -270 265
+-274 -2 -4 -129 -136 -283 -294 -154 -157 -281 -289 -283 -293 -1 -3 50 -58
+113 -121 l115 -115 383 390 384 390 76 -69 c42 -38 77 -72 77 -76 0 -4 -173
+-182 -384 -396 l-385 -388 82 -86 c45 -47 105 -109 132 -138 l50 -52 325 325
+325 325 150 -142 c111 -105 668 -638 884 -846 12 -12 -10 -38 -145 -175 -88
+-89 -268 -271 -400 -405 l-239 -243 -279 283 c-153 156 -523 528 -821 828
+-485 489 -549 556 -613 653 -124 186 -188 346 -213 534 -32 237 42 506 206
+753 62 93 136 171 650 690 319 322 730 738 915 925 737 748 974 980 1047 1028
+186 123 402 165 599 117 163 -39 281 -109 440 -262 56 -54 105 -98 110 -98 5
+0 79 70 164 155 132 132 153 158 144 173 -20 31 -168 154 -259 215 -307 203
+-632 282 -950 232z M5125 7319 c-209 -209 -397 -394 -418 -411 -39 -31 -39
+-31 -113 43 l-74 73 -295 -294 c-163 -162 -298 -297 -300 -299 -3 -2 -98 88
+-213 200 -344 339 -348 342 -365 333 -8 -5 -119 -116 -246 -246 l-232 -237
+128 -123 c153 -148 489 -468 743 -708 102 -96 470 -447 819 -780 348 -333 638
+-607 643 -609 6 -2 54 41 109 95 l98 97 71 -71 c40 -40 70 -77 68 -83 -2 -6
+-327 -334 -721 -728 l-718 -717 187 -177 c103 -98 191 -176 195 -175 8 3 56
+49 839 813 317 308 586 569 598 579 23 20 23 20 347 -304 l325 -325 117 117
+117 118 -319 321 -320 321 297 292 297 292 -267 267 c-147 146 -270 269 -274
+273 -4 4 -156 -141 -338 -321 l-330 -328 -88 84 c-48 47 -330 316 -627 599
+-697 664 -842 804 -844 812 0 3 30 39 67 79 l69 73 157 -149 c86 -83 160 -151
+165 -153 8 -3 409 388 961 935 l285 283 668 0 667 0 0 -542 0 -543 -122 -122
+-122 -122 275 -278 c151 -153 275 -278 276 -278 1 0 47 45 103 100 l102 100 4
+1102 4 1103 -1038 0 -1037 0 -380 -381z M5787 3487 l-128 -122 264 -263 263
+-263 119 126 c66 70 121 127 122 129 1 1 -113 117 -255 258 l-257 257 -128
+-122z M7283 2806 l-111 -123 219 -219 219 -220 0 -922 0 -922 -958 0 -957 0
+-190 190 c-104 105 -194 190 -200 190 -6 0 -62 -52 -125 -115 l-114 -114 204
+-208 c112 -114 233 -238 270 -276 l68 -67 1153 2 1154 3 2 1195 2 1195 -263
+267 -263 266 -110 -122z M6881 2394 c-96 -100 -119 -130 -111 -143 5 -9 72
+-79 150 -156 l140 -140 0 -477 0 -478 -608 0 -608 0 -59 61 c-33 33 -73 70
+-88 81 -28 20 -28 20 -142 -95 l-114 -115 154 -151 155 -151 835 0 835 0 0
+738 0 737 -207 208 c-113 114 -207 207 -209 207 -1 0 -56 -57 -123 -126z"/></g></svg></div>
+        <div class="word">DEMITON</div>
+      </div>
+      <div class="tag">Ask more of every job.</div>
+      <div class="dest">The protection layer for jobs that can't afford to overrun.</div>
+    </div>
+    <div class="right">
+      <a href="https://demiton.io">demiton.io</a><br>
+      <a href="https://demiton.io/contact">Talk to us</a><br>
+      <a href="https://research.demiton.io">research.demiton.io</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
