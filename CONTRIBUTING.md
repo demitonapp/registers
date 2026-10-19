@@ -23,23 +23,20 @@ You don't need to ask first. Open a pull request against one contract.
 4. **Say why**, in the pull request description: what the field is for, and
    where you'd expect it to come from.
 
-## Which branch: `main` or `next`
+## Which branch: `main`
 
-A change to `obligations/` or to `vocab/jurisdictions.json` reaches Demiton's
-customers on one of three clocks, so it goes to the branch that runs that clock.
+All obligation changes go to `main`. A release is cut and deployed when needed;
+there is no separate branch or date for additions.
 
-| The change | Kind | Branch |
-|---|---|---|
-| a new instrument, a new edition of a contract form, a new duty the library did not carry, a jurisdiction switched to `supported` | wave | `next` |
-| a rule an amending law changes from a date after the release (a new version with `in_force.from`, or a repeal with `in_force.until`) | amendment | `main` |
-| a row that was wrong: a field fixed, a key removed | correction | `main` |
+| The change | Kind |
+|---|---|
+| a new instrument, a new edition of a contract form, a new duty the library did not carry, a jurisdiction switched to `supported` | addition |
+| a rule an amending law changes from a date after the release (a new version with `in_force.from`, or a repeal with `in_force.until`) | amendment |
+| a row that was wrong: a field fixed, a key removed | correction |
 
-`next` is merged into `main` on wave day, the first Monday of February, May,
-August and November. `main` is merged forward into `next` after every change, so
-`next` always carries the corrections too. A pull request's CI prints the kinds it
-computes; if it says `wave` and the pull request is against `main`, retarget it.
-A new duty that the library should always have carried is a correction: say so
-in the pull request, and on `main` it may ship the same day.
+A pull request's CI prints the kinds it computes; the release tag's CHANGELOG
+section must declare them. A new duty that the library should always have carried
+is a correction: say so in the pull request.
 
 ## Proposing a new register
 

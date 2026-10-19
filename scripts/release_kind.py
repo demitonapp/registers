@@ -6,9 +6,9 @@
 
 A change to the obligation library reaches a customer on one of three release clocks:
 
-  wave        an addition: a new instrument, or a jurisdiction switched to
-              `supported`. Production takes it only on its wave date, the first
-              Monday of February, May, August or November.
+  addition    a new instrument, a jurisdiction switched to `supported`, or a new
+              duty the library did not carry. Ships with the release it is tagged
+              in; releases are cut and deployed when needed, with no fixed cadence.
   amendment   a version in force from a date after the tag, or a repeal (an
               `until`) on or after it. Ships ahead of commencement.
   correction  Demiton's row was wrong: a changed field of an existing version, a
@@ -21,15 +21,14 @@ compared by `(key, version)`, where a version is named by its `in_force.from` da
 or `original` when it has none (none has one until dated versions land).
 
 One case is ambiguous: a new key with no `from` in an instrument that already
-existed. It is a duty the library missed (a correction) or one it now adds (a wave),
-and only its author knows which. It computes as `wave`, and the CHANGELOG section may
-declare `correction` instead: either kind satisfies the check, so the declaration is
-the resolution.
+existed. It is a duty the library missed (a correction) or one it now adds (an
+addition), and only its author knows which. It computes as `addition`, and the
+CHANGELOG section may declare `correction` instead: either kind satisfies the
+check, so the declaration is the resolution.
 
 With `--tag`, CHANGELOG.md at the head must carry `## vN, YYYY-MM-DD: <kinds>` naming
-every computed kind, with `wave of YYYY-MM-DD` when a wave is among them; the tag is
-refused otherwise, and `--out` writes RELEASE.json
-(`{tag, kinds, wave_on, amendments: [{key, from}]}`) for the monorepo's release gate.
+every computed kind; the tag is refused otherwise, and `--out` writes RELEASE.json
+(`{tag, kinds, amendments: [{key, from}]}`) for the monorepo's release gate.
 
 Exit code 1 when the tag is refused. An amendment commencing fewer than 20 business
 days after the tag date is a warning only.
@@ -51,8 +50,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-KINDS = ("wave", "amendment", "correction")
-WAVE_MONTHS = (2, 5, 8, 11)
+KINDS = ("addition", "amendment", "correction")
 AMENDMENT_LEAD_BUSINESS_DAYS = 20
 HEADING = re.compile(r"^## (v\d+), (\d{4}-\d{2}-\d{2}): (.*)$", re.M)
 
@@ -119,7 +117,7 @@ def _without_until(row: dict) -> dict:
 def classify(old: Tree, new: Tree, on: date) -> list[Change]:
     """Every difference between two flattened trees, each with its kind. `on` is the
     tag date."""
-    changes = [Change("wave", code, "jurisdiction switched to supported") for code in sorted(new.supported - old.supported)]
+    changes = [Change("addition", code, "jurisdiction switched to supported") for code in sorted(new.supported - old.supported)]
     before, after = _rows(old), _rows(new)
     old_ids = {inst["id"] for inst in old.instruments}
     old_keys = {key for key, _ in before}
@@ -136,13 +134,13 @@ def classify(old: Tree, new: Tree, on: date) -> list[Change]:
             if _without_until(row) != _without_until(prior):
                 changes.append(Change("correction", key, "changed field of an existing version"))
         elif iid not in old_ids:
-            changes.append(Change("wave", key, f"new instrument {iid}"))
+            changes.append(Change("addition", key, f"new instrument {iid}"))
         elif start and start > on:
             changes.append(Change("amendment", key, "in force from after the tag date", commences=start))
         elif start or key in old_keys:
             changes.append(Change("correction", key, "new version in force on or before the tag date"))
         else:
-            changes.append(Change("wave", key, f"new key in existing instrument {iid}", alt="correction"))
+            changes.append(Change("addition", key, f"new key in existing instrument {iid}", alt="correction"))
     changes += [Change("correction", key, "removed") for key, version in before if (key, version) not in after]
     return changes
 
@@ -157,47 +155,32 @@ def business_days_between(start: date, end: date) -> int:
     return sum(1 for n in range(1, (end - start).days + 1) if (start + timedelta(days=n)).weekday() < 5)
 
 
-def is_wave_day(day: date) -> bool:
-    return day.month in WAVE_MONTHS and day.weekday() == 0 and day.day <= 7
-
-
-def declared(changelog: str, tag: str) -> tuple[set[str], date | None] | None:
-    """The kinds and wave date a `## vN, YYYY-MM-DD: <kinds>` section declares, or
-    None when the CHANGELOG has no section for `tag`."""
+def declared(changelog: str, tag: str) -> set[str] | None:
+    """The kinds a `## vN, YYYY-MM-DD: <kinds>` section declares, or None when
+    the CHANGELOG has no section for `tag`."""
     for found in HEADING.finditer(changelog):
         if found.group(1) == tag:
-            rest = found.group(3)
-            wave_of = re.search(r"wave of (\d{4}-\d{2}-\d{2})", rest)
-            return set(re.findall(r"\b(" + "|".join(KINDS) + r")\b", rest)), _date(wave_of and wave_of.group(1))
+            return set(re.findall(r"\b(" + "|".join(KINDS) + r")\b", found.group(3)))
     return None
 
 
 def refusals(changes: list[Change], changelog: str, tag: str, on: date) -> list[str]:
-    section = declared(changelog, tag)
-    if section is None:
+    kinds = declared(changelog, tag)
+    if kinds is None:
         return [f"CHANGELOG.md has no `## {tag}, YYYY-MM-DD: <kinds>` section"]
-    kinds, wave_on = section
     errors = []
     for kind, n in Counter(c.kind for c in changes if c.kind not in kinds and c.alt not in kinds).items():
         example = next(c for c in changes if c.kind == kind and c.kind not in kinds and c.alt not in kinds)
         errors.append(f"{n} change(s) are `{kind}` but the {tag} section does not declare it (e.g. {example.key}: {example.reason})")
-    if "wave" in kinds:
-        if wave_on is None:
-            errors.append(f"the {tag} section declares a wave but no `wave of YYYY-MM-DD`")
-        elif not is_wave_day(wave_on):
-            errors.append(f"wave of {wave_on} is not the first Monday of February, May, August or November")
-        elif wave_on < on:
-            errors.append(f"wave of {wave_on} is before the tag date {on}")
     return errors
 
 
 def release_json(changes: list[Change], changelog: str, tag: str) -> dict:
-    kinds, wave_on = declared(changelog, tag)
+    kinds = declared(changelog, tag)
     amendments = sorted({(c.key, c.commences) for c in changes if c.kind == "amendment"})
     return {
         "tag": tag,
         "kinds": [k for k in KINDS if k in kinds],
-        "wave_on": wave_on.isoformat() if wave_on and "wave" in kinds else None,
         "amendments": [{"key": key, "from": start.isoformat()} for key, start in amendments],
     }
 

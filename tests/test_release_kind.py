@@ -33,19 +33,19 @@ def test_v13_to_v14_is_a_correction_only(tags) -> None:
     assert computed_kinds(classify(tags["v13"], tags["v14"], V16_DATE)) == {"correction"}
 
 
-def test_v14_to_v15_includes_a_wave(tags) -> None:
+def test_v14_to_v15_includes_an_addition(tags) -> None:
     changes = classify(tags["v14"], tags["v15"], V16_DATE)
-    assert computed_kinds(changes) == {"wave", "correction"}
-    assert {c.key for c in changes if c.kind == "wave"} == {
+    assert computed_kinds(changes) == {"addition", "correction"}
+    assert {c.key for c in changes if c.kind == "addition"} == {
         r["key"] for i in tags["v15"].instruments if i["id"] == "tfnsw_c41" for r in i["obligations"]
     }
     # duty_shape added to every existing row is a changed field: a correction.
     assert sum(c.kind == "correction" for c in changes) == 428
 
 
-def test_v15_to_v16_is_a_wave_only(tags) -> None:
+def test_v15_to_v16_is_an_addition_only(tags) -> None:
     changes = classify(tags["v15"], tags["v16"], V16_DATE)
-    assert computed_kinds(changes) == {"wave"}
+    assert computed_kinds(changes) == {"addition"}
     assert {"IE", "GB", "ZA", "CA", "GB-ENG", "CA-ON"} <= {c.key for c in changes}
 
 
@@ -74,31 +74,29 @@ def test_a_version_in_force_on_or_before_the_tag_is_a_correction() -> None:
     assert computed_kinds(classify(old, new, TAG_DATE)) == {"correction"}
 
 
-def test_a_removed_key_is_a_correction_and_a_new_instrument_a_wave() -> None:
+def test_a_removed_key_is_a_correction_and_a_new_instrument_an_addition() -> None:
     old = _tree(_row("a.b.c"), _row("a.b.d"))
     new = Tree(_tree(_row("a.b.c")).instruments + _tree(_row("x.y.z"), instrument="new_act").instruments, frozenset({"AU"}))
     changes = classify(old, new, TAG_DATE)
-    assert {(c.kind, c.key) for c in changes} == {("correction", "a.b.d"), ("wave", "x.y.z")}
+    assert {(c.kind, c.key) for c in changes} == {("correction", "a.b.d"), ("addition", "x.y.z")}
 
 
-def test_a_new_undated_key_in_an_existing_instrument_is_a_wave_its_author_may_call_a_correction() -> None:
+def test_a_new_undated_key_in_an_existing_instrument_is_an_addition_its_author_may_call_a_correction() -> None:
     changes = classify(_tree(_row("a.b.c")), _tree(_row("a.b.c"), _row("a.b.d")), TAG_DATE)
-    assert [(c.kind, c.alt) for c in changes] == [("wave", "correction")]
+    assert [(c.kind, c.alt) for c in changes] == [("addition", "correction")]
     assert refusals(changes, "## v17, 2026-11-02: correction\n", "v17", TAG_DATE) == []
     assert refusals(changes, "## v17, 2026-11-02: amendment\n", "v17", TAG_DATE) != []
 
 
-def test_a_tag_must_declare_every_computed_kind_and_a_real_wave_day() -> None:
+def test_a_tag_must_declare_every_computed_kind() -> None:
     old = _tree(_row())
     new = Tree(_tree(_row(duty="Fixed.")).instruments + _tree(_row("x.y.z"), instrument="new_act").instruments, frozenset({"AU"}))
     changes = classify(old, new, TAG_DATE)
     assert refusals(changes, "# Changelog\n", "v17", TAG_DATE)  # no section at all
-    assert refusals(changes, "## v17, 2026-10-14: correction\n", "v17", TAG_DATE)  # the wave undeclared
-    assert refusals(changes, "## v17, 2026-10-14: wave, correction\n", "v17", TAG_DATE)  # no wave date
-    assert refusals(changes, "## v17, 2026-10-14: wave of 2026-11-09, correction\n", "v17", TAG_DATE)  # second Monday
-    good = "## v17, 2026-10-14: wave of 2026-11-02, correction\n"
+    assert refusals(changes, "## v17, 2026-10-14: correction\n", "v17", TAG_DATE)  # the addition undeclared
+    good = "## v17, 2026-10-14: addition, correction\n"
     assert refusals(changes, good, "v17", date(2026, 10, 14)) == []
-    assert release_json(changes, good, "v17") == {"tag": "v17", "kinds": ["wave", "correction"], "wave_on": "2026-11-02", "amendments": []}
+    assert release_json(changes, good, "v17") == {"tag": "v17", "kinds": ["addition", "correction"], "amendments": []}
 
 
 def test_the_amendment_lead_counts_weekdays() -> None:

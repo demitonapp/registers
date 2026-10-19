@@ -45,17 +45,17 @@ Every release names the kinds of change it carries, in its CHANGELOG section and
 in the `RELEASE.json` inside its obligations asset, and the release workflow
 computes them rather than trusting the label (CONTRIBUTING.md, "Which branch").
 
-- **A wave** (additions) is released on the first Monday of February, May, August
-  or November, with its notes in this CHANGELOG at least four weeks before. No
-  wave falls over Christmas. The first, on 2 November 2026, was announced with
-  less than four weeks' notice.
+- **An addition** (a new instrument, a new edition of a contract form, a new duty,
+  or a jurisdiction switched to `supported`) ships with the release it is tagged
+  in. Releases are cut and deployed when needed; there is no fixed cadence and no
+  wave date to wait for.
 - **An amendment** to a law the library already carries is released before the
   amendment commences, whatever the date. A tag cut fewer than 20 business days
   before commencement is released anyway, with a warning in its notes.
 - **A correction** is released the same day it is merged.
 
-Each wave opens with a review of the supported instruments for new versions and
-amendments, and a choice of the standards to add.
+A release is cut when we need one; the supported instruments are reviewed as part
+of that cut, and the standards to add are chosen then.
 
 ## How fast
 
