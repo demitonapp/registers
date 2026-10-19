@@ -17,8 +17,7 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 ## v20, 2026-10-20: addition
 
 - **addition** `rail_safety_national_law_au` (Rail Safety National Law (South Australia) Act 2012): 26 rows, jurisdiction AU. Covers accreditation, the safety management system, notifiable occurrences, rail safety workers, the interface agreements a signalling change touches, the 28-day notice before adopting a changed design safety standard, and the interoperability management plan. The two change hooks are the ones a signalling project meets first. Consumed by the `/railways` hub and the four `/australia/railways` chapters in demitonapp/monorepo.
-- **Germany: building contract, payment and site law, in German** (wave of
-  2026-11-02). Eight instruments under `obligations/DE/`, `DE-BY/` and `DE-NW/`,
+- **Germany: building contract, payment and site law, in German.** Eight instruments under `obligations/DE/`, `DE-BY/` and `DE-NW/`,
   53 rows, each carrying `lang: de` and read on 2026-10-18: the BGB's building
   contract law (30 days after a change request before the client may order it,
   80% of an offered variation price billable on account, deemed acceptance,
@@ -37,8 +36,7 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
   has no such unit, so those windows are in calendar days (12 Werktage as 14), with
   the direction of the error stated in each row.
 
-- **France: public works conditions, payment and site law, in French**
-  (wave of 2026-11-02). Eleven instruments under `obligations/FR/`, 51 rows,
+- **France: public works conditions, payment and site law, in French.** Eleven instruments under `obligations/FR/`, 51 rows,
   each carrying `lang: fr` and read on Légifrance on 2026-10-18: the
   CCAG-Travaux 2021 (15 days to object to an ordre de service, 30 days to answer
   the décompte général, 6 months to sue), the Code de la commande publique
@@ -54,7 +52,7 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
   in the vocabulary and stays `supported: false`. 17 new duty shapes, their
   titles in English like every other shape.
 
-- **Washington State's payment, lien and site law** (wave of 2026-11-02).
+- **Washington State's payment, lien and site law.**
   Eleven instruments under `obligations/US-WA/`, 51 rows, every one read from
   app.leg.wa.gov on 2026-10-18: prevailing wages (RCW 39.12: the statement of
   intent before any payment, the affidavit before retainage is released,
