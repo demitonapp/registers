@@ -13,6 +13,10 @@ before this rule and declared a correction).
 
 ## Unreleased
 
+## v20, 2026-10-20: wave of 2026-10-20
+
+- **wave of 2026-10-20** `rail_safety_national_law_au` (Rail Safety National Law (South Australia) Act 2012): 26 rows, jurisdiction AU. Covers accreditation, the safety management system, notifiable occurrences, rail safety workers, the interface agreements a signalling change touches, the 28-day notice before adopting a changed design safety standard, and the interoperability management plan. The two change hooks are the ones a signalling project meets first. Consumed by the `/railways` hub and the four `/australia/railways` chapters in demitonapp/monorepo.
+
 ## v19, 2026-10-18: correction
 
 - **correction** `whs.duty_holders_appoint.gb` (CDM Regulations 2015): the caveat
