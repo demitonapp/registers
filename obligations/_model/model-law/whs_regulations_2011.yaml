@@ -1,7 +1,8 @@
-# SM031 M2: the model WHS Regulations, held once for the four jurisdictions
-# whose regulation is in this library (ACT, NSW, QLD, SA). NSW calls the provision
-# a section rather than a regulation, so its concrete overrides `clause`; a caveat
-# identical across all four is written once, here.
+# SM031 M2: the model WHS Regulations, held once for the seven jurisdictions
+# whose regulation is in this library (ACT, NSW, NT, QLD, SA, TAS, WA; the last
+# three from SM061). NSW calls the provision a section rather than a regulation,
+# so its concrete overrides `clause`; a caveat identical across all of them is
+# written once, here.
 #
 # The seven `whs.swms_*` rows are the high risk construction work duties of
 # Part 6.3 Division 2 (rr 299-303) and the principal contractor's r 312, read
@@ -44,9 +45,8 @@ obligations:
   caveat: 'Nationally harmonised excavation-work clause (model WHS Regulations Part 6.3 Division 3): the
     SM026 seed cited only the ACT''s copy for a bare ''AU'' row, which is wrong for a site outside the
     ACT (each state enacts its own instrument). This row was independently verified against this state''s
-    own current register 2026-09-27 (SM030 O2), not carried over. NT, TAS and WA almost certainly carry
-    the same duty but could not be pinned to a clean, current, official URL within this session''s scope
-    - see library-transcription.md Corrections. Victoria is correctly excluded: it runs its own OHS Act/Regulations,
+    own current register 2026-09-27 (SM030 O2), not carried over. NT, TAS and WA carry the same duty in
+    their own Regulations, read 2026-10-21 (SM061), each with its own caveat. Victoria is correctly excluded: it runs its own OHS Act/Regulations,
     never harmonised.'
 - key: whs.swms_prepare
   duty: Ensure a safe work method statement is prepared for high risk construction work before the work starts
