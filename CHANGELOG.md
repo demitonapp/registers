@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v21, 2026-10-21: addition, correction
+
 - **addition** `clocs_a_standard` (CLOCS-A Standard v1.6): 16 rows, the Bronze Transport Operator duties in cl 5.4 the library did not carry (5.4.1(a), 5.4.4(a), 5.4.5(a)-(b), 5.4.6(a)-(d), 5.4.7(a)-(c) and (e), 5.4.8(a)-(b), 5.4.9(b), 5.4.10(a)), read 2026-10-21. With the five clauses already held, the library now carries all 21 Bronze cl 5.4 requirements. 13 new duty shapes; the licence, training and incident rows share the Principal Contractor's shapes.
 - **correction** `clocs_a.vehicle_safety_spec.au`: the caveat now states each of the 16 Appendix E1 Bronze items in its own sentence, both either/OR pairs and the three city-and-urban items, and what Silver and Gold add, in place of "among others". Re-read 2026-10-21.
 - **addition** `clocs_standard_gb` (CLOCS Standard, Version 5, November 2024): 25 rows, jurisdiction GB. The client duties (4.1 to 4.5), the principal contractor duties (5.1 to 5.13, with 5.13 as `guidance`) and the fleet operator duty (7.1, the FORS Silver benchmark). The logistics plan, traffic management plan, client reporting and incident rows share the CLOCS-A shapes, so the two schemes read side by side. 16 new duty shapes.
