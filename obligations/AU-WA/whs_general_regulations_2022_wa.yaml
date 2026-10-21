@@ -1,0 +1,79 @@
+# Read 2026-10-21 from the official consolidation (PCO 01-c0-00, as at 1 July 2026). WA's
+# only difference from the model on these rows is r 292: a construction project is defined by
+# headcount, not cost. Mines and petroleum operations have their own Regulations, not read here.
+id: whs_general_regulations_2022_wa
+extends: model_whs_regulations_2011
+title: Work Health and Safety (General) Regulations 2022 (WA)
+publisher: AU-WA Government
+jurisdictions:
+- AU-WA
+citation:
+  url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+  version: As at 01 Jul 2026
+  access_date: '2026-10-21'
+obligations:
+- overrides: latent_conditions.utility_check
+  key: latent_conditions.utility_check.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 304(2), (6)
+    access_date: '2026-10-21'
+  caveat: Nationally harmonised excavation-work clause (model WHS Regulations Part 6.3 Division 3). Provision
+    304(6) keeps the underground essential services information for at least 2 years after a notifiable
+    incident in connection with the excavation work, and otherwise until the excavation work is completed;
+    the 24 months here is the incident case. Read against this state's own current Regulations 2026-10-21
+    (SM061 W1), not carried over from another state.
+- overrides: whs.swms_prepare
+  key: whs.swms_prepare.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 299(1)
+    access_date: '2026-10-21'
+- overrides: whs.swms_comply
+  key: whs.swms_comply.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 300(1)-(2)
+    access_date: '2026-10-21'
+- overrides: whs.swms_copy_to_principal
+  key: whs.swms_copy_to_principal.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 301
+    access_date: '2026-10-21'
+  caveat: 'Before the work starts, with no day count, so no window is recorded. Applies only to work on
+    a construction project, which r 292 defines by headcount, not cost: a project where 5 or more persons
+    are, or are likely to be, working at the same time at a construction site (the model sets $250,000).
+    The principal contractor''s matching duty to obtain the copy is r 312, its own row. The compliance_documents
+    register can hold a statement but not whether or when a copy went to the principal contractor, so
+    this is recorded not_collected.'
+- overrides: whs.swms_review
+  key: whs.swms_review.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 302
+    access_date: '2026-10-21'
+- overrides: whs.swms_keep
+  key: whs.swms_keep.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 303(1), (3), (4)
+    access_date: '2026-10-21'
+- overrides: whs.swms_keep_after_incident
+  key: whs.swms_keep_after_incident.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 303(2)
+    access_date: '2026-10-21'
+- overrides: whs.swms_principal_obtain
+  key: whs.swms_principal_obtain.au-wa
+  citation:
+    url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s53267.html&view=consolidated
+    clause: r 312
+    access_date: '2026-10-21'
+  caveat: 'Before the work starts, with no day count, so no window is recorded. Binds the principal contractor
+    for a construction project, which r 292 defines by headcount, not cost: a project where 5 or more
+    persons are, or are likely to be, working at the same time at a construction site (the model sets
+    $250,000). The matching duty on the business doing the work is r 301, its own row. The compliance_documents
+    register can hold a statement but not whether the principal contractor held it before the work started,
+    so this is recorded not_collected.'

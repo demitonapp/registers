@@ -130,10 +130,13 @@ def test_whs_concrete_resolves_to_model_base() -> None:
 
     regs = {d["id"]: d for d in concretes if d.get("extends") == "model_whs_regulations_2011"}
     assert sorted(regs) == [
+        "whs_general_regulations_2022_wa",
+        "whs_nul_regulations_2011_nt",
         "whs_regulation_2011_act",
         "whs_regulation_2011_qld",
         "whs_regulation_2025_nsw",
         "whs_regulations_2012_sa",
+        "whs_regulations_2022_tas",
     ]
     nsw = resolve.resolve_instrument(regs["whs_regulation_2025_nsw"], by_id)
     assert nsw["obligations"][0]["clause"] == "s 304(2), (6)"  # NSW calls it a section

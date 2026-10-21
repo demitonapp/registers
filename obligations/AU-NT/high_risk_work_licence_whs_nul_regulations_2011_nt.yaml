@@ -1,0 +1,41 @@
+# The high risk work licence duties of the same Regulations, their own instrument
+# because a concrete extends one base (the Qld and NSW pattern).
+id: high_risk_work_licence_whs_nul_regulations_2011_nt
+extends: model_competency
+title: Work Health and Safety (National Uniform Legislation) Regulations 2011 (NT), high risk work licences
+  (rr 81 to 85)
+publisher: AU-NT Government
+jurisdictions:
+- AU-NT
+citation:
+  url: https://legislation.nt.gov.au/Legislation/WORK-HEALTH-AND-SAFETY-NATIONAL-UNIFORM-LEGISLATION-REGULATIONS-2011
+  version: As in force at 17 July 2026
+  access_date: '2026-10-21'
+obligations:
+- overrides: own_commitments.competency_hold
+  key: own_commitments.competency_hold.au-nt
+  clause: r 81
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/Legislation/WORK-HEALTH-AND-SAFETY-NATIONAL-UNIFORM-LEGISLATION-REGULATIONS-2011
+    clause: r 81
+    access_date: '2026-10-21'
+  caveat: Regulation 81 says a person must not carry out a class of high risk work unless they hold a
+    high risk work licence for that class, except as regulation 82 provides (training under a licensed
+    supervisor; a certification holder for 60 days while applying; an accredited assessor's assessment).
+    Schedule 3 sets the licence classes. The duty is the worker's; the contractor's matching duty to see
+    the licence is r 85, the next row. Read against this state's own current Regulations 2026-10-21 (SM061
+    W1), not carried over from another state.
+- overrides: own_commitments.competency_evidence
+  key: own_commitments.competency_evidence.au-nt
+  clause: r 85
+  grade: primary_read
+  citation:
+    url: https://legislation.nt.gov.au/Legislation/WORK-HEALTH-AND-SAFETY-NATIONAL-UNIFORM-LEGISLATION-REGULATIONS-2011
+    clause: r 85
+    access_date: '2026-10-21'
+  caveat: Regulation 85 requires a person conducting a business or undertaking to see written evidence
+    that a worker holds the relevant high risk work licence before directing or allowing them to carry
+    out or supervise high risk work, and to keep a record of that evidence for at least 1 year (r 85(4)).
+    That is the duty a site check of who is allocated today evidences. Read against this state's own current
+    Regulations 2026-10-21 (SM061 W1), not carried over from another state.
