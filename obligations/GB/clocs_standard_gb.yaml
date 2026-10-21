@@ -1,0 +1,572 @@
+# CLOCS Standard, Version 5 (November 2024), read in full from clocs.org.uk on
+# 2026-10-21. CLOCS (Construction Logistics and Community Safety) is a UK standard,
+# not law. It binds a party
+# through a planning condition (s 3) or a contract (ss 4.2, 5.4), so every row's
+# consequence is `breach`, except cl 5.13, which is a "should" and is `guidance`.
+#
+# Read: ss 2 to 7 (definitions, regulators, clients, principal contractors, site
+# operators, fleet operators). Rows cover the client duties (4.1 to 4.5), the
+# principal contractor duties (5.1 to 5.13) and the fleet operator duty (7.1).
+# Regulator duties (s 3) bind planning authorities, not a contractor, and site
+# operator duties (s 6) restate the principal contractor and fleet operator
+# rows for whoever holds them, so neither has rows of its own.
+#
+# Where it applies: CLOCS is national across the UK. This library has no code
+# for Great Britain alone, so the instrument carries `GB`, as the CDM 2015 rows
+# do; Demiton writes it up for England, the only UK project place it supports.
+#
+# Two windows are the Standard's own approximation ("approximately six-monthly",
+# cl 4.4(a)(i) and 5.11(a)) and one is quarterly (cl 5.11(c)); every other
+# timing is "regular", "frequent", "as soon as reasonably practicable" or the
+# start of a construction phase, with no number, so those rows carry no window.
+id: clocs_standard_gb
+source: principal
+instrument_type: specification
+title: Construction Logistics and Community Safety (CLOCS) Standard, Version 5
+publisher: CLOCS
+jurisdictions:
+- GB
+citation:
+  url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+  access_date: '2026-10-21'
+  version: Version 5, November 2024
+obligations:
+- key: clocs.client_risk_assessment.gb
+  duty: As client, make sure planning and design risk assessments identify and assess the risks construction logistics
+    poses to vulnerable road users
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.risk_assessment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.1(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 4.1(a)
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. The assessment must weigh the local environment, the volume, frequency and type of vehicle movements,
+    other road user demand, and crash and incident history where it exists. No register holds it, so this is recorded
+    not_collected.
+- key: clocs.reduce_vehicle_movements.gb
+  duty: As client, investigate and specify, where reasonably practicable, measures that reduce the project's heavy
+    vehicle movements
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.reduce_vehicle_movements
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.1(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 4.1(b)
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. The options the Standard names are land for laydown or consolidation, other transport modes, re-use of
+    spoil on site, off-site prefabrication and vehicle marshalling. No register holds it, so this is recorded not_collected.
+- key: clocs.client_procurement.gb
+  duty: As client, put CLOCS requirements in the procurement strategy, tender documents and contracts, and require
+    the principal contractor to make its site and fleet operators comply
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.procurement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.2(a)-(d)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 4.2(a)-(d)
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. A contract the client lets directly with a fleet operator must also specify CLOCS (cl 4.2(d)). No register
+    holds it, so this is recorded not_collected.
+- key: clocs.client_logistics_plan.gb
+  duty: As client, make sure the project team develops, implements and monitors a Construction Logistics Plan that
+    meets the Standard's minimum content
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.logistics_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.3(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: cl 4.3(a)
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. The minimum content is input from significant site and fleet operators, community considerations, planned
+    measures, risk-assessed safest and last mile routes, a delivery management system, competent site access traffic
+    marshals, and a plan that stays responsive. No register holds it, so this is recorded not_collected.
+- key: clocs.client_monitoring.gb
+  duty: As client, monitor CLOCS compliance by requiring independent site monitoring assessments, delivery performance
+    reports, serious incident reports and action plans
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.monitoring
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.4(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 4.4(a)
+  window:
+    value: 6
+    unit: months
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. The independent formal site monitoring assessment is "approximately six-monthly", so the 6-month window
+    is the Standard's approximation, not a fixed date. No register holds it, so this is recorded not_collected.
+- key: clocs.client_corrective_actions.gb
+  duty: As client, use the contract to require that serious construction vehicle incidents are investigated, rectified
+    within an agreed timeframe and answered with an action plan, and review the incidents notified
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.corrective_actions
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 4.5(a)-(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: cl 4.5(a)-(b)
+  caveat: A client duty under CLOCS Standard v5 (November 2024), a UK standard, binding where the client has adopted
+    CLOCS. The timeframe is agreed in the contract; the Standard sets no number. No register holds it, so this is
+    recorded not_collected.
+- key: clocs.risk_assessment.gb
+  duty: Make sure risk assessments through the life of the project identify and assess the risks construction logistics
+    poses to vulnerable road users, including high-risk roads, junctions and routes
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.risk_assessment
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.1(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.1(a)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. No register holds it, so this is recorded not_collected.
+- key: clocs.logistics_plan.gb
+  duty: Develop, implement and maintain a project-specific Construction Logistics Plan that plans and manages vehicle
+    movements into and out of the project
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.logistics_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.2(a)-(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: cl 5.2(a)-(b)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The plan must have input from significant site
+    and fleet operators, commit to planned measures, specify the safest and last mile routes with acceptable reasons
+    for deviation, require a delivery management system and competent site access traffic marshals, and show coordination
+    with neighbouring projects (cl 5.2(b)). The CLP is its own document, separate from the construction traffic
+    management plan; the traffic management plan register is the nearest, so this is recorded not_collected.
+- key: clocs.logistics_plan_phase_review.gb
+  duty: Review and update the Construction Logistics Plan before each new phase of construction starts
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs_a.logistics_plan_update
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.2(c)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: cl 5.2(c)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The window is the start of each phase, not a number
+    of days. No register records when the plan changed, so this is recorded not_collected.
+- key: clocs.traffic_management_plan.gb
+  duty: Develop, implement and maintain a Construction Traffic Management Plan that includes traffic guidance schemes
+    and vehicle movement plans
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs_a.traffic_management_plan
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.3(a)-(c)
+    access_date: '2026-10-21'
+  evidence:
+    kind: register
+    register: traffic_management_plan
+    system_type: document_store
+  clause: cl 5.3(a)-(c)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The plan adds pedestrian and cyclist movement
+    plans where relevant, rests on independent risk assessments by qualified professionals, and follows any local
+    traffic management requirements. On live roads, Chapter 8 and the Temporary Traffic Management Guidance also
+    apply (s 2).
+- key: clocs.procurement.gb
+  duty: Put CLOCS requirements in the procurement strategy, tender documents and contracts, and require every applicable
+    site and fleet operator to comply and give evidence of compliance
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.procurement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.4(a)-(e)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.4(a)-(e)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. Where a CLOCS-compliant fleet operator cannot
+    be engaged, the principal contractor agrees a CLOCS implementation plan with it and meanwhile verifies its road
+    transport safety management system (cl 5.4(e)). No register holds it, so this is recorded not_collected.
+- key: clocs.delivery_management_system.gb
+  duty: Use a delivery management system that schedules deliveries, captures vehicle and driver details, controls
+    peak hour traffic and tells operators the routes and site rules
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.delivery_management_system
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.5(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.5(a)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. No register holds it, so this is recorded not_collected.
+- key: clocs.vehicle_routing.gb
+  duty: Risk-assess and select the safest vehicle routes to and from site, and make every subcontractor, fleet operator
+    and supplier aware they must use them
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.vehicle_routing
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.6(a)-(d)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: traffic_management_plan
+  clause: cl 5.6(a)-(d)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. Permitted deviations, such as a temporary road
+    closure, must be communicated clearly (cl 5.6(d)). No register holds it, so this is recorded not_collected.
+- key: clocs.ground_conditions.gb
+  duty: Keep the site's ground conditions suitable for the vehicles that service it, and review them regularly
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.ground_conditions
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.7(a)-(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.7(a)-(b)
+  caveat: 'A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client''s contract or a planning condition requires CLOCS. "Regular": the Standard states no interval, so
+    no window is recorded. No register holds it, so this is recorded not_collected.'
+- key: clocs.site_access_egress.gb
+  duty: Keep site access and egress clearly marked, managed and clear of obstacles, and apply traffic management
+    principles that minimise hazards
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.site_access_egress
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.8(a)-(c)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.8(a)-(c)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The principles the Standard names include one-way
+    systems, avoiding reversing and left-hand turns, and separating pedestrians from vehicles. No register holds
+    it, so this is recorded not_collected.
+- key: clocs.site_traffic_marshals.gb
+  duty: Appoint competent site access traffic marshals with formal approved training that included practical experience
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.site_traffic_marshals
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.9(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: register
+    register: worker_qualification
+    system_type: site_and_field
+  clause: cl 5.9(b)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The Standard names CLOCS SATM training as one
+    example. Marshals manage site traffic within the construction traffic management plan (cl 5.9(a)).
+- key: clocs.site_gate_checks.gb
+  duty: Check vehicles and drivers against the CLOCS Standard by observation and frequent formal checks on a checklist,
+    keep the records, and risk-assess and address every non-compliance at once
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.site_gate_checks
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.9(c)-(d)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.9(c)-(d)
+  caveat: 'A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client''s contract or a planning condition requires CLOCS. "Frequent": the Standard states no interval,
+    so no window is recorded. No register holds it, so this is recorded not_collected.'
+- key: clocs.loading_unloading.gb
+  duty: Load and unload on site on a stable, graded surface as far as practicable, and use an off-site area only
+    with consent and a risk assessment
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.loading_unloading
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.10(a)-(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.10(a)-(b)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. No register holds it, so this is recorded not_collected.
+- key: clocs.site_monitoring_assessment.gb
+  duty: Arrange independent formal CLOCS site monitoring assessments and give the client the evidence
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.monitoring
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.11(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.11(a)
+  window:
+    value: 6
+    unit: months
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. The assessment is "approximately six-monthly",
+    so the 6-month window is the Standard's approximation, not a fixed date. No register holds it, so this is recorded
+    not_collected.
+- key: clocs.client_reporting.gb
+  duty: Report fleet and site performance to the client every quarter, including the site access gate check results,
+    trends and remedial actions
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs_a.client_reporting
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.11(b)-(c)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: safety_incident
+  clause: cl 5.11(b)-(c)
+  window:
+    value: 3
+    unit: months
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. Records of delivery performance must also be kept
+    (cl 5.11(b)). No register holds the report itself, so this is recorded not_collected.
+- key: clocs.serious_incident_reporting.gb
+  duty: Report serious construction vehicle incidents to the client as soon as reasonably practicable, and investigate
+    them to a level that matches their severity
+  consequence: breach
+  protection_type: watch
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs_a.incident_investigation
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.11(d), 5.12(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: register
+    register: safety_incident
+    system_type: site_and_field
+  clause: cl 5.11(d)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. Serious incidents include fatalities and serious
+    injuries, crashes, loss of load, impacts with infrastructure, near misses, community complaints and unsafe behaviour.
+    "As soon as reasonably practicable" states no number, so no window is recorded.
+- key: clocs.corrective_actions.gb
+  duty: Obtain and monitor an action plan wherever a site monitoring assessment or a gate check finds non-compliance,
+    and review action plans for the risk to vulnerable road users
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.corrective_actions
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.12(b)-(d)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.12(b)-(d)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. No register holds it, so this is recorded not_collected.
+- key: clocs.community_engagement.gb
+  duty: Consider engaging local schools and the community on the risks of construction traffic
+  consequence: guidance
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.community_engagement
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 5.13(a)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 5.13(a)
+  caveat: A principal contractor duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where
+    the client's contract or a planning condition requires CLOCS. Clause 5.13 is a "should", not a "must", so missing
+    it is not a breach. No register holds it, so this is recorded not_collected.
+- key: clocs.fleet_accreditation.gb
+  duty: Belong to a recognised independent fleet accreditation scheme, or run a management system that covers management,
+    vehicles, drivers and operations, and give the procurer evidence of it
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.fleet_accreditation
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 7.1(a), (c)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 7.1(a), (c)
+  caveat: A fleet operator duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where the contract
+    that engages the operator requires CLOCS. A fleet operator that subcontracts vehicle work must make the subcontractor
+    comply (s 7). No register holds it, so this is recorded not_collected.
+- key: clocs.fors_silver_standard.gb
+  duty: Run every construction logistics heavy goods vehicle to the standards described as Silver in the FORS Standard
+  consequence: breach
+  protection_type: check
+  disease: non_compliance
+  approval_class: safety_environment
+  duty_shape: clocs.fors_silver_standard
+  severity: 3
+  grade: primary_read
+  citation:
+    url: https://clocs.org.uk/wp-content/uploads/2024/11/CLOCS-Standard-v5.pdf
+    clause: cl 7.1(b)
+    access_date: '2026-10-21'
+  evidence:
+    kind: not_collected
+    register: compliance_documents
+  clause: cl 7.1(b)
+  caveat: A fleet operator duty under CLOCS Standard v5 (November 2024), a UK standard, binding only where the contract
+    that engages the operator requires CLOCS. FORS Silver accreditation itself is not a CLOCS requirement; another
+    accreditation scheme or management system may show the same standard. A heavy goods vehicle is one over 3.5
+    tonnes gross vehicle weight (s 2). No register holds it, so this is recorded not_collected.
