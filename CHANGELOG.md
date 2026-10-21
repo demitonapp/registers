@@ -14,6 +14,12 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v22, 2026-10-21: addition, correction
+
+- **addition** `whs_general_regulations_2022_wa` (Work Health and Safety (General) Regulations 2022 (WA), as at 1 July 2026), `whs_regulations_2022_tas` (Work Health and Safety Regulations 2022 (Tas), authorised as at 1 July 2025) and `whs_nul_regulations_2011_nt` (Work Health and Safety (National Uniform Legislation) Regulations 2011 (NT), as in force at 17 July 2026): 8 rows each, the seven SWMS duties (rr 299 to 303, 312) and the underground services record (r 304), as concretes of the model WHS Regulations, read 2026-10-21. WA r 292 defines a construction project by headcount (5 or more persons at once, no cost threshold); NT r 292 is $1,000,000 and NT r 291 sets a 3 m fall height for residential construction work (19 kinds); Tasmania matches the model. The library now holds the SWMS duties for all eight Australian states and territories.
+- **addition** `high_risk_work_licence_whs_general_regulations_2022_wa`, `high_risk_work_licence_whs_regulations_2022_tas` and `high_risk_work_licence_whs_nul_regulations_2011_nt`: 2 rows each, the high risk work licence duties (rr 81 and 85), the Qld and NSW pattern.
+- **correction** the model WHS Regulations' `latent_conditions.utility_check` caveat said NT, TAS and WA "almost certainly" carry the duty but could not be pinned; it now says they do, read 2026-10-21. Changes the caveat on the ACT, NSW, Qld and SA rows.
+
 ## v21, 2026-10-21: addition, correction
 
 - **addition** `clocs_a_standard` (CLOCS-A Standard v1.6): 16 rows, the Bronze Transport Operator duties in cl 5.4 the library did not carry (5.4.1(a), 5.4.4(a), 5.4.5(a)-(b), 5.4.6(a)-(d), 5.4.7(a)-(c) and (e), 5.4.8(a)-(b), 5.4.9(b), 5.4.10(a)), read 2026-10-21. With the five clauses already held, the library now carries all 21 Bronze cl 5.4 requirements. 13 new duty shapes; the licence, training and incident rows share the Principal Contractor's shapes.
