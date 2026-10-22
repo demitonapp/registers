@@ -23,7 +23,7 @@
       "x-demiton-requiredness": "optional"
     },
     "disease_key": {
-      "description": "which of the five margin diseases this finding prices - the SD027 \u00a74.6 disease key (`rework_signal`, `overrun_signal`, `claim_window`, `evidence_gap`, `compliance_gate`)",
+      "description": "which of the five margin diseases this finding prices - the key in `vocab/diseases.json` (`rework`, `overrun`, `forfeited_entitlements`, `disputes`, `non_compliance`)",
       "type": "string",
       "x-demiton-requiredness": "required"
     },
@@ -130,7 +130,7 @@
   ],
   "title": "platform_research_finding contract v1",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-domain": "platform",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
