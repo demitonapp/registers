@@ -14,6 +14,10 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v27, 2026-10-23: no obligation kinds (register contracts only)
+
+- `history/manifest.json` dates `platform_research_finding` 2.0.0, the version v24 added without a manifest entry (2026-10-22, the commit that added the history copy). A consumer that requires a release date for every history version, as the monorepo's `test_contract_versions` does, refused v25 and v26 over the gap. No contract changes.
+
 ## v26, 2026-10-23: no obligation kinds (register contracts only)
 
 - Dated versions of an obligation. An obligation, an override and an instrument may carry an optional `in_force` block, `{from, until, by, transitional}` (`obligation` 2.4.0, `obligation_override` 1.1.0 and `instrument` 2.2.0, MINOR each): `from` and `until` are the first and last day a version is in force, `by` names the date that decides it, and `by` is required whenever `from` or `until` is present. A new vocabulary, `vocab/selecting_dates.json`, holds the two dates the engine can read, `contract_date` and `event_date`; `scripts/validate.py` refuses any other. The old and the new rule of one duty are now two rows of one key in one file: `scripts/resolve.py` copies an instrument's `in_force` onto each of its rows that states none, sorts the versions of a key by `from` (a row with none is `original`) and derives each earlier version's `until` and `by` from the next version's `from` and `by`. `scripts/validate.py` refuses a key that repeats across two instruments, two versions with one `from`, an `until` on any version but the last (an overlap or a gap), versions that differ in `protection_type`, `disease`, `evidence.register` or `duty_shape`, and a `from` after its `until`; every message names the key. No row is dated in this change, and the flattened library is byte-identical. `scripts/release_kind.py` now reads real version ids: a newly dated version whose `from` is after the tag date is an `amendment`, on or before it a `correction`, and the `until` the resolver derives onto the version before it is not a changed field of that version.
