@@ -2,6 +2,13 @@
   "$id": "demiton:shelf/contract_terms/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
+    "contract_date": {
+      "description": "The date the contract was entered into. Where the obligation library has a duty whose rule changed on a date for contracts entered into on or after it, this is the date that picks the version. As the document states it (a signed copy's date of agreement, else the date on the letter of acceptance); a draft's date is a reading, not a fact. Never defaulted: a record with no contract date says so, and a rule that turns on it cannot be measured.",
+      "format": "date",
+      "type": "string",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 8601 date"
+    },
     "contract_form": {
       "description": "The standard conditions of contract the document is based on (amended or not), so an evidence standard can fall back to the form's own notice windows when the contract states none.",
       "type": "string",
@@ -328,7 +335,7 @@
   ],
   "title": "contract_terms contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.4.0",
+  "x-demiton-contract-version": "1.5.0",
   "x-demiton-provenance": {
     "standards": [
       {
