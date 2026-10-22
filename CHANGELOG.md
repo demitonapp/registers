@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+- **`contract_terms` 1.5.0**: adds `contract_date`, the date the contract was entered into (`format: date`, optional, never defaulted). A duty whose rule changed on a date for contracts entered into on or after it (an Act's transitional provision) is selected by this date, so a job with none cannot be measured on it. MINOR: one new optional property. 1.4.0 kept in `history/`. Pairs with the `in_force` block on obligations, whose `by: contract_date` reads it.
+
 ## v25, 2026-10-23: no obligation kinds (register contracts only)
 
 - The last currency spellings are renamed (MAJOR on five contracts, 3.0.0 each). `bank_accounts` and `invoice_issued` `currency_code`, and `customer_list` and `vendor_list` `default_currency_code`, become `currency`; `credit_note` `currency_rate`, an exchange rate and not a currency code, becomes `exchange_rate`. `scripts/validate.py` no longer carries a list of tolerated spellings: a currency field not named `currency` or `<amount>_currency` is an error.
