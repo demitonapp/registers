@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/gl_journal_entry/1",
+  "$id": "demiton:shelf/gl_journal_entry/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "credit_amount": {
@@ -10,7 +10,7 @@
     },
     "currency": {
       "description": "reporting currency of the amounts",
-      "type": "money",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "debit_amount": {
@@ -78,9 +78,9 @@
     "debit_amount",
     "credit_amount"
   ],
-  "title": "gl_journal_entry contract v1",
+  "title": "gl_journal_entry contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

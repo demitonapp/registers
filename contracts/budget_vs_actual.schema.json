@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/budget_vs_actual/1",
+  "$id": "demiton:shelf/budget_vs_actual/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_amount": {
@@ -24,8 +24,8 @@
       "x-demiton-unit": "count"
     },
     "currency": {
-      "description": "the currency the two amounts are in; today the measure names hard-code AUD",
-      "type": "money",
+      "description": "the currency the two amounts are in, an ISO 4217 alpha-3 code as the source states it. A row with no currency has no usable amounts.",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "expense_category": {
@@ -58,9 +58,9 @@
     "budget_amount",
     "actual_amount"
   ],
-  "title": "budget_vs_actual contract v1",
+  "title": "budget_vs_actual contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.3",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

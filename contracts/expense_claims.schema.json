@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/expense_claims/1",
+  "$id": "demiton:shelf/expense_claims/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "approval_state": {
@@ -15,7 +15,7 @@
     },
     "currency": {
       "description": "the currency both amounts are stated in",
-      "type": "money",
+      "type": "currency",
       "x-demiton-requiredness": "tenant-specific"
     },
     "description": {
@@ -66,9 +66,9 @@
     "submitted_time",
     "claim_amount"
   ],
-  "title": "expense_claims contract v1",
+  "title": "expense_claims contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_research_finding/1",
+  "$id": "demiton:shelf/platform_research_finding/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "caveat": {
@@ -14,7 +14,7 @@
     },
     "currency": {
       "description": "ISO 4217 currency of a `per_*` figure (AUD, USD, NZD); null for ratios and `none`. The surface prints the amount in this currency, never as a bare dollar sign",
-      "type": "string",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "denominator": {
@@ -128,9 +128,9 @@
     "source_title",
     "source_url"
   ],
-  "title": "platform_research_finding contract v1",
+  "title": "platform_research_finding contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-domain": "platform",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {

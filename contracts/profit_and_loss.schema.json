@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/profit_and_loss/2",
+  "$id": "demiton:shelf/profit_and_loss/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_amount": {
@@ -28,8 +28,8 @@
       "x-demiton-requiredness": "optional"
     },
     "currency": {
-      "description": "the currency the amounts are in; today the field names hard-code AUD and the writer passes `currency_code=\"AUD\"`",
-      "type": "money",
+      "description": "the currency the amounts are in, an ISO 4217 alpha-3 code as the source states it. A row with no currency has no usable amounts.",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "financial_period": {
@@ -76,9 +76,9 @@
     "budget_amount",
     "actual_amount"
   ],
-  "title": "profit_and_loss contract v2",
+  "title": "profit_and_loss contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

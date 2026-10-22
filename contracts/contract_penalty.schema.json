@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/contract_penalty/1",
+  "$id": "demiton:shelf/contract_penalty/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "cap_amount": {
@@ -40,7 +40,7 @@
     },
     "rate_currency": {
       "description": "Currency of `rate_per_day` and `cap_amount`",
-      "type": "string",
+      "type": "currency",
       "x-demiton-requiredness": "required"
     },
     "rate_per_day": {
@@ -60,10 +60,10 @@
     "penalty_type",
     "rate_currency"
   ],
-  "title": "contract_penalty contract v1",
+  "title": "contract_penalty contract v2",
   "type": "object",
   "x-demiton-axes": [],
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-measures": [],
   "x-demiton-provenance": {
     "standards": [
