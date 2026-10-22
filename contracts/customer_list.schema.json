@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/customer_list/2",
+  "$id": "demiton:shelf/customer_list/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_line_1": {
@@ -34,6 +34,12 @@
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "currency amount"
     },
+    "currency": {
+      "description": "The customer's default transaction currency",
+      "type": "currency",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "ISO 4217"
+    },
     "customer_entity_id": {
       "description": "Demiton canonical CUSTOMER spine node this fact is about",
       "type": "integer",
@@ -48,12 +54,6 @@
       "description": "The source's customer type (e.g. person/company distinction)",
       "type": "string",
       "x-demiton-requiredness": "optional"
-    },
-    "default_currency_code": {
-      "description": "The customer's default transaction currency",
-      "type": "currency",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "ISO 4217"
     },
     "email": {
       "description": "Customer contact email",
@@ -139,9 +139,9 @@
   "required": [
     "customer_entity_id"
   ],
-  "title": "customer_list contract v2",
+  "title": "customer_list contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

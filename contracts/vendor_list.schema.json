@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/vendor_list/2",
+  "$id": "demiton:shelf/vendor_list/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_line_1": {
@@ -28,7 +28,7 @@
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "ISO 3166-1 alpha-2"
     },
-    "default_currency_code": {
+    "currency": {
       "description": "The supplier's default transaction currency",
       "type": "currency",
       "x-demiton-requiredness": "optional",
@@ -123,9 +123,9 @@
   "required": [
     "vendor_entity_id"
   ],
-  "title": "vendor_list contract v2",
+  "title": "vendor_list contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

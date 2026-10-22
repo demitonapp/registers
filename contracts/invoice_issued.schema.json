@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/invoice_issued/2",
+  "$id": "demiton:shelf/invoice_issued/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount_excluding_tax": {
@@ -25,7 +25,7 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
-    "currency_code": {
+    "currency": {
       "description": "Denomination of the amounts.",
       "type": "currency",
       "x-demiton-requiredness": "required"
@@ -134,20 +134,20 @@
     }
   },
   "required": [
+    "amount_excluding_tax",
+    "amount_including_tax",
+    "currency",
+    "customer_ref",
+    "document_concept",
+    "financial_period",
     "invoice_number",
     "issue_date",
-    "customer_ref",
-    "financial_period",
-    "amount_including_tax",
-    "document_concept",
-    "amount_excluding_tax",
     "tax_amount",
-    "tax_jurisdiction",
-    "currency_code"
+    "tax_jurisdiction"
   ],
-  "title": "invoice_issued contract v2",
+  "title": "invoice_issued contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

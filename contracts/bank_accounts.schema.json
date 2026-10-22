@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/bank_accounts/2",
+  "$id": "demiton:shelf/bank_accounts/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "account_name": {
@@ -17,7 +17,7 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
-    "currency_code": {
+    "currency": {
       "description": "the account's denomination",
       "type": "currency",
       "x-demiton-requiredness": "optional"
@@ -49,9 +49,9 @@
     "canonical_key",
     "account_name"
   ],
-  "title": "bank_accounts contract v2",
+  "title": "bank_accounts contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.2",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {
