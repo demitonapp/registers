@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/cost_element/1",
+  "$id": "demiton:shelf/cost_element/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount": {
@@ -20,7 +20,7 @@
     },
     "currency": {
       "description": "denomination of every amount on the row",
-      "type": "money",
+      "type": "currency",
       "x-demiton-requiredness": "required"
     },
     "dimension_set_id": {
@@ -104,9 +104,9 @@
     "entry_no",
     "amount"
   ],
-  "title": "cost_element contract v1",
+  "title": "cost_element contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

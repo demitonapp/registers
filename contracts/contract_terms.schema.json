@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/contract_terms/1",
+  "$id": "demiton:shelf/contract_terms/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "contract_date": {
@@ -24,7 +24,7 @@
     "currency": {
       "description": "The currency every amount on this record is in (contract_sum, ld_rate, ld_cap, ld_milestones, public_liability, professional_indemnity). As the document states it; where it states only a symbol such as `$`, the currency of the country whose law governs the contract (`jurisdiction`). A record with no currency has no usable amount.",
       "pattern": "^[A-Z]{3}$",
-      "type": "string",
+      "type": "currency",
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "ISO 4217 alpha-3 code (e.g. `AUD`, `NZD`)"
     },
@@ -333,9 +333,9 @@
     "security",
     "payment_timing_days"
   ],
-  "title": "contract_terms contract v1",
+  "title": "contract_terms contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.5.0",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

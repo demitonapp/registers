@@ -14,6 +14,10 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v28, 2026-10-23: no obligation kinds (register contracts only)
+
+- Every currency field is type `currency`. Eight contracts declared theirs as `money` (`profit_and_loss`, `budget_vs_actual`, `cost_element`, `expense_claims`, `gl_journal_entry`) or `string` (`contract_penalty` `rate_currency`, `contract_terms`, `platform_research_finding`), so the fact gate did not check the code and the upgrade hops did not normalise it. Each retype is MAJOR (the contract's next major version); no field is renamed or added, and every value that was a currency code stays one. `profit_and_loss` and `budget_vs_actual` also drop a description that said the field names hard-code AUD, which stopped being true in v23.
+
 ## v27, 2026-10-23: no obligation kinds (register contracts only)
 
 - `history/manifest.json` dates `platform_research_finding` 2.0.0, the version v24 added without a manifest entry (2026-10-22, the commit that added the history copy). A consumer that requires a release date for every history version, as the monorepo's `test_contract_versions` does, refused v25 and v26 over the gap. No contract changes.
