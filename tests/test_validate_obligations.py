@@ -178,3 +178,104 @@ def test_lang_is_a_primary_language_subtag() -> None:
     doc["lang"] = "French"
     errors = validate_instrument_doc(doc, "valid/example.yaml")
     assert any("lang" in e for e in errors), "a language name, not a subtag, must be refused"
+
+
+# --- SM052 D1: dated versions of one duty -----------------------------------
+
+VERSIONS = FIXTURES / "versions"
+AMENDED = "payment.adjudication_application.au-vic"
+
+
+def _version_tree_errors(name: str) -> list[str]:
+    return resolve.tree_errors([(name, _load(VERSIONS / name))])
+
+
+def test_worked_example_a_and_the_instrument_level_example_b_pass() -> None:
+    for name in ("example_a.yaml", "instrument_level.yaml", "repeal.yaml"):
+        doc = _load(VERSIONS / name)
+        assert validate_instrument_doc(doc, name) == [], name
+        assert resolve.tree_errors([(name, doc)]) == [], name
+
+
+def test_selecting_dates_are_exactly_the_two_the_engine_reads() -> None:
+    assert resolve.selecting_dates() == ("contract_date", "event_date")
+
+
+def test_dated_version_changing_routing_is_refused() -> None:
+    """Decision 10: versions of one key share protection_type, disease, evidence.register
+    and duty_shape; a change to any of them is a new key."""
+    errors = _version_tree_errors("changed_protection_type.yaml")
+    assert any(AMENDED in e and "protection_type" in e and "'watch'" in e and "'countdown'" in e for e in errors), errors
+    errors = _version_tree_errors("changed_register.yaml")
+    assert any(AMENDED in e and "evidence.register" in e for e in errors), errors
+
+
+def test_overlapping_versions_are_refused_and_name_the_key() -> None:
+    errors = _version_tree_errors("overlap.yaml")
+    assert any(AMENDED in e and "overlaps" in e for e in errors), errors
+
+
+def test_a_gap_between_versions_is_refused_and_names_the_key() -> None:
+    errors = _version_tree_errors("gap.yaml")
+    assert any(AMENDED in e and "gap" in e for e in errors), errors
+
+
+def test_a_key_may_not_repeat_across_two_instruments() -> None:
+    seen: dict[str, str] = {}
+    first = validate_instrument_doc(_load(VERSIONS / "repeated_key_a.yaml"), "a.yaml", seen_keys=seen)
+    second = validate_instrument_doc(_load(VERSIONS / "repeated_key_b.yaml"), "b.yaml", seen_keys=seen)
+    assert first == []
+    assert any(AMENDED in e and "a.yaml" in e for e in second), second
+
+
+def test_a_key_may_repeat_within_one_instrument_as_versions() -> None:
+    seen: dict[str, str] = {}
+    assert validate_instrument_doc(_load(VERSIONS / "example_a.yaml"), "example_a.yaml", seen_keys=seen) == []
+
+
+def test_from_without_by_is_refused_and_names_the_key() -> None:
+    errors = validate_instrument_doc(_load(VERSIONS / "from_without_by.yaml"), "from_without_by.yaml")
+    assert any(AMENDED in e and "'by'" in e for e in errors), errors
+
+
+def test_by_outside_the_selecting_dates_is_refused_and_names_the_key() -> None:
+    errors = validate_instrument_doc(_load(VERSIONS / "unknown_by.yaml"), "unknown_by.yaml")
+    assert any(AMENDED in e and "vocab/selecting_dates.json" in e for e in errors), errors
+
+
+def test_two_versions_starting_on_one_day_are_refused() -> None:
+    errors = _version_tree_errors("duplicate_from.yaml")
+    assert any(AMENDED in e and "(key, from) must be unique" in e for e in errors), errors
+
+
+def test_two_undated_rows_of_one_key_are_refused() -> None:
+    doc = _load(VERSIONS / "example_a.yaml")
+    del doc["obligations"][1]["in_force"]
+    errors = resolve.tree_errors([("f.yaml", doc)])
+    assert any(AMENDED in e and "no `from`" in e for e in errors), errors
+
+
+def test_from_after_until_and_an_impossible_date_are_refused() -> None:
+    doc = _load(VERSIONS / "repeal.yaml")
+    doc["obligations"][1]["in_force"]["until"] = "2027-06-30"
+    errors = validate_instrument_doc(doc, "repeal.yaml")
+    assert any(AMENDED in e and "from must precede until" in e for e in errors), errors
+
+    doc["obligations"][1]["in_force"] = {"from": "2027-02-30", "by": "event_date"}
+    errors = validate_instrument_doc(doc, "repeal.yaml")
+    assert any(AMENDED in e and "not a calendar date" in e for e in errors), errors
+
+
+def test_an_instrument_level_in_force_is_checked_too() -> None:
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    doc["in_force"]["by"] = "renewal_date"
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("fixture_sop_act_wa" in e and "vocab/selecting_dates.json" in e for e in errors), errors
+
+
+def test_in_force_is_refused_outside_its_four_fields() -> None:
+    doc = _load(VERSIONS / "example_a.yaml")
+    doc["obligations"][1]["in_force"]["effective"] = "2027-07-01"
+    errors = validate_instrument_doc(doc, "example_a.yaml")
+    assert any("effective" in e and AMENDED in e for e in errors), errors
+

@@ -1,0 +1,52 @@
+# SM052 D1 fixture (test data only): a single version repealed by an until on the last version
+id: fixture_repeal
+source: law
+instrument_type: act
+title: Fixture Security of Payment Act (test data only)
+publisher: Fixture Parliament
+jurisdictions: [AU-VIC]
+citation:
+  url: https://example.invalid/fixture-sop-act
+  access_date: '2026-10-23'
+obligations:
+- key: payment.adjudication_application.au-vic
+  duty: Apply for adjudication within 10 business days of a schedule for less than the claim
+  clause: s 18(3)(c)
+  window:
+    value: 10
+    unit: business_days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.adjudication_application
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://example.invalid/fixture-sop-act
+    clause: s 18(3)(c)
+    access_date: '2026-10-23'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+- key: payment.adjudication_application.au-vic
+  duty: Apply for adjudication within 15 business days of a schedule for less than the claim
+  clause: s 18(3)(c)
+  window:
+    value: 15
+    unit: business_days
+  consequence: guidance
+  protection_type: watch
+  disease: disputes
+  approval_class: payments
+  duty_shape: payment.adjudication_application
+  severity: 4
+  grade: primary_read
+  citation:
+    url: https://example.invalid/fixture-sop-act-v016
+    clause: s 18(3)(c)
+    access_date: '2026-10-23'
+  evidence:
+    kind: record_in_demiton
+    register: contract_notice
+  in_force: {from: 2027-07-01, until: 2028-06-30, by: event_date}

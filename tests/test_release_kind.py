@@ -4,8 +4,9 @@ and a tag whose CHANGELOG section does not declare them is refused.
     python -m pytest tests/test_release_kind.py -q
 
 The first three tests read real tags, so the checkout needs them (CI checks out
-with fetch-depth 0). The rest use two-row trees: no row carries `in_force` until
-dated versions land, so the amendment rules have no real tag to read yet.
+with fetch-depth 0). The rest use two-row trees, and the last group flattens fixture
+instruments with `resolve.py`, so a version is named by the `in_force.from` the resolver
+really writes (no real tag carries a dated row yet).
 """
 from __future__ import annotations
 
@@ -14,10 +15,12 @@ from datetime import date
 from pathlib import Path
 
 import pytest
+import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import resolve  # noqa: E402
 from release_kind import Tree, business_days_between, classify, computed_kinds, refusals, release_json, tree_at  # noqa: E402
 
 V16_DATE = date(2026, 10, 12)  # v14, v15 and v16 were all tagged that day
@@ -102,3 +105,46 @@ def test_a_tag_must_declare_every_computed_kind() -> None:
 def test_the_amendment_lead_counts_weekdays() -> None:
     # Monday 2 Nov to Monday 30 Nov 2026: four weeks, 20 weekdays.
     assert business_days_between(date(2026, 11, 2), date(2026, 11, 30)) == 20
+
+
+# --- SM052 D1: the version ids are the ones the resolver writes -------------
+
+EXAMPLE_A = ROOT / "tests" / "fixtures" / "obligations" / "versions" / "example_a.yaml"
+
+
+def _flat_tree(*, dated: bool, from_: str = "2027-07-01") -> Tree:
+    """Worked example A as the resolver flattens it: the original alone, or with the
+    amendment that lengthens its window dated `from_`."""
+    doc = yaml.safe_load(EXAMPLE_A.read_text())
+    if dated:
+        doc["obligations"][1]["in_force"]["from"] = from_
+    else:
+        del doc["obligations"][1]
+    return Tree(resolve.flatten_docs([("example_a.yaml", doc)]), frozenset({"AU"}))
+
+
+def test_a_newly_dated_version_from_after_the_tag_is_an_amendment_and_the_original_is_not_a_correction() -> None:
+    changes = classify(_flat_tree(dated=False), _flat_tree(dated=True), date(2026, 12, 10))
+    # The original gains a derived `until` and `by`: not a changed field of the original.
+    assert {(c.kind, c.commences) for c in changes} == {("amendment", date(2027, 7, 1))}
+    assert release_json(changes, "## v30, 2026-12-10: amendment\n", "v30")["amendments"] == [
+        {"key": "payment.adjudication_application.au-vic", "from": "2027-07-01"}
+    ]
+
+
+def test_a_newly_dated_version_from_on_or_before_the_tag_is_a_correction() -> None:
+    for tagged in (date(2027, 7, 1), date(2027, 7, 2)):
+        changes = classify(_flat_tree(dated=False), _flat_tree(dated=True), tagged)
+        assert computed_kinds(changes) == {"correction"}, tagged
+
+
+def test_changing_a_dated_versions_window_is_a_correction_and_its_until_alone_is_not() -> None:
+    old, new = _flat_tree(dated=True), _flat_tree(dated=True)
+    new.instruments[0]["obligations"][1]["window"] = {"value": 20, "unit": "business_days"}
+    changes = classify(old, new, date(2026, 12, 10))
+    assert [(c.kind, c.key) for c in changes] == [("correction", "payment.adjudication_application.au-vic")]
+
+
+def test_moving_the_start_of_a_pending_version_is_a_new_pending_version_and_a_removed_one() -> None:
+    changes = classify(_flat_tree(dated=True), _flat_tree(dated=True, from_="2027-09-01"), date(2026, 12, 10))
+    assert {c.kind for c in changes} == {"amendment", "correction"}

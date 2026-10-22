@@ -277,3 +277,121 @@ def test_a_duty_shape_outside_the_vocabulary_is_refused() -> None:
     base["obligations"][0]["duty_shape"] = "latent_conditions.made_up"
     errors = resolve.tree_errors(tree)
     assert any("'latent_conditions.made_up' is not in vocab/duty_shapes.json" in e for e in errors), errors
+
+
+# --- SM052 D1: dated versions of one duty -----------------------------------
+
+VERSIONS = FIXTURES / "versions"
+AMENDED = "payment.adjudication_application.au-vic"
+
+
+def _flatten(name: str) -> list[dict]:
+    return resolve.flatten_docs([(name, _load(VERSIONS / name))])
+
+
+def _assert_contiguous(instruments: list[dict]) -> int:
+    """Every key's versions, oldest first: each starts the day after the one before ends,
+    and only the first may have no `from`. Returns how many keys have several versions."""
+    from datetime import date, timedelta
+
+    keys = 0
+    for inst in instruments:
+        groups: dict[str, list[dict]] = {}
+        for row in inst["obligations"]:
+            groups.setdefault(row["key"], []).append(row)
+        for key, rows in groups.items():
+            if len(rows) < 2:
+                continue
+            keys += 1
+            rows.sort(key=lambda r: (r.get("in_force") or {}).get("from") or "")
+            assert "from" not in rows[0].get("in_force", {}), key
+            for before, after in zip(rows, rows[1:]):
+                until = date.fromisoformat(before["in_force"]["until"])
+                assert date.fromisoformat(after["in_force"]["from"]) == until + timedelta(days=1), key
+    return keys
+
+
+def test_versions_of_one_key_are_contiguous_after_resolve() -> None:
+    """Worked example A: one file holds the old and the new rule of a duty. It flattens to
+    two rows under one key, and the original is given the day before the amendment as its
+    `until`, decided by the same date the amendment is."""
+    flat = _flatten("example_a.yaml")
+    assert len(flat) == 1
+    rows = flat[0]["obligations"]
+    assert [r["key"] for r in rows] == [AMENDED, AMENDED]
+    original, amended = rows
+    assert original["in_force"] == {"until": "2027-06-30", "by": "event_date"}
+    assert original["window"] == {"value": 10, "unit": "business_days"}
+    assert amended["in_force"]["from"] == "2027-07-01"
+    assert amended["in_force"]["by"] == "event_date"
+    assert "until" not in amended["in_force"]
+    assert amended["window"] == {"value": 15, "unit": "business_days"}
+    assert _assert_contiguous(flat) == 1
+    # And the real library, which has none yet, flattens through the same code.
+    _assert_contiguous(resolve.flatten())
+
+
+def test_three_versions_chain_and_a_repeal_stays_on_the_last() -> None:
+    doc = _load(VERSIONS / "repeal.yaml")
+    middle = dict(doc["obligations"][1])
+    middle["in_force"] = {"from": "2027-07-01", "by": "event_date"}
+    last = dict(doc["obligations"][1])
+    last["in_force"] = {"from": "2028-01-01", "until": "2029-12-31", "by": "event_date"}
+    doc["obligations"] = [doc["obligations"][0], middle, last]
+    assert resolve.tree_errors([("f", doc)]) == []
+    rows = resolve.flatten_docs([("f", doc)])[0]["obligations"]
+    assert [r["in_force"].get("from") for r in rows] == [None, "2027-07-01", "2028-01-01"]
+    assert [r["in_force"].get("until") for r in rows] == ["2027-06-30", "2027-12-31", "2029-12-31"]
+    assert _assert_contiguous([{"obligations": rows}]) == 1
+
+
+def test_rows_keep_their_authored_order_whatever_the_order_of_the_versions() -> None:
+    doc = _load(VERSIONS / "example_a.yaml")
+    doc["obligations"].reverse()  # the new rule written first
+    rows = resolve.flatten_docs([("f", doc)])[0]["obligations"]
+    assert [r["window"]["value"] for r in rows] == [15, 10]
+    assert rows[1]["in_force"]["until"] == "2027-06-30"
+
+
+def test_a_derived_until_names_the_next_versions_date_when_it_differs() -> None:
+    doc = _load(VERSIONS / "example_a.yaml")
+    doc["obligations"][0]["in_force"] = {"from": "2020-01-01", "by": "contract_date"}
+    rows = resolve.flatten_docs([("f", doc)])[0]["obligations"]
+    assert rows[0]["in_force"] == {"from": "2020-01-01", "by": "contract_date", "until": "2027-06-30", "until_by": "event_date"}
+
+
+def test_an_instrument_level_in_force_is_copied_onto_every_row_that_states_none() -> None:
+    """Worked example B: an Act dated once, on the instrument."""
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    inst = resolve.flatten_docs([("f", doc)])[0]
+    block = {"from": "2022-08-01", "by": "contract_date", "transitional": "s 9(1)"}
+    head, principal, own = inst["obligations"]
+    assert head["in_force"] == block and principal["in_force"] == block
+    assert head["in_force"] is not principal["in_force"], "each row gets its own copy"
+    assert own["in_force"] == {"from": "2023-01-01", "by": "contract_date"}, "a row's own block is kept, not merged"
+    assert inst["in_force"] == block
+
+
+def test_an_extending_concrete_may_carry_a_second_override_of_one_base_key_as_a_version() -> None:
+    base = _load(FIXTURES / "valid" / "abstract_base.yaml")
+    concrete = _load(FIXTURES / "valid" / "extending_concrete.yaml")
+    later = dict(concrete["obligations"][0], clause="s 1A", in_force={"from": "2028-01-01", "by": "event_date"})
+    concrete["obligations"] = [dict(concrete["obligations"][0]), later]
+    docs = [("base.yaml", base), ("concrete.yaml", concrete)]
+    assert resolve.tree_errors(docs) == []
+    rows = resolve.flatten_docs(docs)[0]["obligations"]
+    assert [r["key"] for r in rows] == ["fixture.notice.au-qld"] * 2
+    assert rows[0]["in_force"] == {"until": "2027-12-31", "by": "event_date"}
+    assert rows[1]["clause"] == "s 1A"
+    # The duty is the base's in both, and a version cannot change it: overrides refuse the field.
+    assert rows[0]["duty"] == rows[1]["duty"] == base["obligations"][0]["duty"]
+
+
+def test_dates_come_out_as_text_whether_the_author_quoted_them_or_not() -> None:
+    import json
+
+    doc = _load(VERSIONS / "example_a.yaml")  # unquoted in the file: yaml loads them as dates
+    assert hasattr(doc["obligations"][1]["in_force"]["from"], "isoformat")
+    flat = resolve.flatten_docs([("f", doc)])
+    json.dumps(flat)  # would raise on a date object
+    assert flat[0]["obligations"][1]["in_force"]["from"] == "2027-07-01"
