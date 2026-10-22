@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v24, 2026-10-22: no obligation kinds (register contracts only)
+
 - The disease taxonomy is one flat file. `vocab/diseases.json` grows from a key-to-label map to `{ "order": [...], "diseases": { "<key>": { "label", "buyer_name", "what", "prevention", "start", "feeders" } } }`: for each of the five diseases, its label, the buyer copy (the plain name, what it is, what prevention means), the register groups its daily check needs before it can run (`start`, every group must hold data, any one register in a group is enough) and the registers that enrich a verdict (`feeders`), in the order published research says each costs a contractor, most first. The keys are unchanged. `disputes` also carries its `dispute_types`. `platform_research_finding` 2.0.1 (PATCH) describes `disease_key` in these keys instead of Demiton's measure names. `scripts/validate.py` now refuses a taxonomy that disagrees with `obligation.schema.json`'s `disease` enum or names a register with no contract.
 
 ## v23, 2026-10-22: no obligation kinds (register contracts only)
