@@ -127,8 +127,20 @@
     "caveat": {
       "description": "what bounds this obligation: an amendment that may change it, a paywalled text read second-hand, a regional exception folded in rather than invented a field for",
       "type": "string"
+    },
+    "in_force": {
+      "description": "SM052: when this version of the duty applies. `from` and `until` are the first and last day it is in force (inclusive, YYYY-MM-DD); `by` names the date that decides it, a member of vocab/selecting_dates.json (`contract_date`, the day the job's contract was entered into, or `event_date`, the date of the event the duty turns on), and is required whenever `from` or `until` is present. `transitional` cites the provision that says which date decides. Absent, the duty is in force without limit: the version named `original`. Several rows of one instrument may share a `key`, one per version, each with its own `from`; the resolver derives every earlier version's `until` and `by` from the next version's `from` and `by`, so `until` is written only on the last version, to repeal a duty.",
+      "type": "object",
+      "properties": {
+        "from": { "description": "the first day this version is in force (inclusive)", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "until": { "description": "the last day this version is in force (inclusive). Written only on the last version of a key, to repeal it; derived on every earlier one.", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "by": { "description": "the date that decides whether this version applies: a member of vocab/selecting_dates.json", "type": "string" },
+        "transitional": { "description": "the provision that says which date decides, e.g. `s 9(1)`", "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false,
+      "dependentRequired": { "from": ["by"], "until": ["by"] }
     }
   },
   "required": ["key", "duty", "consequence", "protection_type", "disease", "severity", "citation", "evidence"],
-  "x-demiton-contract-version": "2.3.0"
+  "x-demiton-contract-version": "2.4.0"
 }

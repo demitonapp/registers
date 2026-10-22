@@ -39,7 +39,10 @@ strict checking costs nothing extra) - plus the cross-checks a JSON Schema
 `source` -> `instrument_type` (vocab/instrument_types.json is keyed by
 source) and every `jurisdictions` / obligation-level `jurisdiction` code
 against vocab/jurisdictions.json. An obligation with no primary `citation` is
-refused by the schema's own `required`, not a separate rule.
+refused by the schema's own `required`, not a separate rule. A dated version
+(`in_force`, SM052) must name its `by` in vocab/selecting_dates.json, and a key may
+repeat only within one instrument; the checks across the versions of one key live in
+`resolve.version_errors`, beside the resolver that derives them.
 
 Currency is data, never a name (SD034, CLAUDE.md Rule 11). A property whose name
 carries an ISO 4217 code (`value_aud`, `valueAud`) is refused in `contracts/` and
@@ -63,6 +66,8 @@ from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+import resolve  # noqa: E402 - the tree checks and the flattening live there, so the two cannot drift
 SEMVER = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
 VERSION_KEYS = ("x-schema-version", "x-demiton-contract-version")
 KNOWN_TYPES = {
@@ -203,6 +208,30 @@ def _obligation_schema_registry() -> tuple[dict, Registry]:
     return instrument_schema, registry
 
 
+def _in_force_errors(label: str, who: str, block: object) -> list[str]:
+    """What an `in_force` block's schema cannot say: `by` is a member of
+    vocab/selecting_dates.json, each date is a real calendar day, and `from` precedes
+    `until`. `who` names the key (or the instrument) the block belongs to."""
+    if not isinstance(block, dict):
+        return []
+    errors: list[str] = []
+    by = block.get("by")
+    allowed = resolve.selecting_dates()
+    if by is not None and by not in allowed:
+        errors.append(f"{label}: {who}: in_force.by {by!r} is not in vocab/selecting_dates.json ({', '.join(allowed)})")
+    days: dict[str, object] = {}
+    for field in ("from", "until"):
+        if block.get(field) is None:
+            continue
+        try:
+            days[field] = resolve.as_date(block[field])
+        except ValueError:
+            errors.append(f"{label}: {who}: in_force.{field} {block[field]!r} is not a calendar date (YYYY-MM-DD)")
+    if len(days) == 2 and days["from"] > days["until"]:
+        errors.append(f"{label}: {who}: in_force.from {block['from']} is after until {block['until']}; from must precede until")
+    return errors
+
+
 def validate_instrument_doc(
     doc: object,
     label: str,
@@ -218,6 +247,7 @@ def validate_instrument_doc(
     errors: list[str] = []
     if not isinstance(doc, dict):
         return [f"{label}: not a YAML mapping"]
+    doc = resolve.iso_dates(doc)  # an unquoted `2027-07-01` loads as a date; the schema reads text
 
     instrument_schema, registry = _obligation_schema_registry()
     validator = Draft202012Validator(instrument_schema, registry=registry)
@@ -227,7 +257,10 @@ def validate_instrument_doc(
 
     for schema_error in sorted(validator.iter_errors(doc), key=lambda e: list(e.path)):
         pointer = "/".join(str(p) for p in schema_error.path) or "#"
-        errors.append(f"{label}: {pointer}: {schema_error.message}")
+        path = list(schema_error.path)
+        row = doc["obligations"][path[1]] if len(path) > 1 and path[0] == "obligations" and isinstance(path[1], int) else None
+        named = f" ({row['key']})" if isinstance(row, dict) and row.get("key") else ""
+        errors.append(f"{label}: {pointer}{named}: {schema_error.message}")
 
     source = doc.get("source")
     if source is not None and source in instrument_types and doc.get("instrument_type") not in instrument_types.get(source, []):
@@ -241,15 +274,24 @@ def validate_instrument_doc(
     if source is not None and source not in sources:
         errors.append(f"{label}: source {source!r} is not in vocab/sources.json")
 
+    errors.extend(_in_force_errors(label, f"instrument {doc.get('id')}", doc.get("in_force")))
+
     is_override_doc = "extends" in doc
     is_abstract = doc.get("abstract") is True
     for obligation in doc.get("obligations") or []:
         if not isinstance(obligation, dict):
             continue
         key = obligation.get("key")
+        errors.extend(_in_force_errors(label, str(key or obligation.get("overrides")), obligation.get("in_force")))
         if seen_keys is not None and key:
-            if key in seen_keys:
-                errors.append(f"{label}: obligation key {key!r} duplicates {seen_keys[key]}")
+            # A key repeats only within one instrument, as the dated versions of one duty
+            # (`resolve.version_errors` checks those); in two instruments it is one key
+            # naming two duties.
+            if key in seen_keys and seen_keys[key] != label:
+                errors.append(
+                    f"{label}: obligation key {key!r} is also in {seen_keys[key]} - a key may repeat only within "
+                    f"one instrument, as the dated versions of one duty"
+                )
             else:
                 seen_keys[key] = label
         if obligation.get("grade") == "demiton_default" and not obligation.get("basis"):
@@ -396,9 +438,6 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
     # and acyclic `extends`, an abstract target, an override that names a real
     # base obligation, and no silent drop from a model_law base. They live in
     # resolve.py, which also owns the flattening, so the two can never drift.
-    sys.path.insert(0, str(ROOT / "scripts"))
-    import resolve  # noqa: PLC0415 - script-local, mirrors how the tests import validate
-
     errors.extend(resolve.tree_errors())
     errors.extend(validate_event_types())
     errors.extend(validate_diseases())

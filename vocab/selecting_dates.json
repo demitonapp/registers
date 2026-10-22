@@ -1,0 +1,5 @@
+{
+  "$comment": "The date that decides which version of a duty applies (SM052 decision 18). An `in_force` block on an obligation, an override or an instrument names one in `by`, and scripts/validate.py refuses any other. Exactly two, because they are the two dates the engine can read: a job's contract date and the date of the event a duty turns on. A third (the date a procurement commenced, the date a contract was renewed) is a vocabulary addition (MINOR) made together with the engine reading that date; until then a rule that turns on one stays in the row's caveat.",
+  "contract_date": "The date the job's contract was entered into (`contract_terms.contract_date`). A transitional provision that applies a new rule only to contracts entered into after commencement is selected by this date.",
+  "event_date": "The date of the event the duty turns on: the date of the anchor or trigger record for a duty that runs from an event, the date of measurement for a standing duty. A transitional provision that applies a new rule to an event on or after commencement is selected by this date."
+}
