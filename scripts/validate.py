@@ -42,7 +42,11 @@ against vocab/jurisdictions.json. An obligation with no primary `citation` is
 refused by the schema's own `required`, not a separate rule. A dated version
 (`in_force`, SM052) must name its `by` in vocab/selecting_dates.json, and a key may
 repeat only within one instrument; the checks across the versions of one key live in
-`resolve.version_errors`, beside the resolver that derives them.
+`resolve.version_errors`, beside the resolver that derives them. `until_by` is derived by
+the resolver and refused in source; a `removed: true` row may not carry `in_force`; a row
+of an instrument dated with a `from` keeps that `by` and does not start earlier (its own
+block replaces the instrument's); and the flattened output of the real tree is checked
+against the contracts (`flattened_output_errors`).
 
 Currency is data, never a name (SD034, CLAUDE.md Rule 11). A property whose name
 carries an ISO 4217 code (`value_aud`, `valueAud`) is refused in `contracts/` and
@@ -215,6 +219,11 @@ def _in_force_errors(label: str, who: str, block: object) -> list[str]:
     if not isinstance(block, dict):
         return []
     errors: list[str] = []
+    if "until_by" in block:
+        errors.append(
+            f"{label}: {who}: in_force.until_by is derived by resolve.py from the next version's `by` and appears "
+            f"only in flattened output; remove it from the source"
+        )
     by = block.get("by")
     allowed = resolve.selecting_dates()
     if by is not None and by not in allowed:
@@ -229,6 +238,65 @@ def _in_force_errors(label: str, who: str, block: object) -> list[str]:
             errors.append(f"{label}: {who}: in_force.{field} {block[field]!r} is not a calendar date (YYYY-MM-DD)")
     if len(days) == 2 and days["from"] > days["until"]:
         errors.append(f"{label}: {who}: in_force.from {block['from']} is after until {block['until']}; from must precede until")
+    return errors
+
+
+def _floor_errors(label: str, doc: dict) -> list[str]:
+    """A row's own `in_force` replaces the instrument's block (it is kept, not merged), so on
+    an instrument dated by a `from` it would drop that floor. A row of such an instrument that
+    dates itself must use the same `by` and a `from` no earlier than the instrument's."""
+    block = doc.get("in_force")
+    if not isinstance(block, dict) or block.get("from") is None:
+        return []
+    try:
+        floor = resolve.as_date(block["from"])
+    except ValueError:
+        return []  # reported by _in_force_errors
+    errors: list[str] = []
+    for obligation in doc.get("obligations") or []:
+        own = obligation.get("in_force") if isinstance(obligation, dict) else None
+        if not isinstance(own, dict):
+            continue
+        who = str(obligation.get("key") or obligation.get("overrides"))
+        if own.get("by") != block.get("by"):
+            errors.append(
+                f"{label}: {who}: in_force.by {own.get('by')!r} differs from instrument {doc.get('id')}'s "
+                f"{block.get('by')!r}; a row's own in_force replaces the instrument's, so inside an instrument dated "
+                f"from {block['from']} a row must use the same `by`"
+            )
+        try:
+            own_from = resolve.as_date(own.get("from"))
+        except ValueError:
+            continue  # reported by _in_force_errors
+        if own_from is None:
+            errors.append(
+                f"{label}: {who}: in_force has no `from`, which drops the floor of instrument {doc.get('id')} "
+                f"(in force from {block['from']}); a row's own in_force replaces the instrument's, so give it a "
+                f"`from` no earlier than {block['from']}"
+            )
+        elif own_from < floor:
+            errors.append(
+                f"{label}: {who}: in_force.from {own_from.isoformat()} is earlier than instrument {doc.get('id')}'s "
+                f"from {block['from']}; a version cannot start before the instrument does"
+            )
+    return errors
+
+
+def flattened_output_errors(instruments: list[dict]) -> list[str]:
+    """Flattened instruments (what `resolve.py --out` emits and a consumer reads) against the
+    contracts. The source checks cannot see what the resolver derives (`until`, `until_by`), so
+    this is the check that the resolver and the contracts cannot drift apart."""
+    instrument_schema, registry = _obligation_schema_registry()
+    validator = Draft202012Validator(instrument_schema, registry=registry)
+    allowed = resolve.selecting_dates()
+    errors: list[str] = []
+    for inst in instruments:
+        for e in sorted(validator.iter_errors(inst), key=lambda e: list(e.path)):
+            errors.append(f"flattened {inst.get('id')}: {'/'.join(str(p) for p in e.path) or '#'}: {e.message}")
+        for row in inst.get("obligations") or []:
+            until_by = (row.get("in_force") or {}).get("until_by")
+            if until_by is not None and until_by not in allowed:
+                errors.append(f"flattened {inst.get('id')}: {row.get('key')}: in_force.until_by {until_by!r} is not in vocab/selecting_dates.json")
     return errors
 
 
@@ -275,6 +343,7 @@ def validate_instrument_doc(
         errors.append(f"{label}: source {source!r} is not in vocab/sources.json")
 
     errors.extend(_in_force_errors(label, f"instrument {doc.get('id')}", doc.get("in_force")))
+    errors.extend(_floor_errors(label, doc))
 
     is_override_doc = "extends" in doc
     is_abstract = doc.get("abstract") is True
@@ -283,6 +352,12 @@ def validate_instrument_doc(
             continue
         key = obligation.get("key")
         errors.extend(_in_force_errors(label, str(key or obligation.get("overrides")), obligation.get("in_force")))
+        if obligation.get("removed") and obligation.get("in_force") is not None:
+            errors.append(
+                f"{label}: {key or obligation.get('overrides')}: `removed: true` with an in_force block is ignored by "
+                f"resolve.py, which drops a removed row before it reads the block; a repeal is an `until` on the "
+                f"last version of the key, not a removal"
+            )
         if seen_keys is not None and key:
             # A key repeats only within one instrument, as the dated versions of one duty
             # (`resolve.version_errors` checks those); in two instruments it is one key
@@ -438,7 +513,10 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
     # and acyclic `extends`, an abstract target, an override that names a real
     # base obligation, and no silent drop from a model_law base. They live in
     # resolve.py, which also owns the flattening, so the two can never drift.
-    errors.extend(resolve.tree_errors())
+    tree = resolve.tree_errors()
+    errors.extend(tree)
+    if not tree:
+        errors.extend(flattened_output_errors(resolve.flatten()))
     errors.extend(validate_event_types())
     errors.extend(validate_diseases())
     errors.extend(unused_duty_shapes())

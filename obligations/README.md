@@ -140,13 +140,28 @@ id: sop_act_2021_wa
 in_force: {from: 2022-08-01, by: contract_date, transitional: "s 9(1)"}
 ```
 
+A row's own block is kept, not merged: it replaces the instrument's whole block. So on an
+instrument dated with a `from`, a row that dates itself must use the **same `by`** and a
+`from` **no earlier than the instrument's**, or the row would silently lose the
+instrument's floor (an event-dated amendment row inside an Act dated `from 2022-08-01 by
+contract_date` would apply to contracts the Act never bound). `validate.py` refuses the mix
+and names the key and the instrument. An instrument with no `from` has no floor, and its
+rows are free.
+
 **What the resolver derives.** It groups an instrument's rows by `key`, sorts them by
 `from` (none first), and gives each version but the last an `until` of the day before the
 next version's `from`, decided by the next version's `by`. In the example above the
 flattened original reads `in_force: {until: 2027-06-30, by: event_date}`. Versions are
 therefore contiguous by construction. Where an earlier version's own `by` differs from the
-next version's, the flattened row also carries `until_by`. Rows keep the order they were
+next version's, the flattened row also carries `until_by`. `until_by` is derived and never
+authored: it exists only in flattened output (the three contracts declare it for that
+reason), and `validate.py` refuses it in a source file. Rows keep the order they were
 written in.
+
+**A repeal is an `until`, not a removal.** `removed: true` on an override says the
+jurisdiction never carried the base duty; the resolver drops that row before it reads
+anything else on it. A `removed` row that also carries `in_force` is therefore refused: to
+end a duty on a date, put an `until` on the last version of its key.
 
 **One key, one duty.** The versions of a key share `protection_type`, `disease`,
 `evidence.register` and `duty_shape`; a change to any of them is a new key, in its own row.
@@ -179,7 +194,11 @@ more than one document:
   real day and `from` precedes `until`; a `key` repeats only within one instrument;
   `(key, from)` is unique; an `until` is written only on the last version of a key (so there is
   no overlap and no gap); and the versions of a key share `protection_type`, `disease`,
-  `evidence.register` and `duty_shape`. Each message names the key.
+  `evidence.register` and `duty_shape`; `until_by` is not authored; a `removed: true` row
+  carries no `in_force`; a row of an instrument dated with a `from` keeps its `by` and does
+  not start earlier than the instrument. Each message names the key.
+- the flattened output of the whole tree validates against the contracts, so what the
+  resolver derives cannot drift from what the contracts declare.
 
 `scripts/resolve.py` is what flattens the tree to the set a project reads:
 
