@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/credit_note/2",
+  "$id": "demiton:shelf/credit_note/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "allocations": {
@@ -23,11 +23,6 @@
       "type": "currency",
       "x-demiton-requiredness": "required"
     },
-    "currency_rate": {
-      "description": "the exchange rate applied",
-      "type": "decimal",
-      "x-demiton-requiredness": "optional"
-    },
     "direction": {
       "description": "whether this is a receivable credit or a payable credit",
       "type": "string",
@@ -38,6 +33,11 @@
       "type": "date",
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "day"
+    },
+    "exchange_rate": {
+      "description": "the exchange rate applied",
+      "type": "decimal",
+      "x-demiton-requiredness": "optional"
     },
     "external_id": {
       "description": "the source system's own credit note id",
@@ -112,9 +112,9 @@
     "total",
     "currency"
   ],
-  "title": "credit_note contract v2",
+  "title": "credit_note contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-domain": "financials",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {

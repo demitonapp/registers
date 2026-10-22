@@ -15,7 +15,6 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from bump_check import schema_bump_needed  # noqa: E402
 from validate import (  # noqa: E402
-    UNMIGRATED_CURRENCY_SPELLINGS,
     _walk_currency_names,
     currency_in_name,
     validate,
@@ -65,18 +64,16 @@ def test_an_exchange_rate_is_not_a_currency_field() -> None:
     assert _walk({"currency_rate": {"type": "decimal"}}) == ([], [])
 
 
-def test_the_unmigrated_spellings_warn_and_nothing_else_does() -> None:
-    errors, warnings = _walk({"currency_code": {"type": "currency"}}, contract="bank_accounts")
-    assert errors == [] and len(warnings) == 1 and "(unmigrated)" in warnings[0]
+def test_a_currency_code_field_not_named_currency_is_refused() -> None:
+    for name in ("currency_code", "default_currency_code"):
+        errors, warnings = _walk({name: {"type": "currency"}}, contract="bank_accounts")
+        assert warnings == [] and len(errors) == 1 and "must be named `currency`" in errors[0]
 
 
-def test_the_tree_has_no_currency_error_and_warns_only_on_the_pinned_four() -> None:
+def test_the_tree_has_no_currency_error_and_no_currency_warning() -> None:
     errors, warnings = validate()
     assert [e for e in errors if "currency" in e.lower()] == []
-    unmigrated = {w.split(": ")[0].removeprefix("contracts/").removesuffix(".schema.json") for w in warnings if "(unmigrated)" in w}
-    assert unmigrated == {c for c, _ in UNMIGRATED_CURRENCY_SPELLINGS}
-    # The set may only shrink: pin its size so a new exception is a visible edit to this test.
-    assert len(UNMIGRATED_CURRENCY_SPELLINGS) == 4
+    assert [w for w in warnings if "currency" in w.lower()] == []
 
 
 def test_renaming_an_amount_is_major_and_adding_a_currency_is_minor() -> None:

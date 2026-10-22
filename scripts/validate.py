@@ -45,9 +45,9 @@ Currency is data, never a name (SD034, CLAUDE.md Rule 11). A property whose name
 carries an ISO 4217 code (`value_aud`, `valueAud`) is refused in `contracts/` and
 `research/`: an amount carries its currency in a sibling `currency` field, or
 `<amount>_currency` beside a second amount. A property that holds a currency code
-(type `currency`, `string` or `money`) must be named `currency` or end `_currency`;
-the four that are not yet (UNMIGRATED_CURRENCY_SPELLINGS) warn, and the list may
-only shrink. `history/` is past versions and is not checked.
+(type `currency`, `string` or `money`) must be named `currency` or end `_currency`
+(`currency_code`, `default_currency_code` are refused). `history/` is past versions
+and is not checked.
 
 Exit code 1 on any error; warnings print but do not fail.
 """
@@ -83,17 +83,6 @@ ISO_4217 = frozenset(
 #: `lsl_balance`, `weight_kgs`). Matching them would refuse a name that carries no currency.
 CODE_WORDS = frozenset("ALL AWG CAD CUP GEL KGS LSL MAD MOP PEN SAR SOS TOP TRY".split())
 CURRENCY_CODES = ISO_4217 - CODE_WORDS
-#: Currency-code fields not yet named `currency` / `<amount>_currency`: (contract, property). Each is a
-#: MAJOR rename plus a writer move in the monorepo, a decision outside SD034/P6's list. This set may only
-#: shrink; tests/test_validate_currency.py pins it.
-UNMIGRATED_CURRENCY_SPELLINGS = frozenset(
-    {
-        ("bank_accounts", "currency_code"),
-        ("customer_list", "default_currency_code"),
-        ("invoice_issued", "currency_code"),
-        ("vendor_list", "default_currency_code"),
-    }
-)
 _CURRENCY_VALUED_TYPES = {"currency", "string", "money"}
 _NAME_TOKENS = re.compile(r"[A-Z0-9]+(?![a-z])|[A-Za-z][a-z0-9]*")
 
@@ -158,11 +147,7 @@ def _walk_currency_names(node: object, path: str, errors: list[str], warnings: l
             and sub_type in _CURRENCY_VALUED_TYPES
             and not _is_currency_spelling_ok(name)
         ):
-            msg = f"{rel}: {where}: a currency field must be named `currency` or `<amount>_currency`, not {name!r}"
-            if (contract, name) in UNMIGRATED_CURRENCY_SPELLINGS:
-                warnings.append(f"{msg} (unmigrated)")
-            else:
-                errors.append(msg)
+            errors.append(f"{rel}: {where}: a currency field must be named `currency` or `<amount>_currency`, not {name!r}")
         _walk_currency_names(sub, where, errors, warnings, rel, contract)
     if isinstance(node.get("items"), dict):
         _walk_currency_names(node["items"], f"{path}/items", errors, warnings, rel, contract)
