@@ -24,6 +24,11 @@
       "x-demiton-reference": true,
       "x-demiton-requiredness": "optional"
     },
+    "currency": {
+      "description": "the currency of `service_cost`, an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
     "external_id": {
       "description": "the source form-result's own identifier, as text",
       "type": "string",
@@ -97,8 +102,7 @@
     "service_cost": {
       "description": "the total cost of the service",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "service_date": {
       "description": "the date carried on the form, where it differs from submission time",
@@ -134,7 +138,7 @@
   ],
   "title": "maintenance_record contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.2",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": [
       {

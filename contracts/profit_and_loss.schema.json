@@ -5,32 +5,27 @@
     "actual_amount": {
       "description": "actual cost to date (BC `Total_Cost`)",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "budget_amount": {
       "description": "the project budget at the snapshot (BC `Total_Budget`)",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "claimed_to_date_amount": {
       "description": "value invoiced to date (BC `Total_Invoiced`)",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "commitments_amount": {
       "description": "open purchase-commitment value (BC `Total_Commitments`)",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "contract_value_amount": {
       "description": "the contracted value of the job (BC `Total_Contract_Value`)",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "currency": {
       "description": "the currency the amounts are in; today the field names hard-code AUD and the writer passes `currency_code=\"AUD\"`",
@@ -45,8 +40,7 @@
     "gross_margin_amount": {
       "description": "revenue less actual cost (`Total_Revenue(abs) - Total_Cost`)",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "gross_margin_pct": {
       "description": "`gross_margin_amount / revenue * 100`",
@@ -71,10 +65,9 @@
       "x-demiton-requiredness": "optional"
     },
     "variance_amount": {
-      "description": "`budget_amount - (actual_amount + commitments_amount)`; the writer's `variance_aud`",
+      "description": "`budget_amount - (actual_amount + commitments_amount)`",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     }
   },
   "required": [
@@ -85,7 +78,7 @@
   ],
   "title": "profit_and_loss contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {

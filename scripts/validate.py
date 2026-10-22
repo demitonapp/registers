@@ -41,6 +41,14 @@ source) and every `jurisdictions` / obligation-level `jurisdiction` code
 against vocab/jurisdictions.json. An obligation with no primary `citation` is
 refused by the schema's own `required`, not a separate rule.
 
+Currency is data, never a name (SD034, CLAUDE.md Rule 11). A property whose name
+carries an ISO 4217 code (`value_aud`, `valueAud`) is refused in `contracts/` and
+`research/`: an amount carries its currency in a sibling `currency` field, or
+`<amount>_currency` beside a second amount. A property that holds a currency code
+(type `currency`, `string` or `money`) must be named `currency` or end `_currency`;
+the four that are not yet (UNMIGRATED_CURRENCY_SPELLINGS) warn, and the list may
+only shrink. `history/` is past versions and is not checked.
+
 Exit code 1 on any error; warnings print but do not fail.
 """
 from __future__ import annotations
@@ -61,6 +69,33 @@ KNOWN_TYPES = {
     "null", "boolean", "object", "array", "number", "string", "integer",  # JSON Schema's own
     "decimal", "money", "currency", "date", "datetime", "jurisdiction",  # the monorepo's closed vocabulary
 }
+
+#: ISO 4217 alpha-3 codes in current use. A property name carrying one is refused.
+ISO_4217 = frozenset(
+    """AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BRL BSD BTN BWP BYN BZD CAD CDF CHF
+    CLP CNY COP CRC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HTG HUF
+    IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK
+    MNT MOP MRU MUR MVR MWK MXN MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR
+    SBD SCR SDG SEK SGD SHP SLE SOS SRD SSP STN SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD UYU UZS VES
+    VND VUV WST XAF XCD XOF XPF YER ZAR ZMW ZWL ZWG""".split()
+)
+#: Codes that are also words a property name legitimately holds (`top_agency_names`, `cad_file`,
+#: `lsl_balance`, `weight_kgs`). Matching them would refuse a name that carries no currency.
+CODE_WORDS = frozenset("ALL AWG CAD CUP GEL KGS LSL MAD MOP PEN SAR SOS TOP TRY".split())
+CURRENCY_CODES = ISO_4217 - CODE_WORDS
+#: Currency-code fields not yet named `currency` / `<amount>_currency`: (contract, property). Each is a
+#: MAJOR rename plus a writer move in the monorepo, a decision outside SD034/P6's list. This set may only
+#: shrink; tests/test_validate_currency.py pins it.
+UNMIGRATED_CURRENCY_SPELLINGS = frozenset(
+    {
+        ("bank_accounts", "currency_code"),
+        ("customer_list", "default_currency_code"),
+        ("invoice_issued", "currency_code"),
+        ("vendor_list", "default_currency_code"),
+    }
+)
+_CURRENCY_VALUED_TYPES = {"currency", "string", "money"}
+_NAME_TOKENS = re.compile(r"[A-Z0-9]+(?![a-z])|[A-Za-z][a-z0-9]*")
 
 
 def research_schemas() -> list[Path]:
@@ -87,6 +122,53 @@ def _walk_field_types(node: object, path: str, warnings: list[str], rel: Path) -
         _walk_field_types(sub, f"{path}/properties/{name}", warnings, rel)
     if isinstance(node.get("items"), dict):
         _walk_field_types(node["items"], f"{path}/items", warnings, rel)
+
+
+def _name_tokens(name: str) -> list[str]:
+    """`value_aud` -> [value, aud]; `valueAud` -> [value, Aud]; case is the caller's to fold."""
+    return [tok for part in name.split("_") for tok in _NAME_TOKENS.findall(part)]
+
+
+def currency_in_name(name: str) -> str | None:
+    """The ISO 4217 code a property name carries, or None."""
+    return next((t.upper() for t in _name_tokens(name) if t.upper() in CURRENCY_CODES), None)
+
+
+def _is_currency_spelling_ok(name: str) -> bool:
+    leaf = name.rsplit(".", 1)[-1]  # a flattened path key (`accounts[].currency`) is judged on its last segment
+    return leaf == "currency" or leaf.endswith("_currency")
+
+
+def _walk_currency_names(node: object, path: str, errors: list[str], warnings: list[str], rel: Path, contract: str) -> None:
+    """Currency is data, never a name: no property names a currency, and a property that holds a
+    currency code is named `currency` or `<amount>_currency`."""
+    if not isinstance(node, dict):
+        return
+    for name, sub in (node.get("properties") or {}).items():
+        where = f"{path}/properties/{name}"
+        code = currency_in_name(name)
+        if code:
+            errors.append(
+                f"{rel}: {where}: property {name!r} names a currency ({code}); carry it as data in a "
+                "`currency` field (or `<amount>_currency` beside a second amount)"
+            )
+        sub_type = sub.get("type") if isinstance(sub, dict) else None
+        if (
+            "currency" in _name_tokens(name.lower())
+            and sub_type in _CURRENCY_VALUED_TYPES
+            and not _is_currency_spelling_ok(name)
+        ):
+            msg = f"{rel}: {where}: a currency field must be named `currency` or `<amount>_currency`, not {name!r}"
+            if (contract, name) in UNMIGRATED_CURRENCY_SPELLINGS:
+                warnings.append(f"{msg} (unmigrated)")
+            else:
+                errors.append(msg)
+        _walk_currency_names(sub, where, errors, warnings, rel, contract)
+    if isinstance(node.get("items"), dict):
+        _walk_currency_names(node["items"], f"{path}/items", errors, warnings, rel, contract)
+    for key in ("allOf", "anyOf", "oneOf"):
+        for i, branch in enumerate(node.get(key) or []):
+            _walk_currency_names(branch, f"{path}/{key}/{i}", errors, warnings, rel, contract)
 
 
 def _check_version(path: Path, doc: dict, errors: list[str]) -> None:
@@ -383,6 +465,7 @@ def validate() -> tuple[list[str], list[str]]:
             errors.append(f"{rel}: {exc}")
             continue
         _check_version(path, doc, errors)
+        _walk_currency_names(doc, "#", errors, warnings, rel, path.name.removesuffix(".schema.json"))
 
     for path in shaped_contracts():
         doc, parse_error = _load(path)
@@ -399,6 +482,7 @@ def validate() -> tuple[list[str], list[str]]:
         _walk_field_types(doc, "#", warnings, rel)
         if "history" not in path.parts:  # a past version doesn't need to BE the current version
             _check_version(path, doc, errors)
+            _walk_currency_names(doc, "#", errors, warnings, rel, path.name.removesuffix(".schema.json"))
 
     if (ROOT / "obligations").is_dir():
         ob_errors, ob_warnings = validate_obligation_data()

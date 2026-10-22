@@ -5,14 +5,12 @@
     "amount": {
       "description": "total committed value of the PO, tax inclusive",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "amount_excluding_tax": {
       "description": "committed value net of tax",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "currency": {
       "description": "denomination of `amount`",
@@ -78,8 +76,7 @@
     "tax_amount": {
       "description": "tax component of the committed value",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "vendor": {
       "description": "the supplier the PO is placed with",
@@ -96,7 +93,7 @@
   ],
   "title": "purchase_order contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {

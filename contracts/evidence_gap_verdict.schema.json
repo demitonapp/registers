@@ -1,11 +1,16 @@
 {
-  "$id": "demiton:shelf/evidence_gap_verdict/1",
+  "$id": "demiton:shelf/evidence_gap_verdict/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "consequence": {
       "description": "what missing the standard costs, from the standard's own field",
       "type": "string",
       "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`exposure`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
     },
     "detail": {
       "description": "a one-line human-readable explanation of the verdict",
@@ -17,7 +22,7 @@
       "type": "string",
       "x-demiton-requiredness": "required"
     },
-    "exposure_aud": {
+    "exposure": {
       "description": "a proxy dollar exposure from the project's own contract terms",
       "type": "number",
       "x-demiton-requiredness": "optional"
@@ -68,9 +73,9 @@
     "source_clause",
     "grade"
   ],
-  "title": "evidence_gap_verdict contract v1",
+  "title": "evidence_gap_verdict contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-domain": "compliance",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {

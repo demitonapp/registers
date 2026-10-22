@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_planning/2",
+  "$id": "demiton:shelf/platform_planning/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agency_id": {
@@ -22,6 +22,11 @@
       "type": "date",
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "ISO 8601"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`value`, `value_min`, `value_max`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
     },
     "delivery_model": {
       "description": "Published delivery/contract model.",
@@ -140,23 +145,20 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
-    "value_aud": {
+    "value": {
       "description": "Estimated or budgeted value of the planned work; the single declared measure.",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
-    "value_max_aud": {
+    "value_max": {
       "description": "Upper bound of a published value range.",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
-    "value_min_aud": {
+    "value_min": {
       "description": "Lower bound of a published value range.",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     }
   },
   "required": [
@@ -171,9 +173,9 @@
     "stage",
     "occurred_at"
   ],
-  "title": "platform_planning contract v2",
+  "title": "platform_planning contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

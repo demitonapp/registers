@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/cash_position/1",
+  "$id": "demiton:shelf/cash_position/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "account_count": {
@@ -45,6 +45,11 @@
       "x-demiton-requiredness": "required",
       "x-demiton-unit": "instant"
     },
+    "currency": {
+      "description": "the reporting currency of `total_cash`, an ISO 4217 alpha-3 code. Each account carries its own `currency`. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
     "legal_entity_id": {
       "description": "the legal entity whose cash this is; the fact's subject anchor, stamped also as a `LEGAL_ENTITY` context coordinate",
       "type": "string",
@@ -56,25 +61,25 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
-    "total_cash_aud": {
+    "total_cash": {
       "description": "sum of the account balances in the reporting currency",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     }
   },
   "required": [
     "legal_entity_id",
     "as_of",
-    "total_cash_aud",
+    "total_cash",
     "accounts",
     "accounts[].account_no",
     "accounts[].account_name",
-    "accounts[].balance"
+    "accounts[].balance",
+    "currency"
   ],
-  "title": "cash_position contract v1",
+  "title": "cash_position contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

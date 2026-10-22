@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/market_intelligence/1",
+  "$id": "demiton:shelf/market_intelligence/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "austender_count": {
@@ -29,6 +29,11 @@
       "type": "integer",
       "x-demiton-requiredness": "required",
       "x-demiton-unit": "count"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`total_value`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
     },
     "generated_at": {
       "description": "when the snapshot was produced; today `run_date` in `structured` (`:624`) and `valid_from` (`:612`)",
@@ -72,11 +77,10 @@
       "type": "integer",
       "x-demiton-requiredness": "required"
     },
-    "total_value_aud": {
-      "description": "sum of `value_aud` across matched contracts (`:591`)",
+    "total_value": {
+      "description": "sum of the matched contracts' award values",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "valid_from": {
       "description": "currency of the conclusion",
@@ -98,12 +102,13 @@
     "snapshot_id",
     "generated_at",
     "contract_count",
-    "total_value_aud",
-    "sources"
+    "total_value",
+    "sources",
+    "currency"
   ],
-  "title": "market_intelligence contract v1",
+  "title": "market_intelligence contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

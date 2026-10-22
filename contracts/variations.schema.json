@@ -25,14 +25,12 @@
     "amount": {
       "description": "Agreed amount (register)",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "currency not declared"
+      "x-demiton-requiredness": "optional"
     },
     "amount_ex_gst": {
       "description": "Total ex-GST amount of the variation",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "approved_by": {
       "description": "Name of the approver (register)",
@@ -67,6 +65,11 @@
     "created_by_user_id": {
       "description": "Identity of the creating user (register)",
       "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`amount`, `amount_ex_gst` and each line's amount), an ISO 4217 alpha-3 code as the document states it. A record with no currency has no usable amount.",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "date_agreed": {
@@ -152,7 +155,7 @@
   ],
   "title": "variations contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.2.0",
   "x-demiton-provenance": {
     "standards": [
       {

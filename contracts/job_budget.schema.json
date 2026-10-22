@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/job_budget/1",
+  "$id": "demiton:shelf/job_budget/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "by_expense_category": {
@@ -9,9 +9,9 @@
       "x-demiton-unit": "AUD per key"
     },
     "currency": {
-      "description": "the currency the amounts are in; v1 fixes the unit at AUD in the field name",
-      "type": "money",
-      "x-demiton-requiredness": "optional"
+      "description": "the currency of every amount on this record (`total_budget`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
     },
     "financial_period": {
       "description": "the accounting period the budget figure is the live value for",
@@ -37,22 +37,22 @@
       "x-demiton-reference": true,
       "x-demiton-requiredness": "required"
     },
-    "total_budget_aud": {
+    "total_budget": {
       "description": "the budgeted amount for the project, summed over all planning lines",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     }
   },
   "required": [
     "project_id",
     "financial_period",
     "legal_entity_id",
-    "total_budget_aud"
+    "total_budget",
+    "currency"
   ],
-  "title": "job_budget contract v1",
+  "title": "job_budget contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": []
   },

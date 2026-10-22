@@ -33,8 +33,12 @@
     "cost_impact_amount": {
       "description": "the cost the defect adds",
       "type": "money",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of `cost_impact_amount`, an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
     },
     "description": {
       "description": "what is wrong",
@@ -116,7 +120,7 @@
   ],
   "title": "punch_list contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.1.0",
   "x-demiton-domain": "projects",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
