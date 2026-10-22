@@ -308,6 +308,33 @@ def _match_value_errors(key: str, where: str, match: dict, props: dict) -> list[
     return errors
 
 
+def validate_diseases(release: dict | None = None) -> list[str]:
+    """Demiton SM048: vocab/diseases.json is one taxonomy. Every disease an obligation row can carry
+    (obligation.schema.json's `disease` enum) is defined here, in order, with its copy, its start groups
+    and its feeder registers, and every register it reads has a contract."""
+    release = release if release is not None else _load_vocab("diseases")
+    errors: list[str] = []
+    order, diseases = release.get("order") or [], release.get("diseases") or {}
+    if set(order) != set(diseases) or len(order) != len(set(order)):
+        errors.append("vocab/diseases.json: `order` must list each disease in `diseases` exactly once")
+    enum = json.loads((ROOT / "contracts" / "obligation.schema.json").read_text())["properties"]["disease"]["enum"]
+    if enum != order:
+        errors.append(f"vocab/diseases.json: order {order} differs from contracts/obligation.schema.json `disease` enum {enum}")
+    for key, disease in diseases.items():
+        for field in ("label", "buyer_name", "what", "prevention"):
+            if not str(disease.get(field) or "").strip():
+                errors.append(f"vocab/diseases.json: {key}: {field} is required")
+        if not disease.get("start") or not all(disease["start"]):
+            errors.append(f"vocab/diseases.json: {key}: start must be a list of non-empty register groups")
+        if not disease.get("feeders"):
+            errors.append(f"vocab/diseases.json: {key}: feeders is required")
+        groups = [r for group in disease.get("start") or [] for r in group]
+        for register in [*groups, *(disease.get("feeders") or [])]:
+            if not (ROOT / "contracts" / f"{register}.schema.json").exists():
+                errors.append(f"vocab/diseases.json: {key}: register {register!r} has no contract")
+    return errors
+
+
 def validate_event_types(catalogue: dict | None = None) -> list[str]:
     """Demiton SM038: every event type names a register in contracts/ and fields
     that register declares, so a trigger cannot point at a field that is not there."""
@@ -389,6 +416,7 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
 
     errors.extend(resolve.tree_errors())
     errors.extend(validate_event_types())
+    errors.extend(validate_diseases())
     errors.extend(unused_duty_shapes())
 
     return errors, warnings
