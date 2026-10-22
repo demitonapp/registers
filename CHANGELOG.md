@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v23, 2026-10-22: no obligation kinds (register contracts only)
+
 - Currency is data, never a name. Eleven contracts drop their currency-named property for the amount plus a `currency` field (MAJOR, the contract's next major version): `plant_fuel_usage` `claim_amount`, `evidence_gap_verdict` `exposure`, `tendered_budget` `total` and `grand_total`, `platform_contractor_stats` `total_awarded_3yr`, `job_budget` `total_budget`, `cash_position` `total_cash`, `market_intelligence` `total_value`, `bid_no_bid_verdict`, `platform_award`, `platform_planning` and `platform_tender` `value` (and `value_min`, `value_max`). `currency` is required where the amount was, optional where it was. `variations` 1.2.0, `project_performance_record` 2.1.0, `maintenance_record` 2.1.0, `margin_watch_learning` 1.1.0 and `punch_list` 1.1.0 gain an optional `currency` (MINOR); `profit_and_loss`, `budget_vs_actual` and `purchase_order` drop their `AUD` unit annotation (PATCH). `scripts/validate.py` now refuses a property whose name carries an ISO 4217 code, and a currency-code field not named `currency` or `<amount>_currency`; four existing fields (`currency_code` on `bank_accounts` and `invoice_issued`, `default_currency_code` on `customer_list` and `vendor_list`) warn until they are renamed.
 
 ## v22, 2026-10-21: addition, correction
