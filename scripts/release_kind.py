@@ -30,10 +30,24 @@ check, so the declaration is the resolution.
 
 With `--tag`, CHANGELOG.md at the head must carry `## vN, YYYY-MM-DD: <kinds>` naming
 every computed kind; the tag is refused otherwise, and `--out` writes RELEASE.json
-(`{tag, kinds, amendments: [{key, from}]}`) for the monorepo's release gate.
+(`{tag, kinds, amendments: [{key, from}], warnings: [str]}`) for the monorepo's release
+gate.
+
+The tag date is the date in that heading, not the runner's clock. It is the `--on` the
+classification runs against, and the tag is refused when it differs from the date of the
+tag commit in Australia/Brisbane (`--commit-date`, an ISO 8601 datetime such as
+`git log -1 --format=%cI <tag>` prints; default: the head commit's). A runner's UTC
+clock is a day behind Brisbane for ten hours of every day, so a clock is never the date.
+Without `--tag` (a pull request's informational run), `--on` defaults to today in
+Brisbane.
 
 Exit code 1 when the tag is refused. An amendment commencing fewer than 20 business
-days after the tag date is a warning only.
+days after the tag date (SM052 decision 16) is a warning only. It is reported once per
+amendment, as a GitHub `::warning::` annotation under Actions (a `warning:` line
+elsewhere), and the same text goes into RELEASE.json's `warnings` (`[]` when there are
+none) and, in the release workflow, into the GitHub release notes under "Late
+amendments". The monorepo's release gate reads `tag`, `kinds`, `amendments` and
+`warnings`; the file has no other fields.
 """
 from __future__ import annotations
 
@@ -41,6 +55,7 @@ import argparse
 import importlib.util
 import io
 import json
+import os
 import re
 import subprocess
 import sys
@@ -48,13 +63,18 @@ import tarfile
 import tempfile
 from collections import Counter
 from dataclasses import dataclass
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 ROOT = Path(__file__).resolve().parent.parent
 KINDS = ("addition", "amendment", "correction")
 AMENDMENT_LEAD_BUSINESS_DAYS = 20
 HEADING = re.compile(r"^## (v\d+), (\d{4}-\d{2}-\d{2}): (.*)$", re.M)
+try:
+    BRISBANE = ZoneInfo("Australia/Brisbane")
+except ZoneInfoNotFoundError:  # a host with no tz database; Brisbane has had no daylight saving since 1992
+    BRISBANE = timezone(timedelta(hours=10), "Australia/Brisbane")
 
 
 @dataclass(frozen=True)
@@ -173,24 +193,61 @@ def declared(changelog: str, tag: str) -> set[str] | None:
     return None
 
 
-def refusals(changes: list[Change], changelog: str, tag: str, on: date) -> list[str]:
+def heading_date(changelog: str, tag: str) -> date | None:
+    """The date in the `## vN, YYYY-MM-DD: <kinds>` heading of `tag`: the tag date."""
+    for found in HEADING.finditer(changelog):
+        if found.group(1) == tag:
+            return date.fromisoformat(found.group(2))
+    return None
+
+
+def brisbane_date(moment: str | datetime) -> date:
+    """The calendar date in Australia/Brisbane of an ISO 8601 datetime with an offset (or `Z`)."""
+    when = datetime.fromisoformat(moment) if isinstance(moment, str) else moment
+    if when.tzinfo is None:
+        raise ValueError(f"{moment!r} has no UTC offset; pass an ISO 8601 datetime such as `git log --format=%cI` prints")
+    return when.astimezone(BRISBANE).date()
+
+
+def today_in_brisbane() -> date:
+    return datetime.now(BRISBANE).date()
+
+
+def late_amendments(changes: list[Change], on: date) -> list[str]:
+    """One warning per amendment commencing fewer than 20 business days after `on`. A new
+    version and the derived `until` of the version before it are one amendment, found twice
+    (same key, same commencement), so they are counted once."""
+    return [
+        f"{key} commences {start}, fewer than {AMENDMENT_LEAD_BUSINESS_DAYS} business days after {on}"
+        for key, start in sorted({(c.key, c.commences) for c in changes if c.kind == "amendment"})
+        if business_days_between(on, start) < AMENDMENT_LEAD_BUSINESS_DAYS
+    ]
+
+
+def refusals(changes: list[Change], changelog: str, tag: str, on: date, commit_date: date | None = None) -> list[str]:
     kinds = declared(changelog, tag)
     if kinds is None:
         return [f"CHANGELOG.md has no `## {tag}, YYYY-MM-DD: <kinds>` section"]
     errors = []
+    if commit_date is not None and heading_date(changelog, tag) != commit_date:
+        errors.append(
+            f"the {tag} section is dated {heading_date(changelog, tag)} but the tag commit is dated {commit_date} "
+            f"in Australia/Brisbane; the heading date is the tag date, so set it to {commit_date}"
+        )
     for kind, n in Counter(c.kind for c in changes if c.kind not in kinds and c.alt not in kinds).items():
         example = next(c for c in changes if c.kind == kind and c.kind not in kinds and c.alt not in kinds)
         errors.append(f"{n} change(s) are `{kind}` but the {tag} section does not declare it (e.g. {example.key}: {example.reason})")
     return errors
 
 
-def release_json(changes: list[Change], changelog: str, tag: str) -> dict:
+def release_json(changes: list[Change], changelog: str, tag: str, warnings: list[str] | None = None) -> dict:
     kinds = declared(changelog, tag)
     amendments = sorted({(c.key, c.commences) for c in changes if c.kind == "amendment"})
     return {
         "tag": tag,
         "kinds": [k for k in KINDS if k in kinds],
         "amendments": [{"key": key, "from": start.isoformat()} for key, start in amendments],
+        "warnings": list(warnings or []),
     }
 
 
@@ -199,28 +256,46 @@ def main() -> int:
     ap.add_argument("--base", required=True, help="the previous release tag, e.g. v15")
     ap.add_argument("--head", default="HEAD", help="the ref being released (default HEAD)")
     ap.add_argument("--tag", help="the tag being cut: check its CHANGELOG section")
-    ap.add_argument("--on", type=date.fromisoformat, default=date.today(), help="the tag date (default today)")
+    ap.add_argument(
+        "--on",
+        type=date.fromisoformat,
+        help="the tag date. With --tag, the date in the tag's CHANGELOG heading; otherwise today in Australia/Brisbane",
+    )
+    ap.add_argument(
+        "--commit-date",
+        help="with --tag, the tag commit's ISO 8601 datetime (`git log -1 --format=%%cI <tag>`); the heading date must be "
+        "its date in Australia/Brisbane. Default: the --head commit's",
+    )
     ap.add_argument("--out", help="with --tag, write RELEASE.json here")
     args = ap.parse_args()
 
-    changes = classify(tree_at(args.base), tree_at(args.head), args.on)
+    changelog = _git("show", f"{args.head}:CHANGELOG.md").decode() if args.tag else ""
+    on = args.on or (args.tag and heading_date(changelog, args.tag)) or today_in_brisbane()
+    commit_date = None
+    if args.tag:
+        try:
+            commit_date = brisbane_date(args.commit_date or _git("log", "-1", "--format=%cI", args.head).decode().strip())
+        except ValueError as exc:
+            print(f"error: --commit-date: {exc}")
+            return 1
+
+    changes = classify(tree_at(args.base), tree_at(args.head), on)
     for (kind, reason), n in sorted(Counter((c.kind, c.reason) for c in changes).items()):
         print(f"{kind:<11} {n:>4}  {reason}")
     print(f"kinds: {', '.join(k for k in KINDS if k in computed_kinds(changes)) or 'none'}")
-    for c in changes:
-        if c.kind == "amendment" and business_days_between(args.on, c.commences) < AMENDMENT_LEAD_BUSINESS_DAYS:
-            print(f"warning: {c.key} commences {c.commences}, fewer than {AMENDMENT_LEAD_BUSINESS_DAYS} business days after {args.on}")
+    warnings = late_amendments(changes, on)
+    for w in warnings:
+        print(f"::warning title=Late amendment::{w}" if os.environ.get("GITHUB_ACTIONS") == "true" else f"warning: {w}")
 
     if not args.tag:
         return 0
-    changelog = _git("show", f"{args.head}:CHANGELOG.md").decode()
-    errors = refusals(changes, changelog, args.tag, args.on)
+    errors = refusals(changes, changelog, args.tag, on, commit_date)
     for e in errors:
         print(f"error: {e}")
     if errors:
         return 1
     if args.out:
-        Path(args.out).write_text(json.dumps(release_json(changes, changelog, args.tag), indent=2) + "\n")
+        Path(args.out).write_text(json.dumps(release_json(changes, changelog, args.tag, warnings), indent=2) + "\n")
     return 0
 
 

@@ -17,7 +17,10 @@ name: release
 # `RELEASE.json` rides in the obligations asset too (SM052 D5): `release_kind.py`
 # computes the release's kinds from the diff against the previous tag and refuses
 # the tag when CHANGELOG.md's `## vN, YYYY-MM-DD: <kinds>` section does not declare
-# every one. The monorepo's release gate reads the file's `wave_on`.
+# every one, or is dated other than the tag commit's day in Australia/Brisbane. The
+# monorepo's release gate reads the file's `tag`, `kinds`, `amendments` and `warnings`
+# (an amendment starting fewer than 20 business days after the tag date); the same
+# warnings go into the release notes under "Late amendments".
 on:
   push:
     tags: ["v*"]
@@ -40,7 +43,7 @@ jobs:
       - run: uv run python scripts/validate.py
       - run: uv run python -m pytest tests/ -q
       - name: release kind
-        run: uv run python scripts/release_kind.py --base "$(git describe --tags --abbrev=0 "${TAG}^")" --tag "$TAG" --out RELEASE.json
+        run: uv run python scripts/release_kind.py --base "$(git describe --tags --abbrev=0 "${TAG}^")" --tag "$TAG" --commit-date "$(git log -1 --format=%cI "$TAG")" --out RELEASE.json
         env:
           TAG: ${{ github.ref_name }}
       - run: |
@@ -57,12 +60,18 @@ jobs:
         env:
           TAG: ${{ github.ref_name }}
       - run: |
+          # Late amendments (RELEASE.json `warnings`) lead the generated notes; with none, the notes are unchanged.
+          notes=()
+          if [ "$(jq '.warnings | length' RELEASE.json)" -gt 0 ]; then
+            { echo "## Late amendments"; echo; echo "Starting fewer than 20 business days after this release:"; echo; jq -r '.warnings[] | "- " + .' RELEASE.json; } > release-notes.md
+            notes=(--notes-file release-notes.md)
+          fi
           gh release create "$TAG" \
             "registers-contracts-${TAG}.tar.gz" \
             "registers-research-${TAG}.tar.gz" \
             "registers-history-${TAG}.tar.gz" \
             "registers-obligations-${TAG}.tar.gz" \
-            --generate-notes
+            --generate-notes "${notes[@]}"
         env:
           TAG: ${{ github.ref_name }}
           GH_TOKEN: ${{ github.token }}

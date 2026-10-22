@@ -38,6 +38,21 @@ A pull request's CI prints the kinds it computes; the release tag's CHANGELOG
 section must declare them. A new duty that the library should always have carried
 is a correction: say so in the pull request.
 
+## Cutting a release
+
+Cutting a tag turns `## Unreleased` in `CHANGELOG.md` into `## vN, YYYY-MM-DD: <kinds>`.
+The date is the tag date: the release workflow classifies the diff against it, and
+refuses the tag when it is not the day of the tag commit in Australia/Brisbane (a
+runner's UTC clock is a day behind Brisbane for ten hours of every day, so a clock is
+never the date). Commit the section, then tag that commit.
+
+`RELEASE.json`, attached in `registers-obligations-vN.tar.gz`, is
+`{tag, kinds, amendments: [{key, from}], warnings: [str]}`. `warnings` holds one line for
+each amendment that starts fewer than 20 business days after the tag date (SM052
+decision 16), and is `[]` when there are none. The same lines appear as a `::warning::`
+annotation on the release run and under "Late amendments" in the GitHub release notes.
+It is a warning, never a refusal.
+
 ## Proposing a new register
 
 Open an issue with the [register proposal template](../../issues/new?template=propose-register.yml)
