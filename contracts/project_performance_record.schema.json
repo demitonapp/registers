@@ -21,26 +21,22 @@
     "claim_cycle.curve[].claimed": {
       "description": "claimed in that month",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "claim_cycle.curve[].cost": {
       "description": "cost in that month",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "claim_cycle.curve[].cum_claimed": {
       "description": "cumulative claimed",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "claim_cycle.curve[].cum_cost": {
       "description": "cumulative cost",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "claim_cycle.curve[].margin_to_date_pct": {
       "description": "cumulative margin at that month",
@@ -101,6 +97,11 @@
       "description": "the tenant's own BC category label",
       "type": "string",
       "x-demiton-requiredness": "tenant-specific"
+    },
+    "currency": {
+      "description": "the currency of every monetary amount on this record, an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
     },
     "data_quality.confidence": {
       "description": "gate confidence stamped on the fact",
@@ -223,20 +224,17 @@
     "outcome.budget": {
       "description": "BC total budget",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "outcome.contract_value": {
       "description": "BC total contract value",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "outcome.cost_actual": {
       "description": "BC total cost",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "outcome.cost_growth_pct": {
       "description": "cost \u00f7 budget \u2212 1",
@@ -247,14 +245,12 @@
     "outcome.invoiced": {
       "description": "BC total invoiced",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "outcome.margin": {
       "description": "BC margin",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "outcome.margin_pct": {
       "description": "margin to date",
@@ -265,8 +261,7 @@
     "outcome.revenue_actual": {
       "description": "BC total revenue",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "outcome.revised_budget": {
       "description": "variation-adjusted budget/contract and the variation tally",
@@ -371,7 +366,7 @@
   ],
   "title": "project_performance_record contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": [
       {

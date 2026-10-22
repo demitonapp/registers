@@ -2,6 +2,11 @@
   "$id": "demiton:shelf/margin_watch_learning/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
+    "currency": {
+      "description": "the currency of every monetary amount on this record, an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
     "financial_period": {
       "description": "context coordinate declared OPTIONAL",
       "type": "string",
@@ -36,8 +41,7 @@
     "lesson_candidates[].provenance.drift_dollars": {
       "description": "points scaled by contract value; null when no contract value",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "lesson_candidates[].provenance.drift_pts": {
       "description": "signed margin movement that cycle",
@@ -132,7 +136,7 @@
   ],
   "title": "margin_watch_learning contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "1.1.0",
   "x-demiton-provenance": {
     "standards": []
   },

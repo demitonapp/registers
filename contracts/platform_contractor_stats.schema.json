@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_contractor_stats/1",
+  "$id": "demiton:shelf/platform_contractor_stats/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "abn_source": {
@@ -27,6 +27,11 @@
     "contractor_entity_id": {
       "description": "The civil-pipeline spine identity the rollup belongs to; also the producer's in-memory aggregation key.",
       "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`total_awarded_3yr`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
       "x-demiton-requiredness": "required"
     },
     "derived_from_fact_count": {
@@ -91,11 +96,10 @@
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "UNSPSC code"
     },
-    "total_awarded_aud_3yr": {
+    "total_awarded_3yr": {
       "description": "Sum, across the distinct contracts in the window, of each contract's latest observed award value.",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "value_basis": {
       "description": "What kind of money the measure is: awarded contract value, latest revision per contract \u2014 not a sum of award facts.",
@@ -121,16 +125,17 @@
     "series_key",
     "window_start",
     "window_end",
-    "total_awarded_aud_3yr",
+    "total_awarded_3yr",
     "value_basis",
     "contract_count_3yr",
     "last_win_date",
     "source_dataset",
-    "observed_at"
+    "observed_at",
+    "currency"
   ],
-  "title": "platform_contractor_stats contract v1",
+  "title": "platform_contractor_stats contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

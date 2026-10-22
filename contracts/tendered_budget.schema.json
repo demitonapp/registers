@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/tendered_budget/1",
+  "$id": "demiton:shelf/tendered_budget/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "budget_hours": {
@@ -20,6 +20,11 @@
       "x-demiton-requiredness": "required",
       "x-demiton-unit": "`labour_only` \\"
     },
+    "currency": {
+      "description": "the currency of every amount on this record (`total`, `grand_total`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
     "entity_id": {
       "description": "The entity the price belongs to. Always an `opportunity` for this shelf: `doc_entity_type='opportunity'` (`baseline_squash_02_seed.sql:274`), resolved by `resolve_anchor_entity` preferring opportunity at tender stage, and the writer skips the write entirely when resolution returns None.",
       "type": "integer",
@@ -32,17 +37,15 @@
       "x-demiton-requiredness": "required",
       "x-demiton-unit": "none"
     },
-    "grand_total_aud": {
+    "grand_total": {
       "description": "The whole tendered sum: the sum of every section's total.",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     },
     "labour_total_value": {
       "description": "The Labour section's subtotal, kept for labour-only consumers.",
       "type": "number",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     },
     "line_count": {
       "description": "How many nested lines the section carries, so a truncated parse is detectable.",
@@ -68,27 +71,27 @@
       "x-demiton-requiredness": "required",
       "x-demiton-unit": "none"
     },
-    "total_aud": {
-      "description": "The section subtotal; `grand_total_aud` must equal their sum.",
+    "total": {
+      "description": "The section subtotal; `grand_total` must equal their sum.",
       "type": "number",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
     }
   },
   "required": [
     "entity_id",
     "financial_period",
-    "grand_total_aud",
+    "grand_total",
     "sections",
     "coverage",
     "source_format",
     "category",
-    "total_aud",
-    "line_count"
+    "total",
+    "line_count",
+    "currency"
   ],
-  "title": "tendered_budget contract v1",
+  "title": "tendered_budget contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": []
   },

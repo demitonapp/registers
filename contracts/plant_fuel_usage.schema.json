@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/plant_fuel_usage/1",
+  "$id": "demiton:shelf/plant_fuel_usage/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "alloc_days": {
@@ -31,11 +31,15 @@
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "L/h"
     },
-    "claim_amount_aud": {
+    "claim_amount": {
       "description": "the final computed claim figure = litres \u00d7 the claim month's price variance, never re-derived downstream",
       "type": "decimal",
-      "x-demiton-requiredness": "required",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`claim_amount`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
     },
     "driver_name": {
       "description": "the person who purchased the fuel on an LV/HV row",
@@ -107,11 +111,12 @@
     "occurred_at",
     "item",
     "litres",
-    "claim_amount_aud"
+    "claim_amount",
+    "currency"
   ],
-  "title": "plant_fuel_usage contract v1",
+  "title": "plant_fuel_usage contract v2",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "2.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

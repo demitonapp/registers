@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_tender/2",
+  "$id": "demiton:shelf/platform_tender/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agency_id": {
@@ -27,6 +27,11 @@
     "content": {
       "description": "The composed narrative label; NULL on 100% of platform facts until 2026-08-28.",
       "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`value`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
       "x-demiton-requiredness": "optional"
     },
     "description": {
@@ -112,11 +117,10 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
-    "value_aud": {
+    "value": {
       "description": "Estimated/budget tender value \u2014 the one declared measure.",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     }
   },
   "required": [
@@ -128,9 +132,9 @@
     "title",
     "close_date"
   ],
-  "title": "platform_tender contract v2",
+  "title": "platform_tender contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {

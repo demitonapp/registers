@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_award/2",
+  "$id": "demiton:shelf/platform_award/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agency_id": {
@@ -63,6 +63,11 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "currency": {
+      "description": "the currency of every amount on this record (`value`), an ISO 4217 alpha-3 code as the source states it. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
     "description": {
       "description": "The published description; often equal to `title`.",
       "type": "string",
@@ -115,11 +120,10 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
-    "value_aud": {
+    "value": {
       "description": "The awarded contract value \u2014 the one declared measure.",
       "type": "decimal",
-      "x-demiton-requiredness": "optional",
-      "x-demiton-unit": "AUD"
+      "x-demiton-requiredness": "optional"
     }
   },
   "required": [
@@ -133,9 +137,9 @@
     "agency_name",
     "supplier_identification"
   ],
-  "title": "platform_award contract v2",
+  "title": "platform_award contract v3",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "3.0.0",
   "x-demiton-provenance": {
     "standards": [
       {
