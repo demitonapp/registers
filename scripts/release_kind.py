@@ -18,7 +18,9 @@ A change to the obligation library reaches a customer on one of three release cl
 Like `bump_check.py`, this computes what a change requires instead of trusting a
 label. Each tree is flattened by its own tag's `resolve.flatten()`, and every row is
 compared by `(key, version)`, where a version is named by its `in_force.from` date,
-or `original` when it has none (none has one until dated versions land).
+or `original` when it has none. A newly dated version with a `from` after the tag date
+is an `amendment` (and the version before it gains a derived `until`, a repeal after the
+tag); a `from` on or before the tag date is a `correction`.
 
 One case is ambiguous: a new key with no `from` in an instrument that already
 existed. It is a duty the library missed (a correction) or one it now adds (an
@@ -111,7 +113,14 @@ def _rows(tree: Tree) -> dict[tuple[str, str], tuple[str, dict]]:
 
 
 def _without_until(row: dict) -> dict:
-    return {**row, "in_force": {k: v for k, v in (row.get("in_force") or {}).items() if k != "until"}}
+    """The row less what the resolver derives from its neighbours: the `until` (and
+    `until_by`) of an earlier version, and the `by` of a version with no `from`, which is
+    its until's. Dating a new version derives these onto the version before it, and that
+    is not a changed field of the earlier one."""
+    block = {k: v for k, v in (row.get("in_force") or {}).items() if k not in ("until", "until_by")}
+    if "from" not in block:
+        block.pop("by", None)
+    return {**row, "in_force": block}
 
 
 def classify(old: Tree, new: Tree, on: date) -> list[Change]:

@@ -52,6 +52,18 @@
       },
       "required": ["url", "access_date"]
     },
+    "in_force": {
+      "description": "SM052: when every duty of this instrument that states no `in_force` of its own applies; the resolver copies this block onto each such row. `from` and `until` are the first and last day (inclusive, YYYY-MM-DD); `by` names the date that decides, a member of vocab/selecting_dates.json (`contract_date` or `event_date`), and is required whenever `from` or `until` is present; `transitional` cites the provision that says so. An Act that binds only contracts entered into after a date is dated once here with `by: contract_date`.",
+      "type": "object",
+      "properties": {
+        "from": { "description": "the first day this version is in force (inclusive)", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "until": { "description": "the last day this version is in force (inclusive). Written only on the last version of a key, to repeal it; derived on every earlier one.", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "by": { "description": "the date that decides whether this version applies: a member of vocab/selecting_dates.json", "type": "string" },
+        "transitional": { "description": "the provision that says which date decides, e.g. `s 9(1)`", "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false,
+      "dependentRequired": { "from": ["by"], "until": ["by"] }
+    },
     "abstract": {
       "description": "SM031: true for a base under obligations/_model/ - an instrument holding duties shared across jurisdictions that binds no job on its own and is never vendored or run (decision 8). Absent or false on every concrete.",
       "type": "boolean",
@@ -117,5 +129,5 @@
       }
     }
   ],
-  "x-demiton-contract-version": "2.1.0"
+  "x-demiton-contract-version": "2.2.0"
 }

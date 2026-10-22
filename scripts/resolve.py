@@ -25,12 +25,24 @@ Two coverage rules, from SM031 decisions 5 and 10:
 
 `validate.py` imports `tree_errors` from here, so the checks a tree must pass
 and the flattening a tree produces can never drift apart.
+
+Dated versions (SM052). A row may carry `in_force: {from, until, by, transitional}`,
+and an instrument may carry one for all its rows; the resolver copies the
+instrument's block onto each row that states none. Several rows of ONE instrument
+may share a `key`: they are the versions of one duty. A version's id is its `from`
+date, `original` when it has none. The resolver sorts them by `from` (none first) and
+derives each earlier version's `until` and `by` from the next version's `from` and
+`by`: `until` is the day before, so versions are contiguous by construction and an
+author writes `until` only on the last version (a repeal). `by` names the date that
+decides the version (vocab/selecting_dates.json). Where an earlier version's own
+`by` differs from the next version's, the derived row carries `until_by` as well.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import sys
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -53,6 +65,7 @@ OVERRIDABLE = (
     "grade",
     "basis",
     "caveat",
+    "in_force",
 )
 
 #: Overridable fields a concrete may set to `null` to clear an inherited value.
@@ -67,7 +80,7 @@ CLEARABLE = ("window", "window_source_field", "threshold", "caveat", "basis")
 #: says nothing about the language a jurisdiction's text is read in.
 #: `publisher` is here rather than inherited because a state's Act is published by
 #: that state's parliament, not by whoever published the model law.
-CONCRETE_HEADER = ("id", "lang", "title", "publisher", "jurisdictions", "citation")
+CONCRETE_HEADER = ("id", "lang", "title", "publisher", "jurisdictions", "citation", "in_force")
 #: Fields a concrete instrument may inherit when it does not state them. `publisher`
 #: is here as well as in CONCRETE_HEADER: a state's Act is published by that state's
 #: parliament and states its own, while an approval-type instrument is published by
@@ -77,6 +90,57 @@ INHERITED_HEADER = ("source", "instrument_type", "publisher", "form")
 
 class ResolveError(Exception):
     """A tree that cannot be flattened, with the reason named."""
+
+
+def selecting_dates() -> tuple[str, ...]:
+    """The dates an `in_force.by` may name: the keys of vocab/selecting_dates.json."""
+    vocab = json.loads((ROOT / "vocab" / "selecting_dates.json").read_text())
+    return tuple(k for k in vocab if not k.startswith("$"))
+
+
+def as_date(value: object) -> date | None:
+    """A date from a YAML date or an ISO `YYYY-MM-DD` string; None for None.
+    Raises ValueError for anything else, so a caller can name the bad value."""
+    if value is None:
+        return None
+    if isinstance(value, date):
+        return value
+    if isinstance(value, str):
+        return date.fromisoformat(value)
+    raise ValueError(f"{value!r} is not a date")
+
+
+def _iso_block(block: object) -> object:
+    if not isinstance(block, dict):
+        return block
+    return {k: (v.isoformat() if isinstance(v, date) else v) for k, v in block.items()}
+
+
+def iso_dates(doc: object) -> object:
+    """`doc` with the dates in every `in_force` block (an unquoted `2027-07-01` loads as a
+    date) as ISO strings, so a schema, a diff and `json.dumps` read them alike. The same
+    object when nothing is dated, which is every document in the library today."""
+    if not isinstance(doc, dict):
+        return doc
+    rows = doc.get("obligations") or []
+    if "in_force" not in doc and not any(isinstance(o, dict) and "in_force" in o for o in rows):
+        return doc
+    out = dict(doc)
+    if "in_force" in doc:
+        out["in_force"] = _iso_block(doc["in_force"])
+    out["obligations"] = [
+        {**o, "in_force": _iso_block(o["in_force"])} if isinstance(o, dict) and "in_force" in o else o for o in rows
+    ]
+    return out
+
+
+def _stamp_in_force(instrument: dict) -> dict:
+    """Copy the instrument's `in_force` onto each of its rows that states none."""
+    block = instrument.get("in_force")
+    if not isinstance(block, dict):
+        return instrument
+    rows = [o if "in_force" in o else {**o, "in_force": dict(block)} for o in instrument.get("obligations") or []]
+    return {**instrument, "obligations": rows}
 
 
 def base_files() -> list[Path]:
@@ -228,54 +292,206 @@ def tree_errors(docs: list[tuple[str, dict]] | None = None) -> list[str]:
                 )
             elif shape not in duty_shapes:
                 errors.append(f"{rel}: obligation {ob.get('key')!r}: duty_shape {shape!r} is not in vocab/duty_shapes.json")
+    errors.extend(version_errors(_resolved_concretes(by_id)))
+    return errors
+
+
+def _resolved_concretes(by_id: dict[str, tuple[dict, str]]) -> list[tuple[str, dict]]:
+    """Every concrete instrument as `resolve_instrument` flattens it, for the checks that
+    compare rows. A concrete that cannot flatten has its reason reported by the checks
+    above, so it is skipped here rather than reported twice."""
+    resolved: list[tuple[str, dict]] = []
+    for doc, rel in by_id.values():
+        if doc.get("abstract"):
+            continue
+        try:
+            resolved.append((rel, resolve_instrument(doc, by_id)))
+        except (ResolveError, KeyError, TypeError, AttributeError):
+            continue
+    return resolved
+
+
+#: The fields every version of one key shares (SM052 decision 10). A change to any of
+#: them changes which engine runs, which disease the catch is booked to, what evidences
+#: it, or which card it reads under, so it is a new key.
+VERSION_SHARED = ("protection_type", "disease", "evidence.register", "duty_shape")
+
+
+def _shared_value(row: dict, field: str) -> object:
+    if field == "evidence.register":
+        return (row.get("evidence") or {}).get("register")
+    return row.get(field)
+
+
+def version_errors(instruments: list[tuple[str, dict]]) -> list[str]:
+    """The checks on the versions of one key (SM052 decisions 9 and 10), on instruments
+    already resolved. A key repeats only within one instrument (`validate.py` refuses it
+    across two). Within one: `(key, from)` is unique, only the last version states an
+    `until` (the resolver derives the rest, so a stated one is an overlap, a gap, or a
+    copy of what it would derive), and versions share `protection_type`, `disease`,
+    `evidence.register` and `duty_shape`. Every message names the key."""
+    errors: list[str] = []
+    for label, inst in instruments:
+        groups: dict[str, list[dict]] = {}
+        for row in inst.get("obligations") or []:
+            if isinstance(row, dict) and row.get("key"):
+                groups.setdefault(row["key"], []).append(row)
+        for key, rows in groups.items():
+            if len(rows) < 2:
+                continue
+            parsed: list[tuple[dict, date | None, date | None]] = []
+            for row in rows:
+                block = row.get("in_force") if isinstance(row.get("in_force"), dict) else {}
+                try:
+                    parsed.append((row, as_date(block.get("from")), as_date(block.get("until"))))
+                except ValueError as exc:
+                    errors.append(f"{label}: {key}: in_force has a date that is not YYYY-MM-DD ({exc})")
+            if len(parsed) != len(rows):
+                continue
+            by_start: dict[date | None, int] = {}
+            for _, start, _ in parsed:
+                by_start[start] = by_start.get(start, 0) + 1
+            for start, n in by_start.items():
+                if n > 1:
+                    which = f"from {start.isoformat()}" if start else "no `from` (the original)"
+                    errors.append(
+                        f"{label}: {key}: {n} versions have {which} - (key, from) must be unique, "
+                        f"so give each version of a key its own `from`"
+                    )
+            if any(n > 1 for n in by_start.values()):
+                continue
+            ordered = sorted(parsed, key=lambda p: p[1] or date.min)
+            for (row, start, until), (_, next_start, _) in zip(ordered, ordered[1:]):
+                if until is None:
+                    continue
+                vid = start.isoformat() if start else "original"
+                derived = (next_start - timedelta(days=1)).isoformat()
+                if until >= next_start:
+                    errors.append(
+                        f"{label}: {key}: version {vid} states until {until.isoformat()}, which overlaps the version "
+                        f"from {next_start.isoformat()}; remove it, resolve.py derives {derived}"
+                    )
+                elif until < next_start - timedelta(days=1):
+                    errors.append(
+                        f"{label}: {key}: version {vid} states until {until.isoformat()} but the next version starts "
+                        f"{next_start.isoformat()}, a gap in which no version is in force; remove it, resolve.py derives {derived}"
+                    )
+                else:
+                    errors.append(
+                        f"{label}: {key}: version {vid} states until {until.isoformat()}; only the last version of a "
+                        f"key may, because resolve.py derives it from the next version's `from`"
+                    )
+            first = ordered[0][0]
+            for row, start, _ in ordered[1:]:
+                for field in VERSION_SHARED:
+                    a, b = _shared_value(first, field), _shared_value(row, field)
+                    if a != b:
+                        errors.append(
+                            f"{label}: {key}: the version from {start.isoformat() if start else 'original'} changes {field} "
+                            f"from {a!r} to {b!r}; versions of one key share protection_type, disease, evidence.register "
+                            f"and duty_shape, so a change to any of them is a new key"
+                        )
     return errors
 
 
 def resolve_instrument(doc: dict, by_id: dict[str, tuple[dict, str]]) -> dict:
-    """One concrete flattened against its base, or unchanged if it extends nothing."""
-    if "extends" not in doc:
-        return doc
+    """One concrete flattened against its base, or unchanged if it extends nothing.
 
-    base = by_id[doc["extends"]][0]
+    An instrument's `in_force` is copied onto each row that states none. Versions of a
+    key are not derived here (`derive_versions` does that); an extending concrete may
+    carry several overrides of one base key, each with its own `in_force`."""
+    doc = iso_dates(doc)
+    if "extends" not in doc:
+        return _stamp_in_force(doc)
+
+    base = iso_dates(by_id[doc["extends"]][0])
     out: dict[str, Any] = {f: base[f] for f in INHERITED_HEADER if f in base}
     out.update({f: doc[f] for f in CONCRETE_HEADER if f in doc})
     out["id"] = doc["id"]
 
-    overrides = {o["overrides"]: o for o in doc.get("obligations") or [] if "overrides" in o}
+    overrides: dict[str, list[dict]] = {}
+    for o in doc.get("obligations") or []:
+        if "overrides" in o:
+            overrides.setdefault(o["overrides"], []).append(o)
     rows: list[dict] = []
     for base_row in base.get("obligations") or []:
-        override = overrides.get(base_row["key"])
-        if override is None:
+        group = overrides.get(base_row["key"])
+        if not group:
             if base.get("model_type") == "shared_shape":
                 continue
             raise ResolveError(
                 f"{doc['id']}: base obligation {base_row['key']!r} is neither overridden nor `removed: true`"
             )
-        if override.get("removed"):
-            continue
-        row = dict(base_row)
-        for field in OVERRIDABLE:
-            if field not in override:
+        for override in group:
+            if override.get("removed"):
                 continue
-            if override[field] is None and field in CLEARABLE:
-                row.pop(field, None)
-            else:
-                row[field] = override[field]
-        row["key"] = override["key"]
-        if row.get("grade") != "demiton_default":
-            row.pop("basis", None)
-        if not row.get("grade"):
-            raise ResolveError(
-                f"{doc['id']}: {row['key']!r} resolves with no grade - the concrete must supply one"
-            )
-        rows.append(row)
+            row = dict(base_row)
+            for field in OVERRIDABLE:
+                if field not in override:
+                    continue
+                if override[field] is None and field in CLEARABLE:
+                    row.pop(field, None)
+                else:
+                    row[field] = override[field]
+            row["key"] = override["key"]
+            if row.get("grade") != "demiton_default":
+                row.pop("basis", None)
+            if not row.get("grade"):
+                raise ResolveError(
+                    f"{doc['id']}: {row['key']!r} resolves with no grade - the concrete must supply one"
+                )
+            rows.append(row)
     out["obligations"] = rows
-    return out
+    return _stamp_in_force(out)
+
+
+def derive_versions(instrument: dict) -> dict:
+    """Give each earlier version of a repeated key the `until` (the day before the next
+    version's `from`) and the `by` (the next version's) that the author did not write.
+
+    Rows keep their authored order. A key with one row is untouched. Run on a tree that
+    `tree_errors` accepts: with two undated rows of a key, or a next version with no
+    `from`, there is nothing to derive from and the rows are left as they are."""
+    rows = instrument["obligations"]
+    groups: dict[str, list[int]] = {}
+    for i, row in enumerate(rows):
+        groups.setdefault(row["key"], []).append(i)
+    out = list(rows)
+    for indexes in groups.values():
+        if len(indexes) < 2:
+            continue
+        start = lambda i: as_date((rows[i].get("in_force") or {}).get("from"))  # noqa: E731
+        ordered = sorted(indexes, key=lambda i: start(i) or date.min)
+        for i, j in zip(ordered, ordered[1:]):
+            next_start = start(j)
+            if next_start is None or next_start == start(i):
+                continue
+            block = dict(rows[i].get("in_force") or {})
+            next_by = (rows[j].get("in_force") or {}).get("by")
+            block["until"] = (next_start - timedelta(days=1)).isoformat()
+            block.pop("until_by", None)
+            if "by" not in block:
+                block["by"] = next_by
+            elif block["by"] != next_by:
+                block["until_by"] = next_by
+            out[i] = {**rows[i], "in_force": block}
+    return {**instrument, "obligations": out}
+
+
+def flatten_tree(concretes: list[dict], by_id: dict[str, tuple[dict, str]]) -> list[dict]:
+    return [derive_versions(resolve_instrument(doc, by_id)) for doc in concretes]
+
+
+def flatten_docs(docs: list[tuple[str, dict]]) -> list[dict]:
+    """`flatten()` over `[(label, document)]` instead of the files on disk, so a test can
+    flatten a fixture tree. Abstract bases are read, never emitted."""
+    by_id = {doc["id"]: (doc, label) for label, doc in docs}
+    return flatten_tree([doc for _, doc in docs if not doc.get("abstract")], by_id)
 
 
 def flatten() -> list[dict]:
     concretes, by_id = load_tree()
-    return [resolve_instrument(doc, by_id) for doc in concretes]
+    return flatten_tree(concretes, by_id)
 
 
 def count() -> int:

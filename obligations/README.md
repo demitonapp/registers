@@ -102,6 +102,65 @@ claims it verified a clause it inherited. A base authored from a document family
 rather than a clause-by-clause reading carries **no** `grade` on that duty, and
 the concrete that first reads the state's text must supply one.
 
+## Dated versions
+
+A law changes, and for a time the old rule and the new one are both live: a job whose
+contract was made before the change keeps the old rule, and one made after takes the new.
+An obligation row says so with an optional **`in_force`** block, and the old and the new
+rule of one duty are **two rows of one `key` in one file**:
+
+```yaml
+# obligations/AU-VIC/sop_act_2002_vic.yaml  (a hypothetical amendment, for illustration)
+- key: payment.adjudication_application.au-vic      # the original: no in_force block
+  window: {value: 10, unit: business_days}
+  ...
+- key: payment.adjudication_application.au-vic      # the version the amending Act inserts
+  in_force: {from: 2027-07-01, by: event_date, transitional: "s 70(2) of the amending Act"}
+  clause: s 18(3)(c)
+  window: {value: 15, unit: business_days}
+  ...
+```
+
+| Field | Meaning |
+|---|---|
+| `from` | the first day this version is in force (inclusive, `YYYY-MM-DD`) |
+| `until` | the last day (inclusive). Written only on the **last** version of a key, to repeal the duty; the resolver derives it on every earlier one |
+| `by` | the date that decides the version, a member of [`vocab/selecting_dates.json`](../vocab/selecting_dates.json): `contract_date` (the day the job's contract was entered into) or `event_date` (the date of the event the duty turns on). Required whenever `from` or `until` is present |
+| `transitional` | the provision that says which date decides, e.g. `s 9(1)` |
+
+A version's id is its `from` date, and `original` when it has none, so `(key, from)` is
+unique. A row with no `in_force` is in force without limit.
+
+**Once for a whole instrument.** An Act that binds only contracts made after a date is
+dated once, at the top of its file, and the resolver copies the block onto every row that
+states none of its own:
+
+```yaml
+id: sop_act_2021_wa
+in_force: {from: 2022-08-01, by: contract_date, transitional: "s 9(1)"}
+```
+
+**What the resolver derives.** It groups an instrument's rows by `key`, sorts them by
+`from` (none first), and gives each version but the last an `until` of the day before the
+next version's `from`, decided by the next version's `by`. In the example above the
+flattened original reads `in_force: {until: 2027-06-30, by: event_date}`. Versions are
+therefore contiguous by construction. Where an earlier version's own `by` differs from the
+next version's, the flattened row also carries `until_by`. Rows keep the order they were
+written in.
+
+**One key, one duty.** The versions of a key share `protection_type`, `disease`,
+`evidence.register` and `duty_shape`; a change to any of them is a new key, in its own row.
+An extending concrete versions a duty with two overrides of the same base key, each with its
+own `in_force`. A key may repeat only inside one instrument.
+
+A new selecting date (the date a procurement commenced, the date a contract was renewed) is
+a vocabulary addition and the engine reading that date, in that order; until then a rule
+that turns on one stays in the row's `caveat`.
+
+Dating a row is itself a release: a version in force from a date after the release is an
+`amendment`, and one in force on or before it is a `correction`
+([CONTRIBUTING.md](../CONTRIBUTING.md)).
+
 ## Checks
 
 `scripts/validate.py` runs every check a JSON Schema cannot, because it needs
@@ -115,13 +174,18 @@ more than one document:
 - a `model_law` concrete does not silently drop a base obligation;
 - every resolved row has a `grade`;
 - a concrete names a jurisdiction, and an abstract base names none;
-- `model_type` appears on an abstract base and on nothing else.
+- `model_type` appears on an abstract base and on nothing else;
+- dated versions: `in_force.by` is a member of `vocab/selecting_dates.json`, each date is a
+  real day and `from` precedes `until`; a `key` repeats only within one instrument;
+  `(key, from)` is unique; an `until` is written only on the last version of a key (so there is
+  no overlap and no gap); and the versions of a key share `protection_type`, `disease`,
+  `evidence.register` and `duty_shape`. Each message names the key.
 
 `scripts/resolve.py` is what flattens the tree to the set a project reads:
 
 ```
 python3 scripts/resolve.py --count      # obligations across every concrete
-python3 scripts/resolve.py --flatten    # the resolved instruments, as JSON
+python3 scripts/resolve.py --flatten    # the resolved instruments, as JSON (dated versions derived)
 python3 scripts/resolve.py --out DIR    # one flattened YAML per concrete instrument
 ```
 
