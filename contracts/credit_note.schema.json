@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/credit_note/3",
+  "$id": "demiton:register/credit_note/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "allocations": {
@@ -114,7 +114,7 @@
   ],
   "title": "credit_note contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-domain": "financials",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -182,6 +182,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "credit_note",
+  "x-demiton-register-type": "credit_note",
   "x-demiton-store": "tenant"
 }

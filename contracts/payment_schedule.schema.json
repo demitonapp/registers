@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/payment_schedule/2",
+  "$id": "demiton:register/payment_schedule/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "calculation_basis": {
@@ -84,7 +84,7 @@
   ],
   "title": "payment_schedule contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-domain": "contracts",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -214,6 +214,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "payment_schedule",
+  "x-demiton-register-type": "payment_schedule",
   "x-demiton-store": "tenant"
 }

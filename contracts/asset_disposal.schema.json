@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/asset_disposal/3",
+  "$id": "demiton:register/asset_disposal/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -96,7 +96,7 @@
       "role": "context"
     }
   ],
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-measures": [
     {
       "accumulation": "additive",
@@ -212,6 +212,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "asset_disposal",
+  "x-demiton-register-type": "asset_disposal",
   "x-demiton-store": "tenant"
 }

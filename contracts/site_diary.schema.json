@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/site_diary/1",
+  "$id": "demiton:register/site_diary/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -139,7 +139,7 @@
       "role": "context"
     }
   ],
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.1.1",
   "x-demiton-measures": [],
   "x-demiton-provenance": {
     "standards": [
@@ -233,5 +233,5 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "site_diary"
+  "x-demiton-register-type": "site_diary"
 }

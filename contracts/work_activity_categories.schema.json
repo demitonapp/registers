@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/work_activity_categories/1",
+  "$id": "demiton:register/work_activity_categories/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "canonical_key": {
@@ -41,10 +41,10 @@
   ],
   "title": "work_activity_categories contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "work_activity_categories",
+  "x-demiton-register-type": "work_activity_categories",
   "x-demiton-store": "tenant"
 }

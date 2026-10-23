@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/competency_verification/1",
+  "$id": "demiton:register/competency_verification/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -59,7 +59,7 @@
   ],
   "title": "competency_verification contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.3",
+  "x-demiton-contract-version": "1.0.4",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -141,6 +141,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "competency_verification",
+  "x-demiton-register-type": "competency_verification",
   "x-demiton-store": "tenant"
 }

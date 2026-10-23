@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/maintenance_record/2",
+  "$id": "demiton:register/maintenance_record/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -138,7 +138,7 @@
   ],
   "title": "maintenance_record contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -246,6 +246,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "maintenance_record",
+  "x-demiton-register-type": "maintenance_record",
   "x-demiton-store": "tenant"
 }

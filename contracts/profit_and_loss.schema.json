@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/profit_and_loss/3",
+  "$id": "demiton:register/profit_and_loss/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_amount": {
@@ -78,7 +78,7 @@
   ],
   "title": "profit_and_loss contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -154,6 +154,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "profit_and_loss",
+  "x-demiton-register-type": "profit_and_loss",
   "x-demiton-store": "tenant"
 }

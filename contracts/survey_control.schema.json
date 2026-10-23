@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/survey_control/1",
+  "$id": "demiton:register/survey_control/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "ahd_height": {
@@ -135,7 +135,7 @@
   ],
   "title": "survey_control contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "projects",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -215,6 +215,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "survey_control",
+  "x-demiton-register-type": "survey_control",
   "x-demiton-store": "tenant"
 }

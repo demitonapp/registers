@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/employee_list/1",
+  "$id": "demiton:register/employee_list/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "date_of_birth": {
@@ -112,7 +112,7 @@
   ],
   "title": "employee_list contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -208,6 +208,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "employee_list",
+  "x-demiton-register-type": "employee_list",
   "x-demiton-store": "tenant"
 }

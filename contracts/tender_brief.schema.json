@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/tender_brief/1",
+  "$id": "demiton:register/tender_brief/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agent_run_id": {
@@ -115,7 +115,7 @@
   ],
   "title": "tender_brief contract v1",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -146,6 +146,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "tender_brief",
+  "x-demiton-register-type": "tender_brief",
   "x-demiton-store": "tenant"
 }

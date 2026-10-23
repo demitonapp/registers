@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/customer_list/3",
+  "$id": "demiton:register/customer_list/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_line_1": {
@@ -141,7 +141,7 @@
   ],
   "title": "customer_list contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -246,6 +246,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "customer_list",
+  "x-demiton-register-type": "customer_list",
   "x-demiton-store": "tenant"
 }

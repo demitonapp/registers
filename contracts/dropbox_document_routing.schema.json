@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/dropbox_document_routing/1",
+  "$id": "demiton:register/dropbox_document_routing/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "always_full_scan": {
@@ -82,10 +82,10 @@
   ],
   "title": "dropbox_document_routing contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "dropbox_document_routing",
+  "x-demiton-register-type": "dropbox_document_routing",
   "x-demiton-store": "tenant"
 }

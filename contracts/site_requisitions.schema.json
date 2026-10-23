@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/site_requisitions/1",
+  "$id": "demiton:register/site_requisitions/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "comments": {
@@ -88,10 +88,10 @@
   ],
   "title": "site_requisitions contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "1.0.1",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "site_requisitions",
+  "x-demiton-register-type": "site_requisitions",
   "x-demiton-store": "tenant"
 }

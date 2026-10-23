@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/sor_verification_tendered/1",
+  "$id": "demiton:register/sor_verification_tendered/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agent_run_id": {
@@ -145,7 +145,7 @@
   ],
   "title": "sor_verification_tendered contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -190,6 +190,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "sor_verification_tendered",
+  "x-demiton-register-type": "sor_verification_tendered",
   "x-demiton-store": "tenant"
 }

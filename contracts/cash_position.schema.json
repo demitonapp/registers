@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/cash_position/2",
+  "$id": "demiton:register/cash_position/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "account_count": {
@@ -79,7 +79,7 @@
   ],
   "title": "cash_position contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -93,6 +93,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "cash_position",
+  "x-demiton-register-type": "cash_position",
   "x-demiton-store": "tenant"
 }

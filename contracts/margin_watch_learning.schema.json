@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/margin_watch_learning/1",
+  "$id": "demiton:register/margin_watch_learning/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "currency": {
@@ -136,10 +136,10 @@
   ],
   "title": "margin_watch_learning contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.1.1",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "margin_watch_learning",
+  "x-demiton-register-type": "margin_watch_learning",
   "x-demiton-store": "tenant"
 }

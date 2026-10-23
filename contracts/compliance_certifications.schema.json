@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/compliance_certifications/2",
+  "$id": "demiton:register/compliance_certifications/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "_source_file_name": {
@@ -88,7 +88,7 @@
   ],
   "title": "compliance_certifications contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -184,6 +184,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "compliance_certifications",
+  "x-demiton-register-type": "compliance_certifications",
   "x-demiton-store": "tenant"
 }

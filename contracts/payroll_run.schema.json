@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/payroll_run/2",
+  "$id": "demiton:register/payroll_run/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "currency": {
@@ -100,7 +100,7 @@
   ],
   "title": "payroll_run contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -156,6 +156,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "payroll_run",
+  "x-demiton-register-type": "payroll_run",
   "x-demiton-store": "tenant"
 }

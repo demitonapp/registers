@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_planning/3",
+  "$id": "demiton:register/platform_planning/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agency_id": {
@@ -175,7 +175,7 @@
   ],
   "title": "platform_planning contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -232,6 +232,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "platform_planning",
+  "x-demiton-register-type": "platform_planning",
   "x-demiton-store": "platform"
 }

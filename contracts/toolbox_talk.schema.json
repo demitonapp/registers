@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/toolbox_talk/1",
+  "$id": "demiton:register/toolbox_talk/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "absentee_count": {
@@ -112,7 +112,7 @@
   ],
   "title": "toolbox_talk contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.3",
+  "x-demiton-contract-version": "1.0.4",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -205,6 +205,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "toolbox_talk",
+  "x-demiton-register-type": "toolbox_talk",
   "x-demiton-store": "tenant"
 }

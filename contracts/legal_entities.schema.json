@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/legal_entities/2",
+  "$id": "demiton:register/legal_entities/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_line1": {
@@ -107,7 +107,7 @@
   ],
   "title": "legal_entities contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.2",
+  "x-demiton-contract-version": "2.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -221,6 +221,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "legal_entities",
+  "x-demiton-register-type": "legal_entities",
   "x-demiton-store": "tenant"
 }

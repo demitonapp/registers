@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/prequalification_answer/1",
+  "$id": "demiton:register/prequalification_answer/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "answer": {
@@ -100,7 +100,7 @@
   ],
   "title": "prequalification_answer contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "safety",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -123,6 +123,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "prequalification_answer",
+  "x-demiton-register-type": "prequalification_answer",
   "x-demiton-store": "tenant"
 }

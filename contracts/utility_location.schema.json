@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/utility_location/1",
+  "$id": "demiton:register/utility_location/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset_owner": {
@@ -90,7 +90,7 @@
   ],
   "title": "utility_location contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "projects",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -186,6 +186,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "utility_location",
+  "x-demiton-register-type": "utility_location",
   "x-demiton-store": "tenant"
 }

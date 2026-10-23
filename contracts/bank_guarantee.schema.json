@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/bank_guarantee/2",
+  "$id": "demiton:register/bank_guarantee/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount": {
@@ -109,7 +109,7 @@
   ],
   "title": "bank_guarantee contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-domain": "counterparties",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -169,6 +169,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "bank_guarantee",
+  "x-demiton-register-type": "bank_guarantee",
   "x-demiton-store": "tenant"
 }

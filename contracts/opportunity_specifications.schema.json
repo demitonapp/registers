@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/opportunity_specifications/1",
+  "$id": "demiton:register/opportunity_specifications/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "extracted_page_count": {
@@ -58,7 +58,7 @@
   ],
   "title": "opportunity_specifications contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -112,6 +112,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "opportunity_specifications",
+  "x-demiton-register-type": "opportunity_specifications",
   "x-demiton-store": "tenant"
 }

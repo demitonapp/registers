@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/contract_link/1",
+  "$id": "demiton:register/contract_link/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "confidence": {
@@ -75,7 +75,7 @@
   ],
   "title": "contract_link contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -158,6 +158,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "contract_link",
+  "x-demiton-register-type": "contract_link",
   "x-demiton-store": "tenant"
 }

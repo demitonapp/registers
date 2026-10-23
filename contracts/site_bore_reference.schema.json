@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/site_bore_reference/2",
+  "$id": "demiton:register/site_bore_reference/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "bores_within_radius": {
@@ -114,7 +114,7 @@
   ],
   "title": "site_bore_reference contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -297,6 +297,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "site_bore_reference",
+  "x-demiton-register-type": "site_bore_reference",
   "x-demiton-store": "tenant"
 }

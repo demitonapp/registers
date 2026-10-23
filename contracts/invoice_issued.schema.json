@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/invoice_issued/3",
+  "$id": "demiton:register/invoice_issued/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount_excluding_tax": {
@@ -147,7 +147,7 @@
   ],
   "title": "invoice_issued contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -283,6 +283,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "invoice_issued",
+  "x-demiton-register-type": "invoice_issued",
   "x-demiton-store": "tenant"
 }

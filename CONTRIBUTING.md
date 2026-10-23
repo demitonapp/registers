@@ -6,7 +6,7 @@ You don't need to ask first. Open a pull request against one contract.
 
 **One register per pull request**, so each can be reviewed and merged on its own.
 
-1. **Edit `contracts/<shelf_type>.schema.json`** (or `research/<name>.schema.json`
+1. **Edit `contracts/<register_type>.schema.json`** (or `research/<name>.schema.json`
    for a disease-economics register). Add a field, widen an enum, tighten a
    description - whatever the change is.
 2. **Bump `x-schema-version` or `x-demiton-contract-version`** (whichever the

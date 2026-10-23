@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/traffic_management_plan/2",
+  "$id": "demiton:register/traffic_management_plan/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "approved_by": {
@@ -125,7 +125,7 @@
   ],
   "title": "traffic_management_plan contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-domain": "projects",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -166,6 +166,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "traffic_management_plan",
+  "x-demiton-register-type": "traffic_management_plan",
   "x-demiton-store": "tenant"
 }

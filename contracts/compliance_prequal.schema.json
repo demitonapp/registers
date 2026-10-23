@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/compliance_prequal/1",
+  "$id": "demiton:register/compliance_prequal/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "abn": {
@@ -65,7 +65,7 @@
   ],
   "title": "compliance_prequal contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -163,6 +163,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "compliance_prequal",
+  "x-demiton-register-type": "compliance_prequal",
   "x-demiton-store": "tenant"
 }

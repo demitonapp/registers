@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/equipment_assignment/1",
+  "$id": "demiton:register/equipment_assignment/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -58,7 +58,7 @@
   ],
   "title": "equipment_assignment contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.3",
+  "x-demiton-contract-version": "1.0.4",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -97,6 +97,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "equipment_assignment",
+  "x-demiton-register-type": "equipment_assignment",
   "x-demiton-store": "tenant"
 }

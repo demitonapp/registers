@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/project_list/2",
+  "$id": "demiton:register/project_list/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "active": {
@@ -93,7 +93,7 @@
   ],
   "title": "project_list contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -180,6 +180,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "project_list",
+  "x-demiton-register-type": "project_list",
   "x-demiton-store": "tenant"
 }

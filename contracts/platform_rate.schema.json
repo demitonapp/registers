@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_rate/2",
+  "$id": "demiton:register/platform_rate/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "frequency": {
@@ -74,7 +74,7 @@
   ],
   "title": "platform_rate contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -87,6 +87,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "platform_rate",
+  "x-demiton-register-type": "platform_rate",
   "x-demiton-store": "platform"
 }

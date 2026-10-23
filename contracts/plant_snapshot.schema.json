@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/plant_snapshot/1",
+  "$id": "demiton:register/plant_snapshot/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset_count": {
@@ -110,7 +110,7 @@
   ],
   "title": "plant_snapshot contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -133,6 +133,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "plant_snapshot",
+  "x-demiton-register-type": "plant_snapshot",
   "x-demiton-store": "tenant"
 }

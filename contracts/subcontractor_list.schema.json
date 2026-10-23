@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/subcontractor_list/1",
+  "$id": "demiton:register/subcontractor_list/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_text": {
@@ -97,7 +97,7 @@
   ],
   "title": "subcontractor_list contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -205,6 +205,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "subcontractor_list",
+  "x-demiton-register-type": "subcontractor_list",
   "x-demiton-store": "tenant"
 }
