@@ -81,10 +81,11 @@
         "from": { "description": "the first day this version is in force (inclusive)", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
         "until": { "description": "the last day this version is in force (inclusive). Written only on the last version of a key, to repeal it; derived on every earlier one.", "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
         "by": { "description": "the date that decides whether this version applies: a member of vocab/selecting_dates.json", "type": "string" },
+        "until_by": { "description": "DERIVED, never authored: the `by` of the version after this one, written by scripts/resolve.py onto an earlier version whose own `by` differs from the next version's (the end of this version is decided by that other date). Appears only in flattened output; scripts/validate.py refuses it in source YAML. A member of vocab/selecting_dates.json.", "type": "string" },
         "transitional": { "description": "the provision that says which date decides, e.g. `s 9(1)`", "type": "string", "minLength": 1 }
       },
       "additionalProperties": false,
-      "dependentRequired": { "from": ["by"], "until": ["by"] }
+      "dependentRequired": { "from": ["by"], "until": ["by"], "until_by": ["until"] }
     }
   },
   "required": ["overrides"],
@@ -96,5 +97,5 @@
       "else": { "required": ["key"] }
     }
   ],
-  "x-demiton-contract-version": "1.1.0"
+  "x-demiton-contract-version": "1.2.0"
 }

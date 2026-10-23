@@ -279,3 +279,91 @@ def test_in_force_is_refused_outside_its_four_fields() -> None:
     errors = validate_instrument_doc(doc, "example_a.yaml")
     assert any("effective" in e and AMENDED in e for e in errors), errors
 
+
+
+# --- SM052 D1 review fixes ---------------------------------------------------
+
+
+def test_flattened_output_of_every_versions_fixture_validates_against_the_contracts() -> None:
+    """The resolver derives `until` and, where two versions are decided by different dates,
+    `until_by`. The flattened document is what a consumer reads, so it must pass the same
+    contracts the source does: `until_by` was emitted and declared in none of them."""
+    from jsonschema import Draft202012Validator
+    from validate import _obligation_schema_registry, flattened_output_errors
+
+    schema, registry = _obligation_schema_registry()
+    validator = Draft202012Validator(schema, registry=registry)
+    names = ("example_a.yaml", "instrument_level.yaml", "repeal.yaml", "mixed_by.yaml")
+    for name in names:
+        flat = resolve.flatten_docs([(name, _load(VERSIONS / name))])
+        for inst in flat:
+            assert [e.message for e in validator.iter_errors(inst)] == [], name
+        assert flattened_output_errors(flat) == [], name
+    mixed = resolve.flatten_docs([("m", _load(VERSIONS / "mixed_by.yaml"))])[0]["obligations"][0]["in_force"]
+    assert mixed == {"from": "2020-01-01", "by": "contract_date", "until": "2027-06-30", "until_by": "event_date"}
+    assert flattened_output_errors(resolve.flatten()) == []
+
+
+def test_flattened_until_by_outside_the_selecting_dates_is_refused() -> None:
+    from validate import flattened_output_errors
+
+    flat = resolve.flatten_docs([("m", _load(VERSIONS / "mixed_by.yaml"))])
+    flat[0]["obligations"][0]["in_force"]["until_by"] = "renewal_date"
+    errors = flattened_output_errors(flat)
+    assert any(AMENDED in e and "until_by" in e and "vocab/selecting_dates.json" in e for e in errors), errors
+
+
+def test_an_authored_until_by_is_refused_in_source() -> None:
+    doc = _load(VERSIONS / "example_a.yaml")
+    doc["obligations"][0]["in_force"] = {"until": "2027-06-30", "by": "contract_date", "until_by": "event_date"}
+    errors = validate_instrument_doc(doc, "example_a.yaml")
+    assert any(AMENDED in e and "until_by" in e and "derived" in e for e in errors), errors
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    doc["in_force"]["until_by"] = "event_date"
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("fixture_sop_act_wa" in e and "until_by" in e for e in errors), errors
+
+
+def _removed_with_in_force() -> list[tuple[str, dict]]:
+    base = _load(FIXTURES / "tree/silent_drop/base.yaml")
+    concrete = _load(FIXTURES / "tree/silent_drop/concrete.yaml")
+    concrete["obligations"] = list(concrete["obligations"]) + [
+        {"overrides": "drop.two", "removed": True, "in_force": {"until": "2028-06-30", "by": "event_date"}}
+    ]
+    return [("base.yaml", base), ("concrete.yaml", concrete)]
+
+
+def test_removed_with_in_force_is_refused_and_says_a_repeal_is_an_until() -> None:
+    """resolve.py drops a removed override before it reads `in_force`, so the block would be
+    silently ignored. A repeal is an `until` on the last version of the key."""
+    docs = _removed_with_in_force()
+    errors = validate_instrument_doc(docs[1][1], "concrete.yaml")
+    assert any("drop.two" in e and "removed" in e and "`until` on the last version" in e for e in errors), errors
+    docs[1][1]["obligations"][-1].pop("in_force")
+    assert not any("removed" in e and "in_force" in e for e in validate_instrument_doc(docs[1][1], "concrete.yaml"))
+
+
+def test_a_row_inside_a_contract_dated_instrument_must_keep_its_floor() -> None:
+    """A row's own `in_force` replaces the instrument's, so an event-dated amendment row inside
+    an instrument dated `from 2022-08-01 by contract_date` would lose the contract-date floor."""
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []  # same `by`, later `from`
+
+    doc["obligations"][2]["in_force"] = {"from": "2027-07-01", "by": "event_date"}
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any(
+        "payment.final_payment.au-wa" in e and "fixture_sop_act_wa" in e and "differs" in e for e in errors
+    ), errors
+
+    doc["obligations"][2]["in_force"] = {"from": "2022-01-01", "by": "contract_date"}
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("payment.final_payment.au-wa" in e and "earlier than" in e and "fixture_sop_act_wa" in e for e in errors), errors
+
+    doc["obligations"][2]["in_force"] = {"by": "contract_date", "transitional": "s 9(2)"}
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("payment.final_payment.au-wa" in e and "no `from`" in e for e in errors), errors
+
+    # An instrument with no `from` of its own has no floor to drop.
+    doc["in_force"] = {"until": "2030-01-01", "by": "contract_date"}
+    doc["obligations"][2]["in_force"] = {"from": "2027-07-01", "by": "event_date"}
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
