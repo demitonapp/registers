@@ -363,7 +363,124 @@ def test_a_row_inside_a_contract_dated_instrument_must_keep_its_floor() -> None:
     errors = validate_instrument_doc(doc, "instrument_level.yaml")
     assert any("payment.final_payment.au-wa" in e and "no `from`" in e for e in errors), errors
 
-    # An instrument with no `from` of its own has no floor to drop.
-    doc["in_force"] = {"until": "2030-01-01", "by": "contract_date"}
+    # An instrument with only an `until` has no floor, but it has a ceiling (see below);
+    # an undated instrument has neither, so its rows are free.
+    del doc["in_force"]
     doc["obligations"][2]["in_force"] = {"from": "2027-07-01", "by": "event_date"}
     assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+
+
+def _bounded() -> dict:
+    """The instrument-level fixture with a ceiling as well as a floor, and the third row's
+    amendment keeping the instrument's `by` but not yet its `until`."""
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    doc["in_force"] = {"from": "2022-08-01", "until": "2030-12-31", "by": "contract_date", "transitional": "s 9(1)"}
+    doc["obligations"][2]["in_force"] = {"from": "2023-01-01", "by": "contract_date"}
+    return doc
+
+
+def test_a_row_inside_an_instrument_with_an_until_must_keep_the_ceiling() -> None:
+    """A row's own `in_force` replaces the instrument's, so `{from: 2023-01-01}` inside an
+    instrument `{from: 2022-08-01, until: 2030-12-31}` flattened with no `until` at all."""
+    doc = _bounded()
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any(
+        "payment.final_payment.au-wa" in e and "fixture_sop_act_wa" in e and "no `until`" in e and "2030-12-31" in e
+        for e in errors
+    ), errors
+
+    doc["obligations"][2]["in_force"]["until"] = "2031-06-30"
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("payment.final_payment.au-wa" in e and "later than" in e and "fixture_sop_act_wa" in e for e in errors), errors
+
+    doc["obligations"][2]["in_force"]["until"] = "2030-12-31"  # restating the ceiling, or lower, is fine
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+    doc["obligations"][2]["in_force"]["until"] = "2028-12-31"
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+
+    doc["obligations"][2]["in_force"] = {"from": "2023-01-01", "until": "2030-12-31", "by": "event_date"}
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("payment.final_payment.au-wa" in e and "differs" in e for e in errors), errors
+
+
+def test_an_until_only_instrument_is_a_ceiling_rows_cannot_outlive() -> None:
+    """A repealed Act `{until: 2022-07-31}` with a row `{from: 2027-01-01, by: event_date}`
+    outlived the repeal: the row's block replaced the instrument's, ceiling and all."""
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    doc["in_force"] = {"until": "2022-07-31", "by": "event_date"}
+    doc["obligations"][2]["in_force"] = {"from": "2027-01-01", "by": "event_date"}
+    errors = validate_instrument_doc(doc, "instrument_level.yaml")
+    assert any("payment.final_payment.au-wa" in e and "fixture_sop_act_wa" in e and "no `until`" in e for e in errors), errors
+
+    doc["obligations"][2]["in_force"] = {"from": "2020-01-01", "until": "2022-07-31", "by": "event_date"}
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+
+
+def test_a_bounded_instruments_earlier_versions_derive_their_until_and_the_last_keeps_the_ceiling() -> None:
+    """The legitimate case: an amendment row with the same `by`, a later `from` and the
+    instrument's `until` restated. The stamped original is not the last version, so it is
+    not given the instrument's `until` (that is an overlap): the resolver derives it."""
+    doc = _bounded()
+    amended = dict(doc["obligations"][2])
+    original = {k: v for k, v in amended.items() if k != "in_force"}
+    amended["in_force"] = {"from": "2024-01-01", "until": "2030-12-31", "by": "contract_date"}
+    amended["window"] = {"value": 25, "unit": "business_days"}
+    doc["obligations"] = doc["obligations"][:2] + [original, amended]
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+    assert resolve.tree_errors([("instrument_level.yaml", doc)]) == []
+    versions = [o["in_force"] for o in resolve.flatten_docs([("i", doc)])[0]["obligations"] if o["key"] == "payment.final_payment.au-wa"]
+    assert versions == [
+        {"from": "2022-08-01", "by": "contract_date", "transitional": "s 9(1)", "until": "2023-12-31"},
+        {"from": "2024-01-01", "until": "2030-12-31", "by": "contract_date"},
+    ]
+
+
+def test_a_repeal_row_that_restates_its_from_passes_inside_a_bounded_instrument() -> None:
+    doc = _bounded()
+    doc["obligations"][2]["in_force"] = {"from": "2022-08-01", "until": "2029-06-30", "by": "contract_date"}
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+
+
+def test_an_undated_instrument_leaves_its_dated_rows_free() -> None:
+    doc = _load(VERSIONS / "instrument_level.yaml")
+    del doc["in_force"]
+    doc["obligations"][2]["in_force"] = {"from": "2027-07-01", "by": "event_date"}
+    assert validate_instrument_doc(doc, "instrument_level.yaml") == []
+
+
+# --- an abstract base is never dated ---------------------------------------
+
+
+def _dated_base_tree(where: str) -> list[tuple[str, dict]]:
+    base = _load(FIXTURES / "valid" / "abstract_base.yaml")
+    concrete = _load(FIXTURES / "valid" / "extending_concrete.yaml")
+    block = {"from": "2023-01-01", "by": "contract_date"}
+    if where == "row":
+        base["obligations"][0]["in_force"] = block
+    else:
+        base["in_force"] = block
+    return [("base.yaml", base), ("concrete.yaml", concrete)]
+
+
+def test_a_dated_row_in_an_abstract_base_is_refused_and_names_the_key_and_the_base() -> None:
+    docs = _dated_base_tree("row")
+    errors = validate_instrument_doc(docs[0][1], "base.yaml")
+    assert any("fixture.notice" in e and "fixture_model_act" in e and "dated row" in e for e in errors), errors
+    errors = resolve.tree_errors(docs)
+    assert any("fixture.notice" in e and "fixture_model_act" in e and "dated row" in e for e in errors), errors
+
+
+def test_an_instrument_level_in_force_in_an_abstract_base_is_refused() -> None:
+    docs = _dated_base_tree("instrument")
+    errors = validate_instrument_doc(docs[0][1], "base.yaml")
+    assert any("fixture_model_act" in e and "instrument-level in_force" in e for e in errors), errors
+    errors = resolve.tree_errors(docs)
+    assert any("fixture_model_act" in e and "instrument-level in_force" in e for e in errors), errors
+
+
+def test_an_undated_abstract_base_and_a_dated_concrete_override_pass() -> None:
+    base = _load(FIXTURES / "valid" / "abstract_base.yaml")
+    concrete = _load(FIXTURES / "valid" / "extending_concrete.yaml")
+    concrete["obligations"][0]["in_force"] = {"from": "2023-01-01", "by": "contract_date"}
+    assert resolve.tree_errors([("base.yaml", base), ("concrete.yaml", concrete)]) == []
+    assert validate_instrument_doc(base, "base.yaml") == []

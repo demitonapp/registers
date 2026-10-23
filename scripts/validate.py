@@ -44,8 +44,10 @@ refused by the schema's own `required`, not a separate rule. A dated version
 repeat only within one instrument; the checks across the versions of one key live in
 `resolve.version_errors`, beside the resolver that derives them. `until_by` is derived by
 the resolver and refused in source; a `removed: true` row may not carry `in_force`; a row
-of an instrument dated with a `from` keeps that `by` and does not start earlier (its own
-block replaces the instrument's); and the flattened output of the real tree is checked
+of an instrument dated with a `from` keeps that `by` and does not start earlier, and on an
+instrument carrying an `until` the last version of a key states an `until` no later than the
+instrument's (a row's own block replaces the instrument's, floor and ceiling); an abstract
+base carries no `in_force`, on the instrument or a row; and the flattened output of the real tree is checked
 against the contracts (`flattened_output_errors`).
 
 Currency is data, never a name (SD034, CLAUDE.md Rule 11). A property whose name
@@ -63,6 +65,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 import yaml
@@ -243,43 +246,81 @@ def _in_force_errors(label: str, who: str, block: object) -> list[str]:
 
 def _floor_errors(label: str, doc: dict) -> list[str]:
     """A row's own `in_force` replaces the instrument's block (it is kept, not merged), so on
-    an instrument dated by a `from` it would drop that floor. A row of such an instrument that
-    dates itself must use the same `by` and a `from` no earlier than the instrument's."""
+    an instrument dated by a `from` it would drop that floor, and on one carrying an `until`
+    it would drop that ceiling. A row of such an instrument that dates itself must use the
+    same `by`; a `from` no earlier than the instrument's; and, on its key's last version
+    (every earlier version's `until` is derived from the next `from`), an `until` no later
+    than the instrument's."""
     block = doc.get("in_force")
-    if not isinstance(block, dict) or block.get("from") is None:
+    if not isinstance(block, dict) or (block.get("from") is None and block.get("until") is None):
         return []
     try:
-        floor = resolve.as_date(block["from"])
+        floor = resolve.as_date(block.get("from"))
+        ceiling = resolve.as_date(block.get("until"))
     except ValueError:
         return []  # reported by _in_force_errors
+    rows = [o for o in doc.get("obligations") or [] if isinstance(o, dict)]
+
+    def start(row: dict) -> date:
+        own = row.get("in_force")
+        try:
+            return (resolve.as_date(own.get("from")) if isinstance(own, dict) else None) or date.min
+        except ValueError:
+            return date.min
+
+    def key_of(row: dict) -> object:
+        return row.get("key") or row.get("overrides")
+
+    last_start: dict[object, date] = {}
+    for row in rows:
+        last_start[key_of(row)] = max(last_start.get(key_of(row), date.min), start(row))
     errors: list[str] = []
-    for obligation in doc.get("obligations") or []:
-        own = obligation.get("in_force") if isinstance(obligation, dict) else None
+    for obligation in rows:
+        own = obligation.get("in_force")
         if not isinstance(own, dict):
             continue
-        who = str(obligation.get("key") or obligation.get("overrides"))
+        who = str(key_of(obligation))
         if own.get("by") != block.get("by"):
             errors.append(
                 f"{label}: {who}: in_force.by {own.get('by')!r} differs from instrument {doc.get('id')}'s "
                 f"{block.get('by')!r}; a row's own in_force replaces the instrument's, so inside an instrument dated "
-                f"from {block['from']} a row must use the same `by`"
+                f"{_dated(block)} a row must use the same `by`"
             )
         try:
             own_from = resolve.as_date(own.get("from"))
+            own_until = resolve.as_date(own.get("until"))
         except ValueError:
             continue  # reported by _in_force_errors
-        if own_from is None:
-            errors.append(
-                f"{label}: {who}: in_force has no `from`, which drops the floor of instrument {doc.get('id')} "
-                f"(in force from {block['from']}); a row's own in_force replaces the instrument's, so give it a "
-                f"`from` no earlier than {block['from']}"
-            )
-        elif own_from < floor:
-            errors.append(
-                f"{label}: {who}: in_force.from {own_from.isoformat()} is earlier than instrument {doc.get('id')}'s "
-                f"from {block['from']}; a version cannot start before the instrument does"
-            )
+        if floor is not None:
+            if own_from is None:
+                errors.append(
+                    f"{label}: {who}: in_force has no `from`, which drops the floor of instrument {doc.get('id')} "
+                    f"(in force from {block['from']}); a row's own in_force replaces the instrument's, so give it a "
+                    f"`from` no earlier than {block['from']}"
+                )
+            elif own_from < floor:
+                errors.append(
+                    f"{label}: {who}: in_force.from {own_from.isoformat()} is earlier than instrument {doc.get('id')}'s "
+                    f"from {block['from']}; a version cannot start before the instrument does"
+                )
+        if ceiling is not None and start(obligation) == last_start[key_of(obligation)]:
+            if own_until is None:
+                errors.append(
+                    f"{label}: {who}: in_force has no `until`, which drops the ceiling of instrument {doc.get('id')} "
+                    f"(in force until {block['until']}); a row's own in_force replaces the instrument's, so give it an "
+                    f"`until` no later than {block['until']}"
+                )
+            elif own_until > ceiling:
+                errors.append(
+                    f"{label}: {who}: in_force.until {own_until.isoformat()} is later than instrument {doc.get('id')}'s "
+                    f"until {block['until']}; a version cannot outlast the instrument"
+                )
     return errors
+
+
+def _dated(block: dict) -> str:
+    parts = [f"{field} {block[field]}" for field in ("from", "until") if block.get(field) is not None]
+    return " and ".join(parts)
 
 
 def flattened_output_errors(instruments: list[dict]) -> list[str]:
@@ -344,6 +385,7 @@ def validate_instrument_doc(
 
     errors.extend(_in_force_errors(label, f"instrument {doc.get('id')}", doc.get("in_force")))
     errors.extend(_floor_errors(label, doc))
+    errors.extend(resolve.abstract_in_force_errors(label, doc))
 
     is_override_doc = "extends" in doc
     is_abstract = doc.get("abstract") is True
@@ -514,7 +556,7 @@ def validate_obligation_data() -> tuple[list[str], list[str]]:
     # base obligation, and no silent drop from a model_law base. They live in
     # resolve.py, which also owns the flattening, so the two can never drift.
     tree = resolve.tree_errors()
-    errors.extend(tree)
+    errors.extend(e for e in tree if e not in errors)  # an abstract base's dated row is reported by both
     if not tree:
         errors.extend(flattened_output_errors(resolve.flatten()))
     errors.extend(validate_event_types())

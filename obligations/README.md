@@ -144,9 +144,20 @@ A row's own block is kept, not merged: it replaces the instrument's whole block.
 instrument dated with a `from`, a row that dates itself must use the **same `by`** and a
 `from` **no earlier than the instrument's**, or the row would silently lose the
 instrument's floor (an event-dated amendment row inside an Act dated `from 2022-08-01 by
-contract_date` would apply to contracts the Act never bound). `validate.py` refuses the mix
-and names the key and the instrument. An instrument with no `from` has no floor, and its
-rows are free.
+contract_date` would apply to contracts the Act never bound). The same holds for a
+ceiling: on an instrument carrying an `until` (with or without a `from`, as in a repealed
+Act `{until: 2022-07-31, by: event_date}`), a dated row must use the same `by` and carry
+an **`until` no later than the instrument's**, or it would outlive the instrument. That
+applies to the last version of a key; the resolver derives the `until` of every earlier
+one, and does not copy the instrument's `until` onto an undated original that has later
+versions. `validate.py` refuses the mix and names the key and the instrument. An
+instrument with neither `from` nor `until` has no floor or ceiling, and its rows are free.
+
+**An abstract base is never dated.** A concrete's override inherits its base row's
+`in_force`, which would carry a date past the concrete's own floor and ceiling, and the
+resolver ignores a base's instrument-level block. `validate.py` and `resolve.tree_errors`
+refuse a dated row, or an instrument-level `in_force`, in any file under `obligations/_model/`,
+naming the key and the base. Date the concrete instrument or its overriding row.
 
 **What the resolver derives.** It groups an instrument's rows by `key`, sorts them by
 `from` (none first), and gives each version but the last an `until` of the day before the
