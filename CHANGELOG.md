@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v31, 2026-10-23: no obligation kinds (register contracts only)
+
 - A contract names its register as a register (SD035/P7). Every `contracts/*.schema.json` says `x-demiton-register-type` where it said `x-demiton-shelf-type`, and its `$id` is `demiton:register/<register_type>/<major>` where it was `demiton:shelf/...`. Only the identity moved: no property, `required` list, enum or type changed, so each contract takes a PATCH bump (172 of them) and an existing document validates exactly as before. A property still called `shelf_type` (a data field in `compliance_state`, `entity_attribute`, `market_intelligence`, `platform_*`) is a field of the stored fact, not the contract's identity, and keeps its name: renaming it removes a property, a MAJOR change that needs its own decision. Consumers read either keyword until they have vendored this release; the monorepo loader already does.
 
 ## v30, 2026-10-23: no obligation kinds (register contracts only)
