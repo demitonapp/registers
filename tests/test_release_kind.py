@@ -32,6 +32,8 @@ from release_kind import (  # noqa: E402
     classify,
     computed_kinds,
     heading_date,
+    heading_errors,
+    holiday_change,
     late_amendments,
     refusals,
     release_json,
@@ -294,3 +296,193 @@ def test_a_heading_dated_by_the_utc_clock_is_refused_at_the_utc_brisbane_boundar
     done = _cut(right)
     assert done.returncode == 0, done.stdout
     assert json.loads((right / "RELEASE.json").read_text())["warnings"] == []
+
+
+# --- SM052 D5 re-review: holiday calendars and a withdrawn jurisdiction are release kinds -------
+
+QLD = ROOT / "holidays" / "AU-QLD.yaml"
+
+
+def _holiday_repo(tmp_path: Path, edit, *, changelog: str = "") -> Path:
+    """A throwaway repository holding this one's scripts, vocab and the real AU-QLD calendar,
+    tagged v1, then `edit(repo)` applied and committed as v2. No obligations: the kinds this
+    exercises are the ones computed from holidays/ and vocab/."""
+    repo = tmp_path / "repo"
+    (repo / "scripts").mkdir(parents=True)
+    for name in ("resolve.py", "release_kind.py"):
+        shutil.copy(ROOT / "scripts" / name, repo / "scripts" / name)
+    shutil.copytree(ROOT / "vocab", repo / "vocab")
+    (repo / "holidays").mkdir()
+    shutil.copy(QLD, repo / "holidays" / "AU-QLD.yaml")
+    shutil.copy(ROOT / "holidays" / "calendar.schema.json", repo / "holidays" / "calendar.schema.json")
+    env = {
+        **os.environ,
+        "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@example.invalid",
+        "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@example.invalid",
+    }
+
+    def git(*args: str) -> None:
+        subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, env=env)
+
+    git("init", "-q")
+    (repo / "CHANGELOG.md").write_text("# Changelog\n")
+    git("add", "-A")
+    git("commit", "-q", "-m", "v1")
+    git("tag", "v1")
+    edit(repo)
+    (repo / "CHANGELOG.md").write_text(changelog or "# Changelog\n")
+    git("add", "-A")
+    git("commit", "-q", "-m", "v2")
+    git("tag", "v2")
+    return repo
+
+
+def _kinds(repo: Path, *extra: str) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        [sys.executable, "scripts/release_kind.py", "--base", "v1", "--on", "2026-11-02", *extra],
+        cwd=repo, capture_output=True, text=True,
+    )
+
+
+def _edit_qld(old: str, new: str):
+    def edit(repo: Path) -> None:
+        path = repo / "holidays" / "AU-QLD.yaml"
+        text = path.read_text()
+        assert text.count(old) == 1, old
+        path.write_text(text.replace(old, new))
+    return edit
+
+
+def _new_year(repo: Path) -> None:
+    path = repo / "holidays" / "AU-QLD.yaml"
+    text = path.read_text().replace("years: [2025, 2026, 2027]", "years: [2025, 2026, 2027, 2028]")
+    text = text.replace("not_included:\n", '  - date: "2028-01-01"\n    name: "New Year\'s Day"\nnot_included:\n', 1)
+    path.write_text(text)
+
+
+def _unsupport_nz(repo: Path) -> None:
+    path = repo / "vocab" / "jurisdictions.json"
+    vocab = json.loads(path.read_text())
+    assert vocab["NZ"]["supported"] is True
+    vocab["NZ"]["supported"] = False
+    path.write_text(json.dumps(vocab, indent=2) + "\n")
+
+
+def test_an_unchanged_holiday_calendar_computes_none(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, lambda repo: (repo / "README.md").write_text("x\n")))
+    assert done.returncode == 0, done.stdout + done.stderr
+    assert "kinds: none" in done.stdout, done.stdout
+
+
+def test_a_reflowed_holiday_calendar_is_no_change(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, lambda repo: (repo / "holidays" / "AU-QLD.yaml").write_text(
+        (repo / "holidays" / "AU-QLD.yaml").read_text().replace('name: "Labour Day"', "name: 'Labour Day'")
+    )))
+    assert "kinds: none" in done.stdout, done.stdout
+
+
+def test_a_changed_holiday_date_is_a_correction_that_names_the_file(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, _edit_qld('date: "2026-05-04"', 'date: "2026-05-11"')))
+    assert "kinds: correction" in done.stdout, done.stdout
+    assert "holidays/AU-QLD.yaml" in done.stdout, done.stdout
+
+
+def test_a_removed_holiday_date_is_a_correction(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, _edit_qld('  - date: "2026-12-28"\n    name: "Additional public holiday for Boxing Day"\n', "")))
+    assert "kinds: correction" in done.stdout, done.stdout
+
+
+def test_only_a_new_year_is_an_addition(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, _new_year))
+    assert "kinds: addition" in done.stdout, done.stdout
+    assert "holidays/AU-QLD.yaml" in done.stdout, done.stdout
+
+
+def test_a_new_year_that_also_changes_an_old_date_is_a_correction_too() -> None:
+    old = yaml.safe_load(QLD.read_text())
+    new = yaml.safe_load(QLD.read_text())
+    new["years"].append(2028)
+    new["holidays"].append({"date": "2028-01-01", "name": "New Year's Day"})
+    assert holiday_change("holidays/AU-QLD.yaml", old, new).kind == "addition"
+    new["holidays"][0]["date"] = "2025-01-02"
+    assert holiday_change("holidays/AU-QLD.yaml", old, new).kind == "correction"
+
+
+def test_a_date_added_to_a_year_the_file_listed_as_complete_is_a_correction() -> None:
+    old = yaml.safe_load(QLD.read_text())
+    new = yaml.safe_load(QLD.read_text())
+    new["holidays"].append({"date": "2026-08-12", "name": "A holiday the calendar missed"})
+    change = holiday_change("holidays/AU-QLD.yaml", old, new)
+    assert change.kind == "correction" and "holidays/AU-QLD.yaml" in change.reason
+
+
+def test_a_changed_field_a_removed_year_and_a_removed_file_are_corrections_and_a_new_file_an_addition() -> None:
+    old = yaml.safe_load(QLD.read_text())
+    reworded = {**old, "weekend_rule": "changed"}
+    assert holiday_change("holidays/AU-QLD.yaml", old, reworded).kind == "correction"
+    fewer = {**old, "years": old["years"][:-1]}
+    assert holiday_change("holidays/AU-QLD.yaml", old, fewer).kind == "correction"
+    assert holiday_change("holidays/AU-QLD.yaml", old, None).kind == "correction"
+    assert holiday_change("holidays/AU-QLD.yaml", None, old).kind == "addition"
+    assert holiday_change("holidays/AU-QLD.yaml", old, old) is None
+
+
+def test_a_holiday_correction_must_be_declared_by_the_tag(tmp_path: Path) -> None:
+    edit = _edit_qld('date: "2026-05-04"', 'date: "2026-05-11"')
+    bare = _holiday_repo(tmp_path / "a", edit, changelog="# Changelog\n\n## v2, 2026-11-02: addition\n")
+    done = _kinds(bare, "--tag", "v2", "--commit-date", "2026-11-02T09:00:00+10:00")
+    assert done.returncode == 1, done.stdout
+    assert "correction" in done.stdout and "holidays/AU-QLD.yaml" in done.stdout, done.stdout
+    ok = _holiday_repo(tmp_path / "b", edit, changelog="# Changelog\n\n## v2, 2026-11-02: correction\n")
+    done = _kinds(ok, "--tag", "v2", "--commit-date", "2026-11-02T09:00:00+10:00", "--out", "RELEASE.json")
+    assert done.returncode == 0, done.stdout + done.stderr
+    assert json.loads((ok / "RELEASE.json").read_text()) == {"tag": "v2", "kinds": ["correction"], "amendments": [], "warnings": []}
+
+
+def test_a_jurisdiction_switched_to_unsupported_is_a_correction(tmp_path: Path) -> None:
+    done = _kinds(_holiday_repo(tmp_path, _unsupport_nz))
+    assert "kinds: correction" in done.stdout, done.stdout
+    assert "NZ" in done.stdout and "unsupported" in done.stdout, done.stdout
+    changes = classify(Tree([], frozenset({"AU", "NZ"})), Tree([], frozenset({"AU"})), TAG_DATE)
+    assert [(c.kind, c.key) for c in changes] == [("correction", "NZ")]
+    assert "NZ" in changes[0].reason
+    # and a jurisdiction switched on is still an addition
+    assert [(c.kind, c.key) for c in classify(Tree([], frozenset({"AU"})), Tree([], frozenset({"AU", "NZ"})), TAG_DATE)] == [("addition", "NZ")]
+
+
+def test_a_tag_from_before_holidays_existed_still_reads(tags) -> None:
+    assert tags["v13"].holidays == {} or all(k.startswith("holidays/") for k in tags["v13"].holidays)
+
+
+def test_the_real_tree_has_no_holiday_change_against_itself() -> None:
+    here = tree_at("HEAD")
+    assert "holidays/AU-QLD.yaml" in here.holidays
+    assert [c for c in classify(here, here, TAG_DATE)] == []
+
+
+# --- the heading of the tag's section -------------------------------------------------------
+
+
+def test_two_headings_for_one_tag_are_refused() -> None:
+    changelog = "## v17, 2026-11-02: correction\n\n## v17, 2026-11-09: addition\n"
+    errors = refusals([], changelog, "v17", TAG_DATE)
+    assert len(errors) == 1 and "2 `## v17` headings" in errors[0] and "2026-11-02" in errors[0] and "2026-11-09" in errors[0], errors
+    assert heading_errors("## v17, 2026-11-02: none\n## v18, 2026-11-09: none\n", "v17") == []  # two tags, one heading each
+
+
+def test_an_impossible_heading_date_is_a_refusal_not_a_traceback() -> None:
+    errors = refusals([], "## v17, 2026-13-45: none\n", "v17", TAG_DATE)
+    assert len(errors) == 1 and "2026-13-45" in errors[0] and "not a calendar date" in errors[0], errors
+    with pytest.raises(ValueError):
+        heading_date("## v17, 2026-13-45: none\n", "v17")  # callers go through heading_errors first
+
+
+def test_the_command_line_refuses_both_cleanly(tmp_path: Path) -> None:
+    for n, (changelog, expect) in enumerate((
+        ("# Changelog\n\n## v2, 2026-13-45: none\n", "2026-13-45"),
+        ("# Changelog\n\n## v2, 2026-11-02: none\n\n## v2, 2026-11-03: none\n", "2 `## v2` headings"),
+    )):
+        repo = _holiday_repo(tmp_path / str(n), lambda repo: (repo / "README.md").write_text("x\n"), changelog=changelog)
+        done = _kinds(repo, "--tag", "v2", "--commit-date", "2026-11-02T09:00:00+10:00")
+        assert done.returncode == 1, done.stdout
+        assert "Traceback" not in done.stderr and expect in done.stdout, done.stdout + done.stderr

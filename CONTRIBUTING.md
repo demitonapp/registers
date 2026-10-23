@@ -33,9 +33,14 @@ there is no separate branch or date for additions.
 | a new instrument, a new edition of a contract form, a new duty the library did not carry, a jurisdiction switched to `supported` | addition |
 | a rule an amending law changes from a date after the release (a new version with `in_force.from`, or a repeal with `in_force.until`) | amendment |
 | a row that was wrong: a field fixed, a key removed | correction |
+| a public-holiday calendar (`holidays/<file>`) that gains only holidays in years it did not list, or a new calendar file | addition |
+| any other change to a `holidays/` file: a date changed or removed, a date added to a year it already listed, a field changed, a file removed | correction |
+| a jurisdiction in `vocab/jurisdictions.json` switched from `supported` to unsupported | correction |
 
 A pull request's CI prints the kinds it computes; the release tag's CHANGELOG
-section must declare them. A new duty that the library should always have carried
+section must declare them, and must be the tag's only `## vN` heading, dated with a
+real calendar day. A holiday file is compared by its parsed content, so a reflow is no
+change; the other vocabulary files are not classified. A new duty that the library should always have carried
 is a correction: say so in the pull request.
 
 ## Cutting a release
