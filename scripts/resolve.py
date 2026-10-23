@@ -135,12 +135,53 @@ def iso_dates(doc: object) -> object:
 
 
 def _stamp_in_force(instrument: dict) -> dict:
-    """Copy the instrument's `in_force` onto each of its rows that states none."""
+    """Copy the instrument's `in_force` onto each of its rows that states none.
+
+    A stamped row of a key with several versions is the original, never the last (the
+    others date themselves), so the instrument's `until` is not copied onto it:
+    `derive_versions` gives it the day before the next version's `from`, and the
+    instrument's ceiling is held by the last version, which `validate.py` requires to
+    state an `until` no later than the instrument's."""
     block = instrument.get("in_force")
     if not isinstance(block, dict):
         return instrument
-    rows = [o if "in_force" in o else {**o, "in_force": dict(block)} for o in instrument.get("obligations") or []]
+    rows_in = instrument.get("obligations") or []
+    count: dict[object, int] = {}
+    for o in rows_in:
+        count[o.get("key")] = count.get(o.get("key"), 0) + 1
+    rows = []
+    for o in rows_in:
+        if "in_force" in o:
+            rows.append(o)
+        elif count[o.get("key")] > 1:
+            rows.append({**o, "in_force": {k: v for k, v in block.items() if k != "until"}})
+        else:
+            rows.append({**o, "in_force": dict(block)})
     return {**instrument, "obligations": rows}
+
+
+def abstract_in_force_errors(label: str, doc: dict) -> list[str]:
+    """An abstract base is a catalogue of the shared wording, not a version of anything: a
+    concrete's override inherits a base row's `in_force`, so a dated row there would bypass
+    the concrete's own floor and ceiling (`validate.py`'s floor rule reads the concrete's
+    block), and the resolver ignores a base's instrument-level block altogether. Dating
+    belongs on the concrete instrument or its overriding rows."""
+    if not doc.get("abstract"):
+        return []
+    errors: list[str] = []
+    if doc.get("in_force") is not None:
+        errors.append(
+            f"{label}: abstract base {doc.get('id')} carries an instrument-level in_force, which the resolver "
+            f"ignores (a concrete states its own); date the concrete instrument, not the base"
+        )
+    for row in doc.get("obligations") or []:
+        if isinstance(row, dict) and row.get("in_force") is not None:
+            errors.append(
+                f"{label}: {row.get('key') or row.get('overrides')}: abstract base {doc.get('id')} carries a dated row "
+                f"(in_force), which a concrete's override would inherit past the concrete's own floor and ceiling; "
+                f"date the concrete's overriding row, not the base"
+            )
+    return errors
 
 
 def base_files() -> list[Path]:
@@ -221,6 +262,9 @@ def tree_errors(docs: list[tuple[str, dict]] | None = None) -> list[str]:
         else:
             seen_ids[iid] = rel
         by_id[iid] = (doc, rel)
+
+    for doc, rel in by_id.values():
+        errors.extend(abstract_in_force_errors(rel, doc))
 
     for doc, rel in by_id.values():
         if "extends" not in doc:
