@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/extraction_procedure/1",
+  "$id": "demiton:register/extraction_procedure/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "authored_by": {
@@ -60,7 +60,7 @@
   ],
   "title": "extraction_procedure contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -81,6 +81,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "extraction_procedure",
+  "x-demiton-register-type": "extraction_procedure",
   "x-demiton-store": "tenant"
 }

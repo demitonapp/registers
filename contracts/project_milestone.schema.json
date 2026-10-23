@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/project_milestone/1",
+  "$id": "demiton:register/project_milestone/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_date": {
@@ -47,7 +47,7 @@
   ],
   "title": "project_milestone contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -140,6 +140,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "project_milestone",
+  "x-demiton-register-type": "project_milestone",
   "x-demiton-store": "tenant"
 }

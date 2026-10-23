@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/intercompany_transaction/2",
+  "$id": "demiton:register/intercompany_transaction/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount": {
@@ -103,12 +103,12 @@
   ],
   "title": "intercompany_transaction contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-domain": "financials",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "intercompany_transaction",
+  "x-demiton-register-type": "intercompany_transaction",
   "x-demiton-store": "tenant"
 }

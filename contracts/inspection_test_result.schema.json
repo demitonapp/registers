@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/inspection_test_result/1",
+  "$id": "demiton:register/inspection_test_result/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "accredited": {
@@ -161,7 +161,7 @@
   ],
   "title": "inspection_test_result contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "safety",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -276,6 +276,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "inspection_test_result",
+  "x-demiton-register-type": "inspection_test_result",
   "x-demiton-store": "tenant"
 }

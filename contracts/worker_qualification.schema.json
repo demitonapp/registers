@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/worker_qualification/1",
+  "$id": "demiton:register/worker_qualification/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "competence_status": {
@@ -69,7 +69,7 @@
   ],
   "title": "worker_qualification contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.3",
+  "x-demiton-contract-version": "1.0.4",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -165,6 +165,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "worker_qualification",
+  "x-demiton-register-type": "worker_qualification",
   "x-demiton-store": "tenant"
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/tender_submission/2",
+  "$id": "demiton:register/tender_submission/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "currency": {
@@ -64,7 +64,7 @@
   ],
   "title": "tender_submission contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -162,6 +162,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "tender_submission",
+  "x-demiton-register-type": "tender_submission",
   "x-demiton-store": "tenant"
 }

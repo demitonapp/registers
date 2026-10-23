@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/dimension_set_entry/1",
+  "$id": "demiton:register/dimension_set_entry/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "dimension_code": {
@@ -48,10 +48,10 @@
   ],
   "title": "dimension_set_entry contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "dimension_set_entry",
+  "x-demiton-register-type": "dimension_set_entry",
   "x-demiton-store": "tenant"
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/environmental_aspect/1",
+  "$id": "demiton:register/environmental_aspect/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "activity": {
@@ -61,7 +61,7 @@
   ],
   "title": "environmental_aspect contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "safety",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -86,6 +86,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "environmental_aspect",
+  "x-demiton-register-type": "environmental_aspect",
   "x-demiton-store": "tenant"
 }

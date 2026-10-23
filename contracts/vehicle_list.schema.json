@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/vehicle_list/2",
+  "$id": "demiton:register/vehicle_list/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -75,7 +75,7 @@
   ],
   "title": "vehicle_list contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -114,6 +114,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "vehicle_list",
+  "x-demiton-register-type": "vehicle_list",
   "x-demiton-store": "tenant"
 }

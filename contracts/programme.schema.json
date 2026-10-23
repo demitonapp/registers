@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/programme/1",
+  "$id": "demiton:register/programme/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "date": {
@@ -55,7 +55,7 @@
   ],
   "title": "programme contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -109,6 +109,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "programme",
+  "x-demiton-register-type": "programme",
   "x-demiton-store": "tenant"
 }

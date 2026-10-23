@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/job_budget/2",
+  "$id": "demiton:register/job_budget/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "by_expense_category": {
@@ -52,10 +52,10 @@
   ],
   "title": "job_budget contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "job_budget",
+  "x-demiton-register-type": "job_budget",
   "x-demiton-store": "tenant"
 }

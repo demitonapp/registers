@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/safety_incident/2",
+  "$id": "demiton:register/safety_incident/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -91,7 +91,7 @@
   ],
   "title": "safety_incident contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -204,6 +204,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "safety_incident",
+  "x-demiton-register-type": "safety_incident",
   "x-demiton-store": "tenant"
 }

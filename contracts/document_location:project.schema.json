@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/document_location:project/1",
+  "$id": "demiton:register/document_location:project/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "binding_status": {
@@ -96,7 +96,7 @@
   ],
   "title": "document_location:project contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -133,6 +133,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "document_location:project",
+  "x-demiton-register-type": "document_location:project",
   "x-demiton-store": "tenant"
 }

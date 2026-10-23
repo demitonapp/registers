@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/vendor_list/3",
+  "$id": "demiton:register/vendor_list/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address_line_1": {
@@ -125,7 +125,7 @@
   ],
   "title": "vendor_list contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -257,6 +257,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "vendor_list",
+  "x-demiton-register-type": "vendor_list",
   "x-demiton-store": "tenant"
 }

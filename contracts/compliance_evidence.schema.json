@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/compliance_evidence/2",
+  "$id": "demiton:register/compliance_evidence/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "allOf": [
     {
@@ -183,7 +183,7 @@
   ],
   "title": "compliance_evidence contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -271,6 +271,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "compliance_evidence",
+  "x-demiton-register-type": "compliance_evidence",
   "x-demiton-store": "tenant"
 }

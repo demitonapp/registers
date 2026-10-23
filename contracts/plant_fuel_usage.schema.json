@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/plant_fuel_usage/2",
+  "$id": "demiton:register/plant_fuel_usage/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "alloc_days": {
@@ -116,7 +116,7 @@
   ],
   "title": "plant_fuel_usage contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -154,6 +154,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "plant_fuel_usage",
+  "x-demiton-register-type": "plant_fuel_usage",
   "x-demiton-store": "tenant"
 }

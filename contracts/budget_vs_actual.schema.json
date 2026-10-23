@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/budget_vs_actual/2",
+  "$id": "demiton:register/budget_vs_actual/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_amount": {
@@ -60,7 +60,7 @@
   ],
   "title": "budget_vs_actual contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -74,6 +74,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "budget_vs_actual",
+  "x-demiton-register-type": "budget_vs_actual",
   "x-demiton-store": "tenant"
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/trial_balance/2",
+  "$id": "demiton:register/trial_balance/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "account_category": {
@@ -78,7 +78,7 @@
   ],
   "title": "trial_balance contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -161,6 +161,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "trial_balance",
+  "x-demiton-register-type": "trial_balance",
   "x-demiton-store": "tenant"
 }

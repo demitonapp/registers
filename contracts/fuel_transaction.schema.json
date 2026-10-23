@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/fuel_transaction/2",
+  "$id": "demiton:register/fuel_transaction/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -93,7 +93,7 @@
   ],
   "title": "fuel_transaction contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-domain": "assets",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -108,6 +108,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "fuel_transaction",
+  "x-demiton-register-type": "fuel_transaction",
   "x-demiton-store": "tenant"
 }

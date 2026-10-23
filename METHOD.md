@@ -69,7 +69,7 @@ a principal's specification, an award, a licence - carrying every
 **obligation** it imposes nested under it. Checked strictly, with the real
 `Draft202012Validator`, against [`contracts/instrument.schema.json`](contracts/instrument.schema.json)
 and [`contracts/obligation.schema.json`](contracts/obligation.schema.json):
-unlike the shelf-derived contracts, these describe data this repository is
+unlike the register-derived contracts, these describe data this repository is
 itself the source of record for, so there is no reason to relax the check to
 the closed field-type vocabulary those came with.
 

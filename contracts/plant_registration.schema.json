@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/plant_registration/2",
+  "$id": "demiton:register/plant_registration/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -87,7 +87,7 @@
   ],
   "title": "plant_registration contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-domain": "assets",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
@@ -135,6 +135,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "plant_registration",
+  "x-demiton-register-type": "plant_registration",
   "x-demiton-store": "tenant"
 }

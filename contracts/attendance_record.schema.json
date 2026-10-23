@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/attendance_record/1",
+  "$id": "demiton:register/attendance_record/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "employer": {
@@ -72,7 +72,7 @@
   ],
   "title": "attendance_record contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "workforce",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -111,6 +111,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "attendance_record",
+  "x-demiton-register-type": "attendance_record",
   "x-demiton-store": "tenant"
 }

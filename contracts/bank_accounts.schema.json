@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/bank_accounts/3",
+  "$id": "demiton:register/bank_accounts/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "account_name": {
@@ -51,7 +51,7 @@
   ],
   "title": "bank_accounts contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -65,6 +65,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "bank_accounts",
+  "x-demiton-register-type": "bank_accounts",
   "x-demiton-store": "tenant"
 }

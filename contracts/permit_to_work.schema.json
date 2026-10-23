@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/permit_to_work/1",
+  "$id": "demiton:register/permit_to_work/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "actual_end": {
@@ -117,7 +117,7 @@
   ],
   "title": "permit_to_work contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-domain": "safety",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -142,6 +142,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "permit_to_work",
+  "x-demiton-register-type": "permit_to_work",
   "x-demiton-store": "tenant"
 }

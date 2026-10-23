@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/hilti_location/1",
+  "$id": "demiton:register/hilti_location/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "address": {
@@ -67,7 +67,7 @@
   ],
   "title": "hilti_location contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -90,6 +90,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "hilti_location",
+  "x-demiton-register-type": "hilti_location",
   "x-demiton-store": "tenant"
 }

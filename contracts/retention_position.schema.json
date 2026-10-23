@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/retention_position/2",
+  "$id": "demiton:register/retention_position/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "contract_ref": {
@@ -57,7 +57,7 @@
   ],
   "title": "retention_position contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -148,6 +148,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "retention_position",
+  "x-demiton-register-type": "retention_position",
   "x-demiton-store": "tenant"
 }

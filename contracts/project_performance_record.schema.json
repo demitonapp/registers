@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/project_performance_record/2",
+  "$id": "demiton:register/project_performance_record/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "claim_cycle": {
@@ -366,7 +366,7 @@
   ],
   "title": "project_performance_record contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -511,6 +511,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "project_performance_record",
+  "x-demiton-register-type": "project_performance_record",
   "x-demiton-store": "tenant"
 }

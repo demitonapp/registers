@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/purchase_line/2",
+  "$id": "demiton:register/purchase_line/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "amount": {
@@ -144,7 +144,7 @@
   ],
   "title": "purchase_line contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -259,6 +259,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "purchase_line",
+  "x-demiton-register-type": "purchase_line",
   "x-demiton-store": "tenant"
 }

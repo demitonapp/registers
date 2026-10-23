@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_award/3",
+  "$id": "demiton:register/platform_award/3",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "agency_id": {
@@ -139,7 +139,7 @@
   ],
   "title": "platform_award contract v3",
   "type": "object",
-  "x-demiton-contract-version": "3.0.0",
+  "x-demiton-contract-version": "3.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -283,6 +283,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "platform_award",
+  "x-demiton-register-type": "platform_award",
   "x-demiton-store": "platform"
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/vehicle_location/1",
+  "$id": "demiton:register/vehicle_location/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -99,7 +99,7 @@
   ],
   "title": "vehicle_location contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -188,6 +188,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "vehicle_location",
+  "x-demiton-register-type": "vehicle_location",
   "x-demiton-store": "tenant"
 }

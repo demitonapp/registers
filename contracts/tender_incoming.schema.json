@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/tender_incoming/2",
+  "$id": "demiton:register/tender_incoming/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "addenda": {
@@ -125,7 +125,7 @@
   ],
   "title": "tender_incoming contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -208,6 +208,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "tender_incoming",
+  "x-demiton-register-type": "tender_incoming",
   "x-demiton-store": "tenant"
 }

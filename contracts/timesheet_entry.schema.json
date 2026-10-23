@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/timesheet_entry/1",
+  "$id": "demiton:register/timesheet_entry/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "cost_code": {
@@ -74,7 +74,7 @@
   ],
   "title": "timesheet_entry contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -165,6 +165,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "timesheet_entry",
+  "x-demiton-register-type": "timesheet_entry",
   "x-demiton-store": "tenant"
 }

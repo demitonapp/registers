@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/contract_penalty/2",
+  "$id": "demiton:register/contract_penalty/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "cap_amount": {
@@ -63,7 +63,7 @@
   "title": "contract_penalty contract v2",
   "type": "object",
   "x-demiton-axes": [],
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-measures": [],
   "x-demiton-provenance": {
     "standards": [
@@ -102,6 +102,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "contract_penalty",
+  "x-demiton-register-type": "contract_penalty",
   "x-demiton-store": "tenant"
 }

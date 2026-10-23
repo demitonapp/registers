@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/market_intelligence/2",
+  "$id": "demiton:register/market_intelligence/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "austender_count": {
@@ -108,7 +108,7 @@
   ],
   "title": "market_intelligence contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.0",
+  "x-demiton-contract-version": "2.0.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -162,6 +162,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "market_intelligence",
+  "x-demiton-register-type": "market_intelligence",
   "x-demiton-store": "tenant"
 }

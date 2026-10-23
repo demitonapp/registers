@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/platform_obligation/1",
+  "$id": "demiton:register/platform_obligation/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$comment": "SM030 O3: replaces platform_evidence_standard (deprecated, kept for history). One row per obligation - the flat shelf-fact projection of one instrument's obligations/*.yaml entry (obligation.schema.json / instrument.schema.json), plus the engine-routing fields (`dispute_type`, `kind`, `register`, `register_match`, `measure`, `anchor`) a verdict recompute needs to evaluate it against a project's own registers. Those six are NOT published in the obligations/ tree: they are Demiton's own wiring for which register feeds which check, not part of what the obligation is (GOVERNANCE.md's public/private line). Field names below deliberately match the retiring platform_evidence_standard contract where the concept is the same (`standard_key`, `source_title`, `source_clause`, `source_url`, `dispute_type`) so the verdict engine that reads this shelf changes its data source, not its field access. Every field the projection writes is declared here: a consumer that compares a stored row with a new one through this contract ignores an undeclared key present on one side only, so an undeclared field never reaches a row already stored.",
   "properties": {
@@ -234,12 +234,12 @@
   ],
   "title": "platform_obligation contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.4.0",
+  "x-demiton-contract-version": "1.4.1",
   "x-demiton-domain": "platform",
   "x-demiton-memory-type": "procedural",
   "x-demiton-provenance": {
     "standards": []
   },
-  "x-demiton-shelf-type": "platform_obligation",
+  "x-demiton-register-type": "platform_obligation",
   "x-demiton-store": "platform"
 }

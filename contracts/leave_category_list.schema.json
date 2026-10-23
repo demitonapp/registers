@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/leave_category_list/1",
+  "$id": "demiton:register/leave_category_list/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "accrual_rule": {
@@ -174,7 +174,7 @@
   ],
   "title": "leave_category_list contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.2",
+  "x-demiton-contract-version": "1.0.3",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -256,6 +256,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "leave_category_list",
+  "x-demiton-register-type": "leave_category_list",
   "x-demiton-store": "tenant"
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/site_geology/1",
+  "$id": "demiton:register/site_geology/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "age": {
@@ -89,7 +89,7 @@
   ],
   "title": "site_geology contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.0.2",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -240,6 +240,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "site_geology",
+  "x-demiton-register-type": "site_geology",
   "x-demiton-store": "tenant"
 }

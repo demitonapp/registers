@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/safety_ncr/2",
+  "$id": "demiton:register/safety_ncr/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "asset": {
@@ -81,7 +81,7 @@
   ],
   "title": "safety_ncr contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.1.0",
+  "x-demiton-contract-version": "2.1.1",
   "x-demiton-provenance": {
     "standards": [
       {
@@ -176,6 +176,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "safety_ncr",
+  "x-demiton-register-type": "safety_ncr",
   "x-demiton-store": "tenant"
 }

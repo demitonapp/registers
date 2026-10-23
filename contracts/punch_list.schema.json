@@ -1,5 +1,5 @@
 {
-  "$id": "demiton:shelf/punch_list/1",
+  "$id": "demiton:register/punch_list/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
     "assignee": {
@@ -120,7 +120,7 @@
   ],
   "title": "punch_list contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.1.1",
   "x-demiton-domain": "projects",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {
@@ -145,6 +145,6 @@
       }
     ]
   },
-  "x-demiton-shelf-type": "punch_list",
+  "x-demiton-register-type": "punch_list",
   "x-demiton-store": "tenant"
 }
