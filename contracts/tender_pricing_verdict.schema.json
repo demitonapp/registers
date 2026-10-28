@@ -1,0 +1,179 @@
+{
+  "$id": "demiton:register/tender_pricing_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "actual_cost": {
+      "description": "posted cost, over the mapped cost codes",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "cause": {
+      "description": "the largest positive cost effect; absent when none is positive",
+      "enum": [
+        "rate",
+        "norm",
+        "quantity",
+        "preliminaries",
+        "escalation",
+        "bought"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "committed_cost": {
+      "description": "open orders not yet received, over the mapped cost codes",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "complete_pct": {
+      "description": "the share of the activity complete, from 0 to 1",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`priced_amount`, `priced_unit_cost`, `committed_cost`, `actual_cost`, `forecast_to_complete`, `variation_amount`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "evidence_fact_ids": {
+      "description": "the facts the measurement read: the price, the map, the cost and progress facts",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "forecast_to_complete": {
+      "description": "the position divided by `complete_pct`, floored at the position",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "input_mismatch": {
+      "description": "true when the tendered rate or norm differs from that version by more than 2%",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "input_version": {
+      "description": "the `tender_input` version in force on the tender's date, or absent when there was none",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "input_version_basis": {
+      "description": "how the version was chosen: by the tender's date, or none in force",
+      "enum": [
+        "dated",
+        "none"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "norm_ratio": {
+      "description": "hours per unit achieved over hours per unit priced; absent when either is",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "priced_amount": {
+      "description": "the activity's tendered total",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "priced_hours": {
+      "description": "the tendered hours",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "priced_qty": {
+      "description": "the tendered quantity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "priced_unit_cost": {
+      "description": "the tendered rate per unit of quantity",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "project_entity_id": {
+      "description": "the project measured",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "qty_ratio": {
+      "description": "quantity built over quantity priced; absent when either is",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "rate_ratio": {
+      "description": "rate paid over rate priced; absent when either is",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "skipped_reason": {
+      "description": "why the activity could not be measured; required when it could not",
+      "enum": [
+        "no_price_linked",
+        "no_confirmed_map",
+        "no_actuals",
+        "variation_job_level"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "state": {
+      "description": "whether the activity is inside the band or in breach",
+      "enum": [
+        "inside",
+        "breach"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "variation_amount": {
+      "description": "accepted variations netted out, at the level `variation_basis` names",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "variation_basis": {
+      "description": "where variations were netted: the job, or the activity",
+      "enum": [
+        "job",
+        "activity"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "week_start": {
+      "description": "the Monday of the week the run measured",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "weeks_in_breach": {
+      "description": "consecutive weeks the activity's ratios have been outside the band",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "the activity measured",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "work_activity",
+    "week_start",
+    "input_version_basis",
+    "input_mismatch",
+    "currency",
+    "weeks_in_breach",
+    "state",
+    "variation_basis",
+    "evidence_fact_ids"
+  ],
+  "title": "tender_pricing_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "compliance",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "tender_pricing_verdict",
+  "x-demiton-store": "tenant"
+}

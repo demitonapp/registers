@@ -14,6 +14,11 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v32, 2026-10-28: no obligation kinds (register contracts only)
+
+- Four new tenant registers for the weekly tender-pricing check (SM066), each contract 1.0.0, memory type `semantic`. `tender_input`: one estimating input (a rate, a norm or an allowance) for one work activity at one immutable version, with its basis, evidence and signer; accepting a lesson writes the next version and retires the last. `tender_lesson`: a proposed change to one input, raised when jobs priced on it measure outside the band, with its cause, the overrun it came from, the money at stake and what was decided (`proposed`, `accepted`, `declined`, `proven`). `tender_activity_map`: the crosswalk from a project's priced work activities to the cost codes that carry their cost, `proposed` until a person confirms it. `tender_pricing_verdict`: one week's measurement of one priced activity on one project against the price that priced it, with the quantity, norm and rate ratios, the cause, the input version in force on the tender's date and, when the activity could not be measured, the reason. Every amount carries its own currency; no field names one.
+- `tendered_budget` 2.1.0 (MINOR: one new optional property): `job_entity_id`, the project the price prices once the tender is won, beside `entity_id`, which stays the opportunity. 2.0.1 kept in `history/`.
+
 ## v31, 2026-10-23: no obligation kinds (register contracts only)
 
 - A contract names its register as a register (SD035/P7). Every `contracts/*.schema.json` says `x-demiton-register-type` where it said `x-demiton-shelf-type`, and its `$id` is `demiton:register/<register_type>/<major>` where it was `demiton:shelf/...`. Only the identity moved: no property, `required` list, enum or type changed, so each contract takes a PATCH bump (172 of them) and an existing document validates exactly as before. A property still called `shelf_type` (a data field in `compliance_state`, `entity_attribute`, `market_intelligence`, `platform_*`) is a field of the stored fact, not the contract's identity, and keeps its name: renaming it removes a property, a MAJOR change that needs its own decision. Consumers read either keyword until they have vendored this release; the monorepo loader already does.

@@ -1,0 +1,63 @@
+{
+  "$id": "demiton:register/tender_activity_map/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "confirmed_at": {
+      "description": "when it was confirmed; required when `source` is `confirmed`",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "confirmed_by_user_id": {
+      "description": "who confirmed it; required when `source` is `confirmed`",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "cost_codes": {
+      "description": "the project cost codes that carry the activity's cost, at least one",
+      "minItems": 1,
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "project_entity_id": {
+      "description": "the project the map belongs to",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "source": {
+      "description": "whether a person has confirmed the map",
+      "enum": [
+        "proposed",
+        "confirmed"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tender_line_refs": {
+      "description": "the priced lines the activity was read from",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "the priced work activity",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "work_activity",
+    "cost_codes",
+    "tender_line_refs",
+    "source"
+  ],
+  "title": "tender_activity_map contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "tender_activity_map",
+  "x-demiton-store": "tenant"
+}
