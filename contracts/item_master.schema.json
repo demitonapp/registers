@@ -1,0 +1,114 @@
+{
+  "$id": "demiton:register/item_master/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "active": {
+      "description": "false when the item is blocked or retired in the ERP",
+      "type": "boolean",
+      "x-demiton-requiredness": "optional"
+    },
+    "base_unit_of_measure": {
+      "description": "the unit every quantity and price on this record is per",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "book_cost": {
+      "description": "the unit cost the stock on hand is carried at",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "costing_method": {
+      "description": "how the ERP values the item's stock",
+      "enum": [
+        "fifo",
+        "lifo",
+        "moving_average",
+        "standard",
+        "specific"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`standard_cost`, `book_cost`, `last_direct_cost`, `sell_price`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "description": {
+      "description": "the item as the ERP describes it",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "index_series_key": {
+      "description": "the platform_rate series that ages this item's last purchase price",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "item_no": {
+      "description": "the item's number in the ERP; the same key as `purchase_line.item_reference`",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "last_direct_cost": {
+      "description": "the unit cost of the item's most recent purchase, as the ERP records it",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "last_direct_cost_on": {
+      "description": "the date of that purchase",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "on_hand": {
+      "description": "the quantity in stock, in `base_unit_of_measure`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "sell_price": {
+      "description": "the unit price the contractor charges when it supplies the item",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "standard_cost": {
+      "description": "the standard unit cost, when `costing_method` is `standard`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "supplier": {
+      "description": "the usual supplier",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "target_margin_pct": {
+      "description": "the margin on the sell price the contractor targets, 0 to 100. No default: absent means the target is not set.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "tax_basis": {
+      "description": "whether the amounts on this record include GST or VAT",
+      "enum": [
+        "excl_gst",
+        "incl_gst"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "item_no",
+    "base_unit_of_measure",
+    "sell_price",
+    "currency"
+  ],
+  "title": "item_master contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "item_master",
+  "x-demiton-store": "tenant"
+}

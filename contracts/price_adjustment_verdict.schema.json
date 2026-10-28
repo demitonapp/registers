@@ -1,0 +1,198 @@
+{
+  "$id": "demiton:register/price_adjustment_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "adjusted_move": {
+      "description": "the weighted move over the adjustable share, after the threshold, as a fraction",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "adjustment": {
+      "description": "`certified_amount` times `adjusted_move`, rounded half up to the minor unit; negative on a fall",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "base_period": {
+      "description": "the clause's base index period",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "cap_amount": {
+      "description": "the cap in money, when `escalation_cap_scope` is `cumulative`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "cap_used": {
+      "description": "the running total of adjustments on this contract, this claim included",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "certified_amount": {
+      "description": "the claim's certified amount the adjustment is made on",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "contract_terms_fact_id": {
+      "description": "the contract_terms fact whose clause was read",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`certified_amount`, `adjustment`, `cap_amount`, `cap_used`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "detail": {
+      "description": "a one-line explanation for display, naming the series, quarter or field concerned",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "direction": {
+      "description": "`rise` when the adjustment is owed to the contractor, `fall` when the principal may deduct it, `nil` when the threshold zeroes it",
+      "enum": [
+        "rise",
+        "fall",
+        "nil"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_fact_ids": {
+      "description": "the facts the measurement read: the contract terms, the claim and every index observation",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "financial_period": {
+      "description": "the claim's period, as `progress_claim.financial_period` states it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "formula_version": {
+      "description": "the version of the adjustment formula that computed this record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "index_period": {
+      "description": "the index period this claim reads: its work quarter moved back by the clause's lag",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "lines": {
+      "description": "one entry per basket line: the series read, its weight, and the base and current values with the count of observations each was taken from",
+      "items": {
+        "properties": {
+          "base_observations": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "base_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "current_observations": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "current_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "index_name": {
+            "type": "string"
+          },
+          "series_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "weight_pct": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "index_name",
+          "weight_pct"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "notice_due_on": {
+      "description": "the last day the adjustment can be claimed, from `escalation_notice_days`",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "progress_claim_fact_id": {
+      "description": "the progress_claim fact measured",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "project_entity_id": {
+      "description": "the project the contract is for",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "reason": {
+      "description": "why the claim is waiting or blocked; required unless `status` is `ready`",
+      "enum": [
+        "clause_not_captured",
+        "invoice_basis_not_built",
+        "no_index",
+        "index_not_published",
+        "index_incomplete",
+        "no_certified_amount",
+        "no_currency"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "`ready`: the adjustment is computed. `waiting`: an index the clause needs is not yet published. `blocked`: something the tenant can fix is missing, named in `reason`.",
+      "enum": [
+        "ready",
+        "waiting",
+        "blocked"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "weighted_move": {
+      "description": "the basket's weighted move, as a fraction (0.047 is 4.7%)",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "contract_terms_fact_id",
+    "progress_claim_fact_id",
+    "financial_period",
+    "status",
+    "detail",
+    "currency",
+    "evidence_fact_ids",
+    "formula_version"
+  ],
+  "title": "price_adjustment_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "compliance",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "price_adjustment_verdict",
+  "x-demiton-store": "tenant"
+}

@@ -60,6 +60,103 @@
       "x-demiton-requiredness": "optional",
       "x-demiton-unit": "n/a (closed enum)"
     },
+    "escalation_base_period": {
+      "description": "The index period the contract's rates are priced at, as the clause states it, written `YYYY-Qn` for a quarterly index or `YYYY-MM` for a monthly one.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_basis": {
+      "description": "Whether the contract lets the price move with input costs, and on what. `none`: the contract carries no rise-and-fall or price-adjustment clause. `index`: the clause adjusts on published indices, named in `escalation_basket`. `invoice`: the clause adjusts on supplier invoices. Absent means the clause has not been captured, which is not the same as `none`.",
+      "enum": [
+        "none",
+        "index",
+        "invoice"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_basket": {
+      "description": "The indices the clause adjusts on, one entry per line, with the weight of each over the adjustable share. The weights sum to 100. `index_name` is the index as the clause names it; `series_key` is the `platform_rate` series that publishes exactly that index, absent when no such series is held. A line is never mapped to a different index.",
+      "items": {
+        "properties": {
+          "index_name": {
+            "description": "the index as the clause names it",
+            "type": "string"
+          },
+          "series_key": {
+            "description": "the platform_rate series that publishes this index",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "weight_pct": {
+            "description": "this line's weight over the adjustable share, 0 to 100",
+            "type": "number"
+          }
+        },
+        "required": [
+          "index_name",
+          "weight_pct"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_cap_pct": {
+      "description": "The largest adjustment the clause allows, as a percent; `escalation_cap_scope` says of what.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "escalation_cap_scope": {
+      "description": "What the cap limits. `per_claim`: each claim's adjusted move. `cumulative`: the running total of adjustments, as a share of `contract_sum`.",
+      "enum": [
+        "per_claim",
+        "cumulative"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_clause_ref": {
+      "description": "The clause that provides the adjustment, as the contract numbers and names it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_fixed_pct": {
+      "description": "The share of the price the clause holds fixed (the non-adjustable portion), from 0 to 100. Absent when the clause states none.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
+    "escalation_index_lag_quarters": {
+      "description": "How many quarters before a claim's work quarter the clause takes its index from. 0 when the clause uses the work quarter itself.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "count"
+    },
+    "escalation_notice_days": {
+      "description": "The window, from the progress claim, inside which the adjustment must be claimed.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "days"
+    },
+    "escalation_notice_unit": {
+      "description": "Whether `escalation_notice_days` counts business or calendar days, as the clause states it.",
+      "enum": [
+        "business_days",
+        "calendar_days"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "escalation_threshold_pct": {
+      "description": "The move, as a percent of the price, below which the clause makes no adjustment. Absent when the clause states no threshold.",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    },
     "indemnity_scope": {
       "description": "The indemnity clause's scope and any cap or carve-outs, recorded verbatim.",
       "type": "string",
@@ -335,7 +432,7 @@
   ],
   "title": "contract_terms contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": [
       {
