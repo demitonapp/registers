@@ -103,6 +103,15 @@
       "description": "vehicle registration for LV/HV rows",
       "type": "string",
       "x-demiton-requiredness": "optional"
+    },
+    "tax_basis": {
+      "description": "Whether `claim_amount` includes GST or VAT. Without it a fuel price cannot be compared with a published terminal gate price, which states its own basis.",
+      "enum": [
+        "excl_gst",
+        "incl_gst"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
     }
   },
   "required": [
@@ -116,7 +125,7 @@
   ],
   "title": "plant_fuel_usage contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": [
       {

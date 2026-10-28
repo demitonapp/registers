@@ -1,0 +1,77 @@
+{
+  "$id": "demiton:register/plant_charge_rate/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "asset": {
+      "description": "the machine, by the same identifier `plant_fuel_usage.asset` carries",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of `rate`, an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "effective_from": {
+      "description": "the date the rate took effect",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "fuel_included": {
+      "description": "true when the rate includes the machine's fuel",
+      "type": "boolean",
+      "x-demiton-requiredness": "required"
+    },
+    "ownership": {
+      "description": "whether the contractor owns the machine or hires it in",
+      "enum": [
+        "owned",
+        "hired"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "rate": {
+      "description": "the charge per `rate_unit`",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "rate_unit": {
+      "description": "what the rate is charged per",
+      "enum": [
+        "hour",
+        "day",
+        "week"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "tax_basis": {
+      "description": "whether `rate` includes GST or VAT",
+      "enum": [
+        "excl_gst",
+        "incl_gst"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    }
+  },
+  "required": [
+    "asset",
+    "ownership",
+    "rate",
+    "rate_unit",
+    "fuel_included",
+    "effective_from",
+    "currency"
+  ],
+  "title": "plant_charge_rate contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "plant_charge_rate",
+  "x-demiton-store": "tenant"
+}
