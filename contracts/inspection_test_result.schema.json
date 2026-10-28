@@ -40,6 +40,11 @@
       "x-demiton-reference": true,
       "x-demiton-requiredness": "optional"
     },
+    "drawing_revision": {
+      "description": "the revision of that drawing the test lot was built to, as the drawing register labels it; the rework drift rule compares it with the revision current on the lot's work date",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "external_id": {
       "description": "the laboratory report or sample id",
       "type": "string",
@@ -167,7 +172,7 @@
   ],
   "title": "inspection_test_result contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.1.0",
+  "x-demiton-contract-version": "1.2.0",
   "x-demiton-domain": "safety",
   "x-demiton-memory-type": "episodic",
   "x-demiton-provenance": {

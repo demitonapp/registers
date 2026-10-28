@@ -14,6 +14,10 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v36, 2026-10-29: no obligation kinds (register contracts only)
+
+- `inspection_test_result` 1.2.0 (MINOR: one new optional property): `drawing_revision`, the revision of `drawing_number` the test lot was built to. The drift rule needs both: the drawing alone cannot say which revision the lot used (SM065 P4). Absent when the source does not say. 1.1.0 kept in `history/`.
+
 ## v35, 2026-10-29: no obligation kinds (register contracts only)
 
 - `inspection_test_result` 1.1.0 (MINOR: one new optional property): `drawing_number`, the drawing the test lot was built to, so a rework check can compare the lot's work date with the revision of that drawing current on the day (SM065 P4). Absent when the source does not say. 1.0.3 kept in `history/`.
