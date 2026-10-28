@@ -14,6 +14,10 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v35, 2026-10-29: no obligation kinds (register contracts only)
+
+- `inspection_test_result` 1.1.0 (MINOR: one new optional property): `drawing_number`, the drawing the test lot was built to, so a rework check can compare the lot's work date with the revision of that drawing current on the day (SM065 P4). Absent when the source does not say. 1.0.3 kept in `history/`.
+
 ## v34, 2026-10-29: no obligation kinds (register contracts only)
 
 - `vocab/diseases.json` carries each disease's five causes (SM065): `causes`, in the order the disease page shows them, each with its key, label and what it covers. A cause is the stage or control that failed (rework's `design_documentation`, disputes' `time_barred`), and a key belongs to exactly one disease; `validate.py` refuses a disease without five, or a key two diseases share.
