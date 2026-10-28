@@ -1,0 +1,151 @@
+{
+  "$id": "demiton:register/tender_lesson/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "at_stake_amount": {
+      "description": "the priced value of open work still on `from_value`, the money the change would move",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "at_stake_currency": {
+      "description": "the currency of every amount on this record (`at_stake_amount`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount. Present exactly when `at_stake_amount` is.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "cause": {
+      "description": "the largest positive cost effect, or `bought` for a price set below the margin floor at decision time",
+      "enum": [
+        "rate",
+        "norm",
+        "quantity",
+        "preliminaries",
+        "escalation",
+        "bought"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`overrun_amount`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "decided_at": {
+      "description": "when it was accepted or declined; required once `status` is not `proposed`",
+      "type": "datetime",
+      "x-demiton-requiredness": "optional"
+    },
+    "decided_by_user_id": {
+      "description": "who accepted or declined it; required once `status` is not `proposed`",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_fact_ids": {
+      "description": "the verdict facts the lesson rests on",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "from_value": {
+      "description": "the input's value the jobs were priced on",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "input_kind": {
+      "description": "the kind of input the change touches",
+      "enum": [
+        "rate",
+        "norm",
+        "allowance"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "input_version": {
+      "description": "the `tender_input` version accepting it wrote",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
+    "jobs_counted": {
+      "description": "how many jobs priced on the input the median was taken over",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "overrun_amount": {
+      "description": "the overrun on the activity the lesson came from, in `currency`",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "project_entity_id": {
+      "description": "the project the lesson was raised from",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "proposal": {
+      "description": "the change in one line, as the estimating manager reads it",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "reason": {
+      "description": "why it was declined; required when `status` is `declined`",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "status": {
+      "description": "where the lesson stands",
+      "enum": [
+        "proposed",
+        "accepted",
+        "declined",
+        "proven"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "to_value": {
+      "description": "the proposed value: the median achieved across the jobs counted",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "unit": {
+      "description": "the unit of `from_value` and `to_value`",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "weeks_in_breach": {
+      "description": "consecutive weekly runs the input has been outside the band",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "the work activity whose input the lesson would change",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "project_entity_id",
+    "work_activity",
+    "cause",
+    "overrun_amount",
+    "currency",
+    "proposal",
+    "input_kind",
+    "from_value",
+    "to_value",
+    "unit",
+    "status",
+    "evidence_fact_ids",
+    "weeks_in_breach",
+    "jobs_counted"
+  ],
+  "title": "tender_lesson contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "tender_lesson",
+  "x-demiton-store": "tenant"
+}

@@ -1,0 +1,103 @@
+{
+  "$id": "demiton:register/tender_input/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accepted_at": {
+      "description": "when the version was signed",
+      "type": "datetime",
+      "x-demiton-requiredness": "required"
+    },
+    "accepted_by_user_id": {
+      "description": "the person who signed the version",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "basis": {
+      "description": "why the value is what it is, in one line: the lesson and the jobs it rests on, or the source of a first value",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`value`, when `kind` is a money rate), an ISO 4217 alpha-3 code. A record with no currency has no usable amount. Absent for a norm or a percentage.",
+      "type": "currency",
+      "x-demiton-requiredness": "optional"
+    },
+    "evidence_fact_ids": {
+      "description": "the facts the value rests on, at least one",
+      "minItems": 1,
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "jobs": {
+      "description": "the job references behind the value, for a reader who does not follow the fact ids",
+      "type": "array",
+      "x-demiton-requiredness": "optional"
+    },
+    "kind": {
+      "description": "what the value is: a unit rate, a productivity norm (hours per unit), or an allowance",
+      "enum": [
+        "rate",
+        "norm",
+        "allowance"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "lesson_id": {
+      "description": "the lesson that produced this version, when one did",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "state": {
+      "description": "whether this version is the one in force",
+      "enum": [
+        "accepted",
+        "retired"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "unit": {
+      "description": "the unit of `value`, as the estimator states it (`h/m2`, `$/h`, `%`)",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "value": {
+      "description": "the input's value at this version, in `unit`",
+      "type": "number",
+      "x-demiton-requiredness": "required"
+    },
+    "version": {
+      "description": "the version number, from 1, counted per organisation, work activity and kind",
+      "type": "integer",
+      "x-demiton-requiredness": "required"
+    },
+    "work_activity": {
+      "description": "the work activity the input prices, in the organisation's own activity vocabulary",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    }
+  },
+  "required": [
+    "work_activity",
+    "kind",
+    "value",
+    "unit",
+    "version",
+    "basis",
+    "evidence_fact_ids",
+    "accepted_by_user_id",
+    "accepted_at",
+    "state"
+  ],
+  "title": "tender_input contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "projects",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "tender_input",
+  "x-demiton-store": "tenant"
+}

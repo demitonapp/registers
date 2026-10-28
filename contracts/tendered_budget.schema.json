@@ -42,6 +42,11 @@
       "type": "number",
       "x-demiton-requiredness": "required"
     },
+    "job_entity_id": {
+      "description": "The project (job) entity this price prices, once the tender is won and the job exists. `entity_id` stays the opportunity; this names the job its cost is measured on. Absent until the link is made.",
+      "type": "integer",
+      "x-demiton-requiredness": "optional"
+    },
     "labour_total_value": {
       "description": "The Labour section's subtotal, kept for labour-only consumers.",
       "type": "number",
@@ -91,7 +96,7 @@
   ],
   "title": "tendered_budget contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-provenance": {
     "standards": []
   },
