@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v33, 2026-10-28: no obligation kinds (register contracts only)
+
 - `contract_terms` 2.1.0 (MINOR: eleven new optional properties) carries a rise-and-fall clause (SM067): `escalation_basis` (`none`, `index`, `invoice`; absent means not captured, which is not `none`), the clause reference, the fixed share, the basket of indices with each line's weight and the `platform_rate` series that publishes exactly the index the clause names (absent when none is held; a line is never mapped to another index), the base period, the index lag in quarters, the threshold, the cap and what it limits (`per_claim` or `cumulative`), and the notice window with its unit. 2.0.1 kept in `history/`.
 - `plant_fuel_usage` 2.1.0 (MINOR: one new optional property): `tax_basis`, whether `claim_amount` includes GST or VAT, so a fuel claim can be compared with a published terminal gate price. 2.0.1 kept in `history/`.
 - Two new tenant registers, each contract 1.0.0. `item_master`: one item the contractor buys and charges for, as its ERP's item card holds it (costing method, book, standard and last direct cost, sell price, target margin with no default, on hand, the series that ages its price). `plant_charge_rate`: the rate the contractor charges for one machine from a date, owned or hired, with whether it includes fuel.
