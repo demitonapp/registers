@@ -44,3 +44,31 @@ def test_an_order_that_repeats_or_omits_a_disease_is_refused() -> None:
     release = copy.deepcopy(RELEASE)
     release["order"].append("rework")
     assert any("exactly once" in e for e in validate_diseases(release))
+
+
+def test_a_disease_that_does_not_lie_about_its_five_causes_is_refused() -> None:
+    """SM065/P1: five cause categories per disease, and four is a taxonomy with a hole."""
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["rework"]["subcategories"].pop()
+    assert validate_diseases(release) == [
+        "vocab/diseases.json: rework: subcategories must list exactly five cause categories"
+    ]
+
+
+def test_a_cause_key_carried_by_two_diseases_is_refused() -> None:
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["overrun"]["subcategories"][0]["key"] = "design_documentation"
+    errors = validate_diseases(release)
+    assert any("belongs to one disease" in e for e in errors), errors
+
+
+def test_a_cause_with_no_detector_state_is_refused() -> None:
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["disputes"]["subcategories"][0]["status"] = "soon"
+    assert any("status must be one of" in e for e in validate_diseases(release))
+
+
+def test_a_cause_with_no_evidence_register_is_refused() -> None:
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["non_compliance"]["subcategories"][1]["evidence"] = []
+    assert any("names no evidence register" in e for e in validate_diseases(release))

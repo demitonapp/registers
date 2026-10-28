@@ -14,6 +14,17 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+- `vocab/diseases.json` carries each disease's five cause categories (SM065/P1). Every disease
+  now lists exactly five `subcategories`, each with its key, label, what it covers, the evidence
+  registers it would read and whether a detector reads them (`live`, `evidence`, `none`). The 25
+  keys and labels were the frontend constant `causeCategories.ts`; they move here so a verdict's
+  `cause_category` has one place to be checked against, and the writer can refuse a pair that
+  does not belong to its disease. `scripts/validate.py` refuses a disease that lists four or six,
+  a key carried by two diseases, and a status outside the closed set. Evidence names four tenant
+  registers this repository carries no contract for (`email_issue`, `claim_window_verdict`,
+  `protection_catch`, `security_expiry`), so the check is the shape and the ownership, not the
+  contract's existence.
+
 ## v31, 2026-10-23: no obligation kinds (register contracts only)
 
 - A contract names its register as a register (SD035/P7). Every `contracts/*.schema.json` says `x-demiton-register-type` where it said `x-demiton-shelf-type`, and its `$id` is `demiton:register/<register_type>/<major>` where it was `demiton:shelf/...`. Only the identity moved: no property, `required` list, enum or type changed, so each contract takes a PATCH bump (172 of them) and an existing document validates exactly as before. A property still called `shelf_type` (a data field in `compliance_state`, `entity_attribute`, `market_intelligence`, `platform_*`) is a field of the stored fact, not the contract's identity, and keeps its name: renaming it removes a property, a MAJOR change that needs its own decision. Consumers read either keyword until they have vendored this release; the monorepo loader already does.

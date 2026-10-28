@@ -464,6 +464,7 @@ def validate_diseases(release: dict | None = None) -> list[str]:
     enum = json.loads((ROOT / "contracts" / "obligation.schema.json").read_text())["properties"]["disease"]["enum"]
     if enum != order:
         errors.append(f"vocab/diseases.json: order {order} differs from contracts/obligation.schema.json `disease` enum {enum}")
+    seen: dict[str, str] = {}
     for key, disease in diseases.items():
         for field in ("label", "buyer_name", "what", "prevention"):
             if not str(disease.get(field) or "").strip():
@@ -476,6 +477,48 @@ def validate_diseases(release: dict | None = None) -> list[str]:
         for register in [*groups, *(disease.get("feeders") or [])]:
             if not (ROOT / "contracts" / f"{register}.schema.json").exists():
                 errors.append(f"vocab/diseases.json: {key}: register {register!r} has no contract")
+        errors.extend(_subcategory_errors(key, disease, seen))
+    return errors
+
+
+#: The closed detector vocabulary a cause category may claim. `live` means a detector reads it
+#: today, `evidence` means the records are captured and nothing reads them, `none` means the
+#: evidence register is named and no detector exists yet.
+SUBCATEGORY_STATUSES = ("live", "evidence", "none")
+
+
+def _subcategory_errors(key: str, disease: dict, seen: dict[str, str]) -> list[str]:
+    """SM065 P1: each disease owns exactly five cause categories, and a key belongs to one disease.
+
+    The evidence names are registers the monorepo resolves; four of them (`email_issue`,
+    `claim_window_verdict`, `protection_catch`, `security_expiry`) are tenant registers this
+    repository carries no contract for, so the check here is the shape and the ownership, not
+    the contract's existence - the writer that stores a verdict is the side that can check that.
+    """
+    errors: list[str] = []
+    subs = disease.get("subcategories")
+    if not isinstance(subs, list) or len(subs) != 5:
+        return [f"vocab/diseases.json: {key}: subcategories must list exactly five cause categories"]
+    for sub in subs:
+        sub_key = str(sub.get("key") or "")
+        for field in ("key", "label", "covers"):
+            if not str(sub.get(field) or "").strip():
+                errors.append(f"vocab/diseases.json: {key}: subcategory {field} is required")
+        if sub.get("status") not in SUBCATEGORY_STATUSES:
+            errors.append(f"vocab/diseases.json: {key}: subcategory {sub_key!r} status must be one of "
+                          f"{list(SUBCATEGORY_STATUSES)}, not {sub.get('status')!r}")
+        evidence = sub.get("evidence") or []
+        if not evidence:
+            errors.append(f"vocab/diseases.json: {key}: subcategory {sub_key!r} names no evidence register")
+        for register in evidence:
+            if not re.fullmatch(r"[a-z][a-z0-9_]*", str(register)):
+                errors.append(f"vocab/diseases.json: {key}: subcategory {sub_key!r} names {register!r}, "
+                              "which is not a register type")
+        owner = seen.get(sub_key)
+        if owner:
+            errors.append(f"vocab/diseases.json: subcategory {sub_key!r} is on {owner} and {key}; "
+                          "a cause key belongs to one disease")
+        seen[sub_key] = key
     return errors
 
 
