@@ -455,7 +455,8 @@ def _match_value_errors(key: str, where: str, match: dict, props: dict) -> list[
 def validate_diseases(release: dict | None = None) -> list[str]:
     """Demiton SM048: vocab/diseases.json is one taxonomy. Every disease an obligation row can carry
     (obligation.schema.json's `disease` enum) is defined here, in order, with its copy, its start groups
-    and its feeder registers, and every register it reads has a contract."""
+    its feeder registers and its five causes (SM065), every register it reads has a contract,
+    and no cause key belongs to two diseases."""
     release = release if release is not None else _load_vocab("diseases")
     errors: list[str] = []
     order, diseases = release.get("order") or [], release.get("diseases") or {}
@@ -476,6 +477,13 @@ def validate_diseases(release: dict | None = None) -> list[str]:
         for register in [*groups, *(disease.get("feeders") or [])]:
             if not (ROOT / "contracts" / f"{register}.schema.json").exists():
                 errors.append(f"vocab/diseases.json: {key}: register {register!r} has no contract")
+        causes = disease.get("causes") or []
+        if len(causes) != 5 or not all(str(c.get(f) or "").strip() for c in causes for f in ("key", "label", "covers")):
+            errors.append(f"vocab/diseases.json: {key}: causes must be five entries, each with key, label and covers")
+    cause_keys = [c.get("key") for d in diseases.values() for c in d.get("causes") or []]
+    repeated = sorted({k for k in cause_keys if cause_keys.count(k) > 1})
+    if repeated:
+        errors.append(f"vocab/diseases.json: cause keys {repeated} belong to more than one disease")
     return errors
 
 

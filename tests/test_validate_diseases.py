@@ -44,3 +44,17 @@ def test_an_order_that_repeats_or_omits_a_disease_is_refused() -> None:
     release = copy.deepcopy(RELEASE)
     release["order"].append("rework")
     assert any("exactly once" in e for e in validate_diseases(release))
+
+
+def test_a_disease_without_five_causes_is_refused() -> None:
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["overrun"]["causes"].pop()
+    assert validate_diseases(release) == [
+        "vocab/diseases.json: overrun: causes must be five entries, each with key, label and covers"
+    ]
+
+
+def test_a_cause_key_in_two_diseases_is_refused() -> None:
+    release = copy.deepcopy(RELEASE)
+    release["diseases"]["disputes"]["causes"][0]["key"] = "lapsed"
+    assert validate_diseases(release) == ["vocab/diseases.json: cause keys ['lapsed'] belong to more than one disease"]

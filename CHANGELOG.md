@@ -14,6 +14,11 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v34, 2026-10-29: no obligation kinds (register contracts only)
+
+- `vocab/diseases.json` carries each disease's five causes (SM065): `causes`, in the order the disease page shows them, each with its key, label and what it covers. A cause is the stage or control that failed (rework's `design_documentation`, disputes' `time_barred`), and a key belongs to exactly one disease; `validate.py` refuses a disease without five, or a key two diseases share.
+- `compliance_gate_verdict` 1.1.0 and `evidence_gap_verdict` 2.1.0 (MINOR: one new optional property each): `cause_category`, one of the verdict's own disease's cause keys, absent when the detector does not determine it. 1.0.1 and 2.0.1 kept in `history/`.
+
 ## v33, 2026-10-28: no obligation kinds (register contracts only)
 
 - `contract_terms` 2.1.0 (MINOR: eleven new optional properties) carries a rise-and-fall clause (SM067): `escalation_basis` (`none`, `index`, `invoice`; absent means not captured, which is not `none`), the clause reference, the fixed share, the basket of indices with each line's weight and the `platform_rate` series that publishes exactly the index the clause names (absent when none is held; a line is never mapped to another index), the base period, the index lag in quarters, the threshold, the cap and what it limits (`per_claim` or `cumulative`), and the notice window with its unit. 2.0.1 kept in `history/`.
