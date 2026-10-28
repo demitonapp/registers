@@ -1,5 +1,5 @@
 {
-  "$comment": "The five diseases (SD027 §4.6), set independently of protection type: construction's loss taxonomy, in the order published research says each costs a contractor, most first. Keys are the vocabulary of obligations/*.yaml's `disease` and are the keys Demiton stores and shows. Demiton's own measure names (`claim_window`, `evidence_gap`, `compliance_gate`, `rework_signal`, `overrun_signal`) are an implementation detail on the other side of this repository's boundary. `start` is what a disease's daily check needs before it can run: a list of groups, ALL of which must hold data, where ANY one register in a group is enough. `feeders` are the registers that enrich a verdict. `buyer_name`, `what` and `prevention` are the brand standard's Section 1 copy.",
+  "$comment": "The five diseases (SD027 §4.6), set independently of protection type: construction's loss taxonomy, in the order published research says each costs a contractor, most first. Keys are the vocabulary of obligations/*.yaml's `disease` and are the keys Demiton stores and shows. Demiton's own measure names (`claim_window`, `evidence_gap`, `compliance_gate`, `rework_signal`, `overrun_signal`) are an implementation detail on the other side of this repository's boundary. `start` is what a disease's daily check needs before it can run: a list of groups, ALL of which must hold data, where ANY one register in a group is enough. `feeders` are the registers that enrich a verdict. `buyer_name`, `what` and `prevention` are the brand standard's Section 1 copy. `causes` are the disease's five subcategories (SM065), in the order the disease page shows them: the stage or control that failed. A verdict's `cause_category` must be one of its own disease's keys; a key belongs to exactly one disease.",
   "order": [
     "rework",
     "overrun",
@@ -31,6 +31,33 @@
         "drawing_register",
         "survey_control",
         "construction_methodology"
+      ],
+      "causes": [
+        {
+          "key": "design_documentation",
+          "label": "Design and documentation",
+          "covers": "Wrong, late, incomplete or superseded design; clashes; unclear specification; an unanswered RFI."
+        },
+        {
+          "key": "scope_change",
+          "label": "Scope and change",
+          "covers": "A requirement changed after work was committed: client or end-user change, variation, design change, a latent-condition instruction."
+        },
+        {
+          "key": "planning_procurement",
+          "label": "Planning, procurement and sequencing",
+          "covers": "Wrong quantity or type bought, repeat orders, over-order, wrong method or sequence, temporary works, long-lead material."
+        },
+        {
+          "key": "site_conditions",
+          "label": "Setting-out, ground and external conditions",
+          "covers": "Wrong level or position, survey error, service strike, ground not as recorded, weather or external damage."
+        },
+        {
+          "key": "workmanship_quality",
+          "label": "Workmanship and quality conformance",
+          "covers": "Work not to specification: failed test, NCR, ITP or hold-point failure, non-conforming work, punch list, defective material installed."
+        }
       ]
     },
     "overrun": {
@@ -64,6 +91,33 @@
         "fuel_transaction",
         "project_performance_record",
         "contract_terms"
+      ],
+      "causes": [
+        {
+          "key": "tender_pricing",
+          "label": "Tender pricing",
+          "covers": "The estimate or schedule of rates was short from the start."
+        },
+        {
+          "key": "quantity_growth",
+          "label": "Quantity growth",
+          "covers": "More was built than the schedule priced."
+        },
+        {
+          "key": "labour_productivity",
+          "label": "Labour productivity and overstaffing",
+          "covers": "More hours than the work needed."
+        },
+        {
+          "key": "plant_fuel",
+          "label": "Plant and fuel",
+          "covers": "Plant hours and fuel above what was priced."
+        },
+        {
+          "key": "input_prices",
+          "label": "Input price rises",
+          "covers": "Materials and subcontract prices rising on a fixed price."
+        }
       ]
     },
     "forfeited_entitlements": {
@@ -98,6 +152,33 @@
         "daily_log",
         "site_activity",
         "claim_line_observation"
+      ],
+      "causes": [
+        {
+          "key": "uncaptured",
+          "label": "Uncaptured",
+          "covers": "The event never reaches a register in a claimable form: no diary delay flag, no docket, no variation, no email issue. The clock never starts because there is nothing to time."
+        },
+        {
+          "key": "unnoticed",
+          "label": "Unnoticed",
+          "covers": "A trigger exists and the contract window is computed, but no notice is served by the due date, or the notice is late."
+        },
+        {
+          "key": "unquantified",
+          "label": "Unquantified",
+          "covers": "The notice was served, but the claim carries no amount, no build-up and no supporting records. The window is covered; nothing is asked for."
+        },
+        {
+          "key": "under_claimed",
+          "label": "Under-claimed",
+          "covers": "A number exists but omits heads: prolongation, preliminaries, margin, escalation, off-hire, financing, disruption, head-office overhead."
+        },
+        {
+          "key": "uncollected",
+          "label": "Uncollected",
+          "covers": "The entitlement was agreed or awarded but the cash never arrives: an approved variation unpaid, retention not released, a security not returned."
+        }
       ]
     },
     "disputes": {
@@ -156,6 +237,33 @@
           "key": "closeout",
           "label": "Close-out"
         }
+      ],
+      "causes": [
+        {
+          "key": "unraised",
+          "label": "Unraised",
+          "covers": "The defence, set-off or counterclaim is never put, so the other side's claim stands by default. An entitlement you never claimed is forfeited, not this."
+        },
+        {
+          "key": "time_barred",
+          "label": "Time-barred",
+          "covers": "The dispute dies on procedure: jurisdiction, a notice window, a payment schedule, an adjudication deadline."
+        },
+        {
+          "key": "unsupported",
+          "label": "Unsupported",
+          "covers": "The claim or defence is on time but the contemporaneous record is missing: no diary, no photos, no notice, no cost build-up, no programme."
+        },
+        {
+          "key": "outargued",
+          "label": "Outargued",
+          "covers": "The evidence exists but the merits are weaker: contract interpretation, liability, causation, delay analysis, defects and set-off."
+        },
+        {
+          "key": "unrecovered",
+          "label": "Unrecovered",
+          "covers": "The dispute is won or settled but the cash never arrives: insolvency, enforcement, security, retention."
+        }
       ]
     },
     "non_compliance": {
@@ -192,6 +300,33 @@
         "construction_methodology",
         "plant_prestart",
         "gps_event"
+      ],
+      "causes": [
+        {
+          "key": "unidentified",
+          "label": "Unidentified",
+          "covers": "The requirement is not in the library or the applicability rules, so no gate exists. A permit the jurisdiction requires, a ticket class the contract names, a prequalification condition nobody captured."
+        },
+        {
+          "key": "unheld",
+          "label": "Unheld",
+          "covers": "The requirement is known but there is no record at all: no ticket, no policy, no registration. The engine cannot see absence because it reads records that exist."
+        },
+        {
+          "key": "lapsed",
+          "label": "Lapsed",
+          "covers": "A record exists and is expired, or inside the 90/30/7 countdown."
+        },
+        {
+          "key": "out_of_scope",
+          "label": "Out of scope",
+          "covers": "The record is current but does not cover the task, person, asset or place: wrong ticket class, wrong plant category, insurance territory or limit, prequalification scope."
+        },
+        {
+          "key": "unapplied",
+          "label": "Unapplied",
+          "covers": "The record is valid and in scope, but the duty was not performed: a machine started without a prestart, a worker was not inducted, a permit condition was breached, a traffic plan was not followed."
+        }
       ]
     }
   }

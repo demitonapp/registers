@@ -2,6 +2,11 @@
   "$id": "demiton:register/compliance_gate_verdict/1",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
+    "cause_category": {
+      "description": "The subcategory of the verdict's disease: the stage or control that failed. One of that disease's `causes[].key` in vocab/diseases.json, checked by the writer. Absent when the detector does not determine it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "days_until_due": {
       "description": "due_date minus the assessment date, in days. Negative once overdue - the alert cites how overdue, not just that it is (SD027 1's proof line).",
       "type": "integer",
@@ -51,7 +56,7 @@
   ],
   "title": "compliance_gate_verdict contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.1",
+  "x-demiton-contract-version": "1.1.0",
   "x-demiton-domain": "compliance",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {

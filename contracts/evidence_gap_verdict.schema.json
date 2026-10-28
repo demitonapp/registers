@@ -2,6 +2,11 @@
   "$id": "demiton:register/evidence_gap_verdict/2",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "properties": {
+    "cause_category": {
+      "description": "The subcategory of the verdict's disease: the stage or control that failed. One of that disease's `causes[].key` in vocab/diseases.json, checked by the writer. Absent when the detector does not determine it.",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
     "consequence": {
       "description": "what missing the standard costs, from the standard's own field",
       "type": "string",
@@ -75,7 +80,7 @@
   ],
   "title": "evidence_gap_verdict contract v2",
   "type": "object",
-  "x-demiton-contract-version": "2.0.1",
+  "x-demiton-contract-version": "2.1.0",
   "x-demiton-domain": "compliance",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {
