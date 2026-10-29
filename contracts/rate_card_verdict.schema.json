@@ -12,6 +12,11 @@
       "type": "string",
       "x-demiton-requiredness": "optional"
     },
+    "approved_rate": {
+      "description": "the rate a person approved; present when `status` is `approved` or `applied`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
     "asset": {
       "description": "the machine, when `subject_kind` is `plant`",
       "type": "string",
@@ -123,10 +128,12 @@
       "x-demiton-requiredness": "required"
     },
     "status": {
-      "description": "`ready`: a new rate is proposed. `holds`: the current rate meets its target at replacement cost, so nothing is proposed. `blocked`: something is missing, named in `reason`.",
+      "description": "`ready`: a new rate is proposed. `holds`: the current rate meets its target at replacement cost, so nothing is proposed. `approved`: a person approved the proposed rate and the register does not yet carry it. `applied`: a person approved a rate and the register now carries it or more. `blocked`: something is missing, named in `reason`.",
       "enum": [
         "ready",
         "holds",
+        "approved",
+        "applied",
         "blocked"
       ],
       "type": "string",
@@ -159,7 +166,7 @@
   ],
   "title": "rate_card_verdict contract v1",
   "type": "object",
-  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-contract-version": "1.1.0",
   "x-demiton-domain": "compliance",
   "x-demiton-memory-type": "semantic",
   "x-demiton-provenance": {

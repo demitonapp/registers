@@ -1,0 +1,170 @@
+{
+  "$id": "demiton:register/rate_card_verdict/1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "aged_from_period": {
+      "description": "the index period of that purchase, when it was aged",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "aged_to_period": {
+      "description": "the index period it was aged to",
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "asset": {
+      "description": "the machine, when `subject_kind` is `plant`",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "burn_lph": {
+      "description": "for a machine: litres per hour, from its fuel usage",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "L/h"
+    },
+    "currency": {
+      "description": "the currency of every amount on this record (`current_rate`, `replacement_cost`, `proposed_rate`, `restocking_gap`, `fuel_pass_through`), an ISO 4217 alpha-3 code. A record with no currency has no usable amount.",
+      "type": "currency",
+      "x-demiton-requiredness": "required"
+    },
+    "current_rate": {
+      "description": "the sell price or charge rate in force",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "detail": {
+      "description": "a one-line explanation for display",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "evidence_fact_ids": {
+      "description": "the facts the measurement read: the item or rate, the purchase, the fuel usage and every price observation",
+      "type": "array",
+      "x-demiton-requiredness": "required"
+    },
+    "formula_version": {
+      "description": "the version of the rate-card formula that computed this record",
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "fuel_pass_through": {
+      "description": "for a machine: the change in fuel cost per `rate_unit`, net of GST and fuel tax credits",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "item_no": {
+      "description": "the item, when `subject_kind` is `item`",
+      "type": "string",
+      "x-demiton-reference": true,
+      "x-demiton-requiredness": "optional"
+    },
+    "margin_at_replacement": {
+      "description": "(sell less replacement cost) over sell, as a fraction",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "margin_now": {
+      "description": "(sell less book cost) over sell, as a fraction; absent when no book cost is held",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "dimensionless"
+    },
+    "proposed_rate": {
+      "description": "the rate that restores the target; absent unless `status` is `ready`",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "reason": {
+      "description": "why no rate can be proposed; required when `status` is `blocked`",
+      "enum": [
+        "no_item_master_row",
+        "no_currency_or_tax_basis",
+        "no_target_margin",
+        "no_purchase_price",
+        "stale_price_no_series",
+        "no_charge_rate",
+        "no_burn_rate",
+        "no_fuel_price"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "replacement_cost": {
+      "description": "for an item: the last price paid, aged by its series when the series is newer",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "replacement_observed_on": {
+      "description": "the date of the purchase the replacement cost starts from",
+      "type": "date",
+      "x-demiton-requiredness": "optional"
+    },
+    "replacement_source": {
+      "description": "where the replacement cost came from",
+      "enum": [
+        "purchase_line",
+        "last_direct_cost",
+        "aged_by_index"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "optional"
+    },
+    "restocking_gap": {
+      "description": "(proposed less current) times the quantity on hand; 0 when nothing is held",
+      "type": "number",
+      "x-demiton-requiredness": "optional"
+    },
+    "run_on": {
+      "description": "the date of the run that measured it",
+      "type": "date",
+      "x-demiton-requiredness": "required"
+    },
+    "status": {
+      "description": "`ready`: a new rate is proposed. `holds`: the current rate meets its target at replacement cost, so nothing is proposed. `blocked`: something is missing, named in `reason`.",
+      "enum": [
+        "ready",
+        "holds",
+        "blocked"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "subject_kind": {
+      "description": "whether this record is about an item or a machine",
+      "enum": [
+        "item",
+        "plant"
+      ],
+      "type": "string",
+      "x-demiton-requiredness": "required"
+    },
+    "target_margin_pct": {
+      "description": "the item's target margin, 0 to 100",
+      "type": "number",
+      "x-demiton-requiredness": "optional",
+      "x-demiton-unit": "percent"
+    }
+  },
+  "required": [
+    "subject_kind",
+    "run_on",
+    "status",
+    "detail",
+    "currency",
+    "evidence_fact_ids",
+    "formula_version"
+  ],
+  "title": "rate_card_verdict contract v1",
+  "type": "object",
+  "x-demiton-contract-version": "1.0.0",
+  "x-demiton-domain": "compliance",
+  "x-demiton-memory-type": "semantic",
+  "x-demiton-provenance": {
+    "standards": []
+  },
+  "x-demiton-register-type": "rate_card_verdict",
+  "x-demiton-store": "tenant"
+}

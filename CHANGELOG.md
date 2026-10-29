@@ -14,6 +14,10 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v37, 2026-10-29: no obligation kinds (register contracts only)
+
+- `rate_card_verdict` 1.1.0 (MINOR: two new statuses and one optional property): `status` gains `approved` (a person approved the proposed rate and the register does not yet carry it) and `applied` (the register now carries the approved rate or more), and `approved_rate` names the rate approved (SM067). 1.0.0 kept in `history/`.
+
 ## v36, 2026-10-29: no obligation kinds (register contracts only)
 
 - `inspection_test_result` 1.2.0 (MINOR: one new optional property): `drawing_revision`, the revision of `drawing_number` the test lot was built to. The drift rule needs both: the drawing alone cannot say which revision the lot used (SM065 P4). Absent when the source does not say. 1.1.0 kept in `history/`.
