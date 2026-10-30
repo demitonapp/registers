@@ -1,5 +1,5 @@
 {
-  "$comment": "The five diseases (SD027 §4.6), set independently of protection type: construction's loss taxonomy, in the order published research says each costs a contractor, most first. Keys are the vocabulary of obligations/*.yaml's `disease` and are the keys Demiton stores and shows. Demiton's own measure names (`claim_window`, `evidence_gap`, `compliance_gate`, `rework_signal`, `overrun_signal`) are an implementation detail on the other side of this repository's boundary. `start` is what a disease's daily check needs before it can run: a list of groups, ALL of which must hold data, where ANY one register in a group is enough. `feeders` are the registers that enrich a verdict. `buyer_name`, `what` and `prevention` are the brand standard's Section 1 copy. `causes` are the disease's five subcategories (SM065), in the order the disease page shows them: the stage or control that failed. A verdict's `cause_category` must be one of its own disease's keys; a key belongs to exactly one disease.",
+  "$comment": "The five diseases (SD027 §4.6), set independently of protection type: construction's loss taxonomy, in the order published research says each costs a contractor, most first. Keys are the vocabulary of obligations/*.yaml's `disease` and are the keys Demiton stores and shows. Demiton's own measure names (`claim_window`, `evidence_gap`, `compliance_gate`, `rework_signal`, `overrun_signal`) are an implementation detail on the other side of this repository's boundary. `start` is what a disease's daily check needs before it can run: a list of groups, ALL of which must hold data, where ANY one register in a group is enough. `feeders` are the registers that enrich a verdict. `buyer_name`, `what` and `prevention` are the brand standard's Section 1 copy. `causes` are the disease's five subcategories (SM065), in the order the disease page shows them: the stage or control that failed. A verdict's `cause_category` must be one of its own disease's keys; a key belongs to exactly one disease. `i18n.<language>` holds the same copy in another language (Demiton app i18n, 2026-10-30): `label`, `buyer_name`, `what`, `prevention`, and `causes.<cause key>.label` / `.covers`. The English fields stay the stored and canonical text; a reader with no translation for a field reads the English. French is a draft pending native and legal review.",
   "order": [
     "rework",
     "overrun",
@@ -58,7 +58,37 @@
           "label": "Workmanship and quality conformance",
           "covers": "Work not to specification: failed test, NCR, ITP or hold-point failure, non-conforming work, punch list, defective material installed."
         }
-      ]
+      ],
+      "i18n": {
+        "fr": {
+          "label": "Reprises",
+          "buyer_name": "reprises",
+          "what": "Un travail fait deux fois : essais non conformes, fiches de non-conformité, hypothèses de sol erronées.",
+          "prevention": "Le résultat d’essai arrive au registre avant que le coulage ne tourne mal.",
+          "causes": {
+            "design_documentation": {
+              "label": "Conception et documentation",
+              "covers": "Conception erronée, tardive, incomplète ou périmée ; conflits ; spécification floue ; une demande d’information restée sans réponse."
+            },
+            "scope_change": {
+              "label": "Périmètre et modifications",
+              "covers": "Une exigence a changé après l’engagement des travaux : modification du client ou de l’utilisateur, avenant, changement de conception, instruction sur une condition cachée."
+            },
+            "planning_procurement": {
+              "label": "Planification, achats et enchaînement",
+              "covers": "Mauvaise quantité ou mauvais type acheté, commandes répétées, surcommande, mauvaise méthode ou mauvais phasage, ouvrages provisoires, matériaux à long délai."
+            },
+            "site_conditions": {
+              "label": "Implantation, sol et conditions extérieures",
+              "covers": "Mauvais niveau ou mauvaise position, erreur de levé, réseau endommagé, sol différent du relevé, intempéries ou dommage extérieur."
+            },
+            "workmanship_quality": {
+              "label": "Exécution et conformité qualité",
+              "covers": "Travail non conforme à la spécification : essai échoué, fiche de non-conformité, point d’arrêt non levé, ouvrage non conforme, liste de réserves, matériau défectueux posé."
+            }
+          }
+        }
+      }
     },
     "overrun": {
       "label": "Baseline overrun",
@@ -118,7 +148,37 @@
           "label": "Input price rises",
           "covers": "Materials and subcontract prices rising on a fixed price."
         }
-      ]
+      ],
+      "i18n": {
+        "fr": {
+          "label": "Dépassement",
+          "buyer_name": "dérive des coûts",
+          "what": "La dérive des coûts et du planning par rapport à l’offre.",
+          "prevention": "La dérive est repérée à 50 000, pas à 5 millions.",
+          "causes": {
+            "tender_pricing": {
+              "label": "Prix de l’offre",
+              "covers": "L’estimation ou le bordereau des prix était trop bas dès le départ."
+            },
+            "quantity_growth": {
+              "label": "Hausse des quantités",
+              "covers": "On a construit plus que ce que le bordereau a chiffré."
+            },
+            "labour_productivity": {
+              "label": "Productivité et sureffectif",
+              "covers": "Plus d’heures que le travail n’en demandait."
+            },
+            "plant_fuel": {
+              "label": "Engins et carburant",
+              "covers": "Des heures d’engins et du carburant au-delà du prix."
+            },
+            "input_prices": {
+              "label": "Hausse des prix d’achat",
+              "covers": "Les prix des matériaux et de la sous-traitance montent sur un prix ferme."
+            }
+          }
+        }
+      }
     },
     "forfeited_entitlements": {
       "label": "Forfeited entitlements",
@@ -179,7 +239,37 @@
           "label": "Uncollected",
           "covers": "The entitlement was agreed or awarded but the cash never arrives: an approved variation unpaid, retention not released, a security not returned."
         }
-      ]
+      ],
+      "i18n": {
+        "fr": {
+          "label": "Droits perdus",
+          "buyer_name": "réclamations manquées",
+          "what": "Des avenants et des délais dus mais jamais réclamés : notifications manquées, forclusions, jours d’intempérie jamais consignés.",
+          "prevention": "La notification est rédigée avant la fin du délai.",
+          "causes": {
+            "uncaptured": {
+              "label": "Non saisi",
+              "covers": "L’événement n’arrive jamais dans un registre sous une forme réclamable : pas de retard noté au journal, pas de bon, pas d’avenant, pas d’échange écrit. Le délai ne court pas, faute de quoi le mesurer."
+            },
+            "unnoticed": {
+              "label": "Non notifié",
+              "covers": "Le fait générateur existe et le délai contractuel est calculé, mais aucune notification n’est faite à temps, ou elle est tardive."
+            },
+            "unquantified": {
+              "label": "Non chiffré",
+              "covers": "La notification a été faite, mais la réclamation ne porte ni montant, ni détail, ni pièces. Le délai est tenu ; rien n’est demandé."
+            },
+            "under_claimed": {
+              "label": "Sous-réclamé",
+              "covers": "Un montant existe mais omet des postes : prolongation, frais de chantier, marge, révision, immobilisation, frais financiers, perturbation, frais généraux."
+            },
+            "uncollected": {
+              "label": "Non encaissé",
+              "covers": "Le droit a été accordé mais l’argent n’arrive jamais : avenant approuvé impayé, retenue de garantie non libérée, caution non restituée."
+            }
+          }
+        }
+      }
     },
     "disputes": {
       "label": "Disputes",
@@ -264,7 +354,37 @@
           "label": "Unrecovered",
           "covers": "The dispute is won or settled but the cash never arrives: insolvency, enforcement, security, retention."
         }
-      ]
+      ],
+      "i18n": {
+        "fr": {
+          "label": "Litiges",
+          "buyer_name": "litiges",
+          "what": "La réclamation devenue un contentieux.",
+          "prevention": "Le dossier est complet avant que la discussion commence.",
+          "causes": {
+            "unraised": {
+              "label": "Non soulevé",
+              "covers": "La défense, la compensation ou la demande reconventionnelle n’est jamais présentée, et la réclamation adverse s’impose par défaut. Un droit jamais réclamé relève des droits perdus, pas d’ici."
+            },
+            "time_barred": {
+              "label": "Forclos",
+              "covers": "Le litige tombe sur la procédure : compétence, délai de notification, échéancier de paiement, délai d’adjudication."
+            },
+            "unsupported": {
+              "label": "Non étayé",
+              "covers": "La réclamation ou la défense est dans les délais mais les pièces contemporaines manquent : pas de journal, pas de photos, pas de notification, pas de détail des coûts, pas de planning."
+            },
+            "outargued": {
+              "label": "Perdu sur le fond",
+              "covers": "Les preuves existent mais le fond est plus faible : interprétation du contrat, responsabilité, causalité, analyse des retards, défauts et compensation."
+            },
+            "unrecovered": {
+              "label": "Non recouvré",
+              "covers": "Le litige est gagné ou transigé mais l’argent n’arrive jamais : insolvabilité, exécution, caution, retenue de garantie."
+            }
+          }
+        }
+      }
     },
     "non_compliance": {
       "label": "Non-compliance",
@@ -327,7 +447,37 @@
           "label": "Unapplied",
           "covers": "The record is valid and in scope, but the duty was not performed: a machine started without a prestart, a worker was not inducted, a permit condition was breached, a traffic plan was not followed."
         }
-      ]
+      ],
+      "i18n": {
+        "fr": {
+          "label": "Non-conformité",
+          "buyer_name": "conformité expirée",
+          "what": "Le droit même de soumissionner : référencements, qualifications, certificats.",
+          "prevention": "L’échéance est décomptée à 90, 30 et 7 jours, avant que l’acheteur ne la voie.",
+          "causes": {
+            "unidentified": {
+              "label": "Non identifié",
+              "covers": "L’exigence n’est ni dans la bibliothèque ni dans les règles d’application, donc aucun contrôle n’existe : un permis exigé localement, une habilitation nommée au contrat, une condition de qualification que personne n’a saisie."
+            },
+            "unheld": {
+              "label": "Non détenu",
+              "covers": "L’exigence est connue mais aucun justificatif n’existe : pas d’habilitation, pas de police, pas d’immatriculation. Le moteur ne voit pas une absence, il lit les justificatifs qui existent."
+            },
+            "lapsed": {
+              "label": "Expiré",
+              "covers": "Un justificatif existe et il est expiré, ou dans le décompte 90/30/7."
+            },
+            "out_of_scope": {
+              "label": "Hors périmètre",
+              "covers": "Le justificatif est valide mais ne couvre pas la tâche, la personne, l’engin ou le lieu : mauvaise catégorie d’habilitation, mauvaise catégorie d’engin, territoire ou plafond d’assurance, périmètre de qualification."
+            },
+            "unapplied": {
+              "label": "Non appliqué",
+              "covers": "Le justificatif est valide et dans le périmètre, mais l’obligation n’a pas été remplie : engin démarré sans contrôle, ouvrier sans accueil sécurité, condition de permis enfreinte, plan de circulation non suivi."
+            }
+          }
+        }
+      }
     }
   }
 }

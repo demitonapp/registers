@@ -39,6 +39,17 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
   notices, the WISHA citation appeal and the utility locate request) read
   unmeasurable until a Washington calendar exists. No contract or row changes.
 
+- **The five diseases read in French.** `vocab/diseases.json` gives each
+  disease an `i18n.fr` block: `label`, `buyer_name`, `what`, `prevention`, and
+  each of its five causes' `label` and `covers`, keyed by cause key. The English
+  fields stay the stored and canonical text (a verdict, a fact or an alert keeps
+  the English key and label); a reader in French reads the block, and a field
+  left out reads in English. The French is a draft pending native and legal
+  review, in the plain register of the brand standard. `scripts/validate.py`
+  refuses an `i18n` block with a language that is not a two-letter code, a
+  field that is not copy, empty text, or a cause the disease does not have. No
+  contract or row changes.
+
 ## v37, 2026-10-29: no obligation kinds (register contracts only)
 
 - `rate_card_verdict` 1.1.0 (MINOR: two new statuses and one optional property): `status` gains `approved` (a person approved the proposed rate and the register does not yet carry it) and `applied` (the register now carries the approved rate or more), and `approved_rate` names the rate approved (SM067). 1.0.0 kept in `history/`.
