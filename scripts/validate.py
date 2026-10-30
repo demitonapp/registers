@@ -452,6 +452,50 @@ def _match_value_errors(key: str, where: str, match: dict, props: dict) -> list[
     return errors
 
 
+_DISEASE_TRANSLATED = ("label", "buyer_name", "what", "prevention")
+
+
+def _disease_i18n_errors(key: str, disease: dict) -> list[str]:
+    """`i18n.<language>` (Demiton app i18n): a two-letter lowercase language, only the copy fields,
+    each a non-empty string, and `causes` keyed by this disease's own cause keys with only
+    `label` and `covers`. A field may be left out (the reader then reads the English); a typo
+    in a key may not, because it would silently never be read."""
+    errors: list[str] = []
+    i18n = disease.get("i18n")
+    if i18n is None:
+        return errors
+    if not isinstance(i18n, dict):
+        return [f"vocab/diseases.json: {key}: i18n must be an object keyed by language"]
+    own_causes = {c.get("key") for c in disease.get("causes") or []}
+    for lang, copy in i18n.items():
+        where = f"vocab/diseases.json: {key}: i18n.{lang}"
+        if not re.fullmatch(r"[a-z]{2}", str(lang)) or lang == "en":
+            errors.append(f"{where}: the language must be a two-letter code other than en")
+        if not isinstance(copy, dict):
+            errors.append(f"{where} must be an object")
+            continue
+        for field, text in copy.items():
+            if field == "causes":
+                continue
+            if field not in _DISEASE_TRANSLATED:
+                errors.append(f"{where}: {field} is not a translated field")
+            elif not isinstance(text, str) or not text.strip():
+                errors.append(f"{where}: {field} must be non-empty text")
+        causes = copy.get("causes") or {}
+        if not isinstance(causes, dict):
+            errors.append(f"{where}: causes must be an object keyed by cause key")
+            continue
+        for cause_key, cause in causes.items():
+            if cause_key not in own_causes:
+                errors.append(f"{where}: cause {cause_key!r} is not one of {key}'s causes")
+                continue
+            if not isinstance(cause, dict) or set(cause) - {"label", "covers"}:
+                errors.append(f"{where}: cause {cause_key!r} may carry only label and covers")
+            elif not all(isinstance(t, str) and t.strip() for t in cause.values()):
+                errors.append(f"{where}: cause {cause_key!r} must be non-empty text")
+    return errors
+
+
 def validate_diseases(release: dict | None = None) -> list[str]:
     """Demiton SM048: vocab/diseases.json is one taxonomy. Every disease an obligation row can carry
     (obligation.schema.json's `disease` enum) is defined here, in order, with its copy, its start groups
@@ -480,6 +524,7 @@ def validate_diseases(release: dict | None = None) -> list[str]:
         causes = disease.get("causes") or []
         if len(causes) != 5 or not all(str(c.get(f) or "").strip() for c in causes for f in ("key", "label", "covers")):
             errors.append(f"vocab/diseases.json: {key}: causes must be five entries, each with key, label and covers")
+        errors.extend(_disease_i18n_errors(key, disease))
     cause_keys = [c.get("key") for d in diseases.values() for c in d.get("causes") or []]
     repeated = sorted({k for k in cause_keys if cause_keys.count(k) > 1})
     if repeated:
