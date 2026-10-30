@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v38, 2026-10-30: addition
+
 - **France is a project country.** `vocab/jurisdictions.json` marks `FR`
   `supported: true` and adds the places a French job sits in: metropolitan
   France's 13 régions (`FR-ARA` to `FR-PAC`, Corsica as `FR-20R`,
