@@ -14,6 +14,21 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+- **Forfeited entitlements, disputes and non-compliance are split by kind, not
+  stage.** `vocab/diseases.json` replaces their stage causes with the kinds a
+  contractor counts. Forfeited entitlements: `penalty_days`,
+  `unclaimed_variations`, `unclaimed_latent_conditions`, `unclaimed_delay_costs`,
+  `unpaid_claims` (was `uncaptured` to `uncollected`). Disputes, in the order of
+  `dispute_types`: `payment_dispute`, `delay_dispute`, `variation_dispute`,
+  `latent_conditions_dispute`, `closeout_dispute` (was `unraised` to
+  `unrecovered`). Non-compliance: `people_compliance`, `plant_compliance`,
+  `insurance_compliance`, `company_compliance`, `site_compliance` (was
+  `unidentified` to `unapplied`). The stage at which a claim, dispute or
+  requirement failed stays a separate dimension. Rework and overrun are
+  unchanged. No verdict carries a cause for these three diseases yet, so no
+  stored value is orphaned. The French `i18n.fr.causes` follow the new keys
+  (draft, pending native and legal review). No contract or row changes.
+
 ## v39, 2026-10-30: no obligation kinds (vocabulary only)
 
 - **The five diseases read in French.** `vocab/diseases.json` gives each
