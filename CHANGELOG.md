@@ -14,6 +14,8 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v40, 2026-10-30: no obligation kinds (vocabulary only)
+
 - **Forfeited entitlements, disputes and non-compliance are split by kind, not
   stage.** `vocab/diseases.json` replaces their stage causes with the kinds a
   contractor counts. Forfeited entitlements: `penalty_days`,
