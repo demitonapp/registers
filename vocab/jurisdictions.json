@@ -1,5 +1,5 @@
 {
-  "$comment": "Every ISO 3166-1 alpha-2 country (249), each with `supported` and `level` (`commonwealth` for a country). `supported` is true for AU, NZ, IE, GB, ZA, CA and FR (AU and NZ from SM030 decision 15; IE, GB, ZA and CA from 2026-10-12, when Ireland, England, South Africa and Ontario became project countries; FR from 2026-10-30, metropolitan France). Plus ISO 3166-2 subdivisions: AU's 8 states/territories (`level: state`), NZ's 17 regions (`level: regional`), Ireland's 26 counties (`level: regional`), South Africa's 9 provinces (`level: state`), England (GB-ENG, `level: state`), Ontario (CA-ON, `level: state`), metropolitan France's 13 régions (FR-ARA to FR-PAC, Corsica as FR-20R, `level: regional`), Bavaria and North Rhine-Westphalia (DE-BY and DE-NW, `level: state`, `supported: false`: their law is in the library for reading, and no project can be placed there yet) and Washington (US-WA, `level: state`, `supported: false`: its law is in the library for reading, and no project can be placed there yet). A project sits in a supported subdivision; a country's other subdivisions (Scotland, Wales, Northern Ireland, the other Canadian provinces, France's overseas régions and its départements) are absent, so a project cannot be placed there. A code absent from this file is not a jurisdiction an instrument or obligation may cite; `supported: false` still lets an org record that it operates there (SM030 O4), it just gets no protection yet.",
+  "$comment": "Every ISO 3166-1 alpha-2 country (249), each with `supported` and `level` (`commonwealth` for a country). `supported` is true for AU, NZ, IE, GB, ZA, CA, FR and US (AU and NZ from SM030 decision 15; IE, GB, ZA and CA from 2026-10-12, when Ireland, England, South Africa and Ontario became project countries; FR and US from 2026-10-30, metropolitan France and Washington State). Plus ISO 3166-2 subdivisions: AU's 8 states/territories (`level: state`), NZ's 17 regions (`level: regional`), Ireland's 26 counties (`level: regional`), South Africa's 9 provinces (`level: state`), England (GB-ENG, `level: state`), Ontario (CA-ON, `level: state`), metropolitan France's 13 régions (FR-ARA to FR-PAC, Corsica as FR-20R, `level: regional`), Bavaria and North Rhine-Westphalia (DE-BY and DE-NW, `level: state`, `supported: false`: their law is in the library for reading, and no project can be placed there yet), and Washington State (US-WA, `level: state`). A project sits in a supported subdivision; a country's other subdivisions (Scotland, Wales, Northern Ireland, the other Canadian provinces, the other US states, France's overseas régions and its départements) are absent, so a project cannot be placed there. A code absent from this file is not a jurisdiction an instrument or obligation may cite; `supported: false` still lets an org record that it operates there (SM030 O4), it just gets no protection yet.",
   "AD": {
     "level": "commonwealth",
     "supported": false
@@ -938,11 +938,11 @@
   },
   "US": {
     "level": "commonwealth",
-    "supported": false
+    "supported": true
   },
   "US-WA": {
     "level": "state",
-    "supported": false
+    "supported": true
   },
   "UY": {
     "level": "commonwealth",
