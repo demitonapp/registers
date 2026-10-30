@@ -58,8 +58,8 @@ def test_a_disease_without_five_causes_is_refused() -> None:
 def test_a_cause_key_in_two_diseases_is_refused() -> None:
     release = copy.deepcopy(RELEASE)
     release["diseases"]["disputes"].pop("i18n", None)  # its translation names the cause renamed
-    release["diseases"]["disputes"]["causes"][0]["key"] = "lapsed"
-    assert validate_diseases(release) == ["vocab/diseases.json: cause keys ['lapsed'] belong to more than one disease"]
+    release["diseases"]["disputes"]["causes"][0]["key"] = "design_documentation"
+    assert validate_diseases(release) == ["vocab/diseases.json: cause keys ['design_documentation'] belong to more than one disease"]
 
 
 def test_a_translation_of_an_unknown_cause_is_refused() -> None:
