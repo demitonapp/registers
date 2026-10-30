@@ -14,6 +14,29 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+- **France is a project country.** `vocab/jurisdictions.json` marks `FR`
+  `supported: true` and adds the places a French job sits in: metropolitan
+  France's 13 régions (`FR-ARA` to `FR-PAC`, Corsica as `FR-20R`,
+  `level: regional`). The overseas régions (Guadeloupe, Martinique, Guyane, La
+  Réunion, Mayotte) and the départements stay absent, so a project cannot be
+  placed there: Mayotte and the overseas régions carry labour-law adaptations
+  the library does not hold, and no French instrument here needs a place finer
+  than the country. The eleven French instruments already in the library (51
+  rows, CCAG-Travaux 2021 and ten statutes) now bind French jobs. No holiday
+  calendar: every French window counts calendar days, months or hours. No
+  contract or row changes.
+
+- **The United States is a project country, in Washington State only.**
+  `vocab/jurisdictions.json` marks `US` and `US-WA` `supported: true`, the
+  shape Canada has with Ontario: the other states stay absent, so a project
+  cannot be placed there. The Washington State instruments already in the
+  library (RCW 18.27, 19.122, 27.44 and 27.53, 39.04, 39.08, 39.12, 39.76,
+  49.17, 60.04 and 60.28, and WAC 296-27) now bind Washington jobs. No holiday
+  calendar yet: 21 of Washington's 25 windowed rows count days, months or
+  hours; the four that count working or business days (two withholding
+  notices, the WISHA citation appeal and the utility locate request) read
+  unmeasurable until a Washington calendar exists. No contract or row changes.
+
 ## v37, 2026-10-29: no obligation kinds (register contracts only)
 
 - `rate_card_verdict` 1.1.0 (MINOR: two new statuses and one optional property): `status` gains `approved` (a person approved the proposed rate and the register does not yet carry it) and `applied` (the register now carries the approved rate or more), and `approved_rate` names the rate approved (SM067). 1.0.0 kept in `history/`.
