@@ -14,6 +14,18 @@ MRTS50's seven rows, was cut before this rule and declared a correction).
 
 ## Unreleased
 
+## v41, 2026-11-02: no obligation kinds (vocabulary only)
+
+- **The research finding schema is 3.0.0: a finding's `subtype` is one of its
+  disease's causes.** `research/finding.schema.json` now says `subtype` names a
+  `causes[].key` of `vocab/diseases.json`, and `<disease_key>` is that file's key
+  (`forfeited_entitlements`, not `claim_window`). disease-economics drops its own
+  `vocab/subtypes.json` and vendors `vocab/diseases.json` from this release, so the
+  research site and the product name the same 25 causes. A major bump: a finding
+  written for 2.x (`subtype: weather`) no longer names a valid cause. No obligation
+  is added, changed or removed. The release's `registers-research` asset now also
+  carries `vocab/diseases.json`.
+
 ## v40, 2026-10-30: no obligation kinds (vocabulary only)
 
 - **Forfeited entitlements, disputes and non-compliance are split by kind, not

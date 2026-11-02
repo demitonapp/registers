@@ -5,6 +5,9 @@ name: release
 # never committed - `contracts/`, `obligations/` and `vocab/` themselves are already
 # the source of truth in git.
 #
+# `registers-research-*.tar.gz` carries `research/` and `vocab/diseases.json`: the finding schema
+# names a finding's `subtype` by that file's causes, so disease-economics vendors both from one asset.
+#
 # `registers-obligations-*.tar.gz` carries the FLATTENED obligation library: it is
 # built with `scripts/resolve.py --out`, which resolves the abstract bases under
 # `obligations/_model/` into the concrete instruments that extend them. A consumer
@@ -54,7 +57,7 @@ jobs:
           cp -r vocab dist/vocab
           cp -r holidays dist/holidays
           tar -czf "registers-contracts-${TAG}.tar.gz" contracts
-          tar -czf "registers-research-${TAG}.tar.gz" research
+          tar -czf "registers-research-${TAG}.tar.gz" research vocab/diseases.json
           tar -czf "registers-history-${TAG}.tar.gz" history
           tar -czf "registers-obligations-${TAG}.tar.gz" -C dist obligations vocab holidays RELEASE.json
         env:
